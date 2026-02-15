@@ -1,8 +1,9 @@
 # Environment files (API keys, secrets)
-.env
-*.env
-.baoyu-skills/.env
-.aaron-skills/.env
+/.env
+*.env.local
+
+# Track the symlink (just a pointer, no secrets), un-ignore it
+!.baoyu-skills/.env
 
 # Video generation temp files
 .video-gen-tmp/

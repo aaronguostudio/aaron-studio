@@ -85,8 +85,9 @@ The text after `—` (em dash) in the slide header is used to find the image:
 Environment variables are loaded with this priority:
 1. CLI environment
 2. `process.env`
-3. `<cwd>/.baoyu-skills/.env`
-4. `~/.baoyu-skills/.env`
+3. `<cwd>/.env` (project root)
+4. `<cwd>/.baoyu-skills/.env`
+5. `~/.baoyu-skills/.env`
 
 ## Preferences (EXTEND.md)
 

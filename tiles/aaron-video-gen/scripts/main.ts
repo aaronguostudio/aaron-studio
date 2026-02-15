@@ -47,6 +47,7 @@ loadEnvFile(join(homeDir, ".baoyu-skills", ".env"));
 loadEnvFile(join(homeDir, ".aaron-skills", ".env"));
 loadEnvFile(join(process.cwd(), ".baoyu-skills", ".env"));
 loadEnvFile(join(process.cwd(), ".aaron-skills", ".env"));
+loadEnvFile(join(process.cwd(), ".env"));
 
 // ---------------------------------------------------------------------------
 // Preferences loading (EXTEND.md)
