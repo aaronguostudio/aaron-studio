@@ -1,0 +1,18 @@
+# Environment files (API keys, secrets)
+.env
+*.env
+.baoyu-skills/.env
+.aaron-skills/.env
+
+# Video generation temp files
+.video-gen-tmp/
+
+# Generated videos (large binaries)
+*.mp4
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/

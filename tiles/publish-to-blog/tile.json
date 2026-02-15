@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/publish-to-blog",
+  "version": "0.1.0",
+  "summary": "Publishes blog posts from aaron-studio content repo to aaronguoblog Nuxt 3 site with frontmatter, image copying, and path rewriting.",
+  "private": true,
+  "skills": {
+    "publish-to-blog": {
+      "path": "SKILL.md"
+    }
+  }
+}

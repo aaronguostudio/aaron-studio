@@ -1,0 +1,33 @@
+{
+  "name": "project",
+  "dependencies": {
+    "JimLiu/baoyu-skills": {
+      "version": "6cc8627ca8c6d64fd3fadc565ed9b895a90f8166",
+      "source": "https://github.com/JimLiu/baoyu-skills",
+      "include": {
+        "skills": [
+          "baoyu-article-illustrator",
+          "baoyu-image-gen"
+        ]
+      }
+    },
+    "AaronGuo/aaron-video-gen": {
+      "version": "0.1.0",
+      "source": "file:tiles/aaron-video-gen",
+      "include": {
+        "skills": [
+          "aaron-video-gen"
+        ]
+      }
+    },
+    "aaronguo/publish-to-blog": {
+      "version": "0.1.0",
+      "source": "file:tiles/publish-to-blog",
+      "include": {
+        "skills": [
+          "publish-to-blog"
+        ]
+      }
+    }
+  }
+}
