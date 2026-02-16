@@ -59,8 +59,9 @@ published: true
 
 **Content transformations:**
 1. Remove the `# Title` heading (title comes from frontmatter)
-2. Rewrite all image paths from `imgs/{filename}` to `/blogs-img/{new-filename}`
-3. Keep all other markdown content as-is
+2. **Remove the cover image from body content.** The cover image (`00-cover.*`) is already displayed as the blog banner via the `image` frontmatter field. Do NOT include it again in the markdown body — it creates a repetitive experience for readers.
+3. Rewrite all remaining image paths from `imgs/{filename}` to `/blogs-img/{new-filename}`
+4. Keep all other markdown content as-is
 
 ### Step 5: Create the Chinese translation
 

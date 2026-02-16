@@ -2,8 +2,6 @@
 
 My wife and I recently traveled to Las Vegas and joined a Marriott Vacation Club presentation. We knew it was a timeshare pitch — they're upfront about that. What we didn't expect was how the experience would sour our entire stay and leave me thinking deeply about what happens when a company's sales culture contradicts its service brand.
 
-![The corridor between hospitality and sales pressure](imgs/00-cover.png)
-
 ## The Offer: Points, Fees, and Fine Print
 
 Here's how Marriott's timeshare system works. You pay a significant upfront cost to purchase "points." These points can be redeemed for stays at Marriott properties around the world. Sounds reasonable so far.
