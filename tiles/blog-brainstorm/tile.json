@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-brainstorm",
+  "version": "0.1.0",
+  "summary": "Research trending topics, brainstorm blog ideas interactively, and output a structured content plan.",
+  "private": true,
+  "skills": {
+    "blog-brainstorm": {
+      "path": "SKILL.md"
+    }
+  }
+}
