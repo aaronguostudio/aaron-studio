@@ -36,7 +36,7 @@ Where `{short-slug}` is a 1-2 word kebab-case identifier for the post (e.g., `ma
 
 **Skip non-illustration files** like `outline.md` and the `prompts/` directory.
 
-### Step 4: Create the blog post file
+### Step 4: Create the English blog post
 
 Create `{nextNumber}.{slug}.md` in the blog site's `content/blogs/en/` directory.
 
@@ -62,18 +62,60 @@ published: true
 2. Rewrite all image paths from `imgs/{filename}` to `/blogs-img/{new-filename}`
 3. Keep all other markdown content as-is
 
-### Step 5: Verify
+### Step 5: Create the Chinese translation
 
-1. Confirm the new post file exists with valid frontmatter
-2. Confirm all referenced images exist in `public/blogs-img/`
-3. Report the post number, slug, and image count
+**Always create a Chinese version** alongside the English post.
+
+#### 5a: Create the Chinese source file in the content repo
+
+Save as `src/blogs/YYYY-MM-DD/{slug}-zh.md`. This is a full Chinese translation of the article:
+- Translate the title, all body text, image alt text, and closing text
+- Keep image references using the local `imgs/` paths (same as the English source)
+- Keep all markdown formatting (headers, bold, lists, etc.)
+- Use natural, fluent Simplified Chinese — not word-for-word translation
+- Keep English proper nouns (brand names, technical terms) as-is when appropriate
+
+#### 5b: Publish the Chinese version to the blog site
+
+Create `{nextNumber}.{slug}.md` in the blog site's `content/blogs/zh/` directory.
+
+**Same post number as the English version** so they are linked as translations.
+
+**Chinese frontmatter:**
+
+```yaml
+---
+title: 中文标题
+date: DDth MMM YYYY
+description: 1-2 句中文描述
+image: /blogs-img/{cover-image-filename}
+alt: 中文图片描述
+ogImage: /blogs-img/{cover-image-filename}
+tags: ['中文标签1', '中文标签2']
+published: true
+---
+```
+
+**Content transformations (same as English):**
+1. Remove the `# Title` heading
+2. Rewrite image paths from `imgs/` to `/blogs-img/`
+3. Translate image alt text to Chinese
+
+### Step 6: Verify
+
+1. Confirm both English and Chinese post files exist with valid frontmatter
+2. Confirm both use the same post number
+3. Confirm all referenced images exist in `public/blogs-img/`
+4. Report the post number, slug, and image count
 
 ## Example
 
 **Input:** `src/blogs/2026-02-14/marriott-timeshare-las-vegas.md`
 
 **Output:**
-- Post: `content/blogs/en/14.marriott-timeshare-las-vegas.md`
+- English post: `content/blogs/en/14.marriott-timeshare-las-vegas.md`
+- Chinese source: `src/blogs/2026-02-14/marriott-timeshare-las-vegas-zh.md`
+- Chinese post: `content/blogs/zh/14.marriott-timeshare-las-vegas.md`
 - Images: `public/blogs-img/2026-02-14-marriott-cover.png`, `2026-02-14-marriott-01.png`, etc.
 
 ## Notes
@@ -83,4 +125,4 @@ published: true
 - Do NOT push to the blog repo unless the user explicitly asks
 - Always set `published: true` unless the user says otherwise
 - Generate a meaningful description from the article content for SEO
-- Choose relevant tags based on article content (lowercase, kebab-case)
+- Choose relevant tags based on article content (English: lowercase kebab-case; Chinese: Chinese terms)
