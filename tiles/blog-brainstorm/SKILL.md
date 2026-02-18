@@ -15,7 +15,7 @@ Research trending topics across the web, combine them with personal experience, 
 
 ## Workflow
 
-### Step 1: Load Preferences
+### Step 1: Load Preferences & Strategy
 
 Check for user preferences:
 
@@ -29,6 +29,8 @@ test -f "$HOME/.aaron-skills/blog-brainstorm/EXTEND.md" && echo "user"
 | Found | Read and apply preferences (expertise areas, audience, tone, brand context). Skip matching questions in Step 2. |
 | Not found | Proceed with defaults; ask all questions in Step 2. |
 
+**Always read** `src/strategy/x.md` for content pillars, rules, and distribution strategy. This grounds the entire brainstorm in the publishing workflow.
+
 ### Step 2: Gather Context
 
 **If the user provides a rough idea or an existing `plan.md`**, read it and use it as the starting point — skip directly to Step 3 with that context.
@@ -37,10 +39,11 @@ test -f "$HOME/.aaron-skills/blog-brainstorm/EXTEND.md" && echo "user"
 
 | Q | Question | Options |
 |---|----------|---------|
-| Q1 | What area do you want to explore? | AI & dev productivity, Product leadership, Tech + life experiences, (Other) |
+| Q1 | Which content pillar? | AI-Native Execution (workflows, tool breakdowns, practical guides), Product Leadership (frameworks, leading teams, strategy-to-delivery), Building in Public (project updates, revenue, mistakes, solopreneur), (Other) |
 | Q2 | What is the primary goal? | Build authority / thought leadership, Drive traffic / SEO, Spark community discussion, Personal story / brand building |
 | Q3 | Who is the target reader? | Tech professionals / developers, Product leaders / managers, General audience, Aspiring creators / entrepreneurs |
 | Q4 | What tone fits this post? | Analytical / data-driven, Personal narrative / storytelling, Practical how-to / tutorial, Opinion / hot take |
+| Q5 | What day will this publish? | This Wednesday, Next Wednesday, (Other date) |
 
 If EXTEND.md provides defaults for some of these, skip those questions.
 
@@ -56,12 +59,14 @@ Perform **6-10 web searches** using `WebSearch` across multiple sources. Always 
 | General web | `{topic} trends {current_year}` | Broad trend landscape |
 | YouTube | `{topic} {current_month} {current_year} site:youtube.com` | Video content gaps and popular angles |
 | Competitor blogs | `{topic} blog {current_year}` | What others are writing, gaps to fill |
+| X threads | `{topic} thread {current_month} {current_year}` | High-performing thread structures and hooks |
 
 **For each search, extract:**
 - Top 3-5 specific trending sub-topics or discussions
 - The angle or framing being used
 - Engagement signals (upvotes, comments, shares if visible)
 - Contrarian or underserved perspectives
+- Hook-worthy angles (surprising outcomes, contrarian takes, personal "I did X" stories)
 
 ### Step 4: Present Findings & Brainstorm
 
@@ -75,8 +80,10 @@ Organize findings into **3-5 topic clusters**. Present each as:
 - [Specific thread/article/post with brief summary]
 - [Another reference point]
 
-**Your angle:** [How this connects to the user's expertise/experience]
+**Your angle:** [How this connects to your expertise/experience — use "I built/did/learned" framing]
 **Content potential:** [Why this would resonate — audience interest + personal authority]
+**Thread potential:** High / Medium / Low — [can this be told as a standalone 5-8 tweet story?]
+**Pillar:** AI-Native Execution / Product Leadership / Building in Public
 **Competition:** Low / Medium / High
 ```
 
@@ -99,10 +106,15 @@ This is the creative heart of the skill — free-form conversation.
 
 ```
 ### Angle A: "[Working Title]"
-**Hook:** [The opening premise or question]
+**Hook (first tweet):** [Draft an actual hook using one of these formulas:
+  - "I [did surprising thing]. Here's what happened:"
+  - "Most [role] get [topic] wrong. Here's why:"
+  - "[Number] lessons from [specific experience]:"
+  - "I spent [time] building [thing]. Here's the breakdown:"
+  - "Stop [common mistake]. Do this instead:"]
 **Unique value:** [What makes this different from existing content]
-**Personal connection:** [How user's experience makes this authentic]
-**Shareability:** [Why people would share this]
+**Personal connection:** [The specific "I did this" story that makes it authentic]
+**X distribution:** [Can this become a standalone thread? What's the visual — screenshot, diagram, before/after?]
 ```
 
 3. **Discuss with the user.** This step is iterative — continue the conversation until the angle is locked:
@@ -110,6 +122,7 @@ This is the creative heart of the skill — free-form conversation.
    - Do they have a specific personal story or experience to weave in?
    - Any adjustments to the framing?
    - What key points must be included?
+   - What visual could anchor the thread? (screenshot, diagram, before/after, code snippet)
 
 ### Step 6: Output Content Plan
 
@@ -126,18 +139,27 @@ Once the angle is confirmed, create the blog directory and content plan.
 title: "Working Title of the Blog Post"
 slug: kebab-case-slug
 date: YYYY-MM-DD
-topic_area: [from Step 2]
+pillar: ai-native-execution | product-leadership | building-in-public
 target_audience: [from Step 2]
 tone: [from Step 2]
 content_goal: [from Step 2]
 estimated_word_count: 1500-2500
+publish_day: Wednesday, YYYY-MM-DD
+cta_rotation: follow | newsletter | reply
 ---
 
 # Content Plan: [Working Title]
 
+## Voice Check
+
+**Positioning:** Ship with AI, not about AI — builder who ships, not commentator.
+**Voice rule:** Use "I" not "you should." Share what I did, not what others should do.
+**This post's personal anchor:** [The specific personal experience/build/result this post is grounded in]
+
 ## Hook / Opening
 
-[2-3 sentences describing how the post should open. What grabs the reader?]
+**Blog hook:** [2-3 sentences — how the blog post opens]
+**X thread hook (tweet 1):** [Single tweet, max 280 chars, uses a hook formula. Must stop the scroll.]
 
 ## Core Argument / Thesis
 
@@ -163,7 +185,8 @@ estimated_word_count: 1500-2500
 ### Conclusion / Call to Action
 - How to wrap up
 - What the reader should take away
-- Call to action (comment, share, subscribe)
+- Blog CTA: newsletter signup
+- Thread CTA: [based on cta_rotation — "follow for more", "newsletter link in bio", or "reply with your experience"]
 
 ## Research References
 
@@ -176,15 +199,44 @@ estimated_word_count: 1500-2500
 **Secondary keywords:** [2-3 related terms]
 **Search intent:** [informational / navigational / commercial]
 
-## Distribution Ideas
+## Distribution Plan
 
-- **X/Twitter angle:** [How to tease this on X]
-- **LinkedIn angle:** [How to frame for LinkedIn]
-- **YouTube potential:** [Video angle if applicable]
+### X Thread Brief (publish: [publish_day])
+**Format:** 5-8 tweets, standalone value. NO link in main thread.
+**Hook (tweet 1):** [Copy from above — the scroll-stopper]
+**Key tweets (2-5):** [One idea per tweet. Outline the 3-4 key points that work as standalone insights]
+- Tweet 2: [point]
+- Tweet 3: [point]
+- Tweet 4: [point]
+- Tweet 5: [point]
+**Closing tweet:** [CTA — rotate per cta_rotation field]
+**Reply with link:** "Full deep dive: [blog URL]" — posted as a reply, NOT in the thread.
+**Visual:** [What screenshot/diagram/image to include — at least one]
+
+### X Standalone Tweet Brief (publish: [publish_day + 2 days])
+**Format:** Single tweet with image.
+**The insight:** [Pull ONE surprising or quotable insight from the post]
+**Image idea:** [Screenshot, diagram, or quote card]
+
+### X Article Brief (publish: Saturday after publish_day, optional)
+**Angle:** [A DIFFERENT angle on the same topic — NOT a copy of the blog. Companion piece, expanded take, or alternative framing]
+**Working title:** [X Article title]
+**Why it's different from the blog:** [1 sentence explaining the distinct angle]
+
+### Newsletter Brief (publish: [publish_day])
+**Teaser:** [2-3 sentence hook that makes readers click through to the full blog post]
+**Link destination:** blog post URL (NOT the X thread)
+
+### LinkedIn Brief (publish: [publish_day or day after])
+**Angle:** [How to frame for a professional audience — more career/leadership angle]
+**Format:** Text post, link in comments
+
+### Chinese Version
+**Translate:** Full blog post + X thread
 
 ## Personal Experience Notes
 
-[Free-form section capturing the user's personal stories, anecdotes, or data
+[Free-form section capturing personal stories, anecdotes, or data
 points discussed during brainstorming that should be woven into the post.]
 ```
 
@@ -193,17 +245,28 @@ points discussed during brainstorming that should be woven into the post.]
 ```
 Blog Brainstorm Complete!
 
-Topic: [topic area]
+Pillar: [pillar name]
 Title: "[Working Title]"
+Publish day: [date]
+CTA this cycle: [follow / newsletter / reply]
 Plan saved: src/blogs/YYYY-MM-DD/content-plan.md
+
+Publishing timeline:
+- [Wed date]: Blog + Newsletter + X Thread
+- [Thu/Fri date]: Standalone tweet with image
+- [Sat date]: X Article (if evergreen topic)
 
 Next steps:
 1. Write the blog post from the content plan
 2. Illustrate with /baoyu-article-illustrator
-3. Create social teasers (x-teaser.md, linkedin-post.md)
-4. Create video script (youtube-script.md)
-5. Generate video with /aaron-video-gen
-6. Publish with /publish-to-blog
+3. Write X thread (use thread brief in content plan)
+4. Write X standalone tweet (use tweet brief)
+5. Write X Article if applicable (use article brief)
+6. Write newsletter issue (use newsletter brief)
+7. Create LinkedIn post (use LinkedIn brief)
+8. Create video script (youtube-script.md)
+9. Generate video with /aaron-video-gen
+10. Publish with /publish-to-blog
 ```
 
 ## Notes
@@ -213,3 +276,7 @@ Next steps:
 - Web searches must include the current year to ensure relevance.
 - Steps 4-5 are conversational — use free-form discussion, not just structured questions.
 - Do NOT write the actual blog post. The content plan is the deliverable.
+- Content plan references `src/strategy/x.md` for content rules and publishing workflow. If the strategy changes, the plan output stays current.
+- The Distribution Plan section provides briefs, not finished content. Other skills or manual writing turn briefs into final x-teaser.md, x-article.md, linkedin-post.md, etc.
+- CTA rotation should cycle across posts: follow → newsletter → reply → follow → ... Track the last used CTA across content plans to avoid repeating.
+- Thread hooks must be 280 characters or fewer and use a hook formula from the strategy.
