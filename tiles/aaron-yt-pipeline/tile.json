@@ -1,0 +1,20 @@
+{
+  "name": "AaronGuo/aaron-yt-pipeline",
+  "version": "0.1.0",
+  "summary": "End-to-end AI YouTube channel pipeline: trend discovery, script writing, AI video generation, post-production, and YouTube upload with human approval gates.",
+  "private": true,
+  "skills": {
+    "yt-trend-scout": {
+      "path": "skills/yt-trend-scout/SKILL.md"
+    },
+    "yt-script-writer": {
+      "path": "skills/yt-script-writer/SKILL.md"
+    },
+    "yt-video-producer": {
+      "path": "skills/yt-video-producer/SKILL.md"
+    },
+    "yt-publish": {
+      "path": "skills/yt-publish/SKILL.md"
+    }
+  }
+}

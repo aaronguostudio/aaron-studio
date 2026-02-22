@@ -20,6 +20,7 @@ import {
   formatCommand,
   type SlideInput,
 } from "./ffmpeg";
+import { generateCaptions } from "./captions";
 
 // ---------------------------------------------------------------------------
 // Environment loading (matching baoyu-skills pattern)
@@ -125,6 +126,14 @@ function parseArgs(): Record<string, string | boolean> {
       args.fps = argv[++i];
     } else if (arg === "--dry-run") {
       args.dryRun = true;
+    } else if (arg === "--no-ken-burns") {
+      args.kenBurns = "false";
+    } else if (arg === "--ken-burns") {
+      args.kenBurns = "true";
+    } else if (arg === "--captions") {
+      args.captions = "true";
+    } else if (arg === "--no-captions") {
+      args.captions = "false";
     }
   }
 
@@ -174,11 +183,13 @@ async function main() {
   );
 
   // Default voice based on provider
-  let voice = String(
-    args.voice ||
-      prefs.voice ||
-      (ttsProvider === "openai" ? "alloy" : "en-US-AndrewMultilingualNeural")
-  );
+  const defaultVoice =
+    ttsProvider === "openai"
+      ? "alloy"
+      : ttsProvider === "elevenlabs"
+        ? "21m00Tcm4TlvDq8ikWAM" // ElevenLabs "Rachel" pre-built voice
+        : "en-US-AndrewMultilingualNeural";
+  let voice = String(args.voice || prefs.voice || defaultVoice);
 
   const resolution = String(
     args.resolution || prefs.resolution || "1920x1080"
@@ -188,6 +199,8 @@ async function main() {
   );
   const musicPath = args.music ? resolve(String(args.music)) : undefined;
   const dryRun = Boolean(args.dryRun);
+  const kenBurns = args.kenBurns !== "false"; // default true
+  const captions = args.captions === "true"; // default false (requires whisper)
 
   // ---------------------------------------------------------------------------
   // Step 1: Parse the script
@@ -241,6 +254,7 @@ async function main() {
       musicPath,
       musicVolume,
       outputPath,
+      kenBurns,
     });
 
     console.log("\n[dry-run] FFmpeg command:\n");
@@ -297,7 +311,15 @@ async function main() {
   );
 
   // ---------------------------------------------------------------------------
-  // Step 5: Build slide inputs with durations
+  // Step 5: Generate captions (optional)
+  // ---------------------------------------------------------------------------
+  let subtitlesPath: string | undefined;
+  if (captions) {
+    subtitlesPath = generateCaptions(narrationPath, ttsOutputDir);
+  }
+
+  // ---------------------------------------------------------------------------
+  // Step 6: Build slide inputs with durations
   // ---------------------------------------------------------------------------
   const slideInputs: SlideInput[] = slides.map((slide, i) => ({
     imagePath: slide.imagePath!,
@@ -308,7 +330,7 @@ async function main() {
   console.log(`\n[video] Total duration: ${totalDuration.toFixed(1)}s`);
 
   // ---------------------------------------------------------------------------
-  // Step 6: Build and execute FFmpeg command
+  // Step 7: Build and execute FFmpeg command
   // ---------------------------------------------------------------------------
   const ffmpegCmd = buildFFmpegCommand(slideInputs, {
     resolution,
@@ -319,6 +341,8 @@ async function main() {
     musicPath,
     musicVolume,
     outputPath,
+    kenBurns,
+    subtitlesPath,
   });
 
   executeFFmpeg(ffmpegCmd);

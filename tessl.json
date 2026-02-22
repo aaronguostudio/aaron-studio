@@ -37,6 +37,18 @@
           "blog-brainstorm"
         ]
       }
+    },
+    "AaronGuo/aaron-yt-pipeline": {
+      "version": "0.1.0",
+      "source": "file:tiles/aaron-yt-pipeline",
+      "include": {
+        "skills": [
+          "yt-trend-scout",
+          "yt-script-writer",
+          "yt-video-producer",
+          "yt-publish"
+        ]
+      }
     }
   }
 }

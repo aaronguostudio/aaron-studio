@@ -20,7 +20,9 @@ Generate YouTube-ready MP4 videos from a script markdown file and slide images.
 
 - **FFmpeg** must be installed (`brew install ffmpeg` on macOS)
 - **edge-tts** for free TTS (`pip install edge-tts`), OR
-- **OpenAI API key** for premium TTS (set `OPENAI_API_KEY` env var)
+- **OpenAI API key** for premium TTS (set `OPENAI_API_KEY` env var), OR
+- **ElevenLabs API key** for high-quality / voice-cloned TTS (set `ELEVENLABS_API_KEY` env var)
+- **Whisper** for auto-captioning (`pip install openai-whisper`) — optional, used with `--captions`
 
 ## Script Directory
 
@@ -39,10 +41,14 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts --script <path-to-youtube-script.md> [op
 | `--script`, `-s` | Path to youtube-script.md file | (required) |
 | `--output`, `-o` | Output video file path | `<script-dir>/video.mp4` |
 | `--images-dir` | Directory containing slide images | `<script-dir>/imgs/` |
-| `--tts` | TTS provider: `edge-tts` or `openai` | `edge-tts` |
-| `--voice` | TTS voice name | `en-US-AndrewMultilingualNeural` (edge-tts) / `alloy` (openai) |
+| `--tts` | TTS provider: `edge-tts`, `openai`, or `elevenlabs` | `edge-tts` |
+| `--voice` | TTS voice name/ID | `en-US-AndrewMultilingualNeural` (edge-tts) / `alloy` (openai) / voice ID (elevenlabs) |
 | `--resolution` | Video resolution | `1920x1080` |
-| `--transition` | Transition type: `fade`, `fadeblack`, `wipeleft`, `slideright`, `dissolve` | `fade` |
+| `--transition` | Transition type: `fade`, `fadeblack`, `wipeleft`, `slideright`, `dissolve`, `varied` | `fade` |
+| `--ken-burns` | Enable Ken Burns zoom/pan effect on slides | `true` |
+| `--no-ken-burns` | Disable Ken Burns effect (static slides) | |
+| `--captions` | Generate and burn in subtitles via Whisper | `false` |
+| `--no-captions` | Disable caption generation | |
 | `--transition-duration` | Transition duration in seconds | `2` |
 | `--music` | Path to background music file (optional) | none |
 | `--music-volume` | Background music volume (0.0-1.0) | `0.1` |
@@ -81,6 +87,7 @@ The text after `—` (em dash) in the slide header is used to find the image:
 | Variable | Description |
 |----------|-------------|
 | `OPENAI_API_KEY` | Required for OpenAI TTS provider |
+| `ELEVENLABS_API_KEY` | Required for ElevenLabs TTS provider |
 
 Environment variables are loaded with this priority:
 1. CLI environment

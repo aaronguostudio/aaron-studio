@@ -19,6 +19,78 @@ export interface VideoOptions {
   musicPath?: string; // optional background music
   musicVolume: number; // 0.0-1.0
   outputPath: string;
+  kenBurns?: boolean; // enable Ken Burns effect (zoom/pan on images), default true
+  subtitlesPath?: string; // path to .srt file for burned-in captions
+}
+
+/**
+ * Ken Burns effect patterns that cycle across slides.
+ */
+type KenBurnsPattern = "zoom-in" | "zoom-out" | "pan-right" | "pan-left";
+const KB_PATTERNS: KenBurnsPattern[] = [
+  "zoom-in",
+  "zoom-out",
+  "pan-right",
+  "pan-left",
+];
+
+/**
+ * Curated transitions that work well for YouTube explainer videos.
+ * Used when transition is set to "varied".
+ */
+const VARIED_TRANSITIONS = [
+  "fade",
+  "fadeblack",
+  "slideleft",
+  "smoothleft",
+  "circleopen",
+  "dissolve",
+];
+
+function buildKenBurnsFilter(
+  inputIndex: number,
+  pattern: KenBurnsPattern,
+  durationFrames: number,
+  width: number,
+  height: number,
+  fps: number
+): string {
+  // Pre-scale to 1.2x output so zoom/pan has room without quality loss
+  const scaleW = Math.round(width * 1.2);
+  const scaleH = Math.round(height * 1.2);
+
+  let zExpr: string, xExpr: string, yExpr: string;
+
+  // Note: commas in expressions must be escaped as \, for FFmpeg filter parsing
+  switch (pattern) {
+    case "zoom-in":
+      zExpr = `min(1+0.15*on/${durationFrames}\\,1.15)`;
+      xExpr = "iw/2-(iw/zoom/2)";
+      yExpr = "ih/2-(ih/zoom/2)";
+      break;
+    case "zoom-out":
+      zExpr = `max(1.15-0.15*on/${durationFrames}\\,1)`;
+      xExpr = "iw/2-(iw/zoom/2)";
+      yExpr = "ih/2-(ih/zoom/2)";
+      break;
+    case "pan-right":
+      zExpr = "1.1";
+      xExpr = `(iw-iw/zoom)*on/${durationFrames}`;
+      yExpr = "ih/2-(ih/zoom/2)";
+      break;
+    case "pan-left":
+      zExpr = "1.1";
+      xExpr = `(iw-iw/zoom)*(1-on/${durationFrames})`;
+      yExpr = "ih/2-(ih/zoom/2)";
+      break;
+  }
+
+  return (
+    `[${inputIndex}:v]scale=${scaleW}:${scaleH}:force_original_aspect_ratio=decrease,` +
+    `pad=${scaleW}:${scaleH}:(ow-iw)/2:(oh-ih)/2:color=black,setsar=1,` +
+    `zoompan=z=${zExpr}:x=${xExpr}:y=${yExpr}:d=${durationFrames}:s=${width}x${height}:fps=${fps},` +
+    `format=yuv420p[v${inputIndex}]`
+  );
 }
 
 /**
@@ -29,18 +101,27 @@ export function buildFFmpegCommand(
   options: VideoOptions
 ): string[] {
   const [width, height] = options.resolution.split("x").map(Number);
+  const useKenBurns = options.kenBurns !== false; // default true
   const cmd: string[] = ["ffmpeg", "-y"];
 
   // Add image inputs
-  for (const slide of slides) {
-    cmd.push(
-      "-loop",
-      "1",
-      "-t",
-      String(slide.duration),
-      "-i",
-      slide.imagePath
-    );
+  if (useKenBurns) {
+    // Single image inputs — zoompan generates video frames
+    for (const slide of slides) {
+      cmd.push("-i", slide.imagePath);
+    }
+  } else {
+    // Loop images as video streams (original approach)
+    for (const slide of slides) {
+      cmd.push(
+        "-loop",
+        "1",
+        "-t",
+        String(slide.duration),
+        "-i",
+        slide.imagePath
+      );
+    }
   }
 
   // Add narration audio input
@@ -57,13 +138,32 @@ export function buildFFmpegCommand(
   // Build filter_complex
   const filters: string[] = [];
 
-  // Scale each image to target resolution with padding (letterbox/pillarbox)
-  for (let i = 0; i < slides.length; i++) {
-    filters.push(
-      `[${i}:v]scale=${width}:${height}:force_original_aspect_ratio=decrease,` +
-        `pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:color=black,` +
-        `setsar=1,fps=${options.fps},format=yuv420p[v${i}]`
-    );
+  // Process each image into a video stream
+  if (useKenBurns) {
+    // Ken Burns: zoompan generates animated video from single images
+    for (let i = 0; i < slides.length; i++) {
+      const durationFrames = Math.ceil(slides[i].duration * options.fps);
+      const pattern = KB_PATTERNS[i % KB_PATTERNS.length];
+      filters.push(
+        buildKenBurnsFilter(
+          i,
+          pattern,
+          durationFrames,
+          width,
+          height,
+          options.fps
+        )
+      );
+    }
+  } else {
+    // Original: scale each looped image to target resolution
+    for (let i = 0; i < slides.length; i++) {
+      filters.push(
+        `[${i}:v]scale=${width}:${height}:force_original_aspect_ratio=decrease,` +
+          `pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:color=black,` +
+          `setsar=1,fps=${options.fps},format=yuv420p[v${i}]`
+      );
+    }
   }
 
   // Chain xfade transitions between slides
@@ -78,8 +178,14 @@ export function buildFFmpegCommand(
       const isLast = i === slides.length - 1;
       const outLabel = isLast ? "[vout]" : `[vt${i}]`;
 
+      // Pick transition: cycle through curated list if "varied", otherwise use fixed
+      const trans =
+        options.transition === "varied"
+          ? VARIED_TRANSITIONS[(i - 1) % VARIED_TRANSITIONS.length]
+          : options.transition;
+
       filters.push(
-        `${prevLabel}[v${i}]xfade=transition=${options.transition}:` +
+        `${prevLabel}[v${i}]xfade=transition=${trans}:` +
           `duration=${options.transitionDuration}:` +
           `offset=${Math.max(0, cumulativeOffset)}${outLabel}`
       );
@@ -88,6 +194,23 @@ export function buildFFmpegCommand(
       cumulativeOffset +=
         slides[i].duration - options.transitionDuration;
     }
+  }
+
+  // Burn in subtitles if provided (rename video output to allow chaining)
+  if (options.subtitlesPath) {
+    // Rename [vout] -> [vpre] in the last xfade/null filter, then apply subtitles
+    const lastFilterIdx = filters.length - 1;
+    filters[lastFilterIdx] = filters[lastFilterIdx].replace("[vout]", "[vpre]");
+    const escapedPath = options.subtitlesPath
+      .replace(/\\/g, "\\\\")
+      .replace(/:/g, "\\:")
+      .replace(/'/g, "\\'");
+    filters.push(
+      `[vpre]subtitles='${escapedPath}':force_style='` +
+        `FontName=Arial,FontSize=22,PrimaryColour=&H00FFFFFF,` +
+        `OutlineColour=&H00000000,BackColour=&H80000000,` +
+        `BorderStyle=4,Outline=1,Shadow=0,MarginV=30'[vout]`
+    );
   }
 
   // Audio mixing: narration + optional background music
