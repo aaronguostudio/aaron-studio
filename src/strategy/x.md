@@ -19,7 +19,7 @@
 | Format | What It Is | Best For | Reach |
 |--------|-----------|----------|-------|
 | **Tweet** | Single post, 1-3 sentences | Hot takes, observations, quick wins | Medium |
-| **Thread** | 3-8 connected tweets | Frameworks, breakdowns, stories | Highest |
+| **Long-form post** | Single post, multi-paragraph (Premium: up to 25K chars) | Frameworks, breakdowns, stories | Highest (dwell time + no thread drop-off) |
 | **Article** | Long-form native editor on X | Pillar content, evergreen guides | Good (dwell time boost) |
 | **Link post** | Tweet with external URL | ❌ Avoid — ~50% reach penalty | Lowest |
 
@@ -44,10 +44,10 @@ Never skip the middle step — don't sell to strangers.
 
 | Day | Content | Format | Platform | Notes |
 |-----|---------|--------|----------|-------|
-| **Mon** | Framework/lesson | Thread (5-8 tweets) | X | Start the week with value |
+| **Mon** | Framework/lesson | Long-form post | X | Start the week with value |
 | **Tue** | Quick insights + replies | 2-3 tweets | X | Engage others' content |
 | **Wed** | Blog post + newsletter | Long-form | Blog + Beehiiv | Source of truth content |
-| **Thu** | Repurpose Wed's blog | Thread (3-5 tweets) | X | Blog → thread adaptation |
+| **Thu** | Repurpose Wed's blog | Long-form post | X | Blog → X post adaptation |
 | **Fri** | Quick insights + replies | 2-3 tweets | X | Engage others' content |
 | **Sat** | Pillar/evergreen piece | X Article | X | Deep content, Google-indexable |
 | **Sun** | Batch create next week | — | — | Use AI Content Studio |
@@ -142,10 +142,10 @@ Find 10-15 accounts at a similar stage. These become your network — they'll en
 ## Content Rules
 
 1. **Never post a naked link.** Always create native content first. Link goes in a reply.
-2. **Every thread must stand alone.** If nobody clicks the blog link, they still got value.
-3. **Hook in the first tweet.** You have 1 second to stop the scroll. Lead with outcome or surprise.
-4. **End threads with a CTA.** Rotate between: follow, newsletter, reply/engage.
-5. **One idea per thread.** Don't try to cover everything. Go deep on one thing.
+2. **Every post must stand alone.** If nobody clicks the blog link, they still got value.
+3. **Hook in the first lines.** You have 1 second to stop the scroll. Lead with outcome or surprise.
+4. **End with a CTA.** Rotate between: follow, newsletter, reply/engage.
+5. **One idea per post.** Don't try to cover everything. Go deep on one thing.
 6. **Use "I" not "you should."** Share what you did, not what others should do. It's more authentic and less preachy.
 7. **Include a visual when possible.** Screenshots, diagrams, before/after — images boost engagement.
 
@@ -164,18 +164,15 @@ Find 10-15 accounts at a similar stage. These become your network — they'll en
 
 ```
 Blog post (source of truth — owns SEO + email capture)
-    ↑ links here
-X Thread (discovery, reach — gives standalone value, links to blog in reply)
-
-X Article (separate native content for X algorithm — different angle, NOT a copy of blog)
+    ↑ links here (in reply)
+X Post (discovery, reach — gives standalone value as single long-form post, links to blog in reply)
 
 Newsletter (delivers blog teaser to inboxes — links back to blog)
 ```
 
 **Analogy:**
 - Blog = the restaurant (destination, you own it)
-- X Thread = the food truck giving out free samples (drives people to the restaurant)
-- X Article = a pop-up at a different location (feeds X's algorithm, builds authority)
+- X Post = the food truck giving out free samples (drives people to the restaurant)
 - Newsletter = home delivery for regulars (owned relationship)
 
 ### Day-by-Day Timeline
@@ -186,8 +183,8 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 |------|--------|----------|---------|
 | Morning | Publish blog post | aaronguo.com | Full deep version. Source of truth. |
 | Morning | Send newsletter | Beehiiv | Teaser paragraph + "Read the full post →" link to blog |
-| Within hours | Post X thread | X | 5-8 tweets, standalone value. NO link in main thread. |
-| Right after | Reply to your own thread | X | "Full deep dive → [blog link]" in a reply (not the thread itself) |
+| Within hours | Post X long-form post | X | Single post, standalone value. NO link in main post. |
+| Right after | Reply to your own post | X | "Full deep dive → [blog link]" in a reply (not the post itself) |
 
 **Thursday-Friday — Drip**
 
@@ -195,25 +192,16 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 |------|--------|----------|---------|
 | Thu or Fri | Standalone tweet | X | Pull ONE insight + screenshot/image from the post |
 
-**Saturday — Pillar Content (optional, not every week)**
-
-| Time | Action | Platform | Details |
-|------|--------|----------|---------|
-| Saturday | X Article | X | NOT a copy of the blog post. Different angle, expanded take, or companion piece on the same topic |
-
 ### Where Each Format Links
 
 | Format | Links to | Why |
 |--------|----------|-----|
-| **X Thread** | Blog (in reply, not main thread) | Drive traffic to your site where newsletter captures emails |
-| **X Article** | Nowhere (or blog in closing) | Native content for X algorithm — keep people on X |
+| **X Post** | Blog (in reply, not main post) | Drive traffic to your site where newsletter captures emails |
 | **Newsletter** | Blog | Drives traffic to your site, reinforces the URL |
-| **LinkedIn post** | Blog | Same as thread — drive traffic to owned platform |
 | **Blog post** | Newsletter signup CTA | Capture the reader's email |
 
 ### Key Rules
-- Thread ALWAYS links to **blog**, never to X Article
-- X Article is a **separate piece** — not a duplicate
+- X post ALWAYS links to **blog** in a reply, never in the main post
 - Newsletter teaser is short — make them click through to the blog
 - Blog post always ends with newsletter signup CTA
 
@@ -223,19 +211,15 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 
 When a blog post goes live on aaronguo.com:
 
-1. **Same day:** Post X thread (standalone value, 5-8 tweets)
-   - Tweet 1: Hook (the most surprising insight from the post)
-   - Tweets 2-5: Key frameworks/points (each tweet = one idea)
-   - Tweet 6: CTA ("I wrote the full breakdown" — link in reply to thread)
+1. **Same day:** Post X long-form post (standalone value, single post with hook + key points + CTA)
+   - Link to blog in a reply, NOT in the main post
 2. **Same day:** Newsletter goes out via Beehiiv (teaser + link to full post)
 3. **2-3 days later:** Pull a single insight from the post → standalone tweet with an image/screenshot
-4. **Following Saturday:** If the topic is evergreen, write an X Article with a different angle or deeper expansion (NOT a copy)
 
 **What the AI Content Studio should output per blog post:**
-- X thread (primary distribution — links to blog in reply)
+- X post (primary distribution — links to blog in reply)
 - X standalone tweet (secondary, 2-3 days later)
-- Newsletter issue (teaser + link to blog)
-- LinkedIn post (adapt for that audience — links to blog)
+- Newsletter / LinkedIn teaser (same copy, teaser + bare blog URL)
 - Chinese version (for Chinese tech community)
 
 ---
