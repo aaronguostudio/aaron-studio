@@ -1,6 +1,7 @@
 # Environment files (API keys, secrets)
 /.env
 *.env.local
+**/.env
 
 # Track the symlink (just a pointer, no secrets), un-ignore it
 !.baoyu-skills/.env
