@@ -13,11 +13,19 @@ export interface TTSOptions {
   provider: TTSProvider;
   voice: string;
   outputDir: string;
+  speed?: number; // ElevenLabs: 0.7-1.2, default 1.0
+}
+
+export interface WordTiming {
+  word: string;
+  start: number; // seconds
+  end: number;   // seconds
 }
 
 export interface TTSResult {
   audioPath: string;
   duration: number; // seconds
+  wordTimings?: WordTiming[];
 }
 
 /**
@@ -37,18 +45,20 @@ export async function generateTTS(
     `narration-${String(index).padStart(2, "0")}.mp3`
   );
 
+  let wordTimings: WordTiming[] | undefined;
+
   if (options.provider === "edge-tts") {
     await generateEdgeTTS(text, outputPath, options.voice);
   } else if (options.provider === "openai") {
     await generateOpenAITTS(text, outputPath, options.voice);
   } else if (options.provider === "elevenlabs") {
-    await generateElevenLabsTTS(text, outputPath, options.voice);
+    wordTimings = await generateElevenLabsTTS(text, outputPath, options.voice, options.speed);
   } else {
     throw new Error(`Unknown TTS provider: ${options.provider}`);
   }
 
   const duration = getAudioDuration(outputPath);
-  return { audioPath: outputPath, duration };
+  return { audioPath: outputPath, duration, wordTimings };
 }
 
 /**
@@ -130,8 +140,9 @@ async function generateOpenAITTS(
 async function generateElevenLabsTTS(
   text: string,
   outputPath: string,
-  voice: string
-): Promise<void> {
+  voice: string,
+  speed?: number
+): Promise<WordTiming[]> {
   const apiKey = process.env.ELEVENLABS_API_KEY;
   if (!apiKey) {
     throw new Error(
@@ -146,10 +157,22 @@ async function generateElevenLabsTTS(
   if (text.length > MAX_CHARS) {
     const chunks = splitTextIntoChunks(text, MAX_CHARS);
     const chunkPaths: string[] = [];
+    const allTimings: WordTiming[] = [];
+    let timeOffset = 0;
 
     for (let i = 0; i < chunks.length; i++) {
       const chunkPath = outputPath.replace(/\.mp3$/, `-chunk${i}.mp3`);
-      await elevenLabsRequest(chunks[i], chunkPath, voice, apiKey);
+      const timings = await elevenLabsRequest(chunks[i], chunkPath, voice, apiKey, speed);
+      // Offset timestamps by cumulative duration of previous chunks
+      for (const t of timings) {
+        allTimings.push({
+          word: t.word,
+          start: t.start + timeOffset,
+          end: t.end + timeOffset,
+        });
+      }
+      const chunkDuration = getAudioDuration(chunkPath);
+      timeOffset += chunkDuration;
       chunkPaths.push(chunkPath);
     }
 
@@ -162,26 +185,65 @@ async function generateElevenLabsTTS(
     for (const p of chunkPaths) {
       try { unlinkSync(p); } catch {}
     }
-    return;
+    return allTimings;
   }
 
-  await elevenLabsRequest(text, outputPath, voice, apiKey);
+  return await elevenLabsRequest(text, outputPath, voice, apiKey, speed);
+}
+
+/**
+ * Extract word timings from ElevenLabs character-level alignment data.
+ */
+function extractWordTimings(alignment: {
+  characters: string[];
+  character_start_times_seconds: number[];
+  character_end_times_seconds: number[];
+}): WordTiming[] {
+  const words: WordTiming[] = [];
+  let currentWord = "";
+  let wordStart = -1;
+  let wordEnd = 0;
+
+  for (let i = 0; i < alignment.characters.length; i++) {
+    const char = alignment.characters[i];
+    const charStart = alignment.character_start_times_seconds[i];
+    const charEnd = alignment.character_end_times_seconds[i];
+
+    if (char === " " || char === "\n" || char === "\t") {
+      if (currentWord.length > 0) {
+        words.push({ word: currentWord, start: wordStart, end: wordEnd });
+        currentWord = "";
+        wordStart = -1;
+      }
+    } else {
+      if (wordStart < 0) wordStart = charStart;
+      wordEnd = charEnd;
+      currentWord += char;
+    }
+  }
+  // Push last word
+  if (currentWord.length > 0) {
+    words.push({ word: currentWord, start: wordStart, end: wordEnd });
+  }
+
+  return words;
 }
 
 async function elevenLabsRequest(
   text: string,
   outputPath: string,
   voice: string,
-  apiKey: string
-): Promise<void> {
+  apiKey: string,
+  speed?: number
+): Promise<WordTiming[]> {
+  // Use /with-timestamps endpoint for word-level timing
   const response = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${voice}`,
+    `https://api.elevenlabs.io/v1/text-to-speech/${voice}/with-timestamps`,
     {
       method: "POST",
       headers: {
         "xi-api-key": apiKey,
         "Content-Type": "application/json",
-        Accept: "audio/mpeg",
       },
       body: JSON.stringify({
         text,
@@ -191,6 +253,7 @@ async function elevenLabsRequest(
           similarity_boost: 0.75,
           style: 0.5,
           use_speaker_boost: true,
+          ...(speed != null && { speed }),
         },
       }),
     }
@@ -201,8 +264,21 @@ async function elevenLabsRequest(
     throw new Error(`ElevenLabs API error (${response.status}): ${error}`);
   }
 
-  const buffer = await response.arrayBuffer();
-  writeFileSync(outputPath, Buffer.from(buffer));
+  const data = (await response.json()) as {
+    audio_base64: string;
+    alignment: {
+      characters: string[];
+      character_start_times_seconds: number[];
+      character_end_times_seconds: number[];
+    };
+  };
+
+  // Write audio from base64
+  const audioBuffer = Buffer.from(data.audio_base64, "base64");
+  writeFileSync(outputPath, audioBuffer);
+
+  // Extract word timings from character alignment
+  return extractWordTimings(data.alignment);
 }
 
 /**

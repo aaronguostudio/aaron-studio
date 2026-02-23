@@ -21,6 +21,11 @@ import {
   type SlideInput,
 } from "./ffmpeg";
 import { generateCaptions } from "./captions";
+import {
+  renderWithRemotion,
+  type RemotionSlideInput,
+} from "./remotion-render";
+import { rewriteAllNarrations } from "./rewrite-narration";
 
 // ---------------------------------------------------------------------------
 // Environment loading (matching baoyu-skills pattern)
@@ -63,6 +68,9 @@ interface Preferences {
   music_volume?: number;
   padding?: number;
   fps?: number;
+  renderer?: string;
+  conversational?: boolean;
+  speed?: number;
 }
 
 function loadPreferences(): Preferences {
@@ -134,6 +142,14 @@ function parseArgs(): Record<string, string | boolean> {
       args.captions = "true";
     } else if (arg === "--no-captions") {
       args.captions = "false";
+    } else if (arg === "--renderer") {
+      args.renderer = argv[++i];
+    } else if (arg === "--conversational") {
+      args.conversational = "true";
+    } else if (arg === "--no-conversational") {
+      args.conversational = "false";
+    } else if (arg === "--speed") {
+      args.speed = argv[++i];
     }
   }
 
@@ -201,6 +217,12 @@ async function main() {
   const dryRun = Boolean(args.dryRun);
   const kenBurns = args.kenBurns !== "false"; // default true
   const captions = args.captions === "true"; // default false (requires whisper)
+  const renderer = String(args.renderer || prefs.renderer || "remotion"); // "remotion" or "ffmpeg"
+  const conversational =
+    args.conversational !== undefined
+      ? args.conversational !== "false"
+      : prefs.conversational !== false; // default true
+  const speed = Number(args.speed || prefs.speed || 1.1);
 
   // ---------------------------------------------------------------------------
   // Step 1: Parse the script
@@ -221,6 +243,20 @@ async function main() {
     console.log(
       `  Slide ${slide.index}: ${basename(slide.imagePath!)} — "${slide.title}"`
     );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Step 2.5: Rewrite narration conversationally (optional)
+  // ---------------------------------------------------------------------------
+  if (conversational && !dryRun) {
+    console.log(`\n[rewrite] Making narration conversational...`);
+    const rewritten = await rewriteAllNarrations(slides);
+    for (const slide of slides) {
+      const newText = rewritten.get(slide.index);
+      if (newText) {
+        slide.narration = newText;
+      }
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -295,6 +331,7 @@ async function main() {
       provider: ttsProvider,
       voice,
       outputDir: ttsOutputDir,
+      speed,
     });
     console.log(`    → ${result.duration.toFixed(1)}s`);
     ttsResults.push(result);
@@ -328,24 +365,54 @@ async function main() {
 
   const totalDuration = slideInputs.reduce((sum, s) => sum + s.duration, 0);
   console.log(`\n[video] Total duration: ${totalDuration.toFixed(1)}s`);
+  console.log(`[video] Renderer: ${renderer}`);
 
   // ---------------------------------------------------------------------------
-  // Step 7: Build and execute FFmpeg command
+  // Step 7: Render video
   // ---------------------------------------------------------------------------
-  const ffmpegCmd = buildFFmpegCommand(slideInputs, {
-    resolution,
-    transition,
-    transitionDuration,
-    fps,
-    narrationPath,
-    musicPath,
-    musicVolume,
-    outputPath,
-    kenBurns,
-    subtitlesPath,
-  });
+  if (renderer === "remotion") {
+    const KB_PATTERNS = [
+      "slowZoomIn",
+      "panRight",
+      "slowZoomOut",
+      "panLeft",
+    ] as const;
 
-  executeFFmpeg(ffmpegCmd);
+    await renderWithRemotion({
+      slides: slides.map((s, i) => ({
+        title: s.title,
+        narration: s.narration,
+        imagePath: s.imagePath!,
+        audioPath: ttsResults[i].audioPath,
+        audioDuration: ttsResults[i].duration,
+        animation: KB_PATTERNS[i % KB_PATTERNS.length],
+        wordTimings: ttsResults[i].wordTimings,
+      })),
+      videoTitle: parsed.title,
+      outputPath,
+      fps,
+      transitionDuration,
+      padding,
+      musicPath,
+      musicVolume,
+    });
+  } else {
+    // FFmpeg renderer (legacy)
+    const ffmpegCmd = buildFFmpegCommand(slideInputs, {
+      resolution,
+      transition,
+      transitionDuration,
+      fps,
+      narrationPath,
+      musicPath,
+      musicVolume,
+      outputPath,
+      kenBurns,
+      subtitlesPath,
+    });
+
+    executeFFmpeg(ffmpegCmd);
+  }
 
   // ---------------------------------------------------------------------------
   // Step 8: Cleanup temp files

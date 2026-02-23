@@ -10,14 +10,16 @@ Generate YouTube-ready MP4 videos from a script markdown file and slide images.
 ## Pipeline
 
 1. **Parse** the youtube-script.md — extract slide sections (image reference + narration text)
-2. **Generate narration** — TTS audio for each slide section (edge-tts or OpenAI)
-3. **Calculate timing** — each slide's duration matches its narration audio length + padding
-4. **Build video** — FFmpeg composites slides with fade transitions, synced with narration
-5. **Mix music** (optional) — layer background music at configurable volume
-6. **Output** — MP4 file (1920x1080 by default)
+2. **Rewrite narration** (optional) — LLM rewrites narration conversationally (pauses, humor, natural rhythm)
+3. **Generate narration** — TTS audio for each slide section (edge-tts, OpenAI, or ElevenLabs)
+4. **Calculate timing** — each slide's duration matches its narration audio length + padding
+5. **Build video** — Remotion renders slides with motion graphics, text animations, and transitions (or FFmpeg as legacy fallback)
+6. **Mix music** (optional) — layer background music at configurable volume
+7. **Output** — MP4 file (1920x1080 by default)
 
 ## Prerequisites
 
+- **Node.js** >= 18 (required for Remotion renderer)
 - **FFmpeg** must be installed (`brew install ffmpeg` on macOS)
 - **edge-tts** for free TTS (`pip install edge-tts`), OR
 - **OpenAI API key** for premium TTS (set `OPENAI_API_KEY` env var), OR
@@ -54,6 +56,10 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts --script <path-to-youtube-script.md> [op
 | `--music-volume` | Background music volume (0.0-1.0) | `0.1` |
 | `--padding` | Extra seconds of padding per slide | `1` |
 | `--fps` | Frames per second | `24` |
+| `--renderer` | Video renderer: `remotion` (motion graphics) or `ffmpeg` (legacy) | `remotion` |
+| `--conversational` | Enable LLM rewrite of narration for natural, conversational tone | `true` |
+| `--no-conversational` | Disable LLM narration rewrite (use raw script text) | |
+| `--speed` | TTS speech speed (ElevenLabs only, 0.7-1.2) | `1.1` |
 | `--dry-run` | Print the FFmpeg command without executing | `false` |
 
 ## Script Format
@@ -86,7 +92,7 @@ The text after `—` (em dash) in the slide header is used to find the image:
 
 | Variable | Description |
 |----------|-------------|
-| `OPENAI_API_KEY` | Required for OpenAI TTS provider |
+| `OPENAI_API_KEY` | Required for OpenAI TTS provider and conversational narration rewrite |
 | `ELEVENLABS_API_KEY` | Required for ElevenLabs TTS provider |
 
 Environment variables are loaded with this priority:
@@ -111,6 +117,9 @@ transition_duration: 2
 music_volume: 0.1
 padding: 1
 fps: 24
+renderer: remotion
+conversational: true
+speed: 1.1
 ---
 ```
 

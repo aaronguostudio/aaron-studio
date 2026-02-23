@@ -1,0 +1,5 @@
+node_modules/
+public/slides/
+public/audio/
+.tmp-props.json
+dist/
