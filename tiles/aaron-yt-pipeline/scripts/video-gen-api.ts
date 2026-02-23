@@ -13,7 +13,7 @@
  *     --output scenes/scene-01.mp4
  */
 
-import { writeFileSync, mkdirSync, existsSync } from "fs";
+import { writeFileSync, readFileSync, mkdirSync, existsSync } from "fs";
 import { dirname } from "path";
 import { createHmac } from "crypto";
 import { loadAllEnvFiles } from "./shared/env";
@@ -25,7 +25,7 @@ loadAllEnvFiles();
 // Provider: Kling (JWT auth with access_key + secret_key)
 // ---------------------------------------------------------------------------
 
-const KLING_BASE_URL = "https://api.klingai.com";
+const KLING_BASE_URL = process.env.KLING_BASE_URL || "https://api.klingai.com";
 
 /**
  * Generate a JWT token for Kling API authentication.
@@ -106,23 +106,42 @@ interface KlingStatusResponse {
 async function generateKling(req: VideoGenRequest): Promise<VideoGenResult> {
   const token = getKlingToken();
 
-  const model = req.model || "kling-v1-6";
-  console.log(`  [kling] Creating task: model=${model}, duration=${req.duration}s`);
+  const model = req.model || "kling-v2.6-pro";
+  const isImage2Video = !!req.referenceImage;
+  const endpoint = isImage2Video ? "image2video" : "text2video";
+
+  console.log(`  [kling] Mode: ${endpoint}, model=${model}, duration=${req.duration}s`);
+  if (isImage2Video) {
+    console.log(`  [kling] Reference image: ${req.referenceImage}`);
+  }
+
+  // Build request body
+  const body: Record<string, unknown> = {
+    model_name: model,
+    prompt: req.prompt,
+    duration: String(req.duration),
+    aspect_ratio: req.aspectRatio,
+    ...(req.negativePrompt && { negative_prompt: req.negativePrompt }),
+  };
+
+  // For image-to-video, read and encode the reference image
+  if (isImage2Video && req.referenceImage) {
+    const imgPath = req.referenceImage;
+    if (!existsSync(imgPath)) {
+      throw new Error(`Reference image not found: ${imgPath}`);
+    }
+    const imgBuffer = readFileSync(imgPath);
+    body.image = imgBuffer.toString("base64");
+  }
 
   // Create task
-  const createRes = await fetch(`${KLING_BASE_URL}/v1/videos/text2video`, {
+  const createRes = await fetch(`${KLING_BASE_URL}/v1/videos/${endpoint}`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      model_name: model,
-      prompt: req.prompt,
-      duration: String(req.duration),
-      aspect_ratio: req.aspectRatio,
-      ...(req.negativePrompt && { negative_prompt: req.negativePrompt }),
-    }),
+    body: JSON.stringify(body),
   });
 
   if (!createRes.ok) {
@@ -146,7 +165,7 @@ async function generateKling(req: VideoGenRequest): Promise<VideoGenResult> {
   while (Date.now() - startTime < maxWaitMs) {
     await sleep(pollIntervalMs);
 
-    const statusRes = await fetch(`${KLING_BASE_URL}/v1/videos/${taskId}`, {
+    const statusRes = await fetch(`${KLING_BASE_URL}/v1/videos/${endpoint}/${taskId}`, {
       headers: { Authorization: `Bearer ${getKlingToken()}` },
     });
 
@@ -379,7 +398,7 @@ async function main() {
 
   if (!args.provider || !args.prompt || !args.output) {
     console.error("Usage: video-gen-api.ts --provider <kling|veo> --prompt <text> --output <path> [options]");
-    console.error("Options: --duration <5|10> --aspect-ratio <16:9> --model <model-id> --negative-prompt <text>");
+    console.error("Options: --duration <5|10> --aspect-ratio <16:9> --model <model-id> --negative-prompt <text> --reference-image <path>");
     process.exit(1);
   }
 

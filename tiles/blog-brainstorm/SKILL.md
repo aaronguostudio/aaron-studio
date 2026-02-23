@@ -201,16 +201,12 @@ cta_rotation: follow | newsletter | reply
 
 ## Distribution Plan
 
-### X Thread Brief (publish: [publish_day])
-**Format:** 5-8 tweets, standalone value. NO link in main thread.
-**Hook (tweet 1):** [Copy from above — the scroll-stopper]
-**Key tweets (2-5):** [One idea per tweet. Outline the 3-4 key points that work as standalone insights]
-- Tweet 2: [point]
-- Tweet 3: [point]
-- Tweet 4: [point]
-- Tweet 5: [point]
-**Closing tweet:** [CTA — rotate per cta_rotation field]
-**Reply with link:** "Full deep dive: [blog URL]" — posted as a reply, NOT in the thread.
+### X Post Brief (publish: [publish_day])
+**Format:** Single long-form post (X Premium supports up to 25K chars). Standalone value. NO link in main post.
+**Hook:** [Opening lines — the scroll-stopper. Uses a hook formula.]
+**Key points:** [3-5 key insights, each as a short paragraph. One idea per paragraph.]
+**Closing:** [CTA — rotate per cta_rotation field]
+**Reply with link:** "Full deep dive: [blog URL]" — posted as a reply, NOT in the main post.
 **Visual:** [What screenshot/diagram/image to include — at least one]
 
 ### X Standalone Tweet Brief (publish: [publish_day + 2 days])
@@ -218,18 +214,10 @@ cta_rotation: follow | newsletter | reply
 **The insight:** [Pull ONE surprising or quotable insight from the post]
 **Image idea:** [Screenshot, diagram, or quote card]
 
-### X Article Brief (publish: Saturday after publish_day, optional)
-**Angle:** [A DIFFERENT angle on the same topic — NOT a copy of the blog. Companion piece, expanded take, or alternative framing]
-**Working title:** [X Article title]
-**Why it's different from the blog:** [1 sentence explaining the distinct angle]
-
-### Newsletter Brief (publish: [publish_day])
-**Teaser:** [2-3 sentence hook that makes readers click through to the full blog post]
-**Link destination:** blog post URL (NOT the X thread)
-
-### LinkedIn Brief (publish: [publish_day or day after])
-**Angle:** [How to frame for a professional audience — more career/leadership angle]
-**Format:** Text post, link in comments
+### Newsletter / LinkedIn Teaser Brief (publish: [publish_day])
+**Format:** Short teaser post — same copy works for email newsletter (Beehiiv) and LinkedIn. Plain text, no markdown formatting. Ends with bare blog URL.
+**Structure:** 3-4 short paragraphs: hook → contrast/insight → supporting data point → CTA line with bare URL.
+**Link destination:** blog post URL (bare URL on its own line at the end)
 
 ### Chinese Version
 **Translate:** Full blog post + X thread
@@ -252,21 +240,18 @@ CTA this cycle: [follow / newsletter / reply]
 Plan saved: src/blogs/YYYY-MM-DD/content-plan.md
 
 Publishing timeline:
-- [Wed date]: Blog + Newsletter + X Thread
+- [Wed date]: Blog + Newsletter/LinkedIn + X Post
 - [Thu/Fri date]: Standalone tweet with image
-- [Sat date]: X Article (if evergreen topic)
 
 Next steps:
 1. Write the blog post from the content plan
 2. Illustrate with /baoyu-article-illustrator
-3. Write X thread (use thread brief in content plan)
+3. Write X post (use X post brief in content plan)
 4. Write X standalone tweet (use tweet brief)
-5. Write X Article if applicable (use article brief)
-6. Write newsletter issue (use newsletter brief)
-7. Create LinkedIn post (use LinkedIn brief)
-8. Create video script (youtube-script.md)
-9. Generate video with /aaron-video-gen
-10. Publish with /publish-to-blog
+5. Write newsletter / LinkedIn teaser (use teaser brief)
+6. Write video script (youtube-script.md)
+7. Generate video with /aaron-video-gen
+8. Publish with /publish-to-blog
 ```
 
 ## Notes
@@ -277,6 +262,6 @@ Next steps:
 - Steps 4-5 are conversational — use free-form discussion, not just structured questions.
 - Do NOT write the actual blog post. The content plan is the deliverable.
 - Content plan references `src/strategy/x.md` for content rules and publishing workflow. If the strategy changes, the plan output stays current.
-- The Distribution Plan section provides briefs, not finished content. Other skills or manual writing turn briefs into final x-teaser.md, x-article.md, linkedin-post.md, etc.
+- The Distribution Plan section provides briefs, not finished content. Other skills or manual writing turn briefs into final x-teaser.md, newsletter-teaser.md, etc.
 - CTA rotation should cycle across posts: follow → newsletter → reply → follow → ... Track the last used CTA across content plans to avoid repeating.
-- Thread hooks must be 280 characters or fewer and use a hook formula from the strategy.
+- Post hooks should use a hook formula from the strategy and stop the scroll in the first few lines.
