@@ -21,6 +21,9 @@ interface ProgressBarProps {
  * Shows all chapter segments as pill-shaped blocks. The current
  * section fills up as it progresses, completed sections are solid,
  * and upcoming sections are dim. Includes a label for the active section.
+ *
+ * Uses a semi-transparent dark backdrop so it's visible on both
+ * light and dark slide backgrounds.
  */
 export const ProgressBar: React.FC<ProgressBarProps> = ({ sections }) => {
   const frame = useCurrentFrame();
@@ -66,14 +69,17 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ sections }) => {
         pointerEvents: "none",
       }}
     >
+      {/* Dark gradient backdrop for visibility on light backgrounds */}
       <div
         style={{
           opacity,
+          width: "100%",
+          background:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 60%, transparent 100%)",
+          padding: "14px 40px 20px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          padding: "14px 40px 0",
-          width: "100%",
         }}
       >
         {/* Section segments row */}
@@ -111,7 +117,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ sections }) => {
                   flex: 1,
                   height: 3,
                   borderRadius: 2,
-                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  backgroundColor: "rgba(255, 255, 255, 0.25)",
                   overflow: "hidden",
                   position: "relative",
                 }}
@@ -125,7 +131,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ sections }) => {
                     width: `${fillPercent}%`,
                     backgroundColor: isActive
                       ? "#FFFFFF"
-                      : "rgba(255, 255, 255, 0.6)",
+                      : "rgba(255, 255, 255, 0.7)",
                     borderRadius: 2,
                   }}
                 />
@@ -146,23 +152,25 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({ sections }) => {
         >
           <span
             style={{
-              color: "rgba(255, 255, 255, 0.45)",
+              color: "rgba(255, 255, 255, 0.6)",
               fontSize: 13,
               fontFamily:
                 'Inter, -apple-system, "Segoe UI", sans-serif',
               fontWeight: 500,
               letterSpacing: 0.5,
+              textShadow: "0 1px 3px rgba(0, 0, 0, 0.5)",
             }}
           >
             {activeSectionIndex + 1}/{sections.length}
           </span>
           <span
             style={{
-              color: "rgba(255, 255, 255, 0.7)",
+              color: "rgba(255, 255, 255, 0.85)",
               fontSize: 13,
               fontFamily:
                 'Inter, -apple-system, "Segoe UI", sans-serif',
               fontWeight: 500,
+              textShadow: "0 1px 3px rgba(0, 0, 0, 0.5)",
             }}
           >
             {sections[activeSectionIndex].title}

@@ -93,13 +93,10 @@ export const WordCaption: React.FC<WordCaptionProps> = ({
           const isPast = currentTime > wordData.end + 0.15;
 
           let color = "rgba(255, 255, 255, 0.35)"; // upcoming: dim
-          let fontWeight = 500;
           if (isActive) {
             color = "#FFDD00"; // active: yellow
-            fontWeight = 700;
           } else if (isPast) {
             color = "rgba(255, 255, 255, 0.85)"; // past: bright white
-            fontWeight = 500;
           }
 
           return (
@@ -110,7 +107,7 @@ export const WordCaption: React.FC<WordCaptionProps> = ({
                 fontSize: 28,
                 fontFamily:
                   'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                fontWeight,
+                fontWeight: 500,
                 display: "inline-block",
                 lineHeight: 1.4,
               }}

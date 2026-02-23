@@ -11,6 +11,11 @@ export interface WordTiming {
   end: number;   // seconds
 }
 
+export interface ImageChangeTiming {
+  imageFile: string;    // path relative to public/ (e.g., "slides/01b.png")
+  startAtSec: number;   // seconds into slide audio when this image appears
+}
+
 export interface SlideData {
   index: number;
   title: string;
@@ -20,6 +25,8 @@ export interface SlideData {
   audioDuration: number;
   animation: Animation;
   wordTimings?: WordTiming[];
+  imageFiles?: string[];                   // all images in order for progressive builds
+  imageChangeTimings?: ImageChangeTiming[]; // when to crossfade to each sub-image
 }
 
 export interface VideoInputProps {
@@ -30,4 +37,7 @@ export interface VideoInputProps {
   paddingSec: number;
   musicFile?: string;
   musicVolume?: number;
+  logoFile?: string;
+  slogan?: string;
+  website?: string;
 }

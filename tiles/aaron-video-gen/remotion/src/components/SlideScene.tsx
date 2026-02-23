@@ -3,88 +3,91 @@ import {
   useCurrentFrame,
   useVideoConfig,
   interpolate,
-  spring,
   staticFile,
   Img,
   AbsoluteFill,
 } from "remotion";
-import type { Animation } from "../types";
+import type { ImageChangeTiming } from "../types";
 
 interface SlideSceneProps {
   imageFile: string;
-  animation: Animation;
   children?: React.ReactNode;
+  /** All images in order for progressive builds */
+  imageFiles?: string[];
+  /** When to crossfade to each sub-image (seconds into audio) */
+  imageChangeTimings?: ImageChangeTiming[];
+  /** Frame offset for when audio starts within the sequence */
+  audioDelay?: number;
 }
+
+// Static slides — no Ken Burns micro-movements.
+// Between-slide transitions (fade, wipe, flip, etc.) handled by SlideshowVideo.
+
+const CROSSFADE_SEC = 0.5;
 
 export const SlideScene: React.FC<SlideSceneProps> = ({
   imageFile,
-  animation,
   children,
+  imageFiles,
+  imageChangeTimings,
+  audioDelay = 0,
 }) => {
   const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
+  const { fps } = useVideoConfig();
 
-  const progress = spring({
-    fps,
-    frame,
-    config: { damping: 200, stiffness: 10, mass: 1 },
-    durationInFrames,
-  });
+  const imgStyle: React.CSSProperties = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  };
 
-  let transform = "";
+  const hasMultipleImages =
+    imageFiles &&
+    imageFiles.length > 1 &&
+    imageChangeTimings &&
+    imageChangeTimings.length > 1;
 
-  switch (animation) {
-    case "slowZoomIn": {
-      const scale = interpolate(progress, [0, 1], [1.0, 1.08], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      });
-      transform = `scale(${scale})`;
-      break;
-    }
-    case "slowZoomOut": {
-      const scale = interpolate(progress, [0, 1], [1.08, 1.0], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      });
-      transform = `scale(${scale})`;
-      break;
-    }
-    case "panRight": {
-      const tx = interpolate(progress, [0, 1], [-2, 2], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      });
-      transform = `scale(1.06) translateX(${tx}%)`;
-      break;
-    }
-    case "panLeft": {
-      const tx = interpolate(progress, [0, 1], [2, -2], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      });
-      transform = `scale(1.06) translateX(${tx}%)`;
-      break;
-    }
-    case "none":
-    default:
-      transform = "scale(1)";
-      break;
-  }
+  // Current time relative to audio start (for image change sync)
+  const currentTimeSec = Math.max(0, (frame - audioDelay) / fps);
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0a0a" }}>
       <AbsoluteFill style={{ overflow: "hidden" }}>
-        <Img
-          src={staticFile(imageFile)}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            transform,
-            willChange: "transform",
-          }}
-        />
+        {hasMultipleImages ? (
+          // Multi-image progressive reveal: stack images with crossfade
+          <>
+            {imageFiles!.map((imgFile, imgIdx) => {
+              const timing = imageChangeTimings![imgIdx];
+
+              // First image is always fully visible (base layer)
+              if (imgIdx === 0) {
+                return (
+                  <AbsoluteFill key={imgIdx}>
+                    <Img src={staticFile(imgFile)} style={imgStyle} />
+                  </AbsoluteFill>
+                );
+              }
+
+              // Subsequent images fade in when their time arrives
+              const fadeStart = timing?.startAtSec ?? 0;
+              const opacity = interpolate(
+                currentTimeSec,
+                [fadeStart, fadeStart + CROSSFADE_SEC],
+                [0, 1],
+                { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+              );
+
+              return (
+                <AbsoluteFill key={imgIdx} style={{ opacity }}>
+                  <Img src={staticFile(imgFile)} style={imgStyle} />
+                </AbsoluteFill>
+              );
+            })}
+          </>
+        ) : (
+          // Single image
+          <Img src={staticFile(imageFile)} style={imgStyle} />
+        )}
       </AbsoluteFill>
       {children}
     </AbsoluteFill>

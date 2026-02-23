@@ -5,7 +5,18 @@
  *   ## [SLIDE: Title — image-reference]
  *   Narration text...
  *   ---
+ *
+ * Progressive builds (optional):
+ *   ## [SLIDE: Title — 01a.png]
+ *   First narration segment...
+ *   [IMAGE: 01b.png]
+ *   Second narration segment...
  */
+
+export interface NarrationSegment {
+  imageRef: string; // filename reference for this segment's image
+  text: string; // narration text for this segment
+}
 
 export interface SlideSection {
   index: number;
@@ -13,6 +24,8 @@ export interface SlideSection {
   imageRef: string; // filename, number prefix, or description
   narration: string;
   imagePath?: string; // resolved absolute path
+  narrationSegments?: NarrationSegment[]; // ordered segments for multi-image slides
+  allImagePaths?: string[]; // resolved paths: [primary, ...additional]
 }
 
 export interface ParsedScript {
@@ -23,6 +36,7 @@ export interface ParsedScript {
 
 const SLIDE_HEADER_RE = /^##\s*\[SLIDE:\s*(.+?)(?:\s*[—–\-]\s*(.+?))?\s*\]\s*$/;
 const SECTION_DIVIDER = /^---\s*$/;
+const IMAGE_MARKER_RE = /^\[IMAGE:\s*(.+?)\s*\]\s*$/;
 
 export function parseYoutubeScript(content: string): ParsedScript {
   const lines = content.split("\n");
@@ -41,17 +55,20 @@ export function parseYoutubeScript(content: string): ParsedScript {
 
   let currentSlide: Partial<SlideSection> | null = null;
   let narrationLines: string[] = [];
+  // Tracks [IMAGE:] markers found within a slide's narration.
+  // Each entry stores the marker's imageRef and the narration lines
+  // that were accumulated *before* that marker appeared.
+  let imageMarkers: Array<{ imageRef: string; linesBefore: string[] }> = [];
   let slideIndex = 0;
 
   for (const line of lines) {
     // Check for production notes section
     if (/^##\s*Production Notes/i.test(line)) {
-      // Flush current slide
       if (currentSlide) {
-        currentSlide.narration = cleanNarration(narrationLines);
-        slides.push(currentSlide as SlideSection);
+        flushSlide(currentSlide, narrationLines, imageMarkers, slides);
         currentSlide = null;
         narrationLines = [];
+        imageMarkers = [];
       }
       inProductionNotes = true;
       continue;
@@ -67,9 +84,9 @@ export function parseYoutubeScript(content: string): ParsedScript {
     if (headerMatch) {
       // Flush previous slide
       if (currentSlide) {
-        currentSlide.narration = cleanNarration(narrationLines);
-        slides.push(currentSlide as SlideSection);
+        flushSlide(currentSlide, narrationLines, imageMarkers, slides);
         narrationLines = [];
+        imageMarkers = [];
       }
 
       currentSlide = {
@@ -86,16 +103,25 @@ export function parseYoutubeScript(content: string): ParsedScript {
       continue;
     }
 
-    // Accumulate narration lines
+    // Accumulate narration lines, detecting [IMAGE:] markers
     if (currentSlide) {
-      narrationLines.push(line);
+      const imageMatch = line.match(IMAGE_MARKER_RE);
+      if (imageMatch) {
+        // Save lines accumulated so far as the text before this marker
+        imageMarkers.push({
+          imageRef: imageMatch[1].trim(),
+          linesBefore: [...narrationLines],
+        });
+        narrationLines = [];
+      } else {
+        narrationLines.push(line);
+      }
     }
   }
 
   // Flush last slide
   if (currentSlide) {
-    currentSlide.narration = cleanNarration(narrationLines);
-    slides.push(currentSlide as SlideSection);
+    flushSlide(currentSlide, narrationLines, imageMarkers, slides);
   }
 
   return {
@@ -105,6 +131,45 @@ export function parseYoutubeScript(content: string): ParsedScript {
   };
 }
 
+function flushSlide(
+  slide: Partial<SlideSection>,
+  trailingLines: string[],
+  markers: Array<{ imageRef: string; linesBefore: string[] }>,
+  output: SlideSection[]
+): void {
+  if (markers.length === 0) {
+    // Single-image slide — no change from current behavior
+    slide.narration = cleanNarration(trailingLines);
+  } else {
+    // Multi-image slide: build NarrationSegment[]
+    const segments: NarrationSegment[] = [];
+
+    // Segment 0: primary image + text before the first [IMAGE:] marker
+    segments.push({
+      imageRef: slide.imageRef!,
+      text: cleanNarration(markers[0].linesBefore),
+    });
+
+    // Segments 1..N: each [IMAGE:] marker + text between it and the next marker
+    for (let i = 0; i < markers.length; i++) {
+      const textLines =
+        i < markers.length - 1 ? markers[i + 1].linesBefore : trailingLines;
+      segments.push({
+        imageRef: markers[i].imageRef,
+        text: cleanNarration(textLines),
+      });
+    }
+
+    slide.narrationSegments = segments;
+    slide.narration = segments
+      .map((s) => s.text)
+      .filter(Boolean)
+      .join("\n\n");
+  }
+
+  output.push(slide as SlideSection);
+}
+
 function cleanNarration(lines: string[]): string {
   return lines
     .join("\n")
@@ -112,6 +177,54 @@ function cleanNarration(lines: string[]): string {
     .replace(/\*([^*]+)\*/g, "$1") // strip italic markdown
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // strip links
     .trim();
+}
+
+/**
+ * Resolve a single image reference to a file path.
+ */
+function resolveOneImage(
+  ref: string,
+  fallbackIndex: number,
+  imageFiles: string[],
+  imagesDir: string,
+  join: (a: string, b: string) => string
+): string {
+  let resolved: string | undefined;
+
+  // 1. Exact filename match
+  if (ref && imageFiles.includes(ref)) {
+    resolved = join(imagesDir, ref);
+  }
+
+  // 2. Number prefix match (e.g., "01" matches "01-scene-something.png")
+  if (!resolved && ref && /^\d+$/.test(ref)) {
+    const match = imageFiles.find((f) => f.startsWith(ref));
+    if (match) {
+      resolved = join(imagesDir, match);
+    }
+  }
+
+  // 3. Partial filename match
+  if (!resolved && ref) {
+    const refLower = ref.toLowerCase().replace(/\s+/g, "-");
+    const match = imageFiles.find((f) => f.toLowerCase().includes(refLower));
+    if (match) {
+      resolved = join(imagesDir, match);
+    }
+  }
+
+  // 4. Order-based fallback: use the provided index
+  if (!resolved && fallbackIndex < imageFiles.length) {
+    resolved = join(imagesDir, imageFiles[fallbackIndex]);
+  }
+
+  if (!resolved) {
+    throw new Error(
+      `Could not resolve image for ref "${ref}" (fallback index: ${fallbackIndex})`
+    );
+  }
+
+  return resolved;
 }
 
 /**
@@ -134,44 +247,30 @@ export async function resolveImagePaths(
   }
 
   return slides.map((slide) => {
-    const ref = slide.imageRef;
-    let resolved: string | undefined;
+    // Resolve primary image
+    const primaryPath = resolveOneImage(
+      slide.imageRef,
+      slide.index,
+      imageFiles,
+      imagesDir,
+      join
+    );
 
-    // 1. Exact filename match
-    if (ref && imageFiles.includes(ref)) {
-      resolved = join(imagesDir, ref);
+    // Resolve additional images from narration segments
+    let allImagePaths: string[] | undefined;
+    if (slide.narrationSegments && slide.narrationSegments.length > 1) {
+      allImagePaths = slide.narrationSegments.map((seg, i) => {
+        if (i === 0) return primaryPath;
+        return resolveOneImage(
+          seg.imageRef,
+          slide.index,
+          imageFiles,
+          imagesDir,
+          join
+        );
+      });
     }
 
-    // 2. Number prefix match (e.g., "01" matches "01-scene-something.png")
-    if (!resolved && ref && /^\d+$/.test(ref)) {
-      const match = imageFiles.find((f) => f.startsWith(ref));
-      if (match) {
-        resolved = join(imagesDir, match);
-      }
-    }
-
-    // 3. Partial filename match
-    if (!resolved && ref) {
-      const refLower = ref.toLowerCase().replace(/\s+/g, "-");
-      const match = imageFiles.find((f) =>
-        f.toLowerCase().includes(refLower)
-      );
-      if (match) {
-        resolved = join(imagesDir, match);
-      }
-    }
-
-    // 4. Order-based fallback: use the slide index
-    if (!resolved && slide.index < imageFiles.length) {
-      resolved = join(imagesDir, imageFiles[slide.index]);
-    }
-
-    if (!resolved) {
-      throw new Error(
-        `Could not resolve image for slide ${slide.index}: "${slide.title}" (ref: "${ref}")`
-      );
-    }
-
-    return { ...slide, imagePath: resolved };
+    return { ...slide, imagePath: primaryPath, allImagePaths };
   });
 }

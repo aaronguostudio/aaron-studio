@@ -16,7 +16,7 @@ import {
   writeFileSync,
 } from "fs";
 import { join, basename, dirname } from "path";
-import type { Animation, VideoInputProps, WordTiming } from "../remotion/src/types";
+import type { Animation, ImageChangeTiming, VideoInputProps, WordTiming } from "../remotion/src/types";
 
 export interface RemotionSlideInput {
   title: string;
@@ -26,6 +26,8 @@ export interface RemotionSlideInput {
   audioDuration: number;
   animation: Animation;
   wordTimings?: WordTiming[];
+  additionalImagePaths?: string[];       // extra images for progressive builds
+  imageChangeTimings?: ImageChangeTiming[]; // when to crossfade to each
 }
 
 export interface RemotionRenderOptions {
@@ -37,6 +39,9 @@ export interface RemotionRenderOptions {
   padding: number;
   musicPath?: string;
   musicVolume?: number;
+  logoPath?: string;
+  slogan?: string;
+  website?: string;
 }
 
 const REMOTION_DIR = join(dirname(__filename), "..", "remotion");
@@ -90,6 +95,12 @@ export async function renderWithRemotion(
         slide.audioPath,
         join(audioDir, basename(slide.audioPath))
       );
+      // Copy additional images for progressive builds
+      if (slide.additionalImagePaths) {
+        for (const imgPath of slide.additionalImagePaths) {
+          safeCopy(imgPath, join(slidesDir, basename(imgPath)));
+        }
+      }
     }
 
     // 3. Copy music file if provided
@@ -100,6 +111,14 @@ export async function renderWithRemotion(
       musicFile = `audio/${musicFilename}`;
     }
 
+    // 3b. Copy logo file if provided
+    let logoFile: string | undefined;
+    if (options.logoPath && existsSync(options.logoPath)) {
+      const logoFilename = basename(options.logoPath);
+      safeCopy(options.logoPath, join(slidesDir, logoFilename));
+      logoFile = `slides/${logoFilename}`;
+    }
+
     // 4. Build props JSON
     const props: VideoInputProps = {
       videoTitle: options.videoTitle,
@@ -108,16 +127,33 @@ export async function renderWithRemotion(
       paddingSec: options.padding,
       musicFile,
       musicVolume: options.musicVolume,
-      slides: options.slides.map((s, i) => ({
-        index: i,
-        title: s.title,
-        narration: s.narration,
-        imageFile: `slides/${basename(s.imagePath)}`,
-        audioFile: `audio/${basename(s.audioPath)}`,
-        audioDuration: s.audioDuration,
-        animation: s.animation,
-        wordTimings: s.wordTimings,
-      })),
+      logoFile,
+      slogan: options.slogan,
+      website: options.website,
+      slides: options.slides.map((s, i) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const slideData: any = {
+          index: i,
+          title: s.title,
+          narration: s.narration,
+          imageFile: `slides/${basename(s.imagePath)}`,
+          audioFile: `audio/${basename(s.audioPath)}`,
+          audioDuration: s.audioDuration,
+          animation: s.animation,
+          wordTimings: s.wordTimings,
+        };
+
+        // Progressive build data
+        if (s.additionalImagePaths && s.additionalImagePaths.length > 0) {
+          slideData.imageFiles = [
+            `slides/${basename(s.imagePath)}`,
+            ...s.additionalImagePaths.map((p) => `slides/${basename(p)}`),
+          ];
+          slideData.imageChangeTimings = s.imageChangeTimings;
+        }
+
+        return slideData;
+      }),
     };
 
     writeFileSync(propsPath, JSON.stringify(props, null, 2));

@@ -2,13 +2,14 @@ import React from "react";
 import { Composition } from "remotion";
 import { SlideshowVideo } from "./SlideshowVideo";
 import { getIntroHookDuration } from "./components/IntroHook";
+import { OUTRO_DURATION_SEC } from "./components/Outro";
 import type { VideoInputProps } from "./types";
 
 const defaultProps: VideoInputProps = {
   videoTitle: "Untitled Video",
   slides: [],
   fps: 24,
-  transitionDurationSec: 2,
+  transitionDurationSec: 1.2,
   paddingSec: 1,
 };
 
@@ -46,7 +47,14 @@ export const RemotionRoot: React.FC = () => {
         const totalDuration = totalSlideFrames - transitionOverlap;
         const mainContentFrames = Math.ceil(Math.max(1, totalDuration) * fps);
 
-        const durationInFrames = introHookFrames + mainContentFrames;
+        // Outro overlaps with the tail of the last slide, but we need
+        // enough total frames so the outro's fade-to-black can play out
+        const hasOutro = props.logoFile || props.slogan;
+        const outroExtraFrames = hasOutro
+          ? Math.round(OUTRO_DURATION_SEC * fps * 0.5)
+          : 0;
+
+        const durationInFrames = introHookFrames + mainContentFrames + outroExtraFrames;
 
         return {
           durationInFrames,

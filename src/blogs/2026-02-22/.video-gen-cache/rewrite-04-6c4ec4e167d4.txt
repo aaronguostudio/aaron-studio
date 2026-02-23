@@ -1,0 +1,13 @@
+You ever hit that wall where you just can't seem to move forward? Yeah, I’ve been there. After that, I really started to notice when AI was helping me out and when it was just... making things worse. And let me tell you, the pattern stood out like a sore thumb.
+
+I like to think of it as Scatter Mode and Laser Mode.
+
+Now, Scatter Mode? That’s all about being parallel, exploratory, and honestly, supercharged by AI. It’s like System 1 on a serious caffeine buzz. You dive into multiple directions all at once—think drafts, variations, options galore. You can even run different agents on their own tasks. The magic word here is independent. If those tasks don’t rely on each other, just scatter them out there!
+
+---SEGMENT---
+
+Laser Mode is all about being sequential and focused... it's really human-led too. Think of it as your brain’s System 2, fully shielded from distractions. You’re digging deep into a layered problem, like a detective with a magnifying glass. Whether you’re making tough decisions about product architecture or wrestling with those tricky tradeoffs, this mode is where you want to be. Oh, and don’t forget the writing part—it's like polishing a gem until it shines and finally says exactly what you’ve been trying to express.
+
+---SEGMENT---
+
+You know, it was a real game-changer for me when I realized that the mode you choose can actually be way more important than the tool itself. Take AI, for instance. In Scatter Mode, you’ve got five agents tossing around ideas... which leads to a ton of options. But switch to Laser Mode, and suddenly you've got this one agent zeroing in on a tough problem, really digging deep. Same tool, but the shift in cognitive context? It’s like night and day. The results can be wildly different!

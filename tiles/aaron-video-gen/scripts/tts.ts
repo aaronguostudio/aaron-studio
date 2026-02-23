@@ -50,7 +50,7 @@ export async function generateTTS(
   if (options.provider === "edge-tts") {
     await generateEdgeTTS(text, outputPath, options.voice);
   } else if (options.provider === "openai") {
-    await generateOpenAITTS(text, outputPath, options.voice);
+    await generateOpenAITTS(text, outputPath, options.voice, options.speed);
   } else if (options.provider === "elevenlabs") {
     wordTimings = await generateElevenLabsTTS(text, outputPath, options.voice, options.speed);
   } else {
@@ -97,11 +97,14 @@ async function generateEdgeTTS(
 
 /**
  * Generate TTS using OpenAI TTS API.
+ * Uses gpt-4o-mini-tts for best quality + style control.
+ * Falls back to tts-1-hd if OPENAI_TTS_MODEL is set.
  */
 async function generateOpenAITTS(
   text: string,
   outputPath: string,
-  voice: string
+  voice: string,
+  speed?: number
 ): Promise<void> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
@@ -110,18 +113,35 @@ async function generateOpenAITTS(
     );
   }
 
+  const model = process.env.OPENAI_TTS_MODEL || "gpt-4o-mini-tts";
+
+  // gpt-4o-mini-tts supports an instructions parameter for voice style control
+  const body: Record<string, unknown> = {
+    model,
+    input: text,
+    voice: voice,
+    response_format: "mp3",
+  };
+
+  if (speed != null) {
+    body.speed = speed;
+  }
+
+  if (model === "gpt-4o-mini-tts") {
+    body.instructions =
+      "You are a popular tech YouTuber narrating a video essay. " +
+      "Speak with energy and personality — like you're genuinely excited to share an insight with a friend. " +
+      "Vary your pace: speed up slightly during exciting parts, slow down for key takeaways. " +
+      "Use natural emphasis on important words. Keep it warm and engaging, never monotone.";
+  }
+
   const response = await fetch("https://api.openai.com/v1/audio/speech", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      model: "tts-1-hd",
-      input: text,
-      voice: voice,
-      response_format: "mp3",
-    }),
+    body: JSON.stringify(body),
   });
 
   if (!response.ok) {

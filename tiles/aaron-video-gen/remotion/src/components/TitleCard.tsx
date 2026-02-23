@@ -1,23 +1,20 @@
 import React from "react";
-import { AbsoluteFill, staticFile, Img } from "remotion";
+import { AbsoluteFill } from "remotion";
 import { TextReveal } from "./TextReveal";
 import { GradientOverlay } from "./GradientOverlay";
-import type { Animation } from "../types";
 import { SlideScene } from "./SlideScene";
 
 interface TitleCardProps {
   title: string;
   imageFile: string;
-  animation: Animation;
 }
 
 export const TitleCard: React.FC<TitleCardProps> = ({
   title,
   imageFile,
-  animation,
 }) => {
   return (
-    <SlideScene imageFile={imageFile} animation={animation}>
+    <SlideScene imageFile={imageFile}>
       <GradientOverlay opacity={0.75} height="60%" />
       <AbsoluteFill
         style={{

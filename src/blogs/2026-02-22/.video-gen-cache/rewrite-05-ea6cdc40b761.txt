@@ -1,0 +1,13 @@
+Let me share what my daily routine looks like. 
+
+Mornings? Oh, that's my Scatter Mode time. I dive into all kinds of exploratory, generative work. I’m talking about researching a bunch of different topics, which can feel like a treasure hunt! I also kick off parallel AI tasks—like whipping up some images, drafting a few pieces of writing, and even setting up some code scaffolding. Honestly, it’s like being a conductor... I’m orchestrating multiple streams of creativity all at once, without really digging deep into just one of them. It's a bit chaotic, but in a good way!
+
+---SEGMENT---
+
+Afternoons? That's when I really get into what I like to call Laser Mode. I shut down all those parallel streams... it’s just me, one problem, and one screen. Occasionally, I’ll chat with an AI, but most of the time, it’s just me and the code going head-to-head. This is where the real decisions get made.
+
+Now, here’s something I’ve learned: that transition ritual is key. You can’t just flip from Scatter to Laser like a light switch. I need to close those tabs, stop any background distractions... and I give myself a good five minutes to really get my head in the game. Trust me, jumping straight from one mode to the other? Yeah, that’s a recipe for mistakes.
+
+---SEGMENT---
+
+Here’s my go-to guideline: if a task has dependencies or I need to make calls between competing trade-offs... I’m all about laser focus on that. But if it’s more exploratory, creative, or the subtasks can run independently... then it’s scatter time!

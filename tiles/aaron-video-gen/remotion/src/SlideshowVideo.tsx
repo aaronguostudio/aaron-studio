@@ -15,6 +15,9 @@ import {
 import { fade } from "@remotion/transitions/fade";
 import { slide } from "@remotion/transitions/slide";
 import { wipe } from "@remotion/transitions/wipe";
+import { flip } from "@remotion/transitions/flip";
+import { clockWipe } from "@remotion/transitions/clock-wipe";
+import { iris } from "@remotion/transitions/iris";
 import { SlideScene } from "./components/SlideScene";
 import { TitleCard } from "./components/TitleCard";
 import { GradientOverlay } from "./components/GradientOverlay";
@@ -22,10 +25,20 @@ import { ChapterIndicator } from "./components/ChapterIndicator";
 import { WordCaption } from "./components/WordCaption";
 import { ProgressBar } from "./components/ProgressBar";
 import { IntroHook, getIntroHookDuration } from "./components/IntroHook";
+import { Outro, OUTRO_DURATION_SEC } from "./components/Outro";
 import type { VideoInputProps } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TRANSITION_PRESENTATIONS: any[] = [fade(), slide(), wipe(), fade()];
+const TRANSITION_PRESENTATIONS: any[] = [
+  fade(),
+  slide(),
+  wipe(),
+  flip(),
+  clockWipe({ width: 1920, height: 1080 }),
+  fade(),
+  slide({ direction: "from-top" }),
+  iris({ width: 1920, height: 1080 }),
+];
 
 export const SlideshowVideo: React.FC<VideoInputProps> = ({
   videoTitle,
@@ -35,10 +48,14 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
   paddingSec,
   musicFile,
   musicVolume = 0.1,
+  logoFile,
+  slogan,
+  website,
 }) => {
   const transitionFrames = Math.round(transitionDurationSec * fps);
   const lastIndex = slides.length - 1;
   const introHookDuration = getIntroHookDuration(slides.length, fps);
+  const outroDurationFrames = Math.round(OUTRO_DURATION_SEC * fps);
 
   // Calculate cumulative slide start frames (for progress bar markers)
   const slideStartFrames: number[] = [];
@@ -60,10 +77,16 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0a0a" }}>
-      {/* Intro hook montage */}
+      {/* Intro: logo + slogan + title */}
       {introHookDuration > 0 && (
         <Sequence durationInFrames={introHookDuration}>
-          <IntroHook slides={slides} videoTitle={videoTitle} />
+          <IntroHook
+            slides={slides}
+            videoTitle={videoTitle}
+            logoFile={logoFile}
+            slogan={slogan}
+            website={website}
+          />
         </Sequence>
       )}
 
@@ -104,12 +127,13 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
                     <TitleCard
                       title={videoTitle}
                       imageFile={slideData.imageFile}
-                      animation={slideData.animation}
                     />
                   ) : (
                     <SlideScene
                       imageFile={slideData.imageFile}
-                      animation={slideData.animation}
+                      imageFiles={slideData.imageFiles}
+                      imageChangeTimings={slideData.imageChangeTimings}
+                      audioDelay={audioDelay}
                     >
                       <GradientOverlay />
                       <ChapterIndicator title={slideData.title} />
@@ -132,6 +156,16 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
           })}
         </TransitionSeries>
       </Sequence>
+
+      {/* Outro: fade to black with logo + slogan */}
+      {(logoFile || slogan) && (
+        <Sequence
+          from={cumulativeFrame + introHookDuration - outroDurationFrames}
+          durationInFrames={outroDurationFrames}
+        >
+          <Outro logoFile={logoFile} slogan={slogan} website={website} />
+        </Sequence>
+      )}
 
       {/* Section progress indicator (always on top) */}
       <ProgressBar
