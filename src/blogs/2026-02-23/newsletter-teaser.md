@@ -14,3 +14,5 @@ Then I watched Chamath Palihapitiya compress 30 years of business advice into on
 I mapped each rule against my own career and my current AI transition. The framework explains why process-orientation matters more now than ever — when AI shifts the landscape so fast that any fixed goal becomes obsolete before you reach it.
 
 https://www.aaronguo.com/blogs/chamath-process-over-goals
+
+**Watch the original:** Chamath Palihapitiya — [30 Years of Business Advice in One Video](https://www.youtube.com/watch?v=0-LAT4HjWPo)

@@ -2,7 +2,7 @@
 
 ![封面：过程大于目标 —— Chamath 30 年商业智慧背后的操作系统](imgs/00-cover.png)
 
-我这辈子都在设定目标。30 岁前升 Senior Manager。Q3 前发布产品。年底达成营收指标。每一个都完成了。然后我看了 Chamath Palihapitiya —— 那个打造了 Facebook 增长引擎和 Social Capital 的人 —— 解释为什么目标导向从根本上就是错误的框架。
+我这辈子都在设定目标。30 岁前升 Senior Manager。Q3 前发布产品。年底达成营收指标。每一个都完成了。然后我看了 Chamath Palihapitiya —— 那个打造了 Facebook 增长引擎和 Social Capital 的人 —— 在他的["30 Years of Business Advice"](https://www.youtube.com/watch?v=0-LAT4HjWPo)视频中解释为什么目标导向从根本上就是错误的框架。
 
 他的观点是：真正赢的人不是在追逐终点，而是承诺于一个持续学习、永不停止的过程。我用这个观点审视了自己的职业生涯 —— 他说得令人不安地正确。
 
@@ -18,7 +18,7 @@
 
 我也是。
 
-然后我看了 Chamath 的视频 ——"30 Years of Business Advice" —— 一下子就通了。他的第一条规则是"永远不要停下来"。但他说的不是内卷文化，而是承诺于*学习和冒险的过程*，而不是终点。Buffett 95 岁了还在做投资，不是因为他在追目标，而是因为他在运行一个过程。Munger 也一样。那些能在几十年间保持卓越的人，不是目标设得最好的人，而是从未停止学习的人。
+然后我看了 [Chamath 的视频](https://www.youtube.com/watch?v=0-LAT4HjWPo) ——"30 Years of Business Advice" —— 一下子就通了。他的第一条规则是"永远不要停下来"。但他说的不是内卷文化，而是承诺于*学习和冒险的过程*，而不是终点。Buffett 95 岁了还在做投资，不是因为他在追目标，而是因为他在运行一个过程。Munger 也一样。那些能在几十年间保持卓越的人，不是目标设得最好的人，而是从未停止学习的人。
 
 Chamath 把 30 年的经验浓缩成 6 条规则。当你用"过程大于目标"的视角去看，它们不再是一张建议清单，而是一个连贯的操作系统。
 
@@ -95,5 +95,9 @@ Chamath 的 6 条规则不是 6 个独立的教训。它们是同一个教训的
 ---
 
 我正在记录这个过程 —— 用 AI 构建、公开学习、每周发布。如果这些引起了你的共鸣，欢迎关注。
+
+---
+
+**来源：** Chamath Palihapitiya — ["30 Years of Business Advice in One Video"](https://www.youtube.com/watch?v=0-LAT4HjWPo)
 
 ![过程就是意义：承诺于学习，让结果自然复利](imgs/05-process-is-the-point.png)

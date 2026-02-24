@@ -2,7 +2,7 @@
 
 ![Cover: Process over Goals — the operating system behind Chamath's 30 years of business advice](imgs/00-cover.png)
 
-I've set goals my entire career. Become a Senior Manager by 30. Ship the product by Q3. Hit the revenue target by year-end. I checked every box. And then I watched Chamath Palihapitiya — the guy who built Facebook's growth engine and Social Capital — explain why goal-orientation is the wrong framework entirely.
+I've set goals my entire career. Become a Senior Manager by 30. Ship the product by Q3. Hit the revenue target by year-end. I checked every box. And then I watched Chamath Palihapitiya — the guy who built Facebook's growth engine and Social Capital — explain in his ["30 Years of Business Advice"](https://www.youtube.com/watch?v=0-LAT4HjWPo) video why goal-orientation is the wrong framework entirely.
 
 His argument: the people who win aren't chasing endpoints. They're committed to a process of continuous learning that never stops. I've been testing this idea against my own career — and he's uncomfortably right.
 
@@ -18,7 +18,7 @@ Psychologist Tal Ben-Shahar calls this the "arrival fallacy" — the illusion th
 
 I didn't either.
 
-Then I watched Chamath's video — "30 Years of Business Advice" — and something clicked. His first rule is "Never Stop." But he's not talking about hustle culture. He's talking about committing to the *process* of learning and risk-taking, not to endpoints. Warren Buffett at 95 isn't chasing a goal. He's running a process. Charlie Munger was the same way. The people who sustain excellence across decades aren't the ones with the best goals. They're the ones who never stopped learning.
+Then I watched [Chamath's video](https://www.youtube.com/watch?v=0-LAT4HjWPo) — "30 Years of Business Advice" — and something clicked. His first rule is "Never Stop." But he's not talking about hustle culture. He's talking about committing to the *process* of learning and risk-taking, not to endpoints. Warren Buffett at 95 isn't chasing a goal. He's running a process. Charlie Munger was the same way. The people who sustain excellence across decades aren't the ones with the best goals. They're the ones who never stopped learning.
 
 Chamath compressed 30 years into 6 rules. When you look at them through the lens of "process over goals," they stop being a list of tips and start functioning as a coherent operating system.
 
@@ -95,5 +95,9 @@ This is the third piece in a loose arc I've been writing. Two weeks ago, I argue
 ---
 
 I'm documenting this process — building with AI, learning in public, shipping weekly. Follow along if that resonates.
+
+---
+
+**Source:** Chamath Palihapitiya — ["30 Years of Business Advice in One Video"](https://www.youtube.com/watch?v=0-LAT4HjWPo)
 
 ![The process is the point: commit to learning, let results compound](imgs/05-process-is-the-point.png)
