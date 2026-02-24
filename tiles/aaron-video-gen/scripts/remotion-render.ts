@@ -42,6 +42,11 @@ export interface RemotionRenderOptions {
   logoPath?: string;
   slogan?: string;
   website?: string;
+  hookAudioPath?: string;
+  hookAudioDuration?: number;
+  hookImagePath?: string;
+  hookWordTimings?: WordTiming[];
+  coverImagePath?: string;
 }
 
 const REMOTION_DIR = join(dirname(__filename), "..", "remotion");
@@ -119,6 +124,28 @@ export async function renderWithRemotion(
       logoFile = `slides/${logoFilename}`;
     }
 
+    // 3c. Copy hook audio and image if provided
+    let hookAudioFile: string | undefined;
+    let hookImageFile: string | undefined;
+    if (options.hookAudioPath && existsSync(options.hookAudioPath)) {
+      const hookAudioFilename = basename(options.hookAudioPath);
+      safeCopy(options.hookAudioPath, join(audioDir, hookAudioFilename));
+      hookAudioFile = `audio/${hookAudioFilename}`;
+    }
+    if (options.hookImagePath && existsSync(options.hookImagePath)) {
+      const hookImageFilename = basename(options.hookImagePath);
+      safeCopy(options.hookImagePath, join(slidesDir, hookImageFilename));
+      hookImageFile = `slides/${hookImageFilename}`;
+    }
+
+    // 3d. Copy cover/thumbnail image if provided
+    let coverImageFile: string | undefined;
+    if (options.coverImagePath && existsSync(options.coverImagePath)) {
+      const coverFilename = basename(options.coverImagePath);
+      safeCopy(options.coverImagePath, join(slidesDir, coverFilename));
+      coverImageFile = `slides/${coverFilename}`;
+    }
+
     // 4. Build props JSON
     const props: VideoInputProps = {
       videoTitle: options.videoTitle,
@@ -130,6 +157,11 @@ export async function renderWithRemotion(
       logoFile,
       slogan: options.slogan,
       website: options.website,
+      hookAudioFile,
+      hookAudioDuration: options.hookAudioDuration,
+      hookImageFile,
+      hookWordTimings: options.hookWordTimings,
+      coverImageFile,
       slides: options.slides.map((s, i) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const slideData: any = {

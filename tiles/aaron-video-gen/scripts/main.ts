@@ -6,7 +6,7 @@
  *   npx -y bun scripts/main.ts --script <path> [options]
  */
 
-import { existsSync, readFileSync, mkdirSync, writeFileSync, copyFileSync } from "fs";
+import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, copyFileSync } from "fs";
 import { createHash } from "crypto";
 import { resolve, dirname, join, basename } from "path";
 import {
@@ -161,6 +161,8 @@ function parseArgs(): Record<string, string | boolean> {
       args.website = argv[++i];
     } else if (arg === "--skip-tts") {
       args.skipTts = "true";
+    } else if (arg === "--cover") {
+      args.cover = argv[++i];
     }
   }
 
@@ -292,6 +294,9 @@ async function main() {
   console.log(
     `[parse] Found ${parsed.slides.length} slides in "${parsed.title}"`
   );
+  if (parsed.hookNarration) {
+    console.log(`[parse] Found [HOOK] section (${parsed.hookNarration.length} chars)`);
+  }
 
   // ---------------------------------------------------------------------------
   // Step 2: Resolve image paths
@@ -565,6 +570,67 @@ async function main() {
   }
 
   // ---------------------------------------------------------------------------
+  // Step 3.5: Generate TTS for content hook (if present)
+  // ---------------------------------------------------------------------------
+  interface HookTTSResult {
+    audioPath: string;
+    duration: number;
+    wordTimings?: WordTiming[];
+    imagePath?: string;
+  }
+  let hookTTS: HookTTSResult | undefined;
+
+  if (parsed.hookNarration && !dryRun) {
+    console.log(`\n[tts] Generating hook narration...`);
+    const hookCacheKey = (() => {
+      const hash = createHash("md5")
+        .update(`${ttsProvider}|${voice}|${speed}|${parsed.hookNarration}`)
+        .digest("hex")
+        .slice(0, 12);
+      return `narration-hook-${hash}`;
+    })();
+
+    const cachedHook = loadTTSCache(hookCacheKey);
+    if (cachedHook) {
+      console.log(`  Hook → cached (${cachedHook.duration.toFixed(1)}s)`);
+      hookTTS = cachedHook;
+    } else if (skipTts) {
+      throw new Error(
+        `--skip-tts specified but no cached audio for hook. Run without --skip-tts first.`
+      );
+    } else {
+      console.log(`  Hook (${parsed.hookNarration.length} chars)`);
+      const result = await generateTTS(parsed.hookNarration, 99, {
+        provider: ttsProvider,
+        voice,
+        outputDir: ttsOutputDir,
+        speed,
+      });
+      console.log(`    → ${result.duration.toFixed(1)}s`);
+      saveTTSCache(hookCacheKey, result);
+      hookTTS = { ...result, audioPath: join(ttsCacheDir, `${hookCacheKey}.mp3`) };
+    }
+
+    // Resolve hook image: use hookImageRef if specified, otherwise first slide's image
+    if (parsed.hookImageRef && slides.length > 0) {
+      const imageFiles = (readdirSync(imagesDir) as string[])
+        .filter((f) => /\.(png|jpe?g|webp|gif|bmp|tiff?)$/i.test(f))
+        .sort();
+      const ref = parsed.hookImageRef;
+      let resolved: string | undefined;
+      if (imageFiles.includes(ref)) resolved = join(imagesDir, ref);
+      if (!resolved) {
+        const match = imageFiles.find((f) => f.toLowerCase().includes(ref.toLowerCase()));
+        if (match) resolved = join(imagesDir, match);
+      }
+      if (resolved) hookTTS.imagePath = resolved;
+    }
+    if (!hookTTS.imagePath && slides.length > 0) {
+      hookTTS.imagePath = slides[0].imagePath!;
+    }
+  }
+
+  // ---------------------------------------------------------------------------
   // Step 4: Concatenate narration audio
   // ---------------------------------------------------------------------------
   const narrationPath = join(ttsOutputDir, "narration-full.mp3");
@@ -649,6 +715,11 @@ async function main() {
       logoPath: args.logo ? resolve(String(args.logo)) : undefined,
       slogan: args.slogan ? String(args.slogan) : undefined,
       website: args.website ? String(args.website) : undefined,
+      hookAudioPath: hookTTS?.audioPath,
+      hookAudioDuration: hookTTS?.duration,
+      hookImagePath: hookTTS?.imagePath,
+      hookWordTimings: hookTTS?.wordTimings,
+      coverImagePath: args.cover ? resolve(String(args.cover)) : undefined,
     });
   } else {
     // FFmpeg renderer (legacy)

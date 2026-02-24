@@ -40,4 +40,9 @@ export interface VideoInputProps {
   logoFile?: string;
   slogan?: string;
   website?: string;
+  hookAudioFile?: string;
+  hookAudioDuration?: number;
+  hookImageFile?: string;
+  hookWordTimings?: WordTiming[];
+  coverImageFile?: string;
 }

@@ -16,6 +16,7 @@ interface IntroHookProps {
   logoFile?: string;
   slogan?: string;
   website?: string;
+  hasCover?: boolean;
 }
 
 /**
@@ -27,6 +28,7 @@ export const IntroHook: React.FC<IntroHookProps> = ({
   logoFile,
   slogan,
   website,
+  hasCover,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -128,31 +130,33 @@ export const IntroHook: React.FC<IntroHookProps> = ({
           </div>
         )}
 
-        {/* Video title */}
-        <div
-          style={{
-            opacity: titleOpacity,
-            transform: `translateY(${titleY}px)`,
-            textAlign: "center",
-            padding: "0 120px",
-            marginTop: 16,
-          }}
-        >
+        {/* Video title (hidden when cover image already shows it) */}
+        {!hasCover && (
           <div
             style={{
-              color: "#FFFFFF",
-              fontSize: 48,
-              fontFamily:
-                'Inter, -apple-system, "Segoe UI", sans-serif',
-              fontWeight: 800,
-              lineHeight: 1.2,
-              maxWidth: "70%",
-              margin: "0 auto",
+              opacity: titleOpacity,
+              transform: `translateY(${titleY}px)`,
+              textAlign: "center",
+              padding: "0 120px",
+              marginTop: 16,
             }}
           >
-            {videoTitle}
+            <div
+              style={{
+                color: "#FFFFFF",
+                fontSize: 48,
+                fontFamily:
+                  'Inter, -apple-system, "Segoe UI", sans-serif',
+                fontWeight: 800,
+                lineHeight: 1.2,
+                maxWidth: "70%",
+                margin: "0 auto",
+              }}
+            >
+              {videoTitle}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </AbsoluteFill>
   );
@@ -161,8 +165,10 @@ export const IntroHook: React.FC<IntroHookProps> = ({
 /**
  * Calculate the total duration in frames for the intro hook.
  */
-export function getIntroHookDuration(slideCount: number, fps: number): number {
+export function getIntroHookDuration(slideCount: number, fps: number, hasCover?: boolean): number {
   if (slideCount === 0) return 0;
-  // 3.5 seconds: logo+slogan fade in, title appears, hold, fade out
+  // When cover shows the title, shorten to logo+slogan only (2s)
+  if (hasCover) return Math.round(fps * 2);
+  // Full intro with title animation (3.5s)
   return Math.round(fps * 3.5);
 }
