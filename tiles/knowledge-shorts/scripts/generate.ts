@@ -244,7 +244,7 @@ async function generateKlingVideo(prompt: string): Promise<string> {
         headers: { ...headers, Authorization: `Bearer ${token2}` },
       });
       const d = await resp.json() as any;
-      if (d.code !== 0) continue;
+      if (d.code !== 0) { if (elapsed % 60 === 0) console.log(`  ⚠️ API code=${d.code} msg=${d.message} (${elapsed}s)`); continue; }
 
       const status = d.data?.task_status;
       if (status === "succeed") {

@@ -71,6 +71,39 @@ Each short is defined by a JSON file saved in the output directory:
 }
 ```
 
+## Topic Selection — The Golden Zone 🎯
+
+The best topics live in the sweet spot: **有趣但不傻，蹭热点但不正经**。
+
+### Tone
+- NOT hard science / too serious / "educational YouTube"
+- NOT random WTF / absurd / 无厘头
+- YES: "我靠真的假的？" — makes people curious, slightly uneasy, want to share
+- Target emotions: **贪**（钱、利益）、**嗔**（恐惧、焦虑）、**痴**（好奇、被骗了不自知）
+
+### Topic Formula
+1. **Find today's hot trend** (HN, X, news headlines)
+2. **DON'T cover the news itself** — find the fascinating adjacent story
+3. The topic should make someone stop scrolling AND want to tell a friend
+
+### Examples of Good Angles
+- Trend: "Amazon price manipulation" → Topic: "Casinos have no clocks or windows — on purpose" (大公司操控行为)
+- Trend: "AI coding goes mainstream" → Topic: "Netflix paid $1M to anyone who could beat their algorithm" (算法操控)
+- Trend: "Data breach" → Topic: "90% of people reuse the same password" (每个人看完都心虚)
+
+### Hint-Based Topics
+Aaron may drop casual hints from daily life (e.g. "my colleague went to Tulum"). When this happens:
+1. Research the hint — find the most fascinating, non-obvious fact related to it
+2. Spin it into a knowledge short with the same tone (curious, slightly dark, shareable)
+3. Add it to the batch alongside trend-based topics
+- Example hint: "Justin went to Tulum" → "The Maya predicted the end of the world... and they were only off by 14 years" or "Tulum was the only Maya city with a beach — because it was a trading port for obsidian"
+
+### Anti-Patterns (Avoid)
+- ❌ Pure hard science ("Your brain uses 20 watts")
+- ❌ Random gross facts ("Your mattress doubles in weight")  
+- ❌ Too dark / violent without a clever angle
+- ❌ Generic listicle energy ("5 things you didn't know")
+
 ## Narration Guidelines
 
 - **~40-45 words** — fits in ~14 seconds at 1.2x speed
@@ -101,6 +134,12 @@ If text gets clipped, adjust these values in `KnowledgeShort.tsx`.
 - Can include one emoji
 - Acts as the "hook" — visible for the entire video
 - Should make viewers curious enough to keep watching
+
+## ⚠️ iCloud Sync — Script Handles It
+
+The generate script automatically syncs the final video to `iCloud/Aaron-Studio/shorts-ready/` with a slug-based filename. **Do NOT manually copy/sync files to iCloud** — this causes duplicates. The script's sync is the single source of truth.
+
+If you need a custom filename, pass `--output` with a meaningful directory name — the script uses `--topic` to generate the iCloud filename.
 
 ## Output Files
 
