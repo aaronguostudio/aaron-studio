@@ -25,6 +25,8 @@ import { ChapterIndicator } from "./components/ChapterIndicator";
 import { WordCaption } from "./components/WordCaption";
 import { ProgressBar } from "./components/ProgressBar";
 import { IntroHook, getIntroHookDuration } from "./components/IntroHook";
+import { ContentHook, getContentHookDuration } from "./components/ContentHook";
+import { CoverCard, getCoverCardDuration } from "./components/CoverCard";
 import { Outro, OUTRO_DURATION_SEC } from "./components/Outro";
 import type { VideoInputProps } from "./types";
 
@@ -51,15 +53,23 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
   logoFile,
   slogan,
   website,
+  hookAudioFile,
+  hookAudioDuration,
+  hookImageFile,
+  hookWordTimings,
+  coverImageFile,
 }) => {
   const transitionFrames = Math.round(transitionDurationSec * fps);
   const lastIndex = slides.length - 1;
-  const introHookDuration = getIntroHookDuration(slides.length, fps);
+  const coverCardDuration = getCoverCardDuration(coverImageFile, fps);
+  const contentHookDuration = getContentHookDuration(hookAudioDuration, fps);
+  const introHookDuration = getIntroHookDuration(slides.length, fps, !!coverImageFile);
+  const preContentFrames = coverCardDuration + contentHookDuration + introHookDuration;
   const outroDurationFrames = Math.round(OUTRO_DURATION_SEC * fps);
 
   // Calculate cumulative slide start frames (for progress bar markers)
   const slideStartFrames: number[] = [];
-  let cumulativeFrame = introHookDuration;
+  let cumulativeFrame = preContentFrames;
   for (let i = 0; i < slides.length; i++) {
     slideStartFrames.push(cumulativeFrame);
     const isFirst = i === 0;
@@ -77,21 +87,41 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0a0a" }}>
-      {/* Intro: logo + slogan + title */}
+      {/* Cover card: thumbnail image as opening frame */}
+      {coverCardDuration > 0 && coverImageFile && (
+        <Sequence durationInFrames={coverCardDuration}>
+          <CoverCard imageFile={coverImageFile} />
+        </Sequence>
+      )}
+
+      {/* Content hook: attention-grabbing teaser before branding */}
+      {contentHookDuration > 0 && hookAudioFile && hookImageFile && (
+        <Sequence from={coverCardDuration} durationInFrames={contentHookDuration}>
+          <ContentHook
+            imageFile={hookImageFile}
+            audioFile={hookAudioFile}
+            audioDuration={hookAudioDuration!}
+            wordTimings={hookWordTimings}
+          />
+        </Sequence>
+      )}
+
+      {/* Intro: logo + slogan (+ title when no cover) */}
       {introHookDuration > 0 && (
-        <Sequence durationInFrames={introHookDuration}>
+        <Sequence from={coverCardDuration + contentHookDuration} durationInFrames={introHookDuration}>
           <IntroHook
             slides={slides}
             videoTitle={videoTitle}
             logoFile={logoFile}
             slogan={slogan}
             website={website}
+            hasCover={!!coverImageFile}
           />
         </Sequence>
       )}
 
       {/* Main slide content */}
-      <Sequence from={introHookDuration}>
+      <Sequence from={preContentFrames}>
         <TransitionSeries>
           {slides.map((slideData, i) => {
             const isFirst = i === 0;
@@ -160,7 +190,7 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
       {/* Outro: fade to black with logo + slogan */}
       {(logoFile || slogan) && (
         <Sequence
-          from={cumulativeFrame + introHookDuration - outroDurationFrames}
+          from={cumulativeFrame + preContentFrames - outroDurationFrames}
           durationInFrames={outroDurationFrames}
         >
           <Outro logoFile={logoFile} slogan={slogan} website={website} />
@@ -181,7 +211,9 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
           musicFile={musicFile}
           slides={slides}
           fps={fps}
-          introHookDuration={introHookDuration}
+          preContentDuration={preContentFrames}
+          contentHookDuration={contentHookDuration}
+          hookAudioDuration={hookAudioDuration}
           transitionFrames={transitionFrames}
           paddingSec={paddingSec}
           baseVolume={musicVolume}
@@ -199,7 +231,9 @@ const BackgroundMusic: React.FC<{
   musicFile: string;
   slides: VideoInputProps["slides"];
   fps: number;
-  introHookDuration: number;
+  preContentDuration: number;
+  contentHookDuration: number;
+  hookAudioDuration?: number;
   transitionFrames: number;
   paddingSec: number;
   baseVolume: number;
@@ -207,7 +241,9 @@ const BackgroundMusic: React.FC<{
   musicFile,
   slides,
   fps,
-  introHookDuration,
+  preContentDuration,
+  contentHookDuration,
+  hookAudioDuration,
   transitionFrames,
   paddingSec,
   baseVolume,
@@ -218,7 +254,16 @@ const BackgroundMusic: React.FC<{
   // Build a list of narration time ranges (global frame numbers)
   // to know when to duck the music
   const narrationRanges: Array<{ start: number; end: number }> = [];
-  let pos = introHookDuration;
+
+  // Duck during content hook narration
+  if (contentHookDuration > 0 && hookAudioDuration) {
+    narrationRanges.push({
+      start: 0,
+      end: Math.ceil(hookAudioDuration * fps),
+    });
+  }
+
+  let pos = preContentDuration;
 
   for (let i = 0; i < slides.length; i++) {
     const isFirst = i === 0;

@@ -32,9 +32,12 @@ export interface ParsedScript {
   title: string;
   slides: SlideSection[];
   productionNotes?: string;
+  hookNarration?: string;
+  hookImageRef?: string;
 }
 
 const SLIDE_HEADER_RE = /^##\s*\[SLIDE:\s*(.+?)(?:\s*[—–\-]\s*(.+?))?\s*\]\s*$/;
+const HOOK_HEADER_RE = /^##\s*\[HOOK(?:\s*:\s*(.+?))?\s*\]\s*$/;
 const SECTION_DIVIDER = /^---\s*$/;
 const IMAGE_MARKER_RE = /^\[IMAGE:\s*(.+?)\s*\]\s*$/;
 
@@ -53,6 +56,12 @@ export function parseYoutubeScript(content: string): ParsedScript {
     }
   }
 
+  // Parse [HOOK] section (appears before first slide)
+  let hookNarration: string | undefined;
+  let hookImageRef: string | undefined;
+  let inHook = false;
+  let hookLines: string[] = [];
+
   let currentSlide: Partial<SlideSection> | null = null;
   let narrationLines: string[] = [];
   // Tracks [IMAGE:] markers found within a slide's narration.
@@ -62,6 +71,14 @@ export function parseYoutubeScript(content: string): ParsedScript {
   let slideIndex = 0;
 
   for (const line of lines) {
+    // Check for hook header (before any slide)
+    const hookMatch = line.match(HOOK_HEADER_RE);
+    if (hookMatch && slides.length === 0 && !currentSlide) {
+      inHook = true;
+      hookImageRef = hookMatch[1]?.trim() || undefined;
+      continue;
+    }
+
     // Check for production notes section
     if (/^##\s*Production Notes/i.test(line)) {
       if (currentSlide) {
@@ -82,6 +99,12 @@ export function parseYoutubeScript(content: string): ParsedScript {
     // Check for slide header
     const headerMatch = line.match(SLIDE_HEADER_RE);
     if (headerMatch) {
+      // Flush hook section if we were in it
+      if (inHook) {
+        hookNarration = cleanNarration(hookLines);
+        inHook = false;
+        hookLines = [];
+      }
       // Flush previous slide
       if (currentSlide) {
         flushSlide(currentSlide, narrationLines, imageMarkers, slides);
@@ -98,8 +121,19 @@ export function parseYoutubeScript(content: string): ParsedScript {
       continue;
     }
 
-    // Skip section dividers
+    // Skip section dividers (but flush hook if in hook mode)
     if (SECTION_DIVIDER.test(line)) {
+      if (inHook) {
+        hookNarration = cleanNarration(hookLines);
+        inHook = false;
+        hookLines = [];
+      }
+      continue;
+    }
+
+    // Accumulate hook narration lines
+    if (inHook) {
+      hookLines.push(line);
       continue;
     }
 
@@ -128,6 +162,8 @@ export function parseYoutubeScript(content: string): ParsedScript {
     title: scriptTitle,
     slides,
     productionNotes: productionNotes.trim() || undefined,
+    hookNarration: hookNarration || undefined,
+    hookImageRef: hookImageRef || undefined,
   };
 }
 

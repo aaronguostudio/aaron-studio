@@ -9,11 +9,11 @@ Generate YouTube-ready MP4 videos from a script markdown file and slide images.
 
 ## Pipeline
 
-1. **Parse** the youtube-script.md — extract slide sections, detect `[IMAGE:]` markers for progressive builds
+1. **Parse** the youtube-script.md — extract slide sections, detect `[IMAGE:]` markers for image switches
 2. **Rewrite narration** (optional) — LLM rewrites narration conversationally (pauses, humor, natural rhythm). Tracks used openings and transition phrases across slides to avoid repetition (e.g., "You know what's interesting" won't appear multiple times)
 3. **Generate narration** — TTS audio for each slide section (edge-tts, OpenAI, or ElevenLabs)
-4. **Compute progressive build timings** — sync image changes to word-level timestamps from ElevenLabs
-5. **Build video** — Remotion renders slides with progressive reveals, captions, transitions, and branding
+4. **Compute image switch timings** — sync image changes to word-level timestamps from ElevenLabs
+5. **Build video** — Remotion renders slides with image switches, captions, transitions, and branding
 6. **Mix music** (optional) — layer background music with auto-ducking during narration
 7. **Output** — MP4 file (1920x1080 by default)
 
@@ -30,15 +30,17 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
   --speed 1.1 \
   --logo assets/aaron-logo-assets/ag-logo.png \
   --slogan "AI-native builder. Human-first thinker." \
-  --website aaronguo.com
+  --website aaronguo.com \
+  --cover <path-to-thumbnail.png>
 ```
 
 Key defaults for Aaron's videos:
 - **TTS**: ElevenLabs, Henry voice (991lF4hc0xxfec4Y6B0i), speed 1.1x
-- **Renderer**: Remotion (motion graphics, progressive builds, word-level captions)
+- **Renderer**: Remotion (motion graphics, image switches, word-level captions)
 - **Branding**: ag-logo.png + slogan + website in intro and outro
+- **Cover**: Thumbnail image with bold title shown at video start (also uploaded as YouTube thumbnail)
 - **Transitions**: 1.2s between slides (fade, slide, wipe, flip, etc.)
-- **Images**: Static within slides (no Ken Burns), progressive builds via `[IMAGE:]` markers
+- **Images**: Static within slides (no Ken Burns), image switches via `[IMAGE:]` markers
 
 ## Prerequisites
 
@@ -81,6 +83,7 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts --script <path-to-youtube-script.md> [op
 | `--conversational` | Enable LLM rewrite for natural tone | `true` |
 | `--no-conversational` | Disable LLM narration rewrite | |
 | `--resolution` | Video resolution (legacy FFmpeg only) | `1920x1080` |
+| `--cover` | Path to cover/thumbnail image (shown at video start, also usable as YouTube thumbnail) | none |
 | `--dry-run` | Print the command without executing | `false` |
 
 ## Script Format
@@ -90,13 +93,20 @@ The skill parses markdown files with this structure:
 ```markdown
 # Video Title
 
-## [SLIDE: Cover Image — cover.png]
+## [HOOK]
+
+A short, attention-grabbing teaser that plays before the branding intro.
+Keeps viewers from scrolling past. 2-4 sentences max.
+
+---
+
+## [SLIDE: The Promise vs Reality — cover.png]
 
 Narration text for this slide.
 
 ---
 
-## [SLIDE: Slide Title — 01a-partial.png]
+## [SLIDE: The Pattern — 01a-pattern-history.png]
 
 First part of narration...
 
@@ -107,36 +117,71 @@ Second part of narration after image change...
 ---
 ```
 
-### Progressive Builds with `[IMAGE:]` Markers
+### Slide Titles — Chapter Indicators
 
-To make slides more engaging (like PowerPoint builds), add `[IMAGE:]` markers inline in the narration. The system crossfades between images synced to the narration:
+**IMPORTANT**: The title in `## [SLIDE: Title — image.png]` becomes the chapter indicator shown in the video's progress bar. Titles MUST be meaningful and descriptive — they are visible to viewers throughout each section.
 
-- The initial image comes from the `[SLIDE:]` header (e.g., `01a-partial.png` — a partial version)
-- `[IMAGE: 01-full.png]` triggers a crossfade to the full version at that narration point
-- Multiple markers per slide are supported (2-4 images per slide is typical)
-- ElevenLabs word-level timings enable precise sync; other TTS providers use proportional estimation
+**Good titles**: "The Pattern", "The Effort Shift", "The Amplifier", "The Real Data"
+**Bad titles**: "Cover Image", "Illustration 01", "Section 3", "My Experience"
 
-**Example — 3 images per slide:**
+When writing a youtube-script.md from a blog post, derive titles from the blog's section headings or core concept of each slide.
+
+### Content Hook with `[HOOK]`
+
+Add an optional `## [HOOK]` section before the first slide to create an attention-grabbing teaser at the start of the video. The hook plays before the branding intro (logo + slogan + title).
+
+- **Placement**: Must appear before the first `## [SLIDE:]` section
+- **Narration**: Gets its own TTS audio (same voice/provider as slides)
+- **Image**: Displays over the cover image (first slide's image) by default
+- **Custom image**: Use `## [HOOK: specific-image.png]` to specify a different image
+- **Duration**: Driven by TTS audio length + 1s padding
+- **Captions**: Word-level captions appear during the hook (with ElevenLabs)
+- **Optional**: If no `[HOOK]` section is present, the video starts with the branding intro as before
+
+**Example:**
 ```markdown
-## [SLIDE: Two Modes — 04a-two-modes.png]
+## [HOOK]
 
-Scatter Mode is parallel, exploratory, and AI-amplified.
+Every few decades, a new technology promises to make everyone a creator.
+The camera. Auto-Tune. Now AI. And every single time, the same result.
 
-[IMAGE: 04-two-modes.png]
+---
+```
 
-Laser Mode is sequential, focused, and human-led.
+### Image Switches with `[IMAGE:]` Markers
 
-[IMAGE: 04b-two-modes.png]
+To keep viewers engaged, add `[IMAGE:]` markers inline in the narration. The system crossfades to a different illustration synced to the narration — each image depicts a distinct concept or sub-topic:
 
-The insight that changed my workflow: the mode matters more than the tool.
+- The initial image comes from the `[SLIDE:]` header
+- `[IMAGE: filename.png]` triggers a crossfade to a new illustration at that narration point
+- Multiple markers per slide are supported (3-5 images per slide is typical, ~1 switch every 15-20s of narration)
+- ElevenLabs word-level timings enable precise sync; other TTS providers use proportional estimation
+- Each image is a **standalone illustration** — no visual consistency between images is required
+
+**Example — 4 images per slide:**
+```markdown
+## [SLIDE: The 6 Rules — s02-01-six-nodes-overview.png]
+
+Most summaries list 6 independent tips. They miss the point — these rules protect the same thing.
+
+[IMAGE: s02-02-rule1-never-stop.png]
+
+Rule 1: Never Stop. Commit to continuous learning, not "work 80 hours."
+
+[IMAGE: s02-03-rule2-no-debt.png]
+
+Rule 2: No Debt. Debt forces short-term optimization over long-term learning.
+
+[IMAGE: 02-six-rules-system.png]
+
+Together, they form an operating system for sustained excellence.
 
 ---
 ```
 
 **Image naming convention:**
-- `01a-name.png` — partial/progressive build (shown first)
-- `01-name.png` — main/full illustration
-- `01b-name.png` — second progressive build (shown after main)
+- `NN-name.png` — blog illustration (reused in video as anchor image per section)
+- `sNN-MM-name.png` — video-only illustration (slide NN, image MM within that slide)
 
 ### Slide Matching Rules
 
@@ -147,9 +192,11 @@ The text after `—` (em dash) in the slide header is used to find the image:
 
 ## Video Features
 
-### Branding (Intro + Outro)
+### Branding (Hook + Intro + Outro)
 When `--logo`, `--slogan`, or `--website` are provided:
-- **Intro**: Logo + slogan + website fade in, then video title appears (3.5s)
+- **Cover Card** (optional, `--cover`): Full-bleed thumbnail/cover image with title baked in (~2.5s). Replaces the black screen opening.
+- **Content Hook** (optional): Attention-grabbing teaser with narration over cover image, plays before branding
+- **Intro**: Logo + slogan + website fade in. When a cover is present, the intro is shortened to 2s (no title, since the cover already shows it). Without cover: 3.5s with animated title.
 - **Outro**: Fade to black, logo + slogan + website appear (4s)
 
 ### Word-Level Captions
@@ -175,6 +222,8 @@ TTS audio is cached in `<script-dir>/.video-gen-cache/`. On subsequent runs:
 - The cache persists across runs — delete `.video-gen-cache/` to force full regeneration
 
 This means visual-only changes (transitions, branding, images) won't re-incur TTS costs.
+
+**Important**: Changing `[IMAGE:]` markers (adding, removing, or moving them) changes the segment structure of slides, which invalidates the rewrite cache. When loading a cached rewrite with a mismatched segment count, the rebuilt narration text differs, breaking TTS cache lookups. If you modify `[IMAGE:]` markers after a video has been generated, **delete `rewrite-*.txt` from `.video-gen-cache/`** and re-run without `--skip-tts` to regenerate rewrites and TTS.
 
 ### Progress Bar
 A thin progress indicator at the top shows the current section and overall progress. Uses a dark gradient backdrop for visibility on both light and dark slide backgrounds.
@@ -242,18 +291,110 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
   --renderer remotion
 ```
 
+## Blog-to-Video Workflow
+
+When generating a video from a blog post, follow these steps in order. Every step is required — skipping video illustrations or using generic titles will produce a low-quality video.
+
+### Step 1: Write youtube-script.md
+
+Convert the blog post into a narration script. For each major section:
+- Create a `## [SLIDE: Title — image.png]` header with a **meaningful title** (not "Illustration 01")
+- Write conversational narration text (the pipeline's LLM rewrite will polish it further)
+- Add `[IMAGE:]` markers at natural concept boundaries (~1 every 15-20s of narration)
+
+Add a `## [HOOK]` section at the top — 2-4 sentences that tease the video's core insight.
+
+### Step 2: Generate additional video illustrations
+
+Blog posts typically have 5-6 illustrations. Videos need 20-30 unique images to maintain visual engagement. Generate 15-20 additional standalone illustrations depicting specific concepts from the narration.
+
+Each illustration is independent — no need for visual consistency between images. Use `baoyu-image-gen` to generate standalone concept images:
+
+```bash
+npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
+  --prompt "[Concept description]. [Visual metaphor]. [Style notes]." \
+  --image <blog-dir>/imgs/sNN-MM-name.png \
+  --ar 16:9 --quality 2k
+```
+
+**Naming convention:**
+- `NN-name.png` — blog illustration (reused from article, one per section)
+- `sNN-MM-name.png` — video-only illustration (slide NN, image MM)
+- `cover.png` / `thumbnail.png` — cover and thumbnail
+
+**Planning:** Before generating, list all images needed per slide based on narration segments. Target ~1 image per 15-20 seconds of narration. Blog images serve as "anchor" images within their respective slides.
+
+### Step 3: Place `[IMAGE:]` markers in the script
+
+Insert `[IMAGE:]` markers at concept boundaries where the narration shifts to a new sub-topic:
+
+```markdown
+## [SLIDE: The 6 Rules — s02-01-six-nodes-overview.png]
+
+Overview narration (viewer sees overview image)...
+
+[IMAGE: s02-02-rule1-never-stop.png]
+
+Rule 1 narration (viewer sees Rule 1 image)...
+
+[IMAGE: s02-03-rule2-no-debt.png]
+
+Rule 2 narration (viewer sees Rule 2 image)...
+
+[IMAGE: 02-six-rules-system.png]
+
+Synthesis narration (viewer sees blog's anchor illustration)...
+```
+
+### Step 4: Generate thumbnail/cover image
+
+Generate a YouTube thumbnail with the video title in bold text. This same image is used as:
+- The video's opening frame (via `--cover`)
+- The YouTube thumbnail (uploaded separately)
+
+```bash
+npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
+  --prompt "YouTube thumbnail, [description with bold title text]. Minimalist line art, high contrast, bold sans-serif typography." \
+  --image <blog-dir>/imgs/thumbnail.png \
+  --ar 16:9 --quality 2k
+```
+
+### Step 5: Run the pipeline
+
+```bash
+npx -y bun ${SKILL_DIR}/scripts/main.ts \
+  --script <blog-dir>/youtube-script.md \
+  --renderer remotion --tts elevenlabs \
+  --voice 991lF4hc0xxfec4Y6B0i --speed 1.1 \
+  --logo assets/aaron-logo-assets/ag-logo.png \
+  --slogan "AI-native builder. Human-first thinker." \
+  --website aaronguo.com \
+  --cover <blog-dir>/imgs/thumbnail.png
+```
+
+### Step 6: Verify
+
+- Video opens with thumbnail/cover image (not black screen)
+- Chapter indicators show meaningful titles (not generic labels)
+- Image switches crossfade at the right narration points (~every 15-20s)
+- Hook plays before branding intro
+- Word captions are in sync
+
+### Step 7: Generate YouTube metadata
+
+Create `<blog-dir>/youtube-metadata.md` with title, description (with chapters), tags. See the "YouTube Metadata Generation" section below for the full format. Compute chapter timestamps from the pipeline's TTS audio durations + cover card (2.5s) + hook duration + intro (2s with cover, 3.5s without) + transition overlaps (1.2s).
+
 ## Image Generation Workflow
 
-For each blog post, generate 10-20 images total:
-1. **Base illustrations** (5-7): Main concept images for each slide section, matching the blog's existing art style
-2. **Progressive builds** (5-10): Partial versions that reveal content step by step, named with `a`/`b` suffixes
+For each blog post video, generate 20-30 images total:
+1. **Blog illustrations** (5-7): Reused from the article as "anchor" images within each slide section
+2. **Video-only illustrations** (15-20): Standalone concept images, each depicting a specific sub-topic from the narration. Named with `sNN-MM-` prefix.
 
-Use the `baoyu-image-gen` skill to generate images. For Aaron's style:
-- Notion-style minimalist hand-drawn line art
-- Simple doodle-style with intentional wobble, stick figures
-- Clean black outlines (#1A1A1A) on white background (#FFFFFF)
-- Pastel accents: soft blue (#A8D4F0), soft yellow (#F9E79F), soft pink (#FADBD8)
+Use the `baoyu-image-gen` skill to generate images. Match the art style used in the blog's illustrations (style varies per article). Each image is independent — no visual consistency between images is required. Target ~1 image per 15-20 seconds of narration for good visual pacing.
+
+Common settings:
 - 16:9 aspect ratio, 2K quality
+- Generate in parallel batches of 4-5 for efficiency
 
 ## YouTube Metadata Generation
 
@@ -274,7 +415,7 @@ Structure the description in this order:
 7. **Hashtags** — 5-10 relevant hashtags at the end
 
 #### Computing Chapter Timestamps
-Calculate from slide audio durations + intro hook (3.5s) + transitions (1.2s overlap):
+Calculate from slide audio durations + content hook duration + intro hook (3.5s) + transitions (1.2s overlap):
 - Chapter 0 starts at `0:00`
 - Each subsequent chapter: previous start + slide duration - transition overlap
 - Round to nearest second for clean timestamps
@@ -318,7 +459,7 @@ AI productivity, AI burnout, artificial intelligence, ...
 
 ## YouTube Thumbnail Generation
 
-Generate 2 thumbnail options using the `baoyu-image-gen` skill. YouTube thumbnails must be eye-catching at small sizes.
+Generate 2 thumbnail options using the `baoyu-image-gen` skill. YouTube thumbnails must be eye-catching at small sizes. The best thumbnail also serves as the video's opening frame via `--cover` (see Blog-to-Video Workflow Step 4).
 
 ### Thumbnail Best Practices
 - **Aspect ratio**: 16:9 (1920x1080 or 1280x720)
@@ -363,7 +504,7 @@ Conversational narration rewrites are cached in `<script-dir>/.video-gen-cache/`
 
 | Component | Provider | Estimated Cost |
 |-----------|----------|---------------|
-| Images (10-20) | Google Gemini | ~$0.50-1.00 |
+| Images (20-30) | Google Gemini | ~$1.00-1.50 |
 | Thumbnails (2) | Google Gemini | ~$0.10 |
 | TTS narration (~8 min) | ElevenLabs | ~$2.40 |
 | Narration rewrite | OpenAI GPT-4o-mini | ~$0.10 |

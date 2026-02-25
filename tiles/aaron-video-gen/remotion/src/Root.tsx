@@ -4,6 +4,8 @@ import { SlideshowVideo } from "./SlideshowVideo";
 import { KnowledgeShort } from "./KnowledgeShort";
 import type { KnowledgeShortProps } from "./KnowledgeShort";
 import { getIntroHookDuration } from "./components/IntroHook";
+import { getContentHookDuration } from "./components/ContentHook";
+import { getCoverCardDuration } from "./components/CoverCard";
 import { OUTRO_DURATION_SEC } from "./components/Outro";
 import type { VideoInputProps } from "./types";
 
@@ -31,8 +33,10 @@ export const RemotionRoot: React.FC = () => {
         const numSlides = props.slides.length;
         const lastIndex = numSlides - 1;
 
-        // Intro hook adds frames before the main content
-        const introHookFrames = getIntroHookDuration(numSlides, fps);
+        // Cover card + content hook + branding intro add frames before main content
+        const coverCardFrames = getCoverCardDuration(props.coverImageFile, fps);
+        const contentHookFrames = getContentHookDuration(props.hookAudioDuration, fps);
+        const introHookFrames = getIntroHookDuration(numSlides, fps, !!props.coverImageFile);
 
         // Each slide's duration includes buffers so audio doesn't overlap
         // during transitions:
@@ -57,7 +61,7 @@ export const RemotionRoot: React.FC = () => {
           ? Math.round(OUTRO_DURATION_SEC * fps * 0.5)
           : 0;
 
-        const durationInFrames = introHookFrames + mainContentFrames + outroExtraFrames;
+        const durationInFrames = coverCardFrames + contentHookFrames + introHookFrames + mainContentFrames + outroExtraFrames;
 
         return {
           durationInFrames,
