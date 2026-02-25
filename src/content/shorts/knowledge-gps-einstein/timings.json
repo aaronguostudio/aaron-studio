@@ -1,0 +1,267 @@
+[
+  {
+    "word": "Your",
+    "start": 0,
+    "end": 0.139
+  },
+  {
+    "word": "phone's",
+    "start": 0.174,
+    "end": 0.383
+  },
+  {
+    "word": "GPS",
+    "start": 0.418,
+    "end": 0.813
+  },
+  {
+    "word": "only",
+    "start": 0.894,
+    "end": 1.057
+  },
+  {
+    "word": "works",
+    "start": 1.08,
+    "end": 1.242
+  },
+  {
+    "word": "because",
+    "start": 1.265,
+    "end": 1.451
+  },
+  {
+    "word": "of",
+    "start": 1.474,
+    "end": 1.521
+  },
+  {
+    "word": "Einstein.",
+    "start": 1.579,
+    "end": 2.136
+  },
+  {
+    "word": "Satellites",
+    "start": 2.566,
+    "end": 2.984
+  },
+  {
+    "word": "move",
+    "start": 3.019,
+    "end": 3.17
+  },
+  {
+    "word": "so",
+    "start": 3.193,
+    "end": 3.297
+  },
+  {
+    "word": "fast",
+    "start": 3.367,
+    "end": 3.704
+  },
+  {
+    "word": "their",
+    "start": 3.75,
+    "end": 3.878
+  },
+  {
+    "word": "clocks",
+    "start": 3.901,
+    "end": 4.145
+  },
+  {
+    "word": "drift",
+    "start": 4.18,
+    "end": 4.377
+  },
+  {
+    "word": "thirty",
+    "start": 4.435,
+    "end": 4.69
+  },
+  {
+    "word": "eight",
+    "start": 4.725,
+    "end": 4.841
+  },
+  {
+    "word": "microseconds",
+    "start": 4.865,
+    "end": 5.387
+  },
+  {
+    "word": "every",
+    "start": 5.457,
+    "end": 5.666
+  },
+  {
+    "word": "day.",
+    "start": 5.712,
+    "end": 6.095
+  },
+  {
+    "word": "Sounds",
+    "start": 6.525,
+    "end": 6.769
+  },
+  {
+    "word": "tiny?",
+    "start": 6.792,
+    "end": 7.245
+  },
+  {
+    "word": "Without",
+    "start": 7.616,
+    "end": 7.837
+  },
+  {
+    "word": "correction,",
+    "start": 7.872,
+    "end": 8.324
+  },
+  {
+    "word": "your",
+    "start": 8.417,
+    "end": 8.51
+  },
+  {
+    "word": "location",
+    "start": 8.557,
+    "end": 8.916
+  },
+  {
+    "word": "would",
+    "start": 8.94,
+    "end": 9.056
+  },
+  {
+    "word": "shift",
+    "start": 9.079,
+    "end": 9.288
+  },
+  {
+    "word": "ten",
+    "start": 9.358,
+    "end": 9.555
+  },
+  {
+    "word": "kilometers",
+    "start": 9.613,
+    "end": 10.008
+  },
+  {
+    "word": "daily.",
+    "start": 10.054,
+    "end": 10.495
+  },
+  {
+    "word": "Every",
+    "start": 10.995,
+    "end": 11.169
+  },
+  {
+    "word": "time",
+    "start": 11.204,
+    "end": 11.343
+  },
+  {
+    "word": "you",
+    "start": 11.366,
+    "end": 11.436
+  },
+  {
+    "word": "open",
+    "start": 11.483,
+    "end": 11.634
+  },
+  {
+    "word": "Google",
+    "start": 11.68,
+    "end": 11.877
+  },
+  {
+    "word": "Maps,",
+    "start": 11.901,
+    "end": 12.226
+  },
+  {
+    "word": "you're",
+    "start": 12.272,
+    "end": 12.411
+  },
+  {
+    "word": "using",
+    "start": 12.458,
+    "end": 12.667
+  },
+  {
+    "word": "a",
+    "start": 12.69,
+    "end": 12.713
+  },
+  {
+    "word": "theory",
+    "start": 12.748,
+    "end": 12.922
+  },
+  {
+    "word": "from",
+    "start": 12.969,
+    "end": 13.062
+  },
+  {
+    "word": "nineteen",
+    "start": 13.12,
+    "end": 13.398
+  },
+  {
+    "word": "fifteen.",
+    "start": 13.445,
+    "end": 13.944
+  },
+  {
+    "word": "Einstein",
+    "start": 14.315,
+    "end": 14.687
+  },
+  {
+    "word": "didn't",
+    "start": 14.733,
+    "end": 14.884
+  },
+  {
+    "word": "just",
+    "start": 14.919,
+    "end": 15.059
+  },
+  {
+    "word": "change",
+    "start": 15.093,
+    "end": 15.372
+  },
+  {
+    "word": "physics.",
+    "start": 15.407,
+    "end": 15.906
+  },
+  {
+    "word": "He",
+    "start": 16.034,
+    "end": 16.138
+  },
+  {
+    "word": "changed",
+    "start": 16.185,
+    "end": 16.475
+  },
+  {
+    "word": "your",
+    "start": 16.498,
+    "end": 16.591
+  },
+  {
+    "word": "commute.",
+    "start": 16.626,
+    "end": 17.23
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "name": "music-shorts",
+  "version": "1.0.0",
+  "dependencies": { "jsonwebtoken": "^9.0.0" },
+  "devDependencies": { "@types/jsonwebtoken": "^9.0.0" }
+}

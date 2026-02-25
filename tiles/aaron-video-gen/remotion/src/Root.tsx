@@ -1,6 +1,8 @@
 import React from "react";
 import { Composition } from "remotion";
 import { SlideshowVideo } from "./SlideshowVideo";
+import { KnowledgeShort } from "./KnowledgeShort";
+import type { KnowledgeShortProps } from "./KnowledgeShort";
 import { getIntroHookDuration } from "./components/IntroHook";
 import { OUTRO_DURATION_SEC } from "./components/Outro";
 import type { VideoInputProps } from "./types";
@@ -15,6 +17,7 @@ const defaultProps: VideoInputProps = {
 
 export const RemotionRoot: React.FC = () => {
   return (
+    <>
     <Composition
       id="SlideshowVideo"
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -65,5 +68,31 @@ export const RemotionRoot: React.FC = () => {
       }}
       defaultProps={defaultProps}
     />
+
+    {/* Knowledge Shorts — 9:16 vertical, 15s */}
+    <Composition
+      id="KnowledgeShort"
+      component={KnowledgeShort as any}
+      calculateMetadata={({ props: rawProps }) => {
+        const props = rawProps as unknown as KnowledgeShortProps;
+        const fps = props.fps || 30;
+        const durationSec = props.durationSec || 15;
+        return {
+          durationInFrames: Math.ceil(durationSec * fps),
+          fps,
+          width: 1080,
+          height: 1920,
+        };
+      }}
+      defaultProps={{
+        title: "Knowledge Short",
+        videoFile: "video.mp4",
+        audioFile: "narration.mp3",
+        wordTimings: [],
+        fps: 30,
+        durationSec: 15,
+      } as KnowledgeShortProps}
+    />
+    </>
   );
 };

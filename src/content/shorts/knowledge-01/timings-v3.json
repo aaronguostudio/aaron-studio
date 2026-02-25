@@ -1,0 +1,232 @@
+[
+  {
+    "word": "Every",
+    "start": 0.0,
+    "end": 0.255
+  },
+  {
+    "word": "ChatGPT",
+    "start": 0.302,
+    "end": 0.801
+  },
+  {
+    "word": "query",
+    "start": 0.894,
+    "end": 1.161
+  },
+  {
+    "word": "uses",
+    "start": 1.231,
+    "end": 1.474
+  },
+  {
+    "word": "ten",
+    "start": 1.521,
+    "end": 1.707
+  },
+  {
+    "word": "times",
+    "start": 1.765,
+    "end": 2.02
+  },
+  {
+    "word": "more",
+    "start": 2.055,
+    "end": 2.148
+  },
+  {
+    "word": "electricity",
+    "start": 2.171,
+    "end": 2.635
+  },
+  {
+    "word": "than",
+    "start": 2.705,
+    "end": 2.844
+  },
+  {
+    "word": "a",
+    "start": 2.868,
+    "end": 2.891
+  },
+  {
+    "word": "Google",
+    "start": 2.926,
+    "end": 3.158
+  },
+  {
+    "word": "search.",
+    "start": 3.181,
+    "end": 3.634
+  },
+  {
+    "word": "One",
+    "start": 4.063,
+    "end": 4.249
+  },
+  {
+    "word": "prompt",
+    "start": 4.284,
+    "end": 4.54
+  },
+  {
+    "word": "burns",
+    "start": 4.586,
+    "end": 4.83
+  },
+  {
+    "word": "three",
+    "start": 4.876,
+    "end": 5.097
+  },
+  {
+    "word": "watt-hours.",
+    "start": 5.143,
+    "end": 5.944
+  },
+  {
+    "word": "Google?",
+    "start": 6.269,
+    "end": 6.734
+  },
+  {
+    "word": "Just",
+    "start": 7.523,
+    "end": 7.697
+  },
+  {
+    "word": "zero",
+    "start": 7.732,
+    "end": 7.988
+  },
+  {
+    "word": "point",
+    "start": 8.046,
+    "end": 8.197
+  },
+  {
+    "word": "three.",
+    "start": 8.231,
+    "end": 8.638
+  },
+  {
+    "word": "If",
+    "start": 9.009,
+    "end": 9.114
+  },
+  {
+    "word": "everyone",
+    "start": 9.16,
+    "end": 9.392
+  },
+  {
+    "word": "switched",
+    "start": 9.416,
+    "end": 9.636
+  },
+  {
+    "word": "to",
+    "start": 9.659,
+    "end": 9.706
+  },
+  {
+    "word": "AI,",
+    "start": 9.764,
+    "end": 10.147
+  },
+  {
+    "word": "we'd",
+    "start": 10.205,
+    "end": 10.368
+  },
+  {
+    "word": "need",
+    "start": 10.414,
+    "end": 10.565
+  },
+  {
+    "word": "new",
+    "start": 10.635,
+    "end": 10.739
+  },
+  {
+    "word": "power",
+    "start": 10.786,
+    "end": 10.983
+  },
+  {
+    "word": "plants",
+    "start": 11.018,
+    "end": 11.273
+  },
+  {
+    "word": "just",
+    "start": 11.331,
+    "end": 11.494
+  },
+  {
+    "word": "to",
+    "start": 11.517,
+    "end": 11.564
+  },
+  {
+    "word": "keep",
+    "start": 11.61,
+    "end": 11.784
+  },
+  {
+    "word": "up.",
+    "start": 11.842,
+    "end": 12.132
+  },
+  {
+    "word": "Your",
+    "start": 12.562,
+    "end": 12.678
+  },
+  {
+    "word": "AI",
+    "start": 12.713,
+    "end": 12.91
+  },
+  {
+    "word": "has",
+    "start": 12.968,
+    "end": 13.073
+  },
+  {
+    "word": "a",
+    "start": 13.108,
+    "end": 13.131
+  },
+  {
+    "word": "bigger",
+    "start": 13.177,
+    "end": 13.34
+  },
+  {
+    "word": "electricity",
+    "start": 13.363,
+    "end": 13.746
+  },
+  {
+    "word": "bill",
+    "start": 13.781,
+    "end": 13.932
+  },
+  {
+    "word": "than",
+    "start": 13.967,
+    "end": 14.06
+  },
+  {
+    "word": "your",
+    "start": 14.083,
+    "end": 14.176
+  },
+  {
+    "word": "fridge.",
+    "start": 14.211,
+    "end": 14.814
+  }
+]

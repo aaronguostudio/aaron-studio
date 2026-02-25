@@ -1,0 +1,292 @@
+[
+  {
+    "word": "Every",
+    "start": 0.0,
+    "end": 0.255
+  },
+  {
+    "word": "time",
+    "start": 0.302,
+    "end": 0.476
+  },
+  {
+    "word": "you",
+    "start": 0.511,
+    "end": 0.592
+  },
+  {
+    "word": "ask",
+    "start": 0.65,
+    "end": 0.801
+  },
+  {
+    "word": "ChatGPT",
+    "start": 0.859,
+    "end": 1.416
+  },
+  {
+    "word": "a",
+    "start": 1.486,
+    "end": 1.509
+  },
+  {
+    "word": "question,",
+    "start": 1.556,
+    "end": 2.078
+  },
+  {
+    "word": "it",
+    "start": 2.229,
+    "end": 2.322
+  },
+  {
+    "word": "uses",
+    "start": 2.38,
+    "end": 2.647
+  },
+  {
+    "word": "ten",
+    "start": 2.682,
+    "end": 2.879
+  },
+  {
+    "word": "times",
+    "start": 2.937,
+    "end": 3.204
+  },
+  {
+    "word": "more",
+    "start": 3.239,
+    "end": 3.367
+  },
+  {
+    "word": "electricity",
+    "start": 3.39,
+    "end": 3.913
+  },
+  {
+    "word": "than",
+    "start": 3.982,
+    "end": 4.133
+  },
+  {
+    "word": "a",
+    "start": 4.168,
+    "end": 4.191
+  },
+  {
+    "word": "Google",
+    "start": 4.249,
+    "end": 4.516
+  },
+  {
+    "word": "search.",
+    "start": 4.551,
+    "end": 5.004
+  },
+  {
+    "word": "One",
+    "start": 5.445,
+    "end": 5.642
+  },
+  {
+    "word": "query",
+    "start": 5.689,
+    "end": 6.06
+  },
+  {
+    "word": "burns",
+    "start": 6.188,
+    "end": 6.444
+  },
+  {
+    "word": "about",
+    "start": 6.478,
+    "end": 6.664
+  },
+  {
+    "word": "three",
+    "start": 6.711,
+    "end": 6.931
+  },
+  {
+    "word": "watt-hours.",
+    "start": 6.978,
+    "end": 7.837
+  },
+  {
+    "word": "Google?",
+    "start": 8.278,
+    "end": 8.777
+  },
+  {
+    "word": "Just",
+    "start": 9.218,
+    "end": 9.392
+  },
+  {
+    "word": "zero",
+    "start": 9.439,
+    "end": 9.659
+  },
+  {
+    "word": "point",
+    "start": 9.718,
+    "end": 9.903
+  },
+  {
+    "word": "three.",
+    "start": 9.938,
+    "end": 10.344
+  },
+  {
+    "word": "If",
+    "start": 10.786,
+    "end": 10.902
+  },
+  {
+    "word": "everyone",
+    "start": 10.948,
+    "end": 11.238
+  },
+  {
+    "word": "switched",
+    "start": 11.273,
+    "end": 11.529
+  },
+  {
+    "word": "from",
+    "start": 11.552,
+    "end": 11.668
+  },
+  {
+    "word": "Google",
+    "start": 11.726,
+    "end": 11.993
+  },
+  {
+    "word": "to",
+    "start": 12.028,
+    "end": 12.109
+  },
+  {
+    "word": "AI,",
+    "start": 12.214,
+    "end": 12.597
+  },
+  {
+    "word": "we'd",
+    "start": 12.655,
+    "end": 12.841
+  },
+  {
+    "word": "need",
+    "start": 12.887,
+    "end": 13.05
+  },
+  {
+    "word": "several",
+    "start": 13.119,
+    "end": 13.433
+  },
+  {
+    "word": "new",
+    "start": 13.491,
+    "end": 13.607
+  },
+  {
+    "word": "power",
+    "start": 13.653,
+    "end": 13.862
+  },
+  {
+    "word": "plants",
+    "start": 13.897,
+    "end": 14.246
+  },
+  {
+    "word": "just",
+    "start": 14.455,
+    "end": 14.652
+  },
+  {
+    "word": "to",
+    "start": 14.687,
+    "end": 14.733
+  },
+  {
+    "word": "keep",
+    "start": 14.803,
+    "end": 14.954
+  },
+  {
+    "word": "the",
+    "start": 14.989,
+    "end": 15.058
+  },
+  {
+    "word": "lights",
+    "start": 15.093,
+    "end": 15.302
+  },
+  {
+    "word": "on.",
+    "start": 15.348,
+    "end": 15.592
+  },
+  {
+    "word": "Your",
+    "start": 16.115,
+    "end": 16.266
+  },
+  {
+    "word": "AI",
+    "start": 16.324,
+    "end": 16.568
+  },
+  {
+    "word": "assistant",
+    "start": 16.626,
+    "end": 16.997
+  },
+  {
+    "word": "has",
+    "start": 17.044,
+    "end": 17.171
+  },
+  {
+    "word": "a",
+    "start": 17.206,
+    "end": 17.241
+  },
+  {
+    "word": "bigger",
+    "start": 17.276,
+    "end": 17.462
+  },
+  {
+    "word": "electricity",
+    "start": 17.496,
+    "end": 17.914
+  },
+  {
+    "word": "bill",
+    "start": 17.961,
+    "end": 18.123
+  },
+  {
+    "word": "than",
+    "start": 18.17,
+    "end": 18.297
+  },
+  {
+    "word": "your",
+    "start": 18.332,
+    "end": 18.448
+  },
+  {
+    "word": "fridge.",
+    "start": 18.483,
+    "end": 19.04
+  }
+]
