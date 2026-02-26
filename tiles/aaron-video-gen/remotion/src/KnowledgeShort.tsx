@@ -156,13 +156,18 @@ const TitleBanner: React.FC<{ title: string; currentTime: number }> = ({
     extrapolateRight: "clamp",
   });
 
+  // Dynamic font size: shrink for long titles, wrap to 2 lines
+  const titleLen = title.length;
+  const fontSize = titleLen > 25 ? 42 : 52;
+  const maxWidth = titleLen > 25 ? 850 : undefined;
+
   return (
     <div
       style={{
         position: "absolute",
-        top: 160,
-        left: 40,
-        right: 40,
+        top: 320,
+        left: 60,
+        right: 60,
         display: "flex",
         justifyContent: "center",
         opacity,
@@ -176,17 +181,20 @@ const TitleBanner: React.FC<{ title: string; currentTime: number }> = ({
           padding: "18px 36px",
           borderRadius: 16,
           border: "1px solid rgba(255, 255, 255, 0.15)",
+          ...(maxWidth ? { maxWidth } : {}),
         }}
       >
         <span
           style={{
             color: "#fff",
-            fontSize: 52,
+            fontSize,
             fontFamily: 'Inter, -apple-system, "Segoe UI", sans-serif',
             fontWeight: 700,
             textAlign: "center",
             lineHeight: 1.3,
             textShadow: "0 2px 8px rgba(0,0,0,0.5)",
+            display: "block",
+            wordWrap: "break-word",
           }}
         >
           {title}
@@ -237,7 +245,7 @@ const ShortCaption: React.FC<{
     <div
       style={{
         position: "absolute",
-        bottom: 280,
+        bottom: 380,
         left: 30,
         right: 30,
         display: "flex",

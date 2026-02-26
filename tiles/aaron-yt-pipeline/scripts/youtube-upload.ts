@@ -31,6 +31,7 @@ interface VideoMetadata {
   category: string;
   language: string;
   privacy: string;
+  publishAt?: string; // ISO 8601 datetime for scheduled publishing
 }
 
 function parseMetadataYaml(content: string): VideoMetadata {
@@ -91,6 +92,7 @@ function parseMetadataYaml(content: string): VideoMetadata {
     category: meta.category || "28", // Science & Technology
     language: meta.language || "en",
     privacy: meta.privacy || "unlisted",
+    publishAt: meta.publishAt || undefined,
   };
 }
 
@@ -112,8 +114,9 @@ async function initiateUpload(
       defaultLanguage: metadata.language,
     },
     status: {
-      privacyStatus: metadata.privacy,
+      privacyStatus: metadata.publishAt ? "private" : metadata.privacy,
       selfDeclaredMadeForKids: false,
+      ...(metadata.publishAt ? { publishAt: metadata.publishAt } : {}),
     },
   };
 
@@ -239,6 +242,7 @@ function parseArgs(): Record<string, string> {
     else if (arg === "--metadata") args.metadata = argv[++i];
     else if (arg === "--thumbnail") args.thumbnail = argv[++i];
     else if (arg === "--privacy") args.privacy = argv[++i];
+    else if (arg === "--schedule") args.schedule = argv[++i]; // ISO 8601 datetime
     else if (arg === "--make-public") args.makePublic = argv[++i]; // video ID
   }
   return args;
@@ -255,8 +259,9 @@ async function main() {
   }
 
   if (!args.video || !args.metadata) {
-    console.error("Usage: youtube-upload.ts --video <file> --metadata <yaml> [--thumbnail <img>] [--privacy unlisted]");
+    console.error("Usage: youtube-upload.ts --video <file> --metadata <yaml> [--thumbnail <img>] [--privacy unlisted] [--schedule <ISO8601>]");
     console.error("       youtube-upload.ts --make-public <video-id>");
+    console.error("\nSchedule example: --schedule 2026-02-25T08:00:00-07:00");
     process.exit(1);
   }
 
@@ -268,12 +273,14 @@ async function main() {
 
   const metadata = parseMetadataYaml(readFileSync(metadataPath, "utf-8"));
   if (args.privacy) metadata.privacy = args.privacy;
+  if (args.schedule) metadata.publishAt = args.schedule;
 
   const fileSize = statSync(videoPath).size;
   const accessToken = await getAccessToken();
 
   console.log(`\n[upload] Title: "${metadata.title}"`);
-  console.log(`[upload] Privacy: ${metadata.privacy}`);
+  console.log(`[upload] Privacy: ${metadata.publishAt ? "private (scheduled)" : metadata.privacy}`);
+  if (metadata.publishAt) console.log(`[upload] Scheduled: ${metadata.publishAt}`);
   console.log(`[upload] File: ${videoPath} (${(fileSize / 1024 / 1024).toFixed(1)} MB)`);
 
   // Step 1: Initiate resumable upload
@@ -298,7 +305,11 @@ async function main() {
   }
 
   console.log(`\n[upload] Done! Video available at: https://youtu.be/${videoId}`);
-  console.log(`[upload] Status: ${metadata.privacy}`);
+  if (metadata.publishAt) {
+    console.log(`[upload] Status: Scheduled for ${metadata.publishAt}`);
+  } else {
+    console.log(`[upload] Status: ${metadata.privacy}`);
+  }
 }
 
 main().catch((err) => {

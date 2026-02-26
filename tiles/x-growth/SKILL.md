@@ -93,16 +93,25 @@ Accounts whose audiences overlap with Aaron's positioning:
 
 ## Content Generation
 
-### From Knowledge Shorts
-When a knowledge short is produced, also generate a tweet:
+### Video on X — Builder Story, Not Content Dump
+
+**Principle:** Videos are ammo, not identity. Aaron's X identity is "AI-native builder." Videos are proof he's building, not the main content.
+
+**Rules:**
+- ✅ Share videos as part of a build-in-public narrative ("my AI agent made this")
+- ✅ 1-2 videos per week max on X, always wrapped in a story
+- ❌ Never just post the video with a caption — always frame it around the process/pipeline
+- ❌ Never post 3 shorts/day to X like YouTube — that turns the account into a content farm
+
+**Format:**
 ```
-[Hook line from the video]
+[Surprising pipeline stat or milestone]
 
-[1-2 sentence expansion]
+[1-2 sentences about HOW it was built / what you learned]
 
-[Video attached]
+[Optional: what's next]
 
-#shorts #ai (or relevant tags)
+[Attach 1 video as proof]
 ```
 
 ### From Daily Life / Hints

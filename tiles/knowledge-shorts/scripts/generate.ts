@@ -119,8 +119,8 @@ Return JSON (no markdown):
   "title": "Short title for top banner (2-6 words, English, can have 1 emoji)",
   "narration": "Narration text, ~40-45 words. Structure: Hook (surprising fact) → Context (scale it) → Punchline (memorable closer). Conversational tone. Every claim must be factual.",
   "videoPrompt": "Cinematic vertical video prompt for Kling AI. 3-4 scenes with multi-scene transitions. Describe visuals that match the narration. End with 'Photorealistic' + mood/color palette. Do NOT include any text or words in the video.",
-  "ytTitle": "YouTube title (catchy, <60 chars, with emoji)",
-  "ytDesc": "YouTube description (1-2 sentences + 5 hashtags)",
+  "ytTitle": "YouTube title (catchy, <70 chars including hashtags, with emoji). End with 2-3 relevant #hashtags. Example: 'Casino Tactics Exposed! 🎰 #casino #psychology #shorts'. Total must be under 100 chars.",
+  "ytDesc": "YouTube description: 1-2 sentences about the topic, then a blank line, then 5-8 #hashtags on a new line (always include #shorts #funfact #aiart). Example:\nDiscover the secrets behind casino design.\n\n#casino #psychology #shorts #funfact #aiart",
   "source": "Source of the key fact (study, organization, year)"
 }`;
 

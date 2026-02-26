@@ -122,8 +122,8 @@ Aaron may drop casual hints from daily life (e.g. "my colleague went to Tulum").
 ## YouTube Shorts Safe Zones
 
 On mobile, YouTube overlays UI elements (status bar, search, channel info, music, nav bar) that cover the top ~160px and bottom ~280px of a 1920-tall frame. The Remotion `KnowledgeShort` composition positions:
-- **Title banner:** `top: 160px` (below status bar + search)
-- **Captions:** `bottom: 280px` (above channel/music/nav)
+- **Title banner:** `top: 320px` (below status bar + Shorts nav + Subscriptions/Live/Lens row)
+- **Captions:** `bottom: 380px` (above channel name + video title + nav bar + potential tags)
 
 If text gets clipped, adjust these values in `KnowledgeShort.tsx`.
 
@@ -134,6 +134,39 @@ If text gets clipped, adjust these values in `KnowledgeShort.tsx`.
 - Can include one emoji
 - Acts as the "hook" — visible for the entire video
 - Should make viewers curious enough to keep watching
+
+## YouTube Upload & Scheduling
+
+After generation, upload to YouTube with scheduled publishing:
+
+```bash
+cd /Users/aaron/Work/aaron-studio && npx -y bun tiles/aaron-yt-pipeline/scripts/youtube-upload.ts \
+  --video output/short-final.mp4 \
+  --metadata output/metadata.yaml \
+  --schedule "2026-02-25T08:00:00-07:00"
+```
+
+### Scheduling Strategy
+- Generate videos today → schedule for **tomorrow** at staggered times
+- Best time slots (MST): **8:00 AM**, **12:00 PM**, **5:00 PM**
+- Max 3 shorts per day (avoid flooding subscribers)
+- Aaron reviews in YouTube Studio before publish time; cancel any he doesn't like
+- `--schedule` uses ISO 8601 format with timezone (MST = -07:00, MDT = -06:00)
+
+### Metadata YAML format
+```yaml
+title: "Casino Tactics Exposed! 🎰 #casino #shorts"
+description: |
+  Discover the secrets behind casino design.
+  
+  #casino #psychology #shorts #funfact #aiart
+tags:
+  - "casino"
+  - "shorts"
+category: "28"
+language: en
+privacy: private
+```
 
 ## ⚠️ iCloud Sync — Script Handles It
 
