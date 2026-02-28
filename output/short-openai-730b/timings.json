@@ -1,0 +1,262 @@
+[
+  {
+    "word": "OpenAI",
+    "start": 0,
+    "end": 0.511
+  },
+  {
+    "word": "just",
+    "start": 0.604,
+    "end": 0.755
+  },
+  {
+    "word": "raised",
+    "start": 0.813,
+    "end": 1.033
+  },
+  {
+    "word": "one",
+    "start": 1.08,
+    "end": 1.231
+  },
+  {
+    "word": "hundred",
+    "start": 1.277,
+    "end": 1.521
+  },
+  {
+    "word": "and",
+    "start": 1.544,
+    "end": 1.614
+  },
+  {
+    "word": "ten",
+    "start": 1.649,
+    "end": 1.846
+  },
+  {
+    "word": "billion",
+    "start": 1.927,
+    "end": 2.171
+  },
+  {
+    "word": "dollars",
+    "start": 2.206,
+    "end": 2.461
+  },
+  {
+    "word": "in",
+    "start": 2.508,
+    "end": 2.554
+  },
+  {
+    "word": "a",
+    "start": 2.577,
+    "end": 2.601
+  },
+  {
+    "word": "single",
+    "start": 2.67,
+    "end": 2.937
+  },
+  {
+    "word": "round.",
+    "start": 2.972,
+    "end": 3.413
+  },
+  {
+    "word": "That",
+    "start": 3.785,
+    "end": 3.971
+  },
+  {
+    "word": "values",
+    "start": 4.017,
+    "end": 4.296
+  },
+  {
+    "word": "the",
+    "start": 4.331,
+    "end": 4.4
+  },
+  {
+    "word": "company",
+    "start": 4.435,
+    "end": 4.76
+  },
+  {
+    "word": "at",
+    "start": 4.83,
+    "end": 4.957
+  },
+  {
+    "word": "seven",
+    "start": 5.027,
+    "end": 5.248
+  },
+  {
+    "word": "hundred",
+    "start": 5.283,
+    "end": 5.468
+  },
+  {
+    "word": "and",
+    "start": 5.492,
+    "end": 5.561
+  },
+  {
+    "word": "thirty",
+    "start": 5.608,
+    "end": 5.851
+  },
+  {
+    "word": "billion.",
+    "start": 5.886,
+    "end": 6.316
+  },
+  {
+    "word": "More",
+    "start": 6.687,
+    "end": 6.827
+  },
+  {
+    "word": "than",
+    "start": 6.85,
+    "end": 6.954
+  },
+  {
+    "word": "ninety",
+    "start": 7.001,
+    "end": 7.221
+  },
+  {
+    "word": "percent",
+    "start": 7.268,
+    "end": 7.558
+  },
+  {
+    "word": "of",
+    "start": 7.616,
+    "end": 7.674
+  },
+  {
+    "word": "all",
+    "start": 7.767,
+    "end": 7.93
+  },
+  {
+    "word": "public",
+    "start": 7.999,
+    "end": 8.22
+  },
+  {
+    "word": "companies",
+    "start": 8.255,
+    "end": 8.568
+  },
+  {
+    "word": "on",
+    "start": 8.615,
+    "end": 8.673
+  },
+  {
+    "word": "Earth.",
+    "start": 8.719,
+    "end": 9.079
+  },
+  {
+    "word": "A",
+    "start": 9.451,
+    "end": 9.52
+  },
+  {
+    "word": "chatbot",
+    "start": 9.59,
+    "end": 9.927
+  },
+  {
+    "word": "company",
+    "start": 9.985,
+    "end": 10.31
+  },
+  {
+    "word": "is",
+    "start": 10.368,
+    "end": 10.472
+  },
+  {
+    "word": "now",
+    "start": 10.53,
+    "end": 10.658
+  },
+  {
+    "word": "worth",
+    "start": 10.716,
+    "end": 10.879
+  },
+  {
+    "word": "more",
+    "start": 10.937,
+    "end": 11.122
+  },
+  {
+    "word": "than",
+    "start": 11.146,
+    "end": 11.238
+  },
+  {
+    "word": "most",
+    "start": 11.296,
+    "end": 11.459
+  },
+  {
+    "word": "countries",
+    "start": 11.505,
+    "end": 11.807
+  },
+  {
+    "word": "GDP.",
+    "start": 11.842,
+    "end": 12.504
+  },
+  {
+    "word": "And",
+    "start": 12.875,
+    "end": 13.096
+  },
+  {
+    "word": "it",
+    "start": 13.166,
+    "end": 13.224
+  },
+  {
+    "word": "still",
+    "start": 13.27,
+    "end": 13.433
+  },
+  {
+    "word": "has",
+    "start": 13.468,
+    "end": 13.56
+  },
+  {
+    "word": "not",
+    "start": 13.618,
+    "end": 13.723
+  },
+  {
+    "word": "made",
+    "start": 13.769,
+    "end": 13.92
+  },
+  {
+    "word": "a",
+    "start": 13.944,
+    "end": 13.967
+  },
+  {
+    "word": "profit.",
+    "start": 14.002,
+    "end": 14.629
+  }
+]

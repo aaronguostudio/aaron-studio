@@ -71,38 +71,55 @@ Each short is defined by a JSON file saved in the output directory:
 }
 ```
 
-## Topic Selection — The Golden Zone 🎯
+## Content Strategy (Data-Driven, Updated 2026-02-26)
 
-The best topics live in the sweet spot: **有趣但不傻，蹭热点但不正经**。
+### What Works on This Channel (Proven by Data)
+| Type | Example | Views | Why |
+|------|---------|-------|-----|
+| 🎵 Music + Nostalgia | Stairway to Heaven | 3,239 | Emotional connection, people search these songs |
+| 🎵 Music + Nostalgia | Radiohead Creep | 1,494 | Same — iconic song, relatable emotion |
+| 💥 Shocking Numbers | Russia War $900M/day | 1,244 | Outrage + scale = share |
+| 🎵 Music + Vibe | Inception Hans Zimmer | 337 | Film nostalgia + great music |
+| ❌ Cold Knowledge | Casino Tactics, Maya, Honey, 1GB cost | 4-53 | No emotional hook, no search demand |
 
-### Tone
-- NOT hard science / too serious / "educational YouTube"
-- NOT random WTF / absurd / 无厘头
-- YES: "我靠真的假的？" — makes people curious, slightly uneasy, want to share
-- Target emotions: **贪**（钱、利益）、**嗔**（恐惧、焦虑）、**痴**（好奇、被骗了不自知）
+### The Rule: Emotion > Information
+People don't share facts. They share **feelings**.
+- 🎵 "This song changed my life" → share
+- 🧠 "1GB cost $45,000 in 1980" → scroll past
 
-### Topic Formula
-1. **Find today's hot trend** (HN, X, news headlines)
-2. **DON'T cover the news itself** — find the fascinating adjacent story
-3. The topic should make someone stop scrolling AND want to tell a friend
+### Content Mix (Per Day)
+- **Max 1-2 shorts per day** (NOT 3+). Small channels get punished for overposting — each video dilutes CTR and algorithm trust.
+- **Primary (70%):** Music/nostalgia/vibe shorts — iconic songs, movie soundtracks, emotional moments
+- **Secondary (30%):** Knowledge shorts ONLY when topic has: shocking numbers + controversy + emotional reaction ("我靠真的假的？")
 
-### Examples of Good Angles
-- Trend: "Amazon price manipulation" → Topic: "Casinos have no clocks or windows — on purpose" (大公司操控行为)
-- Trend: "AI coding goes mainstream" → Topic: "Netflix paid $1M to anyone who could beat their algorithm" (算法操控)
-- Trend: "Data breach" → Topic: "90% of people reuse the same password" (每个人看完都心虚)
+### Posting Cadence
+- 1 short/day is ideal during growth phase
+- 2/day max if both are strong
+- **NEVER 3+/day** — this killed performance in Feb 24-26 batch
+- Better to skip a day than post something mid
+
+### Knowledge Short Topic Filter (STRICT)
+Before generating a knowledge short, it must pass ALL three:
+1. ✅ **Would someone text this to a friend?** (shareability)
+2. ✅ **Does it trigger an emotion?** (贪嗔痴 — greed, fear, or disbelief)
+3. ✅ **Is there a shocking number or comparison?** ($900M/day, 10x more, etc.)
+
+If it doesn't pass all three → skip it.
+
+### Anti-Patterns (Avoid)
+- ❌ Pure hard science ("Your brain uses 20 watts")
+- ❌ Random gross facts ("Your mattress doubles in weight")
+- ❌ Too dark / violent without a clever angle
+- ❌ Generic listicle energy ("5 things you didn't know")
+- ❌ Cold history facts with no emotional hook
+- ❌ Posting 3+ shorts in one day
 
 ### Hint-Based Topics
 Aaron may drop casual hints from daily life (e.g. "my colleague went to Tulum"). When this happens:
 1. Research the hint — find the most fascinating, non-obvious fact related to it
 2. Spin it into a knowledge short with the same tone (curious, slightly dark, shareable)
 3. Add it to the batch alongside trend-based topics
-- Example hint: "Justin went to Tulum" → "The Maya predicted the end of the world... and they were only off by 14 years" or "Tulum was the only Maya city with a beach — because it was a trading port for obsidian"
-
-### Anti-Patterns (Avoid)
-- ❌ Pure hard science ("Your brain uses 20 watts")
-- ❌ Random gross facts ("Your mattress doubles in weight")  
-- ❌ Too dark / violent without a clever angle
-- ❌ Generic listicle energy ("5 things you didn't know")
+- Example hint: "Justin went to Tulum" → "Tulum was the only Maya city with a beach — because it was a trading port for obsidian"
 
 ## Narration Guidelines
 
@@ -147,9 +164,10 @@ cd /Users/aaron/Work/aaron-studio && npx -y bun tiles/aaron-yt-pipeline/scripts/
 ```
 
 ### Scheduling Strategy
-- Generate videos today → schedule for **tomorrow** at staggered times
-- Best time slots (MST): **8:00 AM**, **12:00 PM**, **5:00 PM**
-- Max 3 shorts per day (avoid flooding subscribers)
+- Generate videos today → schedule for **tomorrow**
+- **2 shorts/day** at **12:00 PM** + **5:00 PM MST**
+- This is the sweet spot: consistent output without diluting performance
+- **NEVER schedule 3+ in one day** — proven to hurt performance
 - Aaron reviews in YouTube Studio before publish time; cancel any he doesn't like
 - `--schedule` uses ISO 8601 format with timezone (MST = -07:00, MDT = -06:00)
 
