@@ -1,0 +1,17 @@
+Using this got me thinking about something way bigger than just these specific plugins...
+
+---SEGMENT---
+
+Ever think about how skills really shape what we do? Picture this: you’ve got domain knowledge packed into these neat little structured files... they’re organized into skills and commands, all connected to data sources. Pretty cool, right? This isn't just a trend for the financial world; it’s a model that’s going to spread into all kinds of industries. These days, the software we’re talking about isn’t just about the code anymore. Nope, the real software is the knowledge itself.
+
+---SEGMENT---
+
+I had a lightbulb moment during a project at work. We were all about automating personalized investment recommendations. The initial idea? Build an entire system from the ground up. I mean, we’re talking designing the data pipeline, writing the orchestration logic, creating the output template, and linking everything to our existing systems. It was a massive undertaking — weeks of engineering effort, plus we’d need someone just to keep it running. Crazy, right?
+
+---SEGMENT---
+
+Check this out... I read through these plugins and, you know what? In just a few hours, I whipped up a working version. It was pretty straightforward. I created one file that packed in our recommendation logic, covering everything — our framework, our standards, and the required format. And then, all it took was a single command to run it. The result? A neatly structured recommendation, all set for the advisor to review. How cool is that?
+
+---SEGMENT---
+
+You know, what I thought would take weeks actually took just hours. Crazy, right? And the best part? Any senior team member can just dive into the skill file and polish it up without needing to touch any code. That’s where the magic happens — the gap between saying, "we need to build an agentic system" and actually getting down to, "let’s write a skill file." That’s the real paradigm shift we’re talking about!

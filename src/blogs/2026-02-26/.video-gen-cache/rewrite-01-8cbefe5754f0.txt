@@ -1,0 +1,19 @@
+Check this out... there are five plugins in total. It all starts with a core foundation called Financial Analysis, which is the first one you install. After that, you can add in four specialist modules, depending on what your team actually needs to do. Pretty neat, right?
+
+---SEGMENT---
+
+Ever wonder what's really behind the scenes in finance? Investment Banking is all about creating those critical Confidential Information Memorandums, or CIMs, you know? Plus, they’re busy building lists of potential buyers and running complex merger models. 
+
+Then you’ve got Equity Research. They're the folks diving into earnings reports, crafting investment theses, and keeping tabs on different sectors. It’s like being a financial detective! 
+
+Now, Private Equity is where the action gets real. Think deal sourcing, digging into due diligence, writing those all-important investment committee memos, and keeping an eye on the portfolio. 
+
+And let’s not forget Wealth Management. They prep for client meetings, rebalance portfolios, and craft financial plans. It’s all about making money work for people. Pretty fascinating stuff, right?
+
+---SEGMENT---
+
+Imagine this: you just type a command and mention a company... and bam! Claude whips up a complete Excel workbook with live formulas, or even a PowerPoint that’s all dressed up in your company's branded template. Seriously, it’s got forty-one built-in skills and thirty-eight commands. And the best part? No coding skills needed! How cool is that?
+
+---SEGMENT---
+
+Have you ever wondered what’s really in those skill files? It's not just a bunch of fancy AI prompts with some finance lingo sprinkled on top. These files actually capture the kind of reasoning that a senior analyst uses day in and day out. Take a moment to dig into a few... you’ll start to appreciate the thoughtful design behind them. It’s pretty fascinating!

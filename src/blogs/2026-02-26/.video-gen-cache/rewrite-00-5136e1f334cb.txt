@@ -1,0 +1,9 @@
+Did you hear? Anthropic just dropped its financial services plugins this week! We're talking about five modules for Claude that dive into DCF models, equity research, investment banking, private equity, and wealth management. And get this... they're all open source. Plus, they've got connections to eleven different institutional data sources. Pretty wild, right?
+
+---SEGMENT---
+
+Have you heard the buzz in finance social media? Everyone's saying junior analysts might be the next ones on the chopping block. I mean, that's a pretty bold claim. Just to give you a little background, I manage analysts and I also develop software at a financial firm. This past week? I dove deep into the code, tweaking and fine-tuning... and then I put it to the test with real work.
+
+---SEGMENT---
+
+Let me give you my honest opinion — it’s way more nuanced and way more interesting than the usual narrative you typically hear.

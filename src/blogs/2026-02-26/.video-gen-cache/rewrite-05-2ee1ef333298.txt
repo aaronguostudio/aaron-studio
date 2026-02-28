@@ -1,0 +1,13 @@
+Ever wonder what actually gets adopted in a financial firm? I’m not talking about those fancy hedge funds with their own tech squads. I mean a mid-market firm, like the one I work at.
+
+---SEGMENT---
+
+You know what really takes off? It’s the stuff that moves fast... I’m talking about deliverables in formats you already know, where the data subscription is good to go. Think earnings summaries, comp tables, first-draft research notes, and client reports. The effort involved is pretty minimal — just install that plugin, direct it to the data provider you’re already shelling out cash for, and boom! You’re set. We’re talking months, not years, folks.
+
+---SEGMENT---
+
+You might be surprised to hear this, but things that take their sweet time... like fully developed models, they don't just jump straight into client-facing materials. Before we can toss an AI-generated DCF into a pitch deck, guess what? Compliance and risk teams need to give it the thumbs-up. And honestly? This isn’t just a Claude issue; it’s a controls problem that firms have been wrestling with for ages, especially when it comes to those trusty old Excel templates.
+
+---SEGMENT---
+
+The big hurdle here isn’t really the AI itself. It’s all about the data. If your company isn’t already on board with those data providers, you’re kinda missing out on all the cool stuff AI can do. But here’s the silver lining: the open-source aspect makes it easier for mid-market companies. You can tweak the system to play nice with whatever data provider you’ve got access to. How great is that?

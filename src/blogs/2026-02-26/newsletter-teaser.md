@@ -10,6 +10,6 @@ I'm a tech product head at a financial firm who builds AI tools on the side. I r
 
 Three things I didn't expect: the skill files are genuinely well-designed domain knowledge (not generic prompts), the real story is the MCP connectors and what it means that every major financial data vendor built one simultaneously, and the skills-as-Markdown architecture feels like a pattern that's going to generalize far beyond finance. The software increasingly is the Markdown.
 
-Also share the actual DCF and client report outputs so you can see what the tool produces.
+I also share the actual DCF and client report outputs (sample data) so you can see what the tool produces.
 
 https://www.aaronguo.com/blogs/anthropic-finance-plugins-insider-take
