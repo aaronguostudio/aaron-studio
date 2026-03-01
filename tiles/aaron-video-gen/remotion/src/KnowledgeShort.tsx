@@ -32,6 +32,13 @@ export interface KnowledgeShortProps {
   videoFile2?: string;
   /** When to switch to second video (seconds) */
   videoSwitchAt?: number;
+  /** Optional poetic text overlay (for music vibe shorts — no TTS, no captions) */
+  poeticText?: string;
+  /** Series branding for music vibe shorts */
+  seriesName?: string;
+  episodeNumber?: number;
+  songName?: string;
+  artistName?: string;
 }
 
 /**
@@ -47,13 +54,20 @@ export const KnowledgeShort: React.FC<KnowledgeShortProps> = ({
   audioFile,
   wordTimings,
   fps: _fps,
-  durationSec: _durationSec,
+  durationSec,
   videoFile2,
   videoSwitchAt = 10,
+  poeticText,
+  seriesName,
+  episodeNumber,
+  songName,
+  artistName,
 }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const currentTime = frame / fps;
+
+  const isVibeMode = !!poeticText || !!seriesName;
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
@@ -68,22 +82,226 @@ export const KnowledgeShort: React.FC<KnowledgeShortProps> = ({
         height={height}
       />
 
-      {/* Dim overlay for text readability */}
+      {/* Dim overlay — lighter in vibe mode to let visuals shine */}
       <AbsoluteFill
         style={{
-          background: "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0.6) 100%)",
+          background: isVibeMode
+            ? "linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)"
+            : "linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 25%, rgba(0,0,0,0.1) 65%, rgba(0,0,0,0.6) 100%)",
         }}
       />
 
-      {/* Title banner — top, always visible */}
-      <TitleBanner title={title} currentTime={currentTime} />
+      {isVibeMode ? (
+        <>
+          {/* Series branding — top */}
+          {seriesName && (
+            <SeriesBranding
+              seriesName={seriesName}
+              episodeNumber={episodeNumber}
+              songName={songName}
+              artistName={artistName}
+              currentTime={currentTime}
+              durationSec={durationSec}
+            />
+          )}
 
-      {/* Word-by-word captions — bottom */}
-      <ShortCaption wordTimings={wordTimings} currentTime={currentTime} />
+          {/* Poetic text overlay — bottom */}
+          {poeticText && (
+            <PoeticTextOverlay text={poeticText} currentTime={currentTime} durationSec={durationSec} />
+          )}
+        </>
+      ) : (
+        <>
+          {/* Title banner — top, always visible */}
+          <TitleBanner title={title} currentTime={currentTime} />
 
-      {/* Audio */}
-      <Audio src={staticFile(audioFile)} />
+          {/* Word-by-word captions — bottom */}
+          <ShortCaption wordTimings={wordTimings} currentTime={currentTime} />
+
+          {/* Audio */}
+          <Audio src={staticFile(audioFile)} />
+        </>
+      )}
     </AbsoluteFill>
+  );
+};
+
+// ─── Series Branding (Music Vibe Shorts) ─────────────────────────
+
+const SeriesBranding: React.FC<{
+  seriesName: string;
+  episodeNumber?: number;
+  songName?: string;
+  artistName?: string;
+  currentTime: number;
+  durationSec: number;
+}> = ({ seriesName, episodeNumber, songName, artistName, currentTime, durationSec }) => {
+  // Fade in (0.5-1.5s), stay, fade out (last 1.5s)
+  const fadeIn = interpolate(currentTime, [0.5, 1.5], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const fadeOut = interpolate(
+    currentTime,
+    [durationSec - 2, durationSec - 0.5],
+    [1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
+  const opacity = Math.min(fadeIn, fadeOut);
+
+  // Slide down
+  const translateY = interpolate(currentTime, [0.5, 1.5], [-30, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const episodeLabel = episodeNumber != null
+    ? `No.${String(episodeNumber).padStart(2, "0")}`
+    : null;
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 280,
+        left: 0,
+        right: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 14,
+        opacity,
+        transform: `translateY(${translateY}px)`,
+      }}
+    >
+      {/* Episode number badge */}
+      {episodeLabel && (
+        <span
+          style={{
+            backgroundColor: "#4A90D9",
+            color: "#fff",
+            fontSize: 36,
+            fontFamily: 'Inter, -apple-system, "Segoe UI", sans-serif',
+            fontWeight: 700,
+            padding: "8px 24px",
+            borderRadius: 10,
+            letterSpacing: "1px",
+          }}
+        >
+          {episodeLabel}
+        </span>
+      )}
+
+      {/* Series name banner */}
+      <span
+        style={{
+          backgroundColor: "#4A90D9",
+          color: "#fff",
+          fontSize: 44,
+          fontFamily: 'Inter, -apple-system, "Segoe UI", sans-serif',
+          fontWeight: 700,
+          padding: "12px 36px",
+          borderRadius: 12,
+          letterSpacing: "0.5px",
+        }}
+      >
+        {seriesName}
+      </span>
+
+      {/* Song name */}
+      {songName && (
+        <span
+          style={{
+            color: "#fff",
+            fontSize: 64,
+            fontFamily: 'Inter, -apple-system, "Segoe UI", sans-serif',
+            fontWeight: 700,
+            textAlign: "center",
+            textShadow: "0 3px 12px rgba(0,0,0,0.7), 0 0 40px rgba(0,0,0,0.3)",
+            marginTop: 8,
+          }}
+        >
+          {songName}
+        </span>
+      )}
+
+      {/* Artist name */}
+      {artistName && (
+        <span
+          style={{
+            color: "rgba(255, 255, 255, 0.85)",
+            fontSize: 40,
+            fontFamily: 'Inter, -apple-system, "Segoe UI", sans-serif',
+            fontWeight: 500,
+            textAlign: "center",
+            textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+          }}
+        >
+          {artistName}
+        </span>
+      )}
+    </div>
+  );
+};
+
+// ─── Poetic Text Overlay (Music Vibe Shorts) ────────────────────
+
+const PoeticTextOverlay: React.FC<{
+  text: string;
+  currentTime: number;
+  durationSec: number;
+}> = ({ text, currentTime, durationSec }) => {
+  // Gentle fade in (2-4s), stay, gentle fade out (last 2s)
+  const fadeIn = interpolate(currentTime, [2, 4], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const fadeOut = interpolate(
+    currentTime,
+    [durationSec - 2.5, durationSec - 0.5],
+    [1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
+  const opacity = Math.min(fadeIn, fadeOut);
+
+  // Subtle upward drift
+  const translateY = interpolate(currentTime, [2, durationSec - 0.5], [8, -8], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 340,
+        left: 80,
+        right: 80,
+        display: "flex",
+        justifyContent: "center",
+        opacity,
+        transform: `translateY(${translateY}px)`,
+      }}
+    >
+      <span
+        style={{
+          color: "rgba(255, 255, 255, 0.9)",
+          fontSize: 38,
+          fontFamily: 'Georgia, "Noto Serif", "Times New Roman", serif',
+          fontWeight: 400,
+          fontStyle: "italic",
+          textAlign: "center",
+          lineHeight: 1.6,
+          letterSpacing: "0.5px",
+          textShadow:
+            "0 1px 8px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.3)",
+          display: "block",
+          wordWrap: "break-word",
+        }}
+      >
+        {text}
+      </span>
+    </div>
   );
 };
 
