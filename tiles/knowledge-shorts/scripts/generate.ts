@@ -26,6 +26,11 @@ const { values: args } = parseArgs({
     speed: { type: "string", default: "1.2" },
     "skip-video": { type: "boolean", default: false },
     "skip-tts": { type: "boolean", default: false },
+    "poetic-text": { type: "string" },
+    "series-name": { type: "string" },
+    "episode-number": { type: "string" },
+    "song-name": { type: "string" },
+    "artist-name": { type: "string" },
   },
   strict: false,
 });
@@ -348,7 +353,9 @@ async function generateTTS(narration: string, voice: string, speed: number): Pro
 
 // ─── Remotion Render ─────────────────────────────────────────────
 
-function renderWithRemotion(videoPath: string, audioPath: string, timings: WordTiming[], title: string): string {
+interface VibeOpts { poeticText?: string; seriesName?: string; episodeNumber?: number; songName?: string; artistName?: string; }
+
+function renderWithRemotion(videoPath: string, audioPath: string | null, timings: WordTiming[], title: string, vibe?: VibeOpts): string {
   console.log("🎬 Rendering with Remotion...");
 
   // Get video fps
@@ -359,23 +366,40 @@ function renderWithRemotion(videoPath: string, audioPath: string, timings: WordT
   const fpsStr = probeResult.stdout.trim().split("/");
   const fps = fpsStr.length === 2 ? Math.round(parseInt(fpsStr[0]) / parseInt(fpsStr[1])) : 24;
 
-  // Get audio duration
-  const probeAudio = spawnSync("ffprobe", [
-    "-v", "quiet", "-show_entries", "format=duration",
-    "-of", "csv=p=0", audioPath,
-  ], { encoding: "utf-8" });
-  const audioDur = parseFloat(probeAudio.stdout.trim());
-  const durationSec = audioDur + 0.5;
+  let durationSec: number;
+  if (vibe?.poeticText || vibe?.seriesName) {
+    // Vibe mode: use video duration (no audio)
+    const probeVideo = spawnSync("ffprobe", [
+      "-v", "quiet", "-show_entries", "format=duration",
+      "-of", "csv=p=0", videoPath,
+    ], { encoding: "utf-8" });
+    durationSec = parseFloat(probeVideo.stdout.trim()) || 15;
+  } else {
+    // Knowledge mode: use audio duration
+    const probeAudio = spawnSync("ffprobe", [
+      "-v", "quiet", "-show_entries", "format=duration",
+      "-of", "csv=p=0", audioPath!,
+    ], { encoding: "utf-8" });
+    const audioDur = parseFloat(probeAudio.stdout.trim());
+    durationSec = audioDur + 0.5;
+  }
 
   console.log(`  📐 ${fps}fps, ${durationSec.toFixed(1)}s duration`);
 
   // Copy assets to Remotion public
   mkdirSync(PUBLIC_DIR, { recursive: true });
   copyFileSync(videoPath, resolve(PUBLIC_DIR, "ks-video.mp4"));
-  copyFileSync(audioPath, resolve(PUBLIC_DIR, "ks-narration.mp3"));
+  if (audioPath) {
+    copyFileSync(audioPath, resolve(PUBLIC_DIR, "ks-narration.mp3"));
+  }
 
   // Write props
-  const props = { title, videoFile: "ks-video.mp4", audioFile: "ks-narration.mp3", wordTimings: timings, fps, durationSec };
+  const props: Record<string, any> = { title, videoFile: "ks-video.mp4", audioFile: "ks-narration.mp3", wordTimings: timings, fps, durationSec };
+  if (vibe?.poeticText) props.poeticText = vibe.poeticText;
+  if (vibe?.seriesName) props.seriesName = vibe.seriesName;
+  if (vibe?.episodeNumber != null) props.episodeNumber = vibe.episodeNumber;
+  if (vibe?.songName) props.songName = vibe.songName;
+  if (vibe?.artistName) props.artistName = vibe.artistName;
   const propsFile = resolve(PUBLIC_DIR, "ks-props.json");
   writeFileSync(propsFile, JSON.stringify(props));
 
@@ -423,11 +447,32 @@ async function main() {
   // 2. Generate Kling video (15s)
   const videoPath = await generateKlingVideo(script.videoPrompt);
 
-  // 3. Generate TTS
-  const { audioPath, timings } = await generateTTS(script.narration, script.voice, script.speed);
+  const vibe: VibeOpts = {
+    poeticText: args["poetic-text"] as string | undefined,
+    seriesName: args["series-name"] as string | undefined,
+    episodeNumber: args["episode-number"] ? parseInt(args["episode-number"] as string) : undefined,
+    songName: args["song-name"] as string | undefined,
+    artistName: args["artist-name"] as string | undefined,
+  };
+  const isVibeMode = !!(vibe.poeticText || vibe.seriesName);
+
+  let audioPath: string | null = null;
+  let timings: WordTiming[] = [];
+
+  if (isVibeMode) {
+    // Vibe mode: skip TTS entirely
+    console.log(`✨ Vibe mode${vibe.seriesName ? ` — ${vibe.seriesName}` : ""}`);
+    if (vibe.poeticText) console.log(`  📝 "${vibe.poeticText}"`);
+    if (vibe.songName) console.log(`  🎵 ${vibe.songName}${vibe.artistName ? ` — ${vibe.artistName}` : ""}`);
+  } else {
+    // Knowledge mode: generate TTS
+    const tts = await generateTTS(script.narration, script.voice, script.speed);
+    audioPath = tts.audioPath;
+    timings = tts.timings;
+  }
 
   // 4. Render with Remotion
-  const outputPath = renderWithRemotion(videoPath, audioPath, timings, script.title);
+  const outputPath = renderWithRemotion(videoPath, audioPath, timings, script.title, isVibeMode ? vibe : undefined);
 
   // 5. Sync to iCloud
   const shortName = `short-${args.topic!.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 40)}.mp4`;

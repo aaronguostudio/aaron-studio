@@ -123,6 +123,28 @@ GG proposes 3 music video concepts:
 - Together we refine the Kling prompt
 - **Optional:** Generate 1-2 still image previews first (via OpenAI image API) to nail the visual before committing to video
 
+### Step 2.5: Write Poetic Text Overlay
+Every video gets a **single poetic line in English** overlaid on the visuals.
+
+**Rules:**
+- 1 sentence, max ~12 words — less is more
+- English only, poetic and evocative
+- Must capture the **emotional essence** of the song, not describe the visuals
+- Subtle — complements the scene, never competes with it
+- No song titles, no artist names, no movie references
+- No quotes from actual lyrics (copyright)
+
+**Style examples:**
+| Song | Poetic Text |
+|------|-------------|
+| Comptine d'un autre été | Some summers never leave your fingertips |
+| Clair de Lune | Moonlight falls where no one is watching |
+| Experience | Some roads only make sense looking back |
+| Stairway to Heaven | Every step closer to the sky |
+| Mad World | The quietest people carry the loudest storms |
+
+**Rendering:** The text is rendered via Remotion using `--poetic-text` flag. It appears as italic serif text in the lower third with a gentle fade in/out.
+
 ### Step 3: Generate Video
 - Kling v3 (15s, 9:16, pro, multi_shot)
 - **Prompt MUST be in Chinese** — Kling is a Chinese LLM, Chinese prompts produce better results
@@ -231,23 +253,24 @@ GG proposes 3 music video concepts:
 ## Pipeline
 
 ```bash
-# Generate video
-cd /Users/aaron/Work/aaron-studio && npx -y bun tiles/knowledge-shorts/scripts/generate.ts \
+# Generate video with series branding + poetic text overlay
+npx -y bun tiles/knowledge-shorts/scripts/generate.ts \
   --topic "[song + concept]" \
-  --skip-tts \
-  --video-prompt "[full prompt]" \
+  --video-prompt "[full Chinese prompt]" \
+  --series-name "100 Songs 100 Dreams" \
+  --episode-number [N] \
+  --song-name "[Song Name]" \
+  --artist-name "[Artist]" \
+  --poetic-text "[English poetic line]" \
   --yt-title "[title]" \
   --yt-desc "[description + hashtags]" \
   --output tiles/music-vibe-shorts/output/[slug]/
 ```
 
-Then copy raw video to iCloud:
-```bash
-cp tiles/music-vibe-shorts/output/[slug]/kling-video.mp4 \
-  "/Users/aaron/Library/Mobile Documents/com~apple~CloudDocs/Aaron-Studio/shorts-ready/vibe-[slug].mp4"
-```
+**Output:** `short-final.mp4` (Remotion-rendered with branding + text overlay) is synced to iCloud.
+**Aaron adds music** via YouTube app (GG suggests timestamp).
 
-**Use `kling-video.mp4` (raw) — Aaron adds music manually via YouTube app.**
+**Episode numbering:** Check `songs-used.md` Published table to determine the next episode number.
 
 ## YouTube Metadata
 
@@ -299,8 +322,9 @@ This saves Kling credits and time when exploring new visual concepts.
 ## ⚠️ Important Notes
 
 - **NO TTS / narration** — music only
-- **NO text overlay / captions** — pure visual
-- **NO Remotion render** — use raw `kling-video.mp4`
+- **ONE poetic text line** — English, italic serif, subtle fade in/out via Remotion `--poetic-text`
+- **NO word-by-word captions** — no ElevenLabs, no title banner
+- **Use `short-final.mp4`** (Remotion-rendered with text overlay), NOT raw kling-video.mp4
 - **Aaron adds music** via YouTube app (GG suggests timestamp)
 - **Check songs-used.md** before EVERY generation to avoid repeats
-- Sync raw video to iCloud for Aaron to access
+- Sync Remotion output to iCloud for Aaron to access
