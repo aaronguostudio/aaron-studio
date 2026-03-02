@@ -1,0 +1,13 @@
+Have you ever seen a kitchen like this? Meet Ming, a kitchen apprentice with some pretty wild gear. 
+
+First off, he’s got a wall that’s not just any wall — it’s got 4,192 small physical dials, stretching from floor to ceiling. And, of course, there’s a single wooden counter. Oh, and let’s not forget about the 32,000 complete omakase sets he’s got to study. Talk about a culinary playground!
+
+Now, about that number 4,192... it’s not just some random figure thrown in for dramatic effect. Nope, that’s the exact parameter count from Karpathy's 200-line code. Each dial represents a tiny morsel of learned judgment. Like, how much does that fancy third course really impact the fourth? Or how does a seafood starter steer the rest of the meal in a new direction? And what about texture contrast throughout the whole set? 
+
+All together, those 4,192 tiny opinions form Ming’s entire culinary intuition. That’s pretty impressive, right?
+
+---SEGMENT---
+
+Imagine this: Ming kicks things off with all the dials just... totally whack, set to random spots. But by the end of his training? Those dials end up capturing something that’s pretty close to a master's taste.
+
+And that’s how ChatGPT operates, folks. No metaphor here—this is the real deal.

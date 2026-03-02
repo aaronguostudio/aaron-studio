@@ -1,0 +1,13 @@
+Imagine stepping into an omakase restaurant for the very first time. Pretty intriguing, right? 
+
+You’re greeted without a menu, and the host leads you to a counter seat. The chef gives you a nod, and just like that, the magic begins.
+
+Dishes start rolling in — first, you’ve got some fresh sashimi, then something warm, followed by a zesty bite, then a rich flavor, and finally something light to cleanse your palate. It's like each course is perfectly timed, almost as if each dish was meant to follow the last. And by the time dessert hits your table, it dawns on you... you never once thought, "this doesn’t belong here." It’s like the whole meal was curated just for you, by someone who seems to get your preferences, even when you can't quite put them into words.
+
+Now, here’s something that’s been bouncing around in my head ever since I read a post by Andrej Karpathy — you know, the OpenAI co-founder and ex-head of Tesla AI. How does the chef know what to serve next?
+
+I’m not talking about a seasoned chef with decades of knowledge. I mean, how does any chef figure out the right order of courses for a complete stranger they’ve never met before? There’s no rulebook in sight and certainly no memorized catalog to fall back on. It's kind of mind-boggling, don’t you think?
+
+---SEGMENT---
+
+Believe it or not, the answer is Ming.

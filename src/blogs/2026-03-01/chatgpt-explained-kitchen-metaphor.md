@@ -1,4 +1,4 @@
-# How a Kitchen Apprentice Learned to Cook — ChatGPT Explained Through a Kitchen
+# No Magic: How ChatGPT Actually Works, Explained in One Kitchen
 
 *Inspired by Andrej Karpathy's [MicroGPT](https://karpathy.github.io/2026/02/12/microgpt/) — 200 lines of code that prove it's all just a kitchen.*
 
@@ -15,6 +15,8 @@ Here's the question that lodged in my head after reading a recent post by Andrej
 Not the senior chef with 20 years of experience. I mean — how does *any* chef learn, from scratch, what order of courses will feel right to a stranger they've never met? No one handed them a rulebook. They didn't memorize every possible omakase sequence.
 
 The answer is Ming.
+
+![Ming stands at the omakase counter facing a wall of 4,192 judgment dials](illustrations/01-scene-ming-hero.png)
 
 ---
 
@@ -52,6 +54,8 @@ One thing worth noting: in this simplified kitchen, the menu has only 27 items, 
 
 The key feeling: Ming doesn't memorize every sequence he's seen. He develops *intuition* — a feel for what tends to follow what, which combinations feel "right," which feel off. There's no rulebook. Just pattern, absorbed until it becomes instinct.
 
+![32,000 omakase records as scrolls — one unrolled showing the sequence e→m→m→a. A callout shows ChatGPT's trillions of sequences.](illustrations/02-infographic-training-data.png)
+
 > *Ming isn't memorizing. He's developing taste.*
 
 ---
@@ -71,6 +75,8 @@ a = 0, b = 1, c = 2 ... z = 25, 🛎️ = 26
 The omakase "emma" becomes: [26, 4, 12, 12, 0, 26]
 
 Numbers alone still aren't enough. A number is just a label — it tells you *which* course, but nothing about its *character*. So each number also comes with a **flavor profile card**: 16 numbers describing properties like richness, temperature, texture, and acidity. These profiles start completely random. Through training, they become meaningful.
+
+![Tokenization pipeline: "emma" → tokens with service bells → numbers 26,4,12,12,0,26 → flavor profile card with 16 slots](illustrations/03-infographic-tokenization-pipeline.png)
 
 For ChatGPT, the numbering is smarter — common word combinations get a single number instead of being spelled out letter by letter. "hello" is one dish — a single course code — not five letters served separately. More efficient, more expressive. About 100,000 possible "courses" instead of 27.
 
@@ -98,6 +104,8 @@ Course #4 "m" arrives
 Probability ranking of all 27 possible next courses
 ```
 
+![The three-station kitchen assembly line: Sous Chef Roundtable → Back Kitchen → Final Vote, with 27 possible next courses as output](illustrations/04-flowchart-assembly-line.png)
+
 Three steps. Between each one, two backstage actions happen quietly. Let's understand the three steps first, then the two supporting roles.
 
 ---
@@ -118,6 +126,8 @@ All four combine their findings and pass them to the next station.
 
 One detail worth noting: the sous chefs don't re-taste old courses. From the very first course, they've been writing everything down in notebooks. Each new course adds a page — this is the kitchen's memory system, and nothing ever needs to be re-read from scratch.
 
+![Top-down view of the sous chef roundtable: four sous chefs (A=Richness, B=Texture, C=Temperature, D=Acidity) around the central dish "Course #4: m"](illustrations/05-scene-sous-chef-roundtable.png)
+
 > *The roundtable does one thing: tell Ming which parts of the past are most relevant to the decision at hand.*
 
 ---
@@ -129,6 +139,8 @@ The sous chefs have done their part. Now Ming thinks for himself.
 The back kitchen has a working method: it first opens the problem completely — entertaining every possible direction at once in a much larger mental space. Then it filters: anything that clearly doesn't work gets zeroed out. Finally, it compresses back down into a clear conclusion.
 
 Open wide, filter, compress. The result is a refined judgment about what course #5 should be.
+
+![Back kitchen method: Open Wide (fan of arrows) → Filter (crossed-out paths) → Compress (converging single arrow)](illustrations/06-flowchart-back-kitchen-method.png)
 
 > *The roundtable looks outward: what does the past tell me? The back kitchen looks inward: what do I actually think?*
 
@@ -156,6 +168,8 @@ Two other actions happen throughout the process — not the main story, but the 
 
 In Ming's kitchen (MicroGPT), these three steps run once per course — a single pass. In ChatGPT's kitchen, the same three steps are stacked dozens of times: the output of one full pass becomes the input of the next. Same sous chefs, same back kitchen — but each round reaches a deeper level of understanding.
 
+![Two supporting roles: Palate Cleanser (reset to neutral before each station) and Spoonful of Original (mix back in after each station)](illustrations/07-infographic-supporting-roles.png)
+
 ---
 
 ## Chapter 4: The Diner's Scorecard — How Bad Did You Do?
@@ -169,6 +183,8 @@ Ming designs an omakase. The diner scores each course transition.
 This penalty is the **Loss**. Lower loss = better cooking.
 
 Starting loss: 3.3. That's what pure random guessing looks like when you have 27 options. A complete kitchen novice, eyes closed, putting dishes down at random.
+
+![The Diner's Scorecard: three confidence levels with penalties, and the loss curve dropping from 3.3 to 2.37 over 1,000 dishes](illustrations/08-infographic-loss-scorecard.png)
 
 The entire training process has one mission: **get that number down.**
 
@@ -191,6 +207,8 @@ The diner takes a bite: "Too salty."
 "This bite is too salty → last step was plating (no salt added there) → step before was the back kitchen (added soy sauce) → step before was the roundtable (referenced course 2's profile) → traced back to dial #347 (soy sauce intensity)."
 
 This is **backpropagation** — following the chain of cause and effect backward from the result to the source.
+
+![Backpropagation chain: "Too Salty!" traced backwards through Plating → Back Kitchen → Roundtable → Dial #347 "soy sauce intensity"](illustrations/09-flowchart-backpropagation-chain.png)
 
 ### The Relay (Chain Rule)
 
@@ -216,6 +234,8 @@ The entire kitchen uses only six cooking operations. Every checkpoint, every sta
 | **Quality Check** (ReLU) | Good flavors pass, bad ones get dumped |
 
 ChatGPT's entire kitchen uses only these six. There is no seventh.
+
+![Six kitchen techniques in a 2×3 grid: Combine, Blend, Reduce, Extract, Ferment, Quality Check — each as a hand-drawn cooking icon](illustrations/10-infographic-six-techniques.png)
 
 ### A Concrete Example
 
@@ -271,6 +291,8 @@ Not every dial gets the same treatment. Adam is smarter than "turn everything by
 
 That's what "learning intuition" means.
 
+![Training loop: Cook → Score → Trace → Adjust (1,000 rounds), with Adam the Sensei's three methods: Memory, Personalized Touch, Lighter Over Time](illustrations/11-framework-training-loop-adam.png)
+
 > *Intelligence didn't come from rules. It came from repetition.*
 
 ---
@@ -294,6 +316,8 @@ There's one dial by the kitchen door that doesn't change skill level — it chan
 - **Temperature = 0.1** (ultra-safe) → always picks the statistically safest choice → predictable, solid, a little boring
 - **Temperature = 0.5** (slightly adventurous) → mostly coherent with surprises
 - **Temperature = 1.5** (bold risk-taker) → might be brilliant, might be incomprehensible
+
+![Temperature dial spanning from 0.1 (Ultra-Safe) through 0.7 (ChatGPT marked with a star) to 1.5 (Bold Risk-Taker), with example outputs below each](illustrations/12-comparison-temperature-dial.png)
 
 ChatGPT runs at around 0.7. A little creative, but won't go off the rails.
 
@@ -321,6 +345,8 @@ Ming learned to cook with 4,192 judgment dials and 32,000 training records. What
 | Kitchen | One stove (a MacBook) | Thousands of burners in parallel (GPU cluster) |
 | Training time | 1 minute | Months |
 | **Cooking principles** | **Identical** | **Identical** |
+
+![Scale comparison: Ming's humble street cart (4,192 dials, MacBook, 32,000 records) vs. ChatGPT's Michelin kitchen (billions of dials, thousands of GPUs, trillions of records). Footer: "Same cooking principles. Wildly different scale."](illustrations/13-comparison-scale-ming-vs-chatgpt.png)
 
 Same kitchen. Wildly different scale.
 
