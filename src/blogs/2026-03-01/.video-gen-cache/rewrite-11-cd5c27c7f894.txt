@@ -1,0 +1,13 @@
+Training’s wrapped up. Adam takes a step back, and the dials? They’re locked into their final spots.
+
+Now, real diners are in the house.
+
+Ming’s about to whip up his very first omakase, and here's the fun part — he’s not just following a menu. Nope! He’s crafting each course based on those dial positions. It’s like a delicious domino effect. The second course builds off the first, the third off the second... it all comes together in real-time, improvised but with a touch of guidance from what came before.
+
+And don’t forget about that one last dial by the kitchen door — the risk dial. If you keep it low, Ming will play it safe, always opting for the most predictable choice. It’s solid, but let’s be honest... a bit snooze-worthy. Crank it to 0.7, and you tap into that sweet spot where creativity flows without going completely bonkers. But if you really want to live on the edge, turn it to 1.5. That’s where things get wild — he could serve up a masterpiece... or something that’s totally off the wall.
+
+---SEGMENT---
+
+Karpathy's model came up with some pretty interesting names like "Karia," "Yeran," and "Liole." They actually sound legit, right? Like you could bump into someone with one of those names on the street, even though they probably don’t show up anywhere in the training data.
+
+Ming’s not pulling a fast one here. He’s just really good at picking up patterns and spitting out combinations that seem to fit the bill. There’s no little fact-checker hanging around to double-check his work. When ChatGPT confidently throws out a reference to a paper that’s totally made up or nails a specific date that never happened, this is the same kind of deal. It’s all about that statistical intuition, minus any reality check.

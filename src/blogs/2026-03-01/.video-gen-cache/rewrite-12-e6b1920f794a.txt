@@ -1,0 +1,13 @@
+Imagine this: on one side, you’ve got Ming’s kitchen, and on the other, there’s ChatGPT. 
+
+Ming’s setup? Just 4,192 dials, 32,000 records, one MacBook, and he only needs a minute to train. 
+
+Now, flip to ChatGPT... we're talking hundreds of billions of dials, trillions of sequences, and thousands of GPUs all running at the same time. Not to mention, it takes months of training. Yeah, that’s a bit of a difference, huh?
+
+---SEGMENT---
+
+You know, it’s pretty wild when you think about it. We’re talking about the same six operations here… same three stations. Same cook, same routine — that classic cook, score, trace, adjust loop. And yes, still the same Adam. The cooking principles? Totally identical.
+
+But here’s the kicker — the scale is just off the charts! 
+
+Now, ChatGPT went through a couple of extra stages, too. It learned from human feedback to really hit the mark and become something people actually find useful. But, believe it or not, the core of it all didn’t change. That loop? Still the same. It’s like having the same kitchen but in a completely different universe of scale!

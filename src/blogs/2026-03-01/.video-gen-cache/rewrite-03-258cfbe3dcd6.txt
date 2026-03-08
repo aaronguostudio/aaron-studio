@@ -1,0 +1,13 @@
+Imagine this: before Ming can really dive into anything, he’s gotta convert food into numbers. 
+
+Take the word "emma" for example. It gets chopped up into little bits — starts with a service bell, then comes e, m, m, a, and wraps up with another bell. Each bit is what we call a token — basically, the tiniest piece of the kitchen puzzle.
+
+Now, here’s where it gets fun. Each token gets assigned a number. Like, e is 4, m is 12, and that service bell? It’s a 26. So the omakase "emma" translates to: 26, 4, 12, 12, 0, 26. Got it? 
+
+But hang on. Just slapping numbers on things isn’t quite enough. A number is like a name tag — it tells you what course it is, but it doesn’t really capture what it’s all about, does it?
+
+---SEGMENT---
+
+Every number has a flavor profile card, kind of like a menu for its characteristics. There are 16 slots detailing things like richness, temperature, texture, and acidity. Now, when training kicks off, these cards are just a jumbled mess — think of it as random noise. But as the training process rolls on... you know, running that loop time and again, those cards transform into something meaningful.
+
+Now, here's the fun part: every word you type into ChatGPT goes through a similar journey. It starts as a word, turns into a token, then becomes a number, and finally gets matched to a flavor profile. That’s how a machine starts to wrap its head around language. Pretty neat, right?

@@ -1,0 +1,11 @@
+Let’s talk about how the diner rates the meal. 
+
+If Ming was totally sure that the next course should be "a"—and it actually was—great! No penalty there. But... if he thought “a” had just a ten percent chance of being the right choice and it ended up being right? Ouch, that’s a hefty penalty. And if he was feeling super doubtful, like giving "a" only a point-one percent chance? Yeah, that’s a massive penalty.
+
+This penalty? That’s what we call the Loss. The lower that loss, the better the cooking.
+
+---SEGMENT---
+
+Right out of the gate, Ming's score sits at a solid 3.3. Can you believe that? It’s basically what you'd get if you just threw a dart blindfolded at 27 options. I mean, it’s total madness... dishes all over the place, no rhyme or reason. 
+
+The whole training journey has just one goal: knock that number down. Every little tweak, every plate, every single loop — it’s all about pushing that number lower and lower. It’s like their guiding light, their north star, if you will.

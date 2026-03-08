@@ -1,0 +1,13 @@
+This is where it gets really interesting. 
+
+Ming gets hit with a pretty lousy score, and now he’s facing this massive wall of 4,192 dials... Talk about overwhelming! Testing each one would take forever—like, we’re talking years here. So, how does he even figure out which dial to tweak?
+
+---SEGMENT---
+
+Want to know how to solve a problem? Just trace it back from the plate.
+
+Picture this: a diner takes a bite and says, "Wow, that’s way too salty.” Now, Ming's on a mission to figure out where that saltiness came from. Turns out, it all started at the plating station — but they didn’t actually sprinkle on any salt. Time to dig deeper. 
+
+Next stop: the back kitchen. They added soy sauce instead, and guess what? They based that on the profile for course two from the roundtable discussion. Keep going, and you find the root cause — Dial 347, where the soy sauce intensity was set.
+
+This whole process? It’s called backpropagation. You’re tracing the chain of cause and effect all the way back to the dial that started it all. No guesswork involved, no fumbling around. Just straight-up precise mathematical tracing — multiplying the factors at each step along the way. Pretty neat, right?
