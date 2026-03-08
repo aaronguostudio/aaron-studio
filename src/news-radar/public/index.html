@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Radar — Aaron's AI-Curated Feed</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>🔭 News Radar</h1>
+      <p class="subtitle">AI-curated tech & AI news feed</p>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="filters">
+      <button class="filter-btn active" data-source="">All</button>
+      <button class="filter-btn" data-source="hackernews">HN</button>
+      <button class="filter-btn" data-source="x-twitter">X</button>
+      <button class="filter-btn" data-source="reddit">Reddit</button>
+      <button class="filter-btn" data-source="producthunt">PH</button>
+      <button class="filter-btn" data-source="github">GitHub</button>
+      <button class="filter-btn" data-source="lobsters">Lobsters</button>
+      <button class="filter-btn" data-source="arxiv">ArXiv</button>
+    </div>
+    <div class="filters">
+      <button class="cat-btn active" data-category="">All Topics</button>
+      <button class="cat-btn" data-category="ai">🤖 AI</button>
+      <button class="cat-btn" data-category="coding">💻 Coding</button>
+      <button class="cat-btn" data-category="indie">🚀 Indie</button>
+      <button class="cat-btn" data-category="fintech">💰 Fintech</button>
+      <button class="cat-btn" data-category="general">📰 General</button>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search..." />
+      <select id="minRelevance">
+        <option value="0">All relevance</option>
+        <option value="5">5+ relevance</option>
+        <option value="7">7+ relevance</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <main id="feed"></main>
+
+  <div class="load-more">
+    <button id="loadMore" style="display:none">Load more</button>
+  </div>
+
+  <script>
+    const API = window.location.origin + '/api';
+    let state = { source: '', category: '', q: '', minRelevance: 0, offset: 0, total: 0 };
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => document.querySelectorAll(s);
+
+    function timeAgo(dateStr) {
+      const now = new Date();
+      const d = new Date(dateStr + 'Z');
+      const diff = (now - d) / 1000;
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
+      if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
+      return Math.floor(diff / 86400) + 'd ago';
+    }
+
+    function relevanceColor(r) {
+      if (r >= 8) return '#22c55e';
+      if (r >= 5) return '#eab308';
+      return '#6b7280';
+    }
+
+    function sourceIcon(s) {
+      if (s === 'hackernews') return '🟧';
+      if (s === 'x-twitter') return '𝕏';
+      if (s === 'reddit') return '🟣';
+      if (s === 'producthunt') return '🔶';
+      if (s === 'github') return '🐙';
+      if (s === 'lobsters') return '🦞';
+      if (s === 'arxiv') return '📄';
+      return '📰';
+    }
+
+    function renderItem(item) {
+      const tags = item.tags ? JSON.parse(item.tags) : [];
+      return `
+        <article class="item">
+          <div class="item-meta">
+            <span class="source">${sourceIcon(item.source)}</span>
+            <span class="relevance" style="background:${relevanceColor(item.relevance)}">${item.relevance}</span>
+            <span class="category">${item.category}</span>
+            <span class="time">${timeAgo(item.created_at)}</span>
+            ${item.score ? `<span class="score">⬆${item.score}</span>` : ''}
+          </div>
+          <h3><a href="${item.url}" target="_blank" rel="noopener">${item.title}</a></h3>
+          ${item.ai_summary ? `<p class="ai-summary">🤖 ${item.ai_summary}</p>` : ''}
+          ${item.author ? `<span class="author">by ${item.author}</span>` : ''}
+        </article>
+      `;
+    }
+
+    async function loadItems(append = false) {
+      const params = new URLSearchParams();
+      if (state.source) params.set('source', state.source);
+      if (state.category) params.set('category', state.category);
+      if (state.q) params.set('q', state.q);
+      if (state.minRelevance) params.set('minRelevance', state.minRelevance);
+      params.set('limit', 50);
+      params.set('offset', state.offset);
+
+      const res = await fetch(`${API}/items?${params}`);
+      const data = await res.json();
+      state.total = data.total;
+
+      const feed = $('#feed');
+      if (!append) feed.innerHTML = '';
+
+      if (data.items.length === 0 && !append) {
+        feed.innerHTML = '<p class="empty">No items yet. Run a collection first!</p>';
+      } else {
+        feed.innerHTML += data.items.map(renderItem).join('');
+      }
+
+      $('#loadMore').style.display = (state.offset + 50 < state.total) ? 'block' : 'none';
+    }
+
+    async function loadStats() {
+      const res = await fetch(`${API}/stats`);
+      const data = await res.json();
+      const total = data.sources.reduce((a, s) => a + s.count, 0);
+      $('#stats').innerHTML = `<span>${total} items</span>` +
+        data.sources.map(s => `<span>${sourceIcon(s.source)} ${s.count}</span>`).join('');
+    }
+
+    // Filter buttons
+    $$('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.source = btn.dataset.source;
+        state.offset = 0;
+        loadItems();
+      });
+    });
+
+    $$('.cat-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        $$('.cat-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        state.category = btn.dataset.category;
+        state.offset = 0;
+        loadItems();
+      });
+    });
+
+    $('#search').addEventListener('input', debounce((e) => {
+      state.q = e.target.value;
+      state.offset = 0;
+      loadItems();
+    }, 300));
+
+    $('#minRelevance').addEventListener('change', (e) => {
+      state.minRelevance = parseInt(e.target.value);
+      state.offset = 0;
+      loadItems();
+    });
+
+    $('#loadMore').addEventListener('click', () => {
+      state.offset += 50;
+      loadItems(true);
+    });
+
+    function debounce(fn, ms) {
+      let t;
+      return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
+    }
+
+    // Init
+    loadItems();
+    loadStats();
+  </script>
+</body>
+</html>

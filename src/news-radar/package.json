@@ -1,0 +1,18 @@
+{
+  "name": "news-radar",
+  "version": "0.1.0",
+  "description": "AI-curated news feed — Aaron's personal news radar",
+  "type": "module",
+  "scripts": {
+    "collect": "node collect.js",
+    "summarize": "node summarize.js",
+    "digest": "node digest.js",
+    "rescore": "node rescore.js",
+    "pulse": "node pulse.js",
+    "serve": "node server.js",
+    "setup": "node db/setup.js"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.14.0"
+  }
+}

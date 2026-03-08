@@ -1,0 +1,210 @@
+/**
+ * Signal Daily Digest
+ * Generates an AI-curated daily briefing from collected news items.
+ * Sends as HTML email via gog CLI.
+ *
+ * Usage: node digest.js [--dry-run] [--hours 24]
+ */
+import db from "./db/client.js";
+import { execSync } from "child_process";
+import { writeFileSync, unlinkSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const DRY_RUN = process.argv.includes("--dry-run");
+const HOURS = parseInt(process.argv.find((_, i, a) => a[i - 1] === "--hours") || "24");
+const RECIPIENT = "aaronstudio@gmail.com";
+const SENDER_ACCOUNT = "aaronguostudio@gmail.com";
+
+async function getTopItems(hours) {
+  const result = await db.execute({
+    sql: `SELECT title, source, url, ai_summary, relevance, category, score, author
+          FROM items 
+          WHERE created_at >= datetime('now', ? || ' hours')
+            AND relevance >= 6
+          ORDER BY relevance DESC, score DESC
+          LIMIT 40`,
+    args: [`-${hours}`],
+  });
+  return result.rows;
+}
+
+async function getStats(hours) {
+  const result = await db.execute({
+    sql: `SELECT source, COUNT(*) as count 
+          FROM items 
+          WHERE created_at >= datetime('now', ? || ' hours')
+          GROUP BY source`,
+    args: [`-${hours}`],
+  });
+  return result.rows;
+}
+
+async function generateDigest(items, stats) {
+  const totalNew = stats.reduce((s, r) => s + Number(r.count), 0);
+
+  const itemsText = items.map((item, i) => {
+    return `[${i + 1}] (${item.source} | ${item.category} | rel:${item.relevance} | ${item.score} pts)
+Title: ${item.title}
+Summary: ${item.ai_summary || "N/A"}
+URL: ${item.url}`;
+  }).join("\n\n");
+
+  const today = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "America/Edmonton",
+  });
+
+  const prompt = `You are Signal, Aaron Guo's personal AI intelligence briefing. Generate a daily digest email.
+
+ABOUT AARON:
+- Senior Manager & Partner at Mawer Investment Management ($100B+ AUM), Head of Products
+- Building OrgNext: AI-native firm management software (CEO role, with CTO Thiago)
+- Building AI-native personal infrastructure with OpenClaw (AI agent framework)
+- Active on X/Twitter, growing personal brand around AI + finance + indie building
+- Interests: AI agents, LLMs, indie SaaS, fintech, management/leadership, content creation
+
+TODAY: ${today}
+ITEMS COLLECTED (last ${HOURS}h): ${totalNew} total
+Sources: ${stats.map(s => `${s.source}: ${s.count}`).join(", ")}
+
+TOP ${items.length} ITEMS (relevance 6+):
+${itemsText}
+
+GENERATE THE DIGEST WITH THESE SECTIONS:
+
+1. **🔥 Today's Top Signal** (3-5 most important items)
+   - Each with: one-line summary + why it matters to Aaron specifically
+   - Link included
+
+2. **📈 Trends & Patterns** (1-2 observations)
+   - Cross-source patterns you notice
+   - "3 papers this week on agent memory suggests..."
+   - Connect to Aaron's work where relevant
+
+3. **🎯 Action Items for Aaron** (2-3 max)
+   - Worth tweeting about (with angle suggestion)
+   - Worth discussing with Thiago (OrgNext relevance)
+   - Worth deep-reading later
+
+4. **📊 Signal Stats**
+   - Brief: X new items, top sources, noise ratio
+
+STYLE:
+- Direct, no fluff. Like a smart colleague's morning brief.
+- Mix English and Chinese naturally (Aaron is bilingual)
+- Bold key phrases
+- Keep total under 500 words
+
+OUTPUT: Clean HTML suitable for email (no <html>/<body> tags, just content). Use <h2>, <p>, <ul>, <li>, <a>, <strong>, <em>. Style links as blue. Keep it clean and readable.`;
+
+  const res = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${OPENAI_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "gpt-4o",
+      max_tokens: 2000,
+      temperature: 0.4,
+      messages: [
+        { role: "system", content: "You generate concise, high-signal daily intelligence briefings in clean HTML." },
+        { role: "user", content: prompt },
+      ],
+    }),
+  });
+
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(`OpenAI API ${res.status}: ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json();
+  return data.choices?.[0]?.message?.content?.trim() || "";
+}
+
+function wrapInEmailTemplate(content, date) {
+  return `<div style="max-width:640px;margin:0 auto;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a1a;line-height:1.7;padding:20px;">
+  <div style="border-bottom:2px solid #000;padding-bottom:12px;margin-bottom:24px;">
+    <h1 style="font-size:22px;margin:0;">✦ Signal Daily Digest</h1>
+    <p style="color:#666;font-size:13px;margin:4px 0 0;">${date} · Curated by GG for Aaron</p>
+  </div>
+  ${content}
+  <div style="border-top:1px solid #e5e5e5;margin-top:32px;padding-top:16px;color:#999;font-size:12px;">
+    <p>Generated by Signal · <a href="https://aaronguo.com/signal" style="color:#666;">View full feed →</a></p>
+  </div>
+</div>`;
+}
+
+async function main() {
+  if (!OPENAI_API_KEY) {
+    console.error("❌ OPENAI_API_KEY not set");
+    process.exit(1);
+  }
+
+  console.log(`📧 Generating Signal Daily Digest (last ${HOURS}h)...`);
+
+  const items = await getTopItems(HOURS);
+  const stats = await getStats(HOURS);
+
+  if (items.length === 0) {
+    console.log("⚠️ No items found in the last " + HOURS + "h. Skipping.");
+    return;
+  }
+
+  console.log(`  Found ${items.length} relevant items (rel 6+)`);
+
+  const digest = await generateDigest(items, stats);
+  
+  const today = new Date().toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    timeZone: "America/Edmonton",
+  });
+
+  const fullHtml = wrapInEmailTemplate(digest, today);
+
+  if (DRY_RUN) {
+    console.log("\n--- DRY RUN: Email content ---");
+    console.log(fullHtml);
+    console.log("--- END ---");
+    return;
+  }
+
+  const subject = `✦ Signal Daily — ${today}`;
+
+  try {
+    // Write HTML to temp file, read it back as body-html string
+    const tmpFile = resolve(__dirname, ".digest-tmp.html");
+    writeFileSync(tmpFile, fullHtml);
+
+    // Use gog with --body-html and pipe approach
+    const { execFileSync } = await import("child_process");
+    execFileSync("gog", [
+      "gmail", "send",
+      "--to", RECIPIENT,
+      "--subject", subject,
+      "--body-html", fullHtml,
+      "--no-input",
+      "--account", SENDER_ACCOUNT,
+    ], { stdio: "inherit", timeout: 30000 });
+
+    console.log(`✅ Digest sent to ${RECIPIENT}`);
+    try { unlinkSync(tmpFile); } catch {}
+  } catch (e) {
+    console.error(`❌ Failed to send: ${e.message}`);
+    // Save locally as fallback
+    const outFile = resolve(__dirname, `digest-${new Date().toISOString().slice(0, 10)}.html`);
+    writeFileSync(outFile, fullHtml);
+    console.log(`📁 Saved to ${outFile}`);
+  }
+}
+
+main().catch(console.error);
