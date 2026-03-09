@@ -38,6 +38,15 @@
         ]
       }
     },
+    "aaronguo/blog-illustrate": {
+      "version": "0.1.0",
+      "source": "file:tiles/blog-illustrate",
+      "include": {
+        "skills": [
+          "blog-illustrate"
+        ]
+      }
+    },
     "AaronGuo/aaron-yt-pipeline": {
       "version": "0.1.0",
       "source": "file:tiles/aaron-yt-pipeline",

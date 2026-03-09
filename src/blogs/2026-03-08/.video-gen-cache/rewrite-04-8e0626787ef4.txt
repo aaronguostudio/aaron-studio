@@ -1,0 +1,11 @@
+Back in early 2025, I dove headfirst into the world of AI. One thing that kept popping up was that the top researchers focused on creating systems that actually model what’s important, instead of just spitting out text. I mean, Yann LeCun left Meta to kickstart AMI Labs, and Fei-Fei Li managed to rake in a five billion dollar valuation for World Labs. Talk about making waves! 
+
+My goal wasn’t to create AGI or anything that ambitious. Nope, I just wanted to craft a better filter for myself. And that’s when Signal really started to take shape.
+
+---SEGMENT---
+
+It’s pretty straightforward, really. You’ve got sources like Hacker News, Reddit, ArXiv, X, Product Hunt, and GitHub Trending all feeding in. Then, every single item goes through this LLM that checks it against my personal interests—stuff like what I’m currently curious about, questions I’m digging into, and those pesky blind spots I’m trying to fill. If something scores high, it’s a must-read. The rest? They’re still there, just not at the top of my list.
+
+---SEGMENT---
+
+Every hour, it goes through a rescan... and every morning, it sends me the goods. What this means for me is that my attention bandwidth gets stretched by about a hundred times! Seriously! I’m processing over 500 items daily thanks to these AI summaries. It’s like my personal assistant deciding what actually deserves my full attention. Forget doomscrolling! I’m dodging those algorithmic distractions that are all about keeping me hooked, not helping me grow.

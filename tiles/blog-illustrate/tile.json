@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-illustrate",
+  "version": "0.1.0",
+  "summary": "Illustrate a blog post with AI-generated images: cover + content illustrations + WebP compression. Wrapper around baoyu-article-illustrator with Aaron's conventions.",
+  "private": true,
+  "skills": {
+    "blog-illustrate": {
+      "path": "SKILL.md"
+    }
+  }
+}

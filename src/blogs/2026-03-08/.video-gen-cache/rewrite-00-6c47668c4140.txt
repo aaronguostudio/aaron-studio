@@ -1,0 +1,5 @@
+Let me introduce you to Signal. It’s like my personal assistant that never sleeps... It’s always on the lookout, keeping tabs on places like Hacker News, Reddit, ArXiv, X — you name it — and it doesn't take a day off, either. This thing runs 24/7! Here’s the cool part: every single item gets a score from AI based on what I’m into, my goals, and even those pesky little blind spots I might have. The best part? Every morning, I get a curated list of high-scoring items straight to my inbox. Everything else? Well, I can just breeze through or toss it aside. Easy peasy!
+
+---SEGMENT---
+
+This system is working for me even when I’m catching Zs... or stuck in back-to-back meetings. It just keeps going, nonstop. And honestly, what used to seem like pure magic? Well, now it feels more like good old engineering.
