@@ -4,14 +4,14 @@ publish: Wednesday, 2026-03-11
 format: plain text, no markdown
 ---
 
-The Law of Attraction has always worked for me. I've never doubted it — I just wanted to understand the mechanism. And then build a better version.
+I Engineered the Law of Attraction with AI
 
-Every major outcome in my life — starting a business in university, moving to Canada, building a career in finance — followed the same pattern: intense focus on something, deep immersion in that world, and then a series of "coincidences" that lined up in my favor.
+Your brain processes 11 million bits of information per second. Your conscious mind handles 40.
 
-That's not magic. Your brain has a biological system for exactly this — the reticular activating system — that filters 11 million bits of information per second down to the 40 your conscious mind can handle. Setting a clear intention reprograms the filter. The Law of Attraction is a biological recommendation engine.
+The reticular activating system decides what gets through. Set a clear intention — and you reprogram the filter. That's the Law of Attraction. Not magic. Signal acquisition.
 
-I built an AI version of this. It monitors Hacker News, Reddit, ArXiv, X, GitHub, and more — scoring everything against my personal interest profile. Every morning I get a digest of what matters. Lucky coincidences got more frequent. Papers I wouldn't have found. People I wouldn't have known to look for. Ideas I wouldn't have connected on my own.
+I built an AI version: it monitors 7 sources 24/7, scores everything against my interest profile, and delivers a digest every morning. Lucky coincidences got more frequent.
 
-I call it Signal. This is how it works — and why it matters now.
+I call it Signal.
 
 aaronguo.com/blogs/i-engineered-the-law-of-attraction-with-ai
