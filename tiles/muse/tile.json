@@ -1,0 +1,14 @@
+{
+  "name": "aaronguo/muse",
+  "version": "0.2.1",
+  "summary": "Conversational writing topic discovery. Combines personal context (journals, notes, past writing), optional Signal DB intelligence, and web research to surface timely, authentic topic ideas for any writing format.",
+  "description": "Muse reads your journals, notes, and past work, taps into an optional signal database for real-time trends, searches the web — then surfaces topic ideas that are timely, authentic, and uniquely yours. Works for blogs, newsletters, essays, LinkedIn posts, video scripts, and more.",
+  "author": "Aaron Guo",
+  "private": false,
+  "skills": {
+    "muse": {
+      "path": "SKILL.md"
+    }
+  },
+  "docs": "docs.md"
+}

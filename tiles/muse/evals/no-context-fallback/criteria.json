@@ -1,0 +1,26 @@
+{
+  "context": "Muse should handle empty content paths by asking the user directly for personal context instead of skipping it.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "detects-empty-context",
+      "description": "Muse detects that all content paths are empty and no personal context is available",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "asks-user-directly",
+      "description": "Muse uses AskUserQuestion to gather personal context directly, asking about what the writer is building, recent frustrations, and recurring ideas",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "uses-answers-as-context",
+      "description": "Muse uses the user's answers as personal context, grounding topic ideas in real experience rather than generic trends",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "completes-full-workflow",
+      "description": "Muse proceeds through web searches and presents topic ideas combining the user's input with trend data",
+      "weight": 1, "max_score": 1
+    }
+  ]
+}

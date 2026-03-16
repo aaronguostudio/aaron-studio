@@ -1,0 +1,26 @@
+{
+  "context": "Muse should recognize the user has an idea and skip directly to refinement, bypassing research steps.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "skips-research-phase",
+      "description": "Muse recognizes the user arrived with a topic and skips Steps 2-4 (Signal, Read the Writer, Scan the Landscape)",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "goes-deeper",
+      "description": "Muse goes directly to the Go Deeper conversation, asking clarifying questions about the user's angle and personal experience",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "checks-existing-articles",
+      "description": "Muse uses WebFetch to check 1-2 existing articles on the topic to validate the gap",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "stress-tests",
+      "description": "Muse plays devil's advocate, asking who would disagree or what the strongest counter-argument is",
+      "weight": 1, "max_score": 1
+    }
+  ]
+}

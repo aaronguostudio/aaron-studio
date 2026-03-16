@@ -1,3 +1,8 @@
+---
+name: publish-to-blog
+description: Publishes blog posts from aaron-studio to the aaronguoblog Nuxt 3 site. Handles frontmatter generation, image copying, path rewriting, and sequential numbering.
+---
+
 # Publish to Blog
 
 Publishes blog posts from the aaron-studio content repository to the aaronguoblog Nuxt 3 site. Handles frontmatter generation, image copying, path rewriting, and sequential numbering.

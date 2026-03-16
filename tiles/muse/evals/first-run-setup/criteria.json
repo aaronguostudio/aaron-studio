@@ -1,0 +1,26 @@
+{
+  "context": "Muse should detect missing EXTEND.md and run first-time setup, asking 6 questions and creating the config file.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "detects-missing-extend",
+      "description": "Muse detects that no EXTEND.md exists and triggers the first-time setup flow instead of proceeding with topic discovery",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "asks-six-questions",
+      "description": "Muse asks the user 6 setup questions covering: name, content pillars, audience, writing formats, personal notes paths, and signal DB",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "creates-extend-md",
+      "description": "After receiving answers, Muse creates .aaron-skills/muse/EXTEND.md with valid YAML frontmatter containing the user's responses",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "confirms-and-proceeds",
+      "description": "Muse confirms setup is complete and proceeds to topic discovery",
+      "weight": 1, "max_score": 1
+    }
+  ]
+}

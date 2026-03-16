@@ -47,6 +47,15 @@
         ]
       }
     },
+    "aaronguo/muse": {
+      "version": "0.2.1",
+      "source": "file:tiles/muse",
+      "include": {
+        "skills": [
+          "muse"
+        ]
+      }
+    },
     "AaronGuo/aaron-yt-pipeline": {
       "version": "0.1.0",
       "source": "file:tiles/aaron-yt-pipeline",

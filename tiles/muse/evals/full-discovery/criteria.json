@@ -1,0 +1,36 @@
+{
+  "context": "Muse should run the full discovery workflow: attune, skip Signal DB, read journals, search the web, and present topic ideas.",
+  "type": "weighted_checklist",
+  "checklist": [
+    {
+      "name": "reads-extend-and-attunes",
+      "description": "Muse reads EXTEND.md and acknowledges attunement with the writer's name and pillars",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "skips-signal-db",
+      "description": "Muse skips the Signal DB step since it is disabled, and notes this",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "reads-personal-context",
+      "description": "Muse reads journal entries and synthesizes the writer's current state",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "performs-web-searches",
+      "description": "Muse performs 4-6 targeted web searches based on content pillars",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "presents-topic-ideas",
+      "description": "Muse presents 4-6 topic ideas, each with: Why now, Your angle, The gap, Pillar, Best format, and Effort level",
+      "weight": 1, "max_score": 1
+    },
+    {
+      "name": "opens-conversation",
+      "description": "Muse ends with a conversational question inviting the writer to respond, not a structured quiz",
+      "weight": 1, "max_score": 1
+    }
+  ]
+}

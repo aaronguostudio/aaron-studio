@@ -1,0 +1,1 @@
+`.aaron-skills/muse/EXTEND.md` exists with content pillars set to "AI workflows" and "product leadership", journals_dir set to "src/journal/", and signal_db.enabled set to false. A journal file exists at `src/journal/2026-03-14.md` with content about a recent project. Run `/muse` to discover topic ideas.

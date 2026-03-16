@@ -1,0 +1,1 @@
+No `.aaron-skills/muse/EXTEND.md` exists in the project. Run `/muse` and complete the first-time setup flow.

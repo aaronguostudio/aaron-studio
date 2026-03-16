@@ -1,0 +1,1 @@
+`.aaron-skills/muse/EXTEND.md` exists with valid configuration. Run `/muse I've been thinking about writing a piece on why most AI demos fail in production` — the user already has an idea and wants to refine it.

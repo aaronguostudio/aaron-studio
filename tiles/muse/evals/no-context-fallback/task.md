@@ -1,0 +1,1 @@
+`.aaron-skills/muse/EXTEND.md` exists but all `content_paths` are empty strings and `signal_db.enabled` is false. The writer has no journals, reading notes, or past writing configured. Run `/muse` to discover topic ideas.
