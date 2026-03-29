@@ -1,0 +1,6 @@
+- 2026-03-26
+  - CF - 2 hours
+- 2026-03-27
+  - CF - 4 hours new design
+- 2026-03-28
+  - CF - 4 hours new design

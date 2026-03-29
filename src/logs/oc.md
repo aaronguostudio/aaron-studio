@@ -1,0 +1,4 @@
+- 2026-03-27 Lump Sum
+  - OC - 2 hours for communication
+  - OC - 2 hours team communication
+- 
