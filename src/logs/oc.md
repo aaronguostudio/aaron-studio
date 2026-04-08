@@ -1,4 +1,9 @@
-- 2026-03-27 Lump Sum
-  - OC - 2 hours for communication
-  - OC - 2 hours team communication
-- 
+- 2026-04-01 1h - Discuss with Thiago about feature development
+- 2026-04-01 2h - Solving issues in current server
+- 2026-04-02 6h - Splitting tasks and team communication
+- 2026-04-03 6h - mcp, logs, usage etc.
+- 2026-04-04 8h - mcp, logs, usage and chat etc. analysis commercial
+- 2026-04-05 8h - testing
+- 2026-04-06 4h - communication and kick off phase 2
+- 2026-04-07 2h - merge the latest code and adding more detailed logs
+- 2026-04-08 1h - add heart beat

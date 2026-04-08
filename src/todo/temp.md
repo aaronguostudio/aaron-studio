@@ -13,3 +13,16 @@
   "workspace_id": "81d402b5-fe2a-4692-8ab3-e74342be056b",
   "quest_template_id": "b27955c0-b00d-4519-b6f6-a5cab357e86e"
 }
+
+---
+
+Jon 的项目同步：
+# 拉取 Jon 的最新改动
+git fetch upstream
+git merge upstream/master
+
+<!-- One command -->
+git pull upstream master
+
+# 推送到你的 repo
+git push origin master

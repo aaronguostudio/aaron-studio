@@ -1,6 +1,17 @@
-- 2026-03-26
-  - CF - 2 hours
-- 2026-03-27
-  - CF - 4 hours new design
-- 2026-03-28
-  - CF - 4 hours new design
+- 2026-04-01 3h - Setup changes
+- 2026-04-02 3h - Setup changes
+- 2026-04-03 3h - Setup changes
+- 2026-04-05 8h - Setup changes
+- 2026-04-06 8h - Setup changes, reports configration
+- 2026-04-07 2h - reports configration
+- 2026-04-08 1h - updates PR and sync up Laura and Garnet
+
+
+
+logs:
+- reorder ghost effect fix, prevent not movable items and fix bottom item
+- Table alignment
+- loading state
+- switch tabs toggle
+- kiosk 页面增强
+- Org switch
