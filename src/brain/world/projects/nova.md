@@ -67,8 +67,15 @@ Core concepts (per Justin's definitions):
 ## Timeline
 - 2026-04-17: Next decision deadline (COO group adoption)
 - 2026-04-10: Aaron meets Justin 1:1 (UX discussion + likely political processing)
-- 2026-04-09: Justin post-retreat PR message; team meeting notes revealed Redis still unstable
-- 2026-04-08: COO Retreat — demo failure
+- 2026-04-09: Justin post-retreat PR message; direct message to Aaron narrowing io_spec as #1; shared Interaction definition; team meeting revealed Redis still unstable (Narek proposing real fix, Duncan patching); Alex shared Bezos inflection piece
+  refs:
+    - [[_archive/2026-04-09/justin-post-retreat-message]]
+    - [[_archive/2026-04-09/justin-direct-message-aaron-ux]]
+    - [[_archive/2026-04-09/justin-interaction-definition]]
+    - [[_archive/2026-04-09/nova-team-meeting-notes]]
+    - [[_archive/2026-04-09/redis-architecture-discussion]]
+    - [[_archive/2026-04-09/alex-bezos-squiggly-lines]]
+- 2026-04-08: COO Retreat — demo failure (Redis overloaded, vendor app incomplete, hands-on session produced no successful builds)
 - 2026-03-31: Previous deadline (pushed)
 - 2026-03-19 (approx): Aaron's deep conversation with GG about Nova internal politics
 - 2026 earlier: Justin + Wilson initiated; Aaron moved from core to support role

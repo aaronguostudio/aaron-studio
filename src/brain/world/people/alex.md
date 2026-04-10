@@ -56,6 +56,9 @@
 
 ## Observations Timeline
 - 2026-04-09: Shared Bezos "squiggly lines" inflection piece to Nova builders — narrative armor for execution failure
+  ref: [[_archive/2026-04-09/alex-bezos-squiggly-lines]]
+- 2026-04-09: In team meeting — on Power BI debugging (his actual work), suggested Wilson/Duncan consult Tristan re Copilot. Low Nova engineering commitment, consistent with pattern.
+  ref: [[_archive/2026-04-09/nova-team-meeting-notes]]
 - 2026-04-08: Gave passionate, well-prepared presentation at COO retreat — the Demo Day performance
 - 2026 earlier (pre-retreat): Privately expressed relief his team wasn't involved in Nova
 - Ongoing: Tight coalition with Wilson

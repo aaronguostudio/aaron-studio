@@ -43,7 +43,10 @@
 - **Regardless:** Direct relationship with Narek is one of Aaron's highest-ROI technical investments
 
 ## Observations Timeline
-- 2026-04-09: Proposed Redis event bus architecture fix; running Quest Builder stress tests; discussing Mem Palace for memory nodes; supported Aaron's "cloud DB sharing" idea for local dev
+- 2026-04-09: Proposed Redis event bus architecture fix — correct senior-engineer diagnosis of root cause (pub/sub connection exhaustion), proposed shared connection + predicate/callback abstraction. Duncan responded with "interested to see" — no commitment timeline.
+  ref: [[_archive/2026-04-09/redis-architecture-discussion]]
+- 2026-04-09: In team meeting — running Quest Builder stress tests (results in 2 days), exploring Mem Palace for memory nodes, supported Aaron's cloud DB sharing idea for local dev, advocated distributed local development
+  ref: [[_archive/2026-04-09/nova-team-meeting-notes]]
 - 2026 earlier: Built flow graph framework for Nova; code submissions to separate repo (low commit activity to main project over 1.5 months)
 - Ongoing: Doing architectural work while others do vibe-coded feature work
 

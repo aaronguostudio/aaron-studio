@@ -57,7 +57,12 @@
 
 ## Observations Timeline
 - 2026-04-10: In-person meeting scheduled (UX discussion + likely political processing)
-- 2026-04-09: Post-retreat PR message; assigned Aaron to Campaign UX; shared vibe-coding Interaction definition
+- 2026-04-09: Post-retreat public PR message to Nova builders — zero accountability, full "world-changing" language, assigned Aaron to Campaign UX
+  ref: [[_archive/2026-04-09/justin-post-retreat-message]]
+- 2026-04-09: Direct message to Aaron narrowing priority — "io_spec setting process" is the real #1
+  ref: [[_archive/2026-04-09/justin-direct-message-aaron-ux]]
+- 2026-04-09: Shared definition of "Interaction" featuring "purely vibe coding" and "greater than Claude Skills" claims — marketing language disguised as tech spec
+  ref: [[_archive/2026-04-09/justin-interaction-definition]]
 - 2026-04-08: COO retreat demo failed (Redis overload, vendor app incomplete)
 - 2026-03-19 (approx): Mar 17 start of 3-week vacation, right before March 31 then April 17 deadline
 - 2026-03 earlier: Lost closest-ally status to Wilson in Justin's inner circle
