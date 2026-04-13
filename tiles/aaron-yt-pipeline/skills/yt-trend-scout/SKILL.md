@@ -29,7 +29,7 @@ test -f "$HOME/.aaron-skills/aaron-yt-pipeline/EXTEND.md" && echo "user"
 | Found | Read and apply preferences (niche, content pillars, competitor channels, audience). Skip matching questions in Step 2. |
 | Not found | Proceed with defaults; ask all questions in Step 2. |
 
-If `src/strategy/x.md` exists, read it for content pillars, voice rules, and distribution context.
+If `src/content/strategy/x.md` exists, read it for content pillars, voice rules, and distribution context.
 
 ### Step 2: Gather Context
 

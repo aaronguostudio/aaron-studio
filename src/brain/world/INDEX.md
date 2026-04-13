@@ -28,6 +28,7 @@ Aaron 世界的图谱导航。所有实体的快速入口。
 - [[people/kyle]] ⚪ — Outlook interaction, bias profile work
 - [[people/dwight-pratt]] ⚪ — Security, reasonable privacy concerns
 - [[people/xiaojun]] ⚪ — Quest migration tooling
+- [[people/jeff-house]] 🟢 — ICG, business-side champion of Claude Skill workflow tools
 
 ### OrgNext
 - [[people/thiago]] 🟢 — CTO, thoughtful skeptic, pushes back on AI sycophancy
@@ -78,7 +79,7 @@ Aaron 世界的图谱导航。所有实体的快速入口。
 ## Quick Queries
 
 **"Who does Aaron really trust at Mawer?"**
-→ [[people/keri]], [[people/narek]] (technical respect)
+→ [[people/keri]], [[people/narek]] (technical respect), [[people/jeff-house]] (business-side ally)
 
 **"Who are the political risks?"**
 → [[people/wilson]], [[people/alex]] (information flows to Justin/Wilson)

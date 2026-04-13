@@ -42,7 +42,10 @@ A symlink at `.baoyu-skills/.env` is tracked in the repo so all skills share the
 ## Project structure
 
 ```
-src/blogs/          Blog posts organized by date (YYYY-MM-DD/)
+src/brain/          Aaron's operating system (world graph, goals, reviews, journal, reading)
+src/content/blogs/  Blog posts organized by date (YYYY-MM-DD/)
+src/content/        All publishable content (blogs, strategy, writing, shorts, videos)
+src/inbox/          Single capture point — processed weekly
 tiles/              Local skills (aaron-video-gen, publish-to-blog)
 .baoyu-skills/      Project-level skill preferences and env
 .claude/skills/     Skill symlinks for Claude Code

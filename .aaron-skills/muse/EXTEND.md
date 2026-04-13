@@ -23,10 +23,10 @@ target_audience: "Tech professionals and builders who want to ship with AI"
 
 # Personal context directories
 content_paths:
-  journals_dir: "src/journal/"
-  reading_notes_dir: "src/reading/"
-  brain_dir: ""
-  past_writing_glob: "src/blogs/*/content-plan.md"
+  journals_dir: "src/brain/journal/"
+  reading_notes_dir: "src/brain/reading/"
+  brain_dir: "src/brain/"
+  past_writing_glob: "src/content/blogs/*/content-plan.md"
 
 # CTA rotation
 cta_rotation:

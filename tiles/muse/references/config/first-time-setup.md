@@ -36,7 +36,7 @@ Use a **single `AskUserQuestion`** call with all questions:
 > Muse gets sharper when it can read your thinking — journals, reading notes, idea files, or past writing in this project. The more context Muse has about you, the better it can find topics that are authentically yours (not just trending).
 >
 > **If you have them:** share the folder paths.
-> *e.g. "journals: src/journal/ — reading notes: src/reading/ — past posts: src/blogs/\*/content-plan.md"*
+> *e.g. "journals: src/brain/journal/ — reading notes: src/brain/reading/ — past posts: src/content/blogs/\*/content-plan.md"*
 >
 > **If you don't have them yet:** say "help me set up" — Muse will create a simple folder structure for you to start capturing notes.
 >

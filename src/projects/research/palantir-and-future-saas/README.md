@@ -233,7 +233,7 @@
 ## 输出结构
 
 ```
-src/research/palantir-and-future-saas/
+src/projects/research/palantir-and-future-saas/
 ├── README.md                      # 本文件 — 研究计划
 ├── 01-business-model.md           # 商业模式与财务分析
 ├── 02-technical-architecture.md   # 技术架构深度解析

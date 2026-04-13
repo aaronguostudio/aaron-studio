@@ -43,10 +43,10 @@ Paths relative to the project root. Leave empty to skip.
 
 | Field | What Muse reads | Example |
 |-------|----------------|---------|
-| `journals_dir` | Last 2–3 journal entries (date-prefixed `.md` files) | `"src/journal/"` |
-| `reading_notes_dir` | Reading notes from the last 14 days | `"src/reading/"` |
+| `journals_dir` | Last 2–3 journal entries (date-prefixed `.md` files) | `"src/brain/journal/"` |
+| `reading_notes_dir` | Reading notes from the last 14 days | `"src/brain/reading/"` |
 | `brain_dir` | Evergreen "second brain" notes | `"src/brain/"` |
-| `past_writing_glob` | Last 3 content plans or outlines (to avoid repeating topics) | `"src/blogs/*/content-plan.md"` |
+| `past_writing_glob` | Last 3 content plans or outlines (to avoid repeating topics) | `"src/content/blogs/*/content-plan.md"` |
 
 ---
 
@@ -141,10 +141,10 @@ content_pillars:
   - building in public
 target_audience: "Tech professionals who want to ship with AI"
 content_paths:
-  journals_dir: "src/journal/"
-  reading_notes_dir: "src/reading/"
+  journals_dir: "src/brain/journal/"
+  reading_notes_dir: "src/brain/reading/"
   brain_dir: "src/brain/"
-  past_writing_glob: "src/blogs/*/content-plan.md"
+  past_writing_glob: "src/content/blogs/*/content-plan.md"
 cta_rotation:
   enabled: true
   sequence: ["follow", "newsletter", "reply"]

@@ -78,10 +78,10 @@ All configuration lives in `.aaron-skills/muse/EXTEND.md` (YAML frontmatter). Ed
 
 | Field | What Muse reads | Example |
 |-------|----------------|---------|
-| `journals_dir` | Last 2–3 journal entries | `"src/journal/"` |
-| `reading_notes_dir` | Reading notes from the last 14 days | `"src/reading/"` |
+| `journals_dir` | Last 2–3 journal entries | `"src/brain/journal/"` |
+| `reading_notes_dir` | Reading notes from the last 14 days | `"src/brain/reading/"` |
 | `brain_dir` | Evergreen "second brain" notes | `"src/brain/"` |
-| `past_writing_glob` | Last 3 content plans or outlines | `"src/blogs/*/content-plan.md"` |
+| `past_writing_glob` | Last 3 content plans or outlines | `"src/content/blogs/*/content-plan.md"` |
 
 ### CTA Rotation — `cta_rotation`
 

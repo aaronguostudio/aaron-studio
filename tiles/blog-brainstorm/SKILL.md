@@ -11,7 +11,7 @@ Research trending topics across the web, combine them with personal experience, 
 
 | File | Path | Purpose |
 |------|------|---------|
-| Content plan | `src/blogs/YYYY-MM-DD/content-plan.md` | Structured plan for writing the blog post |
+| Content plan | `src/content/blogs/YYYY-MM-DD/content-plan.md` | Structured plan for writing the blog post |
 
 ## Workflow
 
@@ -29,7 +29,7 @@ test -f "$HOME/.aaron-skills/blog-brainstorm/EXTEND.md" && echo "user"
 | Found | Read and apply preferences (expertise areas, audience, tone, brand context). Skip matching questions in Step 2. |
 | Not found | Proceed with defaults; ask all questions in Step 2. |
 
-**Always read** `src/strategy/x.md` for content pillars, rules, and distribution strategy. This grounds the entire brainstorm in the publishing workflow.
+**Always read** `src/content/strategy/x.md` for content pillars, rules, and distribution strategy. This grounds the entire brainstorm in the publishing workflow.
 
 ### Step 2: Gather Context
 
@@ -128,9 +128,9 @@ This is the creative heart of the skill — free-form conversation.
 
 Once the angle is confirmed, create the blog directory and content plan.
 
-**Create directory:** `src/blogs/YYYY-MM-DD/` (today's date, or user-specified)
+**Create directory:** `src/content/blogs/YYYY-MM-DD/` (today's date, or user-specified)
 
-**Create file:** `src/blogs/YYYY-MM-DD/content-plan.md`
+**Create file:** `src/content/blogs/YYYY-MM-DD/content-plan.md`
 
 **Format:**
 
@@ -237,7 +237,7 @@ Pillar: [pillar name]
 Title: "[Working Title]"
 Publish day: [date]
 CTA this cycle: [follow / newsletter / reply]
-Plan saved: src/blogs/YYYY-MM-DD/content-plan.md
+Plan saved: src/content/blogs/YYYY-MM-DD/content-plan.md
 
 Publishing timeline:
 - [Wed date]: Blog + Newsletter/LinkedIn + X Post
@@ -261,7 +261,7 @@ Next steps:
 - Web searches must include the current year to ensure relevance.
 - Steps 4-5 are conversational — use free-form discussion, not just structured questions.
 - Do NOT write the actual blog post. The content plan is the deliverable.
-- Content plan references `src/strategy/x.md` for content rules and publishing workflow. If the strategy changes, the plan output stays current.
+- Content plan references `src/content/strategy/x.md` for content rules and publishing workflow. If the strategy changes, the plan output stays current.
 - The Distribution Plan section provides briefs, not finished content. Other skills or manual writing turn briefs into final x-teaser.md, newsletter-teaser.md, etc.
 - CTA rotation should cycle across posts: follow → newsletter → reply → follow → ... Track the last used CTA across content plans to avoid repeating.
 - Post hooks should use a hook formula from the strategy and stop the scroll in the first few lines.

@@ -267,7 +267,7 @@ speed: 1.1
 Generate video with full branding (recommended):
 ```bash
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
-  --script src/blogs/2026-02-22/youtube-script.md \
+  --script src/content/blogs/2026-02-22/youtube-script.md \
   --renderer remotion \
   --tts elevenlabs \
   --voice 991lF4hc0xxfec4Y6B0i \
@@ -280,13 +280,13 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 Generate with free TTS (no API key needed):
 ```bash
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
-  --script src/blogs/2026-02-22/youtube-script.md
+  --script src/content/blogs/2026-02-22/youtube-script.md
 ```
 
 Generate with OpenAI TTS:
 ```bash
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
-  --script src/blogs/2026-02-22/youtube-script.md \
+  --script src/content/blogs/2026-02-22/youtube-script.md \
   --tts openai --voice nova \
   --renderer remotion
 ```

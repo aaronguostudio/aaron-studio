@@ -5,6 +5,9 @@
 - 2026-04-06 8h - Setup changes, reports configration
 - 2026-04-07 2h - reports configration
 - 2026-04-08 1h - updates PR and sync up Laura and Garnet
+- 2026-04-09 1h - review code
+- 2026-04-10 1h - review code
+- 2026-04-13 3h - review code
 
 
 

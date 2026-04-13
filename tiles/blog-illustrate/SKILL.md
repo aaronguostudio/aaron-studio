@@ -11,7 +11,7 @@ Generate a full illustration set for a blog post: cover image, content illustrat
 
 | | baoyu-article-illustrator | blog-illustrate (this skill) |
 |---|---|---|
-| Output dir | `illustrations/{slug}/` | `src/blogs/YYYY-MM-DD/imgs/` ✅ |
+| Output dir | `illustrations/{slug}/` | `src/content/blogs/YYYY-MM-DD/imgs/` ✅ |
 | Cover image | Not generated | Always generates `00-cover` ✅ |
 | Cover thumbnail | Not generated | Always generates `00-cover-thumbnail` with title ✅ |
 | WebP compression | Not included | Auto-runs after generation ✅ |
@@ -20,7 +20,7 @@ Generate a full illustration set for a blog post: cover image, content illustrat
 ## Output
 
 ```
-src/blogs/YYYY-MM-DD/imgs/
+src/content/blogs/YYYY-MM-DD/imgs/
 ├── 00-cover.png              ← clean cover (no text) — used as blog header
 ├── 00-cover-thumbnail.png    ← cover + bold title text — used as YouTube thumbnail
 ├── 01-{type}-{slug}.png
@@ -61,14 +61,14 @@ test -f .baoyu-skills/baoyu-article-illustrator/EXTEND.md && cat .baoyu-skills/b
 
 **Detect article path** — from user's argument or ask:
 - If path provided: use it directly
-- If not provided: look for the most recently modified `.md` file in `src/blogs/`
+- If not provided: look for the most recently modified `.md` file in `src/content/blogs/`
 
-**Detect blog date dir** from article path, e.g. `src/blogs/2026-03-08/`.
+**Detect blog date dir** from article path, e.g. `src/content/blogs/2026-03-08/`.
 
 **Create output dir:**
 ```bash
-mkdir -p src/blogs/YYYY-MM-DD/imgs/web
-mkdir -p src/blogs/YYYY-MM-DD/imgs/prompts
+mkdir -p src/content/blogs/YYYY-MM-DD/imgs/web
+mkdir -p src/content/blogs/YYYY-MM-DD/imgs/prompts
 ```
 
 ---
@@ -114,7 +114,7 @@ Cover is always generated regardless of density setting.
 
 ### Step 4: Generate Outline
 
-Save to `src/blogs/YYYY-MM-DD/imgs/outline.md`.
+Save to `src/content/blogs/YYYY-MM-DD/imgs/outline.md`.
 
 **ALWAYS include `00-cover` as the first entry:**
 
@@ -156,7 +156,7 @@ Generate sequentially using `baoyu-image-gen` skill (via Bash):
 SKILL_DIR=".claude/skills/tessl__baoyu-image-gen"
 npx -y bun "${SKILL_DIR}/scripts/main.ts" \
   --prompt "[full prompt]" \
-  --image "src/blogs/YYYY-MM-DD/imgs/NN-type-slug.png" \
+  --image "src/content/blogs/YYYY-MM-DD/imgs/NN-type-slug.png" \
   --ar 16:9
 ```
 
@@ -175,7 +175,7 @@ This is the same visual but with the blog title baked in as a bold headline — 
 SKILL_DIR=".claude/skills/tessl__baoyu-image-gen"
 npx -y bun "${SKILL_DIR}/scripts/main.ts" \
   --prompt "[thumbnail prompt — see below]" \
-  --image "src/blogs/YYYY-MM-DD/imgs/00-cover-thumbnail.png" \
+  --image "src/content/blogs/YYYY-MM-DD/imgs/00-cover-thumbnail.png" \
   --ar 16:9 \
   --provider openai
 ```
@@ -206,7 +206,7 @@ Rules for thumbnail generation:
 - Stick to the outline's Visual Content description
 - Keep consistent visual language across all content illustrations
 
-Save each prompt to `src/blogs/YYYY-MM-DD/imgs/prompts/NN-{slug}.md` for future reference.
+Save each prompt to `src/content/blogs/YYYY-MM-DD/imgs/prompts/NN-{slug}.md` for future reference.
 
 Retry once on failure. Report any that fail after retry.
 
@@ -217,16 +217,16 @@ Retry once on failure. Report any that fail after retry.
 After ALL images are generated, run:
 
 ```bash
-./scripts/compress-blog-imgs.sh src/blogs/YYYY-MM-DD
+./scripts/compress-blog-imgs.sh src/content/blogs/YYYY-MM-DD
 ```
 
 If the script doesn't exist yet:
 ```bash
 # Fallback: run cwebp directly
-mkdir -p src/blogs/YYYY-MM-DD/imgs/web
-for f in src/blogs/YYYY-MM-DD/imgs/*.png; do
+mkdir -p src/content/blogs/YYYY-MM-DD/imgs/web
+for f in src/content/blogs/YYYY-MM-DD/imgs/*.png; do
   name=$(basename "$f" .png)
-  cwebp -q 82 "$f" -o "src/blogs/YYYY-MM-DD/imgs/web/${name}.webp" 2>/dev/null
+  cwebp -q 82 "$f" -o "src/content/blogs/YYYY-MM-DD/imgs/web/${name}.webp" 2>/dev/null
 done
 ```
 

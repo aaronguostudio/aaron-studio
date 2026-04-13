@@ -11,7 +11,7 @@ Publishes blog posts from the aaron-studio content repository to the aaronguoblo
 
 | Location | Path |
 |----------|------|
-| Content repo | `/Users/aguo/aaron/aaron-studio/src/blogs/` |
+| Content repo | `/Users/aguo/aaron/aaron-studio/src/content/blogs/` |
 | Blog site | `/Users/aguo/Work/ag/aaronguoblog/` |
 | Blog posts dir | `/Users/aguo/Work/ag/aaronguoblog/content/blogs/en/` |
 | Blog images dir | `/Users/aguo/Work/ag/aaronguoblog/public/blogs-img/` |
@@ -20,7 +20,7 @@ Publishes blog posts from the aaron-studio content repository to the aaronguoblo
 
 ### Step 1: Identify the source post
 
-The user will provide a path to a blog post markdown file in `src/blogs/YYYY-MM-DD/`. Read the file and identify:
+The user will provide a path to a blog post markdown file in `src/content/blogs/YYYY-MM-DD/`. Read the file and identify:
 - The article title (from the `#` heading)
 - The date (from the directory name `YYYY-MM-DD`)
 - Associated images in the `imgs/` subdirectory
@@ -74,7 +74,7 @@ published: true
 
 #### 5a: Create the Chinese source file in the content repo
 
-Save as `src/blogs/YYYY-MM-DD/{slug}-zh.md`. This is a full Chinese translation of the article:
+Save as `src/content/blogs/YYYY-MM-DD/{slug}-zh.md`. This is a full Chinese translation of the article:
 - Translate the title, all body text, image alt text, and closing text
 - Keep image references using the local `imgs/` paths (same as the English source)
 - Keep all markdown formatting (headers, bold, lists, etc.)
@@ -116,11 +116,11 @@ published: true
 
 ## Example
 
-**Input:** `src/blogs/2026-02-14/marriott-timeshare-las-vegas.md`
+**Input:** `src/content/blogs/2026-02-14/marriott-timeshare-las-vegas.md`
 
 **Output:**
 - English post: `content/blogs/en/14.marriott-timeshare-las-vegas.md`
-- Chinese source: `src/blogs/2026-02-14/marriott-timeshare-las-vegas-zh.md`
+- Chinese source: `src/content/blogs/2026-02-14/marriott-timeshare-las-vegas-zh.md`
 - Chinese post: `content/blogs/zh/14.marriott-timeshare-las-vegas.md`
 - Images: `public/blogs-img/2026-02-14-marriott-cover.png`, `2026-02-14-marriott-01.png`, etc.
 

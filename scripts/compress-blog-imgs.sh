@@ -4,8 +4,8 @@
 # Originals are preserved. WebP versions saved to imgs/web/.
 #
 # Usage:
-#   ./scripts/compress-blog-imgs.sh src/blogs/YYYY-MM-DD
-#   ./scripts/compress-blog-imgs.sh src/blogs/YYYY-MM-DD 85   (custom quality, default: 82)
+#   ./scripts/compress-blog-imgs.sh src/content/blogs/YYYY-MM-DD
+#   ./scripts/compress-blog-imgs.sh src/content/blogs/YYYY-MM-DD 85   (custom quality, default: 82)
 
 set -e
 
@@ -14,7 +14,7 @@ QUALITY="${2:-82}"
 
 if [ -z "$BLOG_DIR" ]; then
   echo "Usage: $0 <blog-dir> [quality]"
-  echo "Example: $0 src/blogs/2026-03-08"
+  echo "Example: $0 src/content/blogs/2026-03-08"
   exit 1
 fi
 
