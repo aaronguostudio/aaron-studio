@@ -83,15 +83,35 @@ related:
 
 ---
 
-## Growth loop — your most important job
+## Continuous ingest — the fastest update path
 
-Aaron didn't build this repo to chat. He built it to **grow over time**. The loop:
+Inspired by Karpathy's second-brain pattern (see [reading note](src/brain/reading/2026/2026-04-13-karpathy-second-brain.md)). When new evidence arrives — a Slack screenshot, meeting transcript, message, article, observation Aaron drops in chat — **don't wait for Friday review**. Process it now.
+
+**Workflow on any new raw evidence:**
+1. Save the raw to [src/brain/world/_archive/YYYY-MM-DD/](src/brain/world/_archive/) (one file per source, never batch).
+2. Read it fully.
+3. Identify which [src/brain/world/](src/brain/world/) nodes (people / orgs / projects / themes) are affected.
+4. Update each affected node's Observations section — date the entry and cite the raw file path.
+5. Flag any contradictions with existing wiki content → write an ADR in [src/brain/decisions/](src/brain/decisions/).
+6. **Verify the audit trail:** the raw file path must appear in at least one updated node's Observations. That citation IS the receipt — no separate log needed. To answer "what did the world learn this week," use `git log --since=... src/brain/world/`.
+
+**Rules:**
+- One source at a time. Batching destroys emphasis. (Karpathy's discipline.)
+- The human owns raw + schema (this CLAUDE.md). Claude owns wiki maintenance. The LLM doesn't get bored; that's the leverage.
+- No global ingest log file — per-node Observations + `git log` are already authoritative; a third source would drift.
+
+---
+
+## Growth loop — the trajectory layer
+
+Continuous ingest keeps state fresh. The growth loop drives **trajectory** — what's compounding, what's drifting, what to drop.
 
 ```
-daily journal ──┐
-                ├─► weekly review ─► world/ deltas + decisions/ ADRs
-world/ ─────────┤                          │
-goals/ ─────────┤                          ▼
+raw evidence ──► continuous ingest ──► world/ + log.md
+                                          │
+daily journal ──┐                         │
+                ├─► weekly review ────────┤──► decisions/ ADRs
+goals/ ─────────┤                         ▼
 inbox ──────────┘                  monthly → quarterly → goals/ update
 ```
 
@@ -122,6 +142,7 @@ Read [src/brain/reviews/README.md](src/brain/reviews/README.md) for cadence rule
 ## Skills inventory
 
 Active skills in this repo (see [tessl.json](tessl.json) and `tiles/`):
+- **`brain-ingest`** (local) — capture anything (text, images, screenshots, files) into the right `src/brain/` subdir. Always confirms before writing. Use whenever Aaron pastes content with no specified destination.
 - `tessl__blog-brainstorm` — generate `content-plan.md` (NOT full posts)
 - `tessl__baoyu-article-illustrator` — generate blog images → `imgs/web/*.webp`
 - `tessl__baoyu-image-gen` — standalone image generation

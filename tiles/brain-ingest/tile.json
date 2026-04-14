@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/brain-ingest",
+  "version": "0.1.0",
+  "summary": "Single capture point for Aaron's brain. Routes pasted content (text, screenshots, files) into the right src/brain/ subdir, parses images to text, updates affected world/ nodes, and always confirms before writing.",
+  "private": true,
+  "skills": {
+    "brain-ingest": {
+      "path": "SKILL.md"
+    }
+  }
+}
