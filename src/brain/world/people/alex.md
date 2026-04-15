@@ -55,6 +55,8 @@
 - **If Wilson leaves:** Alex loses his primary ally, must find new coalition
 
 ## Observations Timeline
+- 2026-04-15: Justin publicly credits Alex as "at the core of research's increasingly interest in and adoption of Nova." Pattern confirmed: visibility credit without engineering ownership.
+- 2026-04-15 (meeting): Advised teams on backend-first, light frontend, "no attachment to legacy UI." Strategic advice role, no engineering deliverables. Described his team "preparing for shift to Nova" by setting expectations — managing narrative, not building.
 - 2026-04-09: Shared Bezos "squiggly lines" inflection piece to Nova builders — narrative armor for execution failure
   ref: [[_archive/2026-04-09/alex-bezos-squiggly-lines]]
 - 2026-04-09: In team meeting — on Power BI debugging (his actual work), suggested Wilson/Duncan consult Tristan re Copilot. Low Nova engineering commitment, consistent with pattern.
