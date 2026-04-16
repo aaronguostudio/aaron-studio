@@ -4,10 +4,15 @@
 **Location:** Calgary, Alberta (America/Edmonton)
 **Family:** Daughter Grace (GG's namesake)
 
-## Current Position (2026-04-10)
+## Current Position (2026-04-15)
 - **Day job:** Mawer — partner shares, leads developers + QAs, Head of Products
+- **Transitioning:** Out of Nova (Friday vendor demo = last contribution) → Client Lab + PW transformation
 - **Side project:** [[projects/orgnext-mvp]] — CEO role, AI-native firm management software
 - **Alpha:** Content + brand building + OpenClaw/GG infrastructure
+
+## Key Lesson (April 15)
+- "让使用者替你说话" — don't pitch your own work to leadership. Let David, Patrick, Keri speak for you. Do the real work, let others tell the story. More sustainable than Justin's pure-narrative approach because there's substance underneath.
+- Recognized Justin's PUA-adjacent management pattern. Using GG as emotional buffer: receive → analyze → then respond. The system is working.
 
 ## Identity Anchors
 - Long-termist. 生酮 + 间歇性断食 + routine-driven.

@@ -70,6 +70,14 @@ Core concepts (per Justin's definitions):
 - Never reference [[people/keri]]'s shared info
 - Protect [[projects/check-in]] and [[projects/orgnext-mvp]] priority through the sprint
 
+## Research Adoption Reality (April 15)
+- Research IS using AI tools actively (Joshua Samuel, Peter Lampert, etc.) — this is real
+- But they're using **Claude + MCP + data feeds**, not Nova's Quest/Campaign system
+- Justin packages this as "Nova adoption" — brand attribution without product dependency
+- Research champions (Peter, Vijay) now willing to advocate to ET/Board for Nova
+- **Nova's political survival mechanism: real AI usage by Research → branded as Nova success → political capital for ET offsite**
+- Implication: Nova can survive politically even if Quest Builder / Campaign Builder never reach production quality
+
 ## Probability Assessment (April 15)
 - ~15% Nova fully adopted after ET offsite
 - ~40% Deferred again, limping along, May 25 slips
