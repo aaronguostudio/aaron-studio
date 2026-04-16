@@ -15,7 +15,7 @@ AI-native firm/company management software. Aaron is CEO (business side), with 3
 ## Key People
 - **Aaron** — CEO, business side
 - [[people/thiago]] — CTO, thoughtful skeptic who pushes back on AI sycophancy (Aaron values this)
-- 2 other experienced developers
+- 2 other experienced developers (based in Dali, China — team has autonomy)
 - (TBD — Taiwan customer, existing relationship)
 
 ## Current State (April 2026)
@@ -37,9 +37,15 @@ AI-native firm/company management software. Aaron is CEO (business side), with 3
 - Customer relationship (Taiwan) — trust built over time
 
 ## Aaron's Role Evolution
-- **Now:** Business + vision + customer + fundraising
+- **Now:** Business + vision + customer + fundraising. Dev team in Dali has capacity — OrgNext can progress even while Aaron focuses on Mawer positioning
 - **Next:** If MVP lands → formal revenue, Aaron moves toward exit from Mawer baseline
 - **Future:** AI-native firm ops becomes primary identity; Mawer becomes optional
+
+## Coexistence with Mawer (as of 2026-04-15)
+- Mawer upside increasing (PW transformation, Keri backing, Carol hire, David partnership)
+- OrgNext not abandoned — team in Dali can execute while Aaron builds Mawer position
+- **Key question for CEO Hour:** What conditions make Mawer the primary bet vs OrgNext?
+- Both can run in parallel if Aaron stays disciplined on role boundaries (CEO/vision for OrgNext, tech leader for Mawer PW)
 
 ## Connection to Other Projects
 - [[projects/signal]]: news aggregation pipeline — potential component

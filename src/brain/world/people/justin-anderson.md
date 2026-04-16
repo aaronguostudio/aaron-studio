@@ -55,6 +55,21 @@
 - ~50%: Justin survives, Nova limps along, Aaron plays UX role without owning blame
 - Either way: Aaron's strategy is same — deliver real value, keep scope tight, don't bet career on Nova
 
+## Communication Pattern Analysis (April 15)
+- Uses "he/him" when talking about Aaron and Chintan in group channels (they're present) — signals hierarchy, treating them as assigned executors vs peers
+- Contrasts with "Duncan we can call in...", "Wilson we can call in..." — direct address, peer tone for inner circle
+- **Inner circle = Builders (Wilson, Duncan, Narek). Outer circle = Orchestrators (Aaron, Chintan).** Language reflects this unconsciously.
+- Narcissistic leadership traits: epic narrative language ("written in blood", "Release the Kraken"), creates urgency that suppresses rational questioning, selective recognition (Alex gets public credit for narrative, Aaron's io_spec/UX work gets "he can showcase")
+- PUA-adjacent pattern: 提拔之恩 as psychological leverage → gradual displacement without explicit communication →归属感焦虑 through exclusion language → vision used to pressure compliance
+
+## Narrative vs Reality Pattern (April 15)
+- Research adoption is real — Joshua Samuel using M42 MCP + Xpress Feed at 2:56 AM, genuine usage
+- **But Research is using Claude + MCP, not Nova's Quest/Campaign system.** The actual value comes from Anthropic's protocol + data feeds
+- Justin packages Research's independent AI exploration as "Nova's success" — classic corporate move: brand other people's work under your platform
+- Research doesn't care about the label — they get visibility and model access. Justin gets political capital. Mutual exchange.
+- Peter Lampert + Vijay Viswanathan now willing to advocate to ET/Board — Justin successfully created evangelists without Nova platform itself being stable
+- **Nova's survival is political, not product-driven.** This explains why it keeps surviving despite repeated demo failures.
+
 ## Observations Timeline
 - 2026-04-10: In-person meeting scheduled (UX discussion + likely political processing)
 - 2026-04-09: Post-retreat public PR message to Nova builders — zero accountability, full "world-changing" language, assigned Aaron to Campaign UX

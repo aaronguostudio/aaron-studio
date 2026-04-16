@@ -1,0 +1,9 @@
+Let’s set the stage here. Just a day before Jack Ma's school visit, Alibaba decided to shake things up by open-sourcing four brand-new Qwen 3.5 small language models. Pretty bold move, right?
+
+---SEGMENT---
+
+Elon Musk recently took to social media to say that these small models have reached "an astonishing level of intelligence." Pretty wild, right? Meanwhile, Alibaba decided to bring all its AI products together under the Qwen brand. They also introduced this concept called the AI Golden Triangle — it's made up of Tongyi Lab for the models, Alibaba Cloud for the infrastructure, and T-Head for those fancy custom chips. Quite the power move!
+
+---SEGMENT---
+
+At this very moment... only two companies out there have top-notch capabilities in all three areas — models, cloud, and chips. Yep, we're talking about Alibaba and Google. It’s pretty clear that Jack Ma picking this exact time to chat about AI and education isn’t just by chance, right?

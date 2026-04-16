@@ -12,7 +12,8 @@ Reach a point where [[orgs/mawer]] becomes **optional**, not necessary. Income f
 - Salary + partner shares
 - [[projects/check-in]] as the real value delivery line
 - [[projects/nova]] as the political noise (manage, don't invest identity)
-- Goal: maintain and protect, don't expand
+- Goal: was "maintain and protect" — **now actively expanding** (PW transformation, David Buchanan partnership, Carol Schneider hire)
+- **2026-04-15 shift:** Keri is positioning Aaron for leadership in Private Wealth tech transformation. Mawer upside ceiling raised significantly. Tier 1 may become a growth path, not just a baseline.
 
 ### Tier 2 — Big Opportunity (OrgNext)
 - [[projects/orgnext-mvp]] — CEO role, AI-native firm management

@@ -2,7 +2,7 @@
 
 Aaron 世界的图谱导航。所有实体的快速入口。
 
-**Last updated:** 2026-04-10
+**Last updated:** 2026-04-10 (added Eric, Carol)
 
 ## Symbols
 - 🟢 aligned / trusted / healthy
@@ -18,7 +18,9 @@ Aaron 世界的图谱导航。所有实体的快速入口。
 - [[people/aaron]] — the center node
 
 ### Mawer
-- [[people/keri]] 🟢 — COO, trusted channel, direct communication
+- [[people/eric]] ⚪ — Interim CEO (new 2026-04), operator profile, priorities align with Aaron
+- [[people/keri]] 🟢 — COO, trusted channel, direct communication, Eric's operational right hand
+- [[people/carol-schneider]] ⚪ — Incoming Ops/Strategy hire (interview 2026-04-10), Keri's pick, Eric-era backbone
 - [[people/justin-anderson]] 🟡 — CTO, 提拔之恩, Nova political exposure
 - [[people/wilson]] 🔴 — Head of Data, tight with Justin, coalition risk
 - [[people/narek]] 🟢 — AI Lead, technical operator, architectural thinking
@@ -26,12 +28,13 @@ Aaron 世界的图谱导航。所有实体的快速入口。
 - [[people/duncan-mountford]] 🟡 — Nova builder, vibe-deep, scattered focus
 - [[people/chintan]] ⚪ — Vendor campaign owner, will push scope creep
 - [[people/kyle]] ⚪ — Outlook interaction, bias profile work
+- [[people/david-buchanan]] 🟢 — Head of Private Wealth, strategic partner, Keri-facilitated
 - [[people/dwight-pratt]] ⚪ — Security, reasonable privacy concerns
 - [[people/xiaojun]] ⚪ — Quest migration tooling
 - [[people/jeff-house]] 🟢 — ICG, business-side champion of Claude Skill workflow tools
 
 ### OrgNext
-- [[people/thiago]] 🟢 — CTO, thoughtful skeptic, pushes back on AI sycophancy
+- [[people/thiago]] 🟢 — OrgNext CTO + Aaron's Mawer tech lead (dual role), inner circle
 
 ### Family
 - [[people/grace]] 🟢 — daughter, namesake

@@ -44,6 +44,7 @@
 - If Aaron eventually exits Mawer → Keri is a likely long-term ally and reference
 
 ## Observations Timeline
+- 2026-04-10: Pushing [[people/carol-schneider]] hire through during layoffs + Justin's vacation window. Burning political capital. Asked Aaron to interview her — double signal (trust + future collaboration setup). Read as preemptive restructuring ahead of Nova decision.
 - 2026-04-08: Pushed ROI questions hard at COO retreat; decision deferred
 - 2026-03-19 (approx): Gave check-in project to Aaron's team as strategic HR tool
 - Ongoing: shares information with Aaron about Nova, COO group thinking, org direction
