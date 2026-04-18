@@ -61,6 +61,9 @@
 - Keep pushing "CEO hour" weekly strategic thinking
 - Build in public (1 piece of content/week about the journey)
 
+## Observations
+- **2026-04-18** — W16: positional pivot declared publicly (client-facing AI lab). Brain infrastructure deepened (continuous ingest, 4 new nodes, weekly-review skill). Goals layer still empty — flagged. (source: [[../../reviews/weekly/2026-W16]])
+
 ---
 
-**Last observation:** 2026-04-09 (see [[../../../.openclaw/workspace/memory/2026-04-09.md|daily note]])
+**Last observation:** 2026-04-18 (W16 review)

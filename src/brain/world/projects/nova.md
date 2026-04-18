@@ -144,6 +144,9 @@ Core concepts (per Justin's definitions):
 ## Decision Journal Entries Related
 - (TBD — add as Aaron logs decisions)
 
+## Observations
+- **2026-04-18** — W16 review: clean exit secured. Apr 17 strategy meeting — Aaron NOT in any action items; scope narrowed to COO+Research; team admitted 60% May 25 confidence. Aaron publicly announced pivot to client-facing AI lab. (source: [[../../reviews/weekly/2026-W16]])
+
 ---
 
 **Category:** Tier 1 (day job), risk-managed exposure
