@@ -1,8 +1,14 @@
 # Check-in — HR 1-1 Tool for Mawer
 
-**Status:** 🟢 Active, delivering real value
+**Status:** 🟢 Active, delivering real value — **Board priority #2 (Succession)**
 **Stage:** Production with ongoing improvements
 **Org:** [[orgs/mawer]]
+
+## Board-Level Validation (April 17)
+- Eric's first company-wide call: Board Top 5 includes **#2 Succession for critical roles**
+- Check-in = the tool that operationalizes this priority
+- No longer just Keri's project — Board mandate territory
+- Eric's communication philosophy (decision → owner → timeline → accountability) aligns with check-in's structured approach
 **Category:** Day job — Aaron's direct line to Keri
 **Last updated:** 2026-04-10
 

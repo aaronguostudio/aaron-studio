@@ -70,6 +70,26 @@
 - Peter Lampert + Vijay Viswanathan now willing to advocate to ET/Board — Justin successfully created evangelists without Nova platform itself being stable
 - **Nova's survival is political, not product-driven.** This explains why it keeps surviving despite repeated demo failures.
 
+## Information Discipline (Lesson learned April 17)
+- Aaron shared PW numbers ($13B→$26B) and David's ambition with Justin — too much detail
+- Justin now knows Aaron's strategic direction and may try to link Nova to PW
+- **Rule going forward:** Direction-level info only with Justin ("excited about client side opportunities"). No numbers, no names, no specifics. Strategic details only with Keri/David/Thiago.
+
+## Nova Exit Negotiation (April 17)
+- Aaron negotiated reduced Nova involvement: Campaign UX polish only, spare cycles, no daily meetings, sync with Duncan only
+- Justin tried to keep Aaron at "1/2 allocation" — Aaron pushed back to spare time
+- Justin's response: "up to you... I'd recommend staying tied in (if I were you)" — soft retention pull, not a command
+- Aaron confirmed: stay in chat group, no meetings, polish campaign UX by May 25
+- Also committed to MAP completion (SD team adoption) and seg trading before full PW focus
+
+## April 17 Extended Chat — Key Signals
+- **Threw Wilson under the bus:** "Wilson has his weaknesses... Wilson cannot help on that side with his comms" — rare, unprompted. Testing Aaron's allegiance? Or genuine frustration?
+- **Acknowledged Aaron's underperformance framing:** "I still feel you contribute far below your potential (maybe in part because your headspace was focusing on what is next)" — true observation but also building a narrative he can use later if needed ("Aaron's heart wasn't in it")
+- **Rare self-reflection:** "I was too slow to see tbh" (re: Client Lab opportunity) — unusual for Justin. Store this.
+- **Admitted needing Aaron for business advocacy:** "I have to carry the business side advocacy almost alone" — Wilson can't do comms, Duncan is pure builder. Justin actually needs a business translator and sees Aaron as that person.
+- **Still trying to keep Aaron close:** "you could become a huge power user of Nova" / "helping me with the transition" — soft pull continues even after exit was agreed
+- **Aaron's closing was good:** "see me as a partner still" + "let me crack client side, let it be the engine for Mawer" — maintained relationship without over-committing
+
 ## Observations Timeline
 - 2026-04-10: In-person meeting scheduled (UX discussion + likely political processing)
 - 2026-04-09: Post-retreat public PR message to Nova builders — zero accountability, full "world-changing" language, assigned Aaron to Campaign UX
