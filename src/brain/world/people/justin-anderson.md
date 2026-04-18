@@ -91,6 +91,8 @@
 - **Aaron's closing was good:** "see me as a partner still" + "let me crack client side, let it be the engine for Mawer" — maintained relationship without over-committing
 
 ## Observations Timeline
+- 2026-04-18: Aaron locks Nova decline externally in Jon 1:1 — retells "6-month consideration, final 50/50 offer Friday declined." Reasons articulated externally: unstable foundation (code rewritten every few days), repeated demo failures to COO group, no proper code review process, overly complex backend flow management.
+  ref: [[_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security]]
 - 2026-04-10: In-person meeting scheduled (UX discussion + likely political processing)
 - 2026-04-09: Post-retreat public PR message to Nova builders — zero accountability, full "world-changing" language, assigned Aaron to Campaign UX
   ref: [[_archive/2026-04-09/justin-post-retreat-message]]

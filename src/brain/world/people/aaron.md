@@ -62,6 +62,7 @@
 - Build in public (1 piece of content/week about the journey)
 
 ## Observations
+- **2026-04-18** — Declined Justin's final 50/50 Nova offer (Friday 2026-04-17). Nova decline now articulated externally (to Jon), not just internally. VGBT + Mawer PW line confirmed as the post-Nova focus. (source: [[../_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security]])
 - **2026-04-18** — W16: positional pivot declared publicly (client-facing AI lab). Brain infrastructure deepened (continuous ingest, 4 new nodes, weekly-review skill). Goals layer still empty — flagged. (source: [[../../reviews/weekly/2026-W16]])
 
 ---
