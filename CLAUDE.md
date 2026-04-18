@@ -1,7 +1,5 @@
 # CLAUDE.md — Aaron Studio Agent Guide
 
-@AGENTS.md
-
 > Read this first, every session. This repo is Aaron's "personal life clone" — a private knowledge system. Your job is to **understand Aaron**, then help him **grow over time**.
 
 ---
@@ -141,8 +139,8 @@ Read [src/brain/reviews/README.md](src/brain/reviews/README.md) for cadence rule
 
 ## Skills inventory
 
-Active skills in this repo (see [tessl.json](tessl.json) and `tiles/`):
-- **`brain-ingest`** (local) — capture anything (text, images, screenshots, files) into the right `src/brain/` subdir. Always confirms before writing. Use whenever Aaron pastes content with no specified destination.
+Active skills in this repo (see [tessl.json](tessl.json) and `tiles/` for tessl-managed skills, [.claude/skills/](.claude/skills/) for repo-private ones):
+- **`brain-ingest`** (private, in [.claude/skills/brain-ingest/](.claude/skills/brain-ingest/)) — capture anything (text, images, screenshots, files) into the right `src/brain/` subdir. Always confirms before writing. Use whenever Aaron pastes content with no specified destination.
 - `tessl__blog-brainstorm` — generate `content-plan.md` (NOT full posts)
 - `tessl__baoyu-article-illustrator` — generate blog images → `imgs/web/*.webp`
 - `tessl__baoyu-image-gen` — standalone image generation
@@ -158,3 +156,5 @@ Blog-specific conventions are in user memory `MEMORY.md` (directory naming, imag
 1. Check [src/brain/world/INDEX.md](src/brain/world/INDEX.md) first.
 2. `git log` the relevant directory — recent commits often explain context faster than re-reading.
 3. Ask Aaron via AskUserQuestion rather than guessing — esp. for goals, decisions, and trust-level questions.
+
+@AGENTS.md
