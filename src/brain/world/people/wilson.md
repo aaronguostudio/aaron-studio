@@ -11,6 +11,11 @@
 - Justin Anderson's partner on [[projects/nova]]
 - Displaced Aaron as Justin's most trusted person since the AI wave
 
+## Intel from Justin (April 17)
+- Justin privately admitted: "Wilson has his weaknesses... Wilson cannot help on the business side advocacy, cannot help with his comms"
+- This from Justin — Wilson's closest ally — is significant. Cracks in the coalition?
+- Watch: does Justin start distancing from Wilson if ET offsite goes badly?
+
 ## Who He Is
 - "天马行空" — expands scope constantly
 - External perception: not a good leader, doesn't do company's core work

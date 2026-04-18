@@ -90,12 +90,28 @@ Multiple surprising direct hits:
 - **Justin's adaptation** — does Justin reframe Nova into Eric's language? Watch closely. Justin's survival determines Aaron's short-term political terrain.
 - **First 90 days of cost review** — which projects get "de-emphasized" first. Nova is an obvious candidate.
 
+## First Company-Wide Call (April 17, 2026)
+- Biweekly firm calls (was weekly), extended to 45 min, more ET participation
+- Town halls in Toronto + Calgary, monthly office hours — accessible leader style
+- **Board Top 5 Priorities:**
+  1. Investment performance
+  2. **Succession for critical roles** ← Check-in project = Board mandate
+  3. Compensation and ownership model
+  4. Retain Manulife relationship
+  5. New fixed income strategies
+- Communication philosophy: "After decisions, clarify what/to whom/when/who is accountable" — directly opposes Justin's narrative-essay style
+- Culture: acknowledged past "finger-pointing and meritocracy concerns" — wants partnership mentality
+- AI framing: praised "research group's AI tools development" — investment-side, NOT platform/Nova language
+- **Nova was never mentioned by name.** AI = research productivity tool, not Enterprise AI OS.
+- Positive on staff attitudes, "not a turnaround situation"
+- Continuous improvement + financial strength + strategic consistency = his resilience framework
+
 ## Open Questions
-- What's Eric's prior track record? (Any public history, other firms, deals?)
-- How much support does he have from ET / the board?
+- How much support does he have from ET / the board? (Board priorities suggest strong alignment)
 - Is "interim" a placeholder or a probation?
 - Who brought him in — Keri? Board? External search?
 - What's his personal relationship with Justin, if any?
+- How will he react to Justin's Nova presentation at ET offsite?
 
 ## Strategic Implications for Aaron
 - **Career fork (Mawer vs OrgNext) tilts toward Mawer** — but only as long as Eric is in seat with mandate

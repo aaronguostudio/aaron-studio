@@ -78,11 +78,25 @@ Core concepts (per Justin's definitions):
 - **Nova's political survival mechanism: real AI usage by Research → branded as Nova success → political capital for ET offsite**
 - Implication: Nova can survive politically even if Quest Builder / Campaign Builder never reach production quality
 
-## Probability Assessment (April 15)
-- ~15% Nova fully adopted after ET offsite
-- ~40% Deferred again, limping along, May 25 slips
-- ~30% Soft shutdown or dramatic scope reduction post-ET offsite
-- ~15% Hard shutdown by ET
+## Nova Strategy Meeting (April 17) — "Big Debate"
+- Team internally admits **60% confidence** on May 25 milestone (vs Justin's public "written in blood")
+- Scope pulled back: COO ops + Research only initially, NOT firm-wide (retreat from earlier narrative)
+- $400K Claude annual run rate acknowledged — open source models as cost mitigation
+- **ET Offsite: next Tuesday/Wednesday, 3-hour AI agenda, Amarash + Justin presenting** — real decision point
+- Microsoft Foundry evaluation ongoing (Dwight leading) — potential Nova killer if governance/security comparison favors Foundry
+- "Savage mode" reduced to sustainable pace — acknowledgment the sprint was unsustainable
+- 47 "active" campaigns claimed — definition unclear
+- Patrick doing Risk monitor as "hobby-time" — resource thinness signal
+- Phased rollout: (1) Chuck replacement chat firm-wide, (2) workflows COO/Research only, (3) expansion after stability
+- Aaron NOT in any next steps action items — clean exit confirmed
+- Justin + Wilson acknowledged as "expensive resources" — someone raised ROI question
+
+## Probability Assessment (April 17 — updated)
+- ~10% Nova fully adopted firm-wide after ET offsite
+- ~35% Narrow adoption (COO+Research only), limping toward May 25
+- ~30% Deferred again, scope further reduced
+- ~15% Foundry wins comparison → Nova soft shutdown
+- ~10% Hard shutdown by ET
 
 **Aaron's action doesn't change based on these probabilities** — Trusted Operator strategy is robust to all four scenarios.
 
@@ -100,9 +114,10 @@ Core concepts (per Justin's definitions):
 - **Action:** Participate enough to stay visible, don't let it consume seg/PW/check-in bandwidth. If overloaded, escalate to Keri privately.
 
 ## Timeline
+- 2026-04-17: Strategy meeting — 60% confidence admitted, scope narrowed to COO+Research, Foundry comparison started
 - 2026-04-15: CEO demo failed (platform unstable). Justin pivoted to narrative. ET offsite invite secured.
-- 2026-04-~22: ET Offsite — Justin presents Nova. **Real decision point.**
-- 2026-05-25: Justin's proposed production launch (high risk of slip)
+- 2026-04-22/23: **ET Offsite — 3hr AI agenda, Amarash + Justin presenting. REAL DECISION POINT.**
+- 2026-05-25: Proposed production launch (60% team confidence, high risk of slip)
 - 2026-04-17: Original decision deadline (COO group adoption) — now superseded by ET offsite
 - 2026-04-10: Aaron meets Justin 1:1 (UX discussion + likely political processing)
 - 2026-04-09: Justin post-retreat PR message; direct message to Aaron narrowing io_spec as #1; shared Interaction definition; team meeting revealed Redis still unstable (Narek proposing real fix, Duncan patching); Alex shared Bezos inflection piece
@@ -119,11 +134,12 @@ Core concepts (per Justin's definitions):
 - 2026 earlier: Justin + Wilson initiated; Aaron moved from core to support role
 
 ## What to Watch
+- **ET Offsite (Apr 22/23)** — 3hr AI session outcome. Does Nova get mandate, get narrowed, or get killed?
+- **Foundry comparison (Dwight)** — if Foundry wins on governance/security, Nova's "on-prem" moat evaporates
+- **$400K token cost** — will ET see this as investment or waste?
 - Narek's Redis fix — does it actually get shipped, or shelved in favor of patches?
-- Duncan's timesheet app demo to Keri — is he building his own direct line?
-- Justin's vacation behavior — engaged or disconnected?
-- ET-level signals through Keri
-- Scope expansion attempts (MOAT, interactions, new categories)
+- Duncan's Quest Builder progress — "achilles heel" with 40 days to fix
+- Scope expansion attempts despite "no new features" commitment
 
 ## Decision Journal Entries Related
 - (TBD — add as Aaron logs decisions)
