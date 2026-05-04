@@ -13,7 +13,7 @@ quarter: 2026-Q2
 
 ## Objectives
 
-### O1: _TBD_
+### O1: Achieving MMS 
 - KR1: _measurable_
 - KR2:
 - KR3:

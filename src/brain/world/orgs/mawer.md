@@ -4,7 +4,7 @@
 **Aaron's role:** Software Engineer, Senior Manager & Partner (holds shares), Head of Products
 **Category:** Tier 1 income (baseline)
 **Current state (April 2026):** 🟡 Political turbulence, company in downturn
-**Last updated:** 2026-04-10
+**Last updated:** 2026-04-23
 
 ## Position Context
 - Canadian financial firm, real business reality (not tech utopia)
@@ -59,6 +59,10 @@
 **Scenario D (Layoffs):** Independent of Nova, company cuts headcount, Aaron's Check-in + cross-dept visibility protects position
 
 **Common strategy across A-D:** Trusted Operator. Deliver real value. Keep OrgNext building. Don't perform. Don't burn bridges.
+
+## Observations
+
+- 2026-04-23 — AI governance surfaced as open policy gap at Mawer. Currently approved tools: Chuck (not working well) + Microsoft Copilot. Claude Enterprise under active evaluation (~$40–50/user/month, SOC 2 audited, no training on client data). Working group w/ counsellors + associates planned. Aaron demoed investment proposal tool + Zocks POC ($2/report) + Claude Design-generated advisor workstation mockup. Morningstar license integration flagged as enhancement path. Aaron's full-time Mawer capacity opens in ~2 weeks (early May 2026). (source: [[../_archive/2026-04-23/mawer-ai-tools-wealth-platform-exploration]])
 
 ---
 
