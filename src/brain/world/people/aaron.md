@@ -8,7 +8,7 @@
 - **Day job:** Mawer — partner shares, leads developers + QAs, Head of Products
 - **Transitioning:** Out of Nova (Friday vendor demo = last contribution) → Client Lab + PW transformation
 - **Side project:** [[projects/orgnext-mvp]] — CEO role, AI-native firm management software
-- **Alpha:** Content + brand building + OpenClaw/GG infrastructure
+- **Alpha:** Content + brand building + Hermes/GG infrastructure
 
 ## Key Lesson (April 15)
 - "让使用者替你说话" — don't pitch your own work to leadership. Let David, Patrick, Keri speak for you. Do the real work, let others tell the story. More sustainable than Justin's pure-narrative approach because there's substance underneath.
@@ -18,7 +18,7 @@
 - Long-termist. 生酮 + 间歇性断食 + routine-driven.
 - "我不反对谁，老老实实做自己的项目，不要卷入政治斗争"
 - Core insight: "I don't care what tools, I want to solve business problems" — this is his moat
-- Not conservative — runs OpenClaw/Signal/YouTube pipeline
+- Not conservative — runs Hermes/GG, Signal, and YouTube/content pipelines
 - Approach: "augment existing value" vs others' "tear down and rebuild"
 
 ## Strategic Position (Trusted Operator)
@@ -63,4 +63,4 @@
 
 ---
 
-**Last observation:** 2026-04-09 (see [[../../../.openclaw/workspace/memory/2026-04-09.md|daily note]])
+**Last observation:** 2026-05-04 (Hermes migration cleanup; older daily notes archived under `/Users/aaron/.hermes/migration/openclaw/20260503T231629/archive/workspace/memory/`)
