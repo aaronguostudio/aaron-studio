@@ -27,7 +27,8 @@ world/
 
 ## 访问
 - Canonical: `aaron-studio/src/brain/world/`
-- OpenClaw symlink: `~/.openclaw/workspace/memory/world/`
+- Hermes memory pointer: `/Users/aaron/.hermes/memories/MEMORY.md` references this canonical world directory
+- OpenClaw archive: `/Users/aaron/.openclaw.pre-migration` and migration snapshot under `/Users/aaron/.hermes/migration/openclaw/20260503T231629/`
 
 ## 隐私
 这个目录包含敏感的人物观察和 political analysis。**aaron-studio 必须保持 private repo。** 不要 fork、不要邀请 collaborator 而不隔离这个目录。
