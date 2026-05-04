@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.aaron.daily-log</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/aguo/aaron/aaron-studio/scripts/daily-log.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>22</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <!--
+      If the Mac was asleep at 22:00, launchd fires the job at the next wake.
+      The daily-log skill is idempotent — re-running on the same day only
+      refreshes the Facts section without touching Reflection.
+    -->
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.stderr.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/aguo/aaron/aaron-studio</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/aguo/.claude/local:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+</dict>
+</plist>

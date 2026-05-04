@@ -144,6 +144,10 @@ Core concepts (per Justin's definitions):
 ## Decision Journal Entries Related
 - (TBD — add as Aaron logs decisions)
 
+## Observations
+- **2026-04-18** — Aaron's Nova decline articulated externally to Jon — frames it as 6-month evaluation with Justin's "final 50/50 offer Friday" as the closing event. Confirms clean exit is now also the public narrative (beyond Mawer-internal). (source: [[../_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security]])
+- **2026-04-18** — W16 review: clean exit secured. Apr 17 strategy meeting — Aaron NOT in any action items; scope narrowed to COO+Research; team admitted 60% May 25 confidence. Aaron publicly announced pivot to client-facing AI lab. (source: [[../../reviews/weekly/2026-W16]])
+
 ---
 
 **Category:** Tier 1 (day job), risk-managed exposure

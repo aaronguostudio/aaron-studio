@@ -8,6 +8,16 @@
 - 2026-04-09 1h - review code
 - 2026-04-10 1h - review code
 - 2026-04-13 3h - review code
+- 2026-04-22 8h - update setup v2 and invoices and login page
+- 2026-04-23 2h - login page
+- 2026-04-24 1h - login page
+- 2026-04-24 2h - attendance scene
+- 2026-04-25 4h - attendance scene
+- 2026-04-27 1h - release changes and test
+- 2026-04-28 4h - setup changes
+- 2026-04-28 4h - setup changes
+- 2026-04-29 6h - setup changes
+- 2026-04-30 2h - setup changes
 
 
 
@@ -18,3 +28,6 @@ logs:
 - switch tabs toggle
 - kiosk 页面增强
 - Org switch
+
+- 2026-05-01 2h - setup changes
+- 2026-05-02 2h - setup changes

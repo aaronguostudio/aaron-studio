@@ -79,6 +79,9 @@ This project is the **anti-Nova**:
 - Manager feedback quality — is it improving or plateauing?
 - Privacy concern resolution status
 
+## Observations
+- **2026-04-18** — W16 review: elevated from "Keri-scoped tool" to Board priority #2 territory after Eric's Apr 17 call. Next move: formalize monthly reporting rhythm to Keri. (source: [[../../reviews/weekly/2026-W16]])
+
 ---
 
 **Category:** Tier 1 (day job), protected core value delivery

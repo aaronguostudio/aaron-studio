@@ -67,15 +67,6 @@
           "yt-publish"
         ]
       }
-    },
-    "aaronguo/brain-ingest": {
-      "version": "0.1.0",
-      "source": "file:tiles/brain-ingest",
-      "include": {
-        "skills": [
-          "brain-ingest"
-        ]
-      }
     }
   }
 }

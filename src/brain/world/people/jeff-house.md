@@ -4,7 +4,7 @@
 **Relationship to Aaron:** Business-side ally, AI workflow champion 🟢
 **Trust level:** High (early but strong, demand-side validator)
 **Distance:** Active project collaboration (Mar 2026 onward)
-**Last updated:** 2026-04-13
+**Last updated:** 2026-04-23
 
 ## Position
 - ICG (Investment Counselling Group) — client-facing, manages HNW family relationships
@@ -53,6 +53,7 @@
 - 2026-04-08: Reports test feedback from client was "really positive." Word spreading on time savings + level of detail. Katy has prospect asking if tool can produce another "test."
 - 2026-04-10 (Fri): Sync planned to align on broader ICG rollout for following week
 - 2026-04-13 (today): Targeting broader ICG presentation/test this week
+- 2026-04-23: Investment proposal tool now scoped as joint refinement effort with Jeff + Katie (likely Katy from earlier prospect thread). Aaron ran demo showing 20-min automated proposal generation, Zocks POC ($2/report), and Claude Design-generated advisor workstation mockup. "Investment proposal tool refinement with Jeff and Katie" is Aaron's #1 immediate priority alongside Seg trading once capacity opens ~early May (source: [[../_archive/2026-04-23/mawer-ai-tools-wealth-platform-exploration]])
 
 ## What to Watch
 - Does the broader ICG rollout actually happen this week?

@@ -113,6 +113,9 @@ Multiple surprising direct hits:
 - What's his personal relationship with Justin, if any?
 - How will he react to Justin's Nova presentation at ET offsite?
 
+## Observations
+- **2026-04-18** — W16 review: first company-wide call (Apr 17) externalized Aaron's positioning — Board priority #2 = Succession = check-in. Accessible-leader cadence established (biweekly 45min, town halls, office hours). Nova not named. (source: [[../../reviews/weekly/2026-W16]])
+
 ## Strategic Implications for Aaron
 - **Career fork (Mawer vs OrgNext) tilts toward Mawer** — but only as long as Eric is in seat with mandate
 - **Check-in project just became a strategic asset**, not a side deliverable
