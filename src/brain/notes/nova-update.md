@@ -1,0 +1,10 @@
+- Improved interaction page design
+- Course page enhancement
+- Team page mgmt
+- Add workspace concept to campaign builder
+- Team assignment for campaign
+- Completed quest is disabled
+- Bulk deletion for courses
+- Courses launch comes with a quest trigger
+- Batch luanch
+- Launch from quest
