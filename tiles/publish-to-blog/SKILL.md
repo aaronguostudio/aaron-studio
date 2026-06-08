@@ -9,12 +9,15 @@ Publishes blog posts from the aaron-studio content repository to the aaronguoblo
 
 ## Source & Destination
 
+Prefer `config/aaron-studio.json` when present. Current default paths:
+
 | Location | Path |
 |----------|------|
-| Content repo | `/Users/aguo/aaron/aaron-studio/src/content/blogs/` |
-| Blog site | `/Users/aguo/Work/ag/aaronguoblog/` |
-| Blog posts dir | `/Users/aguo/Work/ag/aaronguoblog/content/blogs/en/` |
-| Blog images dir | `/Users/aguo/Work/ag/aaronguoblog/public/blogs-img/` |
+| Content repo | `src/content/blogs/` |
+| Blog site | `/Users/aaronguo/Work/ag/blog/aaronguoblog/` |
+| Blog posts dir | `/Users/aaronguo/Work/ag/blog/aaronguoblog/content/blogs/en/` |
+| Blog zh posts dir | `/Users/aaronguo/Work/ag/blog/aaronguoblog/content/blogs/zh/` |
+| Blog images dir | `/Users/aaronguo/Work/ag/blog/aaronguoblog/public/blogs-img/` |
 
 ## Workflow
 

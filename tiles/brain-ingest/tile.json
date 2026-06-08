@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/brain-ingest",
+  "version": "0.1.0",
+  "summary": "Captures raw inputs into Aaron's brain with privacy-preserving local routing.",
+  "private": true,
+  "skills": {
+    "brain-ingest": {
+      "path": "SKILL.md"
+    }
+  }
+}

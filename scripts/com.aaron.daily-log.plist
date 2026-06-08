@@ -8,7 +8,7 @@
 
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/aguo/aaron/aaron-studio/scripts/daily-log.sh</string>
+        <string>/Users/aaronguo/Work/ag/aaron-studio/scripts/daily-log.sh</string>
     </array>
 
     <key>StartCalendarInterval</key>
@@ -29,18 +29,20 @@
     <false/>
 
     <key>StandardOutPath</key>
-    <string>/Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.stdout.log</string>
+    <string>/Users/aaronguo/Work/ag/aaron-studio/.agent-logs/daily-log.stdout.log</string>
 
     <key>StandardErrorPath</key>
-    <string>/Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.stderr.log</string>
+    <string>/Users/aaronguo/Work/ag/aaron-studio/.agent-logs/daily-log.stderr.log</string>
 
     <key>WorkingDirectory</key>
-    <string>/Users/aguo/aaron/aaron-studio</string>
+    <string>/Users/aaronguo/Work/ag/aaron-studio</string>
 
     <key>EnvironmentVariables</key>
     <dict>
         <key>PATH</key>
-        <string>/Users/aguo/.claude/local:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <string>/Applications/Codex.app/Contents/Resources:/Users/aaronguo/.codex/bin:/Users/aaronguo/.claude/local:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>AARON_STUDIO_AGENT</key>
+        <string>auto</string>
     </dict>
 </dict>
 </plist>

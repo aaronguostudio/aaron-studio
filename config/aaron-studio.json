@@ -1,0 +1,25 @@
+{
+  "contentRoot": "src/content",
+  "blogContentRoot": "src/content/blogs",
+  "brainRoot": "src/brain",
+  "tilesRoot": "tiles",
+  "timezone": "America/Edmonton",
+  "blogRepo": "/Users/aaronguo/Work/ag/blog/aaronguoblog",
+  "blogPostsEn": "/Users/aaronguo/Work/ag/blog/aaronguoblog/content/blogs/en",
+  "blogPostsZh": "/Users/aaronguo/Work/ag/blog/aaronguoblog/content/blogs/zh",
+  "blogPublicImages": "/Users/aaronguo/Work/ag/blog/aaronguoblog/public/blogs-img",
+  "shortsReadyDir": "/Users/aaronguo/Library/Mobile Documents/com~apple~CloudDocs/Aaron-Studio/shorts-ready",
+  "homeDecorReferenceImagesDir": "/Users/aaronguo/.openclaw/workspace/home-decor-refs",
+  "agentSkillSurfaces": [".agents", ".codex", ".claude", ".cursor", ".gemini"],
+  "blogWorkflow": {
+    "idea": "tiles/muse",
+    "researchPlan": "tiles/blog-brainstorm",
+    "outline": "tiles/blog-outline",
+    "write": "tiles/blog-write",
+    "illustrate": "tiles/blog-illustrate",
+    "video": "tiles/aaron-video-gen",
+    "publishBlog": "tiles/publish-to-blog",
+    "publishYoutube": "tiles/aaron-yt-pipeline/skills/yt-publish"
+  },
+  "ctaRotation": ["follow", "newsletter", "reply"]
+}

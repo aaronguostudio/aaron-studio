@@ -157,7 +157,7 @@ If text gets clipped, adjust these values in `KnowledgeShort.tsx`.
 After generation, upload to YouTube with scheduled publishing:
 
 ```bash
-cd /Users/aaron/Work/aaron-studio && npx -y bun tiles/aaron-yt-pipeline/scripts/youtube-upload.ts \
+cd "$(git rev-parse --show-toplevel)" && npx -y bun tiles/aaron-yt-pipeline/scripts/youtube-upload.ts \
   --video output/short-final.mp4 \
   --metadata output/metadata.yaml \
   --schedule "2026-02-25T08:00:00-07:00"

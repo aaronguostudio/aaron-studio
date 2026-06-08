@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-production",
+  "version": "0.1.0",
+  "summary": "Orchestrates Aaron's end-to-end blog workflow from idea to article, images, video, blog publishing, and YouTube upload.",
+  "private": true,
+  "skills": {
+    "blog-production": {
+      "path": "SKILL.md"
+    }
+  }
+}

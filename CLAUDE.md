@@ -139,8 +139,13 @@ Read [src/brain/reviews/README.md](src/brain/reviews/README.md) for cadence rule
 
 ## Skills inventory
 
-Active skills in this repo (see [tessl.json](tessl.json) and `tiles/` for tessl-managed skills, [.claude/skills/](.claude/skills/) for repo-private ones):
-- **`brain-ingest`** (private, in [.claude/skills/brain-ingest/](.claude/skills/brain-ingest/)) — capture anything (text, images, screenshots, files) into the right `src/brain/` subdir. Always confirms before writing. Use whenever Aaron pastes content with no specified destination.
+Active skills in this repo (see [tessl.json](tessl.json) and `tiles/` for source-of-truth workflows, [.claude/skills/](.claude/skills/) and [.codex/skills/](.codex/skills/) for agent symlinks):
+- **`brain-ingest`** (private, source in [tiles/brain-ingest/](tiles/brain-ingest/)) — capture anything (text, images, screenshots, files) into the right `src/brain/` subdir. Always confirms before writing. Use whenever Aaron pastes content with no specified destination.
+- **`daily-log`** (private, source in [tiles/daily-log/](tiles/daily-log/)) — generate today's journal Facts section without touching Reflection.
+- **`weekly-review`** (private, source in [tiles/weekly-review/](tiles/weekly-review/)) — draft weekly reviews from local brain evidence with confirmation gates.
+- `blog-production` — orchestrate the blog workflow end-to-end: idea → plan → outline → article package → images → video → publishing.
+- `blog-outline` — generate `plan.md` from a topic, rough notes, or `content-plan.md`.
+- `blog-write` — generate the missing middle: EN/ZH article, X post, standalone tweet, newsletter teaser, YouTube script, and YouTube metadata.
 - `tessl__blog-brainstorm` — generate `content-plan.md` (NOT full posts)
 - `tessl__baoyu-article-illustrator` — generate blog images → `imgs/web/*.webp`
 - `tessl__baoyu-image-gen` — standalone image generation
@@ -148,6 +153,8 @@ Active skills in this repo (see [tessl.json](tessl.json) and `tiles/` for tessl-
 - `publish-to-blog` (local) — blog publishing
 
 Blog-specific conventions are in user memory `MEMORY.md` (directory naming, image compression, CTA rotation order).
+
+Run `scripts/sync-agent-skills.sh` after adding or changing local skills so Claude, Codex, Cursor, and Gemini expose the same workflow set. Use `config/aaron-studio.json` for local paths.
 
 ---
 

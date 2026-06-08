@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/weekly-review",
+  "version": "0.1.0",
+  "summary": "Drafts Aaron's weekly review from local brain evidence with confirmation gates.",
+  "private": true,
+  "skills": {
+    "weekly-review": {
+      "path": "SKILL.md"
+    }
+  }
+}

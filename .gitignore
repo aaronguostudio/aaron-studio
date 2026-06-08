@@ -12,6 +12,26 @@
 # Generated videos (large binaries)
 *.mp4
 
+# Generated audio, narration, and temporary media caches
+**/.video-gen-cache/
+**/.video-gen-cache/**
+src/content/shorts/**/narration*.mp3
+src/content/shorts/**/output/*.mp3
+src/content/videos/**/audio/*.mp3
+src/content/videos/**/narration/*.mp3
+src/youtube/**/narration*.mp3
+tiles/**/output/
+tiles/**/output/**
+tiles/aaron-video-gen/remotion/public/ks-*
+
+# Local worktrees for isolated agent work
+.worktrees/
+worktrees/
+
+# Local automation logs
+.agent-logs/
+.claude/logs/
+
 # OS files
 .DS_Store
 Thumbs.db

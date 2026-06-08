@@ -6,14 +6,14 @@ One-time setup for nightly 22:00 journal auto-generation.
 
 ```bash
 # 1. Make the shell script executable
-chmod +x /Users/aguo/aaron/aaron-studio/scripts/daily-log.sh
+chmod +x /Users/aaronguo/Work/ag/aaron-studio/scripts/daily-log.sh
 
 # 2. Test it manually (should write/refresh today's journal)
-/Users/aguo/aaron/aaron-studio/scripts/daily-log.sh
-tail -20 /Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.log
+/Users/aaronguo/Work/ag/aaron-studio/scripts/daily-log.sh
+tail -20 /Users/aaronguo/Work/ag/aaron-studio/.agent-logs/daily-log.log
 
 # 3. If test passed — install the launchd plist
-cp /Users/aguo/aaron/aaron-studio/scripts/com.aaron.daily-log.plist \
+cp /Users/aaronguo/Work/ag/aaron-studio/scripts/com.aaron.daily-log.plist \
    ~/Library/LaunchAgents/com.aaron.daily-log.plist
 
 # 4. Load it (starts the schedule)
@@ -37,10 +37,10 @@ rm ~/Library/LaunchAgents/com.aaron.daily-log.plist
 launchctl print gui/$(id -u)/com.aaron.daily-log | grep -A2 'next run'
 
 # Recent runs
-tail -50 /Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.log
+tail -50 /Users/aaronguo/Work/ag/aaron-studio/.agent-logs/daily-log.log
 
 # Stderr (if errors)
-tail -50 /Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.stderr.log
+tail -50 /Users/aaronguo/Work/ag/aaron-studio/.agent-logs/daily-log.stderr.log
 ```
 
 ## Trigger manually without waiting for 22:00
@@ -48,14 +48,14 @@ tail -50 /Users/aguo/aaron/aaron-studio/.claude/logs/daily-log.stderr.log
 ```bash
 launchctl start com.aaron.daily-log
 # or
-/Users/aguo/aaron/aaron-studio/scripts/daily-log.sh
+/Users/aaronguo/Work/ag/aaron-studio/scripts/daily-log.sh
 ```
 
 ## How it works
 
 - **22:00 local** — launchd triggers `scripts/daily-log.sh`
-- Shell script locates `claude` binary, `cd`'s to repo
-- Runs `claude -p "Run daily-log skill..."` in headless mode
+- Shell script locates `codex` first, then falls back to `claude`
+- Runs `codex exec "Run daily-log skill..."` or `claude -p "Run daily-log skill..."` in headless mode
 - Skill reads today's git log + world/_archive + world/ obs deltas + inbox
 - Writes `src/brain/journal/YYYY/MM/YYYY-MM-DD.md` — Facts section only
 - Reflection section is scaffolded empty (you fill morning after)
@@ -70,5 +70,16 @@ launchd catches missed runs on next wake. The daily-log skill is idempotent — 
 
 ## Known limitations
 
-- `claude -p` needs your auth to be valid. If your Claude Code login expires, the job will fail silently (check stderr log).
+- The selected agent CLI needs valid auth. If Codex or Claude login expires, the job will fail silently (check stderr log).
 - First run might prompt for permissions. Run it manually once before trusting the schedule.
+
+## Agent override
+
+```bash
+# Force Claude instead of Codex
+AARON_STUDIO_AGENT=claude /Users/aaronguo/Work/ag/aaron-studio/scripts/daily-log.sh
+
+# Use an explicit binary path
+AARON_STUDIO_AGENT_BIN=/Applications/Codex.app/Contents/Resources/codex \
+  /Users/aaronguo/Work/ag/aaron-studio/scripts/daily-log.sh
+```

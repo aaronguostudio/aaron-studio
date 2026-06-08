@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/daily-log",
+  "version": "0.1.0",
+  "summary": "Generates today's journal Facts section without touching human reflection.",
+  "private": true,
+  "skills": {
+    "daily-log": {
+      "path": "SKILL.md"
+    }
+  }
+}

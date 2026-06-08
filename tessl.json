@@ -47,12 +47,75 @@
         ]
       }
     },
+    "aaronguo/blog-outline": {
+      "version": "0.1.0",
+      "source": "file:tiles/blog-outline",
+      "include": {
+        "skills": [
+          "blog-outline"
+        ]
+      }
+    },
+    "aaronguo/blog-write": {
+      "version": "0.1.0",
+      "source": "file:tiles/blog-write",
+      "include": {
+        "skills": [
+          "blog-write"
+        ]
+      }
+    },
+    "aaronguo/blog-production": {
+      "version": "0.1.0",
+      "source": "file:tiles/blog-production",
+      "include": {
+        "skills": [
+          "blog-production"
+        ]
+      }
+    },
+    "aaronguo/brain-ingest": {
+      "version": "0.1.0",
+      "source": "file:tiles/brain-ingest",
+      "include": {
+        "skills": [
+          "brain-ingest"
+        ]
+      }
+    },
+    "aaronguo/daily-log": {
+      "version": "0.1.0",
+      "source": "file:tiles/daily-log",
+      "include": {
+        "skills": [
+          "daily-log"
+        ]
+      }
+    },
     "aaronguo/muse": {
       "version": "0.2.1",
       "source": "file:tiles/muse",
       "include": {
         "skills": [
           "muse"
+        ]
+      }
+    },
+    "aaronguo/weekly-review": {
+      "version": "0.1.0",
+      "source": "file:tiles/weekly-review",
+      "include": {
+        "skills": [
+          "weekly-review"
+        ]
+      }
+    },
+    "aaronguo/x-growth": {
+      "version": "0.1.0",
+      "source": "file:tiles/x-growth",
+      "include": {
+        "skills": [
+          "x-growth"
         ]
       }
     },

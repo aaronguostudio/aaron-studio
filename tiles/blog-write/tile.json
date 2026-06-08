@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-write",
+  "version": "0.1.0",
+  "summary": "Drafts a full blog article package from a plan: EN/ZH article, X, newsletter, YouTube script, and metadata.",
+  "private": true,
+  "skills": {
+    "blog-write": {
+      "path": "SKILL.md"
+    }
+  }
+}

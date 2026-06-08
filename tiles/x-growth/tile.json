@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/x-growth",
+  "version": "0.1.0",
+  "summary": "X/Twitter growth strategy and content generation for Aaron's AI-native personal brand.",
+  "private": true,
+  "skills": {
+    "x-growth": {
+      "path": "SKILL.md"
+    }
+  }
+}

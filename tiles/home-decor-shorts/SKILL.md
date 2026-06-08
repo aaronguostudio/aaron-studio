@@ -136,14 +136,15 @@ She adds her own voiceover and edits herself.
 
 After generation, manually copy the raw video to iCloud:
 ```bash
+DEST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Aaron-Studio/shorts-ready/xin-[slug].mp4"
 cp [output-dir]/kling-video.mp4 \
-  "/Users/aaron/Library/Mobile Documents/com~apple~CloudDocs/Aaron-Studio/shorts-ready/xin-[slug].mp4"
+  "$DEST"
 ```
 
 ## Quick Start
 
 ```bash
-cd /Users/aaron/Work/aaron-studio && npx -y bun tiles/knowledge-shorts/scripts/generate.ts \
+cd "$(git rev-parse --show-toplevel)" && npx -y bun tiles/knowledge-shorts/scripts/generate.ts \
   --topic "[room concept]" \
   --skip-tts \
   --skip-video=false \
@@ -153,8 +154,9 @@ cd /Users/aaron/Work/aaron-studio && npx -y bun tiles/knowledge-shorts/scripts/g
 
 Then copy raw video to iCloud:
 ```bash
+DEST="$HOME/Library/Mobile Documents/com~apple~CloudDocs/Aaron-Studio/shorts-ready/xin-[slug].mp4"
 cp tiles/home-decor-shorts/output/[slug]/kling-video.mp4 \
-  "/Users/aaron/Library/Mobile Documents/com~apple~CloudDocs/Aaron-Studio/shorts-ready/xin-[slug].mp4"
+  "$DEST"
 ```
 
 Note: The script still runs Remotion render, but we IGNORE `short-final.mp4` and only use `kling-video.mp4`.
@@ -207,7 +209,7 @@ For each video, suggest 2-3 things Xin could say:
 
 ## Reference Images
 
-17 style reference images at: `/Users/aaron/.openclaw/workspace/home-decor-refs/`
+17 style reference images at: `$HOME/.openclaw/workspace/home-decor-refs/`
 Sourced from 小红书 — accounts: 9432227298, 26767891674, Canaan231, hzss1818_
 
 ## ⚠️ Important Rules

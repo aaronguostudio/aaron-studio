@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-outline",
+  "version": "0.1.0",
+  "summary": "Turns a topic, rough idea, notes, or content plan into a writing-ready blog outline.",
+  "private": true,
+  "skills": {
+    "blog-outline": {
+      "path": "SKILL.md"
+    }
+  }
+}
