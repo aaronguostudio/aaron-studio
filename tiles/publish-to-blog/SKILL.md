@@ -26,7 +26,22 @@ Prefer `config/aaron-studio.json` when present. Current default paths:
 The user will provide a path to a blog post markdown file in `src/content/blogs/YYYY-MM-DD/`. Read the file and identify:
 - The article title (from the `#` heading)
 - The date (from the directory name `YYYY-MM-DD`)
+- The canonical `category` from frontmatter when present
 - Associated images in the `imgs/` subdirectory
+
+### Canonical blog taxonomy
+
+Every published post must include exactly one `category` from this controlled list. Preserve a valid source category; if it is missing, infer the closest one from the article thesis. Do not invent new category IDs.
+
+| Category ID | Use for |
+|-------------|---------|
+| `ai-native-systems` | AI-native tools, agents, models, AI work systems, prompt/workflow/control surfaces |
+| `product-execution` | Product building, engineering execution, workflow implementation, shipping systems |
+| `business-strategy` | Markets, customers, sales, finance, strategy, judgment, leadership, commercial insight |
+| `personal-operating-system` | Personal systems, learning, career, attention, energy, long-term capability building |
+| `creation-media` | Writing, content production, creator work, blog/video/media workflows |
+
+Use `tags` as 2-4 specific search keywords. Tags are not reader-facing navigation categories.
 
 ### Step 2: Determine the next post number
 
@@ -54,14 +69,17 @@ Create `{nextNumber}.{slug}.md` in the blog site's `content/blogs/en/` directory
 ---
 title: 'Post Title Here'
 date: DDth MMM YYYY
-description: 1-2 sentence description of the post
+description: '1-2 sentence description of the post'
 image: /blogs-img/{cover-image-filename}
-alt: Descriptive alt text for the cover image
+alt: 'Descriptive alt text for the cover image'
 ogImage: /blogs-img/{cover-image-filename}
+category: business-strategy
 tags: ['tag1', 'tag2', 'tag3']
 published: true
 ---
 ```
+
+Quote all human-written YAML strings (`title`, `description`, `alt`, and Chinese equivalents), especially when they may contain colons, commas, apostrophes, or non-ASCII punctuation. If a value contains an apostrophe, use double quotes or escape it so Nuxt Content can parse the file.
 
 **Date format:** Use ordinal suffixes — `1st`, `2nd`, `3rd`, `4th`...`11th`, `12th`, `13th`, `21st`, `22nd`, `23rd`, `31st`. Month abbreviated to 3 letters. Example: `14th Feb 2026`.
 
@@ -96,10 +114,11 @@ Create `{nextNumber}.{slug}.md` in the blog site's `content/blogs/zh/` directory
 ---
 title: 中文标题
 date: DDth MMM YYYY
-description: 1-2 句中文描述
+description: '1-2 句中文描述'
 image: /blogs-img/{cover-image-filename}
-alt: 中文图片描述
+alt: '中文图片描述'
 ogImage: /blogs-img/{cover-image-filename}
+category: business-strategy
 tags: ['中文标签1', '中文标签2']
 published: true
 ---
@@ -134,4 +153,5 @@ published: true
 - Do NOT push to the blog repo unless the user explicitly asks
 - Always set `published: true` unless the user says otherwise
 - Generate a meaningful description from the article content for SEO
+- Choose one canonical `category` from the controlled taxonomy; never invent ad hoc category names
 - Choose relevant tags based on article content (English: lowercase kebab-case; Chinese: Chinese terms)

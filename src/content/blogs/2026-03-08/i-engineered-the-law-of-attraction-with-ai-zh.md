@@ -3,6 +3,7 @@ title: "我用 AI 工程化了吸引力法则"
 date: 2026-03-08
 slug: i-engineered-the-law-of-attraction-with-ai
 tags: [ai, signal, 个人系统, 意图]
+category: personal-operating-system
 cover: imgs/web/00-cover.webp
 ---
 

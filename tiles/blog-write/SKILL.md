@@ -1,6 +1,6 @@
 ---
 name: blog-write
-description: Use when drafting a full blog article or content package from a plan, outline, rough notes, or content-plan.
+description: Use when drafting or revising a full blog article or content package from a plan, outline, rough notes, or content-plan.
 ---
 
 # Blog Write
@@ -31,6 +31,31 @@ Use the user's path if provided. Otherwise use the newest blog directory with on
 
 Read `src/content/strategy/x.md` and `config/aaron-studio.json` if present.
 
+### Aaron's default writing style
+
+Use this style unless the user explicitly asks for a diary, literary essay, soft reflection, or another named voice:
+- Write from an entrepreneur/operator perspective. The piece should deliver insight, point of view, and commercial value.
+- Start from a concrete business/work observation, then name the underlying shift. Prefer claims like "AI lowers execution cost; judgment becomes more valuable."
+- Focus on incentives, cost structure, leverage, judgment, customers, markets, product sense, strategy, and decision quality.
+- Keep poetic phrases grounded. For example, "仰望星空" should mean strategic altitude, cognitive radius, and direction, not romantic mood.
+- Use structured article paragraphs: each section should usually have 2-3 coherent paragraphs carrying point, mechanism, and implication. Avoid turning the main article into one-sentence slide notes.
+- Be crisp and direct. Cut soft self-help, intellectual wandering, "AI influencer" cliches, and teacherly "you should" advice.
+- Chinese should be tighter and more operator-grade; English should be native and concise. Keep natural terms like `AI`, `prompt`, `workflow`, and `context`.
+
+### Canonical blog taxonomy
+
+Every public article must include exactly one `category` from this controlled list. Do not invent new category IDs.
+
+| Category ID | Use for |
+|-------------|---------|
+| `ai-native-systems` | AI-native tools, agents, models, AI work systems, prompt/workflow/control surfaces |
+| `product-execution` | Product building, engineering execution, workflow implementation, shipping systems |
+| `business-strategy` | Markets, customers, sales, finance, strategy, judgment, leadership, commercial insight |
+| `personal-operating-system` | Personal systems, learning, career, attention, energy, long-term capability building |
+| `creation-media` | Writing, content production, creator work, blog/video/media workflows |
+
+Use `tags` for 2-4 specific keywords only. Tags are for search and semantic detail; they are not reader-facing navigation categories. Keep category IDs in English for both English and Chinese articles.
+
 ### 2. Determine the package scope
 
 Default package:
@@ -53,7 +78,8 @@ Use this frontmatter:
 title: "<Title>"
 date: YYYY-MM-DD
 slug: <slug>
-tags: [tag-one, tag-two]
+category: business-strategy
+tags: [specific-keyword, second-keyword]
 ---
 ```
 
@@ -62,9 +88,28 @@ Writing rules:
 - Use "I" voice when the plan has personal evidence.
 - Preserve the plan's thesis but improve phrasing.
 - Avoid generic AI-influencer language.
+- For Aaron's default public posts, make the thesis commercially useful and opinionated enough to disagree with.
+- Prefer section bodies with coherent paragraphs over many isolated one-line paragraphs.
 - Sections should be readable without the plan.
 - Use local image paths only after images already exist; otherwise leave no image placeholders.
-- End with the CTA from the plan/content-plan.
+- End with a sharp implication or CTA from the plan/content-plan; avoid vague motivational endings.
+
+### 3b. Depth revision pass
+
+After the first English draft, do one skeptical editor pass before writing companion assets. Do not wait for Aaron to ask for "more depth."
+
+Score the article against this checklist:
+- **Thesis**: Is the main claim non-obvious, specific, and worth disagreeing with?
+- **Evidence**: Does it include concrete lived experience, product behavior, market facts, or source-backed examples?
+- **Mechanism**: Does it explain why the change happens, not only describe what happened?
+- **Stakes**: Does it make clear what changes for builders, operators, teams, or companies?
+- **Nuance**: Does it include a counterargument, risk, or limitation?
+- **Frame**: Does it give readers a reusable operating lens, checklist, or decision model?
+- **Ending**: Does the ending advance the thesis instead of adding a generic CTA?
+
+If any item is weak, revise the article once before continuing. The revision should add substance, not just polish wording. Prefer adding mechanism, examples, counterarguments, and sharper framing over adding more adjectives.
+
+When reporting completion, mention the two or three most important depth fixes made.
 
 ### 4. Draft the Chinese version
 
@@ -83,6 +128,7 @@ Rules:
 - No link in the main post.
 - Strong hook in first 2 lines.
 - Same CTA rotation as the plan.
+- Short punchy paragraphs are acceptable for X, but keep the same entrepreneur/operator thesis.
 
 `x-standalone-tweet.md`:
 - One sharp insight from the post.
@@ -92,11 +138,18 @@ Rules:
 - Short plain-text teaser.
 - Ends with the blog URL placeholder if the final URL is not known.
 
+`linkedin-brief.md` when requested:
+- LinkedIn-native, not a copy of the newsletter teaser.
+- 8-14 short paragraphs or bullets.
+- Include the final blog URL only after the blog is actually live, or use a clear placeholder before publishing.
+- Explain the practical insight in a professional operator voice.
+
 `youtube-script.md`:
 - Use the `aaron-video-gen` slide format, not the `yt-script-writer` scene format.
 - Include `## [HOOK]`.
 - Use meaningful slide titles.
 - Reference likely images in `imgs/` when present; otherwise use planned filenames.
+- Video scripts may use short lines, but should still lead with the business insight rather than reflective narration.
 
 `youtube-metadata.md`:
 - Title options.
@@ -112,6 +165,9 @@ Before finishing:
 - Every generated file is under the same date directory.
 - `youtube-script.md` has at least one `## [SLIDE:` section.
 - `x-post.md` does not put the blog link in the main post.
+- Main articles match Aaron's default style unless the user explicitly requested a different voice.
+- The English article passed the depth revision checklist.
+- Distribution files inherit the revised thesis; they must not summarize an earlier, weaker draft.
 
 ### 7. Handoff
 

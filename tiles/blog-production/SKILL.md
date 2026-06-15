@@ -1,11 +1,11 @@
 ---
 name: blog-production
-description: Use when running or resuming Aaron's end-to-end blog workflow from idea to article, images, video, and publishing.
+description: Use when running or resuming Aaron's end-to-end blog workflow, especially when the user wants one entry point for idea, article, images, video, social, and publishing.
 ---
 
 # Blog Production
 
-Run the blog workflow as an orchestrator. This skill decides the next missing step and hands off to the focused skill for that step.
+Run the blog workflow as the single orchestrator. This is the default entry point when Aaron says to start, continue, GO, publish, or finish a blog package. It decides the next missing step, applies quality gates, and hands off to the focused skill for that step.
 
 ## Pipeline
 
@@ -34,6 +34,7 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `x-post.md` | long-form X post | blog-write |
 | `x-standalone-tweet.md` | follow-up X post | blog-write |
 | `newsletter-teaser.md` | Beehiiv / LinkedIn teaser | blog-write |
+| `linkedin-brief.md` | LinkedIn-native brief when requested | blog-write |
 | `imgs/outline.md` | illustration plan | blog-illustrate |
 | `imgs/web/00-cover.webp` | blog cover | blog-illustrate |
 | `youtube-script.md` | slide video script | blog-write |
@@ -51,6 +52,16 @@ Read:
 - `src/content/strategy/x.md`
 - all files in the chosen post directory
 
+### Aaron's default blog style
+
+Unless the user explicitly asks for a literary essay, diary, or soft reflection, keep the whole workflow aligned to Aaron's default public writing style:
+- Entrepreneur/operator perspective, not intellectual essay or self-help.
+- Lead with a business observation, then name the insight and commercial value.
+- Prefer crisp claims about incentives, cost structure, leverage, judgment, customers, markets, product, and strategy.
+- Treat poetic phrases such as "仰望星空" as strategic altitude or cognitive radius, not literary mood.
+- Keep article sections structured: 2-3 coherent paragraphs per section, not slide-like one-sentence fragments.
+- Avoid teacherly "you should" energy, AI-influencer cliches, soft emotional wandering, and over-explaining.
+
 ### 2. Detect the next step
 
 Use the first matching missing artifact:
@@ -62,7 +73,10 @@ Use the first matching missing artifact:
 | no `plan.md` | use `blog-outline` |
 | no `<slug>.md` or no `*-zh.md` | use `blog-write` |
 | no `x-post.md` / `newsletter-teaser.md` | use `blog-write` package completion |
+| article exists but fails depth gate | use `blog-write` revision pass |
 | no `imgs/web/00-cover.webp` | use `blog-illustrate` |
+| images exist but fail image quality gate | use `blog-illustrate` regeneration pass |
+| `youtube-script.md` has too few image references | use `aaron-video-gen` visual enrichment workflow before rendering |
 | no `video.mp4` but `youtube-script.md` exists | use `aaron-video-gen` |
 | article ready but not copied to blog repo | use `publish-to-blog` |
 | `video.mp4` ready and user wants upload | use `yt-publish` |
@@ -78,7 +92,37 @@ For each phase:
 - Follow that skill.
 - Stop after the phase if human review is needed.
 
-### 4. Recovery behavior
+### 4. Quality gates
+
+Run these gates before moving downstream. Do not rely on the user to discover quality issues after the fact.
+
+**Article depth gate** — before illustration, video, or publishing, read the article as a skeptical editor. The article passes only if it has:
+- a non-obvious thesis that a smart reader could disagree with
+- concrete personal or market evidence, not only abstract claims
+- mechanism: why the shift happens, not just that it happens
+- stakes: why it matters for builders, operators, or companies
+- at least one counterargument, limitation, or risk
+- a useful operating frame, checklist, or decision lens
+- a conclusion that sharpens the thesis rather than repeating it
+
+If the article fails any item, run a `blog-write` revision pass before continuing.
+
+**Image quality gate** — before accepting images, confirm `blog-illustrate` loaded `.baoyu-skills/baoyu-article-illustrator/EXTEND.md` when present and used the baoyu image generator path. Covers and thumbnails need at least two candidates or a clear reason for only one. Reject generic glowing-AI imagery, unreadable text, cluttered diagrams, stock-photo vibes, and body images that do not add a distinct idea.
+
+**Video richness gate** — before rendering, count unique image assets referenced by `youtube-script.md`. A video longer than 4 minutes should normally use 20-30 total images with `[IMAGE:]` switches about every 15-20 seconds. If it only reuses the blog illustrations, generate video-only `sNN-MM-*.png` images and update the script first.
+
+**Taxonomy gate** — before publishing, every public article must include exactly one `category` from:
+- `ai-native-systems`
+- `product-execution`
+- `business-strategy`
+- `personal-operating-system`
+- `creation-media`
+
+Use `tags` only for 2-4 specific search keywords. Do not invent ad hoc category names, and do not let tags become reader-facing navigation categories.
+
+**Publishing gate** — before external side effects, verify the blog repo build passes and the target artifacts are present. Push, YouTube upload, LinkedIn posting, and other external posts require explicit user approval unless already clearly authorized in the active thread.
+
+### 5. Recovery behavior
 
 If a post has mixed historical formats, normalize forward rather than rewriting history:
 - Prefer `plan.md` as the writing outline.
@@ -86,7 +130,7 @@ If a post has mixed historical formats, normalize forward rather than rewriting 
 - Prefer `youtube-script.md` for slide-based videos.
 - Keep old files unless the user asks to clean them.
 
-### 5. Completion report
+### 6. Completion report
 
 Report the current package status:
 

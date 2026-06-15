@@ -3,6 +3,7 @@ title: "I Engineered the Law of Attraction with AI"
 date: 2026-03-08
 slug: i-engineered-the-law-of-attraction-with-ai
 tags: [ai, signal, personal-systems, intention]
+category: personal-operating-system
 cover: imgs/web/00-cover.webp
 ---
 
