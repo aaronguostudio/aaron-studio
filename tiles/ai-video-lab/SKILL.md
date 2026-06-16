@@ -1,0 +1,130 @@
+---
+name: ai-video-lab
+description: Use when Aaron asks for Seedance video experiments, AI video lab work, cinematic AI clips, visual impact videos, cartoon or stylized video experiments, GPT Image or Seedream first-frame to video workflows, storyboard-grid videos, or YouTube Shorts candidates made from AI-generated images.
+---
+
+# AI Video Lab
+
+Run Aaron's exploratory AI video workflow for visually striking short clips. This skill is a creative lab, not a publishing autopilot. It creates prompt artifacts, Seedance requests, MP4 outputs when approved, critique scorecards, and next prompt variations.
+
+## Default Strategy
+
+Prefer image-first workflows:
+
+```text
+idea
+  -> choose preset and mode
+  -> write GPT Image 2 or Seedream prompt
+  -> accept image_url or storyboard reference
+  -> write short Seedance motion prompt
+  -> dry-run request by default
+  -> submit only when Aaron clearly approves cost
+  -> critique result
+  -> propose one-variable prompt variations
+```
+
+Use text-to-video only for quick low-cost smoke tests or when Aaron explicitly asks.
+
+## Workflow Modes
+
+### Strong First Frame
+
+Use for fast experiments. Write one strong 9:16 image prompt and a short Seedance prompt. Best for one impossible scene, one character reveal, one product myth shot, or one cinematic camera move.
+
+### Storyboard Grid
+
+Use for higher-quality experiments. Write a 3x3, 3x4, or 4x4 storyboard image prompt, then ask Seedance to follow the grid sequence. Best for FPV routes, multi-shot cartoon clips, game trailer moments, and 12-15 second Shorts candidates.
+
+### Character Bible Plus Shot
+
+Use when a recurring stylized character matters. First define a front/side/back character reference, wardrobe, palette, and motion notes, then create a shot frame or storyboard grid.
+
+## Presets
+
+Read `references/presets.md` before creating a concept. The initial presets are:
+
+- `cartoon_cinematic_worlds`
+- `fpv_fantasy_route`
+- `aaa_game_character_intro`
+- `impossible_product_mythology`
+- `surreal_youth_anime_short`
+
+## Scorecard
+
+Read `references/scorecard.md` before critiquing output. Every run gets a critique file with:
+
+```text
+hook:
+visual_impact:
+imagination:
+motion:
+consistency:
+shareability:
+defects:
+keep:
+change:
+next_prompt_variation:
+publish_candidate:
+upgrade_candidate:
+```
+
+Use 1-5 scores. For `defects`, 5 means clean and 1 means severe artifacts.
+
+## Commands
+
+Dry-run a prompt package without spending money:
+
+```bash
+python3 tiles/ai-video-lab/scripts/run_lab.py \
+  --idea "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds" \
+  --preset cartoon_cinematic_worlds \
+  --mode strong_first_frame \
+  --run-id cartoon-astronaut-vending-001
+```
+
+Submit a paid Seedance job when Aaron approves:
+
+```bash
+python3 tiles/ai-video-lab/scripts/run_lab.py \
+  --idea "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds" \
+  --preset cartoon_cinematic_worlds \
+  --mode strong_first_frame \
+  --run-id cartoon-astronaut-vending-001 \
+  --image-url "https://example.com/first-frame.png" \
+  --submit
+```
+
+Default live settings are low-cost: 4 seconds, 480p, 9:16, no generated audio, no watermark.
+
+## Output Contract
+
+Each run writes:
+
+```text
+tiles/ai-video-lab/output/YYYY-MM-DD/<run-id>/
+  brief.md
+  concept.json
+  image_prompt.md
+  video_prompt.md
+  request.json
+  summary.json
+  critique.md
+  next_variations.md
+```
+
+Live submissions also write:
+
+```text
+task.json
+final_response.json
+output.mp4
+title_candidates.md
+description.md
+hashtags.md
+```
+
+Generated outputs are local artifacts. Durable lessons belong in `src/brain/video-lab/lessons.md` or `references/presets.md`.
+
+## Safety
+
+Default to original characters, stylized people, fictional products, and non-infringing scenes. Avoid celebrity likenesses, misleading realistic impersonations, explicit sexual content, and unsafe violence. YouTube upload requires separate explicit approval.
