@@ -12,6 +12,7 @@ This file stores durable lessons from Aaron's AI video experiments.
 
 ## Winning Patterns
 
+- 2026-06-16, `ytv-anime-rain-crane-hq-001`: Image-first workflow succeeded at high quality. A generated 1080x1920 anime first frame, passed to Seedance as first_frame with `1080p / 15s / 9:16`, preserved style, character identity, rain, moon, glowing paper crane, and reflections. Scores: hook 5, visual impact 5, imagination 4, motion 4, consistency 5, defects 5. Best next variable: add one clearer action beat without changing style.
 - 2026-06-16, `ytv-cartoon-cloud-courier-live-003`: A full text-to-video prompt with explicit subject, vehicle, destination, style, camera, palette, and negative constraints produced the first usable cartoon direction. Scores: hook 4, visual impact 4, imagination 4, motion 3, consistency 4, defects 4. Upgrade candidate.
 
 ## Failure Patterns

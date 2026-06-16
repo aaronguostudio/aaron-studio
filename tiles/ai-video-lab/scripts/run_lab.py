@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse  # noqa: F401
+import base64
 import json  # noqa: F401
 import os  # noqa: F401
 import re
@@ -103,6 +104,12 @@ PRESETS: dict[str, dict[str, str]] = {
 }
 
 MODES = {"strong_first_frame", "storyboard_grid", "character_bible_plus_shot"}
+IMAGE_PATH_MIME_TYPES = {
+    ".jpg": "image/jpeg",
+    ".jpeg": "image/jpeg",
+    ".png": "image/png",
+    ".webp": "image/webp",
+}
 
 SCORE_FIELDS = [
     "hook",
@@ -171,6 +178,18 @@ def redacted_image_refs(image_url: str | None, image_role: str) -> list[dict[str
     return [
         ref
     ]
+
+
+def image_path_to_data_url(path: Path) -> str:
+    suffix = path.suffix.lower()
+    mime_type = IMAGE_PATH_MIME_TYPES.get(suffix)
+    if mime_type is None:
+        raise ValueError("Unsupported image-path type: use .png, .jpg, .jpeg, or .webp.")
+    if not path.exists() or not path.is_file():
+        raise FileNotFoundError(f"Image path does not exist: {path}")
+
+    encoded = base64.b64encode(path.read_bytes()).decode("ascii")
+    return f"data:{mime_type};base64,{encoded}"
 
 
 def build_lab_prompts(
@@ -289,6 +308,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--image-prompt")
     parser.add_argument("--video-prompt")
     parser.add_argument("--image-url")
+    parser.add_argument("--image-path", type=Path)
     parser.add_argument("--image-role", default="first_frame", choices=["first_frame", "last_frame", "reference_image"])
     parser.add_argument("--ark-url", default=os.environ.get("ARK_BASE_URL", DEFAULT_ARK_BASE_URL))
     parser.add_argument("--model", default=os.environ.get("ARK_SEEDANCE_MODEL", DEFAULT_SEEDANCE_MODEL))
@@ -313,6 +333,13 @@ def run(args: argparse.Namespace) -> int:
     run_date = time.strftime("%Y-%m-%d")
     run_dir = output_root / run_date / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
+    image_path = getattr(args, "image_path", None)
+    if args.image_url and image_path:
+        raise ValueError("Use either --image-url or --image-path, not both.")
+    effective_image_url = args.image_url
+    if image_path:
+        resolved_image_path = image_path if image_path.is_absolute() else repo_root / image_path
+        effective_image_url = image_path_to_data_url(resolved_image_path)
 
     prompts = build_lab_prompts(
         args.idea,
@@ -323,7 +350,7 @@ def run(args: argparse.Namespace) -> int:
     )
     seedance_prompt = build_seedance_prompt(
         prompts,
-        has_image_url=bool(args.image_url),
+        has_image_url=bool(effective_image_url),
         has_video_prompt_override=args.video_prompt is not None,
     )
     payload = build_video_payload(
@@ -335,7 +362,7 @@ def run(args: argparse.Namespace) -> int:
         generate_audio=args.generate_audio,
         watermark=args.watermark,
         seed=args.seed,
-        image_url=args.image_url,
+        image_url=effective_image_url,
         image_role=args.image_role,
         return_last_frame=args.return_last_frame,
     )
@@ -351,7 +378,7 @@ def run(args: argparse.Namespace) -> int:
             "idea": args.idea,
             "preset": args.preset,
             "mode": args.mode,
-            "image_refs": redacted_image_refs(args.image_url, args.image_role),
+            "image_refs": redacted_image_refs(effective_image_url, args.image_role),
         },
     )
     write_text(run_dir / "image_prompt.md", prompts["image_prompt"] + "\n")
@@ -374,7 +401,7 @@ def run(args: argparse.Namespace) -> int:
         "watermark": args.watermark,
         "estimated_tokens": tokens,
         "estimated_cost_rmb": round(estimated_cost, 4),
-        "image_refs": redacted_image_refs(args.image_url, args.image_role),
+        "image_refs": redacted_image_refs(effective_image_url, args.image_role),
         "request_path": str(run_dir / "request.json"),
         "status": "dry_run",
         "submitted": False,

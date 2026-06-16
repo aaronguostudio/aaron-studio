@@ -6,6 +6,7 @@ import tempfile
 import time
 import unittest
 import json
+import base64
 from pathlib import Path
 from unittest.mock import patch
 
@@ -13,7 +14,7 @@ from unittest.mock import patch
 SCRIPTS_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS_DIR))
 
-from run_lab import build_lab_prompts, build_seedance_prompt, parse_scorecard, slugify  # noqa: E402
+from run_lab import build_lab_prompts, build_seedance_prompt, image_path_to_data_url, parse_scorecard, slugify  # noqa: E402
 
 
 class SlugifyTests(unittest.TestCase):
@@ -93,6 +94,26 @@ class BuildLabPromptsTests(unittest.TestCase):
         self.assertEqual(seedance_prompt, prompts["video_prompt"])
         self.assertNotIn("Visual direction:", seedance_prompt)
 
+    def test_image_path_to_data_url_encodes_supported_image(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            image_path = Path(tmp) / "first-frame.jpg"
+            image_path.write_bytes(b"fake image bytes")
+
+            data_url = image_path_to_data_url(image_path)
+
+            self.assertEqual(
+                data_url,
+                "data:image/jpeg;base64," + base64.b64encode(b"fake image bytes").decode("ascii"),
+            )
+
+    def test_image_path_to_data_url_rejects_unsupported_extension(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            image_path = Path(tmp) / "first-frame.txt"
+            image_path.write_text("not an image", encoding="utf-8")
+
+            with self.assertRaises(ValueError):
+                image_path_to_data_url(image_path)
+
     def test_dry_run_writes_artifacts_and_secret_free_summary(self) -> None:
         from run_lab import main
 
@@ -132,6 +153,67 @@ class BuildLabPromptsTests(unittest.TestCase):
             request_text = request_payload["content"][0]["text"]
             self.assertIn("cathedral-sized vending machine", request_text)
             self.assertIn("Motion direction:", request_text)
+
+    def test_dry_run_with_image_path_uses_data_url_without_summary_leak(self) -> None:
+        from run_lab import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            image_path = tmp_path / "first-frame.jpg"
+            image_path.write_bytes(b"fake image bytes")
+
+            exit_code = main(
+                [
+                    "--idea",
+                    "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                    "--preset",
+                    "cartoon_cinematic_worlds",
+                    "--mode",
+                    "strong_first_frame",
+                    "--run-id",
+                    "image-path-first-frame-001",
+                    "--output-root",
+                    str(tmp_path / "out"),
+                    "--image-path",
+                    str(image_path),
+                ]
+            )
+
+            self.assertEqual(exit_code, 0)
+            run_dir = tmp_path / "out" / time.strftime("%Y-%m-%d") / "image-path-first-frame-001"
+            request_payload = json.loads((run_dir / "request.json").read_text(encoding="utf-8"))
+            self.assertEqual(request_payload["content"][1]["type"], "image_url")
+            self.assertTrue(request_payload["content"][1]["image_url"]["url"].startswith("data:image/jpeg;base64,"))
+
+            request_text = request_payload["content"][0]["text"]
+            self.assertNotIn("Visual direction:", request_text)
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertNotIn(str(image_path), summary_text)
+            self.assertNotIn("fake image bytes", summary_text)
+            self.assertIn('"host": "local-or-unknown"', summary_text)
+
+    def test_image_url_and_image_path_are_mutually_exclusive(self) -> None:
+        from run_lab import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            image_path = Path(tmp) / "first-frame.jpg"
+            image_path.write_bytes(b"fake image bytes")
+
+            with self.assertRaises(ValueError):
+                main(
+                    [
+                        "--idea",
+                        "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                        "--run-id",
+                        "exclusive-image-source-001",
+                        "--output-root",
+                        tmp,
+                        "--image-url",
+                        "https://assets.example.test/frame.jpg",
+                        "--image-path",
+                        str(image_path),
+                    ]
+                )
 
     def test_submit_without_api_key_returns_clear_error_and_keeps_request(self) -> None:
         from run_lab import main
