@@ -320,6 +320,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--seed", type=int)
     parser.add_argument("--return-last-frame", action="store_true")
     parser.add_argument("--submit", action="store_true")
+    parser.add_argument("--request-timeout", type=float, default=180.0)
     parser.add_argument("--timeout-seconds", type=float, default=900.0)
     parser.add_argument("--poll-seconds", type=float, default=8.0)
     parser.add_argument("--copy-to-shorts-ready", action="store_true")
@@ -494,7 +495,7 @@ def submit_and_download(
         print("ARK_API_KEY is required for --submit. Dry-run files were still written.")
         return 2
 
-    client = ArkSeedanceClient(base_url=args.ark_url)
+    client = ArkSeedanceClient(base_url=args.ark_url, timeout=args.request_timeout)
     try:
         task_response = client.submit_task(payload)
     except Exception as exc:

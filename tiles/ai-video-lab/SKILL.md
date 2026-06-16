@@ -112,8 +112,12 @@ python3 tiles/ai-video-lab/scripts/run_lab.py \
   --resolution 1080p \
   --duration 15 \
   --return-last-frame \
+  --request-timeout 300 \
   --submit
 ```
+
+For local first frames larger than a few hundred KB, use `--request-timeout 300`
+to avoid write timeouts while Ark receives the data URI.
 
 Default live settings are low-cost: 4 seconds, 480p, 9:16, no generated audio, no watermark.
 

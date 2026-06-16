@@ -243,6 +243,51 @@ class BuildLabPromptsTests(unittest.TestCase):
             self.assertIn('"status": "missing_api_key"', summary_text)
             self.assertNotIn("Authorization", summary_text)
 
+    def test_request_timeout_is_passed_to_live_client(self) -> None:
+        import run_lab
+        from run_lab import main
+
+        captured: dict[str, object] = {}
+
+        class TimeoutCaptureClient:
+            def __init__(self, **kwargs: object) -> None:
+                captured.update(kwargs)
+
+            def submit_task(self, _payload: dict[str, object]) -> dict[str, object]:
+                return {"id": "task-1"}
+
+            def download_video(self, _video_url: str, output_path: Path) -> Path:
+                output_path.write_bytes(b"video")
+                return output_path
+
+        def successful_poll(*_args: object, **_kwargs: object) -> dict[str, object]:
+            return {"status": "succeeded", "content": {"video_url": "https://assets.example.test/video.mp4"}}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.dict(os.environ, {"ARK_API_KEY": "test-key"}, clear=True):
+                with patch.object(run_lab, "ArkSeedanceClient", TimeoutCaptureClient):
+                    with patch.object(run_lab, "poll_task", successful_poll):
+                        exit_code = main(
+                            [
+                                "--idea",
+                                "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                                "--preset",
+                                "cartoon_cinematic_worlds",
+                                "--mode",
+                                "strong_first_frame",
+                                "--run-id",
+                                "request-timeout-001",
+                                "--output-root",
+                                tmp,
+                                "--request-timeout",
+                                "240",
+                                "--submit",
+                            ]
+                        )
+
+        self.assertEqual(exit_code, 0)
+        self.assertEqual(captured["timeout"], 240.0)
+
     def test_summary_redacts_signed_image_url(self) -> None:
         from run_lab import main
 
