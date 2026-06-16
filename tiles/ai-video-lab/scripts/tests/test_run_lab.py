@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import sys
+import tempfile
+import time
 import unittest
 from pathlib import Path
 
@@ -54,6 +56,41 @@ class BuildLabPromptsTests(unittest.TestCase):
 
         self.assertEqual(prompts["image_prompt"], "Custom bible prompt")
         self.assertNotIn("front view", prompts["image_prompt"])
+
+    def test_dry_run_writes_artifacts_and_secret_free_summary(self) -> None:
+        from run_lab import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            exit_code = main(
+                [
+                    "--idea",
+                    "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                    "--preset",
+                    "cartoon_cinematic_worlds",
+                    "--mode",
+                    "strong_first_frame",
+                    "--run-id",
+                    "cartoon-astronaut-vending-001",
+                    "--output-root",
+                    tmp,
+                ]
+            )
+
+            self.assertEqual(exit_code, 0)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "cartoon-astronaut-vending-001"
+            self.assertTrue((run_dir / "brief.md").exists())
+            self.assertTrue((run_dir / "concept.json").exists())
+            self.assertTrue((run_dir / "image_prompt.md").exists())
+            self.assertTrue((run_dir / "video_prompt.md").exists())
+            self.assertTrue((run_dir / "request.json").exists())
+            self.assertTrue((run_dir / "summary.json").exists())
+            self.assertTrue((run_dir / "critique.md").exists())
+            self.assertTrue((run_dir / "next_variations.md").exists())
+
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertNotIn("ARK_API_KEY", summary_text)
+            self.assertNotIn("Authorization", summary_text)
+            self.assertIn('"status": "dry_run"', summary_text)
 
 
 class ParseScorecardTests(unittest.TestCase):

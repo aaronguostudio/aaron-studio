@@ -12,6 +12,8 @@ from typing import Any
 try:
     from seedance_client import (  # noqa: F401
         ArkSeedanceClient,
+        DEFAULT_ARK_BASE_URL,
+        DEFAULT_SEEDANCE_MODEL,
         build_video_payload,
         estimate_rmb,
         estimate_tokens,
@@ -22,6 +24,8 @@ try:
     )
 except ImportError:
     ArkSeedanceClient = None  # type: ignore[assignment]
+    DEFAULT_ARK_BASE_URL = "https://ark.cn-beijing.volces.com/api/v3"
+    DEFAULT_SEEDANCE_MODEL = "doubao-seedance-2-0-260128"
     build_video_payload = None  # type: ignore[assignment]
     estimate_rmb = None  # type: ignore[assignment]
     estimate_tokens = None  # type: ignore[assignment]
@@ -211,3 +215,270 @@ def _parse_yes_no(text: str, field: str) -> bool:
     if not match:
         raise ValueError(f"Missing required yes/no field for {field}")
     return match.group(1).lower() == "yes"
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    return run(args)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Run Aaron Studio AI Video Lab Seedance experiments.")
+    parser.add_argument("--idea", required=True)
+    parser.add_argument("--preset", choices=sorted(PRESETS), default="cartoon_cinematic_worlds")
+    parser.add_argument("--mode", choices=sorted(MODES), default="strong_first_frame")
+    parser.add_argument("--run-id")
+    parser.add_argument("--output-root", type=Path, default=Path("tiles/ai-video-lab/output"))
+    parser.add_argument("--image-prompt")
+    parser.add_argument("--video-prompt")
+    parser.add_argument("--image-url")
+    parser.add_argument("--image-role", default="first_frame", choices=["first_frame", "last_frame", "reference_image"])
+    parser.add_argument("--ark-url", default=os.environ.get("ARK_BASE_URL", DEFAULT_ARK_BASE_URL))
+    parser.add_argument("--model", default=os.environ.get("ARK_SEEDANCE_MODEL", DEFAULT_SEEDANCE_MODEL))
+    parser.add_argument("--ratio", default="9:16", choices=["16:9", "4:3", "1:1", "3:4", "9:16", "21:9"])
+    parser.add_argument("--resolution", default="480p", choices=["480p", "720p", "1080p"])
+    parser.add_argument("--duration", type=int, default=4)
+    parser.add_argument("--generate-audio", action="store_true")
+    parser.add_argument("--watermark", action="store_true")
+    parser.add_argument("--seed", type=int)
+    parser.add_argument("--return-last-frame", action="store_true")
+    parser.add_argument("--submit", action="store_true")
+    parser.add_argument("--timeout-seconds", type=float, default=900.0)
+    parser.add_argument("--poll-seconds", type=float, default=8.0)
+    parser.add_argument("--copy-to-shorts-ready", action="store_true")
+    return parser
+
+
+def run(args: argparse.Namespace) -> int:
+    repo_root = find_repo_root(Path.cwd())
+    output_root = args.output_root if args.output_root.is_absolute() else repo_root / args.output_root
+    run_id = args.run_id or f"{slugify(args.idea)}-{time.strftime('%H%M%S')}"
+    run_date = time.strftime("%Y-%m-%d")
+    run_dir = output_root / run_date / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
+
+    prompts = build_lab_prompts(
+        args.idea,
+        preset=args.preset,
+        mode=args.mode,
+        image_prompt_override=args.image_prompt,
+        video_prompt_override=args.video_prompt,
+    )
+    payload = build_video_payload(
+        prompts["video_prompt"],
+        model=args.model,
+        ratio=args.ratio,
+        resolution=args.resolution,
+        duration=args.duration,
+        generate_audio=args.generate_audio,
+        watermark=args.watermark,
+        seed=args.seed,
+        image_url=args.image_url,
+        image_role=args.image_role,
+        return_last_frame=args.return_last_frame,
+    )
+    tokens = estimate_tokens(args.resolution, args.ratio, args.duration)
+    estimated_cost = estimate_rmb(tokens)
+
+    write_text(run_dir / "brief.md", render_brief(args.idea, args.preset, args.mode, run_id))
+    write_json(
+        run_dir / "concept.json",
+        {
+            "run_id": run_id,
+            "date": run_date,
+            "idea": args.idea,
+            "preset": args.preset,
+            "mode": args.mode,
+            "image_url": args.image_url,
+        },
+    )
+    write_text(run_dir / "image_prompt.md", prompts["image_prompt"] + "\n")
+    write_text(run_dir / "video_prompt.md", prompts["video_prompt"] + "\n")
+    write_json(run_dir / "request.json", payload)
+    write_text(run_dir / "critique.md", critique_template())
+    write_text(run_dir / "next_variations.md", next_variations_template(args.idea, args.preset, args.mode))
+
+    summary = {
+        "run_id": run_id,
+        "provider": "volcengine-ark",
+        "base_url": args.ark_url,
+        "model": args.model,
+        "mode": args.mode,
+        "preset": args.preset,
+        "duration": args.duration,
+        "resolution": args.resolution,
+        "aspect_ratio": args.ratio,
+        "generate_audio": args.generate_audio,
+        "watermark": args.watermark,
+        "estimated_tokens": tokens,
+        "estimated_cost_rmb": round(estimated_cost, 4),
+        "image_refs": [args.image_url] if args.image_url else [],
+        "request_path": str(run_dir / "request.json"),
+        "status": "dry_run",
+        "submitted": False,
+    }
+    write_json(run_dir / "summary.json", summary)
+
+    print(f"Run dir: {run_dir}")
+    print(f"Request JSON: {run_dir / 'request.json'}")
+    print(f"Estimated tokens: {tokens} (~RMB {estimated_cost:.2f} at RMB 46 / 1M tokens)")
+
+    if not args.submit:
+        print("Dry run only. Add --submit to create a paid Ark task.")
+        return 0
+
+    return submit_and_download(args, run_dir, payload, summary)
+
+
+def render_brief(idea: str, preset: str, mode: str, run_id: str) -> str:
+    return f"""# AI Video Lab Brief
+
+Run: {run_id}
+Preset: {preset}
+Mode: {mode}
+
+## Idea
+
+{idea}
+
+## Learning Rule
+
+Change one major variable per follow-up run.
+"""
+
+
+def find_repo_root(start: Path) -> Path:
+    current = start.resolve()
+    for candidate in [current, *current.parents]:
+        if (candidate / "config" / "aaron-studio.json").exists():
+            return candidate
+    return current
+
+
+def write_json(path: Path, data: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def submit_and_download(
+    args: argparse.Namespace,
+    run_dir: Path,
+    payload: dict[str, Any],
+    summary: dict[str, Any],
+) -> int:
+    if not os.environ.get("ARK_API_KEY"):
+        summary.update({"status": "missing_api_key", "submitted": False})
+        write_json(run_dir / "summary.json", summary)
+        print("ARK_API_KEY is required for --submit. Dry-run files were still written.")
+        return 2
+
+    client = ArkSeedanceClient(base_url=args.ark_url)
+    try:
+        task_response = client.submit_task(payload)
+    except Exception as exc:
+        summary.update({"status": "submit_failed", "submitted": False, "error": str(exc)})
+        write_json(run_dir / "summary.json", summary)
+        print(f"Seedance submit failed: {exc}")
+        return 1
+
+    write_json(run_dir / "task.json", task_response)
+    task_id = extract_task_id(task_response)
+    if not task_id:
+        summary.update({"status": "no_task_id", "submitted": True})
+        write_json(run_dir / "summary.json", summary)
+        print(f"Could not find task id in response: {run_dir / 'task.json'}")
+        return 1
+
+    try:
+        final_response = poll_task(
+            client,
+            task_id,
+            timeout_seconds=args.timeout_seconds,
+            poll_seconds=args.poll_seconds,
+        )
+    except Exception as exc:
+        summary.update({"status": "task_failed", "submitted": True, "task_id": task_id, "error": str(exc)})
+        write_json(run_dir / "summary.json", summary)
+        print(f"Seedance task failed: {exc}")
+        return 1
+
+    write_json(run_dir / "final_response.json", final_response)
+    video_url = extract_video_url(final_response)
+    if not video_url:
+        summary.update({"status": "no_video_url", "submitted": True, "task_id": task_id})
+        write_json(run_dir / "summary.json", summary)
+        print(f"Task succeeded but no video_url was found. Final response: {run_dir / 'final_response.json'}")
+        return 1
+
+    try:
+        output_path = client.download_video(video_url, run_dir / "output.mp4")
+    except Exception as exc:
+        summary.update({"status": "download_failed", "submitted": True, "task_id": task_id, "error": str(exc)})
+        write_json(run_dir / "summary.json", summary)
+        print(f"Video download failed: {exc}")
+        return 1
+
+    summary.update(
+        {
+            "status": "succeeded",
+            "submitted": True,
+            "task_id": task_id,
+            "final_response_path": str(run_dir / "final_response.json"),
+            "video_path": str(output_path),
+        }
+    )
+    if args.copy_to_shorts_ready:
+        copied_path = copy_to_shorts_ready(find_repo_root(Path.cwd()), output_path, f"{summary['run_id']}.mp4")
+        summary["shorts_ready_path"] = str(copied_path)
+    write_json(run_dir / "summary.json", summary)
+    write_publish_files(run_dir, summary["run_id"])
+    print(f"Video: {output_path}")
+    return 0
+
+
+def copy_to_shorts_ready(repo_root: Path, output_path: Path, filename: str) -> Path:
+    config_path = repo_root / "config" / "aaron-studio.json"
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+    destination_dir = Path(config["shortsReadyDir"])
+    destination_dir.mkdir(parents=True, exist_ok=True)
+    destination = destination_dir / filename
+    shutil.copy2(output_path, destination)
+    return destination
+
+
+def write_publish_files(run_dir: Path, run_id: str) -> None:
+    write_text(
+        run_dir / "title_candidates.md",
+        f"""# Title Candidates
+
+1. This AI video feels like a lost animated film
+2. I made this with GPT Image and Seedance
+3. A tiny impossible world, generated by AI
+""",
+    )
+    write_text(
+        run_dir / "description.md",
+        f"""# Description
+
+AI video experiment: {run_id}
+
+Generated as part of Aaron's AI Video Lab using an image-first workflow and Seedance animation.
+""",
+    )
+    write_text(
+        run_dir / "hashtags.md",
+        """# Hashtags
+
+#aivideo #seedance #gptimage #generativeai #shorts
+""",
+    )
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
