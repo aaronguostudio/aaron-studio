@@ -155,9 +155,9 @@ def build_lab_prompts(
         else preset_config["video"].format(idea=stripped_idea)
     )
 
-    if mode == "storyboard_grid":
+    if image_prompt_override is None and mode == "storyboard_grid":
         image_prompt = f"{image_prompt}{_STORYBOARD_GRID_SUFFIX}"
-    elif mode == "character_bible_plus_shot":
+    elif image_prompt_override is None and mode == "character_bible_plus_shot":
         image_prompt = f"{image_prompt}{_CHARACTER_BIBLE_SUFFIX}"
 
     return {
