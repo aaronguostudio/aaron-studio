@@ -1,10 +1,12 @@
 from __future__ import annotations
 
+import os
 import sys
 import tempfile
 import time
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 SCRIPTS_DIR = Path(__file__).resolve().parents[1]
@@ -91,6 +93,34 @@ class BuildLabPromptsTests(unittest.TestCase):
             self.assertNotIn("ARK_API_KEY", summary_text)
             self.assertNotIn("Authorization", summary_text)
             self.assertIn('"status": "dry_run"', summary_text)
+
+    def test_submit_without_api_key_returns_clear_error_and_keeps_request(self) -> None:
+        from run_lab import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.dict(os.environ, {}, clear=True):
+                exit_code = main(
+                    [
+                        "--idea",
+                        "A mythic fictional camera floating above a glass desert",
+                        "--preset",
+                        "impossible_product_mythology",
+                        "--mode",
+                        "strong_first_frame",
+                        "--run-id",
+                        "missing-key-product-myth-001",
+                        "--output-root",
+                        tmp,
+                        "--submit",
+                    ]
+                )
+
+            self.assertEqual(exit_code, 2)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "missing-key-product-myth-001"
+            self.assertTrue((run_dir / "request.json").exists())
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertIn('"status": "missing_api_key"', summary_text)
+            self.assertNotIn("Authorization", summary_text)
 
     def test_run_id_rejects_path_traversal(self) -> None:
         from run_lab import main
