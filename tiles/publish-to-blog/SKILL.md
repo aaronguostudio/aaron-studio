@@ -136,6 +136,26 @@ published: true
 3. Confirm all referenced images exist in `public/blogs-img/`
 4. Report the post number, slug, and image count
 
+### Step 7: Update growth analytics catalog
+
+After the post files have been written and verified, update the blog growth
+catalog from the configured blog repo:
+
+```bash
+node scripts/blog-growth.mjs ingest-after-publish --dry-run
+node scripts/blog-growth.mjs ingest-after-publish
+```
+
+If the user wants an immediate new-post Rybbit window, include the published
+slug and date window:
+
+```bash
+node scripts/blog-growth.mjs ingest-after-publish \
+  --start YYYY-MM-DD \
+  --end YYYY-MM-DD \
+  --slugs <slug>
+```
+
 ## Example
 
 **Input:** `src/content/blogs/2026-02-14/marriott-timeshare-las-vegas.md`

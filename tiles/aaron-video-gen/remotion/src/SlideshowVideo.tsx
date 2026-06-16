@@ -190,7 +190,7 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
       {/* Outro: fade to black with logo + slogan */}
       {(logoFile || slogan) && (
         <Sequence
-          from={cumulativeFrame + preContentFrames - outroDurationFrames}
+          from={Math.max(0, cumulativeFrame - outroDurationFrames)}
           durationInFrames={outroDurationFrames}
         >
           <Outro logoFile={logoFile} slogan={slogan} website={website} />

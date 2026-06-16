@@ -202,18 +202,26 @@ export async function renderWithRemotion(
     }
 
     // 6. Invoke Remotion render
+    const chromePath = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+    const browserArgs = existsSync(chromePath)
+      ? [`--browser-executable="${chromePath}"`]
+      : [];
+
     const cmd = [
       "npx",
       "remotion",
       "render",
       "src/index.ts",
       "SlideshowVideo",
-      "--output",
       `"${options.outputPath}"`,
       "--props",
       `"${propsPath}"`,
       "--concurrency",
-      "50%",
+      "1",
+      "--port",
+      "3717",
+      "--ipv4",
+      ...browserArgs,
     ].join(" ");
 
     console.log(`[remotion] Rendering video...`);

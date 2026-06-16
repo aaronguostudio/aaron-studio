@@ -2,7 +2,6 @@ import React from "react";
 import {
   useCurrentFrame,
   useVideoConfig,
-  interpolate,
   AbsoluteFill,
 } from "remotion";
 
@@ -19,15 +18,68 @@ interface WordCaptionProps {
   maxWordsPerLine?: number;
 }
 
+interface CaptionSegment {
+  text: string;
+  start: number;
+  end: number;
+}
+
+function cleanWord(word: string): string {
+  return word.replace(/\s+/g, " ").trim();
+}
+
+function buildCaptionSegments(
+  wordTimings: WordTimingData[],
+  maxWordsPerSegment: number
+): CaptionSegment[] {
+  const segments: CaptionSegment[] = [];
+  let current: WordTimingData[] = [];
+
+  function flush(): void {
+    const words = current.map((w) => cleanWord(w.word)).filter(Boolean);
+    if (words.length === 0) {
+      current = [];
+      return;
+    }
+
+    segments.push({
+      text: words.join(" "),
+      start: current[0].start,
+      end: current[current.length - 1].end,
+    });
+    current = [];
+  }
+
+  for (const timing of wordTimings) {
+    const word = cleanWord(timing.word);
+    if (!word) continue;
+
+    current.push({ ...timing, word });
+
+    const segmentDuration = timing.end - current[0].start;
+    const endsPhrase = /[,.!?;:，。！？；：]$/.test(word);
+    const longEnoughToBreak = current.length >= 4 && endsPhrase;
+    const tooManyWords = current.length >= maxWordsPerSegment;
+    const tooLong = segmentDuration >= 4.2;
+
+    if (longEnoughToBreak || tooManyWords || tooLong) {
+      flush();
+    }
+  }
+
+  flush();
+  return segments;
+}
+
 /**
- * Subtle word-by-word caption overlay.
- * Shows a group of words near the bottom, highlighting the current word
- * with a color change. No scale animation to avoid overlap.
+ * Stable phrase-level subtitle overlay.
+ * Word timings drive precise segment timing, but the display avoids
+ * karaoke-style per-word color changes that can feel visually jumpy.
  */
 export const WordCaption: React.FC<WordCaptionProps> = ({
   wordTimings,
   audioDelay = 0,
-  maxWordsPerLine = 8,
+  maxWordsPerLine = 10,
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
@@ -37,32 +89,15 @@ export const WordCaption: React.FC<WordCaptionProps> = ({
   // Current time relative to audio start
   const currentTime = Math.max(0, (frame - audioDelay) / fps);
 
-  // Group words into lines of maxWordsPerLine
-  const lines: WordTimingData[][] = [];
-  for (let i = 0; i < wordTimings.length; i += maxWordsPerLine) {
-    lines.push(wordTimings.slice(i, i + maxWordsPerLine));
-  }
-
-  // Find which line group is currently active
-  const activeLineIndex = lines.findIndex((line) => {
-    const lineStart = line[0].start;
-    const lineEnd = line[line.length - 1].end;
-    return currentTime >= lineStart - 0.1 && currentTime <= lineEnd + 0.3;
+  const segments = React.useMemo(
+    () => buildCaptionSegments(wordTimings, maxWordsPerLine),
+    [wordTimings, maxWordsPerLine]
+  );
+  const activeSegment = segments.find((segment) => {
+    return currentTime >= segment.start - 0.12 && currentTime <= segment.end + 0.55;
   });
 
-  if (activeLineIndex < 0) return null;
-
-  const activeLine = lines[activeLineIndex];
-  const lineStart = activeLine[0].start;
-  const lineEnd = activeLine[activeLine.length - 1].end;
-
-  // Fade in/out the line group
-  const lineOpacity = interpolate(
-    currentTime,
-    [lineStart - 0.1, lineStart, lineEnd, lineEnd + 0.3],
-    [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
+  if (!activeSegment) return null;
 
   return (
     <AbsoluteFill
@@ -75,47 +110,32 @@ export const WordCaption: React.FC<WordCaptionProps> = ({
     >
       <div
         style={{
-          opacity: lineOpacity,
           display: "flex",
-          flexWrap: "wrap",
           justifyContent: "center",
-          gap: "3px 8px",
-          backgroundColor: "rgba(0, 0, 0, 0.55)",
-          backdropFilter: "blur(10px)",
-          padding: "10px 24px",
+          alignItems: "center",
+          backgroundColor: "rgba(0, 0, 0, 0.68)",
+          padding: "11px 24px 12px",
           borderRadius: 8,
-          maxWidth: "80%",
+          maxWidth: "76%",
+          minWidth: 520,
+          minHeight: 54,
+          boxSizing: "border-box",
+          border: "1px solid rgba(255, 255, 255, 0.08)",
         }}
       >
-        {activeLine.map((wordData, wi) => {
-          const isActive =
-            currentTime >= wordData.start && currentTime <= wordData.end + 0.15;
-          const isPast = currentTime > wordData.end + 0.15;
-
-          let color = "rgba(255, 255, 255, 0.35)"; // upcoming: dim
-          if (isActive) {
-            color = "#FFDD00"; // active: yellow
-          } else if (isPast) {
-            color = "rgba(255, 255, 255, 0.85)"; // past: bright white
-          }
-
-          return (
-            <span
-              key={wi}
-              style={{
-                color,
-                fontSize: 28,
-                fontFamily:
-                  'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-                fontWeight: 500,
-                display: "inline-block",
-                lineHeight: 1.4,
-              }}
-            >
-              {wordData.word}
-            </span>
-          );
-        })}
+        <span
+          style={{
+            color: "rgba(255, 255, 255, 0.92)",
+            fontSize: 28,
+            fontFamily:
+              'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+            fontWeight: 560,
+            lineHeight: 1.35,
+            textAlign: "center",
+          }}
+        >
+          {activeSegment.text}
+        </span>
       </div>
     </AbsoluteFill>
   );

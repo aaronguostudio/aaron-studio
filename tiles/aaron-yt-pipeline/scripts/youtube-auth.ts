@@ -13,6 +13,8 @@
  *   npx -y bun youtube-auth.ts --refresh
  */
 
+import { execFile } from "child_process";
+import { createServer } from "http";
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
 import { join } from "path";
 import { loadAllEnvFiles } from "./shared/env";
@@ -25,8 +27,9 @@ const TOKENS_PATH = join(TOKENS_DIR, "youtube-tokens.json");
 
 const GOOGLE_OAUTH_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_OAUTH_TOKEN_URL = "https://oauth2.googleapis.com/token";
-const YOUTUBE_UPLOAD_SCOPE = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube";
-const REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"; // manual copy-paste flow
+const YOUTUBE_UPLOAD_SCOPE = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/yt-analytics.readonly";
+const CALLBACK_PORT = Number(process.env.YOUTUBE_OAUTH_PORT || 53682);
+const REDIRECT_URI = `http://127.0.0.1:${CALLBACK_PORT}/oauth2callback`;
 
 interface Tokens {
   access_token: string;
@@ -92,15 +95,14 @@ async function setup(): Promise<void> {
   const authUrl = `${GOOGLE_OAUTH_AUTH_URL}?${params.toString()}`;
 
   console.log("\n=== YouTube OAuth2 Setup ===\n");
-  console.log("1. Open this URL in your browser:\n");
+  console.log("1. Opening this URL in your browser:\n");
   console.log(`   ${authUrl}\n`);
   console.log("2. Sign in and grant permissions");
-  console.log("3. Copy the authorization code from the page");
-  console.log("4. Paste it below:\n");
+  console.log("3. Return here after the browser shows authentication complete\n");
 
-  // Read authorization code from stdin
-  process.stdout.write("Authorization code: ");
-  const code = await readLine();
+  const codePromise = waitForOAuthCallback(CALLBACK_PORT);
+  openUrl(authUrl);
+  const code = await codePromise;
 
   if (!code.trim()) {
     throw new Error("No authorization code provided");
@@ -232,18 +234,65 @@ export async function getAccessToken(): Promise<string> {
 // Utilities
 // ---------------------------------------------------------------------------
 
-function readLine(): Promise<string> {
-  return new Promise((resolve) => {
-    let data = "";
-    process.stdin.setEncoding("utf-8");
-    process.stdin.on("data", (chunk) => {
-      data += chunk;
-      if (data.includes("\n")) {
-        process.stdin.pause();
-        resolve(data.trim());
+function waitForOAuthCallback(port: number): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const server = createServer((req, res) => {
+      const reqUrl = new URL(req.url || "/", `http://127.0.0.1:${port}`);
+      if (reqUrl.pathname !== "/oauth2callback") {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.end("Not found");
+        return;
       }
+
+      const error = reqUrl.searchParams.get("error");
+      const code = reqUrl.searchParams.get("code") || "";
+
+      if (error) {
+        res.writeHead(400, { "Content-Type": "text/html; charset=utf-8" });
+        res.end(`<h1>YouTube authentication failed</h1><p>${escapeHtml(error)}</p>`);
+        server.close();
+        reject(new Error(`OAuth callback returned error: ${error}`));
+        return;
+      }
+
+      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+      res.end("<h1>YouTube authentication complete</h1><p>You can close this tab and return to Codex.</p>");
+      server.close();
+      resolve(code);
     });
-    process.stdin.resume();
+
+    server.listen(port, "127.0.0.1", () => {
+      console.log(`[auth] Waiting for OAuth callback on ${REDIRECT_URI}`);
+    });
+    server.on("error", reject);
+  });
+}
+
+function openUrl(url: string): void {
+  const opener =
+    process.platform === "darwin"
+      ? "open"
+      : process.platform === "win32"
+        ? "cmd"
+        : "xdg-open";
+  const args = process.platform === "win32" ? ["/c", "start", "", url] : [url];
+  execFile(opener, args, (err) => {
+    if (err) {
+      console.log("[auth] Could not open the browser automatically. Open the URL above manually.");
+    }
+  });
+}
+
+function escapeHtml(value: string): string {
+  return value.replace(/[&<>"']/g, (char) => {
+    switch (char) {
+      case "&": return "&amp;";
+      case "<": return "&lt;";
+      case ">": return "&gt;";
+      case "\"": return "&quot;";
+      case "'": return "&#39;";
+      default: return char;
+    }
   });
 }
 

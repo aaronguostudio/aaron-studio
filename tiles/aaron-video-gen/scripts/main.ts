@@ -43,7 +43,13 @@ function loadEnvFile(filePath: string): void {
     const eqIdx = trimmed.indexOf("=");
     if (eqIdx === -1) continue;
     const key = trimmed.slice(0, eqIdx).trim();
-    const value = trimmed.slice(eqIdx + 1).trim();
+    let value = trimmed.slice(eqIdx + 1).trim();
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
     if (!process.env[key]) {
       process.env[key] = value;
     }
@@ -276,7 +282,7 @@ async function main() {
   );
   const musicPath = args.music ? resolve(String(args.music)) : undefined;
   const dryRun = Boolean(args.dryRun);
-  const kenBurns = args.kenBurns !== "false"; // default true
+  const kenBurns = args.kenBurns === "true"; // default false; use --ken-burns to opt in
   const captions = args.captions === "true"; // default false (requires whisper)
   const renderer = String(args.renderer || prefs.renderer || "remotion"); // "remotion" or "ffmpeg"
   const conversational =
@@ -634,9 +640,13 @@ async function main() {
   // Step 4: Concatenate narration audio
   // ---------------------------------------------------------------------------
   const narrationPath = join(ttsOutputDir, "narration-full.mp3");
+  const narrationResults =
+    renderer === "ffmpeg" && hookTTS
+      ? [hookTTS, ...ttsResults]
+      : ttsResults;
   console.log(`\n[audio] Concatenating narration → ${narrationPath}`);
   concatenateAudio(
-    ttsResults.map((r) => r.audioPath),
+    narrationResults.map((r) => r.audioPath),
     narrationPath
   );
 
@@ -655,9 +665,52 @@ async function main() {
     imagePath: slide.imagePath!,
     duration: ttsResults[i].duration + padding,
   }));
+  if (renderer === "ffmpeg" && hookTTS?.imagePath) {
+    slideInputs.unshift({
+      imagePath: hookTTS.imagePath,
+      duration: hookTTS.duration + padding,
+    });
+  }
 
   const totalDuration = slideInputs.reduce((sum, s) => sum + s.duration, 0);
-  console.log(`\n[video] Total duration: ${totalDuration.toFixed(1)}s`);
+  const estimatedOutputDuration =
+    renderer === "remotion"
+      ? (() => {
+          const numSlides = slides.length;
+          const lastIndex = numSlides - 1;
+          const coverFrames = args.cover ? Math.round(2.5 * fps) : 0;
+          const hookFrames = hookTTS
+            ? Math.ceil((hookTTS.duration + 1) * fps)
+            : 0;
+          const introFrames =
+            numSlides > 0 ? Math.round((args.cover ? 2 : 3.5) * fps) : 0;
+          const slideSeconds = slides.reduce((sum, _slide, i) => {
+            const audioDelay = i === 0 ? 0 : transitionDuration;
+            const endBuffer = i === lastIndex ? 0 : transitionDuration;
+            return (
+              sum + audioDelay + ttsResults[i].duration + padding + endBuffer
+            );
+          }, 0);
+          const transitionOverlap =
+            Math.max(0, numSlides - 1) * transitionDuration;
+          const mainFrames = Math.ceil(
+            Math.max(1, slideSeconds - transitionOverlap) * fps
+          );
+          const outroExtraFrames =
+            args.logo || args.slogan ? Math.round(4 * fps * 0.5) : 0;
+          return (
+            coverFrames +
+            hookFrames +
+            introFrames +
+            mainFrames +
+            outroExtraFrames
+          ) / fps;
+        })()
+      : totalDuration;
+
+  console.log(
+    `\n[video] Total duration: ${estimatedOutputDuration.toFixed(1)}s`
+  );
   console.log(`[video] Renderer: ${renderer}`);
 
   // ---------------------------------------------------------------------------
@@ -679,7 +732,7 @@ async function main() {
           imagePath: s.imagePath!,
           audioPath: ttsResults[i].audioPath,
           audioDuration: ttsResults[i].duration,
-          animation: KB_PATTERNS[i % KB_PATTERNS.length],
+          animation: kenBurns ? KB_PATTERNS[i % KB_PATTERNS.length] : "none",
           wordTimings: ttsResults[i].wordTimings,
         };
 
@@ -758,7 +811,7 @@ async function main() {
     1024
   ).toFixed(1);
   console.log(`   Size: ${fileSizeMB} MB`);
-  console.log(`   Duration: ~${totalDuration.toFixed(0)}s`);
+  console.log(`   Duration: ~${estimatedOutputDuration.toFixed(0)}s`);
   console.log(`   Resolution: ${resolution}`);
 }
 

@@ -73,6 +73,17 @@ Optional files:
 
 Read `metadata.yaml` and display what will be uploaded.
 
+If the description links back to a blog article, verify the URL is UTM-tagged.
+Use the shared helper before upload when needed:
+
+```bash
+node scripts/blog-growth.mjs utm-url \
+  --url <blog-url> \
+  --channel youtube \
+  --campaign <slug> \
+  --content description
+```
+
 ### Step 3: Preview and Approval Gate
 
 Present the upload details:
@@ -165,5 +176,8 @@ Title: "[Video Title]"
 - The upload uses YouTube's resumable upload protocol, which handles large files and can resume interrupted uploads.
 - Thumbnail upload requires the YouTube account to be verified (phone verification).
 - Category "28" is "Science & Technology" — can be changed in metadata.yaml.
+- Blog links in YouTube descriptions should use `utm_source=youtube`,
+  `utm_medium=video`, `utm_campaign=<slug>`, and
+  `utm_content=description`.
 - The OAuth2 tokens are stored at `~/.aaron-skills/aaron-yt-pipeline/youtube-tokens.json` and auto-refresh. Re-authentication should rarely be needed.
 - If the user asks to "make a video public" without uploading, use the `--make-public` flag with the video ID.

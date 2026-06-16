@@ -18,7 +18,7 @@ import { getAccessToken } from "./youtube-auth";
 loadAllEnvFiles();
 
 const YOUTUBE_UPLOAD_URL = "https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status";
-const YOUTUBE_THUMBNAILS_URL = "https://www.googleapis.com/youtube/v3/thumbnails/set";
+const YOUTUBE_THUMBNAILS_URL = "https://www.googleapis.com/upload/youtube/v3/thumbnails/set";
 
 // ---------------------------------------------------------------------------
 // Metadata parsing (simple YAML)
@@ -38,6 +38,7 @@ function parseMetadataYaml(content: string): VideoMetadata {
   const meta: any = {};
   let inDescription = false;
   let descLines: string[] = [];
+  let currentArrayKey: string | null = null;
 
   for (const line of content.split("\n")) {
     if (inDescription) {
@@ -50,11 +51,20 @@ function parseMetadataYaml(content: string): VideoMetadata {
       }
     }
 
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) continue;
+
+    if (currentArrayKey && trimmed.startsWith("- ")) {
+      meta[currentArrayKey].push(trimmed.slice(2).trim().replace(/^["']|["']$/g, ""));
+      continue;
+    }
+
     const colonIdx = line.indexOf(":");
     if (colonIdx === -1) continue;
 
     const key = line.slice(0, colonIdx).trim();
     const rawVal = line.slice(colonIdx + 1).trim();
+    currentArrayKey = null;
 
     if (key === "description" && (rawVal === "|" || rawVal === "")) {
       inDescription = true;
@@ -62,10 +72,17 @@ function parseMetadataYaml(content: string): VideoMetadata {
       continue;
     }
 
+    if (rawVal === "") {
+      meta[key] = [];
+      currentArrayKey = key;
+      continue;
+    }
+
     if (rawVal.startsWith("- ")) {
       // Start of YAML array — collect subsequent lines
       if (!meta[key]) meta[key] = [];
       meta[key].push(rawVal.slice(2).trim().replace(/^["']|["']$/g, ""));
+      currentArrayKey = key;
       continue;
     }
 
@@ -181,7 +198,7 @@ async function setThumbnail(
   const thumbnailBuffer = readFileSync(thumbnailPath);
   const contentType = thumbnailPath.endsWith(".png") ? "image/png" : "image/jpeg";
 
-  const res = await fetch(`${YOUTUBE_THUMBNAILS_URL}?videoId=${videoId}`, {
+  const res = await fetch(`${YOUTUBE_THUMBNAILS_URL}?videoId=${videoId}&uploadType=media`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${accessToken}`,
@@ -244,6 +261,7 @@ function parseArgs(): Record<string, string> {
     else if (arg === "--privacy") args.privacy = argv[++i];
     else if (arg === "--schedule") args.schedule = argv[++i]; // ISO 8601 datetime
     else if (arg === "--make-public") args.makePublic = argv[++i]; // video ID
+    else if (arg === "--set-thumbnail") args.setThumbnail = argv[++i]; // video ID
   }
   return args;
 }
@@ -255,6 +273,19 @@ async function main() {
   if (args.makePublic) {
     await updatePrivacy(args.makePublic, "public");
     console.log(`Video ${args.makePublic} is now public.`);
+    return;
+  }
+
+  if (args.setThumbnail) {
+    if (!args.thumbnail) {
+      console.error("Usage: youtube-upload.ts --set-thumbnail <video-id> --thumbnail <img>");
+      process.exit(1);
+    }
+    const accessToken = await getAccessToken();
+    const thumbnailPath = resolve(args.thumbnail);
+    if (!existsSync(thumbnailPath)) throw new Error(`Thumbnail not found: ${thumbnailPath}`);
+    await setThumbnail(accessToken, args.setThumbnail, thumbnailPath);
+    console.log(`[upload] Thumbnail updated for: https://youtu.be/${args.setThumbnail}`);
     return;
   }
 

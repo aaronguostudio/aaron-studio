@@ -19,7 +19,7 @@ export interface VideoOptions {
   musicPath?: string; // optional background music
   musicVolume: number; // 0.0-1.0
   outputPath: string;
-  kenBurns?: boolean; // enable Ken Burns effect (zoom/pan on images), default true
+  kenBurns?: boolean; // enable Ken Burns effect (zoom/pan on images), default false
   subtitlesPath?: string; // path to .srt file for burned-in captions
 }
 
@@ -101,7 +101,7 @@ export function buildFFmpegCommand(
   options: VideoOptions
 ): string[] {
   const [width, height] = options.resolution.split("x").map(Number);
-  const useKenBurns = options.kenBurns !== false; // default true
+  const useKenBurns = options.kenBurns === true; // default false
   const cmd: string[] = ["ffmpeg", "-y"];
 
   // Add image inputs

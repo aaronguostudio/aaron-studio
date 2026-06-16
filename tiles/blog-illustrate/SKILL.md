@@ -1,6 +1,6 @@
 ---
 name: blog-illustrate
-description: Illustrate a blog post with AI-generated images (cover + content illustrations) and compress to WebP. Use when user asks to "illustrate blog", "add images to blog", "generate illustrations", "配图", or "生成博客图片".
+description: Use when a blog workflow needs cover, thumbnail, or content illustrations, or when the user asks to illustrate a blog, add images, generate illustrations, 配图, or 生成博客图片.
 ---
 
 # Blog Illustrate
@@ -38,6 +38,17 @@ Blog markdown references `imgs/web/*.webp`. Originals in `imgs/*.png` kept for a
 
 ---
 
+## Quality Standard
+
+Images are not decoration. Each accepted image must either clarify an argument, make an abstract mechanism visible, or create a strong first impression.
+
+Default quality bar:
+- Use the baoyu image generation path; do not silently substitute a generic image tool unless baoyu is unavailable and reported.
+- Cover and thumbnail need at least two candidates, then choose the strongest one after visual inspection.
+- Body illustrations need distinct jobs. Avoid repeating the same "AI dashboard / glowing network / control room" metaphor across the article.
+- Reject images with unreadable text, cluttered diagrams, awkward hands/faces, generic stock-photo energy, or no clear connection to the surrounding section.
+- Prefer concrete metaphors, labeled frameworks, comparison diagrams, operating maps, and scenes tied to Aaron's lived example.
+
 ## Workflow
 
 ```
@@ -46,8 +57,9 @@ Blog markdown references `imgs/web/*.webp`. Originals in `imgs/*.png` kept for a
 - [ ] Step 3: Confirm settings
 - [ ] Step 4: Generate outline (always includes 00-cover)
 - [ ] Step 5: Generate all images (cover → thumbnail → content)
-- [ ] Step 6: Compress to WebP
-- [ ] Step 7: Insert into blog & finalize
+- [ ] Step 6: Visual quality review
+- [ ] Step 7: Compress to WebP
+- [ ] Step 8: Insert into blog & finalize
 ```
 
 ---
@@ -58,6 +70,21 @@ Blog markdown references `imgs/web/*.webp`. Originals in `imgs/*.png` kept for a
 ```bash
 test -f .baoyu-skills/baoyu-article-illustrator/EXTEND.md && cat .baoyu-skills/baoyu-article-illustrator/EXTEND.md
 ```
+
+This load is mandatory when the file exists. If it is missing, state that explicitly and continue with Aaron's defaults. Do not skip this check.
+
+**Resolve the baoyu image generator directory** from the first existing path:
+```bash
+for d in \
+  .claude/skills/tessl__baoyu-image-gen \
+  .codex/skills/tessl__baoyu-image-gen \
+  .agents/skills/tessl__baoyu-image-gen \
+  .baoyu-skills/baoyu-image-gen; do
+  test -d "$d" && echo "$d" && break
+done
+```
+
+Use the resolved directory as `BAOYU_IMAGE_GEN_DIR`. If no path exists, report the missing dependency before falling back.
 
 **Detect article path** — from user's argument or ask:
 - If path provided: use it directly
@@ -150,15 +177,22 @@ article: [article path]
 
 ### Step 5: Generate Images
 
-Generate sequentially using `baoyu-image-gen` skill (via Bash):
+Generate using `baoyu-image-gen` skill (via Bash):
 
 ```bash
-SKILL_DIR=".claude/skills/tessl__baoyu-image-gen"
-npx -y bun "${SKILL_DIR}/scripts/main.ts" \
+BAOYU_IMAGE_GEN_DIR="<resolved path from Step 1>"
+npx -y bun "${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts" \
   --prompt "[full prompt]" \
   --image "src/content/blogs/YYYY-MM-DD/imgs/NN-type-slug.png" \
-  --ar 16:9
+  --ar 16:9 \
+  --quality 2k
 ```
+
+**Cover candidate rule:**
+- Generate at least two cover candidates: `00-cover-candidate-a.png` and `00-cover-candidate-b.png`.
+- Visually inspect both using the available image viewer, browser preview, or a contact sheet.
+- Choose the stronger candidate and copy/rename it to `00-cover.png`.
+- Delete nothing; keep candidates for traceability unless Aaron asks to clean up.
 
 **Cover prompt guidelines (`00-cover.png`):**
 - More atmospheric/editorial than content illustrations
@@ -167,18 +201,20 @@ npx -y bun "${SKILL_DIR}/scripts/main.ts" \
 - Concept: visualize the *feeling* of the post, not just its content
 - **No text in image** — the clean version is used as the blog post header
 
-**After generating `00-cover.png`, immediately generate `00-cover-thumbnail.png`:**
+**After selecting `00-cover.png`, generate thumbnail candidates:**
 
 This is the same visual but with the blog title baked in as a bold headline — used as YouTube thumbnail.
 
 ```bash
-SKILL_DIR=".claude/skills/tessl__baoyu-image-gen"
-npx -y bun "${SKILL_DIR}/scripts/main.ts" \
+npx -y bun "${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts" \
   --prompt "[thumbnail prompt — see below]" \
-  --image "src/content/blogs/YYYY-MM-DD/imgs/00-cover-thumbnail.png" \
+  --image "src/content/blogs/YYYY-MM-DD/imgs/00-cover-thumbnail-candidate-a.png" \
   --ar 16:9 \
-  --provider openai
+  --provider openai \
+  --quality 2k
 ```
+
+Generate at least two thumbnail candidates, inspect readability at small size, then copy/rename the winner to `00-cover-thumbnail.png`.
 
 **Thumbnail prompt template:**
 
@@ -205,6 +241,8 @@ Rules for thumbnail generation:
 - Follow the style chosen in Step 3
 - Stick to the outline's Visual Content description
 - Keep consistent visual language across all content illustrations
+- Each prompt must name the local section, the idea being visualized, and why the image helps.
+- If a body image looks generic or repeats a previous metaphor, regenerate once with a more concrete prompt.
 
 Save each prompt to `src/content/blogs/YYYY-MM-DD/imgs/prompts/NN-{slug}.md` for future reference.
 
@@ -212,7 +250,20 @@ Retry once on failure. Report any that fail after retry.
 
 ---
 
-### Step 6: Compress to WebP
+### Step 6: Visual Quality Review
+
+Before compressing or inserting images into the article:
+- Inspect `00-cover.png`, `00-cover-thumbnail.png`, and every body illustration.
+- Confirm the thumbnail text is readable at mobile size.
+- Confirm no accepted image has broken text, distorted people, irrelevant UI, or a vague generic AI scene.
+- Confirm each body image maps to a distinct section insight.
+- Regenerate any failed image before compression/final insertion.
+
+For 4+ images, create or view a contact sheet when practical so repeated compositions are obvious.
+
+---
+
+### Step 7: Compress to WebP
 
 After ALL images are generated, run:
 
@@ -234,7 +285,7 @@ Show compression results (original KB → compressed KB, savings %).
 
 ---
 
-### Step 7: Insert into Blog & Finalize
+### Step 8: Insert into Blog & Finalize
 
 **Add cover to frontmatter and top of article:**
 ```markdown

@@ -1,6 +1,6 @@
 ---
 name: aaron-video-gen
-description: Generate YouTube videos from a script markdown file and slide images. Parses youtube-script.md format, generates TTS narration, applies fade transitions between slides, and outputs MP4. Also generates YouTube metadata (title, description, chapters, tags) and thumbnails. Use when user asks to "generate video", "create YouTube video", "make video from images", "make slideshow video", or "generate YouTube metadata".
+description: Use when generating Aaron's YouTube video from a blog youtube-script.md, slide images, thumbnails, or metadata, especially for slideshow videos.
 ---
 
 # Video Generation
@@ -199,11 +199,13 @@ When `--logo`, `--slogan`, or `--website` are provided:
 - **Intro**: Logo + slogan + website fade in. When a cover is present, the intro is shortened to 2s (no title, since the cover already shows it). Without cover: 3.5s with animated title.
 - **Outro**: Fade to black, logo + slogan + website appear (4s)
 
-### Word-Level Captions
-With ElevenLabs TTS, word-level timestamps enable:
-- Real-time caption overlay at the bottom of the screen
-- Current word highlighted in yellow, past words in white, upcoming words dimmed
-- Captions grouped into lines of ~8 words with smooth fade in/out
+### Stable Phrase Captions
+With ElevenLabs TTS, word-level timestamps drive precise subtitle timing, but
+the visual treatment should stay stable:
+- Phrase-level subtitle overlay at the bottom of the screen
+- White text only; no karaoke-style current-word highlight
+- No per-word dimming/brightening, opacity pulsing, scale animation, or blur
+- Captions grouped into short readable phrases so the text changes calmly
 
 ### Scene Transitions
 Between-slide transitions cycle through: fade, slide, wipe, flip, clock-wipe, iris. Each transition is 1.2s by default.
@@ -304,7 +306,22 @@ Convert the blog post into a narration script. For each major section:
 
 Add a `## [HOOK]` section at the top — 2-4 sentences that tease the video's core insight.
 
-### Step 2: Generate additional video illustrations
+### Step 2: Visual richness preflight
+
+Before rendering, count the unique images referenced by `youtube-script.md`:
+
+```bash
+rg -o '\[IMAGE: [^]]+\]|## \[SLIDE: [^]]+ — [^]]+\]' <blog-dir>/youtube-script.md
+```
+
+Gate:
+- Under 3 minutes: minimum 10 unique images
+- 3-5 minutes: minimum 16 unique images
+- 5+ minutes: target 20-30 unique images
+
+If the script only references the blog illustrations, do not render yet. Generate video-only images and add `[IMAGE:]` markers first. The viewer should see a new visual idea roughly every 15-20 seconds.
+
+### Step 3: Generate additional video illustrations
 
 Blog posts typically have 5-6 illustrations. Videos need 20-30 unique images to maintain visual engagement. Generate 15-20 additional standalone illustrations depicting specific concepts from the narration.
 
@@ -324,7 +341,13 @@ npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
 
 **Planning:** Before generating, list all images needed per slide based on narration segments. Target ~1 image per 15-20 seconds of narration. Blog images serve as "anchor" images within their respective slides.
 
-### Step 3: Place `[IMAGE:]` markers in the script
+Quality rules:
+- Each video-only image must depict a specific narration beat, not a generic backdrop.
+- Avoid repeating the same visual metaphor across slides.
+- Prefer concrete diagrams, before/after comparisons, operator maps, UI-free scenes, and simple conceptual images.
+- Inspect generated images before accepting them; regenerate images with unreadable text, distorted figures, clutter, or unclear meaning.
+
+### Step 4: Place `[IMAGE:]` markers in the script
 
 Insert `[IMAGE:]` markers at concept boundaries where the narration shifts to a new sub-topic:
 
@@ -346,11 +369,13 @@ Rule 2 narration (viewer sees Rule 2 image)...
 Synthesis narration (viewer sees blog's anchor illustration)...
 ```
 
-### Step 4: Generate thumbnail/cover image
+### Step 5: Generate thumbnail/cover image
 
 Generate a YouTube thumbnail with the video title in bold text. This same image is used as:
 - The video's opening frame (via `--cover`)
 - The YouTube thumbnail (uploaded separately)
+
+Use `imgs/web/00-cover-thumbnail.webp` from `blog-illustrate` only if it is visually strong and readable at mobile size. Otherwise generate two fresh thumbnail options and select the strongest one after inspection.
 
 ```bash
 npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
@@ -359,7 +384,9 @@ npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
   --ar 16:9 --quality 2k
 ```
 
-### Step 5: Run the pipeline
+### Step 6: Run the pipeline
+
+Only run the pipeline after the visual richness gate passes.
 
 ```bash
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
@@ -372,15 +399,16 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
   --cover <blog-dir>/imgs/thumbnail.png
 ```
 
-### Step 6: Verify
+### Step 7: Verify
 
 - Video opens with thumbnail/cover image (not black screen)
 - Chapter indicators show meaningful titles (not generic labels)
 - Image switches crossfade at the right narration points (~every 15-20s)
+- A 4+ minute video has enough visual variety; if it feels like repeated static slides, go back to Step 3 and add images.
 - Hook plays before branding intro
 - Word captions are in sync
 
-### Step 7: Generate YouTube metadata
+### Step 8: Generate YouTube metadata
 
 Create `<blog-dir>/youtube-metadata.md` with title, description (with chapters), tags. See the "YouTube Metadata Generation" section below for the full format. Compute chapter timestamps from the pipeline's TTS audio durations + cover card (2.5s) + hook duration + intro (2s with cover, 3.5s without) + transition overlaps (1.2s).
 
@@ -459,7 +487,7 @@ AI productivity, AI burnout, artificial intelligence, ...
 
 ## YouTube Thumbnail Generation
 
-Generate 2 thumbnail options using the `baoyu-image-gen` skill. YouTube thumbnails must be eye-catching at small sizes. The best thumbnail also serves as the video's opening frame via `--cover` (see Blog-to-Video Workflow Step 4).
+Generate 2 thumbnail options using the `baoyu-image-gen` skill. YouTube thumbnails must be eye-catching at small sizes. The best thumbnail also serves as the video's opening frame via `--cover` (see Blog-to-Video Workflow Step 5).
 
 ### Thumbnail Best Practices
 - **Aspect ratio**: 16:9 (1920x1080 or 1280x720)

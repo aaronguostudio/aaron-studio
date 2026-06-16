@@ -38,6 +38,14 @@ Extract only reusable style signals:
 
 Do not copy private `brain/` content into web tools. If personal context is needed, use local files only.
 
+Default public-blog style unless the user explicitly asks otherwise:
+- Entrepreneur/operator voice with clear commercial value.
+- Insight-led, not literary, confessional, or teacherly.
+- Thesis should describe how value moves: cost, leverage, judgment, customers, markets, product, strategy.
+- "仰望星空" style ideas should be framed as strategic altitude / cognitive radius, not romantic mood.
+- Prefer structured article sections with 2-3 coherent paragraphs, not one-sentence fragments.
+- Avoid generic "lifelong learning", "you should", "become better", and AI-influencer language.
+
 ### 3. Build the outline
 
 Write `plan.md` with:
@@ -95,12 +103,15 @@ Write `plan.md` with:
 
 Prefer 5-7 sections for a 1,500-2,500 word post. Use a tighter 3-section outline for short posts.
 
+For Aaron's default style, set `Tone` to something like: "Entrepreneurial, crisp, insight-led, commercially useful; no soft self-help, literary emotion, or teacherly advice."
+
 ### 4. Quality bar
 
 Before finishing:
 - The thesis is one sentence.
 - The personal anchor is concrete.
 - Every section has a job; no generic filler section.
+- The outline names the business value or strategic implication, not only a personal feeling.
 - There are no `TBD`, `TODO`, or placeholder brackets.
 - If `content-plan.md` exists, `plan.md` preserves its core thesis and CTA.
 

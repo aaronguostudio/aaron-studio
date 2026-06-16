@@ -29,12 +29,13 @@ export function loadEnvFile(filePath: string): void {
 }
 
 export function loadAllEnvFiles(): void {
-  // Lower priority first, higher priority overwrites
-  loadEnvFile(join(homeDir, ".baoyu-skills", ".env"));
-  loadEnvFile(join(homeDir, ".aaron-skills", ".env"));
-  loadEnvFile(join(process.cwd(), ".baoyu-skills", ".env"));
-  loadEnvFile(join(process.cwd(), ".aaron-skills", ".env"));
+  // First match wins. Load the most local files first so project-specific
+  // credentials can supersede legacy global skill env files.
   loadEnvFile(join(process.cwd(), ".env"));
+  loadEnvFile(join(process.cwd(), ".aaron-skills", ".env"));
+  loadEnvFile(join(process.cwd(), ".baoyu-skills", ".env"));
+  loadEnvFile(join(homeDir, ".aaron-skills", ".env"));
+  loadEnvFile(join(homeDir, ".baoyu-skills", ".env"));
 }
 
 // ---------------------------------------------------------------------------

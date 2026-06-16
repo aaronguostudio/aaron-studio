@@ -1,0 +1,690 @@
+{
+  "period": {
+    "start": "2026-05-16",
+    "end": "2026-06-15",
+    "timeZone": "America/Edmonton"
+  },
+  "generatedAt": "2026-06-15T05:52:02.290Z",
+  "sources": {
+    "rybbit": {
+      "ok": true,
+      "overview": {
+        "sessions": 595,
+        "pageviews": 971,
+        "users": 547,
+        "pages_per_session": 1.6319327731092437,
+        "bounce_rate": 74.28571428571429,
+        "session_duration": 61.96470588235294
+      },
+      "previousPeriod": {
+        "start": "2026-04-16",
+        "end": "2026-05-15",
+        "sessions": 388,
+        "pageviews": 572,
+        "users": 333,
+        "pages_per_session": 1.4742268041237114,
+        "bounce_rate": 68.81443298969072,
+        "session_duration": 29.34278350515464
+      },
+      "deltas": {
+        "sessions": 0.5335051546391752,
+        "pageviews": 0.6975524475524476,
+        "users": 0.6426426426426426
+      },
+      "dailyRows": 31,
+      "peakDay": {
+        "date": "2026-06-14",
+        "sessions": 37,
+        "pageviews": 209,
+        "users": 30
+      },
+      "topBlogPages": [
+        {
+          "path": "/blogs/chatgpt-explained-kitchen-metaphor",
+          "title": "No Magic: How ChatGPT Actually Works, Explained in One Kitchen",
+          "language": "en",
+          "category": "ai-native-systems",
+          "topics": [],
+          "count": 74,
+          "pageviews": 173,
+          "percentage": 10.93,
+          "bounce_rate": 43.24
+        },
+        {
+          "path": "/blogs/anthropic-finance-plugins-insider-take",
+          "title": "Anthropic Just Handed Finance Teams a Complete AI Stack. I Ran It on Real Work — Here's What I Found.",
+          "language": "en",
+          "category": "business-strategy",
+          "topics": [],
+          "count": 37,
+          "pageviews": 79,
+          "percentage": 5.47,
+          "bounce_rate": 56.76
+        },
+        {
+          "path": "/blogs/naval-ravikant-specific-knowledge-responsibility-assets",
+          "title": "What I Learned from The Almanack of Naval Ravikant - Specific Knowledge, Responsibility, and Assets",
+          "language": "en",
+          "category": "personal-operating-system",
+          "topics": [
+            "execution"
+          ],
+          "count": 31,
+          "pageviews": 43,
+          "percentage": 4.58,
+          "bounce_rate": 87.1
+        },
+        {
+          "path": "/blogs/chamath-process-over-goals",
+          "title": "I Chased Goals for 15 Years. Chamath Showed Me What I Got Wrong.",
+          "language": "en",
+          "category": "personal-operating-system",
+          "topics": [],
+          "count": 11,
+          "pageviews": 22,
+          "percentage": 1.62,
+          "bounce_rate": 72.73
+        },
+        {
+          "path": "/blogs/fable-5-managing-ai-autonomy",
+          "title": "Fable 5 Changed the Unit of AI Work",
+          "language": "en",
+          "category": "ai-native-systems",
+          "topics": [],
+          "count": 9,
+          "pageviews": 33,
+          "percentage": 1.33,
+          "bounce_rate": 33.33
+        },
+        {
+          "path": "/blogs/in-the-age-of-ai-look-up-at-the-stars",
+          "title": "In the Age of AI, Look Up at the Stars",
+          "language": "en",
+          "category": "business-strategy",
+          "topics": [],
+          "count": 7,
+          "pageviews": 20,
+          "percentage": 1.03,
+          "bounce_rate": 42.86
+        },
+        {
+          "path": "/blogs/i-engineered-the-law-of-attraction-with-ai",
+          "title": "I Engineered the Law of Attraction with AI",
+          "language": "en",
+          "category": "personal-operating-system",
+          "topics": [],
+          "count": 7,
+          "pageviews": 13,
+          "percentage": 1.03,
+          "bounce_rate": 0
+        },
+        {
+          "path": "/blogs/ai-wont-make-everyone-a-creator",
+          "title": "The Camera Didn't Make Everyone a Spielberg. AI Won't Either.",
+          "language": "en",
+          "category": "creation-media",
+          "topics": [],
+          "count": 5,
+          "pageviews": 5,
+          "percentage": 0.74,
+          "bounce_rate": 100
+        },
+        {
+          "path": "/blogs/marriott-timeshare-las-vegas",
+          "title": "What a Marriott Timeshare Pitch in Las Vegas Taught Me About Broken Sales Culture",
+          "language": "en",
+          "category": "business-strategy",
+          "topics": [
+            "building-in-public"
+          ],
+          "count": 4,
+          "pageviews": 4,
+          "percentage": 0.59,
+          "bounce_rate": 100
+        },
+        {
+          "path": "/blogs/start-my-ai-native-journey",
+          "title": "Start My AI Native Journey",
+          "language": "en",
+          "category": "ai-native-systems",
+          "topics": [
+            "ai-native",
+            "building-in-public"
+          ],
+          "count": 4,
+          "pageviews": 4,
+          "percentage": 0.59,
+          "bounce_rate": 100
+        }
+      ],
+      "topPaths": [
+        {
+          "value": "/",
+          "hostname": "www.aaronguo.com",
+          "count": 79,
+          "percentage": 11.67,
+          "pageviews": 199,
+          "pageviews_percentage": 15.88,
+          "time_on_page_seconds": 55.904522613065325,
+          "bounce_rate": 41.77
+        },
+        {
+          "value": "/blogs/chatgpt-explained-kitchen-metaphor",
+          "hostname": "www.aaronguo.com",
+          "count": 74,
+          "percentage": 10.93,
+          "pageviews": 173,
+          "pageviews_percentage": 13.81,
+          "time_on_page_seconds": 31.023121387283236,
+          "bounce_rate": 43.24
+        },
+        {
+          "value": "/zh/blogs/anthropic-finance-plugins-insider-take",
+          "hostname": "www.aaronguo.com",
+          "count": 59,
+          "percentage": 8.71,
+          "pageviews": 155,
+          "pageviews_percentage": 12.37,
+          "time_on_page_seconds": 55.16774193548387,
+          "bounce_rate": 61.02
+        },
+        {
+          "value": "/zh",
+          "hostname": "www.aaronguo.com",
+          "count": 47,
+          "percentage": 6.94,
+          "pageviews": 50,
+          "pageviews_percentage": 3.99,
+          "time_on_page_seconds": 3.62,
+          "bounce_rate": 87.23
+        },
+        {
+          "value": "/zh/blogs",
+          "hostname": "www.aaronguo.com",
+          "count": 47,
+          "percentage": 6.94,
+          "pageviews": 49,
+          "pageviews_percentage": 3.91,
+          "time_on_page_seconds": 0.4897959183673469,
+          "bounce_rate": 93.62
+        },
+        {
+          "value": "/blogs/anthropic-finance-plugins-insider-take",
+          "hostname": "www.aaronguo.com",
+          "count": 37,
+          "percentage": 5.47,
+          "pageviews": 79,
+          "pageviews_percentage": 6.3,
+          "time_on_page_seconds": 5.506329113924051,
+          "bounce_rate": 56.76
+        },
+        {
+          "value": "/zh/playbooks",
+          "hostname": "www.aaronguo.com",
+          "count": 31,
+          "percentage": 4.58,
+          "pageviews": 32,
+          "pageviews_percentage": 2.55,
+          "time_on_page_seconds": 0.0625,
+          "bounce_rate": 96.77
+        },
+        {
+          "value": "/blogs/naval-ravikant-specific-knowledge-responsibility-assets",
+          "hostname": "www.aaronguo.com",
+          "count": 31,
+          "percentage": 4.58,
+          "pageviews": 43,
+          "pageviews_percentage": 3.43,
+          "time_on_page_seconds": 0.09302325581395349,
+          "bounce_rate": 87.1
+        },
+        {
+          "value": "/zh/categories/vue",
+          "hostname": "www.aaronguo.com",
+          "count": 30,
+          "percentage": 4.43,
+          "pageviews": 31,
+          "pageviews_percentage": 2.47,
+          "time_on_page_seconds": 0.12903225806451613,
+          "bounce_rate": 96.67
+        },
+        {
+          "value": "/zh/blogs/naval-ravikant-specific-knowledge-responsibility-assets",
+          "hostname": "www.aaronguo.com",
+          "count": 29,
+          "percentage": 4.28,
+          "pageviews": 48,
+          "pageviews_percentage": 3.83,
+          "time_on_page_seconds": 0.3541666666666667,
+          "bounce_rate": 89.66
+        },
+        {
+          "value": "/blogs",
+          "hostname": "localhost",
+          "count": 19,
+          "percentage": 2.81,
+          "pageviews": 77,
+          "pageviews_percentage": 6.15,
+          "time_on_page_seconds": 73.75324675324676,
+          "bounce_rate": 21.05
+        },
+        {
+          "value": "/zh/blogs/build-blog-in-one-day",
+          "hostname": "www.aaronguo.com",
+          "count": 14,
+          "percentage": 2.07,
+          "pageviews": 15,
+          "pageviews_percentage": 1.2,
+          "time_on_page_seconds": 0,
+          "bounce_rate": 92.86
+        }
+      ],
+      "topReferrers": [
+        {
+          "value": "disq.us",
+          "count": 33,
+          "percentage": 33,
+          "pageviews": 33,
+          "pageviews_percentage": 33,
+          "bounce_rate": 51.52
+        },
+        {
+          "value": "disqus.com",
+          "count": 28,
+          "percentage": 28,
+          "pageviews": 28,
+          "pageviews_percentage": 28,
+          "bounce_rate": 25
+        },
+        {
+          "value": "google.com",
+          "count": 21,
+          "percentage": 21,
+          "pageviews": 21,
+          "pageviews_percentage": 21,
+          "bounce_rate": 47.62
+        },
+        {
+          "value": "linkedin.com",
+          "count": 10,
+          "percentage": 10,
+          "pageviews": 10,
+          "pageviews_percentage": 10,
+          "bounce_rate": 30
+        },
+        {
+          "value": "bing.com",
+          "count": 3,
+          "percentage": 3,
+          "pageviews": 3,
+          "pageviews_percentage": 3,
+          "bounce_rate": 0
+        },
+        {
+          "value": "com.linkedin.android",
+          "count": 2,
+          "percentage": 2,
+          "pageviews": 2,
+          "pageviews_percentage": 2,
+          "bounce_rate": 100
+        },
+        {
+          "value": "t.co",
+          "count": 1,
+          "percentage": 1,
+          "pageviews": 1,
+          "pageviews_percentage": 1,
+          "bounce_rate": 0
+        },
+        {
+          "value": "cn.bing.com",
+          "count": 1,
+          "percentage": 1,
+          "pageviews": 1,
+          "pageviews_percentage": 1,
+          "bounce_rate": 100
+        },
+        {
+          "value": "search.brave.com",
+          "count": 1,
+          "percentage": 1,
+          "pageviews": 1,
+          "pageviews_percentage": 1,
+          "bounce_rate": 0
+        }
+      ],
+      "channels": [
+        {
+          "value": "Direct",
+          "count": 496,
+          "percentage": 83.36,
+          "pageviews": 496,
+          "pageviews_percentage": 83.36,
+          "bounce_rate": 81.05
+        },
+        {
+          "value": "Referral",
+          "count": 61,
+          "percentage": 10.25,
+          "pageviews": 61,
+          "pageviews_percentage": 10.25,
+          "bounce_rate": 39.34
+        },
+        {
+          "value": "Organic Search",
+          "count": 26,
+          "percentage": 4.37,
+          "pageviews": 26,
+          "pageviews_percentage": 4.37,
+          "bounce_rate": 42.31
+        },
+        {
+          "value": "Organic Social",
+          "count": 11,
+          "percentage": 1.85,
+          "pageviews": 11,
+          "pageviews_percentage": 1.85,
+          "bounce_rate": 45.45
+        },
+        {
+          "value": "AI",
+          "count": 1,
+          "percentage": 0.17,
+          "pageviews": 1,
+          "pageviews_percentage": 0.17,
+          "bounce_rate": 0
+        }
+      ],
+      "countries": [
+        {
+          "value": "SG",
+          "count": 184,
+          "percentage": 30.92,
+          "pageviews": 184,
+          "pageviews_percentage": 30.92,
+          "bounce_rate": 97.83
+        },
+        {
+          "value": "CN",
+          "count": 132,
+          "percentage": 22.18,
+          "pageviews": 132,
+          "pageviews_percentage": 22.18,
+          "bounce_rate": 75.76
+        },
+        {
+          "value": "HK",
+          "count": 79,
+          "percentage": 13.28,
+          "pageviews": 79,
+          "pageviews_percentage": 13.28,
+          "bounce_rate": 94.94
+        },
+        {
+          "value": "US",
+          "count": 73,
+          "percentage": 12.27,
+          "pageviews": 73,
+          "pageviews_percentage": 12.27,
+          "bounce_rate": 46.58
+        },
+        {
+          "value": "CA",
+          "count": 59,
+          "percentage": 9.92,
+          "pageviews": 59,
+          "pageviews_percentage": 9.92,
+          "bounce_rate": 33.9
+        },
+        {
+          "value": "IN",
+          "count": 13,
+          "percentage": 2.18,
+          "pageviews": 13,
+          "pageviews_percentage": 2.18,
+          "bounce_rate": 53.85
+        },
+        {
+          "value": "JP",
+          "count": 7,
+          "percentage": 1.18,
+          "pageviews": 7,
+          "pageviews_percentage": 1.18,
+          "bounce_rate": 42.86
+        },
+        {
+          "value": "MX",
+          "count": 6,
+          "percentage": 1.01,
+          "pageviews": 6,
+          "pageviews_percentage": 1.01,
+          "bounce_rate": 100
+        },
+        {
+          "value": "FR",
+          "count": 5,
+          "percentage": 0.84,
+          "pageviews": 5,
+          "pageviews_percentage": 0.84,
+          "bounce_rate": 0
+        },
+        {
+          "value": "TR",
+          "count": 3,
+          "percentage": 0.5,
+          "pageviews": 3,
+          "pageviews_percentage": 0.5,
+          "bounce_rate": 100
+        }
+      ],
+      "devices": [
+        {
+          "value": "Desktop",
+          "count": 505,
+          "percentage": 84.87,
+          "pageviews": 505,
+          "pageviews_percentage": 84.87,
+          "bounce_rate": 73.86
+        },
+        {
+          "value": "Mobile",
+          "count": 90,
+          "percentage": 15.13,
+          "pageviews": 90,
+          "pageviews_percentage": 15.13,
+          "bounce_rate": 76.67
+        }
+      ],
+      "eventNames": [
+        {
+          "eventName": "scroll_25",
+          "count": 90
+        },
+        {
+          "eventName": "scroll_50",
+          "count": 73
+        },
+        {
+          "eventName": "scroll_75",
+          "count": 54
+        },
+        {
+          "eventName": "scroll_100",
+          "count": 44
+        },
+        {
+          "eventName": "outbound_click",
+          "count": 3
+        },
+        {
+          "eventName": "channel_click",
+          "count": 1
+        }
+      ]
+    },
+    "youtube": {
+      "ok": true,
+      "channel": {
+        "title": "Aaron - AI-native builder",
+        "publishedAt": "2015-05-09T03:20:21Z",
+        "statistics": {
+          "viewCount": "333",
+          "subscriberCount": "14",
+          "hiddenSubscriberCount": false,
+          "videoCount": "7"
+        }
+      },
+      "analyticsDaily": {
+        "ok": false,
+        "status": 403,
+        "error": "YouTube Analytics API has not been used in project 245465686932 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=245465686932 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+      },
+      "analyticsVideo": {
+        "ok": false,
+        "status": 403,
+        "error": "YouTube Analytics API has not been used in project 245465686932 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=245465686932 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry."
+      },
+      "recentVideos": [
+        {
+          "title": "Fable 5 Changed the Unit of AI Work",
+          "publishedAt": "2026-06-15T03:29:22Z",
+          "videoId": "jPHR-73HJa8"
+        },
+        {
+          "title": "In the Age of AI, Look Up at the Stars",
+          "publishedAt": "2026-06-14T18:53:44Z",
+          "videoId": "6-X3NwICb7g"
+        },
+        {
+          "title": "I Engineered the Law of Attraction with AI",
+          "publishedAt": "2026-03-09T04:08:58Z",
+          "videoId": "JApDiwbocck"
+        },
+        {
+          "title": "No Magic: How ChatGPT Actually Works, Explained in One Kitchen",
+          "publishedAt": "2026-03-02T08:24:03Z",
+          "videoId": "mfvkgxE7U4M"
+        },
+        {
+          "title": "I Chased Goals for 15 Years. Chamath Showed Me What I Got Wrong.",
+          "publishedAt": "2026-02-24T06:46:09Z",
+          "videoId": "tyK4-inXdSs"
+        },
+        {
+          "title": "The Camera Didn't Make Everyone a Spielberg. AI Won't Either.",
+          "publishedAt": "2026-02-24T01:28:28Z",
+          "videoId": "S6WF_0KDynM"
+        },
+        {
+          "title": "AI Made Me 10x More Productive. Then I Almost Burned Out.",
+          "publishedAt": "2026-02-23T14:00:39Z",
+          "videoId": "QeRfP_nFFZE"
+        }
+      ],
+      "videoStats": [
+        {
+          "videoId": "jPHR-73HJa8",
+          "title": "Fable 5 Changed the Unit of AI Work",
+          "publishedAt": "2026-06-15T03:29:22Z",
+          "statistics": {
+            "viewCount": "4",
+            "likeCount": "1",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+          }
+        },
+        {
+          "videoId": "6-X3NwICb7g",
+          "title": "In the Age of AI, Look Up at the Stars",
+          "publishedAt": "2026-06-14T18:53:44Z",
+          "statistics": {
+            "viewCount": "2",
+            "likeCount": "0",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+          }
+        },
+        {
+          "videoId": "JApDiwbocck",
+          "title": "I Engineered the Law of Attraction with AI",
+          "publishedAt": "2026-03-09T04:08:58Z",
+          "statistics": {
+            "viewCount": "45",
+            "likeCount": "5",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+          }
+        },
+        {
+          "videoId": "mfvkgxE7U4M",
+          "title": "No Magic: How ChatGPT Actually Works, Explained in One Kitchen",
+          "publishedAt": "2026-03-02T08:24:03Z",
+          "statistics": {
+            "viewCount": "114",
+            "likeCount": "11",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "2"
+          }
+        },
+        {
+          "videoId": "tyK4-inXdSs",
+          "title": "I Chased Goals for 15 Years. Chamath Showed Me What I Got Wrong.",
+          "publishedAt": "2026-02-24T06:46:09Z",
+          "statistics": {
+            "viewCount": "60",
+            "likeCount": "6",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+          }
+        },
+        {
+          "videoId": "S6WF_0KDynM",
+          "title": "The Camera Didn't Make Everyone a Spielberg. AI Won't Either.",
+          "publishedAt": "2026-02-24T01:28:28Z",
+          "statistics": {
+            "viewCount": "61",
+            "likeCount": "7",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+          }
+        },
+        {
+          "videoId": "QeRfP_nFFZE",
+          "title": "AI Made Me 10x More Productive. Then I Almost Burned Out.",
+          "publishedAt": "2026-02-23T14:00:39Z",
+          "statistics": {
+            "viewCount": "53",
+            "likeCount": "7",
+            "dislikeCount": "0",
+            "favoriteCount": "0",
+            "commentCount": "0"
+          }
+        }
+      ]
+    },
+    "linkedin": {
+      "ok": true,
+      "token": {
+        "scope": "email,openid,profile,w_member_social",
+        "expiresAt": "2026-08-14T05:47:21.847Z",
+        "hasRefreshToken": false
+      },
+      "userinfo": {
+        "subPresent": true,
+        "namePresent": true,
+        "emailPresent": true
+      },
+      "postsReadAttempt": {
+        "ok": false,
+        "status": 403,
+        "message": "Not enough permissions to access: partnerApiPostsExternal.FINDER-author.20250601"
+      }
+    }
+  }
+}

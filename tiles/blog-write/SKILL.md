@@ -137,11 +137,15 @@ Rules:
 `newsletter-teaser.md`:
 - Short plain-text teaser.
 - Ends with the blog URL placeholder if the final URL is not known.
+- When the final blog URL is known, use the growth UTM helper instead of a bare link:
+  `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel newsletter --campaign <slug> --content teaser`
 
 `linkedin-brief.md` when requested:
 - LinkedIn-native, not a copy of the newsletter teaser.
 - 8-14 short paragraphs or bullets.
 - Include the final blog URL only after the blog is actually live, or use a clear placeholder before publishing.
+- When the final blog URL is known, use:
+  `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel linkedin --campaign <slug> --content brief`
 - Explain the practical insight in a professional operator voice.
 
 `youtube-script.md`:
@@ -156,6 +160,8 @@ Rules:
 - Description.
 - Tags.
 - Chapter timestamps as approximate if the final video does not exist yet.
+- When the final blog URL is known, the description's article link must use:
+  `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel youtube --campaign <slug> --content description`
 
 ### 6. Quality checks
 
@@ -165,6 +171,7 @@ Before finishing:
 - Every generated file is under the same date directory.
 - `youtube-script.md` has at least one `## [SLIDE:` section.
 - `x-post.md` does not put the blog link in the main post.
+- LinkedIn, newsletter, and YouTube metadata links use UTM-tagged URLs once the final blog URL is known.
 - Main articles match Aaron's default style unless the user explicitly requested a different voice.
 - The English article passed the depth revision checklist.
 - Distribution files inherit the revised thesis; they must not summarize an earlier, weaker draft.
