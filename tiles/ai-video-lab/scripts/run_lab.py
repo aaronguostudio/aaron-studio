@@ -8,6 +8,7 @@ import shutil  # noqa: F401
 import time  # noqa: F401
 from pathlib import Path  # noqa: F401
 from typing import Any
+from urllib import parse
 
 try:
     from seedance_client import (  # noqa: F401
@@ -147,6 +148,22 @@ def normalize_run_id(raw_run_id: str | None, idea: str) -> str:
         raise ValueError("Invalid run-id: use a lower-case slug without path separators.")
 
     return raw_run_id
+
+
+def redacted_image_refs(image_url: str | None, image_role: str) -> list[dict[str, Any]]:
+    if not image_url:
+        return []
+
+    parsed = parse.urlparse(image_url)
+    host = parsed.netloc or "local-or-unknown"
+    return [
+        {
+            "type": "image_url",
+            "role": image_role,
+            "host": host,
+            "has_query": bool(parsed.query),
+        }
+    ]
 
 
 def build_lab_prompts(
@@ -306,7 +323,7 @@ def run(args: argparse.Namespace) -> int:
             "idea": args.idea,
             "preset": args.preset,
             "mode": args.mode,
-            "image_url": args.image_url,
+            "image_refs": redacted_image_refs(args.image_url, args.image_role),
         },
     )
     write_text(run_dir / "image_prompt.md", prompts["image_prompt"] + "\n")
@@ -329,7 +346,7 @@ def run(args: argparse.Namespace) -> int:
         "watermark": args.watermark,
         "estimated_tokens": tokens,
         "estimated_cost_rmb": round(estimated_cost, 4),
-        "image_refs": [args.image_url] if args.image_url else [],
+        "image_refs": redacted_image_refs(args.image_url, args.image_role),
         "request_path": str(run_dir / "request.json"),
         "status": "dry_run",
         "submitted": False,

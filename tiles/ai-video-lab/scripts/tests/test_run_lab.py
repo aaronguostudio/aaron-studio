@@ -122,6 +122,38 @@ class BuildLabPromptsTests(unittest.TestCase):
             self.assertIn('"status": "missing_api_key"', summary_text)
             self.assertNotIn("Authorization", summary_text)
 
+    def test_summary_redacts_signed_image_url(self) -> None:
+        from run_lab import main
+
+        signed_url = "https://assets.example.test/private/frame.png?X-Amz-Signature=secret-token"
+
+        with tempfile.TemporaryDirectory() as tmp:
+            exit_code = main(
+                [
+                    "--idea",
+                    "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                    "--preset",
+                    "cartoon_cinematic_worlds",
+                    "--mode",
+                    "strong_first_frame",
+                    "--run-id",
+                    "signed-url-redaction-001",
+                    "--output-root",
+                    tmp,
+                    "--image-url",
+                    signed_url,
+                ]
+            )
+
+            self.assertEqual(exit_code, 0)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "signed-url-redaction-001"
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertNotIn(signed_url, summary_text)
+            self.assertNotIn("X-Amz-Signature", summary_text)
+            self.assertNotIn("secret-token", summary_text)
+            self.assertIn('"host": "assets.example.test"', summary_text)
+            self.assertIn('"has_query": true', summary_text)
+
     def test_run_id_rejects_path_traversal(self) -> None:
         from run_lab import main
 
