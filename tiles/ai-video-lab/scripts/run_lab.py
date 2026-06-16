@@ -133,6 +133,22 @@ def slugify(text: str, max_length: int = 64) -> str:
     return slug or "untitled"
 
 
+def normalize_run_id(raw_run_id: str | None, idea: str) -> str:
+    if raw_run_id is None or raw_run_id == "":
+        return f"{slugify(idea)}-{time.strftime('%H%M%S')}"
+
+    if (
+        "/" in raw_run_id
+        or "\\" in raw_run_id
+        or Path(raw_run_id).is_absolute()
+        or raw_run_id in {".", ".."}
+        or slugify(raw_run_id) != raw_run_id
+    ):
+        raise ValueError("Invalid run-id: use a lower-case slug without path separators.")
+
+    return raw_run_id
+
+
 def build_lab_prompts(
     idea: str,
     *,
@@ -253,7 +269,7 @@ def build_parser() -> argparse.ArgumentParser:
 def run(args: argparse.Namespace) -> int:
     repo_root = find_repo_root(Path.cwd())
     output_root = args.output_root if args.output_root.is_absolute() else repo_root / args.output_root
-    run_id = args.run_id or f"{slugify(args.idea)}-{time.strftime('%H%M%S')}"
+    run_id = normalize_run_id(args.run_id, args.idea)
     run_date = time.strftime("%Y-%m-%d")
     run_dir = output_root / run_date / run_id
     run_dir.mkdir(parents=True, exist_ok=True)

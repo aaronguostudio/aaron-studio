@@ -92,6 +92,59 @@ class BuildLabPromptsTests(unittest.TestCase):
             self.assertNotIn("Authorization", summary_text)
             self.assertIn('"status": "dry_run"', summary_text)
 
+    def test_run_id_rejects_path_traversal(self) -> None:
+        from run_lab import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            outside_path = Path(tmp).parent / "outside"
+
+            with self.assertRaisesRegex(ValueError, "run-id"):
+                main(
+                    [
+                        "--idea",
+                        "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                        "--preset",
+                        "cartoon_cinematic_worlds",
+                        "--mode",
+                        "strong_first_frame",
+                        "--run-id",
+                        "../outside",
+                        "--output-root",
+                        tmp,
+                    ]
+                )
+
+            self.assertFalse(outside_path.exists())
+            self.assertFalse((Path(tmp) / "outside").exists())
+
+    def test_run_id_rejects_nested_path(self) -> None:
+        from run_lab import main
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(ValueError, "run-id"):
+                main(
+                    [
+                        "--idea",
+                        "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                        "--preset",
+                        "cartoon_cinematic_worlds",
+                        "--mode",
+                        "strong_first_frame",
+                        "--run-id",
+                        "foo/bar",
+                        "--output-root",
+                        tmp,
+                    ]
+                )
+
+    def test_normalize_run_id_preserves_valid_slug_like_id(self) -> None:
+        from run_lab import normalize_run_id
+
+        self.assertEqual(
+            normalize_run_id("cartoon-astronaut-vending-001", "idea"),
+            "cartoon-astronaut-vending-001",
+        )
+
 
 class ParseScorecardTests(unittest.TestCase):
     def test_parse_scorecard_extracts_scores_and_candidates(self) -> None:
