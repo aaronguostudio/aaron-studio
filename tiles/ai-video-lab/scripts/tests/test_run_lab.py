@@ -285,6 +285,110 @@ class BuildLabPromptsTests(unittest.TestCase):
             error_text = (run_dir / "task_error.txt").read_text(encoding="utf-8")
             self.assertIn(signed_url, error_text)
 
+    def test_download_retries_once_then_succeeds(self) -> None:
+        import run_lab
+        from run_lab import main
+
+        class RetryDownloadClient:
+            attempts = 0
+
+            def __init__(self, **_kwargs: object) -> None:
+                pass
+
+            def submit_task(self, _payload: dict[str, object]) -> dict[str, object]:
+                return {"id": "task-1"}
+
+            def download_video(self, _video_url: str, output_path: Path) -> Path:
+                type(self).attempts += 1
+                if type(self).attempts == 1:
+                    raise RuntimeError("temporary network failure")
+                output_path.write_bytes(b"fake mp4")
+                return output_path
+
+        def successful_poll(*_args: object, **_kwargs: object) -> dict[str, object]:
+            return {"data": {"status": "succeeded", "content": {"video_url": "https://cdn.example.test/out.mp4"}}}
+
+        RetryDownloadClient.attempts = 0
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.dict(os.environ, {"ARK_API_KEY": "test-key"}, clear=True):
+                with patch.object(run_lab, "ArkSeedanceClient", RetryDownloadClient):
+                    with patch.object(run_lab, "poll_task", successful_poll):
+                        exit_code = main(
+                            [
+                                "--idea",
+                                "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                                "--preset",
+                                "cartoon_cinematic_worlds",
+                                "--mode",
+                                "strong_first_frame",
+                                "--run-id",
+                                "download-retry-success-001",
+                                "--output-root",
+                                tmp,
+                                "--submit",
+                            ]
+                        )
+
+            self.assertEqual(exit_code, 0)
+            self.assertEqual(RetryDownloadClient.attempts, 2)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "download-retry-success-001"
+            self.assertEqual((run_dir / "output.mp4").read_bytes(), b"fake mp4")
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertIn('"status": "succeeded"', summary_text)
+
+    def test_download_failure_after_retry_has_sanitized_summary(self) -> None:
+        import run_lab
+        from run_lab import main
+
+        signed_url = "https://cdn.example.test/out.mp4?X-Amz-Signature=secret-token"
+
+        class FailingDownloadClient:
+            attempts = 0
+
+            def __init__(self, **_kwargs: object) -> None:
+                pass
+
+            def submit_task(self, _payload: dict[str, object]) -> dict[str, object]:
+                return {"id": "task-1"}
+
+            def download_video(self, _video_url: str, _output_path: Path) -> Path:
+                type(self).attempts += 1
+                raise RuntimeError(f"download failed for {signed_url}")
+
+        def successful_poll(*_args: object, **_kwargs: object) -> dict[str, object]:
+            return {"data": {"status": "succeeded", "content": {"video_url": signed_url}}}
+
+        FailingDownloadClient.attempts = 0
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.dict(os.environ, {"ARK_API_KEY": "test-key"}, clear=True):
+                with patch.object(run_lab, "ArkSeedanceClient", FailingDownloadClient):
+                    with patch.object(run_lab, "poll_task", successful_poll):
+                        exit_code = main(
+                            [
+                                "--idea",
+                                "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                                "--preset",
+                                "cartoon_cinematic_worlds",
+                                "--mode",
+                                "strong_first_frame",
+                                "--run-id",
+                                "download-retry-fail-001",
+                                "--output-root",
+                                tmp,
+                                "--submit",
+                            ]
+                        )
+
+            self.assertEqual(exit_code, 1)
+            self.assertEqual(FailingDownloadClient.attempts, 2)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "download-retry-fail-001"
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertIn('"status": "download_failed"', summary_text)
+            self.assertNotIn("X-Amz-Signature", summary_text)
+            self.assertNotIn("secret-token", summary_text)
+            error_text = (run_dir / "download_error.txt").read_text(encoding="utf-8")
+            self.assertIn(signed_url, error_text)
+
     def test_run_id_rejects_path_traversal(self) -> None:
         from run_lab import main
 

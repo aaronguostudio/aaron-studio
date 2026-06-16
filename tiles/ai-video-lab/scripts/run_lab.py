@@ -416,6 +416,24 @@ def write_error_artifact(run_dir: Path, name: str, exc: Exception) -> dict[str, 
     }
 
 
+def download_video_with_retry(
+    client: Any,
+    video_url: str,
+    output_path: Path,
+    *,
+    attempts: int = 2,
+) -> Path:
+    last_error: Exception | None = None
+    for _ in range(attempts):
+        try:
+            return client.download_video(video_url, output_path)
+        except Exception as exc:
+            last_error = exc
+    if last_error is not None:
+        raise last_error
+    raise RuntimeError("Video download did not run.")
+
+
 def submit_and_download(
     args: argparse.Namespace,
     run_dir: Path,
@@ -469,7 +487,7 @@ def submit_and_download(
         return 1
 
     try:
-        output_path = client.download_video(video_url, run_dir / "output.mp4")
+        output_path = download_video_with_retry(client, video_url, run_dir / "output.mp4")
     except Exception as exc:
         error = write_error_artifact(run_dir, "download", exc)
         summary.update({"status": "download_failed", "submitted": True, "task_id": task_id, "error": error})
