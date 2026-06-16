@@ -154,6 +154,137 @@ class BuildLabPromptsTests(unittest.TestCase):
             self.assertIn('"host": "assets.example.test"', summary_text)
             self.assertIn('"has_query": true', summary_text)
 
+    def test_summary_and_concept_redact_image_url_userinfo(self) -> None:
+        from run_lab import main
+
+        sensitive_url = (
+            "https://user:pass@assets.example.test:8443/private/frame.png"
+            "?X-Amz-Signature=secret-token&token=abc"
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            exit_code = main(
+                [
+                    "--idea",
+                    "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                    "--preset",
+                    "cartoon_cinematic_worlds",
+                    "--mode",
+                    "strong_first_frame",
+                    "--run-id",
+                    "userinfo-redaction-001",
+                    "--output-root",
+                    tmp,
+                    "--image-url",
+                    sensitive_url,
+                ]
+            )
+
+            self.assertEqual(exit_code, 0)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "userinfo-redaction-001"
+            for artifact in ["summary.json", "concept.json"]:
+                artifact_text = (run_dir / artifact).read_text(encoding="utf-8")
+                self.assertNotIn(sensitive_url, artifact_text)
+                self.assertNotIn("user:pass", artifact_text)
+                self.assertNotIn("X-Amz-Signature", artifact_text)
+                self.assertNotIn("secret-token", artifact_text)
+                self.assertNotIn("token=abc", artifact_text)
+                self.assertIn('"host": "assets.example.test"', artifact_text)
+                self.assertIn('"port": 8443', artifact_text)
+                self.assertIn('"has_query": true', artifact_text)
+
+    def test_submit_failure_summary_redacts_provider_error_body(self) -> None:
+        import run_lab
+        from run_lab import main
+
+        signed_url = "https://assets.example.test/private/frame.png?X-Amz-Signature=secret-token"
+
+        class FailingSubmitClient:
+            def __init__(self, **_kwargs: object) -> None:
+                pass
+
+            def submit_task(self, _payload: dict[str, object]) -> dict[str, object]:
+                raise RuntimeError(f"Seedance HTTP 400: provider echoed {signed_url}")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.dict(os.environ, {"ARK_API_KEY": "test-key"}, clear=True):
+                with patch.object(run_lab, "ArkSeedanceClient", FailingSubmitClient):
+                    exit_code = main(
+                        [
+                            "--idea",
+                            "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                            "--preset",
+                            "cartoon_cinematic_worlds",
+                            "--mode",
+                            "strong_first_frame",
+                            "--run-id",
+                            "submit-failure-redaction-001",
+                            "--output-root",
+                            tmp,
+                            "--image-url",
+                            signed_url,
+                            "--submit",
+                        ]
+                    )
+
+            self.assertEqual(exit_code, 1)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "submit-failure-redaction-001"
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertIn('"status": "submit_failed"', summary_text)
+            self.assertNotIn(signed_url, summary_text)
+            self.assertNotIn("X-Amz-Signature", summary_text)
+            self.assertNotIn("secret-token", summary_text)
+            error_text = (run_dir / "submit_error.txt").read_text(encoding="utf-8")
+            self.assertIn(signed_url, error_text)
+
+    def test_task_failure_summary_redacts_provider_error_body(self) -> None:
+        import run_lab
+        from run_lab import main
+
+        signed_url = "https://assets.example.test/private/frame.png?X-Amz-Signature=secret-token"
+
+        class SubmittedTaskClient:
+            def __init__(self, **_kwargs: object) -> None:
+                pass
+
+            def submit_task(self, _payload: dict[str, object]) -> dict[str, object]:
+                return {"id": "task-1"}
+
+        def fail_poll(*_args: object, **_kwargs: object) -> dict[str, object]:
+            raise RuntimeError(f"Seedance task failed with provider body {signed_url}")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with patch.dict(os.environ, {"ARK_API_KEY": "test-key"}, clear=True):
+                with patch.object(run_lab, "ArkSeedanceClient", SubmittedTaskClient):
+                    with patch.object(run_lab, "poll_task", fail_poll):
+                        exit_code = main(
+                            [
+                                "--idea",
+                                "A tiny cartoon astronaut discovers a cathedral-sized vending machine in the clouds",
+                                "--preset",
+                                "cartoon_cinematic_worlds",
+                                "--mode",
+                                "strong_first_frame",
+                                "--run-id",
+                                "task-failure-redaction-001",
+                                "--output-root",
+                                tmp,
+                                "--image-url",
+                                signed_url,
+                                "--submit",
+                            ]
+                        )
+
+            self.assertEqual(exit_code, 1)
+            run_dir = Path(tmp) / time.strftime("%Y-%m-%d") / "task-failure-redaction-001"
+            summary_text = (run_dir / "summary.json").read_text(encoding="utf-8")
+            self.assertIn('"status": "task_failed"', summary_text)
+            self.assertNotIn(signed_url, summary_text)
+            self.assertNotIn("X-Amz-Signature", summary_text)
+            self.assertNotIn("secret-token", summary_text)
+            error_text = (run_dir / "task_error.txt").read_text(encoding="utf-8")
+            self.assertIn(signed_url, error_text)
+
     def test_run_id_rejects_path_traversal(self) -> None:
         from run_lab import main
 

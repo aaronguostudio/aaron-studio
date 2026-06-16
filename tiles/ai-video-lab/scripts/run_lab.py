@@ -155,14 +155,21 @@ def redacted_image_refs(image_url: str | None, image_role: str) -> list[dict[str
         return []
 
     parsed = parse.urlparse(image_url)
-    host = parsed.netloc or "local-or-unknown"
+    host = parsed.hostname or "local-or-unknown"
+    try:
+        port = parsed.port
+    except ValueError:
+        port = None
+    ref: dict[str, Any] = {
+        "type": "image_url",
+        "role": image_role,
+        "host": host,
+        "has_query": bool(parsed.query),
+    }
+    if port is not None:
+        ref["port"] = port
     return [
-        {
-            "type": "image_url",
-            "role": image_role,
-            "host": host,
-            "has_query": bool(parsed.query),
-        }
+        ref
     ]
 
 
@@ -399,6 +406,16 @@ def write_text(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
+def write_error_artifact(run_dir: Path, name: str, exc: Exception) -> dict[str, Any]:
+    artifact_path = run_dir / f"{name}_error.txt"
+    write_text(artifact_path, f"{exc.__class__.__name__}: {exc}\n")
+    return {
+        "type": exc.__class__.__name__,
+        "message": f"{name.replace('_', ' ')} failed; see local error artifact.",
+        "artifact_path": str(artifact_path),
+    }
+
+
 def submit_and_download(
     args: argparse.Namespace,
     run_dir: Path,
@@ -415,9 +432,10 @@ def submit_and_download(
     try:
         task_response = client.submit_task(payload)
     except Exception as exc:
-        summary.update({"status": "submit_failed", "submitted": False, "error": str(exc)})
+        error = write_error_artifact(run_dir, "submit", exc)
+        summary.update({"status": "submit_failed", "submitted": False, "error": error})
         write_json(run_dir / "summary.json", summary)
-        print(f"Seedance submit failed: {exc}")
+        print(f"Seedance submit failed. Details: {error['artifact_path']}")
         return 1
 
     write_json(run_dir / "task.json", task_response)
@@ -436,9 +454,10 @@ def submit_and_download(
             poll_seconds=args.poll_seconds,
         )
     except Exception as exc:
-        summary.update({"status": "task_failed", "submitted": True, "task_id": task_id, "error": str(exc)})
+        error = write_error_artifact(run_dir, "task", exc)
+        summary.update({"status": "task_failed", "submitted": True, "task_id": task_id, "error": error})
         write_json(run_dir / "summary.json", summary)
-        print(f"Seedance task failed: {exc}")
+        print(f"Seedance task failed. Details: {error['artifact_path']}")
         return 1
 
     write_json(run_dir / "final_response.json", final_response)
@@ -452,9 +471,10 @@ def submit_and_download(
     try:
         output_path = client.download_video(video_url, run_dir / "output.mp4")
     except Exception as exc:
-        summary.update({"status": "download_failed", "submitted": True, "task_id": task_id, "error": str(exc)})
+        error = write_error_artifact(run_dir, "download", exc)
+        summary.update({"status": "download_failed", "submitted": True, "task_id": task_id, "error": error})
         write_json(run_dir / "summary.json", summary)
-        print(f"Video download failed: {exc}")
+        print(f"Video download failed. Details: {error['artifact_path']}")
         return 1
 
     summary.update(
