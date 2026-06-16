@@ -25,6 +25,8 @@ idea
 
 Use text-to-video only for quick low-cost smoke tests or when Aaron explicitly asks.
 
+Read `references/seedance-workflow.md` before preparing Seedance prompts, dry-run request details, or live generation settings.
+
 ## Workflow Modes
 
 ### Strong First Frame
@@ -72,7 +74,9 @@ Use 1-5 scores. For `defects`, 5 means clean and 1 means severe artifacts.
 
 ## Commands
 
-Dry-run a prompt package without spending money:
+Until `scripts/run_lab.py` exists, prepare `brief.md`, `image_prompt.md`, `video_prompt.md`, `request.json`, `critique.md`, and `next_variations.md` manually from the reference docs. Do not try to run a missing script.
+
+Once `scripts/run_lab.py` exists, dry-run a prompt package without spending money:
 
 ```bash
 python3 tiles/ai-video-lab/scripts/run_lab.py \
@@ -82,7 +86,7 @@ python3 tiles/ai-video-lab/scripts/run_lab.py \
   --run-id cartoon-astronaut-vending-001
 ```
 
-Submit a paid Seedance job when Aaron approves:
+Once `scripts/run_lab.py` exists, submit a paid Seedance job when Aaron approves:
 
 ```bash
 python3 tiles/ai-video-lab/scripts/run_lab.py \
