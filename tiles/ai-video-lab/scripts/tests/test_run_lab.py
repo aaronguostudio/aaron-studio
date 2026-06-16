@@ -5,6 +5,7 @@ import sys
 import tempfile
 import time
 import unittest
+import json
 from pathlib import Path
 from unittest.mock import patch
 
@@ -12,7 +13,7 @@ from unittest.mock import patch
 SCRIPTS_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SCRIPTS_DIR))
 
-from run_lab import build_lab_prompts, parse_scorecard, slugify  # noqa: E402
+from run_lab import build_lab_prompts, build_seedance_prompt, parse_scorecard, slugify  # noqa: E402
 
 
 class SlugifyTests(unittest.TestCase):
@@ -59,6 +60,39 @@ class BuildLabPromptsTests(unittest.TestCase):
         self.assertEqual(prompts["image_prompt"], "Custom bible prompt")
         self.assertNotIn("front view", prompts["image_prompt"])
 
+    def test_text_to_video_seedance_prompt_includes_scene_and_motion(self) -> None:
+        prompts = build_lab_prompts(
+            "A tiny cartoon courier rides a paper airplane through a neon cloud city",
+            preset="cartoon_cinematic_worlds",
+            mode="strong_first_frame",
+        )
+
+        seedance_prompt = build_seedance_prompt(
+            prompts,
+            has_image_url=False,
+            has_video_prompt_override=False,
+        )
+
+        self.assertIn("tiny cartoon courier", seedance_prompt)
+        self.assertIn("Visual direction:", seedance_prompt)
+        self.assertIn("Motion direction:", seedance_prompt)
+
+    def test_image_to_video_seedance_prompt_keeps_motion_prompt_only(self) -> None:
+        prompts = build_lab_prompts(
+            "A tiny cartoon courier rides a paper airplane through a neon cloud city",
+            preset="cartoon_cinematic_worlds",
+            mode="strong_first_frame",
+        )
+
+        seedance_prompt = build_seedance_prompt(
+            prompts,
+            has_image_url=True,
+            has_video_prompt_override=False,
+        )
+
+        self.assertEqual(seedance_prompt, prompts["video_prompt"])
+        self.assertNotIn("Visual direction:", seedance_prompt)
+
     def test_dry_run_writes_artifacts_and_secret_free_summary(self) -> None:
         from run_lab import main
 
@@ -93,6 +127,11 @@ class BuildLabPromptsTests(unittest.TestCase):
             self.assertNotIn("ARK_API_KEY", summary_text)
             self.assertNotIn("Authorization", summary_text)
             self.assertIn('"status": "dry_run"', summary_text)
+
+            request_payload = json.loads((run_dir / "request.json").read_text(encoding="utf-8"))
+            request_text = request_payload["content"][0]["text"]
+            self.assertIn("cathedral-sized vending machine", request_text)
+            self.assertIn("Motion direction:", request_text)
 
     def test_submit_without_api_key_returns_clear_error_and_keeps_request(self) -> None:
         from run_lab import main

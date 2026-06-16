@@ -213,6 +213,22 @@ def build_lab_prompts(
     }
 
 
+def build_seedance_prompt(
+    prompts: dict[str, str],
+    *,
+    has_image_url: bool,
+    has_video_prompt_override: bool,
+) -> str:
+    if has_image_url or has_video_prompt_override:
+        return prompts["video_prompt"]
+
+    return (
+        f"Text-to-video scene: {prompts['idea']}\n\n"
+        f"Visual direction: {prompts['image_prompt']}\n\n"
+        f"Motion direction: {prompts['video_prompt']}"
+    )
+
+
 def parse_scorecard(text: str) -> dict[str, Any]:
     scores: dict[str, int] = {}
     for field in SCORE_FIELDS:
@@ -305,8 +321,13 @@ def run(args: argparse.Namespace) -> int:
         image_prompt_override=args.image_prompt,
         video_prompt_override=args.video_prompt,
     )
+    seedance_prompt = build_seedance_prompt(
+        prompts,
+        has_image_url=bool(args.image_url),
+        has_video_prompt_override=args.video_prompt is not None,
+    )
     payload = build_video_payload(
-        prompts["video_prompt"],
+        seedance_prompt,
         model=args.model,
         ratio=args.ratio,
         resolution=args.resolution,
