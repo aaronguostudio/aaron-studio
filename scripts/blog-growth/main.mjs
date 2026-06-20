@@ -12,6 +12,7 @@ import {
   buildContentIngestStatements,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
+  buildNextBriefContext,
   buildPostmortemReview,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
@@ -390,6 +391,44 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       matchedCount: matchedRows.length,
       statementCount: statements.length,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'next-brief-context') {
+    const limit = Number(parsed.options.limit || 5);
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const reviewsQuery = [
+      'SELECT review_type, summary, insights_json, recommended_actions_json, raw_context_json, created_at',
+      'FROM growth_ai_reviews',
+      'ORDER BY datetime(created_at) DESC',
+      `LIMIT ${Number.isFinite(limit) && limit > 0 ? limit : 5}`,
+    ].join('\n');
+    const topContentQuery = [
+      'SELECT slug, title, qualified_engaged_audience_score',
+      'FROM growth_content_lifetime_scorecard',
+      'ORDER BY qualified_engaged_audience_score DESC',
+      `LIMIT ${Number.isFinite(limit) && limit > 0 ? limit : 5}`,
+    ].join('\n');
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [reviewsQuery, topContentQuery],
+    });
+    const reviews = rowsFromTursoResult(result.results?.[0] || {});
+    const topContent = rowsFromTursoResult(result.results?.[1] || {});
+    const context = buildNextBriefContext({
+      reviews,
+      topContent,
+      caveats: knownGapsFromReviews(reviews),
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      reviewCount: reviews.length,
+      topContentCount: topContent.length,
+      context,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
     }, null, 2));
     return;
@@ -811,6 +850,17 @@ function inferPostmortemGaps(channelMetrics) {
   return gaps;
 }
 
+function knownGapsFromReviews(reviews) {
+  return [...new Set(reviews.flatMap((review) => {
+    try {
+      const raw = JSON.parse(review.raw_context_json || '{}');
+      return Array.isArray(raw.known_gaps) ? raw.known_gaps : [];
+    } catch {
+      return [];
+    }
+  }))];
+}
+
 export function loadStudioConfig(cwd) {
   const configPath = join(cwd, 'config/aaron-studio.json');
   if (!existsSync(configPath)) return {};
@@ -864,6 +914,7 @@ function helpText() {
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv
   node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d --dry-run
   node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d
+  node scripts/blog-growth.mjs next-brief-context --limit 5
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a

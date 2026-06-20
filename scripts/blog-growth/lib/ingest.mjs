@@ -338,6 +338,35 @@ export function buildAiReviewInsertStatement(review) {
   return `INSERT INTO growth_ai_reviews (${columns.join(', ')})\nVALUES (${values.join(', ')})`;
 }
 
+export function buildNextBriefContext({ reviews = [], topContent = [], caveats = [] } = {}) {
+  const insights = reviews.flatMap((review) => parseJsonArray(review.insights_json));
+  const actions = reviews.flatMap((review) => parseJsonArray(review.recommended_actions_json));
+  const winningPatterns = unique(insights
+    .filter((insight) => insight.type === 'content_pattern' || insight.type === 'distribution_pattern')
+    .map((insight) => insight.label)
+    .filter(Boolean));
+  const weakPatterns = unique(insights
+    .filter((insight) => insight.type === 'weak_pattern' || insight.type === 'distribution_gap' || insight.type === 'measurement_gap')
+    .map((insight) => insight.label)
+    .filter(Boolean));
+  const recommendedActions = unique(actions
+    .map((action) => action.action)
+    .filter(Boolean));
+
+  return {
+    winning_patterns: winningPatterns,
+    weak_patterns: weakPatterns,
+    recommended_actions: recommendedActions,
+    top_content: topContent.map((item) => ({
+      slug: item.slug,
+      title: item.title,
+      qualified_engaged_audience_score: Number(item.qualified_engaged_audience_score || 0),
+    })),
+    measurement_caveats: caveats,
+    next_experiment: recommendedActions[0] || 'Publish one article with a clear hypothesis and measure the first seven days.',
+  };
+}
+
 export function windowToReviewType(window) {
   if (window === '24h') return 'postmortem_24h';
   if (window === '7d') return 'postmortem_7d';
@@ -430,4 +459,18 @@ function parseCsv(value) {
     .split(',')
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+function parseJsonArray(value) {
+  if (!value) return [];
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function unique(values) {
+  return [...new Set(values)];
 }

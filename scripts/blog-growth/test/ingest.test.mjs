@@ -6,6 +6,7 @@ import {
   buildContentIngestStatements,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
+  buildNextBriefContext,
   buildPostmortemReview,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
@@ -207,4 +208,29 @@ test('buildAiReviewInsertStatement writes postmortem JSON fields', () => {
   assert.match(sql, /INSERT INTO growth_ai_reviews/);
   assert.match(sql, /'postmortem_7d'/);
   assert.match(sql, /'Review summary'/);
+});
+
+test('buildNextBriefContext summarizes recent reviews and top content', () => {
+  const context = buildNextBriefContext({
+    reviews: [
+      {
+        review_type: 'postmortem_7d',
+        summary: 'Practical AI explainers performed best.',
+        insights_json: JSON.stringify([{ type: 'content_pattern', label: 'practical_ai_explainer' }]),
+        recommended_actions_json: JSON.stringify([{ action: 'Write another concrete AI explainer', priority: 'high' }]),
+      },
+    ],
+    topContent: [
+      {
+        slug: 'chatgpt-explained-kitchen-metaphor',
+        title: 'No Magic: How ChatGPT Actually Works, Explained in One Kitchen',
+        qualified_engaged_audience_score: 69,
+      },
+    ],
+    caveats: ['LinkedIn manual import missing'],
+  });
+
+  assert.equal(context.winning_patterns.includes('practical_ai_explainer'), true);
+  assert.equal(context.recommended_actions[0], 'Write another concrete AI explainer');
+  assert.equal(context.top_content[0].slug, 'chatgpt-explained-kitchen-metaphor');
 });

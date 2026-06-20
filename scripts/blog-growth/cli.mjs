@@ -134,6 +134,16 @@ export function buildCommandPlan({ command, options = {}, env = {} }) {
     };
   }
 
+  if (command === 'next-brief-context') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'turso',
+      limit: Number(options.limit || 5),
+      hasTursoUrl: Boolean(env.TURSO_URL),
+      hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
+    };
+  }
+
   if (command === 'ingest-rybbit') {
     return {
       mode: options.dryRun ? 'dry-run' : 'live',

@@ -181,3 +181,24 @@ test('buildCommandPlan supports postmortem summaries', () => {
     hasTursoAuthToken: true,
   });
 });
+
+test('buildCommandPlan supports next brief context summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'next-brief-context',
+    options: {
+      limit: '5',
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'live',
+    source: 'turso',
+    limit: 5,
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});
