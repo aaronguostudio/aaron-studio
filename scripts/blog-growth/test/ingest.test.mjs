@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  buildAiReviewInsertStatement,
   buildChannelPostUpsertStatements,
   buildContentIngestStatements,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
+  buildPostmortemReview,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
   readingMinutes,
@@ -162,4 +164,47 @@ test('buildMetricSnapshotUpsertStatement uses content path subquery and upserts 
   assert.match(sql, /'pageviews'/);
   assert.match(sql, /ON CONFLICT DO UPDATE SET/);
   assert.match(sql, /metric_value = excluded\.metric_value/);
+});
+
+test('buildPostmortemReview creates compact review from metrics', () => {
+  const review = buildPostmortemReview({
+    slug: 'fable-5-managing-ai-autonomy',
+    title: 'Fable 5 Changed the Unit of AI Work',
+    window: '7d',
+    periodStart: '2026-06-15',
+    periodEnd: '2026-06-22',
+    scorecard: {
+      pageviews: 16,
+      unique_visitors: 9,
+      scroll_75: 4,
+      scroll_100: 4,
+      qualified_engaged_audience_score: 29,
+    },
+    channelMetrics: [],
+    knownGaps: ['linkedin_manual_import_missing'],
+    rewardVersion: 'v0.1',
+  });
+
+  assert.match(review.summary, /Fable 5 Changed the Unit of AI Work/);
+  assert.equal(review.review_type, 'postmortem_7d');
+  assert.equal(review.raw_context.reward_version, 'v0.1');
+  assert.equal(review.insights.some((item) => item.type === 'content_pattern'), true);
+  assert.equal(review.recommended_actions.some((item) => item.owner === 'blog-growth'), true);
+});
+
+test('buildAiReviewInsertStatement writes postmortem JSON fields', () => {
+  const sql = buildAiReviewInsertStatement({
+    review_type: 'postmortem_7d',
+    period_start: '2026-06-15',
+    period_end: '2026-06-22',
+    content_item_id_sql: "(SELECT id FROM growth_content_items WHERE slug = 'fable-5-managing-ai-autonomy')",
+    summary: 'Review summary',
+    insights: [{ type: 'content_pattern' }],
+    recommended_actions: [{ action: 'Repeat pattern' }],
+    raw_context: { reward_version: 'v0.1' },
+  });
+
+  assert.match(sql, /INSERT INTO growth_ai_reviews/);
+  assert.match(sql, /'postmortem_7d'/);
+  assert.match(sql, /'Review summary'/);
 });

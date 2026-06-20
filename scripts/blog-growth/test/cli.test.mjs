@@ -157,3 +157,27 @@ test('buildCommandPlan supports LinkedIn CSV import summaries', () => {
     hasTursoAuthToken: true,
   });
 });
+
+test('buildCommandPlan supports postmortem summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'postmortem',
+    options: {
+      slug: 'fable-5-managing-ai-autonomy',
+      window: '7d',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'turso',
+    hasSlug: true,
+    window: '7d',
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});

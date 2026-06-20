@@ -7,15 +7,18 @@ import { loadEnvFile, mergeEnv, redactEnv } from './lib/env.mjs';
 import { parseCsvText } from './lib/csv.mjs';
 import { scanBlogMarkdown } from './lib/content.mjs';
 import {
+  buildAiReviewInsertStatement,
   buildChannelPostUpsertStatements,
   buildContentIngestStatements,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
+  buildPostmortemReview,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
+  metricWindowFromPublishedAt,
   selectContentItems,
 } from './lib/ingest.mjs';
-import { executeTursoPipeline, rowsFromTursoResult, splitSqlStatements } from './lib/sql.mjs';
+import { executeTursoPipeline, rowsFromTursoResult, splitSqlStatements, sqlLiteral } from './lib/sql.mjs';
 import { buildUtmUrl } from './lib/utm.mjs';
 import {
   buildYoutubeAnalyticsUrl,
@@ -392,6 +395,121 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     return;
   }
 
+  if (parsed.command === 'postmortem') {
+    const slug = requireOption(parsed.options, 'slug');
+    const window = parsed.options.window || '7d';
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const contentQuery = [
+      'SELECT id, slug, title, published_at',
+      'FROM growth_content_items',
+      `WHERE slug = ${sqlLiteral(slug)}`,
+      'LIMIT 1',
+    ].join('\n');
+    const contentResult = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [contentQuery],
+    });
+    const content = rowsFromTursoResult(contentResult.results?.[0] || {})[0];
+    if (!content) throw new Error(`No content item found for slug: ${slug}`);
+
+    const { periodStart, periodEnd } = metricWindowFromPublishedAt(content.published_at, window);
+    const scorecardQuery = [
+      'SELECT',
+      '  COALESCE(SUM(pageviews), 0) AS pageviews,',
+      '  COALESCE(SUM(unique_visitors), 0) AS unique_visitors,',
+      '  COALESCE(SUM(scroll_75), 0) AS scroll_75,',
+      '  COALESCE(SUM(scroll_100), 0) AS scroll_100,',
+      '  COALESCE(SUM(newsletter_subscribes), 0) AS newsletter_subscribes,',
+      '  COALESCE(SUM(outbound_clicks), 0) AS outbound_clicks,',
+      '  COALESCE(SUM(linkedin_impressions), 0) AS linkedin_impressions,',
+      '  COALESCE(SUM(linkedin_reactions), 0) AS linkedin_reactions,',
+      '  COALESCE(SUM(linkedin_comments), 0) AS linkedin_comments,',
+      '  COALESCE(SUM(linkedin_reshares), 0) AS linkedin_reshares,',
+      '  COALESCE(SUM(linkedin_link_clicks), 0) AS linkedin_link_clicks,',
+      '  COALESCE(SUM(youtube_views), 0) AS youtube_views,',
+      '  COALESCE(SUM(youtube_watch_minutes), 0) AS youtube_watch_minutes,',
+      '  COALESCE(SUM(youtube_subscribers_gained), 0) AS youtube_subscribers_gained,',
+      '  COALESCE(SUM(qualified_engaged_audience_score), 0) AS qualified_engaged_audience_score',
+      'FROM growth_content_daily_scorecard',
+      `WHERE content_item_id = ${sqlLiteral(content.id)}`,
+      `  AND date(metric_date) >= date(${sqlLiteral(periodStart)})`,
+      `  AND date(metric_date) < date(${sqlLiteral(periodEnd)})`,
+    ].join('\n');
+    const channelQuery = [
+      'SELECT',
+      '  channel,',
+      '  COALESCE(SUM(linkedin_impressions), 0) AS linkedin_impressions,',
+      '  COALESCE(SUM(linkedin_members_reached), 0) AS linkedin_members_reached,',
+      '  COALESCE(SUM(linkedin_reactions), 0) AS linkedin_reactions,',
+      '  COALESCE(SUM(linkedin_comments), 0) AS linkedin_comments,',
+      '  COALESCE(SUM(linkedin_reshares), 0) AS linkedin_reshares,',
+      '  COALESCE(SUM(linkedin_link_clicks), 0) AS linkedin_link_clicks,',
+      '  COALESCE(SUM(youtube_views), 0) AS youtube_views,',
+      '  COALESCE(SUM(youtube_watch_minutes), 0) AS youtube_watch_minutes,',
+      '  COALESCE(SUM(youtube_subscribers_gained), 0) AS youtube_subscribers_gained,',
+      '  COALESCE(SUM(youtube_likes), 0) AS youtube_likes,',
+      '  COALESCE(SUM(youtube_comments), 0) AS youtube_comments',
+      'FROM growth_channel_metric_rollup',
+      `WHERE content_item_id = ${sqlLiteral(content.id)}`,
+      `  AND date(metric_date) >= date(${sqlLiteral(periodStart)})`,
+      `  AND date(metric_date) < date(${sqlLiteral(periodEnd)})`,
+      'GROUP BY channel',
+    ].join('\n');
+    const metricsResult = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [scorecardQuery, channelQuery],
+    });
+    const scorecard = rowsFromTursoResult(metricsResult.results?.[0] || {})[0] || {};
+    const channelMetrics = rowsFromTursoResult(metricsResult.results?.[1] || {});
+    const knownGaps = inferPostmortemGaps(channelMetrics);
+    const review = buildPostmortemReview({
+      slug: content.slug,
+      title: content.title,
+      window,
+      periodStart,
+      periodEnd,
+      scorecard,
+      channelMetrics,
+      knownGaps,
+      rewardVersion: parsed.options.rewardVersion || 'v0.1',
+    });
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        slug,
+        periodStart,
+        periodEnd,
+        review,
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const statement = buildAiReviewInsertStatement({
+      ...review,
+      content_item_id: content.id,
+    });
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [statement],
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      slug,
+      periodStart,
+      periodEnd,
+      reviewType: review.review_type,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
   if (parsed.command === 'ingest-rybbit') {
     const root = parsed.options.root || defaultBlogContentRoot(cwd, config);
     const limit = parsed.options.all ? undefined : Number(parsed.options.limit || 10);
@@ -685,6 +803,14 @@ function summarizeContentDates(items) {
   };
 }
 
+function inferPostmortemGaps(channelMetrics) {
+  const channels = new Set(channelMetrics.map((row) => row.channel));
+  const gaps = [];
+  if (!channels.has('linkedin')) gaps.push('linkedin_manual_import_missing');
+  if (!channels.has('youtube')) gaps.push('youtube_metrics_missing');
+  return gaps;
+}
+
 export function loadStudioConfig(cwd) {
   const configPath = join(cwd, 'config/aaron-studio.json');
   if (!existsSync(configPath)) return {};
@@ -736,6 +862,8 @@ function helpText() {
   node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv --dry-run
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv
+  node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d --dry-run
+  node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a

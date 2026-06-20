@@ -229,6 +229,138 @@ export function buildLinkedInMetricStatements({ channelPostId, channelPostExtern
     }));
 }
 
+export function buildPostmortemReview({
+  slug,
+  title,
+  window = '7d',
+  periodStart,
+  periodEnd,
+  scorecard = {},
+  channelMetrics = [],
+  knownGaps = [],
+  rewardVersion = 'v0.1',
+}) {
+  const score = Number(scorecard.qualified_engaged_audience_score || 0);
+  const uniqueVisitors = Number(scorecard.unique_visitors || 0);
+  const scroll75 = Number(scorecard.scroll_75 || 0);
+  const scroll100 = Number(scorecard.scroll_100 || 0);
+  const pageviews = Number(scorecard.pageviews || 0);
+  const hasReaderSignal = uniqueVisitors > 0 || pageviews > 0 || score > 0;
+  const reviewType = windowToReviewType(window);
+  const insights = [];
+  const recommendedActions = [];
+
+  if (hasReaderSignal) {
+    insights.push({
+      type: 'content_pattern',
+      label: scroll75 + scroll100 > 0 ? 'deep_reader_signal' : 'initial_reader_signal',
+      evidence: `${title} reached ${uniqueVisitors} unique visitors and ${score} reward score in ${window}.`,
+      confidence: score > 0 ? 'medium' : 'low',
+    });
+    recommendedActions.push({
+      action: 'Reuse the strongest reader-facing angle in a future article brief.',
+      owner: 'blog-production',
+      priority: score >= 25 ? 'high' : 'medium',
+    });
+  } else {
+    insights.push({
+      type: 'measurement_gap',
+      label: 'no_metrics_in_window',
+      evidence: `No metrics were found for ${slug} between ${periodStart} and ${periodEnd}.`,
+      confidence: 'low',
+    });
+    recommendedActions.push({
+      action: 'Verify content, Rybbit path mapping, and channel post registration before judging performance.',
+      owner: 'blog-growth',
+      priority: 'high',
+    });
+  }
+
+  if (knownGaps.length > 0 || channelMetrics.length === 0) {
+    insights.push({
+      type: 'distribution_gap',
+      label: knownGaps[0] || 'channel_metrics_missing',
+      evidence: 'Some distribution channel data is missing or not yet imported.',
+      confidence: knownGaps.length > 0 ? 'high' : 'medium',
+    });
+    recommendedActions.push({
+      action: 'Register channel posts and import missing LinkedIn or YouTube metrics before the next postmortem.',
+      owner: 'blog-growth',
+      priority: 'high',
+    });
+  }
+
+  return {
+    review_type: reviewType,
+    period_start: periodStart,
+    period_end: periodEnd,
+    summary: `${title} ${window} postmortem: ${pageviews} pageviews, ${uniqueVisitors} unique visitors, ${scroll75 + scroll100} deep-read events, and ${score} reward score.`,
+    insights,
+    recommended_actions: recommendedActions,
+    raw_context: {
+      slug,
+      reward_version: rewardVersion,
+      metric_window: window,
+      metric_date_start: periodStart,
+      metric_date_end: periodEnd,
+      sources: ['growth_content_daily_scorecard', 'growth_channel_metric_rollup'],
+      known_gaps: knownGaps,
+      scorecard,
+      channel_metrics: channelMetrics,
+    },
+  };
+}
+
+export function buildAiReviewInsertStatement(review) {
+  const columns = [
+    'review_type',
+    'period_start',
+    'period_end',
+    'content_item_id',
+    'experiment_id',
+    'summary',
+    'insights_json',
+    'recommended_actions_json',
+    'raw_context_json',
+  ];
+  const values = [
+    sqlLiteral(review.review_type),
+    sqlLiteral(review.period_start),
+    sqlLiteral(review.period_end),
+    review.content_item_id_sql || sqlLiteral(review.content_item_id || null),
+    review.experiment_id_sql || sqlLiteral(review.experiment_id || null),
+    sqlLiteral(review.summary),
+    sqlLiteral(JSON.stringify(review.insights || [])),
+    sqlLiteral(JSON.stringify(review.recommended_actions || [])),
+    sqlLiteral(JSON.stringify(review.raw_context || {})),
+  ];
+
+  return `INSERT INTO growth_ai_reviews (${columns.join(', ')})\nVALUES (${values.join(', ')})`;
+}
+
+export function windowToReviewType(window) {
+  if (window === '24h') return 'postmortem_24h';
+  if (window === '7d') return 'postmortem_7d';
+  if (window === '30d') return 'postmortem_30d';
+  throw new Error(`unsupported postmortem window: ${window || ''}`);
+}
+
+export function metricWindowFromPublishedAt(publishedAt, window = '7d') {
+  if (!publishedAt) throw new Error('published_at is required for postmortem window');
+  windowToReviewType(window);
+
+  const days = window === '24h' ? 1 : Number(window.replace('d', ''));
+  const start = new Date(`${publishedAt}T00:00:00.000Z`);
+  if (Number.isNaN(start.getTime())) throw new Error(`published_at is not an ISO date: ${publishedAt}`);
+  const end = new Date(start);
+  end.setUTCDate(end.getUTCDate() + days);
+
+  return {
+    periodStart: start.toISOString().slice(0, 10),
+    periodEnd: end.toISOString().slice(0, 10),
+  };
+}
+
 export function buildMetricSnapshotUpsertStatement(row) {
   const columns = [
     'metric_date',
