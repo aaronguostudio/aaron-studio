@@ -82,6 +82,15 @@ CREATE TABLE IF NOT EXISTS growth_metric_catalog (
   CHECK (direction IN ('up', 'down', 'neutral'))
 );
 
+CREATE TABLE IF NOT EXISTS growth_reward_versions (
+  version TEXT PRIMARY KEY,
+  description TEXT NOT NULL,
+  metric_weights_json TEXT NOT NULL,
+  active_from TEXT NOT NULL,
+  active_to TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS growth_metric_snapshots (
   id INTEGER PRIMARY KEY,
   metric_date TEXT NOT NULL,

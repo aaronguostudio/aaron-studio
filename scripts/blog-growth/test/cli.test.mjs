@@ -202,3 +202,25 @@ test('buildCommandPlan supports next brief context summaries', () => {
     hasTursoAuthToken: true,
   });
 });
+
+test('buildCommandPlan supports reward version seeding summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'seed-reward-version',
+    options: {
+      version: 'v0.1',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'turso',
+    version: 'v0.1',
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});

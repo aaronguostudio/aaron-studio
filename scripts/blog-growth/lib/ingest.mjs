@@ -11,6 +11,26 @@ const LINKEDIN_METRIC_MAP = {
   followers_gained: ['linkedin_followers_gained', 'count'],
 };
 
+export const DEFAULT_REWARD_WEIGHTS = {
+  unique_visitors: 1.00,
+  scroll_75: 2.00,
+  scroll_100: 3.00,
+  newsletter_subscribes: 25.00,
+  outbound_clicks: 3.00,
+  linkedin_impressions: 0.05,
+  linkedin_members_reached: 0.10,
+  linkedin_reactions: 1.50,
+  linkedin_comments: 4.00,
+  linkedin_reshares: 5.00,
+  linkedin_link_clicks: 3.00,
+  linkedin_followers_gained: 10.00,
+  youtube_views: 0.40,
+  youtube_watch_minutes: 0.02,
+  youtube_subscribers_gained: 15.00,
+  youtube_likes: 1.00,
+  youtube_comments: 4.00,
+};
+
 export function contentIdentitySlug(item) {
   if (!item?.slug) throw new Error('content item slug is required');
   return item.language && item.language !== 'en' ? `${item.slug}-${item.language}` : item.slug;
@@ -365,6 +385,33 @@ export function buildNextBriefContext({ reviews = [], topContent = [], caveats =
     measurement_caveats: caveats,
     next_experiment: recommendedActions[0] || 'Publish one article with a clear hypothesis and measure the first seven days.',
   };
+}
+
+export function buildRewardVersionSeedStatement({
+  version = 'v0.1',
+  description = 'Initial qualified engaged audience score weights.',
+  metricWeights = DEFAULT_REWARD_WEIGHTS,
+  activeFrom = '2026-06-20',
+  activeTo = null,
+} = {}) {
+  const columns = ['version', 'description', 'metric_weights_json', 'active_from', 'active_to'];
+  const values = [
+    sqlLiteral(version),
+    sqlLiteral(description),
+    sqlLiteral(JSON.stringify(metricWeights)),
+    sqlLiteral(activeFrom),
+    sqlLiteral(activeTo),
+  ];
+
+  return [
+    `INSERT INTO growth_reward_versions (${columns.join(', ')})`,
+    `VALUES (${values.join(', ')})`,
+    'ON CONFLICT(version) DO UPDATE SET',
+    '  description = excluded.description,',
+    '  metric_weights_json = excluded.metric_weights_json,',
+    '  active_from = excluded.active_from,',
+    '  active_to = excluded.active_to',
+  ].join('\n');
 }
 
 export function windowToReviewType(window) {

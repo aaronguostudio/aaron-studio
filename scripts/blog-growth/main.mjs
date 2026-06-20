@@ -15,6 +15,7 @@ import {
   buildNextBriefContext,
   buildPostmortemReview,
   buildRybbitPathMetricStatements,
+  buildRewardVersionSeedStatement,
   contentIdentitySlug,
   metricWindowFromPublishedAt,
   selectContentItems,
@@ -390,6 +391,38 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       rowCount: inputRows.length,
       matchedCount: matchedRows.length,
       statementCount: statements.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'seed-reward-version') {
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const statement = buildRewardVersionSeedStatement({
+      version: parsed.options.version || 'v0.1',
+      description: parsed.options.description || 'Initial qualified engaged audience score weights.',
+      activeFrom: parsed.options.activeFrom || '2026-06-20',
+    });
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        statementCount: 1,
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [statement],
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      statementCount: 1,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
     }, null, 2));
@@ -915,6 +948,8 @@ function helpText() {
   node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d --dry-run
   node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d
   node scripts/blog-growth.mjs next-brief-context --limit 5
+  node scripts/blog-growth.mjs seed-reward-version --dry-run
+  node scripts/blog-growth.mjs seed-reward-version
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a

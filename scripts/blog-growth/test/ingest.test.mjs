@@ -9,6 +9,7 @@ import {
   buildNextBriefContext,
   buildPostmortemReview,
   buildRybbitPathMetricStatements,
+  buildRewardVersionSeedStatement,
   contentIdentitySlug,
   readingMinutes,
   selectContentItems,
@@ -233,4 +234,20 @@ test('buildNextBriefContext summarizes recent reviews and top content', () => {
   assert.equal(context.winning_patterns.includes('practical_ai_explainer'), true);
   assert.equal(context.recommended_actions[0], 'Write another concrete AI explainer');
   assert.equal(context.top_content[0].slug, 'chatgpt-explained-kitchen-metaphor');
+});
+
+test('buildRewardVersionSeedStatement upserts reward weight versions', () => {
+  const sql = buildRewardVersionSeedStatement({
+    version: 'v0.1',
+    metricWeights: {
+      unique_visitors: 1,
+      scroll_100: 3,
+    },
+    activeFrom: '2026-06-20',
+  });
+
+  assert.match(sql, /INSERT INTO growth_reward_versions/);
+  assert.match(sql, /'v0.1'/);
+  assert.match(sql, /unique_visitors/);
+  assert.match(sql, /ON CONFLICT\(version\) DO UPDATE SET/);
 });

@@ -31,6 +31,14 @@ Use the user's path if provided. Otherwise use the newest blog directory with on
 
 Read `src/content/strategy/x.md` and `config/aaron-studio.json` if present.
 
+Also run or inspect this when available:
+
+```bash
+node scripts/blog-growth.mjs next-brief-context --limit 5
+```
+
+Use recent blog-growth review lessons when drafting or revising. The draft must state the article hypothesis, target audience, expected distribution channel, success metric, and which recent lesson it is applying or intentionally rejecting. If there are no reviews yet, use top-performing content as directional context and mark the lesson source as sparse.
+
 ### Aaron's default writing style
 
 Use this style unless the user explicitly asks for a diary, literary essay, soft reflection, or another named voice:
@@ -106,6 +114,7 @@ Score the article against this checklist:
 - **Nuance**: Does it include a counterargument, risk, or limitation?
 - **Frame**: Does it give readers a reusable operating lens, checklist, or decision model?
 - **Ending**: Does the ending advance the thesis instead of adding a generic CTA?
+- **Reinforcement**: Does it explicitly use or reject a recent blog-growth lesson, and is the success metric measurable in a 24h or 7d postmortem?
 
 If any item is weak, revise the article once before continuing. The revision should add substance, not just polish wording. Prefer adding mechanism, examples, counterarguments, and sharper framing over adding more adjectives.
 

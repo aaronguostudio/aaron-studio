@@ -156,6 +156,24 @@ node scripts/blog-growth.mjs ingest-after-publish \
   --slugs <slug>
 ```
 
+After publish, continue the reinforcement loop:
+
+1. Run `node scripts/blog-growth.mjs ingest-after-publish`.
+2. Create or update `distribution.json` when LinkedIn, YouTube, newsletter, or X artifacts exist. Include `slug`, plus a `posts` array with channel, channel post id or URL, title, language, post type, CTA type, and publish date.
+3. Run `node scripts/blog-growth.mjs register-channel-posts --file <distribution.json>` when the manifest exists.
+4. Plan the 24h and 7d postmortem commands:
+
+```bash
+node scripts/blog-growth.mjs postmortem --slug <slug> --window 24h
+node scripts/blog-growth.mjs postmortem --slug <slug> --window 7d
+```
+
+Use dry-run first if channel data is incomplete:
+
+```bash
+node scripts/blog-growth.mjs postmortem --slug <slug> --window 7d --dry-run
+```
+
 ## Example
 
 **Input:** `src/content/blogs/2026-02-14/marriott-timeshare-las-vegas.md`

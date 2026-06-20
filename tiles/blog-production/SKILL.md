@@ -52,6 +52,18 @@ Read:
 - `src/content/strategy/x.md`
 - all files in the chosen post directory
 
+Before brainstorm, outline, or writing begins, run or inspect:
+
+```bash
+node scripts/blog-growth.mjs next-brief-context --limit 5
+```
+
+Use the result to name:
+- one pattern to reuse
+- one pattern to avoid
+- one measurement caveat
+- the current next experiment
+
 ### Aaron's default blog style
 
 Unless the user explicitly asks for a literary essay, diary, or soft reflection, keep the whole workflow aligned to Aaron's default public writing style:
@@ -106,6 +118,8 @@ Run these gates before moving downstream. Do not rely on the user to discover qu
 - a conclusion that sharpens the thesis rather than repeating it
 
 If the article fails any item, run a `blog-write` revision pass before continuing.
+
+**Reinforcement gate** — before accepting the article package, confirm the draft has a clear article hypothesis, target audience, expected distribution channel, success metric, and one recent blog-growth lesson it applies or intentionally rejects. If `next-brief-context` has no reviews yet, use the top-content list and state that the lesson source is still sparse.
 
 **Image quality gate** — before accepting images, confirm `blog-illustrate` loaded `.baoyu-skills/baoyu-article-illustrator/EXTEND.md` when present and used the baoyu image generator path. Covers and thumbnails need at least two candidates or a clear reason for only one. Reject generic glowing-AI imagery, unreadable text, cluttered diagrams, stock-photo vibes, and body images that do not add a distinct idea.
 

@@ -144,6 +144,16 @@ export function buildCommandPlan({ command, options = {}, env = {} }) {
     };
   }
 
+  if (command === 'seed-reward-version') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'turso',
+      version: options.version || 'v0.1',
+      hasTursoUrl: Boolean(env.TURSO_URL),
+      hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
+    };
+  }
+
   if (command === 'ingest-rybbit') {
     return {
       mode: options.dryRun ? 'dry-run' : 'live',
