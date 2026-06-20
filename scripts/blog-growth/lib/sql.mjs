@@ -33,6 +33,16 @@ export function buildTursoPipeline(statements) {
   };
 }
 
+export function rowsFromTursoResult(result) {
+  const payload = result?.response?.result || result?.result || result;
+  const columns = (payload?.cols || []).map((column) => column.name);
+  const rows = Array.isArray(payload?.rows) ? payload.rows : [];
+
+  return rows.map((row) => Object.fromEntries(
+    row.map((cell, index) => [columns[index], cell?.value ?? null]),
+  ));
+}
+
 export async function executeTursoPipeline({
   databaseUrl,
   authToken,

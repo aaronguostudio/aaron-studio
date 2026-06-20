@@ -109,3 +109,29 @@ test('buildCommandPlan supports channel post registration summaries', () => {
     hasTursoAuthToken: true,
   });
 });
+
+test('buildCommandPlan supports YouTube ingestion summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'ingest-youtube',
+    options: {
+      start: '2026-06-15',
+      end: '2026-06-22',
+      slugs: 'fable-5-managing-ai-autonomy',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'youtube',
+    hasStart: true,
+    hasEnd: true,
+    hasSlugs: true,
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});

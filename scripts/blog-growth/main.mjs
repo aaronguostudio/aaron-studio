@@ -1,17 +1,25 @@
+import { execFile } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { promisify } from 'node:util';
 import { parseArgs, buildCommandPlan } from './cli.mjs';
 import { loadEnvFile, mergeEnv, redactEnv } from './lib/env.mjs';
 import { scanBlogMarkdown } from './lib/content.mjs';
 import {
   buildChannelPostUpsertStatements,
   buildContentIngestStatements,
+  buildMetricSnapshotUpsertStatement,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
   selectContentItems,
 } from './lib/ingest.mjs';
-import { executeTursoPipeline, splitSqlStatements } from './lib/sql.mjs';
+import { executeTursoPipeline, rowsFromTursoResult, splitSqlStatements } from './lib/sql.mjs';
 import { buildUtmUrl } from './lib/utm.mjs';
+import {
+  buildYoutubeAnalyticsUrl,
+  fetchYoutubeJson,
+  normalizeYoutubeAnalyticsRows,
+} from './lib/youtube.mjs';
 import {
   buildRybbitEventsUrl,
   buildRybbitUrl,
@@ -25,6 +33,7 @@ const RYBBIT_EVENT_METRIC_NAMES = {
   scroll_100: 'scroll_100',
   outbound_click: 'outbound_clicks',
 };
+const execFileAsync = promisify(execFile);
 
 export async function main(argv, { cwd = process.cwd(), stdout = console.log } = {}) {
   const parsed = parseArgs(argv);
@@ -206,6 +215,89 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       file,
       slug: distribution.slug || null,
       postCount: posts.length,
+      statementCount: statements.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'ingest-youtube') {
+    const start = requireOption(parsed.options, 'start');
+    const end = requireOption(parsed.options, 'end');
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const selectedSlugs = new Set(parseList(parsed.options.slugs));
+    const query = [
+      'SELECT cp.id, cp.channel_post_id, cp.content_item_id, ci.slug',
+      'FROM growth_channel_posts cp',
+      'JOIN growth_content_items ci ON ci.id = cp.content_item_id',
+      "WHERE cp.channel = 'youtube'",
+      'ORDER BY ci.published_at DESC, cp.published_at DESC',
+    ].join('\n');
+    const queryResult = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [query],
+    });
+    const rows = rowsFromTursoResult(queryResult.results?.[0] || {});
+    const posts = rows.filter((row) => (
+      row.channel_post_id
+      && (selectedSlugs.size === 0 || selectedSlugs.has(row.slug))
+    ));
+    const selectedVideos = posts.map((row) => ({
+      slug: row.slug,
+      channelPostRowId: Number(row.id),
+      videoId: row.channel_post_id,
+    }));
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        start,
+        end,
+        registeredYoutubePostCount: rows.length,
+        selectedVideoCount: selectedVideos.length,
+        selectedVideos: selectedVideos.slice(0, Number(parsed.options.limit || 10)),
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const metricRows = [];
+    const accessToken = selectedVideos.length > 0 ? await getYoutubeAccessToken(cwd) : null;
+
+    for (const video of selectedVideos) {
+      const report = await fetchYoutubeJson({
+        accessToken,
+        url: buildYoutubeAnalyticsUrl({
+          start,
+          end,
+          videoId: video.videoId,
+        }),
+      });
+      metricRows.push(...normalizeYoutubeAnalyticsRows({
+        channelPostId: video.channelPostRowId,
+        videoId: video.videoId,
+        report,
+      }));
+    }
+
+    const statements = metricRows.map((row) => buildMetricSnapshotUpsertStatement(row));
+    const result = statements.length > 0
+      ? await executeTursoPipeline({
+        databaseUrl: env.TURSO_URL,
+        authToken: env.TURSO_AUTH_TOKEN,
+        statements,
+      })
+      : { results: [] };
+
+    stdout(JSON.stringify({
+      ...plan,
+      start,
+      end,
+      registeredYoutubePostCount: rows.length,
+      selectedVideoCount: selectedVideos.length,
+      metricRowCount: metricRows.length,
       statementCount: statements.length,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
@@ -474,6 +566,21 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, Math.max(0, Number(ms || 0))));
 }
 
+async function getYoutubeAccessToken(cwd) {
+  const authModulePath = join(cwd, 'tiles/aaron-yt-pipeline/scripts/youtube-auth.ts');
+  const script = [
+    `const auth = await import(${JSON.stringify(authModulePath)});`,
+    'console.log(await auth.getAccessToken());',
+  ].join('\n');
+  const { stdout } = await execFileAsync('npx', ['-y', 'bun', '-e', script], {
+    cwd,
+    maxBuffer: 1024 * 1024,
+  });
+  const token = stdout.trim().split('\n').at(-1);
+  if (!token) throw new Error('Could not read YouTube access token from auth helper');
+  return token;
+}
+
 function summarizeContentDates(items) {
   const unparseable = items
     .filter((item) => item.rawDate && !item.date)
@@ -519,6 +626,14 @@ function requireOption(options, key) {
   return options[key];
 }
 
+function parseList(value) {
+  if (!value) return [];
+  return String(value)
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
 function helpText() {
   return `Usage:
   node scripts/blog-growth.mjs scan-content --dry-run
@@ -530,6 +645,8 @@ function helpText() {
   node scripts/blog-growth.mjs normalize-content-dates
   node scripts/blog-growth.mjs register-channel-posts --file distribution.json --dry-run
   node scripts/blog-growth.mjs register-channel-posts --file distribution.json
+  node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a --dry-run
+  node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { executeTursoPipeline, normalizeTursoHttpUrl, splitSqlStatements } from '../lib/sql.mjs';
+import { executeTursoPipeline, normalizeTursoHttpUrl, rowsFromTursoResult, splitSqlStatements } from '../lib/sql.mjs';
 
 test('splitSqlStatements drops comments and empty chunks', () => {
   const statements = splitSqlStatements(`
@@ -47,4 +47,17 @@ test('normalizeTursoHttpUrl converts libsql URLs to HTTPS pipeline hosts', () =>
     normalizeTursoHttpUrl('https://demo.aws-us-east-1.turso.io').toString(),
     'https://demo.aws-us-east-1.turso.io/',
   );
+});
+
+test('rowsFromTursoResult maps Turso typed cells to plain objects', () => {
+  const rows = rowsFromTursoResult({
+    response: {
+      result: {
+        cols: [{ name: 'id' }, { name: 'slug' }],
+        rows: [[{ value: '12' }, { value: 'fable' }]],
+      },
+    },
+  });
+
+  assert.deepEqual(rows, [{ id: '12', slug: 'fable' }]);
 });
