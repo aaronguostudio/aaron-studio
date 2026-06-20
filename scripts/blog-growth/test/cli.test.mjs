@@ -69,3 +69,21 @@ test('buildCommandPlan supports post-publish ingestion summaries', () => {
     includesRybbit: true,
   });
 });
+
+test('buildCommandPlan supports content date normalization summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'normalize-content-dates',
+    options: { dryRun: true },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'content_repo',
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});

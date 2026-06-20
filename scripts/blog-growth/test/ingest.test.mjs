@@ -55,6 +55,7 @@ test('buildContentIngestStatements upserts content and maps canonical paths', ()
   assert.match(statements[0], /INSERT INTO growth_content_items/);
   assert.match(statements[0], /ON CONFLICT\(slug\) DO UPDATE SET/);
   assert.match(statements[0], /'fable-zh'/);
+  assert.match(statements[0], /'2026-06-15'/);
   assert.equal(statements[0].includes("'https://www.aaronguo.com/zh/blogs/fable'"), true);
   assert.match(statements[0], /'published'/);
   assert.match(statements[0], /'ai-native-systems'/);

@@ -38,7 +38,10 @@ export function buildContentIngestStatements(items, { siteUrl = 'https://www.aar
 }
 
 export function buildContentItemUpsertStatement(item, { siteUrl = 'https://www.aaronguo.com' } = {}) {
-  const rawMetadata = item.rawMetadata || {};
+  const rawMetadata = {
+    ...(item.rawMetadata || {}),
+    ...(item.rawDate !== undefined ? { rawDate: item.rawDate } : {}),
+  };
   const topics = Array.isArray(rawMetadata.topics) ? rawMetadata.topics : [];
   const status = normalizeStatus(rawMetadata.status || rawMetadata.published);
   const identitySlug = contentIdentitySlug(item);

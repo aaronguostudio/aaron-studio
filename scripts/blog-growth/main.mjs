@@ -127,6 +127,43 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     return;
   }
 
+  if (parsed.command === 'normalize-content-dates') {
+    const root = parsed.options.root || defaultBlogContentRoot(cwd, config);
+    const items = scanBlogMarkdown(root);
+    const statements = buildContentIngestStatements(items, {
+      siteUrl: parsed.options.siteUrl || env.BLOG_SITE_URL || 'https://www.aaronguo.com',
+    });
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const summary = summarizeContentDates(items);
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        root,
+        ...summary,
+        statementCount: statements.length,
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements,
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      root,
+      ...summary,
+      statementCount: statements.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
   if (parsed.command === 'ingest-rybbit') {
     const root = parsed.options.root || defaultBlogContentRoot(cwd, config);
     const limit = parsed.options.all ? undefined : Number(parsed.options.limit || 10);
@@ -388,6 +425,23 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, Math.max(0, Number(ms || 0))));
 }
 
+function summarizeContentDates(items) {
+  const unparseable = items
+    .filter((item) => item.rawDate && !item.date)
+    .map((item) => ({
+      slug: contentIdentitySlug(item),
+      rawDate: item.rawDate,
+      sourcePath: item.filePath,
+    }));
+
+  return {
+    total: items.length,
+    normalized: items.filter((item) => item.date).length,
+    nullDates: items.filter((item) => !item.rawDate).length,
+    unparseable,
+  };
+}
+
 export function loadStudioConfig(cwd) {
   const configPath = join(cwd, 'config/aaron-studio.json');
   if (!existsSync(configPath)) return {};
@@ -423,6 +477,8 @@ function helpText() {
   node scripts/blog-growth.mjs init-schema --dry-run
   node scripts/blog-growth.mjs ingest-content --dry-run
   node scripts/blog-growth.mjs ingest-content
+  node scripts/blog-growth.mjs normalize-content-dates --dry-run
+  node scripts/blog-growth.mjs normalize-content-dates
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a

@@ -82,6 +82,15 @@ export function buildCommandPlan({ command, options = {}, env = {} }) {
     };
   }
 
+  if (command === 'normalize-content-dates') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'content_repo',
+      hasTursoUrl: Boolean(env.TURSO_URL),
+      hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
+    };
+  }
+
   if (command === 'ingest-rybbit') {
     return {
       mode: options.dryRun ? 'dry-run' : 'live',

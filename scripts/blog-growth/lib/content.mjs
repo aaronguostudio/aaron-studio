@@ -6,12 +6,14 @@ export function parseBlogMarkdown({ filePath, text }) {
   const meta = parseFrontmatter(frontmatter);
   const slug = meta.slug || slugFromFilePath(filePath);
   const language = inferLanguage(filePath);
+  const rawDate = meta.date || null;
 
   return {
     filePath,
     slug,
     title: meta.title || slug,
-    date: meta.date || null,
+    date: normalizeBlogDate(rawDate),
+    rawDate,
     tags: Array.isArray(meta.tags) ? meta.tags : [],
     youtube: meta.youtube || null,
     language,
@@ -93,6 +95,27 @@ function parseFrontmatterValue(raw) {
   return stripQuotes(raw);
 }
 
+export function normalizeBlogDate(raw) {
+  if (!raw) return null;
+  const value = String(raw).trim();
+  if (!value) return null;
+
+  const iso = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (iso) return isValidDateParts(iso[1], iso[2], iso[3]) ? value : null;
+
+  const dayMonthYear = value.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\s+(\d{4})$/i);
+  if (dayMonthYear) {
+    return formatDateParts(dayMonthYear[3], monthNumber(dayMonthYear[2]), dayMonthYear[1]);
+  }
+
+  const monthDayYear = value.match(/^([A-Za-z]{3,9})\s+(\d{1,2})(?:st|nd|rd|th)?,\s*(\d{4})$/i);
+  if (monthDayYear) {
+    return formatDateParts(monthDayYear[3], monthNumber(monthDayYear[1]), monthDayYear[2]);
+  }
+
+  return null;
+}
+
 function stripQuotes(value) {
   if (
     (value.startsWith('"') && value.endsWith('"')) ||
@@ -102,6 +125,43 @@ function stripQuotes(value) {
   }
 
   return value;
+}
+
+function formatDateParts(year, month, day) {
+  if (!month) return null;
+  const paddedMonth = String(month).padStart(2, '0');
+  const paddedDay = String(Number(day)).padStart(2, '0');
+  return isValidDateParts(year, paddedMonth, paddedDay) ? `${year}-${paddedMonth}-${paddedDay}` : null;
+}
+
+function isValidDateParts(year, month, day) {
+  const y = Number(year);
+  const m = Number(month);
+  const d = Number(day);
+  if (!Number.isInteger(y) || !Number.isInteger(m) || !Number.isInteger(d)) return false;
+  const date = new Date(Date.UTC(y, m - 1, d));
+  return date.getUTCFullYear() === y &&
+    date.getUTCMonth() === m - 1 &&
+    date.getUTCDate() === d;
+}
+
+function monthNumber(month) {
+  const key = String(month || '').slice(0, 3).toLowerCase();
+  const months = {
+    jan: 1,
+    feb: 2,
+    mar: 3,
+    apr: 4,
+    may: 5,
+    jun: 6,
+    jul: 7,
+    aug: 8,
+    sep: 9,
+    oct: 10,
+    nov: 11,
+    dec: 12,
+  };
+  return months[key] || null;
 }
 
 function slugFromFilePath(filePath) {
