@@ -66,6 +66,10 @@ CREATE UNIQUE INDEX IF NOT EXISTS idx_growth_channel_posts_external_id
 CREATE INDEX IF NOT EXISTS idx_growth_channel_posts_content
   ON growth_channel_posts(content_item_id, channel, published_at);
 
+CREATE UNIQUE INDEX IF NOT EXISTS idx_growth_channel_posts_content_url
+  ON growth_channel_posts(content_item_id, channel, channel_url)
+  WHERE channel_post_id IS NULL AND channel_url IS NOT NULL;
+
 CREATE TABLE IF NOT EXISTS growth_metric_catalog (
   metric_name TEXT PRIMARY KEY,
   source TEXT NOT NULL,

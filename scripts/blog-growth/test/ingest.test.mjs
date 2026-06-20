@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  buildChannelPostUpsertStatements,
   buildContentIngestStatements,
   buildMetricSnapshotUpsertStatement,
   buildRybbitPathMetricStatements,
@@ -63,6 +64,32 @@ test('buildContentIngestStatements upserts content and maps canonical paths', ()
   assert.equal(statements[0].includes('\'["workflow"]\''), true);
   assert.match(statements[1], /INSERT INTO growth_web_path_map/);
   assert.match(statements[1], /SELECT id FROM growth_content_items WHERE slug = 'fable-zh'/);
+});
+
+test('buildChannelPostUpsertStatements upserts registered distribution posts', () => {
+  const statements = buildChannelPostUpsertStatements({
+    slug: 'fable-5-managing-ai-autonomy',
+    posts: [
+      {
+        channel: 'youtube',
+        channel_post_id: 'jPHR-73HJa8',
+        channel_url: 'https://www.youtube.com/watch?v=jPHR-73HJa8',
+        title: 'Fable 5 Changed the Unit of AI Work',
+        language: 'en',
+        post_type: 'video',
+        cta_type: 'blog_click',
+        published_at: '2026-06-15',
+      },
+    ],
+  });
+
+  assert.equal(statements.length, 1);
+  assert.match(statements[0], /INSERT INTO growth_channel_posts/);
+  assert.match(statements[0], /SELECT id FROM growth_content_items WHERE slug = 'fable-5-managing-ai-autonomy'/);
+  assert.match(statements[0], /'youtube'/);
+  assert.match(statements[0], /'jPHR-73HJa8'/);
+  assert.match(statements[0], /ON CONFLICT\(channel, channel_post_id\)/);
+  assert.match(statements[0], /WHERE channel_post_id IS NOT NULL/);
 });
 
 test('buildRybbitPathMetricStatements includes overview and custom event metrics', () => {

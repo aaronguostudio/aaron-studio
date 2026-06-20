@@ -1,4 +1,5 @@
 import { sqlLiteral } from './sql.mjs';
+import { normalizeBlogDate } from './content.mjs';
 
 export function contentIdentitySlug(item) {
   if (!item?.slug) throw new Error('content item slug is required');
@@ -92,6 +93,53 @@ export function buildWebPathMapUpsertStatement(item) {
     'ON CONFLICT(path) DO UPDATE SET',
     '  content_item_id = excluded.content_item_id,',
     '  locale = excluded.locale',
+  ].join('\n');
+}
+
+export function buildChannelPostUpsertStatements(distribution) {
+  if (!distribution?.slug) throw new Error('distribution slug is required');
+  if (!Array.isArray(distribution.posts)) throw new Error('distribution posts must be an array');
+
+  return distribution.posts.map((post) => buildChannelPostUpsertStatement(distribution.slug, post));
+}
+
+export function buildChannelPostUpsertStatement(slug, post) {
+  const channel = normalizeChannel(post.channel);
+  const rawPublishedAt = post.published_at || post.publishedAt || null;
+  const publishedAt = normalizeBlogDate(rawPublishedAt) || rawPublishedAt;
+  const row = {
+    content_item_id: `(SELECT id FROM growth_content_items WHERE slug = ${sqlLiteral(slug)})`,
+    channel,
+    channel_post_id: post.channel_post_id || post.channelPostId || null,
+    channel_url: post.channel_url || post.channelUrl || null,
+    title: post.title || null,
+    language: normalizeLanguage(post.language || 'en'),
+    post_type: post.post_type || post.postType || null,
+    hook_text: post.hook_text || post.hookText || null,
+    cta_type: post.cta_type || post.ctaType || null,
+    published_at: publishedAt || null,
+    raw_metadata_json: JSON.stringify(post),
+  };
+
+  const columns = Object.keys(row);
+  const values = columns.map((column) => {
+    if (column === 'content_item_id') return row[column];
+    return sqlLiteral(row[column]);
+  });
+  const updateColumns = columns.filter((column) => !['content_item_id', 'channel', 'channel_post_id'].includes(column));
+  const assignments = [
+    ...updateColumns.map((column) => `${column} = excluded.${column}`),
+    'updated_at = datetime(\'now\')',
+  ];
+  const conflict = row.channel_post_id
+    ? 'ON CONFLICT(channel, channel_post_id) WHERE channel_post_id IS NOT NULL DO UPDATE SET'
+    : 'ON CONFLICT(content_item_id, channel, channel_url) WHERE channel_post_id IS NULL AND channel_url IS NOT NULL DO UPDATE SET';
+
+  return [
+    `INSERT INTO growth_channel_posts (${columns.join(', ')})`,
+    `VALUES (${values.join(', ')})`,
+    conflict,
+    assignments.map((assignment) => `  ${assignment}`).join(',\n'),
   ].join('\n');
 }
 
@@ -197,6 +245,11 @@ function contentIdForPathSql(path) {
 function normalizeLanguage(language) {
   if (language === 'en' || language === 'zh') return language;
   return 'other';
+}
+
+function normalizeChannel(channel) {
+  if (['blog', 'linkedin', 'youtube', 'x', 'newsletter', 'rss', 'other'].includes(channel)) return channel;
+  throw new Error(`unsupported channel: ${channel || ''}`);
 }
 
 function normalizeLocale(language) {

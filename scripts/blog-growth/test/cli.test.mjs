@@ -87,3 +87,25 @@ test('buildCommandPlan supports content date normalization summaries', () => {
     hasTursoAuthToken: true,
   });
 });
+
+test('buildCommandPlan supports channel post registration summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'register-channel-posts',
+    options: {
+      file: 'distribution.json',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'manual',
+    hasFile: true,
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});

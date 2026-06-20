@@ -3,7 +3,13 @@ import { join } from 'node:path';
 import { parseArgs, buildCommandPlan } from './cli.mjs';
 import { loadEnvFile, mergeEnv, redactEnv } from './lib/env.mjs';
 import { scanBlogMarkdown } from './lib/content.mjs';
-import { buildContentIngestStatements, buildRybbitPathMetricStatements, contentIdentitySlug, selectContentItems } from './lib/ingest.mjs';
+import {
+  buildChannelPostUpsertStatements,
+  buildContentIngestStatements,
+  buildRybbitPathMetricStatements,
+  contentIdentitySlug,
+  selectContentItems,
+} from './lib/ingest.mjs';
 import { executeTursoPipeline, splitSqlStatements } from './lib/sql.mjs';
 import { buildUtmUrl } from './lib/utm.mjs';
 import {
@@ -157,6 +163,49 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       ...plan,
       root,
       ...summary,
+      statementCount: statements.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'register-channel-posts') {
+    const file = requireOption(parsed.options, 'file');
+    const distribution = JSON.parse(readFileSync(file, 'utf8'));
+    const statements = buildChannelPostUpsertStatements(distribution);
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const posts = Array.isArray(distribution.posts) ? distribution.posts : [];
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        file,
+        slug: distribution.slug || null,
+        postCount: posts.length,
+        statementCount: statements.length,
+        sample: posts.slice(0, Number(parsed.options.limit || 5)).map((post) => ({
+          channel: post.channel,
+          channelPostId: post.channel_post_id || post.channelPostId || null,
+          channelUrl: post.channel_url || post.channelUrl || null,
+          publishedAt: post.published_at || post.publishedAt || null,
+        })),
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements,
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      file,
+      slug: distribution.slug || null,
+      postCount: posts.length,
       statementCount: statements.length,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
@@ -479,6 +528,8 @@ function helpText() {
   node scripts/blog-growth.mjs ingest-content
   node scripts/blog-growth.mjs normalize-content-dates --dry-run
   node scripts/blog-growth.mjs normalize-content-dates
+  node scripts/blog-growth.mjs register-channel-posts --file distribution.json --dry-run
+  node scripts/blog-growth.mjs register-channel-posts --file distribution.json
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a
