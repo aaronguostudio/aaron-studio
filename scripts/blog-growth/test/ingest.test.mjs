@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {
   buildChannelPostUpsertStatements,
   buildContentIngestStatements,
+  buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
@@ -114,6 +115,32 @@ test('buildRybbitPathMetricStatements includes overview and custom event metrics
   assert.match(sql, /'scroll_75'/);
   assert.match(sql, /'scroll_100'/);
   assert.match(sql, /'outbound_clicks'/);
+});
+
+test('buildLinkedInMetricStatements maps CSV row values to canonical metrics', () => {
+  const statements = buildLinkedInMetricStatements({
+    channelPostId: 22,
+    channelPostExternalId: 'urn:li:share:123',
+    row: {
+      metric_date: '2026-06-15',
+      impressions: '100',
+      members_reached: '80',
+      reactions: '5',
+      comments: '',
+      reshares: '1',
+      link_clicks: '3',
+      followers_gained: '0',
+    },
+  });
+
+  const sql = statements.join('\n');
+  assert.match(sql, /'linkedin_impressions'/);
+  assert.match(sql, /'linkedin_members_reached'/);
+  assert.match(sql, /'linkedin_reactions'/);
+  assert.doesNotMatch(sql, /'linkedin_comments'/);
+  assert.match(sql, /'linkedin_reshares'/);
+  assert.match(sql, /'linkedin_link_clicks'/);
+  assert.match(sql, /'linkedin_followers_gained'/);
 });
 
 test('buildMetricSnapshotUpsertStatement uses content path subquery and upserts metric value', () => {

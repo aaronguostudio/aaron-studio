@@ -135,3 +135,25 @@ test('buildCommandPlan supports YouTube ingestion summaries', () => {
     hasTursoAuthToken: true,
   });
 });
+
+test('buildCommandPlan supports LinkedIn CSV import summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'import-linkedin',
+    options: {
+      file: 'linkedin.csv',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'linkedin',
+    hasFile: true,
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});

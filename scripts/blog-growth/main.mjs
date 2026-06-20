@@ -4,10 +4,12 @@ import { join } from 'node:path';
 import { promisify } from 'node:util';
 import { parseArgs, buildCommandPlan } from './cli.mjs';
 import { loadEnvFile, mergeEnv, redactEnv } from './lib/env.mjs';
+import { parseCsvText } from './lib/csv.mjs';
 import { scanBlogMarkdown } from './lib/content.mjs';
 import {
   buildChannelPostUpsertStatements,
   buildContentIngestStatements,
+  buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
   buildRybbitPathMetricStatements,
   contentIdentitySlug,
@@ -298,6 +300,91 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       registeredYoutubePostCount: rows.length,
       selectedVideoCount: selectedVideos.length,
       metricRowCount: metricRows.length,
+      statementCount: statements.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'import-linkedin') {
+    const file = requireOption(parsed.options, 'file');
+    const inputRows = parseCsvText(readFileSync(file, 'utf8'));
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const query = [
+      'SELECT cp.id, cp.channel_post_id, ci.slug',
+      'FROM growth_channel_posts cp',
+      'JOIN growth_content_items ci ON ci.id = cp.content_item_id',
+      "WHERE cp.channel = 'linkedin'",
+      'ORDER BY ci.published_at DESC, cp.published_at DESC',
+    ].join('\n');
+    const queryResult = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [query],
+    });
+    const registeredPosts = rowsFromTursoResult(queryResult.results?.[0] || {});
+    const postsByExternalId = new Map(registeredPosts.map((post) => [post.channel_post_id, post]));
+    const matchedRows = [];
+    const unmatchedRows = [];
+
+    inputRows.forEach((row, index) => {
+      const channelPostExternalId = row.channel_post_id || row.channelPostId || '';
+      const post = postsByExternalId.get(channelPostExternalId);
+      if (post) {
+        matchedRows.push({ row, post });
+      } else {
+        unmatchedRows.push({
+          row: index + 1,
+          slug: row.slug || null,
+          channelPostId: channelPostExternalId || null,
+          reason: channelPostExternalId ? 'channel_post_not_registered' : 'missing_channel_post_id',
+        });
+      }
+    });
+
+    const statements = matchedRows.flatMap(({ row, post }) => buildLinkedInMetricStatements({
+      channelPostId: post.id,
+      channelPostExternalId: post.channel_post_id,
+      row,
+    }));
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        file,
+        rowCount: inputRows.length,
+        registeredLinkedinPostCount: registeredPosts.length,
+        matchedCount: matchedRows.length,
+        unmatchedRows,
+        statementCount: statements.length,
+        sample: matchedRows.slice(0, Number(parsed.options.limit || 5)).map(({ row, post }) => ({
+          slug: post.slug,
+          channelPostId: post.channel_post_id,
+          metricDate: row.metric_date,
+        })),
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    if (unmatchedRows.length > 0) {
+      throw new Error(`Unmatched LinkedIn CSV rows: ${JSON.stringify(unmatchedRows)}`);
+    }
+
+    const result = statements.length > 0
+      ? await executeTursoPipeline({
+        databaseUrl: env.TURSO_URL,
+        authToken: env.TURSO_AUTH_TOKEN,
+        statements,
+      })
+      : { results: [] };
+
+    stdout(JSON.stringify({
+      ...plan,
+      file,
+      rowCount: inputRows.length,
+      matchedCount: matchedRows.length,
       statementCount: statements.length,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
@@ -647,6 +734,8 @@ function helpText() {
   node scripts/blog-growth.mjs register-channel-posts --file distribution.json
   node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a --dry-run
   node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a
+  node scripts/blog-growth.mjs import-linkedin --file linkedin.csv --dry-run
+  node scripts/blog-growth.mjs import-linkedin --file linkedin.csv
   node scripts/blog-growth.mjs ingest-after-publish --dry-run
   node scripts/blog-growth.mjs ingest-after-publish
   node scripts/blog-growth.mjs ingest-after-publish --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a

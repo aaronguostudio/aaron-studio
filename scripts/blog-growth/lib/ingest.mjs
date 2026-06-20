@@ -1,6 +1,16 @@
 import { sqlLiteral } from './sql.mjs';
 import { normalizeBlogDate } from './content.mjs';
 
+const LINKEDIN_METRIC_MAP = {
+  impressions: ['linkedin_impressions', 'count'],
+  members_reached: ['linkedin_members_reached', 'count'],
+  reactions: ['linkedin_reactions', 'count'],
+  comments: ['linkedin_comments', 'count'],
+  reshares: ['linkedin_reshares', 'count'],
+  link_clicks: ['linkedin_link_clicks', 'count'],
+  followers_gained: ['linkedin_followers_gained', 'count'],
+};
+
 export function contentIdentitySlug(item) {
   if (!item?.slug) throw new Error('content item slug is required');
   return item.language && item.language !== 'en' ? `${item.slug}-${item.language}` : item.slug;
@@ -198,6 +208,25 @@ export function buildRybbitPathMetricStatements({ path, raw, eventRows = [] }) {
   }
 
   return statements;
+}
+
+export function buildLinkedInMetricStatements({ channelPostId, channelPostExternalId, row }) {
+  if (!row?.metric_date) throw new Error('LinkedIn metric row metric_date is required');
+
+  return Object.entries(LINKEDIN_METRIC_MAP)
+    .filter(([sourceName]) => row[sourceName] !== undefined && row[sourceName] !== null && row[sourceName] !== '')
+    .map(([sourceName, [metricName, unit]]) => buildMetricSnapshotUpsertStatement({
+      metric_date: row.metric_date,
+      source: 'linkedin',
+      entity_type: 'channel_post',
+      entity_id: Number(channelPostId),
+      external_entity_id: channelPostExternalId,
+      metric_name: metricName,
+      metric_value: Number(String(row[sourceName]).replaceAll(',', '')),
+      unit,
+      dimension_json: JSON.stringify({ channelPostId: channelPostExternalId }),
+      raw_json: JSON.stringify(row),
+    }));
 }
 
 export function buildMetricSnapshotUpsertStatement(row) {
