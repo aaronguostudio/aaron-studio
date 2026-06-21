@@ -1,0 +1,1 @@
+Video-only illustration for slide 10, "The Durable Edge". Show a person standing on a higher balcony, watching many small background processes below while holding a simple compass. The image should communicate operating at a higher level while keeping human judgment central. No text.

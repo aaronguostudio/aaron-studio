@@ -1,0 +1,1 @@
+Video-only illustration for slide 06, "Self-Enhancement Layer". Show a new outline page growing from the garden like a plant, with a faint glass pane reflecting the next content plan. Emphasize learning and iteration, not analytics. Flat editorial, no readable text.

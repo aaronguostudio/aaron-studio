@@ -1,0 +1,203 @@
+{
+  "jobs": 2,
+  "tasks": [
+    {
+      "id": "s01-02-tool-single-action",
+      "promptFiles": ["style-v2.md", "prompts/s01-02-tool-single-action.md"],
+      "image": "s01-02-tool-single-action.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s01-03-os-routes-intent",
+      "promptFiles": ["style-v2.md", "prompts/s01-03-os-routes-intent.md"],
+      "image": "s01-03-os-routes-intent.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s02-02-repo-artifacts",
+      "promptFiles": ["style-v2.md", "prompts/s02-02-repo-artifacts.md"],
+      "image": "s02-02-repo-artifacts.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s02-03-review-gate",
+      "promptFiles": ["style-v2.md", "prompts/s02-03-review-gate.md"],
+      "image": "s02-03-review-gate.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s03-02-content-pipeline",
+      "promptFiles": ["style-v2.md", "prompts/s03-02-content-pipeline.md"],
+      "image": "s03-02-content-pipeline.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s03-03-daily-admin",
+      "promptFiles": ["style-v2.md", "prompts/s03-03-daily-admin.md"],
+      "image": "s03-03-daily-admin.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s04-02-intent-to-skill",
+      "promptFiles": ["style-v2.md", "prompts/s04-02-intent-to-skill.md"],
+      "image": "s04-02-intent-to-skill.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s04-03-memory-compounds",
+      "promptFiles": ["style-v2.md", "prompts/s04-03-memory-compounds.md"],
+      "image": "s04-03-memory-compounds.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s05-02-notion-task-shells",
+      "promptFiles": ["style-v2.md", "prompts/s05-02-notion-task-shells.md"],
+      "image": "s05-02-notion-task-shells.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s05-03-distributed-memory",
+      "promptFiles": ["style-v2.md", "prompts/s05-03-distributed-memory.md"],
+      "image": "s05-03-distributed-memory.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s06-02-metrics-rain",
+      "promptFiles": ["style-v2.md", "prompts/s06-02-metrics-rain.md"],
+      "image": "s06-02-metrics-rain.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s06-03-next-post-grown",
+      "promptFiles": ["style-v2.md", "prompts/s06-03-next-post-grown.md"],
+      "image": "s06-03-next-post-grown.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s07-02-seedance-first-frames",
+      "promptFiles": ["style-v2.md", "prompts/s07-02-seedance-first-frames.md"],
+      "image": "s07-02-seedance-first-frames.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s07-03-critique-loop",
+      "promptFiles": ["style-v2.md", "prompts/s07-03-critique-loop.md"],
+      "image": "s07-03-critique-loop.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s08-01-operator-judgment",
+      "promptFiles": ["style-v2.md", "prompts/s08-01-operator-judgment.md"],
+      "image": "s08-01-operator-judgment.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s08-02-permission-checkpoints",
+      "promptFiles": ["style-v2.md", "prompts/s08-02-permission-checkpoints.md"],
+      "image": "s08-02-permission-checkpoints.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s08-03-taste-rejects-polished-wrong",
+      "promptFiles": ["style-v2.md", "prompts/s08-03-taste-rejects-polished-wrong.md"],
+      "image": "s08-03-taste-rejects-polished-wrong.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s09-02-exercise-reading-social",
+      "promptFiles": ["style-v2.md", "prompts/s09-02-exercise-reading-social.md"],
+      "image": "s09-02-exercise-reading-social.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s09-03-work-background-life-foreground",
+      "promptFiles": ["style-v2.md", "prompts/s09-03-work-background-life-foreground.md"],
+      "image": "s09-03-work-background-life-foreground.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s10-01-human-agent-os",
+      "promptFiles": ["style-v2.md", "prompts/s10-01-human-agent-os.md"],
+      "image": "s10-01-human-agent-os.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s10-02-unsolved-problems",
+      "promptFiles": ["style-v2.md", "prompts/s10-02-unsolved-problems.md"],
+      "image": "s10-02-unsolved-problems.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s10-03-higher-level-operator",
+      "promptFiles": ["style-v2.md", "prompts/s10-03-higher-level-operator.md"],
+      "image": "s10-03-higher-level-operator.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

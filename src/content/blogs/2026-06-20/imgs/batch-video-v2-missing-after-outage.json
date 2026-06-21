@@ -1,0 +1,32 @@
+{
+  "jobs": 2,
+  "tasks": [
+    {
+      "id": "s10-01-human-agent-os",
+      "promptFiles": ["style-v2.md", "prompts/s10-01-human-agent-os.md"],
+      "image": "s10-01-human-agent-os.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s10-02-unsolved-problems",
+      "promptFiles": ["style-v2.md", "prompts/s10-02-unsolved-problems.md"],
+      "image": "s10-02-unsolved-problems.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s10-03-higher-level-operator",
+      "promptFiles": ["style-v2.md", "prompts/s10-03-higher-level-operator.md"],
+      "image": "s10-03-higher-level-operator.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

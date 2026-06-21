@@ -1,0 +1,93 @@
+{
+  "tasks": [
+    {
+      "id": "illustration-01",
+      "promptFiles": [
+        "prompts/01-comparison-tool-vs-os.md"
+      ],
+      "image": "01-comparison-tool-vs-os.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-02",
+      "promptFiles": [
+        "prompts/02-map-coding-run.md"
+      ],
+      "image": "02-map-coding-run.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-03",
+      "promptFiles": [
+        "prompts/03-map-work-escaped-ide.md"
+      ],
+      "image": "03-map-work-escaped-ide.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-04",
+      "promptFiles": [
+        "prompts/04-architecture-distributed-memory.md"
+      ],
+      "image": "04-architecture-distributed-memory.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-05",
+      "promptFiles": [
+        "prompts/05-framework-intent-skill-run-review-memory.md"
+      ],
+      "image": "05-framework-intent-skill-run-review-memory.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-06",
+      "promptFiles": [
+        "prompts/06-feedback-blog-growth-loop.md"
+      ],
+      "image": "06-feedback-blog-growth-loop.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-07",
+      "promptFiles": [
+        "prompts/07-contact-sheet-video-lab.md"
+      ],
+      "image": "07-contact-sheet-video-lab.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    },
+    {
+      "id": "illustration-08",
+      "promptFiles": [
+        "prompts/08-scene-life-bigger.md"
+      ],
+      "image": "08-scene-life-bigger.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k",
+      "model": "gpt-image-2"
+    }
+  ],
+  "jobs": 2
+}

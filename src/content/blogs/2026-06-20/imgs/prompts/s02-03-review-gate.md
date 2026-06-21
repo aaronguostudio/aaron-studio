@@ -1,0 +1,1 @@
+Video-only illustration for slide 02, "Coding Became A Run". Show an agent work thread passing through a green review gate before reaching a warm finished artifact. A laptop sits quiet in the background; the human is represented by a small hand holding a pen near the gate. Calm, flat editorial, no dashboard.

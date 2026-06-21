@@ -1,0 +1,93 @@
+{
+  "tasks": [
+    {
+      "id": "v2-thumbnail-a",
+      "promptFiles": [
+        "prompts/00-cover-thumbnail-v2.md"
+      ],
+      "image": "00-cover-thumbnail-v2-candidate-a.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-thumbnail-b",
+      "promptFiles": [
+        "prompts/00-cover-thumbnail-v2.md"
+      ],
+      "image": "00-cover-thumbnail-v2-candidate-b.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-02",
+      "promptFiles": [
+        "prompts/02-scene-coding-run-continues-v2.md"
+      ],
+      "image": "02-scene-coding-run-continues-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-03",
+      "promptFiles": [
+        "prompts/03-metaphor-work-leaves-desk-v2.md"
+      ],
+      "image": "03-metaphor-work-leaves-desk-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-05",
+      "promptFiles": [
+        "prompts/05-clean-framework-intent-skill-run-review-memory-v2.md"
+      ],
+      "image": "05-clean-framework-intent-skill-run-review-memory-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-06",
+      "promptFiles": [
+        "prompts/06-metaphor-feedback-garden-v2.md"
+      ],
+      "image": "06-metaphor-feedback-garden-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-07",
+      "promptFiles": [
+        "prompts/07-scene-creative-lab-memory-v2.md"
+      ],
+      "image": "07-scene-creative-lab-memory-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-08",
+      "promptFiles": [
+        "prompts/08-closing-life-foreground-v2.md"
+      ],
+      "image": "08-closing-life-foreground-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ],
+  "jobs": 2
+}

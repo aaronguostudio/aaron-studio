@@ -1,0 +1,1 @@
+Video-only anchor illustration for slide 08, "Judgment Moves Up". Show a human operator standing above a calm work surface, looking at three large levers labeled only by abstract shapes: direction, standard, and stop. AI threads work below the surface. No readable text.

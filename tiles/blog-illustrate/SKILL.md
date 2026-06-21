@@ -26,6 +26,7 @@ src/content/blogs/YYYY-MM-DD/imgs/
 ├── 01-{type}-{slug}.png
 ├── 02-{type}-{slug}.png
 ├── ...
+├── style.md                  ← post-specific visual style brief
 ├── outline.md
 └── web/                      ← WebP compressed versions
     ├── 00-cover.webp
@@ -43,23 +44,26 @@ Blog markdown references `imgs/web/*.webp`. Originals in `imgs/*.png` kept for a
 Images are not decoration. Each accepted image must either clarify an argument, make an abstract mechanism visible, or create a strong first impression.
 
 Default quality bar:
+- Before the outline, define a post-specific style brief from `src/content/strategy/visual-language.md`. Do not skip directly from article analysis to image prompts.
 - Use the baoyu image generation path; do not silently substitute a generic image tool unless baoyu is unavailable and reported.
 - Cover and thumbnail need at least two candidates, then choose the strongest one after visual inspection.
-- Body illustrations need distinct jobs. Avoid repeating the same "AI dashboard / glowing network / control room" metaphor across the article.
-- Reject images with unreadable text, cluttered diagrams, awkward hands/faces, generic stock-photo energy, or no clear connection to the surrounding section.
-- Prefer concrete metaphors, labeled frameworks, comparison diagrams, operating maps, and scenes tied to Aaron's lived example.
+- Body illustrations need distinct jobs, but most should be narrative/metaphor images rather than diagrams.
+- Use a 70 / 20 / 10 density budget for normal blog posts: roughly 70% narrative or metaphor, 20% light conceptual diagrams, 10% dense mechanism diagrams.
+- Reject images with unreadable text, cluttered diagrams, awkward hands/faces, generic stock-photo energy, dense chart walls, glowing AI dashboards, sci-fi HUDs, or no clear connection to the surrounding section.
+- Prefer human-scale scenes, symbolic metaphors, light editorial diagrams, and moments tied to Aaron's lived example.
 
 ## Workflow
 
 ```
 - [ ] Step 1: Load preferences & detect article
 - [ ] Step 2: Analyze content
-- [ ] Step 3: Confirm settings
-- [ ] Step 4: Generate outline (always includes 00-cover)
-- [ ] Step 5: Generate all images (cover → thumbnail → content)
-- [ ] Step 6: Visual quality review
-- [ ] Step 7: Compress to WebP
-- [ ] Step 8: Insert into blog & finalize
+- [ ] Step 3: Define visual style brief
+- [ ] Step 4: Confirm settings
+- [ ] Step 5: Generate outline from style brief (always includes 00-cover)
+- [ ] Step 6: Generate all images (cover → thumbnail → content)
+- [ ] Step 7: Visual quality review
+- [ ] Step 8: Compress to WebP
+- [ ] Step 9: Insert into blog & finalize
 ```
 
 ---
@@ -98,6 +102,13 @@ mkdir -p src/content/blogs/YYYY-MM-DD/imgs/web
 mkdir -p src/content/blogs/YYYY-MM-DD/imgs/prompts
 ```
 
+**Load Aaron visual language:**
+```bash
+test -f src/content/strategy/visual-language.md && cat src/content/strategy/visual-language.md
+```
+
+This file is mandatory for Aaron Studio blog work. If it is missing, create or restore it before generating image prompts.
+
 ---
 
 ### Step 2: Analyze Content
@@ -125,21 +136,44 @@ Rules for splitting:
 
 ---
 
-### Step 3: Confirm Settings
+### Step 3: Define Visual Style Brief
 
-Use ONE `AskUserQuestion` (max 4 questions):
+Before generating an outline, create `src/content/blogs/YYYY-MM-DD/imgs/style.md`.
+
+Use `src/content/strategy/visual-language.md` as the base language, then define the post-specific style:
+- base visual language;
+- post-specific style name;
+- article thesis;
+- intended reader emotion;
+- real-world anchor;
+- data layer meaning;
+- palette;
+- recurring motifs;
+- image set rules;
+- anti-patterns;
+- quality checklist.
+
+For Aaron's default blog visuals, use `Soft Glass Narrative` as the base language unless the user explicitly asks for another brand direction. It should feel modern, artistic, human-scale, and easy to read: flat editorial composition first, symbolic metaphor second, restrained liquid-glass material third. Avoid letting every body image become an infographic, dashboard, or dense system map.
+
+The image outline must reference `imgs/style.md` and every prompt must preserve that style brief.
+
+### Step 4: Confirm Settings
+
+Ask only when the article or user request does not already determine these settings. In Codex, ask concise plain-text questions; in Claude Code, a single `AskUserQuestion` is acceptable.
 
 | Q | Question | Options |
 |---|----------|---------|
 | Q1 | Illustration type | Mixed (Recommended), infographic, scene, flowchart, comparison, framework |
-| Q2 | Visual style | notion (Recommended), vector-illustration, editorial, sci-fi, hand-drawn |
+| Q2 | Visual style | Soft Glass Narrative (Recommended), editorial, vector-illustration, cinematic, hand-drawn |
 | Q3 | Density (content illustrations, excluding cover) | Balanced 3-5 (Recommended), Minimal 1-2, Rich 6+ |
 
 Cover is always generated regardless of density setting.
 
+If the user has already specified a custom style direction, use it directly and record the decision in `imgs/style.md` instead of asking.
+
 ---
 
-### Step 4: Generate Outline
+### Step 5: Generate Outline
 
 Save to `src/content/blogs/YYYY-MM-DD/imgs/outline.md`.
 
@@ -152,6 +186,7 @@ density: [minimal/balanced/rich]
 style: [style name]
 image_count: [N+1 total including cover]
 article: [article path]
+style_brief: [style brief path]
 ---
 
 ## Cover Image
@@ -175,7 +210,7 @@ article: [article path]
 
 ---
 
-### Step 5: Generate Images
+### Step 6: Generate Images
 
 Generate using `baoyu-image-gen` skill (via Bash):
 
@@ -238,7 +273,7 @@ Rules for thumbnail generation:
 - The text layout is the ONLY difference from `00-cover`
 
 **Content illustration guidelines:**
-- Follow the style chosen in Step 3
+- Follow `imgs/style.md`
 - Stick to the outline's Visual Content description
 - Keep consistent visual language across all content illustrations
 - Each prompt must name the local section, the idea being visualized, and why the image helps.
@@ -250,9 +285,10 @@ Retry once on failure. Report any that fail after retry.
 
 ---
 
-### Step 6: Visual Quality Review
+### Step 7: Visual Quality Review
 
 Before compressing or inserting images into the article:
+- Confirm every accepted image follows `imgs/style.md`.
 - Inspect `00-cover.png`, `00-cover-thumbnail.png`, and every body illustration.
 - Confirm the thumbnail text is readable at mobile size.
 - Confirm no accepted image has broken text, distorted people, irrelevant UI, or a vague generic AI scene.
@@ -263,7 +299,7 @@ For 4+ images, create or view a contact sheet when practical so repeated composi
 
 ---
 
-### Step 7: Compress to WebP
+### Step 8: Compress to WebP
 
 After ALL images are generated, run:
 
@@ -285,7 +321,7 @@ Show compression results (original KB → compressed KB, savings %).
 
 ---
 
-### Step 8: Insert into Blog & Finalize
+### Step 9: Insert into Blog & Finalize
 
 **Add cover to frontmatter and top of article:**
 ```markdown

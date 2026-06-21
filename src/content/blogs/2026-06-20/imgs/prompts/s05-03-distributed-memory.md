@@ -1,0 +1,1 @@
+Video-only illustration for slide 05, "Notion Dispatch Surface". Show distributed memory as four quiet places connected by soft cyan threads: a repo book, a specs binder, a metric garden stone, and a media folder. Wide negative space, no dashboard, no labels.

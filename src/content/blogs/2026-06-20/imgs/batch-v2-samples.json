@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "id": "v2-illustration-01",
+      "promptFiles": [
+        "prompts/01-metaphor-tool-to-environment-v2.md"
+      ],
+      "image": "01-metaphor-tool-to-environment-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v2-illustration-04",
+      "promptFiles": [
+        "prompts/04-light-architecture-dispatch-memory-v2.md"
+      ],
+      "image": "04-light-architecture-dispatch-memory-v2.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ],
+  "jobs": 2
+}

@@ -1,0 +1,23 @@
+{
+  "jobs": 2,
+  "tasks": [
+    {
+      "id": "08-closing-life-foreground-v2-three-person-a",
+      "promptFiles": ["style-v2.md", "prompts/08-closing-life-foreground-v2.md"],
+      "image": "08-closing-life-foreground-v2-three-person-candidate-a.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "s09-03-work-background-life-foreground-three-person-a",
+      "promptFiles": ["style-v2.md", "prompts/s09-03-work-background-life-foreground.md"],
+      "image": "s09-03-work-background-life-foreground-three-person-candidate-a.png",
+      "provider": "openai",
+      "model": "gpt-image-2",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

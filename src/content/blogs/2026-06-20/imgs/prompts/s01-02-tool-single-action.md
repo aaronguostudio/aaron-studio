@@ -1,0 +1,1 @@
+Video-only illustration for slide 01, "From Tool To Environment". Show one small hand tool on a clean table performing a single isolated action, surrounded by generous empty space. Make the image feel limited and local, not powerful. Flat editorial composition, restrained liquid-glass accent, no text.

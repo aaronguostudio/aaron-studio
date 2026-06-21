@@ -1,0 +1,1 @@
+Video-only illustration for slide 08, "Judgment Moves Up". Show a path of delegated work passing through permission checkpoints: a key, a pause gate, an evidence tray, and a rollback arrow symbol. Keep it symbolic, spacious, and flat. No labels or UI.

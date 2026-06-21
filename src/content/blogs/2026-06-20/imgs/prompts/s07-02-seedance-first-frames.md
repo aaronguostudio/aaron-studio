@@ -1,0 +1,1 @@
+Video-only illustration for slide 07, "Video Learns Too". Show three large vertical storyboard first frames leaning against a studio wall, each with a different abstract video world. A soft cyan thread connects them to a small generation lamp. No small thumbnails, no UI panels.

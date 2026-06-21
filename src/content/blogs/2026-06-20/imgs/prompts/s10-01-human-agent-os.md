@@ -1,0 +1,1 @@
+Video-only anchor illustration for slide 10, "The Durable Edge". Show a human and several quiet agent threads co-designing a personal operating system as a soft glass map on a table. Keep the human central, agents abstract, and the map simple. No readable labels.

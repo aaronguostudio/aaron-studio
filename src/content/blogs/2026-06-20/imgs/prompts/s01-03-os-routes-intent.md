@@ -1,0 +1,1 @@
+Video-only illustration for slide 01, "From Tool To Environment". Show a calm room where a warm amber intent line enters a translucent soft-glass layer and quietly routes into three simple outputs: a paper artifact, a small code card, and a calendar card. One green checkpoint near the end. Spacious, clear, no labels.

@@ -1,0 +1,1 @@
+Video-only illustration for slide 06, "Self-Enhancement Layer". Show soft metric particles falling like rain over a small desk garden made of article pages. The particles are abstract dots and tiny bars, not charts. Warm, calm, lightly magical, no text.

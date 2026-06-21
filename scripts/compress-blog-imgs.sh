@@ -28,13 +28,22 @@ fi
 
 mkdir -p "$WEB_DIR"
 
+if command -v cwebp >/dev/null 2>&1; then
+  COMPRESSOR="cwebp"
+elif command -v ffmpeg >/dev/null 2>&1 && ffmpeg -hide_banner -encoders 2>/dev/null | grep -q "libwebp"; then
+  COMPRESSOR="ffmpeg"
+else
+  echo "No WebP encoder found. Install webp (cwebp) or an ffmpeg build with libwebp support."
+  exit 1
+fi
+
 PNG_COUNT=$(find "$IMGS_DIR" -maxdepth 1 -name "*.png" | wc -l | tr -d ' ')
 if [ "$PNG_COUNT" -eq 0 ]; then
   echo "No PNG files found in ${IMGS_DIR}"
   exit 0
 fi
 
-echo "Compressing ${PNG_COUNT} PNG(s) → WebP (quality: ${QUALITY})"
+echo "Compressing ${PNG_COUNT} PNG(s) → WebP (quality: ${QUALITY}, compressor: ${COMPRESSOR})"
 echo ""
 
 TOTAL_ORIG=0
@@ -43,7 +52,11 @@ TOTAL_COMP=0
 for f in "$IMGS_DIR"/*.png; do
   name=$(basename "$f" .png)
   out="${WEB_DIR}/${name}.webp"
-  cwebp -q "$QUALITY" "$f" -o "$out" 2>/dev/null
+  if [ "$COMPRESSOR" = "cwebp" ]; then
+    cwebp -q "$QUALITY" "$f" -o "$out" 2>/dev/null
+  else
+    ffmpeg -y -i "$f" -vcodec libwebp -quality "$QUALITY" -compression_level 6 "$out" >/dev/null 2>&1
+  fi
   orig=$(stat -f%z "$f")
   compressed=$(stat -f%z "$out")
   saved=$(( (orig - compressed) * 100 / orig ))

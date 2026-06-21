@@ -1,0 +1,1 @@
+Video-only illustration for slide 05, "Notion Dispatch Surface". Show thin translucent task cards floating at the top like shells, each with abstract marks instead of text. Under them, only hints of deeper work layers are visible. Clean, low-density, no real Notion UI.

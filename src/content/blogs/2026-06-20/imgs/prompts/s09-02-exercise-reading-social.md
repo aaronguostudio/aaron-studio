@@ -1,0 +1,1 @@
+Video-only illustration for slide 09, "Life Gets Bigger". Show three warm life scenes as large simple windows: someone exercising, someone reading, and two people talking at a table. A faint cyan work thread runs quietly behind the windows. Life is foreground, AI is background.

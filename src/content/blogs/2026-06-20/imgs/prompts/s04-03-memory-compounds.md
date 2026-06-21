@@ -1,0 +1,1 @@
+Video-only illustration for slide 04, "The Operating Loop". Show small artifacts from previous runs stacking into a quiet memory library: prompt cards, checklists, metrics stones, and critique notes arranged into a growing spiral. Soft glass shelf, warm light, no readable words.

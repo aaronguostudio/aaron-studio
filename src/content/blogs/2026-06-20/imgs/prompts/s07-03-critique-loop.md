@@ -1,0 +1,1 @@
+Video-only illustration for slide 07, "Video Learns Too". Show a generated video frame receiving a gentle green check mark and a coral revision mark, then feeding a new blank frame through a soft glass loop. Clear critique-and-next-variation metaphor, no text.

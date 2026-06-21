@@ -1,0 +1,1 @@
+Video-only illustration for slide 03, "Work Escaped The IDE". Show everyday work objects floating lightly beyond a desk: a calendar card, inbox tray, analytics seedling, image frame, and small checklist card. One cyan thread connects them. Keep objects large and sparse, no tiny UI.

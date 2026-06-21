@@ -1,0 +1,1 @@
+Video-only illustration for slide 08, "Judgment Moves Up". Show two polished artifacts on a table: one shiny but cracked and one simpler but aligned with a green review light. A human hand chooses the simpler correct one. The image is about taste rejecting polished wrong output. No text.

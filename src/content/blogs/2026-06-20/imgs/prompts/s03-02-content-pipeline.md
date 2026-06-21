@@ -1,0 +1,1 @@
+Video-only illustration for slide 03, "Work Escaped The IDE". Show a rough idea note becoming a plan sheet, then an outline page, then two article pages, then a small video card. Use a light amber path and soft glass panes. This is a content workflow metaphor, not a chart. No text.

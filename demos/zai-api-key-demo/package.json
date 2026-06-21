@@ -1,0 +1,14 @@
+{
+  "name": "zai-api-key-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Minimal Z.ai / Zhipu API key verification demo.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node src/check-key.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

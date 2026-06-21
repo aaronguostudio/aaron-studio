@@ -1,0 +1,1 @@
+Video-only illustration for slide 04, "The Operating Loop". Show a warm amber spark entering a folded instruction card, then becoming a neat cyan work thread. The image should visualize intent being turned into a reusable skill. Minimal, spacious, flat editorial, no text.

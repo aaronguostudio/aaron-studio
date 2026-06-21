@@ -1,0 +1,1 @@
+Video-only illustration for slide 10, "The Durable Edge". Show many unsolved problems as distant warm-white mountain peaks or locked doors across a landscape, with a small human-agent path beginning toward them. Optimistic but grounded, no sci-fi city, no text.

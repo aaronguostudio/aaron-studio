@@ -1,0 +1,1 @@
+Video-only illustration for slide 02, "Coding Became A Run". Show software artifacts as physical objects on a desk: a repo book, simplified file cards, a test tube/check card, a diff sheet, a branch ribbon, and a log notebook. Keep it symbolic and readable, not a real UI. No readable text.
