@@ -16,7 +16,9 @@ Draft the article and companion distribution files from a writing plan. This ski
 | X post | `src/content/blogs/YYYY-MM-DD/x-post.md` | Native long-form X post |
 | X standalone | `src/content/blogs/YYYY-MM-DD/x-standalone-tweet.md` | Follow-up single insight |
 | Newsletter teaser | `src/content/blogs/YYYY-MM-DD/newsletter-teaser.md` | Beehiiv / LinkedIn teaser |
+| Video brief | `src/content/blogs/YYYY-MM-DD/video-brief.md` | Video-native angle, story spine, retention plan |
 | YouTube script | `src/content/blogs/YYYY-MM-DD/youtube-script.md` | Slide-based script for `aaron-video-gen` |
+| YouTube script audit | `src/content/blogs/YYYY-MM-DD/youtube-script-audit.md` | Scriptwriting gate result before rendering |
 | YouTube metadata | `src/content/blogs/YYYY-MM-DD/youtube-metadata.md` | Title, description, chapters, tags |
 
 ## Workflow
@@ -30,6 +32,8 @@ Use the user's path if provided. Otherwise use the newest blog directory with on
 3. `idea.md`
 
 Read `src/content/strategy/x.md` and `config/aaron-studio.json` if present.
+
+When producing video assets, also read `src/content/strategy/youtube-video-language.md`. If it is missing, create or restore it before writing `video-brief.md` or `youtube-script.md`.
 
 Also run or inspect this when available:
 
@@ -72,6 +76,7 @@ Default package:
 - X post
 - X standalone tweet
 - newsletter teaser
+- video brief
 - YouTube script
 - YouTube metadata
 
@@ -157,12 +162,41 @@ Rules:
   `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel linkedin --campaign <slug> --content brief`
 - Explain the practical insight in a professional operator voice.
 
+`video-brief.md`:
+- Must be created before `youtube-script.md`.
+- Use `src/content/strategy/youtube-video-language.md`.
+- Define the video angle in this form:
+  `This video is not "the blog in narration form." It is about <specific viewer-facing tension>, told through <specific story spine>, so the viewer leaves with <specific operating insight>.`
+- Include the expanded scriptwriting schema:
+  - target audience: specific viewer and what they already believe;
+  - desired emotion: one primary feeling the video should transfer;
+  - core promise: the value the viewer gets;
+  - title/thumbnail expectation: what the viewer thinks they clicked for;
+  - high-shock facts or lived moments: 5-10 bullets with score or rationale;
+  - hook type: one of the playbook hook types, with target/transformation/stakes;
+  - story structure: one selected structure and why;
+  - retention beat map: timestamp/beat/image idea every 20-35 seconds;
+  - audit status: story flow, comprehension, speed-to-value.
+- Also include: cold open, story spine, what the video adds beyond the article, banned phrases, and ending.
+- The story spine should be 5-8 video beats, not a copy of article headings.
+- The brief must name at least 3 places where the video adds something beyond the article: behind-the-scenes detail, sharper example, objection, demo moment, or story beat.
+
 `youtube-script.md`:
 - Use the `aaron-video-gen` slide format, not the `yt-script-writer` scene format.
+- Write from `video-brief.md`, not directly from the blog outline.
 - Include `## [HOOK]`.
 - Use meaningful slide titles.
 - Reference likely images in `imgs/` when present; otherwise use planned filenames.
 - Video scripts may use short lines, but should still lead with the business insight rather than reflective narration.
+- The script must adapt the article into a video-native story: cold open, promise, context, model, proof, objection, payoff.
+- Avoid repeated filler and obvious TTS crutches: "right", "you know", "what's interesting is" repeated across slides, "basically", "let's dive in", "in today's video", and repeated sentence frames.
+- Add retention beats every 20-35 seconds: contrast, reveal, concrete example, objection, callback, or visual reset.
+- If the script can be read as a lightly shortened version of the blog, revise before handing off to `aaron-video-gen`.
+
+`youtube-script-audit.md`:
+- Must be generated before rendering.
+- Must pass story flow, comprehension, and speed-to-value gates.
+- If it fails, revise `video-brief.md` or `youtube-script.md`; do not rely on the TTS rewrite to fix it.
 
 `youtube-metadata.md`:
 - Title options.
@@ -179,6 +213,9 @@ Before finishing:
 - English and Chinese slugs match.
 - Every generated file is under the same date directory.
 - `youtube-script.md` has at least one `## [SLIDE:` section.
+- `video-brief.md` exists when `youtube-script.md` exists.
+- `youtube-script-audit.md` exists when `youtube-script.md` exists and reports a passing gate before rendering.
+- `youtube-script.md` follows the video brief and is not a section-by-section blog recap.
 - `x-post.md` does not put the blog link in the main post.
 - LinkedIn, newsletter, and YouTube metadata links use UTM-tagged URLs once the final blog URL is known.
 - Main articles match Aaron's default style unless the user explicitly requested a different voice.

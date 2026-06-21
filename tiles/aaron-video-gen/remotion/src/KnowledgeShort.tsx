@@ -503,7 +503,6 @@ const ShortCaption: React.FC<{
                 fontWeight: 600,
                 lineHeight: 1.4,
                 textShadow: "0 2px 6px rgba(0,0,0,0.5)",
-                transition: "color 0.1s ease",
               }}
             >
               {wordData.word}

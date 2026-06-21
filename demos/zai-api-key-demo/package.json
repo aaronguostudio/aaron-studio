@@ -6,7 +6,8 @@
   "description": "Minimal Z.ai / Zhipu API key verification demo.",
   "scripts": {
     "test": "node --test",
-    "check": "node src/check-key.mjs"
+    "check": "node src/check-key.mjs",
+    "ask": "node src/ask-cli.mjs"
   },
   "engines": {
     "node": ">=20"

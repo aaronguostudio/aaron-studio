@@ -21,6 +21,8 @@ Write a complete video script with scene-by-scene AI video generation prompts, n
 
 Read the approved idea from `ideas.md` for context: title, hook, angle, target length, style, and research references.
 
+If running inside Aaron Studio, read `src/content/strategy/youtube-video-language.md` before scripting. Use it for the video angle, spoken voice, retention beats, banned filler phrases, and the quality gate.
+
 Check for preferences:
 
 ```bash
@@ -39,6 +41,14 @@ Use `WebSearch` and `WebFetch` to gather **3-5 reference sources** on the select
 - Quotes or statistics that add authority
 
 ### Step 3: Plan the Scene Structure
+
+Before choosing scenes, define the video-native angle:
+
+```text
+This video is about <specific viewer-facing tension>, told through <specific story spine>, so the viewer leaves with <specific operating insight>.
+```
+
+Do not simply convert an article outline into scenes. The video needs its own cold open, promise, story spine, retention beats, and payoff.
 
 Before writing, plan the overall structure based on the video style:
 
@@ -122,6 +132,9 @@ This will be converted to speech via TTS.]
 - Match narration length to scene duration (~150 words per minute)
 - Scene with 8s duration = ~20 words of narration
 - Include natural pauses as paragraph breaks
+- Avoid repeated filler: "right", "you know", "basically", "let's dive in", "in today's video", repeated "what's interesting is", and repeated sentence frames
+- Add a retention beat every 20-35 seconds: contrast, reveal, example, objection, callback, or visual reset
+- Each scene should either advance tension, clarify the model, add proof, or land payoff. Cut scenes that only restate the same idea.
 
 **Production Notes section** at the end:
 
@@ -152,6 +165,7 @@ Script Summary:
 - Total narration: ~[X] words (~[Y] minutes)
 - Video clips needed: [N] (at [duration] each)
 - Estimated generation cost: ~$[X] (based on [provider] pricing)
+- Adaptation check: [why this is a video-native story, not a blog read-through]
 ```
 
 Use `AskUserQuestion`:

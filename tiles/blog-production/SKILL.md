@@ -37,7 +37,9 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `linkedin-brief.md` | LinkedIn-native brief when requested | blog-write |
 | `imgs/outline.md` | illustration plan | blog-illustrate |
 | `imgs/web/00-cover.webp` | blog cover | blog-illustrate |
+| `video-brief.md` | video-native angle, story spine, retention plan | blog-write |
 | `youtube-script.md` | slide video script | blog-write |
+| `youtube-script-audit.md` | scriptwriting gate result | blog-write / aaron-video-gen |
 | `video.mp4` | generated YouTube video | aaron-video-gen |
 | `youtube-metadata.md` | YouTube title/description/tags | blog-write / aaron-video-gen |
 
@@ -88,6 +90,10 @@ Use the first matching missing artifact:
 | article exists but fails depth gate | use `blog-write` revision pass |
 | no `imgs/web/00-cover.webp` | use `blog-illustrate` |
 | images exist but fail image quality gate | use `blog-illustrate` regeneration pass |
+| `youtube-script.md` exists but no `video-brief.md` | use `blog-write` video adaptation pass |
+| `youtube-script.md` exists but no `youtube-script-audit.md` | use `aaron-video-gen --audit-only` or `blog-write` video adaptation pass |
+| `youtube-script-audit.md` fails | use `blog-write` video adaptation pass |
+| `youtube-script.md` fails video adaptation gate | use `blog-write` video adaptation pass |
 | `youtube-script.md` has too few image references | use `aaron-video-gen` visual enrichment workflow before rendering |
 | no `video.mp4` but `youtube-script.md` exists | use `aaron-video-gen` |
 | article ready but not copied to blog repo | use `publish-to-blog` |
@@ -123,6 +129,25 @@ If the article fails any item, run a `blog-write` revision pass before continuin
 
 **Image quality gate** — before accepting images, confirm `blog-illustrate` loaded `.baoyu-skills/baoyu-article-illustrator/EXTEND.md` when present and used the baoyu image generator path. Covers and thumbnails need at least two candidates or a clear reason for only one. Reject generic glowing-AI imagery, unreadable text, cluttered diagrams, stock-photo vibes, and body images that do not add a distinct idea.
 
+**Video adaptation gate** — before visual enrichment or rendering, confirm `video-brief.md` exists and the script is a video-native adaptation rather than a blog read-through. It passes only if it has:
+- a specific video promise;
+- a cold open that starts with story, tension, or surprise, not meta-introduction;
+- a story spine that does not simply mirror article headings;
+- at least 3 places where the video adds something beyond the article;
+- retention beats every 20-35 seconds;
+- no obvious repeated filler phrases such as "right", "you know", "basically", or repeated "what's interesting is";
+- an ending that lands a payoff instead of summarizing the article.
+
+If the script fails any item, run a `blog-write` video adaptation pass before continuing.
+
+**Video script audit gate** — before TTS or rendering, confirm `youtube-script-audit.md` exists and passes. If it is missing, run:
+
+```bash
+npx -y bun tiles/aaron-video-gen/scripts/main.ts --script <blog-dir>/youtube-script.md --audit-only
+```
+
+If the audit fails, run a `blog-write` video adaptation pass before visual enrichment or rendering.
+
 **Video richness gate** — before rendering, count unique image assets referenced by `youtube-script.md`. A video longer than 4 minutes should normally use 20-30 total images with `[IMAGE:]` switches about every 15-20 seconds. If it only reuses the blog illustrations, generate video-only `sNN-MM-*.png` images and update the script first.
 
 **Taxonomy gate** — before publishing, every public article must include exactly one `category` from:
@@ -156,6 +181,7 @@ Article: yes/no
 Chinese: yes/no
 Images: yes/no
 Video script: yes/no
+Video brief: yes/no
 Video file: yes/no
 Blog published: yes/no
 YouTube uploaded: yes/no

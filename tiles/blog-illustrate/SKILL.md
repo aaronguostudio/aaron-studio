@@ -51,6 +51,8 @@ Default quality bar:
 - Use a 70 / 20 / 10 density budget for normal blog posts: roughly 70% narrative or metaphor, 20% light conceptual diagrams, 10% dense mechanism diagrams.
 - Reject images with unreadable text, cluttered diagrams, awkward hands/faces, generic stock-photo energy, dense chart walls, glowing AI dashboards, sci-fi HUDs, or no clear connection to the surrounding section.
 - Prefer human-scale scenes, symbolic metaphors, light editorial diagrams, and moments tied to Aaron's lived example.
+- Treat the 2026-06-20 `ai-became-my-operating-system` set as the current default baseline for Aaron's visual brand: flat editorial composition, human-scale metaphor, restrained liquid-glass accents, and only occasional diagrams.
+- If a family scene is generated, match Aaron's known family shape by default: Aaron, his wife, and their daughter. Do not add a fourth person unless requested.
 
 ## Workflow
 
@@ -157,6 +159,12 @@ For Aaron's default blog visuals, use `Soft Glass Narrative` as the base languag
 
 The image outline must reference `imgs/style.md` and every prompt must preserve that style brief.
 
+The style brief must also name the successful baseline it is adapting from, usually:
+
+```text
+Baseline: Soft Glass Narrative, using the 2026-06-20 AI operating system image set as the reference for density, restraint, and human-scale metaphor.
+```
+
 ### Step 4: Confirm Settings
 
 Ask only when the article or user request does not already determine these settings. In Codex, ask concise plain-text questions; in Claude Code, a single `AskUserQuestion` is acceptable.
@@ -201,12 +209,21 @@ style_brief: [style brief path]
 **Position**: [section/paragraph]
 **Type**: [type]
 **Purpose**: [why]
+**One-sentence takeaway**: [what the image communicates]
+**Density class**: [narrative/metaphor | light diagram | dense mechanism]
 **Visual Content**: [what]
 **Filename**: 01-{type}-{concept}.png
 
 ## Illustration 2
 ...
 ```
+
+Before generating images, scan `imgs/outline.md` and confirm:
+- most body images are `narrative/metaphor`;
+- there are no more than 1-2 `light diagram` images in a normal post;
+- there is no more than one `dense mechanism` image;
+- no two images use the same metaphor unless intentional;
+- every image has a one-sentence takeaway that a reader can understand quickly.
 
 ---
 
@@ -278,6 +295,9 @@ Rules for thumbnail generation:
 - Keep consistent visual language across all content illustrations
 - Each prompt must name the local section, the idea being visualized, and why the image helps.
 - If a body image looks generic or repeats a previous metaphor, regenerate once with a more concrete prompt.
+- For narrative/metaphor images, prompt for mood and meaning rather than labels, charts, or dense UI.
+- For light diagrams, use large shapes and avoid fake readable text.
+- For dense mechanism diagrams, generate only when the surrounding section truly needs architecture or flow.
 
 Save each prompt to `src/content/blogs/YYYY-MM-DD/imgs/prompts/NN-{slug}.md` for future reference.
 
@@ -293,6 +313,8 @@ Before compressing or inserting images into the article:
 - Confirm the thumbnail text is readable at mobile size.
 - Confirm no accepted image has broken text, distorted people, irrelevant UI, or a vague generic AI scene.
 - Confirm each body image maps to a distinct section insight.
+- Confirm the full set has rhythm: mostly restful narrative/metaphor images, with diagrams used sparingly.
+- Confirm family/life images do not invent extra family members.
 - Regenerate any failed image before compression/final insertion.
 
 For 4+ images, create or view a contact sheet when practical so repeated compositions are obvious.

@@ -21,10 +21,54 @@ const SYSTEM_PROMPT = `You are rewriting narration for a YouTube video. Make it 
 
 Output ONLY the rewritten narration text. No preamble, no explanation.`;
 
+export interface RewriteContext {
+  corePromise?: string;
+  hookType?: string;
+  storyStructure?: string;
+  desiredEmotion?: string;
+  bannedPhrases?: string[];
+  retentionBeats?: string[];
+}
+
+export function buildRewriteUserPrompt(
+  text: string,
+  slideTitle: string,
+  previousOpenings: string[] = [],
+  context: RewriteContext = {}
+): string {
+  return [
+    `Slide title: "${slideTitle}"`,
+    context.corePromise ? `Core promise: ${context.corePromise}` : "",
+    context.hookType ? `Hook type: ${context.hookType}` : "",
+    context.storyStructure ? `Story structure: ${context.storyStructure}` : "",
+    context.desiredEmotion ? `Desired emotion: ${context.desiredEmotion}` : "",
+    context.retentionBeats?.length
+      ? `Retention beats to preserve:\n${context.retentionBeats
+          .map((beat) => `- ${beat}`)
+          .join("\n")}`
+      : "",
+    context.bannedPhrases?.length
+      ? `Banned phrases:\n${context.bannedPhrases
+          .map((phrase) => `- ${phrase}`)
+          .join("\n")}`
+      : "",
+    previousOpenings.length
+      ? `Previous openings and transitions to avoid:\n${previousOpenings
+          .map((opening) => `- "${opening}"`)
+          .join("\n")}`
+      : "",
+    "Narration to rewrite:",
+    text,
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+}
+
 export async function rewriteNarration(
   text: string,
   slideTitle: string,
-  previousOpenings?: string[]
+  previousOpenings: string[] = [],
+  context: RewriteContext = {}
 ): Promise<string> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
@@ -34,10 +78,12 @@ export async function rewriteNarration(
     return text;
   }
 
-  let userContent = `Slide title: "${slideTitle}"\n\nNarration to rewrite:\n\n${text}`;
-  if (previousOpenings && previousOpenings.length > 0) {
-    userContent += `\n\nIMPORTANT: Previous slides already used these openings and transitions (do NOT reuse any of them — find fresh, different ways to connect ideas):\n${previousOpenings.map((o) => `- "${o}"`).join("\n")}`;
-  }
+  const userContent = buildRewriteUserPrompt(
+    text,
+    slideTitle,
+    previousOpenings,
+    context
+  );
 
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -69,11 +115,36 @@ export async function rewriteNarration(
   return data.choices[0]?.message?.content?.trim() || text;
 }
 
+export function rememberRewriteOpenings(
+  rewrittenText: string,
+  previousOpenings: string[]
+): void {
+  const firstWords = rewrittenText.split(/\s+/).slice(0, 5).join(" ");
+  if (firstWords) previousOpenings.push(firstWords);
+
+  const transitionPatterns = [
+    /You know what['’]?s \w+/gi,
+    /Here['’]?s the (?:thing|deal|kicker|catch|twist)/gi,
+    /Let me tell you/gi,
+    /Picture this/gi,
+    /Think about (?:it|this|that)/gi,
+    /The (?:crazy|wild|interesting|funny) (?:thing|part) is/gi,
+    /But here['’]?s (?:the|what)/gi,
+  ];
+  for (const pattern of transitionPatterns) {
+    const matches = rewrittenText.match(pattern);
+    if (matches) {
+      for (const match of matches) previousOpenings.push(match);
+    }
+  }
+}
+
 export async function rewriteAllNarrations(
-  slides: Array<{ title: string; narration: string; index: number }>
+  slides: Array<{ title: string; narration: string; index: number }>,
+  context: RewriteContext = {},
+  previousOpenings: string[] = []
 ): Promise<Map<number, string>> {
   const rewritten = new Map<number, string>();
-  const previousOpenings: string[] = [];
 
   for (const slide of slides) {
     if (!slide.narration.trim()) {
@@ -85,30 +156,12 @@ export async function rewriteAllNarrations(
     const result = await rewriteNarration(
       slide.narration,
       slide.title,
-      previousOpenings
+      previousOpenings,
+      context
     );
     rewritten.set(slide.index, result);
 
-    // Track opening words and transition phrases to avoid repetition
-    const firstWords = result.split(/\s+/).slice(0, 5).join(" ");
-    previousOpenings.push(firstWords);
-
-    // Also extract common transition phrases used in this slide
-    const transitionPatterns = [
-      /You know what[''']s \w+/gi,
-      /Here[''']s the (?:thing|deal|kicker|catch|twist)/gi,
-      /Let me tell you/gi,
-      /Picture this/gi,
-      /Think about (?:it|this|that)/gi,
-      /The (?:crazy|wild|interesting|funny) (?:thing|part) is/gi,
-      /But here[''']s (?:the|what)/gi,
-    ];
-    for (const pattern of transitionPatterns) {
-      const matches = result.match(pattern);
-      if (matches) {
-        for (const m of matches) previousOpenings.push(m);
-      }
-    }
+    rememberRewriteOpenings(result, previousOpenings);
 
     const delta = result.length - slide.narration.length;
     const pct = ((delta / slide.narration.length) * 100).toFixed(0);

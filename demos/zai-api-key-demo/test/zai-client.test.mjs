@@ -11,6 +11,7 @@ import {
   parseDotEnv,
   redactSecret
 } from '../src/zai-client.mjs';
+import { parseAskArgs } from '../src/ask-cli.mjs';
 
 test('parseDotEnv reads unquoted and quoted ZAI_API_KEY values', () => {
   assert.deepEqual(
@@ -70,6 +71,65 @@ test('buildChatCompletionRequest matches the documented chat completions API', (
   assert.equal(body.model, 'glm-4.5-flash');
   assert.equal(body.stream, false);
   assert.equal(body.messages.at(-1).content, '只回复 pong');
+});
+
+test('buildChatCompletionRequest lets practical prompts request more tokens', () => {
+  const request = buildChatCompletionRequest({
+    apiKey: 'secret-key',
+    prompt: '写一个 flappy bird 游戏',
+    model: 'glm-5.2',
+    maxTokens: 4096
+  });
+
+  const body = JSON.parse(request.init.body);
+  assert.equal(body.model, 'glm-5.2');
+  assert.equal(body.max_tokens, 4096);
+  assert.equal(body.messages.at(-1).content, '写一个 flappy bird 游戏');
+});
+
+test('parseAskArgs reads model, max tokens, output path, and prompt text', () => {
+  assert.deepEqual(
+    parseAskArgs([
+      '--model',
+      'glm-5.2',
+      '--max-tokens',
+      '4096',
+      '--timeout-ms',
+      '120000',
+      '--output',
+      'output/flappy-bird.html',
+      '写一个 flappy bird 游戏'
+    ]),
+    {
+      model: 'glm-5.2',
+      maxTokens: 4096,
+      timeoutMs: 120000,
+      outputPath: 'output/flappy-bird.html',
+      prompt: '写一个 flappy bird 游戏'
+    }
+  );
+});
+
+test('checkZaiApiKey passes custom timeout to the HTTP transport', async () => {
+  const calls = [];
+  const httpPost = async (url, init) => {
+    calls.push({ url, init });
+    return new Response(
+      JSON.stringify({
+        request_id: 'req-timeout',
+        model: 'glm-5.2',
+        choices: [{ message: { content: 'ok' } }]
+      })
+    );
+  };
+
+  await checkZaiApiKey({
+    env: { ZAI_API_KEY: 'secret-key' },
+    httpPost,
+    timeoutMs: 120000
+  });
+
+  assert.equal(calls[0].init.timeoutMs, 120000);
 });
 
 test('checkZaiApiKey returns a small success summary without exposing the key', async () => {

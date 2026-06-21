@@ -72,8 +72,11 @@ export async function loadZaiApiKey({
 export function buildChatCompletionRequest({
   apiKey,
   prompt = '只回复 pong，用来验证 API key。',
+  systemPrompt = '你是一个有用的 AI 助手。请直接回答用户问题。',
   model = DEFAULT_MODEL,
-  baseUrl = DEFAULT_BASE_URL
+  baseUrl = DEFAULT_BASE_URL,
+  maxTokens = 64,
+  timeoutMs = 30_000
 }) {
   if (!normalizeSecret(apiKey)) {
     throw new Error('apiKey is required.');
@@ -85,7 +88,7 @@ export function buildChatCompletionRequest({
     messages: [
       {
         role: 'system',
-        content: '你是一个 API key 验证助手。请用最短方式回答。'
+        content: systemPrompt
       },
       {
         role: 'user',
@@ -95,7 +98,7 @@ export function buildChatCompletionRequest({
     stream: false,
     do_sample: false,
     thinking: { type: 'disabled' },
-    max_tokens: 64
+    max_tokens: maxTokens
   };
 
   return {
@@ -106,7 +109,8 @@ export function buildChatCompletionRequest({
         Authorization: `Bearer ${apiKey}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
+      timeoutMs
     }
   };
 }
@@ -118,7 +122,10 @@ export async function checkZaiApiKey({
   fetchImpl,
   model = env.ZAI_MODEL || DEFAULT_MODEL,
   baseUrl = env.ZAI_BASE_URL || DEFAULT_BASE_URL,
-  prompt
+  prompt,
+  systemPrompt,
+  maxTokens,
+  timeoutMs
 } = {}) {
   const sendRequest = httpPost ?? fetchImpl ?? postJson;
   if (typeof sendRequest !== 'function') {
@@ -130,7 +137,10 @@ export async function checkZaiApiKey({
     apiKey,
     model,
     baseUrl,
-    prompt
+    prompt,
+    systemPrompt,
+    maxTokens,
+    timeoutMs
   });
 
   const response = await sendRequest(request.url, request.init);
@@ -166,6 +176,7 @@ export async function checkZaiApiKey({
 export async function postJson(url, init) {
   return new Promise((resolve, reject) => {
     const body = init.body ?? '';
+    const timeoutMs = init.timeoutMs ?? 30_000;
     const headers = {
       ...init.headers,
       'Content-Length': Buffer.byteLength(body)
@@ -176,7 +187,7 @@ export async function postJson(url, init) {
       {
         method: init.method,
         headers,
-        timeout: 30_000
+        timeout: timeoutMs
       },
       response => {
         let responseText = '';
@@ -196,7 +207,7 @@ export async function postJson(url, init) {
     );
 
     request.on('timeout', () => {
-      request.destroy(new Error('Request timed out after 30000ms.'));
+      request.destroy(new Error(`Request timed out after ${timeoutMs}ms.`));
     });
     request.on('error', reject);
     request.end(body);

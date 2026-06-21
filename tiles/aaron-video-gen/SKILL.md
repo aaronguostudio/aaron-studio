@@ -10,12 +10,13 @@ Generate YouTube-ready MP4 videos from a script markdown file and slide images.
 ## Pipeline
 
 1. **Parse** the youtube-script.md — extract slide sections, detect `[IMAGE:]` markers for image switches
-2. **Rewrite narration** (optional) — LLM rewrites narration conversationally (pauses, humor, natural rhythm). Tracks used openings and transition phrases across slides to avoid repetition (e.g., "You know what's interesting" won't appear multiple times)
-3. **Generate narration** — TTS audio for each slide section (edge-tts, OpenAI, or ElevenLabs)
-4. **Compute image switch timings** — sync image changes to word-level timestamps from ElevenLabs
-5. **Build video** — Remotion renders slides with image switches, captions, transitions, and branding
-6. **Mix music** (optional) — layer background music with auto-ducking during narration
-7. **Output** — MP4 file (1920x1080 by default)
+2. **Adaptation preflight** — confirm the script is a video-native adaptation, not a blog read-through
+3. **Rewrite narration** (optional) — LLM rewrites narration conversationally (pauses, humor, natural rhythm). Tracks used openings and transition phrases across slides to avoid repetition (e.g., "You know what's interesting" won't appear multiple times)
+4. **Generate narration** — TTS audio for each slide section (edge-tts, OpenAI, or ElevenLabs)
+5. **Compute image switch timings** — sync image changes to word-level timestamps from ElevenLabs
+6. **Build video** — Remotion renders slides with image switches, captions, transitions, and branding
+7. **Mix music** (optional) — layer background music with auto-ducking during narration
+8. **Output** — MP4 file (1920x1080 by default)
 
 ## Recommended Workflow
 
@@ -84,6 +85,9 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts --script <path-to-youtube-script.md> [op
 | `--no-conversational` | Disable LLM narration rewrite | |
 | `--resolution` | Video resolution (legacy FFmpeg only) | `1920x1080` |
 | `--cover` | Path to cover/thumbnail image (shown at video start, also usable as YouTube thumbnail) | none |
+| `--audit-only` | Write `youtube-script-audit.md` and exit before image resolution, TTS, or rendering | `false` |
+| `--skip-script-audit` | Explicitly bypass the scriptwriting audit gate | `false` |
+| `--audit-output` | Custom path for the audit markdown report | `<script-dir>/youtube-script-audit.md` |
 | `--dry-run` | Print the command without executing | `false` |
 
 ## Script Format
@@ -297,7 +301,34 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 
 When generating a video from a blog post, follow these steps in order. Every step is required — skipping video illustrations or using generic titles will produce a low-quality video.
 
-### Step 1: Write youtube-script.md
+### Step 0: Load video language and brief
+
+Read `src/content/strategy/youtube-video-language.md` before judging or rendering a blog video. If it is missing, stop and restore/create it before proceeding.
+
+Use its "External Skill Candidates" section as a routing aid when the video needs outside patterns:
+- Script/read-through problems: borrow the YouTube scriptwriting and hook planning checks before rewriting `youtube-script.md`.
+- Remotion implementation problems: consult the official `remotion-dev/skills@remotion-best-practices` skill before changing renderer code.
+- New video formats beyond slide essays: consider a separate HyperFrames experiment rather than forcing the current pipeline.
+
+Expect `video-brief.md` beside `youtube-script.md`. If it is missing, do not render yet; run a `blog-write` video adaptation pass first.
+
+`video-brief.md` must define:
+- target audience and what they already believe;
+- desired emotion;
+- core promise;
+- title/thumbnail expectation;
+- 5-10 high-shock facts or lived moments;
+- hook type, with target/transformation/stakes;
+- story structure;
+- retention beat map every 20-35 seconds;
+- audit status: story flow, comprehension, speed-to-value;
+- cold open, what the video adds beyond the article, banned phrases, and ending.
+
+Before TTS or rendering, run the script audit. Rendering without a passing audit requires an explicit `--skip-script-audit` override and should be reported to Aaron.
+
+Before editing Remotion renderer code, read `src/content/strategy/remotion-video-engineering.md` and run `cd tiles/aaron-video-gen/remotion && npm run validate` after changes.
+
+### Step 1: Write or review youtube-script.md
 
 Convert the blog post into a narration script. For each major section:
 - Create a `## [SLIDE: Title — image.png]` header with a **meaningful title** (not "Illustration 01")
@@ -305,6 +336,44 @@ Convert the blog post into a narration script. For each major section:
 - Add `[IMAGE:]` markers at natural concept boundaries (~1 every 15-20s of narration)
 
 Add a `## [HOOK]` section at the top — 2-4 sentences that tease the video's core insight.
+
+The script must adapt the article into a video-native story. Do not simply map each article heading to one slide and paraphrase the paragraphs. The default story shape is:
+
+```text
+cold open -> promise -> context -> model -> proof -> objection -> payoff
+```
+
+The first 30 seconds must deliver on the title/thumbnail promise. Start with story, contradiction, or a concrete result; do not start with "in today's video", "let's dive in", or a generic topic summary.
+
+### Step 1b: Video adaptation quality gate
+
+Generate or refresh the audit before rendering:
+
+```bash
+npx -y bun ${SKILL_DIR}/scripts/main.ts \
+  --script <blog-dir>/youtube-script.md \
+  --audit-only
+```
+
+Before rendering, reject or revise `youtube-script.md` if:
+- it can be pasted back into the blog as normal prose;
+- slide titles mirror the article headings one-for-one;
+- it has no specific video promise;
+- the hook is generic or meta;
+- it lacks retention beats every 20-35 seconds;
+- it has fewer than 3 moments that add something beyond the blog;
+- it ends by summarizing instead of landing a payoff.
+
+Also scan for repeated filler. Remove or rewrite:
+- "right";
+- "you know";
+- "basically";
+- "let's dive in";
+- "in today's video";
+- repeated "what's interesting is";
+- repeated "the real shift is".
+
+The LLM conversational rewrite is a polish step, not a substitute for this gate. If the original script is a blog read-through, fix the script first.
 
 ### Step 2: Visual richness preflight
 
@@ -344,7 +413,9 @@ npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
 Quality rules:
 - Each video-only image must depict a specific narration beat, not a generic backdrop.
 - Avoid repeating the same visual metaphor across slides.
-- Prefer concrete diagrams, before/after comparisons, operator maps, UI-free scenes, and simple conceptual images.
+- Match the blog's `Soft Glass Narrative` visual system unless the user requests another video style.
+- Prefer human-scale scenes, simple metaphors, before/after comparisons, operator maps, UI-free scenes, and simple conceptual images.
+- Avoid dense chart walls, glowing AI dashboards, generic robots, and repeated system-map visuals.
 - Inspect generated images before accepting them; regenerate images with unreadable text, distorted figures, clutter, or unclear meaning.
 
 ### Step 4: Place `[IMAGE:]` markers in the script
@@ -407,6 +478,9 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 - A 4+ minute video has enough visual variety; if it feels like repeated static slides, go back to Step 3 and add images.
 - Hook plays before branding intro
 - Word captions are in sync
+- The first 30 seconds feel like a video hook, not article narration.
+- The narration avoids repeated filler phrases and obvious TTS crutches.
+- The video contains at least 3 moments that feel additive beyond the original article.
 
 ### Step 8: Generate YouTube metadata
 

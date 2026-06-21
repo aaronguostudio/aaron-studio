@@ -28,7 +28,8 @@ import {
   renderWithRemotion,
   type RemotionSlideInput,
 } from "./remotion-render";
-import { rewriteAllNarrations } from "./rewrite-narration";
+import { rememberRewriteOpenings, rewriteAllNarrations } from "./rewrite-narration";
+import { rewriteCacheKey } from "./rewrite-cache";
 
 // ---------------------------------------------------------------------------
 // Environment loading (matching baoyu-skills pattern)
@@ -169,6 +170,12 @@ function parseArgs(): Record<string, string | boolean> {
       args.skipTts = "true";
     } else if (arg === "--cover") {
       args.cover = argv[++i];
+    } else if (arg === "--audit-only") {
+      args.auditOnly = "true";
+    } else if (arg === "--skip-script-audit") {
+      args.skipScriptAudit = "true";
+    } else if (arg === "--audit-output") {
+      args.auditOutput = argv[++i];
     }
   }
 
@@ -304,6 +311,41 @@ async function main() {
     console.log(`[parse] Found [HOOK] section (${parsed.hookNarration.length} chars)`);
   }
 
+  const { parseVideoBrief } = await import("./video-brief");
+  const videoBriefPath = join(scriptDir, "video-brief.md");
+  const videoBriefMarkdown = existsSync(videoBriefPath)
+    ? readFileSync(videoBriefPath, "utf-8")
+    : "";
+  const videoBrief = parseVideoBrief(videoBriefMarkdown);
+
+  if (args.skipScriptAudit !== "true") {
+    const { auditYoutubeScript, countScriptImages } = await import("./script-audit");
+    const imageCount = countScriptImages(scriptContent);
+    const audit = auditYoutubeScript({
+      scriptMarkdown: scriptContent,
+      videoBriefMarkdown,
+      imageCount,
+      scriptPath,
+    });
+    const auditPath = resolve(
+      String(args.auditOutput || join(scriptDir, "youtube-script-audit.md"))
+    );
+    writeFileSync(auditPath, audit.summaryMarkdown, "utf-8");
+    console.log(`[audit] ${audit.passed ? "PASS" : "FAIL"} -> ${auditPath}`);
+
+    if (args.auditOnly === "true") {
+      process.exit(audit.passed ? 0 : 2);
+    }
+    if (!audit.passed) {
+      throw new Error(
+        "YouTube script audit failed. Fix youtube-script.md or run with --skip-script-audit for an explicit override."
+      );
+    }
+  } else if (args.auditOnly === "true") {
+    console.log("[audit] skipped by --skip-script-audit");
+    process.exit(0);
+  }
+
   // ---------------------------------------------------------------------------
   // Step 2: Resolve image paths
   // ---------------------------------------------------------------------------
@@ -323,16 +365,6 @@ async function main() {
     mkdirSync(rewriteCacheDir, { recursive: true });
   }
 
-  // Cache rewritten narration so subsequent runs with the same input text
-  // produce the same output (and therefore the same TTS cache key)
-  function rewriteCacheKey(originalText: string, slideIndex: number): string {
-    const hash = createHash("md5")
-      .update(originalText)
-      .digest("hex")
-      .slice(0, 12);
-    return `rewrite-${String(slideIndex).padStart(2, "0")}-${hash}`;
-  }
-
   function loadRewriteCache(key: string): string | null {
     const path = join(rewriteCacheDir, `${key}.txt`);
     if (!existsSync(path)) return null;
@@ -345,6 +377,21 @@ async function main() {
 
   if (conversational && !dryRun) {
     console.log(`\n[rewrite] Making narration conversational...`);
+    const rewriteContext = {
+      corePromise: videoBrief.corePromise,
+      hookType: videoBrief.hookType,
+      storyStructure: videoBrief.storyStructure,
+      desiredEmotion: videoBrief.desiredEmotion,
+      bannedPhrases: [
+        "right",
+        "you know",
+        "basically",
+        "let's dive in",
+        "in today's video",
+      ],
+      retentionBeats: videoBrief.retentionBeats,
+    };
+    const previousOpenings: string[] = [];
 
     // For multi-image slides, rewrite each segment individually to preserve
     // marker boundaries. For single-image slides, rewrite the full narration.
@@ -359,23 +406,31 @@ async function main() {
     if (singleImageSlides.length > 0) {
       const uncachedSlides: SlideSection[] = [];
       for (const slide of singleImageSlides) {
-        const cKey = rewriteCacheKey(slide.narration, slide.index);
+        const cKey = rewriteCacheKey(slide.narration, slide.index, rewriteContext);
         const cached = loadRewriteCache(cKey);
         if (cached) {
           console.log(`  Slide ${slide.index}: "${slide.title}" → rewrite cached`);
           slide.narration = cached;
+          rememberRewriteOpenings(cached, previousOpenings);
         } else {
           uncachedSlides.push(slide);
         }
       }
       if (uncachedSlides.length > 0) {
-        const rewritten = await rewriteAllNarrations(uncachedSlides);
+        const rewritten = await rewriteAllNarrations(
+          uncachedSlides,
+          rewriteContext,
+          previousOpenings
+        );
         for (const slide of uncachedSlides) {
           const originalText = slide.narration;
           const newText = rewritten.get(slide.index);
           if (newText) {
             slide.narration = newText;
-            saveRewriteCache(rewriteCacheKey(originalText, slide.index), newText);
+            saveRewriteCache(
+              rewriteCacheKey(originalText, slide.index, rewriteContext),
+              newText
+            );
           }
         }
       }
@@ -386,7 +441,7 @@ async function main() {
     for (const slide of multiImageSlides) {
       // Check if full slide rewrite is cached (keyed on original full narration)
       const originalNarration = slide.narration;
-      const cKey = rewriteCacheKey(originalNarration, slide.index);
+      const cKey = rewriteCacheKey(originalNarration, slide.index, rewriteContext);
       const cached = loadRewriteCache(cKey);
       if (cached) {
         console.log(`  Slide ${slide.index}: "${slide.title}" (${slide.narrationSegments!.length} segments) → rewrite cached`);
@@ -395,6 +450,7 @@ async function main() {
         for (let segIdx = 0; segIdx < slide.narrationSegments!.length; segIdx++) {
           if (cachedSegments[segIdx]) {
             slide.narrationSegments![segIdx].text = cachedSegments[segIdx];
+            rememberRewriteOpenings(cachedSegments[segIdx], previousOpenings);
           }
         }
         slide.narration = slide.narrationSegments!
@@ -409,7 +465,13 @@ async function main() {
       for (let segIdx = 0; segIdx < slide.narrationSegments!.length; segIdx++) {
         const seg = slide.narrationSegments![segIdx];
         if (!seg.text.trim()) continue;
-        seg.text = await rewriteNarration(seg.text, slide.title);
+        seg.text = await rewriteNarration(
+          seg.text,
+          slide.title,
+          previousOpenings,
+          rewriteContext
+        );
+        rememberRewriteOpenings(seg.text, previousOpenings);
       }
       // Rebuild full narration from rewritten segments
       slide.narration = slide.narrationSegments!

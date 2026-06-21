@@ -116,6 +116,12 @@ else
 fi
 
 printf '\n== Documentation ==\n'
+require_file "src/content/strategy/youtube-scriptwriting-playbook.md"
+require_file "src/content/strategy/remotion-video-engineering.md"
+require_file "tiles/aaron-video-gen/scripts/audit-script.ts"
+require_file "tiles/aaron-video-gen/scripts/script-audit.ts"
+require_file "tiles/aaron-video-gen/scripts/remotion-audit.ts"
+
 if rg -q "Codex" AGENTS.md CLAUDE.md README.md; then
   pass "agent docs mention Codex compatibility"
 else

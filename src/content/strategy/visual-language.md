@@ -21,6 +21,22 @@ One-line definition:
 Flat editorial scenes, human-scale metaphors, and restrained liquid-glass accents that make AI-native work feel understandable, personal, and premium.
 ```
 
+## Current Default Baseline
+
+The 2026-06-20 `ai-became-my-operating-system` image set is the current default reference for new Aaron blog visuals.
+
+What worked:
+
+- flat editorial composition first;
+- soft dimensionality and liquid glass as accents, not the whole image;
+- one clear idea per body image;
+- mostly metaphorical or human-scale scenes, with only a few diagrams;
+- warm life scenes where AI recedes into the background;
+- enough negative space for the reader to rest;
+- recognizable repeated motifs without making the post feel like a slide deck.
+
+Carry this forward unless Aaron explicitly asks for a different visual direction.
+
 ## Core Principles
 
 ### 1. Human-Scale First
@@ -33,6 +49,8 @@ Start from a concrete human scene, object, gesture, or metaphor:
 - a family or life scene where AI is background infrastructure.
 
 AI should usually appear as a quiet second layer, not the dominant subject.
+
+When showing Aaron's family, use three people by default: Aaron, his wife, and their daughter. Do not add an extra fourth family member unless the user says so.
 
 ### 2. One Idea Per Image
 
@@ -49,6 +67,8 @@ Too dense:
 ```text
 Codex routes Notion tasks through skills, agents, subagents, local machines, cloud nodes, metrics, review gates, and memory graphs.
 ```
+
+If the image starts to look like an infographic, ask whether the surrounding section truly needs a diagram. Most blog body images should carry mood, metaphor, or narrative relief rather than dense information.
 
 ### 3. 70 / 20 / 10 Density Budget
 
@@ -157,6 +177,8 @@ These motifs may recur across Aaron's blog, but they should stay quiet:
 - **Glass sheet:** task surface, reflection, or invisible infrastructure.
 - **Open door / window / bridge:** movement from intent into execution.
 
+Do not let the motifs become visual noise. One or two recurring signals per image is usually enough.
+
 ## Image Types
 
 ### Cover
@@ -195,6 +217,7 @@ Rules:
 - Prefer people, objects, rooms, roads, books, windows, desks, or everyday surfaces.
 - AI is a quiet material layer or light path.
 - High negative space.
+- The image should feel like a pause inside the essay, not a second essay compressed into pixels.
 
 ### Light Diagrams
 
