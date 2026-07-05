@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "voice_id": "TODO_ELEVENLABS_VOICE_ID",
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_128",
+  "samples": [
+    {
+      "id": "cold-open",
+      "label": "Cold open",
+      "text": "AI coding is not just making developers faster. It is quietly changing what a software team is."
+    },
+    {
+      "id": "technical-explainer",
+      "label": "Technical explainer",
+      "text": "The old workflow separated requirements, design, implementation, testing, and deployment into different queues. AI compresses that loop. The owner still needs judgment, but the handoff cost changes dramatically."
+    },
+    {
+      "id": "reflective",
+      "label": "Reflective passage",
+      "text": "The strange thing is that the work feels both faster and more personal. You are not waiting for the next handoff. You are deciding what matters, checking the evidence, and steering the system."
+    },
+    {
+      "id": "terms",
+      "label": "Technical terms",
+      "text": "Pull request, regression test, feature flag, production deploy, observability, feedback loop, benchmark, user acceptance testing, and code review."
+    },
+    {
+      "id": "pause-control",
+      "label": "Pause and emphasis",
+      "text": "The bottleneck used to be writing the code. Now the bottleneck is understanding whether the code should exist."
+    },
+    {
+      "id": "ending",
+      "label": "Ending",
+      "text": "The goal is not to remove collaboration. The goal is to make collaboration strong enough for the speed of one focused builder with AI."
+    }
+  ],
+  "settings_matrix": [
+    {
+      "id": "natural-baseline",
+      "stability": 0.55,
+      "similarity_boost": 0.82,
+      "style": 0,
+      "use_speaker_boost": false,
+      "speed": 0.98,
+      "notes": "First candidate. Biases toward natural pacing and fewer overperformed artifacts."
+    },
+    {
+      "id": "identity-check",
+      "stability": 0.52,
+      "similarity_boost": 0.9,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 0.98,
+      "notes": "Checks whether stronger similarity and speaker boost help identity without hurting comfort."
+    },
+    {
+      "id": "calmer-pauses",
+      "stability": 0.62,
+      "similarity_boost": 0.8,
+      "style": 0,
+      "use_speaker_boost": false,
+      "speed": 0.95,
+      "notes": "Slower, calmer option for reflective essays and longer sections."
+    },
+    {
+      "id": "light-expression",
+      "stability": 0.45,
+      "similarity_boost": 0.82,
+      "style": 0.15,
+      "use_speaker_boost": false,
+      "speed": 1,
+      "notes": "Tests slightly more expressive delivery without turning into synthetic hype."
+    }
+  ],
+  "rubric": [
+    {
+      "name": "Identity",
+      "max_score": 5,
+      "passing_note": "Sounds recognizably like Aaron without preserving uncomfortable pronunciation artifacts."
+    },
+    {
+      "name": "Naturalness",
+      "max_score": 5,
+      "passing_note": "Feels like a person explaining an idea, not a synthetic read-through."
+    },
+    {
+      "name": "Clarity",
+      "max_score": 5,
+      "passing_note": "Technical terms are easy to understand on laptop and phone speakers."
+    },
+    {
+      "name": "Pacing",
+      "max_score": 5,
+      "passing_note": "Has useful pauses and does not rush dense passages."
+    },
+    {
+      "name": "Listener fatigue",
+      "max_score": 5,
+      "passing_note": "Can be heard for five minutes without strain, harshness, or repetitive cadence."
+    }
+  ]
+}

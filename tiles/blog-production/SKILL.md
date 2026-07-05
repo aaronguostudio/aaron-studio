@@ -31,10 +31,10 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `plan.md` | writing-ready outline | blog-outline |
 | `<slug>.md` | English article | blog-write |
 | `<slug>-zh.md` | Chinese article | blog-write |
-| `x-post.md` | long-form X post | blog-write |
-| `x-standalone-tweet.md` | follow-up X post | blog-write |
+| `x-post.md` | social teaser for X with link in reply | blog-write |
+| `x-standalone-tweet.md` | follow-up single-insight social teaser | blog-write |
 | `newsletter-teaser.md` | Beehiiv / LinkedIn teaser | blog-write |
-| `linkedin-brief.md` | LinkedIn-native brief when requested | blog-write |
+| `linkedin-brief.md` | LinkedIn-native teaser when requested | blog-write |
 | `imgs/outline.md` | illustration plan | blog-illustrate |
 | `imgs/web/00-cover.webp` | blog cover | blog-illustrate |
 | `video-brief.md` | video-native angle, story spine, retention plan | blog-write |
@@ -52,6 +52,7 @@ Use the user's path if provided. Otherwise choose the newest directory under `sr
 Read:
 - `config/aaron-studio.json`
 - `src/content/strategy/x.md`
+- `src/content/strategy/blog-writing-language.md`
 - all files in the chosen post directory
 
 Before brainstorm, outline, or writing begins, run or inspect:
@@ -75,6 +76,7 @@ Unless the user explicitly asks for a literary essay, diary, or soft reflection,
 - Treat poetic phrases such as "仰望星空" as strategic altitude or cognitive radius, not literary mood.
 - Keep article sections structured: 2-3 coherent paragraphs per section, not slide-like one-sentence fragments.
 - Avoid teacherly "you should" energy, AI-influencer cliches, soft emotional wandering, and over-explaining.
+- Use `src/content/strategy/blog-writing-language.md` as the natural writing and anti-AI style reference.
 
 ### 2. Detect the next step
 
@@ -125,7 +127,30 @@ Run these gates before moving downstream. Do not rely on the user to discover qu
 
 If the article fails any item, run a `blog-write` revision pass before continuing.
 
-**Reinforcement gate** — before accepting the article package, confirm the draft has a clear article hypothesis, target audience, expected distribution channel, success metric, and one recent blog-growth lesson it applies or intentionally rejects. If `next-brief-context` has no reviews yet, use the top-content list and state that the lesson source is still sparse.
+**Anti-AI style gate and Story craft gate** — before illustration, video, or publishing, run:
+
+```bash
+npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
+npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.md --language zh
+```
+
+Use the report as an editorial gate for naturalness, Aaron voice, and story craft. Revise through `blog-write` if the article has clustered AI slop vocabulary, weak hook, missing narrative tension, missing story payoff, formulaic contrast, weak rhythm, missing lived evidence, a generic ending, or mechanical Chinese translation tone. A scanner flag can be intentionally accepted only after reading the surrounding section and confirming the phrase is natural in context.
+
+**Reinforcement gate** — before accepting the article package, read the current feedback context when growth env is available:
+
+```bash
+node scripts/blog-growth.mjs next-brief-context --limit 5
+```
+
+Confirm the draft has a clear article hypothesis, target audience, expected distribution channel, success metric, and one recent blog-growth lesson it applies or intentionally rejects. If `next-brief-context` has no reviews or lessons yet, use the top-content list and state that the lesson source is still sparse. Treat missing env/schema as a measurement gap, not as a writing blocker.
+
+**Pre-publish evaluation gate** — before or immediately after publishing, persist the rubric prediction when growth env is available:
+
+```bash
+node scripts/blog-growth.mjs evaluate-content --slug <slug>
+```
+
+This creates the prediction side of the feedback loop. The 24h and 7d postmortems should compare outcome metrics with this prediction before changing future workflow defaults.
 
 **Image quality gate** — before accepting images, confirm `blog-illustrate` loaded `.baoyu-skills/baoyu-article-illustrator/EXTEND.md` when present and used the baoyu image generator path. Covers and thumbnails need at least two candidates or a clear reason for only one. Reject generic glowing-AI imagery, unreadable text, cluttered diagrams, stock-photo vibes, and body images that do not add a distinct idea.
 
@@ -165,7 +190,7 @@ Use `tags` only for 2-4 specific search keywords. Do not invent ad hoc category 
 
 If a post has mixed historical formats, normalize forward rather than rewriting history:
 - Prefer `plan.md` as the writing outline.
-- Prefer `x-post.md` over `x-teaser.md` for new posts.
+- Prefer `x-post.md` over `x-teaser.md` for new posts, but keep it teaser-first unless Aaron explicitly asks for a thread or long-form X essay.
 - Prefer `youtube-script.md` for slide-based videos.
 - Keep old files unless the user asks to clean them.
 

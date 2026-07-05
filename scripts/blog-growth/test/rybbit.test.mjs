@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   buildRybbitEventsUrl,
+  buildRybbitOverviewUrl,
   buildRybbitUrl,
   fetchRybbitJson,
   normalizeEventRowsByDay,
@@ -12,7 +13,7 @@ test('buildRybbitUrl builds a stats endpoint URL without leaking the key', () =>
   const url = buildRybbitUrl({
     baseUrl: 'https://app.rybbit.io',
     siteId: 'site123',
-    endpoint: '/overview-bucketed',
+    endpoint: '/overview',
     query: {
       bucket: 'day',
       start_date: '2026-06-01',
@@ -23,8 +24,27 @@ test('buildRybbitUrl builds a stats endpoint URL without leaking the key', () =>
 
   assert.equal(
     url.toString(),
-    'https://app.rybbit.io/api/sites/site123/overview-bucketed?bucket=day&start_date=2026-06-01&end_date=2026-06-02&time_zone=America%2FEdmonton',
+    'https://app.rybbit.io/api/sites/site123/overview?bucket=day&start_date=2026-06-01&end_date=2026-06-02&time_zone=America%2FEdmonton',
   );
+});
+
+test('buildRybbitOverviewUrl uses the current time-series endpoint for path metrics', () => {
+  const url = buildRybbitOverviewUrl({
+    baseUrl: 'https://app.rybbit.io',
+    siteId: 'site123',
+    start: '2026-06-01',
+    end: '2026-06-02',
+    timeZone: 'America/Edmonton',
+    path: '/blogs/fable',
+  });
+
+  assert.equal(url.pathname, '/api/sites/site123/overview/time-series');
+  assert.equal(url.searchParams.get('bucket'), 'day');
+  assert.equal(url.searchParams.get('start_date'), '2026-06-01');
+  assert.equal(url.searchParams.get('end_date'), '2026-06-02');
+  assert.equal(url.searchParams.get('time_zone'), 'America/Edmonton');
+  assert.match(url.searchParams.get('filters'), /"pathname"/);
+  assert.match(url.searchParams.get('filters'), /"\/blogs\/fable"/);
 });
 
 test('normalizeOverviewBucketed converts Rybbit rows into metric snapshots', () => {

@@ -3,7 +3,10 @@ import assert from 'node:assert/strict';
 import {
   buildAiReviewInsertStatement,
   buildChannelPostUpsertStatements,
+  buildContentEvaluation,
+  buildContentEvaluationInsertStatement,
   buildContentIngestStatements,
+  buildLessonUpsertStatements,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
   buildNextBriefContext,
@@ -228,12 +231,104 @@ test('buildNextBriefContext summarizes recent reviews and top content', () => {
         qualified_engaged_audience_score: 69,
       },
     ],
+    lessons: [
+      {
+        lesson_key: 'hook.concrete_bottleneck',
+        lesson_type: 'keep',
+        lesson_text: 'Open with a concrete operating bottleneck before naming the framework.',
+        confidence: 'high',
+        priority: 'high',
+        evidence_json: JSON.stringify({ slugs: ['one-person-project-ai-coding'] }),
+      },
+    ],
     caveats: ['LinkedIn manual import missing'],
   });
 
   assert.equal(context.winning_patterns.includes('practical_ai_explainer'), true);
   assert.equal(context.recommended_actions[0], 'Write another concrete AI explainer');
   assert.equal(context.top_content[0].slug, 'chatgpt-explained-kitchen-metaphor');
+  assert.equal(context.lessons[0].lesson_key, 'hook.concrete_bottleneck');
+  assert.equal(context.next_experiment, 'Open with a concrete operating bottleneck before naming the framework.');
+});
+
+test('buildContentEvaluation creates a rubric-backed pre-publish evaluation', () => {
+  const evaluation = buildContentEvaluation({
+    slug: 'one-person-project-ai-coding',
+    title: 'The One-Person Project',
+    stage: 'prepublish',
+    rubricVersion: 'blog-writing-v1',
+    scores: {
+      thesis: 5,
+      evidence: 4,
+      mechanism: 5,
+      stakes: 5,
+      nuance: 4,
+      frame: 5,
+      ending: 5,
+      voice: 4,
+      distribution: 4,
+    },
+    hypothesis: 'Owner-loop framing will resonate with builders managing AI coding workflows.',
+    targetAudience: 'AI-native software builders and engineering leaders',
+    successMetrics: ['scroll_75', 'scroll_100', 'linkedin_comments'],
+    recommendations: ['Use a teaser that names the workflow collapse without over-indexing on QA.'],
+  });
+
+  assert.equal(evaluation.stage, 'prepublish');
+  assert.equal(evaluation.rubric_version, 'blog-writing-v1');
+  assert.equal(evaluation.overall_score, 91);
+  assert.equal(evaluation.hypothesis.includes('Owner-loop'), true);
+  assert.equal(evaluation.raw_context.success_metrics[0], 'scroll_75');
+});
+
+test('buildContentEvaluationInsertStatement writes evaluation JSON fields', () => {
+  const sql = buildContentEvaluationInsertStatement({
+    content_item_id_sql: "(SELECT id FROM growth_content_items WHERE slug = 'one-person-project-ai-coding')",
+    stage: 'prepublish',
+    rubric_version: 'blog-writing-v1',
+    evaluator: 'codex',
+    overall_score: 91,
+    scores: { thesis: 5, evidence: 4 },
+    summary: 'Strong owner-loop thesis with clear implementation pressure.',
+    recommendations: ['Keep the concrete QA queue opening.'],
+    raw_context: { hypothesis: 'Owner-loop framing will resonate.' },
+  });
+
+  assert.match(sql, /INSERT INTO growth_content_evaluations/);
+  assert.match(sql, /'prepublish'/);
+  assert.match(sql, /'blog-writing-v1'/);
+  assert.match(sql, /ON CONFLICT\(content_item_id, stage, rubric_version\)/);
+});
+
+test('buildLessonUpsertStatements converts postmortem insights into reusable lessons', () => {
+  const statements = buildLessonUpsertStatements({
+    slug: 'one-person-project-ai-coding',
+    review: {
+      review_type: 'postmortem_7d',
+      insights: [
+        {
+          type: 'content_pattern',
+          label: 'deep_reader_signal',
+          evidence: 'The article reached 12 deep-read events in 7d.',
+          confidence: 'medium',
+        },
+      ],
+      recommended_actions: [
+        {
+          action: 'Reuse the concrete bottleneck opening in the next AI-native systems post.',
+          owner: 'blog-production',
+          priority: 'high',
+        },
+      ],
+    },
+  });
+
+  const sql = statements.join('\n');
+  assert.equal(statements.length, 1);
+  assert.match(sql, /INSERT INTO growth_lessons/);
+  assert.match(sql, /'one-person-project-ai-coding:deep_reader_signal'/);
+  assert.match(sql, /'keep'/);
+  assert.match(sql, /ON CONFLICT\(lesson_key\) DO UPDATE SET/);
 });
 
 test('buildRewardVersionSeedStatement upserts reward weight versions', () => {

@@ -1,0 +1,53 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {
+      "id": "cover-candidate-a",
+      "promptFiles": ["prompts/00-cover-candidate-a.md"],
+      "image": "00-cover-candidate-a.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "cover-candidate-b",
+      "promptFiles": ["prompts/00-cover-candidate-b.md"],
+      "image": "00-cover-candidate-b.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "old-pipeline-shift",
+      "promptFiles": ["prompts/01-narrative-old-pipeline-shift.md"],
+      "image": "01-narrative-old-pipeline-shift.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "review-bottleneck",
+      "promptFiles": ["prompts/02-narrative-review-bottleneck.md"],
+      "image": "02-narrative-review-bottleneck.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "owner-agent-loop",
+      "promptFiles": ["prompts/03-editorial-owner-agent-loop.md"],
+      "image": "03-editorial-owner-agent-loop.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "owner-agents-boundary-evidence",
+      "promptFiles": ["prompts/04-diagram-owner-agents-boundary-evidence.md"],
+      "image": "04-diagram-owner-agents-boundary-evidence.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

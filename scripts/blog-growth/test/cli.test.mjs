@@ -38,6 +38,8 @@ test('buildCommandPlan creates safe dry-run summaries', () => {
 
   assert.equal(plan.mode, 'dry-run');
   assert.equal(plan.source, 'rybbit');
+  assert.equal(plan.endpoint, 'overview/time-series');
+  assert.equal(new URL(plan.url).pathname, '/api/sites/site123/overview/time-series');
   assert.equal(plan.url.includes('RYBBIT_API_KEY'), false);
   assert.equal(plan.url.includes('secret'), false);
   assert.equal(plan.hasApiKey, true);
@@ -177,6 +179,53 @@ test('buildCommandPlan supports postmortem summaries', () => {
     source: 'turso',
     hasSlug: true,
     window: '7d',
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});
+
+test('buildCommandPlan supports content evaluation summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'evaluate-content',
+    options: {
+      slug: 'one-person-project-ai-coding',
+      stage: 'prepublish',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'turso',
+    hasSlug: true,
+    stage: 'prepublish',
+    rubricVersion: 'blog-writing-v1',
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});
+
+test('buildCommandPlan supports manual lesson registration summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'register-lessons',
+    options: {
+      file: 'lessons.json',
+      dryRun: true,
+    },
+    env: {
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'manual',
+    hasFile: true,
     hasTursoUrl: true,
     hasTursoAuthToken: true,
   });

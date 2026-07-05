@@ -1,0 +1,23 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {
+      "id": "thumbnail-english-candidate-a",
+      "promptFiles": ["prompts/00-cover-thumbnail-english-candidate-a.md"],
+      "image": "00-cover-thumbnail-english-candidate-a.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k",
+      "ref": ["00-cover.png"]
+    },
+    {
+      "id": "thumbnail-english-candidate-b",
+      "promptFiles": ["prompts/00-cover-thumbnail-english-candidate-b.md"],
+      "image": "00-cover-thumbnail-english-candidate-b.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k",
+      "ref": ["00-cover.png"]
+    }
+  ]
+}

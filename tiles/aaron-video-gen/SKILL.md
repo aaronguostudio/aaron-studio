@@ -11,7 +11,7 @@ Generate YouTube-ready MP4 videos from a script markdown file and slide images.
 
 1. **Parse** the youtube-script.md — extract slide sections, detect `[IMAGE:]` markers for image switches
 2. **Adaptation preflight** — confirm the script is a video-native adaptation, not a blog read-through
-3. **Rewrite narration** (optional) — LLM rewrites narration conversationally (pauses, humor, natural rhythm). Tracks used openings and transition phrases across slides to avoid repetition (e.g., "You know what's interesting" won't appear multiple times)
+3. **Rewrite narration** (optional) — LLM lightly edits narration for Aaron's spoken style, then runs a transcript quality gate to remove generic YouTube filler, fake casualness, formalized business language, repeated transitions, and excessive expansion.
 4. **Generate narration** — TTS audio for each slide section (edge-tts, OpenAI, or ElevenLabs)
 5. **Compute image switch timings** — sync image changes to word-level timestamps from ElevenLabs
 6. **Build video** — Remotion renders slides with image switches, captions, transitions, and branding
@@ -42,6 +42,45 @@ Key defaults for Aaron's videos:
 - **Cover**: Thumbnail image with bold title shown at video start (also uploaded as YouTube thumbnail)
 - **Transitions**: 1.2s between slides (fade, slide, wipe, flip, etc.)
 - **Images**: Static within slides (no Ken Burns), image switches via `[IMAGE:]` markers
+
+## Aaron Voice Clone Workflow
+
+When Aaron wants a more personal English narration voice, prepare the clone as a reproducible experiment before using it in production. The target voice is a polished Aaron narrator voice: recognizable, male, warm, clear, and natural, while reducing uncomfortable English pronunciation artifacts.
+
+Generate the recording kit before Aaron records:
+
+```bash
+npx -y bun ${SKILL_DIR}/scripts/voice-clone-workflow.ts kit \
+  --output src/content/voice-clones/aaron-english-narrator-v1 \
+  --voice-name "Aaron English Narrator v1" \
+  --target-minutes 50
+```
+
+This writes:
+- `recording-script.md` with technical explainer, conversational reflection, hooks/endings, and technical-term sections.
+- `manifest.json` describing the target Professional Voice Clone dataset.
+- `eval-plan.json` with a repeatable ElevenLabs settings matrix.
+- `scorecard.md` for human listening evaluation.
+- gitignored `recordings/` and `samples/` folders so raw voice files and generated trials are not committed by accident.
+
+After Aaron records and exports audio into `recordings/`, audit the dataset before uploading:
+
+```bash
+npx -y bun ${SKILL_DIR}/scripts/voice-clone-workflow.ts audit \
+  --audio-dir src/content/voice-clones/aaron-english-narrator-v1/recordings \
+  --output src/content/voice-clones/aaron-english-narrator-v1/recording-audit.md \
+  --target-minutes 45
+```
+
+Prefer ElevenLabs Professional Voice Clone for the final voice. Instant Voice Clone is useful only for quick experiments. After ElevenLabs returns a `voice_id`, put it in `eval-plan.json`, then generate A/B listening samples:
+
+```bash
+ELEVENLABS_API_KEY=... npx -y bun ${SKILL_DIR}/scripts/voice-clone-workflow.ts samples \
+  --plan src/content/voice-clones/aaron-english-narrator-v1/eval-plan.json \
+  --output src/content/voice-clones/aaron-english-narrator-v1/samples
+```
+
+Do not switch the video pipeline to the cloned voice until the best setting scores 4+ on identity, naturalness, clarity, pacing, and listener fatigue. Once it passes, use the cloned `voice_id` with the normal video command's `--voice` option.
 
 ## Prerequisites
 
@@ -312,17 +351,31 @@ Use its "External Skill Candidates" section as a routing aid when the video need
 
 Expect `video-brief.md` beside `youtube-script.md`. If it is missing, do not render yet; run a `blog-write` video adaptation pass first.
 
-`video-brief.md` must define:
+`video-brief.md` must define these exact `##` headings so the audit parser can read it:
 - target audience and what they already believe;
 - desired emotion;
 - core promise;
 - title/thumbnail expectation;
-- 5-10 high-shock facts or lived moments;
+- 5-10 high-shock facts;
 - hook type, with target/transformation/stakes;
 - story structure;
 - retention beat map every 20-35 seconds;
 - audit status: story flow, comprehension, speed-to-value;
 - cold open, what the video adds beyond the article, banned phrases, and ending.
+
+Required heading names:
+- `## Target Audience`
+- `## Desired Emotion`
+- `## Core Promise`
+- `## Title/Thumbnail Expectation`
+- `## High-Shock Facts`
+- `## Hook Type`
+- `## Story Structure`
+- `## Retention Beat Map`
+- `## What The Video Adds`
+- `## Banned Phrases`
+- `## Ending`
+- `## Audit Status`
 
 Before TTS or rendering, run the script audit. Rendering without a passing audit requires an explicit `--skip-script-audit` override and should be reported to Aaron.
 
@@ -374,6 +427,15 @@ Also scan for repeated filler. Remove or rewrite:
 - repeated "the real shift is".
 
 The LLM conversational rewrite is a polish step, not a substitute for this gate. If the original script is a blog read-through, fix the script first.
+
+The rewrite must be a light edit, not a new performance. It should keep the source close when the source already works, and it must avoid:
+- generic YouTube hype such as "crazy, right", "game changer", "here's the kicker", "picture this";
+- fake casualness and repeated rhetorical questions;
+- formalized transcript language such as "consequently", "moreover", "conversely", "when it comes to", "robust", "enhance";
+- replacing plain words with formal synonyms, especially `QA`, `UAT`, `like`, `important`, and concrete engineering terms;
+- expanding narration beyond the source unless meaning would be lost.
+
+The script-level rewrite scanner lives in `scripts/spoken-transcript-quality.ts`. If it flags output, `rewrite-narration.ts` repairs the segment before TTS.
 
 ### Step 2: Visual richness preflight
 

@@ -9,7 +9,11 @@ import { scanBlogMarkdown } from './lib/content.mjs';
 import {
   buildAiReviewInsertStatement,
   buildChannelPostUpsertStatements,
+  buildContentEvaluation,
+  buildContentEvaluationInsertStatement,
   buildContentIngestStatements,
+  buildLessonUpsertStatement,
+  buildLessonUpsertStatements,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
   buildNextBriefContext,
@@ -29,10 +33,9 @@ import {
 } from './lib/youtube.mjs';
 import {
   buildRybbitEventsUrl,
-  buildRybbitUrl,
+  buildRybbitOverviewUrl,
   fetchRybbitJson,
   normalizeEventRowsByDay,
-  pathnameFilter,
 } from './lib/rybbit.mjs';
 
 const RYBBIT_EVENT_METRIC_NAMES = {
@@ -429,6 +432,116 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     return;
   }
 
+  if (parsed.command === 'evaluate-content') {
+    const slug = requireOption(parsed.options, 'slug');
+    const root = parsed.options.root || defaultBlogContentRoot(cwd, config);
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const item = findContentItemBySlug(scanBlogMarkdown(root), slug);
+    const articleText = item?.filePath && existsSync(item.filePath) ? readFileSync(item.filePath, 'utf8') : '';
+    const evaluation = buildContentEvaluation({
+      slug,
+      title: item?.title || parsed.options.title || slug,
+      stage: parsed.options.stage || 'prepublish',
+      rubricVersion: parsed.options.rubricVersion || 'blog-writing-v1',
+      evaluator: parsed.options.evaluator || 'codex',
+      scores: parsed.options.scores ? JSON.parse(parsed.options.scores) : heuristicRubricScores({ item, articleText }),
+      hypothesis: parsed.options.hypothesis || 'This content should create qualified engaged audience if the hook, thesis, and distribution angle match the target reader.',
+      targetAudience: parsed.options.targetAudience || 'AI-native builders and operators',
+      successMetrics: parsed.options.successMetrics || 'scroll_75,scroll_100,outbound_clicks,linkedin_comments',
+      recommendations: [
+        'Compare this pre-publish prediction with the 24h and 7d postmortems before changing the writing workflow.',
+      ],
+      rawContext: {
+        source_path: item?.filePath || null,
+        canonical_path: item?.canonicalPath || null,
+        word_count: item?.wordCount || null,
+      },
+    });
+    const statement = buildContentEvaluationInsertStatement({
+      ...evaluation,
+      content_item_id_sql: `(SELECT id FROM growth_content_items WHERE slug = ${sqlLiteral(slug)})`,
+    });
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        root,
+        foundContent: Boolean(item),
+        evaluation,
+        statementCount: 1,
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [statement],
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      root,
+      foundContent: Boolean(item),
+      evaluation,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'register-lessons') {
+    const file = requireOption(parsed.options, 'file');
+    const payload = JSON.parse(readFileSync(file, 'utf8'));
+    const slug = payload.slug || parsed.options.slug;
+    if (!slug) throw new Error('lesson payload slug is required');
+    const lessons = Array.isArray(payload.lessons) ? payload.lessons : [];
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const statements = lessons.map((lesson, index) => buildLessonUpsertStatement({
+      lesson_key: lesson.lesson_key || lesson.lessonKey || `${slug}:manual_${index + 1}`,
+      content_item_id_sql: `(SELECT id FROM growth_content_items WHERE slug = ${sqlLiteral(slug)})`,
+      lesson_type: lesson.lesson_type || lesson.lessonType || 'keep',
+      lesson_text: lesson.lesson_text || lesson.lessonText,
+      confidence: lesson.confidence || 'medium',
+      priority: lesson.priority || 'medium',
+      evidence_json: {
+        slug,
+        source: 'manual',
+        ...(lesson.evidence || {}),
+      },
+      status: lesson.status || 'active',
+    }));
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        file,
+        slug,
+        lessonCount: lessons.length,
+        statementCount: statements.length,
+        env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+      }, null, 2));
+      return;
+    }
+
+    const result = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements,
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      file,
+      slug,
+      lessonCount: lessons.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
+    }, null, 2));
+    return;
+  }
+
   if (parsed.command === 'next-brief-context') {
     const limit = Number(parsed.options.limit || 5);
     const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
@@ -444,16 +557,27 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       'ORDER BY qualified_engaged_audience_score DESC',
       `LIMIT ${Number.isFinite(limit) && limit > 0 ? limit : 5}`,
     ].join('\n');
+    const lessonsQuery = [
+      'SELECT lesson_key, lesson_type, lesson_text, confidence, priority, evidence_json, updated_at',
+      'FROM growth_lessons',
+      "WHERE status = 'active'",
+      "ORDER BY CASE priority WHEN 'high' THEN 0 WHEN 'medium' THEN 1 ELSE 2 END,",
+      "  CASE confidence WHEN 'high' THEN 0 WHEN 'medium' THEN 1 ELSE 2 END,",
+      '  datetime(updated_at) DESC',
+      `LIMIT ${Number.isFinite(limit) && limit > 0 ? limit : 5}`,
+    ].join('\n');
     const result = await executeTursoPipeline({
       databaseUrl: env.TURSO_URL,
       authToken: env.TURSO_AUTH_TOKEN,
-      statements: [reviewsQuery, topContentQuery],
+      statements: [reviewsQuery, topContentQuery, lessonsQuery],
     });
     const reviews = rowsFromTursoResult(result.results?.[0] || {});
     const topContent = rowsFromTursoResult(result.results?.[1] || {});
+    const lessons = rowsFromTursoResult(result.results?.[2] || {});
     const context = buildNextBriefContext({
       reviews,
       topContent,
+      lessons,
       caveats: knownGapsFromReviews(reviews),
     });
 
@@ -461,6 +585,7 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       ...plan,
       reviewCount: reviews.length,
       topContentCount: topContent.length,
+      lessonCount: lessons.length,
       context,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
     }, null, 2));
@@ -547,6 +672,10 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       knownGaps,
       rewardVersion: parsed.options.rewardVersion || 'v0.1',
     });
+    const lessonStatements = buildLessonUpsertStatements({
+      slug: content.slug,
+      review,
+    });
 
     if (parsed.options.dryRun) {
       stdout(JSON.stringify({
@@ -555,6 +684,7 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
         periodStart,
         periodEnd,
         review,
+        lessonCount: lessonStatements.length,
         env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
       }, null, 2));
       return;
@@ -567,7 +697,7 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     const result = await executeTursoPipeline({
       databaseUrl: env.TURSO_URL,
       authToken: env.TURSO_AUTH_TOKEN,
-      statements: [statement],
+      statements: [statement, ...lessonStatements],
     });
 
     stdout(JSON.stringify({
@@ -576,6 +706,7 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       periodStart,
       periodEnd,
       reviewType: review.review_type,
+      lessonCount: lessonStatements.length,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
     }, null, 2));
@@ -605,16 +736,12 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     const requests = items.map((item) => ({
       slug: contentIdentitySlug(item),
       path: item.canonicalPath,
-      overviewUrl: buildRybbitUrl({
+      overviewUrl: buildRybbitOverviewUrl({
         siteId: env.RYBBIT_SITE_ID,
-        endpoint: '/overview-bucketed',
-        query: {
-          bucket: 'day',
-          start_date: start,
-          end_date: end,
-          time_zone: timeZone,
-          filters: pathnameFilter(item.canonicalPath),
-        },
+        start,
+        end,
+        timeZone,
+        path: item.canonicalPath,
       }).toString(),
       eventsUrl: includeEvents ? buildRybbitEventsUrl({
         siteId: env.RYBBIT_SITE_ID,
@@ -883,6 +1010,30 @@ function inferPostmortemGaps(channelMetrics) {
   return gaps;
 }
 
+function findContentItemBySlug(items, slug) {
+  return items.find((item) => contentIdentitySlug(item) === slug || item.slug === slug);
+}
+
+function heuristicRubricScores({ item, articleText = '' } = {}) {
+  const text = String(articleText || '');
+  const wordCount = Number(item?.wordCount || text.split(/\s+/).filter(Boolean).length || 0);
+  const linkCount = (text.match(/\]\(https?:\/\//g) || []).length;
+  const firstPersonCount = (text.match(/\b(I|my|we|our)\b/g) || []).length;
+  const lower = text.toLowerCase();
+
+  return {
+    thesis: item?.title && wordCount >= 1200 ? 4 : 3,
+    evidence: Math.min(5, 3 + Math.min(2, linkCount > 0 ? 1 : 0) + (firstPersonCount > 0 ? 1 : 0)),
+    mechanism: /because|why|cost structure|bottleneck|constraint|mechanism|therefore/.test(lower) ? 4 : 3,
+    stakes: /risk|quality|team|ship|business|owner|boundary/.test(lower) ? 4 : 3,
+    nuance: /not |but |however|risk|counter|bad version|limitation/.test(lower) ? 4 : 3,
+    frame: /model|framework|rule|lens|questions|boundary|evidence/.test(lower) ? 4 : 3,
+    ending: /the teams that|my current answer|operating rule|what evidence/i.test(text.slice(-1200)) ? 5 : 3,
+    voice: firstPersonCount > 0 ? 4 : 3,
+    distribution: item?.title && item?.rawMetadata?.description ? 4 : 3,
+  };
+}
+
 function knownGapsFromReviews(reviews) {
   return [...new Set(reviews.flatMap((review) => {
     try {
@@ -945,6 +1096,10 @@ function helpText() {
   node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv --dry-run
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv
+  node scripts/blog-growth.mjs evaluate-content --slug slug-a --dry-run
+  node scripts/blog-growth.mjs evaluate-content --slug slug-a
+  node scripts/blog-growth.mjs register-lessons --file lessons.json --dry-run
+  node scripts/blog-growth.mjs register-lessons --file lessons.json
   node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d --dry-run
   node scripts/blog-growth.mjs postmortem --slug slug-a --window 7d
   node scripts/blog-growth.mjs next-brief-context --limit 5

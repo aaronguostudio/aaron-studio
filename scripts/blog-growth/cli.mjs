@@ -1,4 +1,4 @@
-import { buildRybbitUrl } from './lib/rybbit.mjs';
+import { buildRybbitOverviewUrl } from './lib/rybbit.mjs';
 
 export function parseArgs(argv) {
   const [command, ...rest] = argv;
@@ -36,21 +36,17 @@ export function buildCommandPlan({ command, options = {}, env = {} }) {
 
   if (command === 'rybbit-preview') {
     const siteId = env.RYBBIT_SITE_ID;
-    const url = buildRybbitUrl({
+    const url = buildRybbitOverviewUrl({
       siteId,
-      endpoint: '/overview-bucketed',
-      query: {
-        bucket: 'day',
-        start_date: options.start,
-        end_date: options.end,
-        time_zone: options.timeZone || env.TZ || 'America/Edmonton',
-      },
+      start: options.start,
+      end: options.end,
+      timeZone: options.timeZone || env.TZ || 'America/Edmonton',
     });
 
     return {
       mode: options.dryRun ? 'dry-run' : 'live',
       source: 'rybbit',
-      endpoint: 'overview-bucketed',
+      endpoint: 'overview/time-series',
       url: url.toString(),
       hasApiKey: Boolean(env.RYBBIT_API_KEY),
       hasSiteId: Boolean(siteId),
@@ -129,6 +125,28 @@ export function buildCommandPlan({ command, options = {}, env = {} }) {
       source: 'turso',
       hasSlug: Boolean(options.slug),
       window: options.window || '7d',
+      hasTursoUrl: Boolean(env.TURSO_URL),
+      hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
+    };
+  }
+
+  if (command === 'evaluate-content') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'turso',
+      hasSlug: Boolean(options.slug),
+      stage: options.stage || 'prepublish',
+      rubricVersion: options.rubricVersion || 'blog-writing-v1',
+      hasTursoUrl: Boolean(env.TURSO_URL),
+      hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
+    };
+  }
+
+  if (command === 'register-lessons') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'manual',
+      hasFile: Boolean(options.file),
       hasTursoUrl: Boolean(env.TURSO_URL),
       hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
     };

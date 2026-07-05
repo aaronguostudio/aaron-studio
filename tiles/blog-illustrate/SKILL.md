@@ -120,7 +120,8 @@ Read the full article. Identify:
 - Core sections and their purpose
 - 3-6 positions where illustrations add value
 - Cover concept: what single image would best represent the post's theme and stop the scroll
-- **Blog title** (from frontmatter `title:`) — used for the thumbnail headline
+- **Blog title** (from frontmatter `title:`)
+- **Thumbnail title language** — Aaron usually publishes and distributes the main article in English. If the blog date dir contains an English article for the same slug (`<slug>.md`, not `*-zh.md`), default the thumbnail headline to that English article's title even when the current article path is Chinese. Use a Chinese headline only when no English article exists or Aaron explicitly asks for a Chinese thumbnail. Use bilingual only when Aaron explicitly asks for bilingual or when the distribution target is clearly bilingual.
 
 **Design the thumbnail headline** — split the title into 3 lines for visual impact:
 
@@ -284,7 +285,8 @@ No other text. No UI chrome. No watermarks.
 ```
 
 Rules for thumbnail generation:
-- Always use `--provider openai` — OpenAI renders text far more reliably than Google
+- Prefer `--provider openai` — OpenAI renders text far more reliably than Google
+- If the OpenAI provider fails because `OPENAI_API_KEY` is missing, use `baoyu-image-gen --provider codex-cli` as the fallback and report that the Codex-native backend was used
 - The left zone must be dark enough for white/gold text to be legible
 - Keep the same atmosphere/scene as `00-cover` for visual consistency
 - The text layout is the ONLY difference from `00-cover`
@@ -393,7 +395,7 @@ Next steps:
 
 - Cover style can differ from content illustrations — atmospheric/editorial covers often work better than matching the content style exactly
 - `00-cover.png` = clean (no text) → blog header. `00-cover-thumbnail.png` = title overlay → YouTube thumbnail. Two separate files, both always generated.
-- Thumbnail always uses `--provider openai` — OpenAI renders legible text; Google/DashScope do not reliably
+- Thumbnail prefers `--provider openai` — OpenAI renders legible text; Google/DashScope do not reliably. If `OPENAI_API_KEY` is unavailable, use the baoyu `codex-cli` provider fallback and inspect text carefully.
 - If `cwebp` is not installed: `brew install webp`
 - Quality default is 82. Use 90 for photos, 75 for diagrams/infographics
 - Originals in `imgs/*.png` are never deleted — safe to regenerate WebP anytime

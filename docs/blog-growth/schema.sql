@@ -91,6 +91,15 @@ CREATE TABLE IF NOT EXISTS growth_reward_versions (
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
+CREATE TABLE IF NOT EXISTS growth_rubric_versions (
+  version TEXT PRIMARY KEY,
+  description TEXT NOT NULL,
+  criteria_json TEXT NOT NULL DEFAULT '{}',
+  active_from TEXT NOT NULL,
+  active_to TEXT,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS growth_metric_snapshots (
   id INTEGER PRIMARY KEY,
   metric_date TEXT NOT NULL,
@@ -193,6 +202,57 @@ CREATE TABLE IF NOT EXISTS growth_ai_reviews (
   CHECK (review_type IN ('postmortem_24h', 'postmortem_7d', 'postmortem_30d', 'weekly_review', 'monthly_strategy', 'experiment_review'))
 );
 
+CREATE TABLE IF NOT EXISTS growth_content_evaluations (
+  id INTEGER PRIMARY KEY,
+  content_item_id INTEGER NOT NULL,
+  stage TEXT NOT NULL,
+  rubric_version TEXT NOT NULL DEFAULT 'blog-writing-v1',
+  evaluator TEXT NOT NULL DEFAULT 'codex',
+  overall_score REAL NOT NULL DEFAULT 0,
+  scores_json TEXT NOT NULL DEFAULT '{}',
+  summary TEXT NOT NULL,
+  recommendations_json TEXT NOT NULL DEFAULT '[]',
+  raw_context_json TEXT NOT NULL DEFAULT '{}',
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (content_item_id) REFERENCES growth_content_items(id) ON DELETE CASCADE,
+  FOREIGN KEY (rubric_version) REFERENCES growth_rubric_versions(version),
+  CHECK (stage IN ('idea', 'outline', 'draft', 'prepublish', 'postpublish'))
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_growth_content_evaluations_unique
+  ON growth_content_evaluations(content_item_id, stage, rubric_version);
+
+CREATE INDEX IF NOT EXISTS idx_growth_content_evaluations_content
+  ON growth_content_evaluations(content_item_id, created_at);
+
+CREATE TABLE IF NOT EXISTS growth_lessons (
+  id INTEGER PRIMARY KEY,
+  lesson_key TEXT NOT NULL UNIQUE,
+  content_item_id INTEGER,
+  review_id INTEGER,
+  lesson_type TEXT NOT NULL DEFAULT 'keep',
+  lesson_text TEXT NOT NULL,
+  confidence TEXT NOT NULL DEFAULT 'medium',
+  priority TEXT NOT NULL DEFAULT 'medium',
+  evidence_json TEXT NOT NULL DEFAULT '{}',
+  status TEXT NOT NULL DEFAULT 'active',
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+  FOREIGN KEY (content_item_id) REFERENCES growth_content_items(id) ON DELETE SET NULL,
+  FOREIGN KEY (review_id) REFERENCES growth_ai_reviews(id) ON DELETE SET NULL,
+  CHECK (lesson_type IN ('keep', 'change', 'experiment', 'measurement_gap')),
+  CHECK (confidence IN ('low', 'medium', 'high')),
+  CHECK (priority IN ('low', 'medium', 'high')),
+  CHECK (status IN ('active', 'superseded', 'archived'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_growth_lessons_active_priority
+  ON growth_lessons(status, priority, confidence, updated_at);
+
+CREATE INDEX IF NOT EXISTS idx_growth_lessons_content
+  ON growth_lessons(content_item_id, updated_at);
+
 CREATE TABLE IF NOT EXISTS growth_kpi_targets (
   id INTEGER PRIMARY KEY,
   period_start TEXT NOT NULL,
@@ -252,6 +312,20 @@ ON CONFLICT(metric_name) DO UPDATE SET
   direction = excluded.direction,
   reward_weight = excluded.reward_weight,
   definition = excluded.definition;
+
+INSERT INTO growth_rubric_versions
+  (version, description, criteria_json, active_from)
+VALUES
+  (
+    'blog-writing-v1',
+    'Initial blog writing rubric for pre-publish evaluation and feedback-loop learning.',
+    '{"criteria":["thesis","evidence","mechanism","stakes","nuance","frame","ending","voice","distribution"],"scale":"0-5 per criterion","notes":"Deterministic editorial rubric; not a causal performance model."}',
+    '2026-07-01'
+  )
+ON CONFLICT(version) DO UPDATE SET
+  description = excluded.description,
+  criteria_json = excluded.criteria_json,
+  active_from = excluded.active_from;
 
 DROP VIEW IF EXISTS growth_channel_metric_rollup;
 CREATE VIEW growth_channel_metric_rollup AS

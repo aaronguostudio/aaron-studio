@@ -31,6 +31,20 @@ export const DEFAULT_REWARD_WEIGHTS = {
   youtube_comments: 4.00,
 };
 
+export const DEFAULT_RUBRIC_VERSION = 'blog-writing-v1';
+
+export const DEFAULT_RUBRIC_SCORES = {
+  thesis: 0,
+  evidence: 0,
+  mechanism: 0,
+  stakes: 0,
+  nuance: 0,
+  frame: 0,
+  ending: 0,
+  voice: 0,
+  distribution: 0,
+};
+
 export function contentIdentitySlug(item) {
   if (!item?.slug) throw new Error('content item slug is required');
   return item.language && item.language !== 'en' ? `${item.slug}-${item.language}` : item.slug;
@@ -358,7 +372,162 @@ export function buildAiReviewInsertStatement(review) {
   return `INSERT INTO growth_ai_reviews (${columns.join(', ')})\nVALUES (${values.join(', ')})`;
 }
 
-export function buildNextBriefContext({ reviews = [], topContent = [], caveats = [] } = {}) {
+export function buildContentEvaluation({
+  slug,
+  title,
+  stage = 'prepublish',
+  rubricVersion = DEFAULT_RUBRIC_VERSION,
+  evaluator = 'codex',
+  scores = {},
+  hypothesis = '',
+  targetAudience = '',
+  successMetrics = [],
+  summary,
+  recommendations = [],
+  rawContext = {},
+} = {}) {
+  if (!slug) throw new Error('evaluation slug is required');
+  const normalizedScores = Object.fromEntries(
+    Object.entries(DEFAULT_RUBRIC_SCORES).map(([key, defaultValue]) => {
+      const score = Number(scores[key] ?? defaultValue);
+      return [key, Number.isFinite(score) ? Math.max(0, Math.min(5, score)) : defaultValue];
+    }),
+  );
+  const maxScore = Object.keys(normalizedScores).length * 5;
+  const totalScore = Object.values(normalizedScores).reduce((sum, value) => sum + value, 0);
+  const overallScore = maxScore > 0 ? Math.round((totalScore / maxScore) * 100) : 0;
+
+  return {
+    stage,
+    rubric_version: rubricVersion,
+    evaluator,
+    overall_score: overallScore,
+    scores: normalizedScores,
+    hypothesis,
+    target_audience: targetAudience,
+    summary: summary || `${title || slug} ${stage} evaluation: ${overallScore}/100.`,
+    recommendations,
+    raw_context: {
+      slug,
+      title: title || slug,
+      hypothesis,
+      target_audience: targetAudience,
+      success_metrics: Array.isArray(successMetrics) ? successMetrics : parseCsv(successMetrics),
+      ...rawContext,
+    },
+  };
+}
+
+export function buildContentEvaluationInsertStatement(evaluation) {
+  const columns = [
+    'content_item_id',
+    'stage',
+    'rubric_version',
+    'evaluator',
+    'overall_score',
+    'scores_json',
+    'summary',
+    'recommendations_json',
+    'raw_context_json',
+  ];
+  const values = [
+    evaluation.content_item_id_sql || sqlLiteral(evaluation.content_item_id || null),
+    sqlLiteral(evaluation.stage),
+    sqlLiteral(evaluation.rubric_version || DEFAULT_RUBRIC_VERSION),
+    sqlLiteral(evaluation.evaluator || 'codex'),
+    sqlLiteral(Number(evaluation.overall_score || 0)),
+    sqlLiteral(JSON.stringify(evaluation.scores || {})),
+    sqlLiteral(evaluation.summary),
+    sqlLiteral(JSON.stringify(evaluation.recommendations || [])),
+    sqlLiteral(JSON.stringify(evaluation.raw_context || {})),
+  ];
+
+  return [
+    `INSERT INTO growth_content_evaluations (${columns.join(', ')})`,
+    `VALUES (${values.join(', ')})`,
+    'ON CONFLICT(content_item_id, stage, rubric_version) DO UPDATE SET',
+    '  evaluator = excluded.evaluator,',
+    '  overall_score = excluded.overall_score,',
+    '  scores_json = excluded.scores_json,',
+    '  summary = excluded.summary,',
+    '  recommendations_json = excluded.recommendations_json,',
+    '  raw_context_json = excluded.raw_context_json,',
+    '  updated_at = datetime(\'now\')',
+  ].join('\n');
+}
+
+export function buildLessonUpsertStatements({ slug, review = {}, reviewIdSql = null } = {}) {
+  if (!slug) throw new Error('lesson slug is required');
+  const insights = Array.isArray(review.insights) ? review.insights : parseJsonArray(review.insights_json);
+  const actions = Array.isArray(review.recommended_actions)
+    ? review.recommended_actions
+    : parseJsonArray(review.recommended_actions_json);
+
+  return insights
+    .filter((insight) => insight?.label || insight?.evidence)
+    .map((insight, index) => {
+      const label = insight.label || `insight_${index + 1}`;
+      const action = actions[index] || actions[0] || {};
+      const lessonText = action.action || insight.evidence || label;
+      return buildLessonUpsertStatement({
+        lesson_key: `${slug}:${label}`,
+        content_item_id_sql: `(SELECT id FROM growth_content_items WHERE slug = ${sqlLiteral(slug)})`,
+        review_id_sql: reviewIdSql,
+        lesson_type: lessonTypeFromInsight(insight.type),
+        lesson_text: lessonText,
+        confidence: normalizeConfidence(insight.confidence),
+        priority: normalizePriority(action.priority),
+        evidence_json: {
+          slug,
+          review_type: review.review_type,
+          insight,
+          action,
+        },
+      });
+    });
+}
+
+export function buildLessonUpsertStatement(lesson) {
+  const columns = [
+    'lesson_key',
+    'content_item_id',
+    'review_id',
+    'lesson_type',
+    'lesson_text',
+    'confidence',
+    'priority',
+    'evidence_json',
+    'status',
+  ];
+  const values = [
+    sqlLiteral(lesson.lesson_key),
+    lesson.content_item_id_sql || sqlLiteral(lesson.content_item_id || null),
+    lesson.review_id_sql || sqlLiteral(lesson.review_id || null),
+    sqlLiteral(lesson.lesson_type || 'keep'),
+    sqlLiteral(lesson.lesson_text),
+    sqlLiteral(normalizeConfidence(lesson.confidence)),
+    sqlLiteral(normalizePriority(lesson.priority)),
+    sqlLiteral(JSON.stringify(lesson.evidence_json || {})),
+    sqlLiteral(lesson.status || 'active'),
+  ];
+
+  return [
+    `INSERT INTO growth_lessons (${columns.join(', ')})`,
+    `VALUES (${values.join(', ')})`,
+    'ON CONFLICT(lesson_key) DO UPDATE SET',
+    '  content_item_id = excluded.content_item_id,',
+    '  review_id = excluded.review_id,',
+    '  lesson_type = excluded.lesson_type,',
+    '  lesson_text = excluded.lesson_text,',
+    '  confidence = excluded.confidence,',
+    '  priority = excluded.priority,',
+    '  evidence_json = excluded.evidence_json,',
+    '  status = excluded.status,',
+    '  updated_at = datetime(\'now\')',
+  ].join('\n');
+}
+
+export function buildNextBriefContext({ reviews = [], topContent = [], lessons = [], caveats = [] } = {}) {
   const insights = reviews.flatMap((review) => parseJsonArray(review.insights_json));
   const actions = reviews.flatMap((review) => parseJsonArray(review.recommended_actions_json));
   const winningPatterns = unique(insights
@@ -372,10 +541,26 @@ export function buildNextBriefContext({ reviews = [], topContent = [], caveats =
   const recommendedActions = unique(actions
     .map((action) => action.action)
     .filter(Boolean));
+  const normalizedLessons = lessons
+    .filter((lesson) => lesson?.lesson_text)
+    .map((lesson) => ({
+      lesson_key: lesson.lesson_key,
+      lesson_type: lesson.lesson_type,
+      lesson_text: lesson.lesson_text,
+      confidence: normalizeConfidence(lesson.confidence),
+      priority: normalizePriority(lesson.priority),
+      evidence: typeof lesson.evidence_json === 'string'
+        ? safeJsonObject(lesson.evidence_json)
+        : (lesson.evidence_json || {}),
+    }));
+  const priorityLesson = normalizedLessons.find((lesson) => (
+    lesson.priority === 'high' && lesson.confidence !== 'low'
+  )) || normalizedLessons[0];
 
   return {
     winning_patterns: winningPatterns,
     weak_patterns: weakPatterns,
+    lessons: normalizedLessons,
     recommended_actions: recommendedActions,
     top_content: topContent.map((item) => ({
       slug: item.slug,
@@ -383,7 +568,9 @@ export function buildNextBriefContext({ reviews = [], topContent = [], caveats =
       qualified_engaged_audience_score: Number(item.qualified_engaged_audience_score || 0),
     })),
     measurement_caveats: caveats,
-    next_experiment: recommendedActions[0] || 'Publish one article with a clear hypothesis and measure the first seven days.',
+    next_experiment: priorityLesson?.lesson_text
+      || recommendedActions[0]
+      || 'Publish one article with a clear hypothesis and measure the first seven days.',
   };
 }
 
@@ -500,6 +687,23 @@ function normalizeStatus(value) {
   return 'draft';
 }
 
+function lessonTypeFromInsight(type) {
+  if (type === 'measurement_gap') return 'measurement_gap';
+  if (type === 'weak_pattern' || type === 'distribution_gap') return 'change';
+  if (type === 'experiment') return 'experiment';
+  return 'keep';
+}
+
+function normalizeConfidence(value) {
+  if (['low', 'medium', 'high'].includes(value)) return value;
+  return 'medium';
+}
+
+function normalizePriority(value) {
+  if (['low', 'medium', 'high'].includes(value)) return value;
+  return 'medium';
+}
+
 function parseCsv(value) {
   if (!value) return [];
   return String(value)
@@ -515,6 +719,16 @@ function parseJsonArray(value) {
     return Array.isArray(parsed) ? parsed : [];
   } catch {
     return [];
+  }
+}
+
+function safeJsonObject(value) {
+  if (!value) return {};
+  try {
+    const parsed = JSON.parse(value);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
   }
 }
 

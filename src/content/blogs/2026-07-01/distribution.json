@@ -1,0 +1,26 @@
+{
+  "slug": "one-person-project-ai-coding",
+  "posts": [
+    {
+      "channel": "youtube",
+      "channel_post_id": "nhLsWrLeMQk",
+      "channel_url": "https://youtu.be/nhLsWrLeMQk",
+      "title": "The One-Person Project: How AI Coding Changes Software Teams",
+      "language": "en",
+      "post_type": "video",
+      "cta_type": "watch",
+      "published_at": "2026-07-02"
+    },
+    {
+      "channel": "linkedin",
+      "channel_post_id": "7478437128545181697",
+      "channel_url": "https://www.linkedin.com/feed/update/urn:li:share:7478437128545181697/",
+      "title": "The One-Person Project",
+      "language": "en",
+      "post_type": "teaser",
+      "hook_text": "AI coding is not just making developers faster.",
+      "cta_type": "blog_click",
+      "published_at": "2026-07-02"
+    }
+  ]
+}

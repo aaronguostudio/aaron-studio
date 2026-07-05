@@ -3,6 +3,14 @@ import { Composition } from "remotion";
 import { SlideshowVideo } from "./SlideshowVideo";
 import { KnowledgeShort } from "./KnowledgeShort";
 import type { KnowledgeShortProps } from "./KnowledgeShort";
+import {
+  SignalWorkflowBriefSample,
+  signalWorkflowBriefSampleDurationFrames,
+} from "./SignalWorkflowBriefSample";
+import {
+  SignalFieldNotesSample,
+  signalFieldNotesSampleDurationFrames,
+} from "./SignalFieldNotesSample";
 import { getIntroHookDuration } from "./components/IntroHook";
 import { getContentHookDuration } from "./components/ContentHook";
 import { getCoverCardDuration } from "./components/CoverCard";
@@ -20,6 +28,24 @@ const defaultProps: VideoInputProps = {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+    <Composition
+      id="SignalWorkflowBriefSample"
+      component={SignalWorkflowBriefSample}
+      durationInFrames={signalWorkflowBriefSampleDurationFrames(30)}
+      fps={30}
+      width={1920}
+      height={1080}
+    />
+
+    <Composition
+      id="SignalFieldNotesSample"
+      component={SignalFieldNotesSample}
+      durationInFrames={signalFieldNotesSampleDurationFrames(30)}
+      fps={30}
+      width={1920}
+      height={1080}
+    />
+
     <Composition
       id="SlideshowVideo"
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

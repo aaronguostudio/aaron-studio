@@ -1,0 +1,23 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {"id":"s01-01-old-handoff-chain","promptFiles":["prompts/s01-01-old-handoff-chain.md"],"image":"s01-01-old-handoff-chain.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s01-02-ai-compresses-loop","promptFiles":["prompts/s01-02-ai-compresses-loop.md"],"image":"s01-02-ai-compresses-loop.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s02-01-ai-output-flood","promptFiles":["prompts/s02-01-ai-output-flood.md"],"image":"s02-01-ai-output-flood.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s02-02-mental-model-rebuild","promptFiles":["prompts/s02-02-mental-model-rebuild.md"],"image":"s02-02-mental-model-rebuild.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s02-03-dora-amplifier","promptFiles":["prompts/s02-03-dora-amplifier.md"],"image":"s02-03-dora-amplifier.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s03-01-owner-holds-context","promptFiles":["prompts/s03-01-owner-holds-context.md"],"image":"s03-01-owner-holds-context.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s03-02-agents-execution-radius","promptFiles":["prompts/s03-02-agents-execution-radius.md"],"image":"s03-02-agents-execution-radius.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s03-03-owner-not-hero","promptFiles":["prompts/s03-03-owner-not-hero.md"],"image":"s03-03-owner-not-hero.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s04-01-boundary-rails","promptFiles":["prompts/s04-01-boundary-rails.md"],"image":"s04-01-boundary-rails.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s04-02-evidence-pack","promptFiles":["prompts/s04-02-evidence-pack.md"],"image":"s04-02-evidence-pack.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s04-03-risk-based-review","promptFiles":["prompts/s04-03-risk-based-review.md"],"image":"s04-03-risk-based-review.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s05-01-hero-culture-risk","promptFiles":["prompts/s05-01-hero-culture-risk.md"],"image":"s05-01-hero-culture-risk.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s05-02-system-drift","promptFiles":["prompts/s05-02-system-drift.md"],"image":"s05-02-system-drift.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s05-03-qa-shift-left","promptFiles":["prompts/s05-03-qa-shift-left.md"],"image":"s05-03-qa-shift-left.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s06-01-four-questions","promptFiles":["prompts/s06-01-four-questions.md"],"image":"s06-01-four-questions.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s06-02-question-owner-agents","promptFiles":["prompts/s06-02-question-owner-agents.md"],"image":"s06-02-question-owner-agents.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s06-03-question-boundary-evidence","promptFiles":["prompts/s06-03-question-boundary-evidence.md"],"image":"s06-03-question-boundary-evidence.png","provider":"codex-cli","ar":"16:9","quality":"2k"},
+    {"id":"s06-04-team-alignment-system","promptFiles":["prompts/s06-04-team-alignment-system.md"],"image":"s06-04-team-alignment-system.png","provider":"codex-cli","ar":"16:9","quality":"2k"}
+  ]
+}

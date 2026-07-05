@@ -12,6 +12,28 @@ export function buildRybbitUrl({ baseUrl = 'https://app.rybbit.io', siteId, endp
   return url;
 }
 
+export function buildRybbitOverviewUrl({
+  baseUrl = 'https://app.rybbit.io',
+  siteId,
+  start,
+  end,
+  timeZone,
+  path,
+}) {
+  return buildRybbitUrl({
+    baseUrl,
+    siteId,
+    endpoint: '/overview/time-series',
+    query: {
+      bucket: 'day',
+      start_date: start,
+      end_date: end,
+      time_zone: timeZone,
+      filters: path ? pathnameFilter(path) : undefined,
+    },
+  });
+}
+
 export function buildRybbitEventsUrl({
   baseUrl = 'https://app.rybbit.io',
   siteId,

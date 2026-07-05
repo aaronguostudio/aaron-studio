@@ -183,7 +183,7 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 |------|--------|----------|---------|
 | Morning | Publish blog post | aaronguo.com | Full deep version. Source of truth. |
 | Morning | Send newsletter | Beehiiv | Teaser paragraph + "Read the full post →" link to blog |
-| Within hours | Post X long-form post | X | Single post, standalone value. NO link in main post. |
+| Within hours | Post X teaser | X | Single sharp teaser. NO link in main post. |
 | Right after | Reply to your own post | X | "Full deep dive → [blog link]" in a reply (not the post itself) |
 
 **Thursday-Friday — Drip**
@@ -211,7 +211,7 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 
 When a blog post goes live on aaronguo.com:
 
-1. **Same day:** Post X long-form post (standalone value, single post with hook + key points + CTA)
+1. **Same day:** Post X teaser (single post with hook + tension + CTA)
    - Link to blog in a reply, NOT in the main post
 2. **Same day:** Newsletter goes out via Beehiiv (teaser + link to full post)
 3. **2-3 days later:** Pull a single insight from the post → standalone tweet with an image/screenshot
@@ -219,7 +219,7 @@ When a blog post goes live on aaronguo.com:
 **What the AI Content Studio should output per blog post:**
 - X post (primary distribution — links to blog in reply)
 - X standalone tweet (secondary, 2-3 days later)
-- Newsletter / LinkedIn teaser (same copy, teaser + bare blog URL)
+- Newsletter / LinkedIn teaser (same core hook, short teaser + bare blog URL)
 - Chinese version (for Chinese tech community)
 
 ---

@@ -13,6 +13,13 @@ It is a measurable loop:
 5. run postmortems and weekly reviews
 6. feed the learnings back into topic, writing, visual, and video workflows
 
+The V1 feedback loop is intentionally deterministic:
+
+1. store a pre-publish evaluation as a prediction
+2. store post-publish metrics as outcomes
+3. convert postmortem insights into reusable lessons
+4. require the next content brief to use or reject those lessons
+
 ## Files
 
 | File | Purpose |
@@ -45,6 +52,13 @@ node scripts/blog-growth.mjs rybbit-preview \
 node scripts/blog-growth.mjs ingest-after-publish --dry-run
 node scripts/blog-growth.mjs ingest-after-publish
 
+# Store a pre-publish rubric evaluation for one article.
+node scripts/blog-growth.mjs evaluate-content \
+  --slug one-person-project-ai-coding \
+  --dry-run
+node scripts/blog-growth.mjs evaluate-content \
+  --slug one-person-project-ai-coding
+
 # Update a new post plus its first Rybbit window.
 node scripts/blog-growth.mjs ingest-after-publish \
   --start 2026-06-15 \
@@ -57,6 +71,9 @@ node scripts/blog-growth.mjs utm-url \
   --channel linkedin \
   --campaign fable-5-managing-ai-autonomy \
   --content brief
+
+# Read the context that the next blog brief should use.
+node scripts/blog-growth.mjs next-brief-context --limit 5
 ```
 
 The CLI reads env from `aaron-studio/.env` first, then the configured blog repo
@@ -70,6 +87,9 @@ The CLI reads env from `aaron-studio/.env` first, then the configured blog repo
 | `growth_channel_posts` | A distribution object linked to the content item: LinkedIn post, YouTube video, newsletter, X post |
 | `growth_metric_snapshots` | Daily normalized metric facts from Rybbit, LinkedIn, YouTube, Beehiiv, or manual import |
 | `growth_metric_catalog` | Canonical metric names, definitions, units, and reward weights |
+| `growth_rubric_versions` | Versioned editorial rubric definitions for pre-publish evaluation |
+| `growth_content_evaluations` | Pre-publish or post-publish rubric evaluations for one content item |
+| `growth_lessons` | Reusable lessons generated from postmortems or manual editorial review |
 | `growth_experiments` | Hypotheses about topic, hook, CTA, visuals, video, cadence, or distribution |
 | `growth_ai_reviews` | AI-generated postmortems, weekly reviews, and strategy updates |
 | `growth_ingest_runs` | Audit trail for ingestion jobs |
@@ -143,6 +163,21 @@ Use `scripts/blog-growth.mjs utm-url` instead of hand-building links.
 | `growth_weekly_scorecard` | Weekly content product scorecard |
 | `growth_topic_scorecard` | Topic/pillar performance comparison |
 
+## Pre-Publish Evaluation
+
+`evaluate-content` creates the prediction side of the loop. It writes a
+`growth_content_evaluations` row with:
+
+- rubric version, defaulting to `blog-writing-v1`
+- stage, defaulting to `prepublish`
+- 0-100 `overall_score`
+- per-criterion scores for thesis, evidence, mechanism, stakes, nuance, frame,
+  ending, voice, and distribution
+- hypothesis, target audience, and success metrics
+
+This score is not the truth. It is a structured prediction that should be
+compared against the 24h, 7d, and 30d outcomes.
+
 ## Reward Score
 
 `qualified_engaged_audience_score` is an intentionally opinionated starting
@@ -203,3 +238,19 @@ Start with a conservative version:
 
 That gives the agent enough signal to write weekly postmortems before we build a
 larger dashboard.
+
+## Lesson Loop
+
+Postmortems now emit reusable lessons into `growth_lessons`. A lesson has a type:
+
+| Type | Meaning |
+|------|---------|
+| `keep` | Repeat this pattern when the context fits |
+| `change` | Avoid or repair this pattern |
+| `experiment` | Try this as a measurable hypothesis |
+| `measurement_gap` | Fix instrumentation or attribution before judging content |
+
+`next-brief-context` reads recent postmortems, top content, and active lessons.
+Future writing workflows should explicitly use or reject at least one lesson
+before drafting the next article. This prevents the system from merely recording
+metrics without changing behavior.

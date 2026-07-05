@@ -70,6 +70,31 @@ Based on Aaron's preferences:
 - ❌ Too many hashtags (max 2-3, at the end)
 - ❌ Direct links in tweet body (kills reach — put in reply or bio)
 
+## Cross-Platform Teaser
+
+Use this when adapting a blog, video, or essay into X, LinkedIn, newsletter, or other social posts.
+
+Default to one Cross-Platform Teaser before writing platform variants:
+
+```text
+[One sharp claim or contradiction]
+
+[One concrete compression of the idea]
+
+[One open question or operating lens]
+
+Full essay in reply / link below.
+```
+
+The teaser's job is not to summarize the article. It should make the right reader want the article.
+
+Rules:
+- X, LinkedIn, newsletter, and other channels should share the same core hook.
+- X is the tightest version: usually under 280 characters, link in reply.
+- LinkedIn should not expand into a mini article. Add at most one professional context sentence, then point to the blog.
+- Newsletter can be 80-140 words, but it should still be a teaser, not a full recap.
+- If Aaron asks for a LinkedIn article, thread, or long-form post, that is a separate requested format.
+
 ## Daily Routine
 
 ### Posting (15 min)

@@ -1,7 +1,7 @@
 import { createHash } from "crypto";
 import type { RewriteContext } from "./rewrite-narration";
 
-const REWRITE_PROMPT_VERSION = "yt-scriptwriting-v2";
+const REWRITE_PROMPT_VERSION = "yt-scriptwriting-v5";
 
 function normalizeContext(context: RewriteContext): string {
   return JSON.stringify({

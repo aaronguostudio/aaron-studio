@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "voice_name": "Aaron English Narrator v1",
+  "clone_type": "professional_voice_clone",
+  "target_minutes": 50,
+  "language": "en",
+  "persona": "A warm, clear, reflective male tech narrator. Recognizably Aaron, but polished for English YouTube narration.",
+  "recording_rules": [
+    "Record with the same microphone, room, distance, and gain for every take.",
+    "Leave natural pauses between ideas; silence can be trimmed later.",
+    "Do not perform a perfect American accent; aim for clear, relaxed English with Aaron's natural identity.",
+    "Restart a sentence if needed, but do not chase a flawless performance.",
+    "Keep background noise, keyboard sound, chair movement, and mouth clicks as low as possible."
+  ],
+  "sections": [
+    {
+      "id": "technical-explainer",
+      "title": "AI/software/product explanatory English",
+      "target_minutes": 25,
+      "purpose": "Capture the voice Aaron actually needs for YouTube essays: concrete technical explanation, calm transitions, and clear product language.",
+      "guidance": [
+        "Speak as if explaining a real architecture tradeoff to a smart friend.",
+        "Keep the Chinese-English identity in the voice, but make the English easy to listen to.",
+        "Slow down on nouns, numbers, product names, and contrasts."
+      ],
+      "takes": [
+        {
+          "id": "tech-01",
+          "title": "From tool to operating loop",
+          "mode": "read",
+          "text": "AI coding changes the software loop in a very practical way. The old process separated requirements, design, implementation, testing, documentation, and release evidence into different queues. That separation made sense when each step was slow. But when an AI agent can draft a design, generate tests, implement the change, and summarize the risk in the same session, the bottleneck moves. The important question is no longer which role owns this step. The important question is who owns the outcome end to end, and what evidence makes the work safe to ship."
+        },
+        {
+          "id": "tech-02",
+          "title": "Review becomes the scarce resource",
+          "mode": "read",
+          "text": "The surprising part is that AI does not remove review. It makes review more important. A model can produce hundreds of lines of code in a minute, but a human still needs time to understand the behavior, the integration boundary, and the failure mode. So the team has to design a new rhythm. Let the agent move fast inside a small module. Let the owner keep the context. Then use shared tests, clear pull requests, and production signals to align the rest of the team."
+        },
+        {
+          "id": "tech-03",
+          "title": "Testing as evidence",
+          "mode": "read",
+          "text": "In this workflow, tests are not paperwork. They are the evidence trail. A good test says: this is the behavior I intended, this is the edge case I considered, and this is the contract I do not want to break next week. When AI writes code quickly, test quality becomes one of the strongest signals of human judgment. The test is where the owner explains the shape of the problem to the rest of the team."
+        },
+        {
+          "id": "tech-04",
+          "title": "A small module owner",
+          "mode": "freestyle",
+          "text": "Explain, in your own words, why one person owning a module does not mean working alone. Talk about boundaries, shared standards, release evidence, and when to ask another engineer for review."
+        },
+        {
+          "id": "tech-05",
+          "title": "When speed creates coordination debt",
+          "mode": "read",
+          "text": "Speed creates a hidden kind of coordination debt. If one developer and an AI agent can change a feature three times before lunch, everyone else can lose the thread. The fix is not to slow the developer down by default. The fix is to make the unit of alignment smaller and more explicit. What changed? Why did it change? What test proves it? What dashboard will tell us if we were wrong? Those questions let a fast loop stay connected to the team."
+        },
+        {
+          "id": "tech-06",
+          "title": "Product intuition",
+          "mode": "freestyle",
+          "text": "Describe a feature request that looks simple at first, then explain how you would use AI to turn it into a design, a test plan, and a first implementation. Keep it concrete and practical."
+        }
+      ]
+    },
+    {
+      "id": "conversational-reflection",
+      "title": "Conversational reflection",
+      "target_minutes": 10,
+      "purpose": "Capture a warmer, more personal version of Aaron's voice, with hesitation, pauses, and reflective phrasing.",
+      "guidance": [
+        "Talk like you are thinking with the audience, not presenting a finished memo.",
+        "Leave natural pauses after a contrast or a surprising sentence.",
+        "It is fine to restart a sentence. Keep the best take later."
+      ],
+      "takes": [
+        {
+          "id": "reflection-01",
+          "title": "The feeling of a faster loop",
+          "mode": "read",
+          "text": "The first time this really hit me, it was not because the AI wrote perfect code. It was because the loop felt different. I could explain the problem, ask for a plan, push back on the plan, and then see an implementation almost immediately. That changes your relationship with the work. You start thinking less like a ticket executor, and more like someone steering a living system."
+        },
+        {
+          "id": "reflection-02",
+          "title": "What still belongs to the human",
+          "mode": "read",
+          "text": "I do not think the human role becomes smaller. I think it becomes more compressed. Taste, judgment, sequencing, and responsibility all move closer together. The AI can help with the mechanical parts, but it does not know why this tradeoff matters for this team at this moment. That context is still human work."
+        },
+        {
+          "id": "reflection-03",
+          "title": "Healthy discomfort",
+          "mode": "freestyle",
+          "text": "Talk about one part of AI coding that still makes you uncomfortable. Do not make it dramatic. Explain the concern, then explain what kind of process would make it safer."
+        },
+        {
+          "id": "reflection-04",
+          "title": "Builder identity",
+          "mode": "freestyle",
+          "text": "Explain what AI-native builder means to you. Keep the tone grounded. Avoid slogans. Talk about curiosity, responsibility, and how you want to work."
+        }
+      ]
+    },
+    {
+      "id": "hooks-transitions-endings",
+      "title": "Hooks, transitions, and endings",
+      "target_minutes": 10,
+      "purpose": "Capture short high-importance lines where pacing, pause, and emphasis matter more than raw pronunciation.",
+      "guidance": [
+        "Do not overact the hook. Make it feel like a thought worth leaning into.",
+        "Pause before the final sentence of each ending.",
+        "Vary the first word across takes so the model learns different openings."
+      ],
+      "takes": [
+        {
+          "id": "hook-01",
+          "title": "Quiet contradiction",
+          "mode": "read",
+          "text": "AI coding is not just making developers faster. It is quietly changing what a software team is."
+        },
+        {
+          "id": "hook-02",
+          "title": "Bottleneck shift",
+          "mode": "read",
+          "text": "The bottleneck used to be writing the code. Now the bottleneck is understanding whether the code should exist."
+        },
+        {
+          "id": "transition-01",
+          "title": "From example to pattern",
+          "mode": "read",
+          "text": "That example is small, but the pattern is not. Once the loop becomes this fast, the whole workflow has to be redesigned around ownership."
+        },
+        {
+          "id": "ending-01",
+          "title": "Human standard",
+          "mode": "read",
+          "text": "The future team may have fewer handoffs, but it needs better standards. The goal is not to remove collaboration. The goal is to make collaboration strong enough for the speed of one focused builder with AI."
+        },
+        {
+          "id": "ending-02",
+          "title": "Open loop",
+          "mode": "freestyle",
+          "text": "End a short video in your own words. Invite the audience to rethink team design without sounding like you are selling a framework."
+        }
+      ]
+    },
+    {
+      "id": "technical-terms",
+      "title": "Technical terms and proper nouns",
+      "target_minutes": 5,
+      "purpose": "Teach the voice how Aaron says common English technical phrases without making pronunciation overcorrected or uncomfortable.",
+      "guidance": [
+        "Read the list slowly first, then read it once in normal sentences.",
+        "Do not perform a perfect American accent. Clear and comfortable is better.",
+        "Keep a little of your natural sound so the voice still feels like you."
+      ],
+      "takes": [
+        {
+          "id": "terms-01",
+          "title": "Core software terms",
+          "mode": "terms",
+          "text": "API, pull request, code review, regression test, production deploy, staging environment, product requirement, user acceptance testing, quality assurance, observability, incident review, rollback plan, feature flag, architecture boundary, integration test, prompt, context window, evaluation, benchmark, feedback loop."
+        },
+        {
+          "id": "terms-02",
+          "title": "Terms in sentences",
+          "mode": "read",
+          "text": "Before I merge a pull request, I want the regression test to describe the behavior clearly. If the feature flag is enabled in production, observability should tell us whether the new path is healthy. If the benchmark looks worse, the owner should pause, review the context, and decide whether the implementation is still worth shipping."
+        },
+        {
+          "id": "terms-03",
+          "title": "Names and common platforms",
+          "mode": "terms",
+          "text": "OpenAI, Anthropic, Google, Microsoft, GitHub, Vercel, ElevenLabs, LinkedIn, YouTube, TypeScript, Python, React, Nuxt, Remotion, Turso, SQLite, PostgreSQL."
+        }
+      ]
+    }
+  ],
+  "elevenlabs_notes": {
+    "preferred_path": "Use Professional Voice Clone for the final Aaron narration voice. Use Instant Voice Clone only for quick experiments.",
+    "fallback_path": "If Professional Voice Clone is not ready, use the existing Henry voice ID until the clone passes the scorecard.",
+    "sources": [
+      "https://elevenlabs.io/docs/eleven-creative/voices/voice-cloning",
+      "https://elevenlabs.io/docs/eleven-api/concepts/voice-cloning",
+      "https://elevenlabs.io/docs/api-reference/text-to-speech/convert"
+    ]
+  }
+}

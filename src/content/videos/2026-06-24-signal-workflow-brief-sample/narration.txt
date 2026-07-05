@@ -1,0 +1,13 @@
+Signal flagged a Perplexity update this week. The headline is Deep Research moving deeper into Computer.
+
+That sounds like a product announcement. But for operators, the question is simpler: does this remove a step from a real workflow?
+
+Take a market brief. The old flow is search, save sources, summarize, compare, write, then review.
+
+The new promise is closer to: run the research, branch the useful thread, take inline actions, and keep the source trail attached.
+
+My verdict: use it for first-pass research briefs. Do not use it as the final answer machine.
+
+The value is speed to structured material, not outsourcing judgment.
+
+Next, I would test it against Perplexity search plus a normal document workflow. Same brief, same sources, stopwatch on.

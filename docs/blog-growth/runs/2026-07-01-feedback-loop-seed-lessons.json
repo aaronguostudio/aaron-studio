@@ -1,0 +1,27 @@
+{
+  "slug": "one-person-project-ai-coding",
+  "lessons": [
+    {
+      "lesson_key": "one-person-project-ai-coding:concrete-bottleneck-opening",
+      "lesson_type": "keep",
+      "lesson_text": "Open AI-native systems essays with a concrete operating bottleneck before naming the abstract framework.",
+      "confidence": "medium",
+      "priority": "high",
+      "evidence": {
+        "source": "editorial_review",
+        "note": "The revised article improved when it started from a QA queue and then unfolded the one-person project model."
+      }
+    },
+    {
+      "lesson_key": "one-person-project-ai-coding:single-owner-shared-boundary",
+      "lesson_type": "experiment",
+      "lesson_text": "When arguing for AI-era workflow change, test the single-owner/shared-boundary frame again in a different domain.",
+      "confidence": "medium",
+      "priority": "medium",
+      "evidence": {
+        "source": "editorial_review",
+        "note": "The owner/agents/boundary/evidence frame gave the article a reusable operating model."
+      }
+    }
+  ]
+}

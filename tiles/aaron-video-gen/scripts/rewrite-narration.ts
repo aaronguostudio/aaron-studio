@@ -5,19 +5,29 @@
  * to make podcast audio sound human.
  */
 
-const SYSTEM_PROMPT = `You are rewriting narration for a YouTube video. Make it sound like a real person talking naturally — not reading a script. Keep the same meaning and all key facts, but:
+import {
+  findSpokenTranscriptIssues,
+  formalTranscriptPhrases,
+  formatSpokenTranscriptIssues,
+  genericYoutubeFillerPhrases,
+} from "./spoken-transcript-quality";
 
-- Add natural pauses (use "..." for brief pauses)
-- Use conversational language, occasional informal expressions
-- Add light humor or rhetorical questions where they fit naturally
-- Vary sentence rhythm — mix short punchy sentences with longer flowing ones
-- Sound like you're explaining something interesting to a friend over coffee
-- IMPORTANT: Vary your opening words! Do NOT start with "So" every time. Mix it up — start with a question, a bold statement, a direct fact, or just dive straight in. Each slide MUST open differently.
-- IMPORTANT: Do NOT overuse transition phrases like "You know what's interesting", "Here's the thing", "Here's what's crazy", "Let me tell you". Use each phrase AT MOST once across the entire video. Prefer direct, varied transitions — or no transition at all. Just state the next point.
+const GENERIC_YOUTUBE_FILLER = genericYoutubeFillerPhrases();
+const FORMAL_TRANSCRIPT_LANGUAGE = formalTranscriptPhrases();
+
+const SYSTEM_PROMPT = `You are rewriting narration for Aaron's YouTube video. Make it sound spoken, specific, and human, not like a generic YouTube explainer. Keep the same meaning and all key facts, but:
+
+- Use Aaron's spoken style: measured, pragmatic, concrete, engineering-minded, first-person when the point comes from lived workflow
+- Keep the voice calm and direct; do not add artificial excitement, fake surprise, or influencer-style hype
+- Prefer concrete operator language over broad metaphors
+- Vary sentence rhythm with short sentences, longer explanations, and paragraph breaks as pauses
+- Use rhetorical questions only when they expose real tension; do not use them as filler
+- IMPORTANT: Vary opening words and transitions. Prefer direct continuation or a specific contrast over stock transition phrases.
+- IMPORTANT: Avoid generic YouTube filler such as: ${GENERIC_YOUTUBE_FILLER.join(", ")}
 - Do NOT add speaker labels, stage directions, or [brackets]
 - Do NOT add sound effects or music cues
 - Keep roughly the same length (±20%)
-- Preserve any technical terms or proper nouns exactly
+- Preserve any technical terms, numbers, source names, and proper nouns exactly
 
 Output ONLY the rewritten narration text. No preamble, no explanation.`;
 
@@ -38,6 +48,25 @@ export function buildRewriteUserPrompt(
 ): string {
   return [
     `Slide title: "${slideTitle}"`,
+    [
+      "Aaron's spoken style:",
+      "- Use a light edit. If the source already sounds clear, keep it close to the original.",
+      "- measured, pragmatic, concrete, engineering-minded",
+      "- sounds like a builder explaining a real workflow lesson, not a host performing excitement",
+      "- specific examples beat broad metaphors",
+      "- remove fake casualness; keep natural pauses only when they help comprehension",
+      "- preserve the source's short spoken rhythm; prefer 80-100% of the source length",
+      "- Do not replace plain words with formal synonyms: like stays like, QA stays QA, important stays important",
+      "- do not turn short narration into a business memo or formal explainer",
+    ].join("\n"),
+    [
+      "Avoid generic YouTube filler:",
+      ...GENERIC_YOUTUBE_FILLER.map((phrase) => `- ${phrase}`),
+    ].join("\n"),
+    [
+      "Do not formalize the transcript. Avoid formal filler:",
+      ...FORMAL_TRANSCRIPT_LANGUAGE.map((phrase) => `- ${phrase}`),
+    ].join("\n"),
     context.corePromise ? `Core promise: ${context.corePromise}` : "",
     context.hookType ? `Hook type: ${context.hookType}` : "",
     context.storyStructure ? `Story structure: ${context.storyStructure}` : "",
@@ -85,34 +114,67 @@ export async function rewriteNarration(
     context
   );
 
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user", content: userContent },
-      ],
-      temperature: 0.8,
-    }),
-  });
+  const callRewriteModel = async (prompt: string): Promise<string | null> => {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: SYSTEM_PROMPT },
+          { role: "user", content: prompt },
+        ],
+        temperature: 0.8,
+      }),
+    });
 
-  if (!response.ok) {
-    const error = await response.text();
-    console.warn(
-      `[rewrite] OpenAI API error (${response.status}), using original text: ${error}`
-    );
-    return text;
+    if (!response.ok) {
+      const error = await response.text();
+      console.warn(
+        `[rewrite] OpenAI API error (${response.status}), using original text: ${error}`
+      );
+      return null;
+    }
+
+    const data = (await response.json()) as {
+      choices: Array<{ message: { content: string } }>;
+    };
+    return data.choices[0]?.message?.content?.trim() || null;
+  };
+
+  const firstRewrite = await callRewriteModel(userContent);
+  if (!firstRewrite) return text;
+
+  let currentRewrite = firstRewrite;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const issues = findSpokenTranscriptIssues(currentRewrite, { sourceText: text });
+    if (issues.length === 0) return currentRewrite;
+
+    const repairPrompt = [
+      "Fix these transcript quality issues in the rewritten narration.",
+      formatSpokenTranscriptIssues(issues),
+      "",
+      "Rules:",
+      "- Preserve the meaning, technical terms, numbers, and proper nouns.",
+      "- Remove generic hype and fake casualness.",
+      "- Remove formalized language and business-memo transitions.",
+      "- Keep the repaired narration no longer than the source unless meaning would be lost.",
+      "- Keep Aaron's spoken style: measured, pragmatic, concrete, engineering-minded.",
+      "- Output only the repaired narration text.",
+      "",
+      "Narration to repair:",
+      currentRewrite,
+    ].join("\n");
+
+    const repaired = await callRewriteModel(repairPrompt);
+    if (!repaired) return currentRewrite;
+    currentRewrite = repaired;
   }
 
-  const data = (await response.json()) as {
-    choices: Array<{ message: { content: string } }>;
-  };
-  return data.choices[0]?.message?.content?.trim() || text;
+  return currentRewrite;
 }
 
 export function rememberRewriteOpenings(
@@ -122,6 +184,11 @@ export function rememberRewriteOpenings(
   const firstWords = rewrittenText.split(/\s+/).slice(0, 5).join(" ");
   if (firstWords) previousOpenings.push(firstWords);
 
+  const remember = (value: string) => {
+    const normalized = value.trim().replace(/[.?!:]+$/g, "");
+    if (normalized) previousOpenings.push(normalized);
+  };
+
   const transitionPatterns = [
     /You know what['’]?s \w+/gi,
     /Here['’]?s the (?:thing|deal|kicker|catch|twist)/gi,
@@ -130,11 +197,18 @@ export function rememberRewriteOpenings(
     /Think about (?:it|this|that)/gi,
     /The (?:crazy|wild|interesting|funny) (?:thing|part) is/gi,
     /But here['’]?s (?:the|what)/gi,
+    /game changer/gi,
+    /crazy,\s*right\??/gi,
+    /supercharged/gi,
+    /power-up/gi,
+    /sounds like a dream/gi,
+    /trusty sidekick/gi,
+    /makes you think\??/gi,
   ];
   for (const pattern of transitionPatterns) {
     const matches = rewrittenText.match(pattern);
     if (matches) {
-      for (const match of matches) previousOpenings.push(match);
+      for (const match of matches) remember(match);
     }
   }
 }

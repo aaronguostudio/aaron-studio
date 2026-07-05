@@ -1,0 +1,4 @@
+interface:
+  display_name: "Notion Task Intake"
+  short_description: "Capture ideas into Notion tasks"
+  default_prompt: "Use $notion-task-intake to add this idea to my Tasks Tracker."

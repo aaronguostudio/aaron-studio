@@ -58,7 +58,7 @@ require_agent_skill() {
 }
 
 printf '== Workflow tiles ==\n'
-for skill in blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog aaron-video-gen brain-ingest daily-log weekly-review; do
+for skill in blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog aaron-video-gen brain-ingest daily-log notion-task-intake weekly-review; do
   require_skill "tiles/$skill"
 done
 
@@ -85,7 +85,7 @@ if (!Array.isArray(cfg.agentSkillSurfaces) || !cfg.agentSkillSurfaces.includes("
 
 printf '\n== Agent skill surfaces ==\n'
 for surface in .agents .codex .claude .cursor .gemini; do
-  for skill in blog-production blog-outline blog-write blog-brainstorm blog-illustrate muse publish-to-blog aaron-video-gen brain-ingest daily-log weekly-review yt-script-writer yt-publish; do
+  for skill in blog-production blog-outline blog-write blog-brainstorm blog-illustrate muse publish-to-blog aaron-video-gen brain-ingest daily-log notion-task-intake weekly-review yt-script-writer yt-publish; do
     require_agent_skill "$surface" "$skill"
   done
 done

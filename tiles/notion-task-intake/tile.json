@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/notion-task-intake",
+  "version": "0.1.0",
+  "summary": "Captures ideas and project requests into Aaron's Notion Tasks Tracker.",
+  "private": true,
+  "skills": {
+    "notion-task-intake": {
+      "path": "SKILL.md"
+    }
+  }
+}
