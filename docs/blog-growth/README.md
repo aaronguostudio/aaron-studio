@@ -140,6 +140,91 @@ Use `scripts/blog-growth.mjs utm-url` instead of hand-building links.
 | `linkedin_link_clicks` | `channel_post` | Link clicks, if available |
 | `linkedin_followers_gained` | `channel_post` | Followers gained from content, if available |
 
+Manual CSV fallback is supported for LinkedIn analytics while API access is
+restricted. Use `docs/blog-growth/linkedin-metrics-template.csv` as the column
+header.
+
+Required columns:
+
+- `metric_date`: the metric snapshot date, `YYYY-MM-DD`
+- one post identity: `channel_post_id` or `channel_url`
+- `slug` when the LinkedIn post has not already been registered in
+  `growth_channel_posts`
+
+Optional post-registration columns:
+
+- `title`
+- `language`
+- `post_type`
+- `hook_text`
+- `cta_type`
+- `published_at`
+
+Metric columns can be left blank when LinkedIn does not expose them:
+
+- `impressions`
+- `members_reached`
+- `reactions`
+- `comments`
+- `reshares`
+- `link_clicks`
+- `followers_gained`
+
+Run a dry-run before writing:
+
+```bash
+node scripts/blog-growth.mjs import-linkedin \
+  --file docs/blog-growth/linkedin-metrics-template.csv \
+  --dry-run
+```
+
+If a CSV row references an existing `growth_channel_posts` row by
+`channel_post_id` or `channel_url`, the import writes only metrics. If it
+includes `slug` plus a new `channel_post_id` or `channel_url`, the import first
+upserts the LinkedIn post and then writes the metric snapshots.
+
+Automated LinkedIn ingestion is supported for organization-page analytics once
+the LinkedIn app has the required Marketing / Community Management permissions.
+The practical path is:
+
+```bash
+# Generate a LinkedIn OAuth consent URL for org analytics scopes.
+node scripts/blog-growth.mjs linkedin-auth-url
+
+# After approving the URL, exchange the returned code for a token.
+node scripts/blog-growth.mjs linkedin-exchange-code --code <AUTH_CODE>
+
+# Check whether the token can read identity, organization ACLs, and social metadata.
+node scripts/blog-growth.mjs linkedin-diagnose \
+  --share-urn urn:li:share:7478437128545181697
+
+# Preview the organization share statistics ingestion plan.
+node scripts/blog-growth.mjs ingest-linkedin \
+  --metric-date 2026-07-05 \
+  --slugs one-person-project-ai-coding \
+  --dry-run
+```
+
+Required environment values for automated org ingestion:
+
+- `LINKEDIN_CLIENT_ID`
+- `LINKEDIN_CLIENT_SECRET`
+- `LINKEDIN_REDIRECT_URI`
+- `LINKEDIN_SCOPES`, defaulting to the minimal `rw_organization_admin` needed
+  for organization share statistics. Community Management API may need to be
+  the only product on the LinkedIn app, so add OpenID or social feed scopes only
+  after confirming the app is allowed to combine those products.
+- `LINKEDIN_ACCESS_TOKEN`
+- `LINKEDIN_ORGANIZATION_URN`
+- optional `LINKEDIN_API_VERSION`, defaulting to `202606`
+
+The automated command reads registered LinkedIn channel posts from
+`growth_channel_posts`, derives `urn:li:share:{id}` or `urn:li:ugcPost:{id}`,
+calls `organizationalEntityShareStatistics`, and writes canonical LinkedIn
+metric snapshots. This path is for organization posts. Personal-profile post
+reads remain gated behind restricted member feed permissions, so the CSV
+fallback remains useful for personal posts.
+
 ### YouTube
 
 | Metric | Entity | Notes |
@@ -223,7 +308,9 @@ As of 2026-06-15:
 - YouTube upload auth exists, and the auth script now requests
   `https://www.googleapis.com/auth/yt-analytics.readonly`; analytics ingestion
   still needs one re-auth run so the saved token receives the new scope.
-- LinkedIn analytics still needs either OAuth/API access or a CSV fallback.
+- LinkedIn analytics has a manual CSV fallback and an organization-page API
+  ingestion path; automated reads still depend on LinkedIn app permissions and
+  `LINKEDIN_ORGANIZATION_URN`.
 
 ## First Ingestion Strategy
 
@@ -233,7 +320,7 @@ Start with a conservative version:
 2. manually or semi-automatically register published LinkedIn and YouTube URLs in `growth_channel_posts`
 3. ingest Rybbit daily path metrics into `growth_metric_snapshots`
 4. ingest YouTube Analytics for linked videos
-5. add LinkedIn either through API or CSV export
+5. add LinkedIn through the manual CSV fallback, or through API ingestion later
 6. run `SELECT * FROM growth_content_7d_postmortem ORDER BY qualified_engaged_audience_score_7d DESC;`
 
 That gives the agent enough signal to write weekly postmortems before we build a

@@ -7,6 +7,7 @@ import {
   buildContentEvaluationInsertStatement,
   buildContentIngestStatements,
   buildLessonUpsertStatements,
+  buildLinkedInCsvImportPlan,
   buildLinkedInMetricStatements,
   buildMetricSnapshotUpsertStatement,
   buildNextBriefContext,
@@ -148,6 +149,96 @@ test('buildLinkedInMetricStatements maps CSV row values to canonical metrics', (
   assert.match(sql, /'linkedin_reshares'/);
   assert.match(sql, /'linkedin_link_clicks'/);
   assert.match(sql, /'linkedin_followers_gained'/);
+});
+
+test('buildLinkedInCsvImportPlan registers missing LinkedIn posts before metrics', () => {
+  const plan = buildLinkedInCsvImportPlan({
+    inputRows: [
+      {
+        slug: 'one-person-project-ai-coding',
+        channel_post_id: '7478437128545181697',
+        channel_url: 'https://www.linkedin.com/feed/update/urn:li:share:7478437128545181697/',
+        title: 'The One-Person Project',
+        published_at: '2026-07-02',
+        metric_date: '2026-07-02',
+        impressions: '1,200',
+        reactions: '12',
+        comments: '3',
+      },
+      {
+        slug: 'one-person-project-ai-coding',
+        channel_post_id: '7478437128545181697',
+        metric_date: '2026-07-03',
+        impressions: '300',
+        reactions: '4',
+      },
+    ],
+    registeredPosts: [],
+  });
+
+  const sql = plan.statements.join('\n');
+  assert.equal(plan.unmatchedRows.length, 0);
+  assert.equal(plan.channelPostStatementCount, 1);
+  assert.equal(plan.metricStatementCount, 5);
+  assert.match(sql, /INSERT INTO growth_channel_posts/);
+  assert.match(sql, /'linkedin'/);
+  assert.match(sql, /'7478437128545181697'/);
+  assert.match(sql, /SELECT id FROM growth_channel_posts/);
+  assert.match(sql, /'linkedin_impressions'/);
+  assert.match(sql, /1200/);
+  assert.match(sql, /'linkedin_comments'/);
+});
+
+test('buildLinkedInCsvImportPlan accepts already registered LinkedIn posts', () => {
+  const plan = buildLinkedInCsvImportPlan({
+    inputRows: [
+      {
+        channel_post_id: 'existing-post',
+        metric_date: '2026-07-02',
+        impressions: '100',
+        link_clicks: '5',
+      },
+    ],
+    registeredPosts: [
+      {
+        id: 44,
+        slug: 'ai-became-my-operating-system',
+        channel_post_id: 'existing-post',
+        channel_url: 'https://www.linkedin.com/feed/update/urn:li:share:existing-post/',
+      },
+    ],
+  });
+
+  const sql = plan.statements.join('\n');
+  assert.equal(plan.unmatchedRows.length, 0);
+  assert.equal(plan.channelPostStatementCount, 0);
+  assert.equal(plan.metricStatementCount, 2);
+  assert.doesNotMatch(sql, /INSERT INTO growth_channel_posts/);
+  assert.match(sql, /44/);
+  assert.match(sql, /'linkedin_link_clicks'/);
+});
+
+test('buildLinkedInCsvImportPlan reports rows missing a registered post identity', () => {
+  const plan = buildLinkedInCsvImportPlan({
+    inputRows: [
+      {
+        metric_date: '2026-07-02',
+        impressions: '100',
+      },
+    ],
+    registeredPosts: [],
+  });
+
+  assert.deepEqual(plan.unmatchedRows, [
+    {
+      row: 1,
+      slug: null,
+      channelPostId: null,
+      channelUrl: null,
+      reason: 'missing_channel_post_identity',
+    },
+  ]);
+  assert.equal(plan.statementCount, 0);
 });
 
 test('buildMetricSnapshotUpsertStatement uses content path subquery and upserts metric value', () => {

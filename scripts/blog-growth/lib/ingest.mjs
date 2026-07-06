@@ -244,7 +244,7 @@ export function buildRybbitPathMetricStatements({ path, raw, eventRows = [] }) {
   return statements;
 }
 
-export function buildLinkedInMetricStatements({ channelPostId, channelPostExternalId, row }) {
+export function buildLinkedInMetricStatements({ channelPostId, channelPostIdSql, channelPostExternalId, row }) {
   if (!row?.metric_date) throw new Error('LinkedIn metric row metric_date is required');
 
   return Object.entries(LINKEDIN_METRIC_MAP)
@@ -254,6 +254,7 @@ export function buildLinkedInMetricStatements({ channelPostId, channelPostExtern
       source: 'linkedin',
       entity_type: 'channel_post',
       entity_id: Number(channelPostId),
+      entity_id_sql: channelPostIdSql,
       external_entity_id: channelPostExternalId,
       metric_name: metricName,
       metric_value: Number(String(row[sourceName]).replaceAll(',', '')),
@@ -261,6 +262,86 @@ export function buildLinkedInMetricStatements({ channelPostId, channelPostExtern
       dimension_json: JSON.stringify({ channelPostId: channelPostExternalId }),
       raw_json: JSON.stringify(row),
     }));
+}
+
+export function buildLinkedInCsvImportPlan({ inputRows = [], registeredPosts = [] }) {
+  const postsByExternalId = new Map(registeredPosts
+    .filter((post) => post.channel_post_id)
+    .map((post) => [post.channel_post_id, post]));
+  const postsByUrl = new Map(registeredPosts
+    .filter((post) => post.channel_url)
+    .map((post) => [post.channel_url, post]));
+  const channelPostStatementsByKey = new Map();
+  const metricStatements = [];
+  const matchedRows = [];
+  const unmatchedRows = [];
+
+  inputRows.forEach((row, index) => {
+    const channelPostExternalId = row.channel_post_id || row.channelPostId || '';
+    const channelUrl = row.channel_url || row.channelUrl || '';
+    const slug = row.slug || null;
+    const post = (channelPostExternalId && postsByExternalId.get(channelPostExternalId))
+      || (channelUrl && postsByUrl.get(channelUrl));
+
+    if (post) {
+      matchedRows.push({ row, post });
+      metricStatements.push(...buildLinkedInMetricStatements({
+        channelPostId: post.id,
+        channelPostExternalId: post.channel_post_id || post.channel_url,
+        row,
+      }));
+      return;
+    }
+
+    if (!slug || (!channelPostExternalId && !channelUrl)) {
+      unmatchedRows.push({
+        row: index + 1,
+        slug,
+        channelPostId: channelPostExternalId || null,
+        channelUrl: channelUrl || null,
+        reason: 'missing_channel_post_identity',
+      });
+      return;
+    }
+
+    const postKey = channelPostExternalId || channelUrl;
+    if (!channelPostStatementsByKey.has(postKey)) {
+      channelPostStatementsByKey.set(postKey, buildChannelPostUpsertStatement(slug, {
+        ...row,
+        channel: 'linkedin',
+        channel_post_id: channelPostExternalId || null,
+        channel_url: channelUrl || null,
+      }));
+    }
+
+    const externalEntityId = channelPostExternalId || channelUrl;
+    matchedRows.push({
+      row,
+      post: {
+        id: null,
+        slug,
+        channel_post_id: channelPostExternalId || null,
+        channel_url: channelUrl || null,
+      },
+    });
+    metricStatements.push(...buildLinkedInMetricStatements({
+      channelPostIdSql: linkedInChannelPostIdSql({ channelPostExternalId, channelUrl }),
+      channelPostExternalId: externalEntityId,
+      row,
+    }));
+  });
+
+  const channelPostStatements = [...channelPostStatementsByKey.values()];
+  const statements = [...channelPostStatements, ...metricStatements];
+
+  return {
+    matchedRows,
+    unmatchedRows,
+    channelPostStatementCount: channelPostStatements.length,
+    metricStatementCount: metricStatements.length,
+    statementCount: statements.length,
+    statements,
+  };
 }
 
 export function buildPostmortemReview({
@@ -664,6 +745,14 @@ export function buildMetricSnapshotUpsertStatement(row) {
 
 function contentIdForPathSql(path) {
   return `(SELECT content_item_id FROM growth_web_path_map WHERE path = ${sqlLiteral(path)})`;
+}
+
+function linkedInChannelPostIdSql({ channelPostExternalId, channelUrl }) {
+  if (channelPostExternalId) {
+    return `(SELECT id FROM growth_channel_posts WHERE channel = 'linkedin' AND channel_post_id = ${sqlLiteral(channelPostExternalId)})`;
+  }
+
+  return `(SELECT id FROM growth_channel_posts WHERE channel = 'linkedin' AND channel_post_id IS NULL AND channel_url = ${sqlLiteral(channelUrl)})`;
 }
 
 function normalizeLanguage(language) {

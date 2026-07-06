@@ -14,7 +14,7 @@ import {
   buildContentIngestStatements,
   buildLessonUpsertStatement,
   buildLessonUpsertStatements,
-  buildLinkedInMetricStatements,
+  buildLinkedInCsvImportPlan,
   buildMetricSnapshotUpsertStatement,
   buildNextBriefContext,
   buildPostmortemReview,
@@ -31,6 +31,18 @@ import {
   fetchYoutubeJson,
   normalizeYoutubeAnalyticsRows,
 } from './lib/youtube.mjs';
+import {
+  DEFAULT_LINKEDIN_API_VERSION,
+  LINKEDIN_ORG_ANALYTICS_SCOPES,
+  buildLinkedInAuthUrl,
+  buildLinkedInShareStatisticsUrl,
+  diagnoseLinkedInAccess,
+  exchangeLinkedInAccessToken,
+  fetchLinkedInJson,
+  linkedInShareUrnFromPost,
+  normalizeLinkedInShareStatisticsRows,
+  parseLinkedInScopes,
+} from './lib/linkedin.mjs';
 import {
   buildRybbitEventsUrl,
   buildRybbitOverviewUrl,
@@ -232,6 +244,191 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     return;
   }
 
+  if (parsed.command === 'linkedin-auth-url') {
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const scopes = parseLinkedInScopes(
+      parsed.options.scopes || env.LINKEDIN_SCOPES || LINKEDIN_ORG_ANALYTICS_SCOPES,
+    );
+    const url = buildLinkedInAuthUrl({
+      clientId: parsed.options.clientId || env.LINKEDIN_CLIENT_ID,
+      redirectUri: parsed.options.redirectUri || env.LINKEDIN_REDIRECT_URI,
+      state: parsed.options.state || 'blog-growth-linkedin',
+      scopes,
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      url: url.toString(),
+      scopes,
+      env: redactEnv(pick(env, [
+        'LINKEDIN_CLIENT_ID',
+        'LINKEDIN_REDIRECT_URI',
+        'LINKEDIN_SCOPES',
+      ])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'linkedin-diagnose') {
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const version = parsed.options.version || env.LINKEDIN_API_VERSION || DEFAULT_LINKEDIN_API_VERSION;
+    const organizationUrn = parsed.options.organizationUrn || env.LINKEDIN_ORGANIZATION_URN || '';
+    const shareUrn = parsed.options.shareUrn || '';
+    const probes = await diagnoseLinkedInAccess({
+      accessToken: env.LINKEDIN_ACCESS_TOKEN,
+      version,
+      organizationUrn,
+      shareUrn,
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      version,
+      organizationUrn: organizationUrn || null,
+      shareUrn: shareUrn || null,
+      probes,
+      env: redactEnv(pick(env, [
+        'LINKEDIN_ACCESS_TOKEN',
+        'LINKEDIN_API_VERSION',
+        'LINKEDIN_ORGANIZATION_URN',
+      ])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'linkedin-exchange-code') {
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const token = await exchangeLinkedInAccessToken({
+      code: requireOption(parsed.options, 'code'),
+      clientId: parsed.options.clientId || env.LINKEDIN_CLIENT_ID,
+      clientSecret: parsed.options.clientSecret || env.LINKEDIN_CLIENT_SECRET,
+      redirectUri: parsed.options.redirectUri || env.LINKEDIN_REDIRECT_URI,
+    });
+
+    stdout(JSON.stringify({
+      ...plan,
+      accessToken: parsed.options.showToken ? token.access_token : redactTokenValue(token.access_token),
+      expiresIn: token.expires_in || null,
+      scope: token.scope || null,
+      envHint: parsed.options.showToken
+        ? 'Set LINKEDIN_ACCESS_TOKEN to the returned accessToken in your local .env.'
+        : 'Re-run with --show-token only when you are ready to copy the token into local .env.',
+      env: redactEnv(pick(env, [
+        'LINKEDIN_CLIENT_ID',
+        'LINKEDIN_CLIENT_SECRET',
+        'LINKEDIN_REDIRECT_URI',
+      ])),
+    }, null, 2));
+    return;
+  }
+
+  if (parsed.command === 'ingest-linkedin') {
+    const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
+    const version = parsed.options.version || env.LINKEDIN_API_VERSION || DEFAULT_LINKEDIN_API_VERSION;
+    const organizationUrn = parsed.options.organizationUrn || env.LINKEDIN_ORGANIZATION_URN;
+    const metricDate = parsed.options.metricDate || todayIsoDate();
+    const selectedSlugs = new Set(parseList(parsed.options.slugs));
+    const query = [
+      'SELECT cp.id, cp.channel_post_id, cp.channel_url, ci.slug',
+      'FROM growth_channel_posts cp',
+      'JOIN growth_content_items ci ON ci.id = cp.content_item_id',
+      "WHERE cp.channel = 'linkedin'",
+      'ORDER BY ci.published_at DESC, cp.published_at DESC',
+    ].join('\n');
+    const queryResult = await executeTursoPipeline({
+      databaseUrl: env.TURSO_URL,
+      authToken: env.TURSO_AUTH_TOKEN,
+      statements: [query],
+    });
+    const registeredPosts = rowsFromTursoResult(queryResult.results?.[0] || {});
+    const selectedPosts = registeredPosts
+      .filter((post) => selectedSlugs.size === 0 || selectedSlugs.has(post.slug))
+      .map((post) => ({
+        ...post,
+        id: Number(post.id),
+        shareUrn: linkedInShareUrnFromPost(post),
+      }))
+      .filter((post) => post.shareUrn);
+    const shareUrns = selectedPosts
+      .map((post) => post.shareUrn)
+      .filter((urn) => urn.startsWith('urn:li:share:'));
+    const ugcPostUrns = selectedPosts
+      .map((post) => post.shareUrn)
+      .filter((urn) => urn.startsWith('urn:li:ugcPost:'));
+    const statisticsUrl = organizationUrn && selectedPosts.length > 0
+      ? buildLinkedInShareStatisticsUrl({ organizationUrn, shareUrns, ugcPostUrns })
+      : null;
+
+    if (parsed.options.dryRun) {
+      stdout(JSON.stringify({
+        ...plan,
+        version,
+        metricDate,
+        registeredLinkedinPostCount: registeredPosts.length,
+        selectedLinkedinPostCount: selectedPosts.length,
+        selectedShareCount: shareUrns.length,
+        selectedUgcPostCount: ugcPostUrns.length,
+        statisticsUrl: statisticsUrl ? statisticsUrl.toString() : null,
+        sample: selectedPosts.slice(0, Number(parsed.options.limit || 10)).map((post) => ({
+          slug: post.slug,
+          channelPostId: post.channel_post_id,
+          channelUrl: post.channel_url,
+          shareUrn: post.shareUrn,
+        })),
+        env: redactEnv(pick(env, [
+          'LINKEDIN_ACCESS_TOKEN',
+          'LINKEDIN_API_VERSION',
+          'LINKEDIN_ORGANIZATION_URN',
+          'TURSO_URL',
+          'TURSO_AUTH_TOKEN',
+        ])),
+      }, null, 2));
+      return;
+    }
+
+    if (!statisticsUrl) {
+      throw new Error('No LinkedIn organization share statistics URL could be built; check LINKEDIN_ORGANIZATION_URN and registered LinkedIn channel posts');
+    }
+
+    const raw = await fetchLinkedInJson({
+      accessToken: env.LINKEDIN_ACCESS_TOKEN,
+      version,
+      url: statisticsUrl,
+    });
+    const metricRows = normalizeLinkedInShareStatisticsRows({
+      metricDate,
+      channelPosts: selectedPosts,
+      raw,
+    });
+    const statements = metricRows.map((row) => buildMetricSnapshotUpsertStatement(row));
+    const result = statements.length > 0
+      ? await executeTursoPipeline({
+        databaseUrl: env.TURSO_URL,
+        authToken: env.TURSO_AUTH_TOKEN,
+        statements,
+      })
+      : { results: [] };
+
+    stdout(JSON.stringify({
+      ...plan,
+      version,
+      metricDate,
+      registeredLinkedinPostCount: registeredPosts.length,
+      selectedLinkedinPostCount: selectedPosts.length,
+      metricRowCount: metricRows.length,
+      statementCount: statements.length,
+      resultCount: Array.isArray(result.results) ? result.results.length : null,
+      env: redactEnv(pick(env, [
+        'LINKEDIN_ACCESS_TOKEN',
+        'LINKEDIN_API_VERSION',
+        'LINKEDIN_ORGANIZATION_URN',
+        'TURSO_URL',
+        'TURSO_AUTH_TOKEN',
+      ])),
+    }, null, 2));
+    return;
+  }
+
   if (parsed.command === 'ingest-youtube') {
     const start = requireOption(parsed.options, 'start');
     const end = requireOption(parsed.options, 'end');
@@ -320,7 +517,7 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
     const inputRows = parseCsvText(readFileSync(file, 'utf8'));
     const plan = buildCommandPlan({ command: parsed.command, options: parsed.options, env });
     const query = [
-      'SELECT cp.id, cp.channel_post_id, ci.slug',
+      'SELECT cp.id, cp.channel_post_id, cp.channel_url, ci.slug',
       'FROM growth_channel_posts cp',
       'JOIN growth_content_items ci ON ci.id = cp.content_item_id',
       "WHERE cp.channel = 'linkedin'",
@@ -332,30 +529,7 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       statements: [query],
     });
     const registeredPosts = rowsFromTursoResult(queryResult.results?.[0] || {});
-    const postsByExternalId = new Map(registeredPosts.map((post) => [post.channel_post_id, post]));
-    const matchedRows = [];
-    const unmatchedRows = [];
-
-    inputRows.forEach((row, index) => {
-      const channelPostExternalId = row.channel_post_id || row.channelPostId || '';
-      const post = postsByExternalId.get(channelPostExternalId);
-      if (post) {
-        matchedRows.push({ row, post });
-      } else {
-        unmatchedRows.push({
-          row: index + 1,
-          slug: row.slug || null,
-          channelPostId: channelPostExternalId || null,
-          reason: channelPostExternalId ? 'channel_post_not_registered' : 'missing_channel_post_id',
-        });
-      }
-    });
-
-    const statements = matchedRows.flatMap(({ row, post }) => buildLinkedInMetricStatements({
-      channelPostId: post.id,
-      channelPostExternalId: post.channel_post_id,
-      row,
-    }));
+    const importPlan = buildLinkedInCsvImportPlan({ inputRows, registeredPosts });
 
     if (parsed.options.dryRun) {
       stdout(JSON.stringify({
@@ -363,12 +537,15 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
         file,
         rowCount: inputRows.length,
         registeredLinkedinPostCount: registeredPosts.length,
-        matchedCount: matchedRows.length,
-        unmatchedRows,
-        statementCount: statements.length,
-        sample: matchedRows.slice(0, Number(parsed.options.limit || 5)).map(({ row, post }) => ({
+        matchedCount: importPlan.matchedRows.length,
+        unmatchedRows: importPlan.unmatchedRows,
+        channelPostStatementCount: importPlan.channelPostStatementCount,
+        metricStatementCount: importPlan.metricStatementCount,
+        statementCount: importPlan.statementCount,
+        sample: importPlan.matchedRows.slice(0, Number(parsed.options.limit || 5)).map(({ row, post }) => ({
           slug: post.slug,
-          channelPostId: post.channel_post_id,
+          channelPostId: post.channel_post_id || null,
+          channelUrl: post.channel_url || null,
           metricDate: row.metric_date,
         })),
         env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
@@ -376,15 +553,15 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       return;
     }
 
-    if (unmatchedRows.length > 0) {
-      throw new Error(`Unmatched LinkedIn CSV rows: ${JSON.stringify(unmatchedRows)}`);
+    if (importPlan.unmatchedRows.length > 0) {
+      throw new Error(`Unmatched LinkedIn CSV rows: ${JSON.stringify(importPlan.unmatchedRows)}`);
     }
 
-    const result = statements.length > 0
+    const result = importPlan.statements.length > 0
       ? await executeTursoPipeline({
         databaseUrl: env.TURSO_URL,
         authToken: env.TURSO_AUTH_TOKEN,
-        statements,
+        statements: importPlan.statements,
       })
       : { results: [] };
 
@@ -392,8 +569,10 @@ export async function main(argv, { cwd = process.cwd(), stdout = console.log } =
       ...plan,
       file,
       rowCount: inputRows.length,
-      matchedCount: matchedRows.length,
-      statementCount: statements.length,
+      matchedCount: importPlan.matchedRows.length,
+      channelPostStatementCount: importPlan.channelPostStatementCount,
+      metricStatementCount: importPlan.metricStatementCount,
+      statementCount: importPlan.statementCount,
       resultCount: Array.isArray(result.results) ? result.results.length : null,
       env: redactEnv(pick(env, ['TURSO_URL', 'TURSO_AUTH_TOKEN'])),
     }, null, 2));
@@ -1063,6 +1242,10 @@ function pick(env, keys) {
   return Object.fromEntries(keys.map((key) => [key, env[key] || '']));
 }
 
+function redactTokenValue(value) {
+  return value ? `[set length=${String(value).length}]` : '[empty]';
+}
+
 function defaultBlogContentRoot(cwd, config) {
   if (config.blogRepo) return join(config.blogRepo, 'content', 'blogs');
   return join(cwd, config.contentRoot || 'src/content', 'blogs');
@@ -1081,6 +1264,10 @@ function parseList(value) {
     .filter(Boolean);
 }
 
+function todayIsoDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+
 function helpText() {
   return `Usage:
   node scripts/blog-growth.mjs scan-content --dry-run
@@ -1094,6 +1281,11 @@ function helpText() {
   node scripts/blog-growth.mjs register-channel-posts --file distribution.json
   node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a --dry-run
   node scripts/blog-growth.mjs ingest-youtube --start YYYY-MM-DD --end YYYY-MM-DD --slugs slug-a
+  node scripts/blog-growth.mjs linkedin-auth-url
+  node scripts/blog-growth.mjs linkedin-exchange-code --code AUTH_CODE
+  node scripts/blog-growth.mjs linkedin-diagnose --share-urn urn:li:share:123
+  node scripts/blog-growth.mjs ingest-linkedin --metric-date YYYY-MM-DD --slugs slug-a --dry-run
+  node scripts/blog-growth.mjs ingest-linkedin --metric-date YYYY-MM-DD --slugs slug-a
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv --dry-run
   node scripts/blog-growth.mjs import-linkedin --file linkedin.csv
   node scripts/blog-growth.mjs evaluate-content --slug slug-a --dry-run

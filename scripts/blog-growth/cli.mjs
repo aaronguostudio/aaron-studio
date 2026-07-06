@@ -1,4 +1,5 @@
 import { buildRybbitOverviewUrl } from './lib/rybbit.mjs';
+import { LINKEDIN_ORG_ANALYTICS_SCOPES, parseLinkedInScopes } from './lib/linkedin.mjs';
 
 export function parseArgs(argv) {
   const [command, ...rest] = argv;
@@ -114,6 +115,53 @@ export function buildCommandPlan({ command, options = {}, env = {} }) {
       mode: options.dryRun ? 'dry-run' : 'live',
       source: 'linkedin',
       hasFile: Boolean(options.file),
+      hasTursoUrl: Boolean(env.TURSO_URL),
+      hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
+    };
+  }
+
+  if (command === 'linkedin-auth-url') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'linkedin',
+      endpoint: 'oauth/authorization',
+      hasClientId: Boolean(options.clientId || env.LINKEDIN_CLIENT_ID),
+      hasRedirectUri: Boolean(options.redirectUri || env.LINKEDIN_REDIRECT_URI),
+      scopeCount: parseLinkedInScopes(options.scopes || env.LINKEDIN_SCOPES || LINKEDIN_ORG_ANALYTICS_SCOPES).length,
+    };
+  }
+
+  if (command === 'linkedin-diagnose') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'linkedin',
+      endpoint: 'diagnostics',
+      hasAccessToken: Boolean(env.LINKEDIN_ACCESS_TOKEN),
+      hasOrganizationUrn: Boolean(options.organizationUrn || env.LINKEDIN_ORGANIZATION_URN),
+      hasShareUrn: Boolean(options.shareUrn),
+    };
+  }
+
+  if (command === 'linkedin-exchange-code') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'linkedin',
+      endpoint: 'oauth/accessToken',
+      hasCode: Boolean(options.code),
+      hasClientId: Boolean(options.clientId || env.LINKEDIN_CLIENT_ID),
+      hasClientSecret: Boolean(options.clientSecret || env.LINKEDIN_CLIENT_SECRET),
+      hasRedirectUri: Boolean(options.redirectUri || env.LINKEDIN_REDIRECT_URI),
+    };
+  }
+
+  if (command === 'ingest-linkedin') {
+    return {
+      mode: options.dryRun ? 'dry-run' : 'live',
+      source: 'linkedin',
+      endpoint: 'organizationalEntityShareStatistics',
+      hasAccessToken: Boolean(env.LINKEDIN_ACCESS_TOKEN),
+      hasOrganizationUrn: Boolean(options.organizationUrn || env.LINKEDIN_ORGANIZATION_URN),
+      hasSlugs: Boolean(options.slugs),
       hasTursoUrl: Boolean(env.TURSO_URL),
       hasTursoAuthToken: Boolean(env.TURSO_AUTH_TOKEN),
     };

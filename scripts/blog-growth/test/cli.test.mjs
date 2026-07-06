@@ -160,6 +160,101 @@ test('buildCommandPlan supports LinkedIn CSV import summaries', () => {
   });
 });
 
+test('buildCommandPlan supports LinkedIn auth URL summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'linkedin-auth-url',
+    options: {
+      scopes: 'openid,profile,rw_organization_admin',
+    },
+    env: {
+      LINKEDIN_CLIENT_ID: 'client-123',
+      LINKEDIN_REDIRECT_URI: 'http://localhost:4173/linkedin/callback',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'live',
+    source: 'linkedin',
+    endpoint: 'oauth/authorization',
+    hasClientId: true,
+    hasRedirectUri: true,
+    scopeCount: 3,
+  });
+});
+
+test('buildCommandPlan supports LinkedIn diagnostic summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'linkedin-diagnose',
+    options: {
+      shareUrn: 'urn:li:share:1',
+    },
+    env: {
+      LINKEDIN_ACCESS_TOKEN: 'token',
+      LINKEDIN_ORGANIZATION_URN: 'urn:li:organization:1',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'live',
+    source: 'linkedin',
+    endpoint: 'diagnostics',
+    hasAccessToken: true,
+    hasOrganizationUrn: true,
+    hasShareUrn: true,
+  });
+});
+
+test('buildCommandPlan supports LinkedIn code exchange summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'linkedin-exchange-code',
+    options: {
+      code: 'auth-code',
+    },
+    env: {
+      LINKEDIN_CLIENT_ID: 'client-123',
+      LINKEDIN_CLIENT_SECRET: 'secret-456',
+      LINKEDIN_REDIRECT_URI: 'http://localhost:4173/linkedin/callback',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'live',
+    source: 'linkedin',
+    endpoint: 'oauth/accessToken',
+    hasCode: true,
+    hasClientId: true,
+    hasClientSecret: true,
+    hasRedirectUri: true,
+  });
+});
+
+test('buildCommandPlan supports automated LinkedIn ingestion summaries', () => {
+  const plan = buildCommandPlan({
+    command: 'ingest-linkedin',
+    options: {
+      slugs: 'one-person-project-ai-coding',
+      dryRun: true,
+    },
+    env: {
+      LINKEDIN_ACCESS_TOKEN: 'token',
+      LINKEDIN_ORGANIZATION_URN: 'urn:li:organization:1',
+      TURSO_URL: 'libsql://example',
+      TURSO_AUTH_TOKEN: 'token',
+    },
+  });
+
+  assert.deepEqual(plan, {
+    mode: 'dry-run',
+    source: 'linkedin',
+    endpoint: 'organizationalEntityShareStatistics',
+    hasAccessToken: true,
+    hasOrganizationUrn: true,
+    hasSlugs: true,
+    hasTursoUrl: true,
+    hasTursoAuthToken: true,
+  });
+});
+
 test('buildCommandPlan supports postmortem summaries', () => {
   const plan = buildCommandPlan({
     command: 'postmortem',
