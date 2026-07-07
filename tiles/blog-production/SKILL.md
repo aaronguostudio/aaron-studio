@@ -27,10 +27,17 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | Artifact | Meaning | Producing skill |
 |----------|---------|-----------------|
 | `idea.md` | Raw idea or seed | manual / muse |
+| `memory-reflection.md` | prior-post reflection, internal link candidates, continuity thesis | blog-production / blog-brainstorm |
+| `editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, kill criteria | blog-brainstorm |
+| `research-dossier.md` | sources, cases, facts, counterarguments, open questions | blog-brainstorm |
 | `content-plan.md` | researched content plan | blog-brainstorm |
+| `argument-memo.md` | thesis, mechanism, evidence map, counterargument, reusable frame | blog-outline |
 | `plan.md` | writing-ready outline | blog-outline |
 | `<slug>.md` | English article | blog-write |
 | `<slug>-zh.md` | Chinese article | blog-write |
+| `red-team-review.md` | skeptical editorial review and required revisions | blog-write |
+| `postmortem.md` | prediction, 24h/7d outcomes, workflow lesson, next experiment | blog-production |
+| `canon-note.md` | canonical idea, reusable frame, claim updates, internal link map | blog-write / blog-production |
 | `x-post.md` | social teaser for X with link in reply | blog-write |
 | `x-standalone-tweet.md` | follow-up single-insight social teaser | blog-write |
 | `newsletter-teaser.md` | Beehiiv / LinkedIn teaser | blog-write |
@@ -44,6 +51,16 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `youtube-metadata.md` | YouTube title/description/tags | blog-write / aaron-video-gen |
 
 ## Workflow
+
+### 0. Bootstrap Workflow 2 Artifacts
+
+For serious essays, create missing manual-first Workflow 2 artifacts before writing begins:
+
+```bash
+npx -y bun tiles/blog-production/scripts/workflow2-artifacts.ts --dir src/content/blogs/YYYY-MM-DD
+```
+
+Never overwrite an existing artifact. If a file already exists, read and preserve it.
 
 ### 1. Pick the post directory
 
@@ -85,11 +102,18 @@ Use the first matching missing artifact:
 | Missing | Next action |
 |---------|-------------|
 | no directory or only rough prompt | use `muse` or create `idea.md` |
+| serious essay and no `memory-reflection.md` | bootstrap Workflow 2 artifacts, then run Memory Reflection pass |
+| serious essay and no `editorial-brief.md` | use `blog-brainstorm` to create editorial brief |
+| serious essay and no `research-dossier.md` | use `blog-brainstorm` to create research dossier |
+| serious essay and no `argument-memo.md` | use `blog-outline` to create argument memo and plan |
 | no `content-plan.md` | use `blog-brainstorm` |
 | no `plan.md` | use `blog-outline` |
 | no `<slug>.md` or no `*-zh.md` | use `blog-write` |
 | no `x-post.md` / `newsletter-teaser.md` | use `blog-write` package completion |
 | article exists but fails depth gate | use `blog-write` revision pass |
+| article exists but no `red-team-review.md` | use `blog-write` red-team revision pass |
+| article exists but no `canon-note.md` | use `blog-write` canon note pass |
+| published or ready-to-publish article has no `postmortem.md` | create postmortem template and record prediction |
 | no `imgs/web/00-cover.webp` | use `blog-illustrate` |
 | images exist but fail image quality gate | use `blog-illustrate` regeneration pass |
 | `youtube-script.md` exists but no `video-brief.md` | use `blog-write` video adaptation pass |
@@ -116,6 +140,14 @@ For each phase:
 
 Run these gates before moving downstream. Do not rely on the user to discover quality issues after the fact.
 
+**Workflow 2 editorial gates** — for serious essays, do not draft until these artifacts exist and are coherent:
+- `memory-reflection.md` checks at least three prior posts when relevant and records internal link candidates or explains why no useful connection exists.
+- `editorial-brief.md` names reader pain, sharp thesis, evidence needed, counterargument, reusable frame, distribution hook, and kill criteria.
+- `research-dossier.md` contains source-backed evidence, cases, facts, counterarguments, and open questions.
+- `argument-memo.md` maps thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication.
+
+If any artifact is missing or weak, stop and run the focused phase instead of drafting.
+
 **Article depth gate** — before illustration, video, or publishing, read the article as a skeptical editor. The article passes only if it has:
 - a non-obvious thesis that a smart reader could disagree with
 - concrete personal or market evidence, not only abstract claims
@@ -126,6 +158,8 @@ Run these gates before moving downstream. Do not rely on the user to discover qu
 - a conclusion that sharpens the thesis rather than repeating it
 
 If the article fails any item, run a `blog-write` revision pass before continuing.
+
+**Red-team gate** — before final article package, create `red-team-review.md` and record at least five issues across generic prose, unsupported claims, weak structure, unfair counterargument, missing operator judgment, weak ending, or unnecessary paragraphs. Complete at least one substantive revision before moving to media assets.
 
 **Anti-AI style gate and Story craft gate** — before illustration, video, or publishing, run:
 
@@ -183,6 +217,8 @@ If the audit fails, run a `blog-write` video adaptation pass before visual enric
 - `creation-media`
 
 Use `tags` only for 2-4 specific search keywords. Do not invent ad hoc category names, and do not let tags become reader-facing navigation categories.
+
+**Memory update gate** — before publishing a serious essay, create or update `canon-note.md` with canonical idea, reusable frame, claims added, claims updated, internal link map, and future branches. Add useful internal links to the article only when they help the reader.
 
 **Publishing gate** — before external side effects, verify the blog repo build passes and the target artifacts are present. Push, YouTube upload, LinkedIn posting, and other external posts require explicit user approval unless already clearly authorized in the active thread.
 
