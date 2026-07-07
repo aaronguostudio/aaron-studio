@@ -1,0 +1,25 @@
+{
+  "jobs": 2,
+  "tasks": [
+    {
+      "id": "cover-editorial-a",
+      "promptFiles": [
+        "00-cover-editorial-candidate-a.md"
+      ],
+      "image": "../00-cover-editorial-candidate-a.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "cover-editorial-b",
+      "promptFiles": [
+        "00-cover-editorial-candidate-b.md"
+      ],
+      "image": "../00-cover-editorial-candidate-b.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

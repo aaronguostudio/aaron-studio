@@ -23,6 +23,7 @@ export interface SlideSection {
   title: string;
   imageRef: string; // filename, number prefix, or description
   narration: string;
+  motion?: string; // optional renderer motion, e.g. actorFramework
   imagePath?: string; // resolved absolute path
   narrationSegments?: NarrationSegment[]; // ordered segments for multi-image slides
   allImagePaths?: string[]; // resolved paths: [primary, ...additional]
@@ -40,6 +41,7 @@ const SLIDE_HEADER_RE = /^##\s*\[SLIDE:\s*(.+?)(?:\s*[—–\-]\s*(.+?))?\s*\]\s
 const HOOK_HEADER_RE = /^##\s*\[HOOK(?:\s*:\s*(.+?))?\s*\]\s*$/;
 const SECTION_DIVIDER = /^---\s*$/;
 const IMAGE_MARKER_RE = /^\[IMAGE:\s*(.+?)\s*\]\s*$/;
+const MOTION_MARKER_RE = /^<!--\s*motion:\s*([a-zA-Z0-9_-]+)\s*-->\s*$/;
 
 export function parseYoutubeScript(content: string): ParsedScript {
   const lines = content.split("\n");
@@ -133,12 +135,23 @@ export function parseYoutubeScript(content: string): ParsedScript {
 
     // Accumulate hook narration lines
     if (inHook) {
+      const imageMatch = line.match(IMAGE_MARKER_RE);
+      if (imageMatch) {
+        hookImageRef = hookImageRef || imageMatch[1].trim();
+        continue;
+      }
       hookLines.push(line);
       continue;
     }
 
     // Accumulate narration lines, detecting [IMAGE:] markers
     if (currentSlide) {
+      const motionMatch = line.match(MOTION_MARKER_RE);
+      if (motionMatch) {
+        currentSlide.motion = motionMatch[1].trim();
+        continue;
+      }
+
       const imageMatch = line.match(IMAGE_MARKER_RE);
       if (imageMatch) {
         // Save lines accumulated so far as the text before this marker
@@ -173,6 +186,15 @@ function flushSlide(
   markers: Array<{ imageRef: string; linesBefore: string[] }>,
   output: SlideSection[]
 ): void {
+  if (
+    !slide.imageRef &&
+    markers.length > 0 &&
+    markers[0].linesBefore.every((line) => !line.trim())
+  ) {
+    slide.imageRef = markers[0].imageRef;
+    markers = markers.slice(1);
+  }
+
   if (markers.length === 0) {
     // Single-image slide — no change from current behavior
     slide.narration = cleanNarration(trailingLines);
@@ -223,12 +245,21 @@ function resolveOneImage(
   fallbackIndex: number,
   imageFiles: string[],
   imagesDir: string,
-  join: (a: string, b: string) => string
+  join: (a: string, b: string) => string,
+  exists: (path: string) => boolean
 ): string {
   let resolved: string | undefined;
 
+  // 0. Direct relative path match, supporting refs like "imgs/video/foo.png"
+  if (ref) {
+    const directPath = join(imagesDir, ref);
+    if (exists(directPath)) {
+      resolved = directPath;
+    }
+  }
+
   // 1. Exact filename match
-  if (ref && imageFiles.includes(ref)) {
+  if (!resolved && ref && imageFiles.includes(ref)) {
     resolved = join(imagesDir, ref);
   }
 
@@ -270,7 +301,7 @@ export async function resolveImagePaths(
   slides: SlideSection[],
   imagesDir: string
 ): Promise<SlideSection[]> {
-  const { readdirSync } = await import("fs");
+  const { existsSync, readdirSync } = await import("fs");
   const { join } = await import("path");
 
   let imageFiles: string[];
@@ -289,7 +320,8 @@ export async function resolveImagePaths(
       slide.index,
       imageFiles,
       imagesDir,
-      join
+      join,
+      existsSync
     );
 
     // Resolve additional images from narration segments
@@ -302,7 +334,8 @@ export async function resolveImagePaths(
           slide.index,
           imageFiles,
           imagesDir,
-          join
+          join,
+          existsSync
         );
       });
     }

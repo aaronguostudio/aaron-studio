@@ -1,0 +1,101 @@
+{
+  "tasks": [
+    {
+      "id": "video-00",
+      "promptFiles": ["prompts/00-four-ai-companies-converge.md"],
+      "image": "00-four-ai-companies-converge.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-01",
+      "promptFiles": ["prompts/01-same-move-deployment.md"],
+      "image": "01-same-move-deployment.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-02",
+      "promptFiles": ["prompts/02-demo-vs-deployment.md"],
+      "image": "02-demo-vs-deployment.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-03",
+      "promptFiles": ["prompts/03-personal-ai-workflow.md"],
+      "image": "03-personal-ai-workflow.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-04",
+      "promptFiles": ["prompts/04-fde-between-workflow-and-production.md"],
+      "image": "04-fde-between-workflow-and-production.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-05",
+      "promptFiles": ["prompts/05-consulting-vs-fde.md"],
+      "image": "05-consulting-vs-fde.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-06",
+      "promptFiles": ["prompts/06-palantir-pattern-mainstream.md"],
+      "image": "06-palantir-pattern-mainstream.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-07",
+      "promptFiles": ["prompts/07-model-layer-workflow-value.md"],
+      "image": "07-model-layer-workflow-value.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-08",
+      "promptFiles": ["prompts/08-lock-in-and-trust.md"],
+      "image": "08-lock-in-and-trust.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-09",
+      "promptFiles": ["prompts/09-deployment-native-engineer.md"],
+      "image": "09-deployment-native-engineer.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-10",
+      "promptFiles": ["prompts/10-workflow-engineering.md"],
+      "image": "10-workflow-engineering.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "video-11",
+      "promptFiles": ["prompts/11-operational-intelligence.md"],
+      "image": "11-operational-intelligence.png",
+      "provider": "openai",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ],
+  "jobs": 2
+}

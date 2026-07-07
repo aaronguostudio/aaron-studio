@@ -161,8 +161,11 @@ export const SlideshowVideo: React.FC<VideoInputProps> = ({
                   ) : (
                     <SlideScene
                       imageFile={slideData.imageFile}
+                      animation={slideData.animation}
                       imageFiles={slideData.imageFiles}
                       imageChangeTimings={slideData.imageChangeTimings}
+                      wordTimings={slideData.wordTimings}
+                      audioDuration={slideData.audioDuration}
                       audioDelay={audioDelay}
                     >
                       <GradientOverlay />

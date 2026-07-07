@@ -3,6 +3,7 @@ export type Animation =
   | "slowZoomOut"
   | "panRight"
   | "panLeft"
+  | "actorFramework"
   | "none";
 
 export interface WordTiming {

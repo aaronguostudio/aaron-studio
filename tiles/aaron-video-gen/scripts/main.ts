@@ -15,7 +15,7 @@ import {
   type SlideSection,
   type NarrationSegment,
 } from "./parse-script";
-import type { ImageChangeTiming, WordTiming } from "../remotion/src/types";
+import type { Animation, ImageChangeTiming, WordTiming } from "../remotion/src/types";
 import { generateTTS, concatenateAudio, type TTSProvider } from "./tts";
 import {
   buildFFmpegCommand,
@@ -228,6 +228,24 @@ function computeImageChangeTimings(
   }
 
   return [];
+}
+
+function slideMotionToAnimation(value?: string): Animation | null {
+  if (!value) return null;
+  if (value === "actorFramework") return "actorFramework";
+  return null;
+}
+
+function inferSlideAnimation(slide: SlideSection): Animation | null {
+  const title = slide.title.toLowerCase();
+  const narration = slide.narration.toLowerCase();
+  if (
+    title.includes("workflow engineering") ||
+    narration.includes("the practical version is actor")
+  ) {
+    return "actorFramework";
+  }
+  return null;
 }
 
 // ---------------------------------------------------------------------------
@@ -788,13 +806,17 @@ async function main() {
 
     await renderWithRemotion({
       slides: slides.map((s, i) => {
+        const motionAnimation =
+          slideMotionToAnimation(s.motion) ?? inferSlideAnimation(s);
         const slideInput: RemotionSlideInput = {
           title: s.title,
           narration: s.narration,
           imagePath: s.imagePath!,
           audioPath: ttsResults[i].audioPath,
           audioDuration: ttsResults[i].duration,
-          animation: kenBurns ? KB_PATTERNS[i % KB_PATTERNS.length] : "none",
+          animation:
+            motionAnimation ??
+            (kenBurns ? KB_PATTERNS[i % KB_PATTERNS.length] : "none"),
           wordTimings: ttsResults[i].wordTimings,
         };
 

@@ -226,6 +226,27 @@ Together, they form an operating system for sustained excellence.
 - `NN-name.png` — blog illustration (reused in video as anchor image per section)
 - `sNN-MM-name.png` — video-only illustration (slide NN, image MM within that slide)
 
+### Motion Markers
+
+Use HTML comment markers when a slide should render as a structured motion graphic instead of a static illustration. Keep these rare and reserved for framework, process, comparison, or payoff slides.
+
+```markdown
+## [SLIDE: Workflow Engineering]
+
+<!-- motion: actorFramework -->
+
+[IMAGE: imgs/video/10-workflow-engineering.png]
+
+Narration...
+```
+
+Supported motion markers:
+- `actorFramework` — reveals the ACTOR cards one by one, synced to word timings when available, then closes Responsibility back into a learning loop.
+
+Motion-slide pacing rule:
+- Do not let a structured motion slide sit on a mostly blank stage while narration builds context. Use the anchor image or a richer bridge state first, then transition into the framework near the sentence that names it.
+- The first meaningful element should appear quickly once the framework is introduced; later elements can remain synced to word timings.
+
 ### Slide Matching Rules
 
 The text after `—` (em dash) in the slide header is used to find the image:

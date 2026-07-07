@@ -7,15 +7,21 @@ import {
   Img,
   AbsoluteFill,
 } from "remotion";
-import type { ImageChangeTiming } from "../types";
+import type { Animation, ImageChangeTiming, WordTiming } from "../types";
+import { ActorFrameworkScene } from "./ActorFrameworkScene";
 
 interface SlideSceneProps {
   imageFile: string;
   children?: React.ReactNode;
+  animation?: Animation;
   /** All images in order for progressive builds */
   imageFiles?: string[];
   /** When to crossfade to each sub-image (seconds into audio) */
   imageChangeTimings?: ImageChangeTiming[];
+  /** Word timings, used by motion slides to sync element reveals */
+  wordTimings?: WordTiming[];
+  /** Slide audio duration in seconds */
+  audioDuration?: number;
   /** Frame offset for when audio starts within the sequence */
   audioDelay?: number;
 }
@@ -28,8 +34,11 @@ const CROSSFADE_SEC = 0.5;
 export const SlideScene: React.FC<SlideSceneProps> = ({
   imageFile,
   children,
+  animation = "none",
   imageFiles,
   imageChangeTimings,
+  wordTimings,
+  audioDuration,
   audioDelay = 0,
 }) => {
   const frame = useCurrentFrame();
@@ -49,6 +58,19 @@ export const SlideScene: React.FC<SlideSceneProps> = ({
 
   // Current time relative to audio start (for image change sync)
   const currentTimeSec = Math.max(0, (frame - audioDelay) / fps);
+
+  if (animation === "actorFramework") {
+    return (
+      <ActorFrameworkScene
+        imageFile={imageFile}
+        currentTimeSec={currentTimeSec}
+        audioDuration={audioDuration}
+        wordTimings={wordTimings}
+      >
+        {children}
+      </ActorFrameworkScene>
+    );
+  }
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0a0a" }}>

@@ -1,0 +1,45 @@
+{
+  "tasks": [
+    {
+      "id": "illustration-01",
+      "promptFiles": [
+        "prompts/01-scene-platforms-converge.md"
+      ],
+      "image": "01-scene-platforms-converge.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "illustration-02",
+      "promptFiles": [
+        "prompts/02-metaphor-demo-to-operating-loop.md"
+      ],
+      "image": "02-metaphor-demo-to-operating-loop.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "illustration-03",
+      "promptFiles": [
+        "prompts/03-comparison-fde-center-of-gravity.md"
+      ],
+      "image": "03-comparison-fde-center-of-gravity.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "illustration-04",
+      "promptFiles": [
+        "prompts/04-framework-actor-loop.md"
+      ],
+      "image": "04-framework-actor-loop.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ],
+  "jobs": 1
+}
