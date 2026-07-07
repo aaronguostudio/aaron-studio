@@ -43,6 +43,15 @@ Key defaults for Aaron's videos:
 - **Transitions**: 1.2s between slides (fade, slide, wipe, flip, etc.)
 - **Images**: Static within slides (no Ken Burns), image switches via `[IMAGE:]` markers
 
+### Blog Workflow 2.0 Video Standard
+
+When rendering a serious essay from Blog Workflow 2.0, confirm:
+- `video-brief.md` exists and is video-native, not a blog read-through;
+- `youtube-script.md` adds visual and spoken value beyond the article;
+- framework or process slides use motion only when the motion clarifies the argument;
+- structured motion slides should not sit on a mostly blank stage while narration builds context;
+- audio is reviewed as a listening product before final rendering when the voice changes.
+
 ## Aaron Voice Clone Workflow
 
 When Aaron wants a more personal English narration voice, prepare the clone as a reproducible experiment before using it in production. The target voice is a polished Aaron narrator voice: recognizable, male, warm, clear, and natural, while reducing uncomfortable English pronunciation artifacts.
