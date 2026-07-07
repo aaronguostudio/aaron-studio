@@ -20,6 +20,8 @@ Draft the article and companion distribution files from a writing plan. This ski
 | YouTube script | `src/content/blogs/YYYY-MM-DD/youtube-script.md` | Slide-based script for `aaron-video-gen` |
 | YouTube script audit | `src/content/blogs/YYYY-MM-DD/youtube-script-audit.md` | Scriptwriting gate result before rendering |
 | YouTube metadata | `src/content/blogs/YYYY-MM-DD/youtube-metadata.md` | Title, description, chapters, tags |
+| Red-team review | `src/content/blogs/YYYY-MM-DD/red-team-review.md` | Skeptical editorial review and required revisions |
+| Canon note | `src/content/blogs/YYYY-MM-DD/canon-note.md` | Canonical idea, reusable frame, claim updates, internal link map |
 
 ## Workflow
 
@@ -30,6 +32,8 @@ Use the user's path if provided. Otherwise use the newest blog directory with on
 1. `plan.md`
 2. `content-plan.md`
 3. `idea.md`
+
+For serious essays using Blog Workflow 2.0, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, and `argument-memo.md` when present. Treat them as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
 
 Read `src/content/strategy/x.md`, `src/content/strategy/blog-writing-language.md`, and `config/aaron-studio.json` if present.
 
@@ -169,6 +173,23 @@ npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.m
 
 If it fails, revise the Chinese adaptation so it reads like natural Chinese writing, not a literal translation or formulaic academic prose.
 
+### 3d. Red-Team Review
+
+Before writing companion assets for a serious essay, create `red-team-review.md`.
+
+It must include:
+- AI-like or generic sections;
+- news summary without original judgment;
+- claims that need stronger evidence;
+- paragraphs to cut or merge;
+- weak counterargument handling;
+- missing personal or operator judgment;
+- ending quality;
+- required revisions;
+- revision notes.
+
+Record at least five issues and complete at least one substantive revision before proceeding. A substantive revision changes argument, evidence, structure, rhythm, or the ending. It is not only wording polish.
+
 ### 4. Draft the Chinese version
 
 Create a natural Simplified Chinese adaptation, not a literal translation.
@@ -268,6 +289,30 @@ Default social copy should share the same core hook across X, LinkedIn, and news
 - Chapter timestamps as approximate if the final video does not exist yet.
 - When the final blog URL is known, the description's article link must use:
   `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel youtube --campaign <slug> --content description`
+
+### 5b. Canon Note
+
+For serious essays, create `canon-note.md` before reporting the package complete.
+
+Use this structure:
+
+```markdown
+# Canon Note
+
+## Canonical Idea
+
+## Reusable Frame
+
+## Claims Added
+
+## Claims Updated
+
+## Internal Link Map
+
+## Future Branches
+```
+
+The canon note should capture what this article adds to Aaron's long-term public writing memory. It should also record useful internal link opportunities without forcing links into the article.
 
 ### 6. Quality checks
 

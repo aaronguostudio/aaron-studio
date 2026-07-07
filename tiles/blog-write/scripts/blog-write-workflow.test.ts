@@ -45,4 +45,19 @@ describe("blog-write workflow quality gate", () => {
     expect(productionSkill).toContain("evaluate-content");
     expect(productionSkill).toContain("Pre-publish evaluation gate");
   });
+
+  test("requires workflow 2 editorial artifacts in the writing skill", () => {
+    const writeSkill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
+    const productionSkill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
+
+    expect(writeSkill).toContain("memory-reflection.md");
+    expect(writeSkill).toContain("editorial-brief.md");
+    expect(writeSkill).toContain("research-dossier.md");
+    expect(writeSkill).toContain("argument-memo.md");
+    expect(writeSkill).toContain("red-team-review.md");
+    expect(writeSkill).toContain("canon-note.md");
+    expect(productionSkill).toContain("Workflow 2 editorial gates");
+    expect(productionSkill).toContain("Red-team gate");
+    expect(productionSkill).toContain("Memory update gate");
+  });
 });
