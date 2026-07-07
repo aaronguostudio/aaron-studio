@@ -11,7 +11,11 @@ Research trending topics across the web, combine them with personal experience, 
 
 | File | Path | Purpose |
 |------|------|---------|
-| Content plan | `src/content/blogs/YYYY-MM-DD/content-plan.md` | Structured plan for writing the blog post |
+| Idea | `src/content/blogs/YYYY-MM-DD/idea.md` | raw topic, reader pain, initial thesis, why now |
+| Memory reflection | `src/content/blogs/YYYY-MM-DD/memory-reflection.md` | prior-post connections and internal link candidates |
+| Editorial brief | `src/content/blogs/YYYY-MM-DD/editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, reusable frame, distribution hook |
+| Research dossier | `src/content/blogs/YYYY-MM-DD/research-dossier.md` | primary sources, secondary sources, cases, counterarguments, quotes, open questions |
+| Content plan | `src/content/blogs/YYYY-MM-DD/content-plan.md` | structured plan for writing the blog post |
 
 ## Workflow
 
@@ -46,6 +50,19 @@ test -f "$HOME/.aaron-skills/blog-brainstorm/EXTEND.md" && echo "user"
 | Q5 | What day will this publish? | This Wednesday, Next Wednesday, (Other date) |
 
 If EXTEND.md provides defaults for some of these, skip those questions.
+
+### Step 2b: Memory Reflection
+
+Before web research for a serious essay, inspect at least three prior finished English posts under `src/content/blogs/*/*.md`, skipping `*-zh.md`, planning files, social files, and video files.
+
+Write `memory-reflection.md` with:
+- related past posts and why they matter;
+- ideas to reuse;
+- ideas to update;
+- internal link candidates;
+- continuity thesis.
+
+Do not force internal links. If no useful link exists, state why.
 
 ### Step 3: Research Trending Topics
 
@@ -122,7 +139,31 @@ This is the creative heart of the skill — free-form conversation.
    - Do they have a specific personal story or experience to weave in?
    - Any adjustments to the framing?
    - What key points must be included?
-   - What visual could anchor the thread? (screenshot, diagram, before/after, code snippet)
+	   - What visual could anchor the thread? (screenshot, diagram, before/after, code snippet)
+
+### Step 5b: Output Editorial Brief And Research Dossier
+
+Before `content-plan.md`, write:
+- `editorial-brief.md`
+- `research-dossier.md`
+
+`editorial-brief.md` must include:
+- reader pain;
+- sharp thesis;
+- why Aaron can write this;
+- evidence needed;
+- counterargument;
+- reusable frame;
+- distribution hook;
+- kill criteria.
+
+`research-dossier.md` must include:
+- primary sources;
+- secondary sources;
+- cases;
+- counterarguments;
+- quotes and facts;
+- open questions.
 
 ### Step 6: Output Content Plan
 
