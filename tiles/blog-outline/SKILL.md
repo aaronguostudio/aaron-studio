@@ -11,7 +11,8 @@ Turn an idea into a writing-ready outline. This is the bridge between `muse`/`bl
 
 | File | Path | Purpose |
 |------|------|---------|
-| Outline | `src/content/blogs/YYYY-MM-DD/plan.md` | Writing-ready structure, story beats, examples, and distribution intent |
+| Argument memo | `src/content/blogs/YYYY-MM-DD/argument-memo.md` | thesis, mechanism, evidence map, counterargument, reusable frame, implication |
+| Outline | `src/content/blogs/YYYY-MM-DD/plan.md` | writing-ready structure, story beats, examples, and distribution intent |
 
 ## Workflow
 
@@ -19,10 +20,14 @@ Turn an idea into a writing-ready outline. This is the bridge between `muse`/`bl
 
 Use the user's path if provided. Otherwise inspect the newest blog directory under `src/content/blogs/` and choose the best available source in this order:
 
-1. `content-plan.md`
-2. `idea.md`
-3. existing `plan.md`
-4. a rough idea from the user message
+1. `argument-memo.md`
+2. `editorial-brief.md`
+3. `research-dossier.md`
+4. `memory-reflection.md`
+5. `content-plan.md`
+6. `idea.md`
+7. existing `plan.md`
+8. a rough idea from the user message
 
 Always read `src/content/strategy/x.md` and `config/aaron-studio.json` if present.
 
@@ -45,6 +50,34 @@ Default public-blog style unless the user explicitly asks otherwise:
 - "仰望星空" style ideas should be framed as strategic altitude / cognitive radius, not romantic mood.
 - Prefer structured article sections with 2-3 coherent paragraphs, not one-sentence fragments.
 - Avoid generic "lifelong learning", "you should", "become better", and AI-influencer language.
+
+### 2b. Build The Argument Memo
+
+For serious essays, write `argument-memo.md` before `plan.md`.
+
+Use this structure:
+
+```markdown
+# Argument Memo
+
+## Thesis
+
+State one sentence specific enough that someone could disagree.
+
+## Why Now
+
+## Mechanism
+
+## Evidence Map
+
+## Counterargument
+
+## Reusable Frame
+
+## Implication
+```
+
+The memo must map thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication. If the research does not support the thesis, revise the thesis before creating `plan.md`.
 
 ### 3. Build the outline
 
