@@ -2,10 +2,9 @@
 
 Anthropic, OpenAI, AWS, and Microsoft are all doing the same thing:
 
-embedding engineers inside customer organizations to make AI actually work.
+embedding engineers inside customer organizations to turn AI into operating capacity.
 
-The next AI bottleneck is not the model.
-It is deployment.
+The bottleneck moved from model access to deployment capability.
 
 Full essay in reply.
 

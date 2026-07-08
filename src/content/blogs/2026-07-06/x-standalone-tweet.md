@@ -1,12 +1,12 @@
 The durable AI skill is not prompt engineering.
 
-It is deployment thinking. I use ACTOR:
+It is deployment thinking. My ACTOR lens:
 
 Action: what work changes?
 Context: what must AI know?
 Trust: draft, recommend, decide, or act?
 Outcome: what proves value?
-Responsibility: who owns the learning loop?
+Recursive ownership: who owns the learning loop?
 
 ## Image Idea
 
