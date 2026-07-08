@@ -1,5 +1,7 @@
 # Visual Critique
 
+Scope note: this is a post-hoc regression critique of the published FDE image set. The rejected images remain in the article for now; here, rejected means negative reference for future generation, not a current publication gate.
+
 ## Set-Level Review
 
 The FDE set has useful concepts but uneven visual pacing. The cover is controlled and credible, but the body set becomes visually heavy because multiple images try to explain too many parts of the argument at once.
