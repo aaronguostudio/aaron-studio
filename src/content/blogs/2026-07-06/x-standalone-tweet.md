@@ -1,6 +1,6 @@
 The durable AI skill is not prompt engineering.
 
-It is deployment thinking. My ACTOR lens:
+It is deployment thinking. My ACTOR framework:
 
 Action: what work changes?
 Context: what must AI know?

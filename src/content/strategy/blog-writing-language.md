@@ -93,6 +93,19 @@ Subheadings should be scannable claims, not generic labels:
 - weak: `Introduction`, `Background`, `Conclusion`
 - stronger: `The bottleneck moved to review`, `Ownership is the new interface`, `The team still matters`
 
+### 方法论标签校准
+
+Use the label that matches the reader's job:
+
+- Use `lens` when the idea is mainly an interpretive perspective or way to notice something.
+- Use `framework`, `checklist`, `method`, or `playbook` when the idea gives readers steps they can execute.
+- Do not call ACTOR a `lens` in final copy. ACTOR is a deployment framework/checklist because the reader can use it to inspect a workflow.
+
+Example:
+
+- weak: `The practical lens is ACTOR.`
+- stronger: `The practical framework is ACTOR.`
+
 ## Chinese standard
 
 The Chinese version is an adaptation, not a literal translation. It should preserve the operator judgment while sounding natural in Chinese.

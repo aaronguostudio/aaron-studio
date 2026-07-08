@@ -12,7 +12,7 @@ Recognition. The viewer should feel: "That explains why AI feels powerful in dem
 
 ## Core Promise
 
-In 6-8 minutes, the viewer will understand why Anthropic, OpenAI, AWS, and Microsoft are all moving toward forward deployed engineering, how FDE differs from consulting, and the ACTOR deployment lens technical people can use: Action, Context, Trust, Outcome, Recursive ownership. The R layer should include the feedback loop that lets the system improve after launch.
+In 6-8 minutes, the viewer will understand why Anthropic, OpenAI, AWS, and Microsoft are all moving toward forward deployed engineering, how FDE differs from consulting, and the ACTOR deployment framework technical people can use: Action, Context, Trust, Outcome, Recursive ownership. The R layer should include the feedback loop that lets the system improve after launch.
 
 ## Title/Thumbnail Expectation
 
@@ -63,7 +63,7 @@ Why: the video needs to move quickly from headline curiosity to a practical oper
 
 - A faster opening pattern that visually shows the four company announcements converging.
 - A sharper contrast between demo capability and operational adoption.
-- A more explicit career takeaway for engineers: the ACTOR deployment lens behind "deployment-native" work, including feedback loops and self-enhancement after launch.
+- A more explicit career takeaway for engineers: the ACTOR deployment framework behind "deployment-native" work, including feedback loops and self-enhancement after launch.
 - A visual model of the last mile: model -> action -> context -> trust boundary -> outcome -> responsibility.
 
 ## Banned Phrases

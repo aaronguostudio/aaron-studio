@@ -6,6 +6,6 @@ The bottleneck moved. The hard part is no longer only model capability. It is de
 
 I wrote about why forward deployed engineering is the clearest signal of this shift, how it differs from traditional consulting, and what it means for technical people.
 
-The practical lens: ACTOR — Action, Context, Trust, Outcome, Recursive ownership. That last layer matters because enterprise AI needs a learning loop, not only a launch.
+The practical framework: ACTOR — Action, Context, Trust, Outcome, Recursive ownership. That last layer matters because enterprise AI needs a learning loop, not only a launch.
 
 [blog URL]

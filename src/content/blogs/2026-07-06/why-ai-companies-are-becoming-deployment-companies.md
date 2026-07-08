@@ -76,7 +76,7 @@ That is the shift underneath the announcements. AI adoption is becoming less lik
 
 ![From model demo to trusted operating loop](imgs/web/02-metaphor-demo-to-operating-loop.webp)
 
-## FDE Is A Lens, Not Just A Job Title
+## FDE Is A Signal, Not Just A Job Title
 
 Forward deployed engineering is not a brand-new idea. Palantir built much of its operating model around it years ago.
 
@@ -179,9 +179,9 @@ Generic code is getting cheaper. Context is getting more valuable. The engineer 
 
 The same is true for product leaders. The work is no longer "find AI use cases" in the abstract. The better question is: which workflows deserve intelligence, what evidence would prove value, where are the trust boundaries, and how does the system improve after launch?
 
-## The ACTOR Lens
+## The ACTOR Framework
 
-The practical frame I would use is ACTOR.
+The practical framework I would use is ACTOR.
 
 It is a deployment-native checklist, not a prompt trick.
 

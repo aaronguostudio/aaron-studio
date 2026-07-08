@@ -10,7 +10,8 @@ export type BlogStyleIssueKind =
   | "low-rhythm-variation"
   | "generic-ending"
   | "mechanical-chinese"
-  | "imprecise-chinese-word-choice";
+  | "imprecise-chinese-word-choice"
+  | "imprecise-methodology-label";
 
 export type BlogStyleSeverity = "low" | "medium" | "high";
 
@@ -103,6 +104,9 @@ const IMPRECISE_CHINESE_WORD_CHOICE_RULES: PhraseRule[] = [
     severity: "medium",
   },
 ];
+
+const IMPRECISE_METHODOLOGY_LABEL_PATTERN =
+  /(?:\bACTOR\b|Action,\s*Context,\s*Trust,\s*Outcome)[^.!?\n。！？]{0,80}\blens\b|\blens\b[^.!?\n。！？]{0,80}(?:\bACTOR\b|Action,\s*Context,\s*Trust,\s*Outcome)/gi;
 
 const WEAK_HOOK_PATTERNS: PhraseRule[] = [
   { phrase: "AI is transforming", pattern: /\bAI\s+(?:is|will be)\s+(?:transforming|changing|reshaping|revolutionizing)\b/gi, severity: "high" },
@@ -261,6 +265,17 @@ export function findBlogStyleIssues(
       severity: "medium",
       count: formulaicContrastCount,
       message: `Formulaic contrast pattern detected (${formulaicContrastCount}). Recast the distinction without "not just X, it is Y" rhythm.`,
+    });
+  }
+
+  const methodologyLabelMatches = Array.from(text.matchAll(IMPRECISE_METHODOLOGY_LABEL_PATTERN));
+  if (methodologyLabelMatches.length > 0) {
+    issues.push({
+      kind: "imprecise-methodology-label",
+      severity: "medium",
+      count: methodologyLabelMatches.length,
+      phrase: methodologyLabelMatches[0][0],
+      message: `Actionable methodology appears to be labeled as a lens (${methodologyLabelMatches[0][0]}). Use framework, checklist, method, or playbook when the reader can execute steps.`,
     });
   }
 

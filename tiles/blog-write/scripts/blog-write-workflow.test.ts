@@ -23,6 +23,14 @@ describe("blog-write workflow quality gate", () => {
     expect(strategy).toContain("负面业务语境");
   });
 
+  test("documents methodology label precision review", () => {
+    const strategy = readFileSync("src/content/strategy/blog-writing-language.md", "utf-8");
+
+    expect(strategy).toContain("方法论标签校准");
+    expect(strategy).toContain("lens");
+    expect(strategy).toContain("framework");
+  });
+
   test("requires blog-style-quality in the blog-write skill", () => {
     const skill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
 

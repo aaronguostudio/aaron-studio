@@ -196,6 +196,26 @@ describe("findBlogStyleIssues", () => {
 
     expect(issues.map((issue) => issue.kind)).not.toContain("imprecise-chinese-word-choice");
   });
+
+  test("flags ACTOR lens when the article means an actionable framework", () => {
+    const issues = findBlogStyleIssues(
+      "The practical lens is ACTOR: Action, Context, Trust, Outcome, Recursive ownership."
+    );
+
+    expect(issues).toContainEqual(
+      expect.objectContaining({
+        kind: "imprecise-methodology-label",
+      })
+    );
+  });
+
+  test("allows lens when it means an interpretive perspective", () => {
+    const issues = findBlogStyleIssues(
+      "The ending gives readers a decision lens for evaluating the next workflow."
+    );
+
+    expect(issues.map((issue) => issue.kind)).not.toContain("imprecise-methodology-label");
+  });
 });
 
 describe("assessBlogStyleQuality", () => {

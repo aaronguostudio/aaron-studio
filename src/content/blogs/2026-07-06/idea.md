@@ -40,7 +40,7 @@ The current draft already has a strong market pattern and a useful ACTOR framewo
 
 - making the personal operator angle sharper;
 - reducing news-summary sections;
-- making FDE a lens rather than the whole topic;
+- making FDE a signal rather than the whole topic;
 - giving technical readers a practical framework they can apply;
 - connecting this essay to Aaron's previous writing about AI operating systems, one-person projects, and return distance.
 

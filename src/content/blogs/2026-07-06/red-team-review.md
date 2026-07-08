@@ -36,7 +36,7 @@ The revised ending is stronger than the old "deployment matters" close because i
 
 ## Required Revisions
 
-- Reframe FDE as a lens for deployment capability, not the whole topic.
+- Reframe FDE as a signal of deployment capability, not the whole topic.
 - Strengthen the opening by showing the four-company convergence immediately.
 - Add internal continuity with prior posts.
 - Make ACTOR more useful by changing Responsibility into Recursive ownership.
