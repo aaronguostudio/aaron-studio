@@ -1,0 +1,20 @@
+# Mode Mix
+
+## Set-Level Pacing
+
+State how the image set balances quiet, medium, and loud images.
+
+## Image Plan
+
+| Image | Role | Visual mode | Visual weight | Reason | Reuse candidate? |
+|---|---|---|---|---|---|
+| 00-cover | Cover | Editorial Minimal | loud | The cover needs a strong scroll-stopping thesis image. | no |
+| 00-cover-thumbnail | Thumbnail | Editorial Minimal + typography | loud | The thumbnail needs readable distribution text. | no |
+
+## Density Budget
+
+List the intended count of narrative/metaphor images, light diagrams, and dense mechanism diagrams.
+
+## Style Fatigue Guardrail
+
+State how many images may use Glass / Fluent Artifact or glowing route-line effects.
