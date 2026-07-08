@@ -505,4 +505,4 @@ Future integration may connect blog images with `/Users/aaronguo/Work/lab/images
 - Quality default is 82. Use 90 for photos, 75 for diagrams/infographics
 - Originals in `imgs/*.png` are never deleted — safe to regenerate WebP anytime
 - To regenerate a single image: use `baoyu-image-gen` directly, then re-run compression script
-- To regenerate only the thumbnail (e.g. title changed): re-run the thumbnail prompt in Step 5 with `--provider openai`, then re-run compression
+- To regenerate only the thumbnail (e.g. title changed): re-run the thumbnail prompt from the Generate Candidates section with `--provider openai`, then re-run compression
