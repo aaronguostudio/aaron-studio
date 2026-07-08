@@ -26,8 +26,14 @@ src/content/blogs/YYYY-MM-DD/imgs/
 ├── 01-{type}-{slug}.png
 ├── 02-{type}-{slug}.png
 ├── ...
-├── style.md                  ← post-specific visual style brief
-├── outline.md
+├── visual-strategy.md        ← article-level visual judgment
+├── mode-mix.md               ← per-image visual mode and weight plan
+├── style.md                  ← post-specific visual direction
+├── outline.md                ← image outline with visual predicates
+├── visual-critique.md        ← accepted/rejected/regenerate decisions
+├── visual-postmortem.md      ← reusable visual lessons
+├── prompts/
+│   └── NN-{slug}.md
 └── web/                      ← WebP compressed versions
     ├── 00-cover.webp
     ├── 00-cover-thumbnail.webp
@@ -43,6 +49,12 @@ Blog markdown references `imgs/web/*.webp`. Originals in `imgs/*.png` kept for a
 
 Images are not decoration. Each accepted image must either clarify an argument, make an abstract mechanism visible, or create a strong first impression.
 
+Blog Illustration 2.0 is judgment-first, not prompt-first. Before writing image prompts, load `src/content/strategy/blog-visual-system.md`, create `visual-strategy.md`, and create `mode-mix.md`.
+
+Core rule: Style is pacing, not skin. Do not apply one visual treatment to every image. Choose visual modes by article character, image role, and visual weight.
+
+Every body image needs one visual predicate: the single action or relation the image is allowed to show. If an image needs two predicates, split it or simplify it.
+
 Default quality bar:
 - Before the outline, define a post-specific style brief from `src/content/strategy/visual-language.md`. Do not skip directly from article analysis to image prompts.
 - Use the baoyu image generation path; do not silently substitute a generic image tool unless baoyu is unavailable and reported.
@@ -57,20 +69,23 @@ Default quality bar:
 ## Workflow
 
 ```
-- [ ] Step 1: Load preferences & detect article
-- [ ] Step 2: Analyze content
-- [ ] Step 3: Define visual style brief
-- [ ] Step 4: Confirm settings
-- [ ] Step 5: Generate outline from style brief (always includes 00-cover)
-- [ ] Step 6: Generate all images (cover → thumbnail → content)
-- [ ] Step 7: Visual quality review
-- [ ] Step 8: Compress to WebP
-- [ ] Step 9: Insert into blog & finalize
+- [ ] Step 1: Load preferences, visual language, and blog visual system
+- [ ] Step 2: Detect article and analyze content
+- [ ] Step 3: Create visual-strategy.md
+- [ ] Step 4: Create mode-mix.md
+- [ ] Step 5: Define post-specific visual direction in style.md
+- [ ] Step 6: Generate outline.md with visual mode, visual weight, and visual predicate
+- [ ] Step 7: Write prompt pack
+- [ ] Step 8: Generate candidates
+- [ ] Step 9: Write visual-critique.md and regenerate failed images
+- [ ] Step 10: Compress to WebP
+- [ ] Step 11: Insert accepted images into blog
+- [ ] Step 12: Write visual-postmortem.md
 ```
 
 ---
 
-### Step 1: Load Preferences & Detect Article
+### Step 1: Load Preferences, Visual Language, and Blog Visual System
 
 **Load EXTEND.md** (same as baoyu-article-illustrator):
 ```bash
@@ -92,6 +107,24 @@ done
 
 Use the resolved directory as `BAOYU_IMAGE_GEN_DIR`. If no path exists, report the missing dependency before falling back.
 
+**Load Aaron visual language:**
+```bash
+test -f src/content/strategy/visual-language.md && cat src/content/strategy/visual-language.md
+```
+
+This file is mandatory for Aaron Studio blog work. If it is missing, create or restore it before generating image prompts.
+
+**Load Aaron blog visual system:**
+```bash
+test -f src/content/strategy/blog-visual-system.md && cat src/content/strategy/blog-visual-system.md
+```
+
+This file is mandatory for Blog Illustration 2.0. If it is missing, create or restore it before generating image prompts.
+
+---
+
+### Step 2: Detect Article and Analyze Content
+
 **Detect article path** — from user's argument or ask:
 - If path provided: use it directly
 - If not provided: look for the most recently modified `.md` file in `src/content/blogs/`
@@ -103,17 +136,6 @@ Use the resolved directory as `BAOYU_IMAGE_GEN_DIR`. If no path exists, report t
 mkdir -p src/content/blogs/YYYY-MM-DD/imgs/web
 mkdir -p src/content/blogs/YYYY-MM-DD/imgs/prompts
 ```
-
-**Load Aaron visual language:**
-```bash
-test -f src/content/strategy/visual-language.md && cat src/content/strategy/visual-language.md
-```
-
-This file is mandatory for Aaron Studio blog work. If it is missing, create or restore it before generating image prompts.
-
----
-
-### Step 2: Analyze Content
 
 Read the full article. Identify:
 - Content type (technical / narrative / tutorial / opinion)
@@ -139,7 +161,33 @@ Rules for splitting:
 
 ---
 
-### Step 3: Define Visual Style Brief
+### Step 3: Create Visual Strategy
+
+Create `src/content/blogs/YYYY-MM-DD/imgs/visual-strategy.md` from `tiles/blog-illustrate/templates/visual-strategy.md`.
+
+The strategy must classify article character, reader emotion, visual risk, recommended mode mix, cover direction, body image direction, framework/diagram direction, and what to avoid.
+
+Do not write image prompts before this file exists.
+
+---
+
+### Step 4: Create Mode Mix
+
+Create `src/content/blogs/YYYY-MM-DD/imgs/mode-mix.md` from `tiles/blog-illustrate/templates/mode-mix.md`.
+
+Every planned image must include role, visual mode, visual weight, reason, and reuse candidate status.
+
+Use the five Aaron visual modes:
+
+- Editorial Minimal
+- Human-Scale Metaphor
+- Operator Diagram
+- Real Photo Collage
+- Glass / Fluent Artifact
+
+---
+
+### Step 5: Define Visual Style Brief
 
 Before generating an outline, create `src/content/blogs/YYYY-MM-DD/imgs/style.md`.
 
@@ -166,7 +214,7 @@ The style brief must also name the successful baseline it is adapting from, usua
 Baseline: Soft Glass Narrative, using the 2026-06-20 AI operating system image set as the reference for density, restraint, and human-scale metaphor.
 ```
 
-### Step 4: Confirm Settings
+### Confirm Settings
 
 Ask only when the article or user request does not already determine these settings. In Codex, ask concise plain-text questions; in Claude Code, a single `AskUserQuestion` is acceptable.
 
@@ -182,7 +230,7 @@ If the user has already specified a custom style direction, use it directly and 
 
 ---
 
-### Step 5: Generate Outline
+### Step 6: Generate Outline
 
 Save to `src/content/blogs/YYYY-MM-DD/imgs/outline.md`.
 
@@ -202,6 +250,12 @@ style_brief: [style brief path]
 **Position**: Top of article (frontmatter cover + first image in body)
 **Type**: scene or editorial
 **Purpose**: Stop the scroll — visually capture the post's core theme
+**Role**: cover
+**Visual mode**: [Editorial Minimal | Human-Scale Metaphor | Operator Diagram | Real Photo Collage | Glass / Fluent Artifact]
+**Visual weight**: [low | medium | high]
+**Visual predicate**: [single action or relation the image is allowed to show]
+**Anti-clutter rule**: [what must stay out of the image]
+**Reuse candidate?**: [yes/no + why]
 **Visual Content**: [Specific scene/concept that represents the post. Think: what image would make someone stop scrolling? Avoid generic tech imagery.]
 **Style note**: Cover can use a different style from content illustrations — often more atmospheric/editorial works better for covers
 **Filename**: 00-cover.png
@@ -210,6 +264,12 @@ style_brief: [style brief path]
 **Position**: [section/paragraph]
 **Type**: [type]
 **Purpose**: [why]
+**Role**: [cover | body | framework | diagram | thumbnail]
+**Visual mode**: [Editorial Minimal | Human-Scale Metaphor | Operator Diagram | Real Photo Collage | Glass / Fluent Artifact]
+**Visual weight**: [low | medium | high]
+**Visual predicate**: [single action or relation the image is allowed to show]
+**Anti-clutter rule**: [what must stay out of the image]
+**Reuse candidate?**: [yes/no + why]
 **One-sentence takeaway**: [what the image communicates]
 **Density class**: [narrative/metaphor | light diagram | dense mechanism]
 **Visual Content**: [what]
@@ -220,6 +280,7 @@ style_brief: [style brief path]
 ```
 
 Before generating images, scan `imgs/outline.md` and confirm:
+- every image has exactly one visual predicate;
 - most body images are `narrative/metaphor`;
 - there are no more than 1-2 `light diagram` images in a normal post;
 - there is no more than one `dense mechanism` image;
@@ -228,7 +289,37 @@ Before generating images, scan `imgs/outline.md` and confirm:
 
 ---
 
-### Step 6: Generate Images
+### Step 7: Write Prompt Pack
+
+Save each prompt to `src/content/blogs/YYYY-MM-DD/imgs/prompts/NN-{slug}.md` for future reference.
+
+Each prompt file must include:
+
+```markdown
+# Prompt: NN-name
+
+## Role
+
+## Visual Mode
+
+## Visual Weight
+
+## Positive Prompt
+
+## Negative Prompt
+
+## Mode Constraints
+
+## Density Budget
+
+## Prior Failure To Avoid
+```
+
+Before generation, scan `imgs/outline.md` and confirm every image has exactly one visual predicate.
+
+---
+
+### Step 8: Generate Candidates
 
 Generate using `baoyu-image-gen` skill (via Bash):
 
@@ -301,13 +392,13 @@ Rules for thumbnail generation:
 - For light diagrams, use large shapes and avoid fake readable text.
 - For dense mechanism diagrams, generate only when the surrounding section truly needs architecture or flow.
 
-Save each prompt to `src/content/blogs/YYYY-MM-DD/imgs/prompts/NN-{slug}.md` for future reference.
-
 Retry once on failure. Report any that fail after retry.
 
 ---
 
-### Step 7: Visual Quality Review
+### Step 9: Visual Critique Gate
+
+Before compressing or inserting images, create `src/content/blogs/YYYY-MM-DD/imgs/visual-critique.md` from `tiles/blog-illustrate/templates/visual-critique.md`.
 
 Before compressing or inserting images into the article:
 - Confirm every accepted image follows `imgs/style.md`.
@@ -319,11 +410,13 @@ Before compressing or inserting images into the article:
 - Confirm family/life images do not invent extra family members.
 - Regenerate any failed image before compression/final insertion.
 
+Reject or regenerate images that are cluttered, dirty, too heavy, too generic, too stock-like, role-mismatched, or carrying more than one visual predicate.
+
 For 4+ images, create or view a contact sheet when practical so repeated compositions are obvious.
 
 ---
 
-### Step 8: Compress to WebP
+### Step 10: Compress to WebP
 
 After ALL images are generated, run:
 
@@ -345,7 +438,7 @@ Show compression results (original KB → compressed KB, savings %).
 
 ---
 
-### Step 9: Insert into Blog & Finalize
+### Step 11: Insert Accepted Images into Blog
 
 **Add cover to frontmatter and top of article:**
 ```markdown
@@ -365,6 +458,14 @@ cover: imgs/web/00-cover.webp
 ```
 
 All paths use `imgs/web/*.webp`.
+
+---
+
+### Step 12: Visual Postmortem
+
+Create `src/content/blogs/YYYY-MM-DD/imgs/visual-postmortem.md` from `tiles/blog-illustrate/templates/visual-postmortem.md`.
+
+Record what worked, what failed, reusable patterns, anti-patterns to add to the global system, image stock candidates, and next article guidance.
 
 **Print completion summary:**
 ```
@@ -392,6 +493,10 @@ Next steps:
 ---
 
 ## Notes
+
+## Phase 2: Optional Image Stock Integration
+
+Future integration may connect blog images with `/Users/aaronguo/Work/lab/images-stock` for search, import, and publish-to-stock workflows. This is optional. Blog illustration must still run with local artifacts when image stock is unavailable.
 
 - Cover style can differ from content illustrations — atmospheric/editorial covers often work better than matching the content style exactly
 - `00-cover.png` = clean (no text) → blog header. `00-cover-thumbnail.png` = title overlay → YouTube thumbnail. Two separate files, both always generated.
