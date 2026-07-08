@@ -1,13 +1,17 @@
-# Research Dossier
+# 研究档案
 
-## Primary Sources
+## 这份材料要回答的问题
 
-## Secondary Sources
+## 核心一手资料
 
-## Cases
+## 可以使用但要谨慎的二手材料
 
-## Counterarguments
+## 可用案例
 
-## Quotes And Facts
+## 主要反方观点
 
-## Open Questions
+## 关键事实与引用
+
+## 开放问题
+
+## 文章应保留的判断

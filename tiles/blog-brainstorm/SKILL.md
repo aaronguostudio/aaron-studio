@@ -14,7 +14,7 @@ Research trending topics across the web, combine them with personal experience, 
 | Idea | `src/content/blogs/YYYY-MM-DD/idea.md` | raw topic, reader pain, initial thesis, why now |
 | Memory reflection | `src/content/blogs/YYYY-MM-DD/memory-reflection.md` | prior-post connections and internal link candidates |
 | Editorial brief | `src/content/blogs/YYYY-MM-DD/editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, reusable frame, distribution hook |
-| Research dossier | `src/content/blogs/YYYY-MM-DD/research-dossier.md` | primary sources, secondary sources, cases, counterarguments, quotes, open questions |
+| Research dossier | `src/content/blogs/YYYY-MM-DD/research-dossier.md` | internal Chinese research notes: sources, cases, counterarguments, key facts, open questions |
 | Content plan | `src/content/blogs/YYYY-MM-DD/content-plan.md` | structured plan for writing the blog post |
 
 ## Workflow
@@ -157,13 +157,15 @@ Before `content-plan.md`, write:
 - distribution hook;
 - kill criteria.
 
-`research-dossier.md` must include:
-- primary sources;
-- secondary sources;
-- cases;
-- counterarguments;
-- quotes and facts;
-- open questions.
+`research-dossier.md` is an internal review artifact and should be written in Chinese by default. It must include:
+- 这份材料要回答的问题;
+- 核心一手资料;
+- 可以使用但要谨慎的二手材料;
+- 可用案例;
+- 主要反方观点;
+- 关键事实与引用;
+- 开放问题;
+- 文章应保留的判断.
 
 ### Step 6: Output Content Plan
 

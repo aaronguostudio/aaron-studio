@@ -21,6 +21,7 @@ Draft the article and companion distribution files from a writing plan. This ski
 | YouTube script audit | `src/content/blogs/YYYY-MM-DD/youtube-script-audit.md` | Scriptwriting gate result before rendering |
 | YouTube metadata | `src/content/blogs/YYYY-MM-DD/youtube-metadata.md` | Title, description, chapters, tags |
 | Red-team review | `src/content/blogs/YYYY-MM-DD/red-team-review.md` | Skeptical editorial review and required revisions |
+| Prose polish review | `src/content/blogs/YYYY-MM-DD/prose-polish-review.md` | Final EN/ZH language polish goals, edits, and boundaries |
 | Canon note | `src/content/blogs/YYYY-MM-DD/canon-note.md` | Canonical idea, reusable frame, claim updates, internal link map |
 
 ## Workflow
@@ -33,7 +34,7 @@ Use the user's path if provided. Otherwise use the newest blog directory with on
 2. `content-plan.md`
 3. `idea.md`
 
-For serious essays using Blog Workflow 2.0, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, and `argument-memo.md` when present. Treat them as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
+For serious essays using Blog Workflow 2.0/2.1, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, `argument-memo.md`, and `canon-alignment.md` when present. Treat them as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
 
 Read `src/content/strategy/x.md`, `src/content/strategy/blog-writing-language.md`, and `config/aaron-studio.json` if present.
 
@@ -190,6 +191,17 @@ It must include:
 
 Record at least five issues and complete at least one substantive revision before proceeding. A substantive revision changes argument, evidence, structure, rhythm, or the ending. It is not only wording polish.
 
+### 3e. Prose Polish Handoff
+
+For serious essays, the final language polish belongs to `blog-prose-editor`, not to an unbounded rewrite inside `blog-write`.
+
+After the red-team revision and before final distribution/media:
+- read `canon-alignment.md` again if present;
+- run or hand off to `blog-prose-editor`;
+- ensure `prose-polish-review.md` exists;
+- keep any polish scoped to expression, rhythm, translation tone, hook, transitions, and ending;
+- do not add new facts or change the argument during prose polish.
+
 ### 4. Draft the Chinese version
 
 Create a natural Simplified Chinese adaptation, not a literal translation.
@@ -331,6 +343,8 @@ Before finishing:
 - LinkedIn, newsletter, and YouTube metadata links use UTM-tagged URLs once the final blog URL is known.
 - Main articles match Aaron's default style unless the user explicitly requested a different voice.
 - The English article passed the depth revision checklist.
+- Serious essays have `canon-alignment.md` before final draft acceptance, or a clear reason it was skipped.
+- Serious essays have `prose-polish-review.md` after red-team revision, or a clear reason it was skipped.
 - The English article passed the Anti-AI style gate and Story craft gate (`blog-style-quality.ts --require-personal-anchor --require-story-craft`), or any remaining scanner flags were reviewed and intentionally accepted.
 - The Chinese article passed the Chinese style gate (`blog-style-quality.ts --language zh`), or any remaining scanner flags were reviewed and intentionally accepted.
 - Distribution files inherit the revised thesis; they must not summarize an earlier, weaker draft.

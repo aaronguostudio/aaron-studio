@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-canon-alignment",
+  "version": "0.1.0",
+  "summary": "Aligns serious blog posts with Aaron's prior posts, evolving canon, internal links, and operator judgment.",
+  "private": true,
+  "skills": {
+    "blog-canon-alignment": {
+      "path": "SKILL.md"
+    }
+  }
+}

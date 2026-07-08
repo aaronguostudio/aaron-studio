@@ -11,7 +11,7 @@ Turn an idea into a writing-ready outline. This is the bridge between `muse`/`bl
 
 | File | Path | Purpose |
 |------|------|---------|
-| Argument memo | `src/content/blogs/YYYY-MM-DD/argument-memo.md` | thesis, mechanism, evidence map, counterargument, reusable frame, implication |
+| Argument memo | `src/content/blogs/YYYY-MM-DD/argument-memo.md` | internal Chinese memo: thesis, mechanism, evidence map, counterargument, reusable frame, implication |
 | Outline | `src/content/blogs/YYYY-MM-DD/plan.md` | writing-ready structure, story beats, examples, and distribution intent |
 
 ## Workflow
@@ -55,26 +55,28 @@ Default public-blog style unless the user explicitly asks otherwise:
 
 For serious essays, write `argument-memo.md` before `plan.md`.
 
-Use this structure:
+Write it in Chinese by default because it is an internal review artifact. Use this structure:
 
 ```markdown
-# Argument Memo
+# 论证备忘录
 
-## Thesis
+## 核心论点
 
-State one sentence specific enough that someone could disagree.
+用一句足够具体、可以被聪明读者反驳的话写清楚。
 
-## Why Now
+## 为什么现在值得写
 
-## Mechanism
+## 机制解释
 
-## Evidence Map
+## 证据地图
 
-## Counterargument
+## 需要承认的反方观点
 
-## Reusable Frame
+## 对反方的回应
 
-## Implication
+## 可复用框架
+
+## 对读者的启发
 ```
 
 The memo must map thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication. If the research does not support the thesis, revise the thesis before creating `plan.md`.

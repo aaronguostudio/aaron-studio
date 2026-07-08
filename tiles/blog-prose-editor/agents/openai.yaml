@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Prose Editor"
+  short_description: "Polishes EN/ZH blog prose without changing the argument."
+  default_prompt: "Run a prose editor pass for this blog package."

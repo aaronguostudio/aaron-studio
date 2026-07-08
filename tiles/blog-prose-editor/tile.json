@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-prose-editor",
+  "version": "0.1.0",
+  "summary": "Polishes stable EN/ZH blog drafts for natural prose, rhythm, human voice, and operator-grade clarity.",
+  "private": true,
+  "skills": {
+    "blog-prose-editor": {
+      "path": "SKILL.md"
+    }
+  }
+}

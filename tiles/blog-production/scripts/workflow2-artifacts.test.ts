@@ -8,6 +8,11 @@ import {
 } from "./workflow2-artifacts";
 
 describe("workflow2 artifact generator", () => {
+  test("includes workflow 2.1 alignment and prose artifacts", () => {
+    expect(WORKFLOW2_ARTIFACTS).toContain("canon-alignment.md");
+    expect(WORKFLOW2_ARTIFACTS).toContain("prose-polish-review.md");
+  });
+
   test("creates every workflow 2 artifact when missing", () => {
     const dir = mkdtempSync(join(tmpdir(), "blog-workflow2-"));
 

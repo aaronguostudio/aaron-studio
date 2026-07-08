@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Canon Alignment"
+  short_description: "Aligns a serious blog draft with Aaron canon and prior ideas."
+  default_prompt: "Run a canon alignment pass for this blog package."

@@ -10,7 +10,9 @@ export const WORKFLOW2_ARTIFACTS = [
   "editorial-brief.md",
   "research-dossier.md",
   "argument-memo.md",
+  "canon-alignment.md",
   "red-team-review.md",
+  "prose-polish-review.md",
   "postmortem.md",
   "canon-note.md",
 ] as const;

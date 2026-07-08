@@ -60,4 +60,21 @@ describe("blog-write workflow quality gate", () => {
     expect(productionSkill).toContain("Red-team gate");
     expect(productionSkill).toContain("Memory update gate");
   });
+
+  test("requires workflow 2.1 canon alignment and prose polish gates", () => {
+    const writeSkill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
+    const productionSkill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
+    const syncScript = readFileSync("scripts/sync-agent-skills.sh", "utf-8");
+
+    expect(existsSync("tiles/blog-canon-alignment/SKILL.md")).toBe(true);
+    expect(existsSync("tiles/blog-prose-editor/SKILL.md")).toBe(true);
+    expect(writeSkill).toContain("canon-alignment.md");
+    expect(writeSkill).toContain("prose-polish-review.md");
+    expect(productionSkill).toContain("Canon alignment gate");
+    expect(productionSkill).toContain("Prose polish gate");
+    expect(productionSkill).toContain("blog-canon-alignment");
+    expect(productionSkill).toContain("blog-prose-editor");
+    expect(syncScript).toContain("blog-canon-alignment:tiles/blog-canon-alignment");
+    expect(syncScript).toContain("blog-prose-editor:tiles/blog-prose-editor");
+  });
 });

@@ -1,15 +1,17 @@
-# Argument Memo
+# 论证备忘录
 
-## Thesis
+## 核心论点
 
-## Why Now
+## 为什么现在值得写
 
-## Mechanism
+## 机制解释
 
-## Evidence Map
+## 证据地图
 
-## Counterargument
+## 需要承认的反方观点
 
-## Reusable Frame
+## 对反方的回应
 
-## Implication
+## 可复用框架
+
+## 对读者的启发

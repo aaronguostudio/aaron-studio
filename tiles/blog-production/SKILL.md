@@ -13,7 +13,9 @@ Run the blog workflow as the single orchestrator. This is the default entry poin
 muse
   -> blog-brainstorm
   -> blog-outline
+  -> blog-canon-alignment
   -> blog-write
+  -> blog-prose-editor
   -> blog-illustrate
   -> aaron-video-gen
   -> publish-to-blog
@@ -32,10 +34,12 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `research-dossier.md` | sources, cases, facts, counterarguments, open questions | blog-brainstorm |
 | `content-plan.md` | researched content plan | blog-brainstorm |
 | `argument-memo.md` | thesis, mechanism, evidence map, counterargument, reusable frame | blog-outline |
+| `canon-alignment.md` | prior-post alignment, viewpoint continuity, internal link candidates, ideas to upgrade or avoid | blog-canon-alignment |
 | `plan.md` | writing-ready outline | blog-outline |
 | `<slug>.md` | English article | blog-write |
 | `<slug>-zh.md` | Chinese article | blog-write |
 | `red-team-review.md` | skeptical editorial review and required revisions | blog-write |
+| `prose-polish-review.md` | EN/ZH prose polish goals, edits, boundaries, validation result | blog-prose-editor |
 | `postmortem.md` | prediction, 24h/7d outcomes, workflow lesson, next experiment | blog-production |
 | `canon-note.md` | canonical idea, reusable frame, claim updates, internal link map | blog-write / blog-production |
 | `x-post.md` | social teaser for X with link in reply | blog-write |
@@ -106,12 +110,14 @@ Use the first matching missing artifact:
 | serious essay and no `editorial-brief.md` | use `blog-brainstorm` to create editorial brief |
 | serious essay and no `research-dossier.md` | use `blog-brainstorm` to create research dossier |
 | serious essay and no `argument-memo.md` | use `blog-outline` to create argument memo and plan |
+| serious essay and no `canon-alignment.md` | use `blog-canon-alignment` before drafting or finalizing |
 | no `content-plan.md` | use `blog-brainstorm` |
 | no `plan.md` | use `blog-outline` |
 | no `<slug>.md` or no `*-zh.md` | use `blog-write` |
 | no `x-post.md` / `newsletter-teaser.md` | use `blog-write` package completion |
 | article exists but fails depth gate | use `blog-write` revision pass |
 | article exists but no `red-team-review.md` | use `blog-write` red-team revision pass |
+| article exists but no `prose-polish-review.md` | use `blog-prose-editor` final language polish pass |
 | article exists but no `canon-note.md` | use `blog-write` canon note pass |
 | published or ready-to-publish article has no `postmortem.md` | create postmortem template and record prediction |
 | no `imgs/web/00-cover.webp` | use `blog-illustrate` |
@@ -148,6 +154,8 @@ Run these gates before moving downstream. Do not rely on the user to discover qu
 
 If any artifact is missing or weak, stop and run the focused phase instead of drafting.
 
+**Canon alignment gate** — before drafting or finalizing a serious essay, create `canon-alignment.md` with `blog-canon-alignment`. It should name prior-post connections, ideas being upgraded, ideas not to force, internal link candidates, and the Aaron judgment that should be present. Alignment must not become self-quotation or ideological flattening.
+
 **Article depth gate** — before illustration, video, or publishing, read the article as a skeptical editor. The article passes only if it has:
 - a non-obvious thesis that a smart reader could disagree with
 - concrete personal or market evidence, not only abstract claims
@@ -160,6 +168,8 @@ If any artifact is missing or weak, stop and run the focused phase instead of dr
 If the article fails any item, run a `blog-write` revision pass before continuing.
 
 **Red-team gate** — before final article package, create `red-team-review.md` and record at least five issues across generic prose, unsupported claims, weak structure, unfair counterargument, missing operator judgment, weak ending, or unnecessary paragraphs. Complete at least one substantive revision before moving to media assets.
+
+**Prose polish gate** — after red-team revision and before final distribution/media, use `blog-prose-editor` to create `prose-polish-review.md` and make one scoped EN/ZH language pass. This pass may improve hook, rhythm, transitions, section openings, translation tone, and ending, but must not add facts or change the argument.
 
 **Anti-AI style gate and Story craft gate** — before illustration, video, or publishing, run:
 
