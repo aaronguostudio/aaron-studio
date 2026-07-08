@@ -193,11 +193,11 @@ It is a deployment-native checklist, not a prompt trick.
 
 **Outcome.** What would prove that the system improved the work? Faster cycle time, fewer escalations, lower error rate, higher conversion, better margin, cleaner documentation, shorter onboarding. Without an outcome layer, AI adoption becomes activity reporting.
 
-**Recursive ownership.** Who owns the system after launch, and how does it learn? What feedback shows whether it actually improved the work? What runbook remains? Which internal champion can maintain it? Which patterns are captured so the next workflow starts smarter?
+**Recursive.** Who owns the learning loop after launch? What feedback shows whether the system actually improved the work? What runbook remains? Which internal champion can maintain it? Which patterns are captured so the next workflow starts smarter?
 
 That last point is the one I would not soften.
 
-Responsibility is necessary, but responsibility alone can still become a static handoff. Recursive ownership means the system has an improvement loop. Every deployment should leave sharper evals, cleaner data contracts, better prompts, clearer failure modes, stronger runbooks, and reusable patterns. A system that fails to learn from real use slowly decays into another abandoned enterprise tool.
+Responsibility is necessary, but responsibility alone can still become a static handoff. Recursive means the system has an improvement loop. Every deployment should leave sharper evals, cleaner data contracts, better prompts, clearer failure modes, stronger runbooks, and reusable patterns. A system that fails to learn from real use slowly decays into another abandoned enterprise tool.
 
 This is where the Apollo 13 idea from [The Farthest Humans Ever Went Started as a Failure](../2026-06-27/farthest-humans-started-as-failure.md) becomes useful. A demo measures aspiration distance: how far the system can go when everything works. Deployment tests return distance: how far the system can drift from the plan and still recover.
 

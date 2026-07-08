@@ -8,6 +8,6 @@ That is why forward deployed engineering is becoming visible. It is not just con
 
 For technical people, the signal is clear: the durable skill is not prompt engineering. It is workflow engineering.
 
-The useful framework is ACTOR: Action, Context, Trust, Outcome, Recursive ownership. The last layer is where the feedback loop lives: who owns learning after launch, and what reusable pattern remains?
+The useful framework is ACTOR: Action, Context, Trust, Outcome, Recursive. The last layer is where the feedback loop lives: who owns learning after launch, and what reusable pattern remains?
 
 Full essay: [blog URL]

@@ -6,7 +6,7 @@ Action: what work changes?
 Context: what must AI know?
 Trust: draft, recommend, decide, or act?
 Outcome: what proves value?
-Recursive ownership: who owns the learning loop?
+Recursive: who owns the learning loop?
 
 ## Image Idea
 

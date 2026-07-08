@@ -100,11 +100,14 @@ Use the label that matches the reader's job:
 - Use `lens` when the idea is mainly an interpretive perspective or way to notice something.
 - Use `framework`, `checklist`, `method`, or `playbook` when the idea gives readers steps they can execute.
 - Do not call ACTOR a `lens` in final copy. ACTOR is a deployment framework/checklist because the reader can use it to inspect a workflow.
+- For acronym frameworks, keep labels at the same level of granularity. Prefer `Action, Context, Trust, Outcome, Recursive`; put clarifying phrases like ownership or learning loop in the explanation, not the label.
 
 Example:
 
 - weak: `The practical lens is ACTOR.`
 - stronger: `The practical framework is ACTOR.`
+- weak: `Action, Context, Trust, Outcome, Recursive ownership.`
+- stronger: `Action, Context, Trust, Outcome, Recursive.`
 
 ## Chinese standard
 

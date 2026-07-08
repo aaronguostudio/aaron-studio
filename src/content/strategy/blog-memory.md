@@ -8,7 +8,7 @@ It should capture reusable ideas, frameworks, internal link clusters, and recurr
 
 - Enterprise AI value is created less by model access than by deployment capability: the system around the model that turns intelligence into trusted work.
 - Token spend, model access, and usage charts are not proof that work changed; they need to be tied to outcomes, evidence, and operating loops.
-- AI compounds when output becomes a learning loop. The durable pattern is intent -> run -> review -> memory at individual scale, and action -> context -> trust -> outcome -> recursive ownership at enterprise scale.
+- AI compounds when output becomes a learning loop. The durable pattern is intent -> run -> review -> memory at individual scale, and action -> context -> trust -> outcome -> recursive at enterprise scale.
 
 ## Reusable Frameworks
 
@@ -17,7 +17,7 @@ It should capture reusable ideas, frameworks, internal link clusters, and recurr
   - Context: what must the system know, and what are the boundaries?
   - Trust: what can the system safely do?
   - Outcome: what proves improvement?
-  - Recursive ownership: who owns the system, and how does it learn?
+  - Recursive: who owns the learning loop, and how does the system improve?
 
 ## Internal Link Clusters
 
@@ -34,7 +34,7 @@ It should capture reusable ideas, frameworks, internal link clusters, and recurr
 ## Claims To Revisit
 
 - "Prompting is an interface skill; workflow engineering is the durable skill." This may deserve a standalone article with examples.
-- "Recursive ownership" needs proof from future AI workflow projects. Track whether runbooks, evals, and reusable patterns actually improve subsequent runs.
+- "Recursive" needs proof from future AI workflow projects. Track whether runbooks, evals, and reusable patterns actually improve subsequent runs.
 
 ## Future Branches
 

@@ -14,6 +14,7 @@
 - 开头加入 “measurement trap”：token spend、model access、usage charts 都容易汇报，但不能证明 work changed。
 - 在四家公司新闻之后加入一句判断：如果问题只是模型接入，公告会围绕 inference、context window、API tiers；但现在它们指向 deployment organizations。
 - 在技术人段落里，把 `The One-Person Project` 的 owner/boundary/evidence 逻辑升级到企业语境：deployment-native engineering 是把客户现场的混乱转成 boundary、evidence 和 learning loop。
+- 将 ACTOR 的 R 从 `Recursive ownership` 收口为 `Recursive`。框架标签保持单词级别一致，ownership 放进解释句里承载企业读者关心的责任边界。
 
 ## 中文润色重点
 
@@ -27,7 +28,7 @@
 - 没有改变 FDE 和 consulting 的关系判断，因为原稿已经足够平衡。
 - 没有继续增加 Karp / Palantir 的比重，避免文章变成 Palantir 视角。
 - 没有新增站内链接，现有三条已经覆盖 AI operating system、one-person project、return distance。
-- 没有重写 ACTOR。这个框架已经足够清晰，继续打磨反而可能变成管理学口号。
+- 没有重写 ACTOR 的结构。只调整 R 的命名颗粒度，让它更像一个可传播、可执行的 framework，而不是管理学口号。
 
 ## 风险与边界
 
@@ -40,4 +41,5 @@
 - English style/story gate: passed, 100/100.
 - Chinese style gate: passed, 100/100.
 - 新增中文词义校准规则：负面业务语境里的“张力”会被 scanner 提醒。
+- 新增方法论命名校准：ACTOR 这类 acronym framework 的标签要保持同一颗粒度。
 - 后续最终验证会重新跑一次中英文质量门和 workflow 测试。

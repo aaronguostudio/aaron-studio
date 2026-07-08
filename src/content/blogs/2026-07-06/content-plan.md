@@ -56,7 +56,7 @@ As frontier models become more powerful and more available, the scarce enterpris
 ### Section 5: The Practitioner Lesson
 - The durable skill is not prompt engineering; it is workflow engineering.
 - Introduce deployment-native engineering.
-- Present ACTOR: Action, Context, Trust, Outcome, Recursive ownership.
+- Present ACTOR: Action, Context, Trust, Outcome, Recursive.
 
 ### Section 6: The Close
 - The model era made intelligence abundant.

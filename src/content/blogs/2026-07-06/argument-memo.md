@@ -27,7 +27,7 @@
 2. **Context**：系统需要知道什么？source of truth 在哪里？数据权限和治理边界是什么？
 3. **Trust**：AI 是 drafting、recommending、deciding，还是 acting？不同自主权需要不同控制机制。
 4. **Outcome**：什么能证明工作真的变好了？速度、质量、成本、风险、转化率、margin、决策质量，都要落到可观察指标。
-5. **Recursive ownership**：上线以后谁负责？系统如何从真实使用中学习？这次 deployment 留下了什么 runbook、champion、eval、failure mode 和可复用 pattern？
+5. **Recursive**：上线以后谁拥有 learning loop？系统如何从真实使用中学习？这次 deployment 留下了什么 runbook、champion、eval、failure mode 和可复用 pattern？
 
 FDE 的价值，不在于这个 title 多新，而在于它把工程师放到了这些问题变得可见的位置：靠近真实用户、靠近生产约束、靠近旧系统、靠近安全和合规边界，也靠近产品团队可以学习并抽象 pattern 的地方。
 
@@ -73,7 +73,7 @@ ACTOR：
 - **Context**：what must the system know, and what are the boundaries?
 - **Trust**：what can the system safely do?
 - **Outcome**：what proves it improved the work?
-- **Recursive ownership**：who owns the system, and how does it learn?
+- **Recursive**：who owns the learning loop, and how does the system improve?
 
 这个框架的价值是把“AI use case”从一个想法，压成一组部署前必须回答的问题。它也能服务后续文章、视频和咨询式内容，因为读者可以拿它直接审视自己的 AI 项目。
 

@@ -38,7 +38,7 @@ ACTOR:
 - Context: what must the system know, and what are the data boundaries?
 - Trust: what autonomy level is safe?
 - Outcome: what proves the work improved?
-- Recursive ownership: who owns the system, and how does it learn after launch?
+- Recursive: who owns the learning loop, and how does the system improve after launch?
 
 ## Distribution Hook
 

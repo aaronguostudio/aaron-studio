@@ -29,6 +29,7 @@ describe("blog-write workflow quality gate", () => {
     expect(strategy).toContain("方法论标签校准");
     expect(strategy).toContain("lens");
     expect(strategy).toContain("framework");
+    expect(strategy).toContain("same level of granularity");
   });
 
   test("requires blog-style-quality in the blog-write skill", () => {

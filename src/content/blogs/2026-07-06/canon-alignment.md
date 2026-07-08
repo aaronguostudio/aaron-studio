@@ -8,7 +8,7 @@
 
 ## 与旧文章的呼应
 
-- `ai-became-my-operating-system.md`：个人 AI operating system 的核心是 intent、skill、run、review、memory。FDE 文章把这个 loop 扩展到企业层面：Action、Context、Trust、Outcome、Recursive ownership。
+- `ai-became-my-operating-system.md`：个人 AI operating system 的核心是 intent、skill、run、review、memory。FDE 文章把这个 loop 扩展到企业层面：Action、Context、Trust、Outcome、Recursive。
 - `one-person-project-ai-coding-v2.md`：一人项目的核心是 owner、agents、boundary、evidence。FDE 文章里的 deployment-native engineer 应该被明确写成企业版本：不是单人英雄，而是能把 AI 能力放进共享边界和证据系统的人。
 - `farthest-humans-started-as-failure.md`：aspiration distance / return distance 已经在 ACTOR 部分呼应得很好。这里不需要再加重，否则会抢走 FDE 主线。
 

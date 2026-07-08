@@ -2,7 +2,7 @@ Create a 16:9 light framework illustration.
 
 Use imgs/style.md: Field Deployment Editorial, clean field-card system, warm paper, graphite ink, soft cyan workflow path, amber ownership marks, green verification gates, muted coral permission boundary, restrained glass accent.
 
-Section idea: ACTOR is a practical framework for deployment-native enterprise AI: Action, Context, Trust, Outcome, Recursive ownership. Recursive ownership closes the loop through evidence, evals, postmortems, reusable patterns, and self-enhancement.
+Section idea: ACTOR is a practical framework for deployment-native enterprise AI: Action, Context, Trust, Outcome, Recursive. The Recursive layer closes the loop through evidence, evals, postmortems, reusable patterns, and self-enhancement.
 
 Critical composition: The five framework cards must be easy to read in this exact left-to-right order: A, C, T, O, R. Place the five large cards across the center of the image like a clear operational flow. A cyan arrow path connects A to C to T to O to R. Then a separate amber feedback arrow loops from R back to A, above or below the cards, to show self-enhancement.
 

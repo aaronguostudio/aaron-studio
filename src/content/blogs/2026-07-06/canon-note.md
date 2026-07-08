@@ -12,7 +12,7 @@ ACTOR for deployment-native AI:
 - Context: what must the system know, and what are the boundaries?
 - Trust: what can the system safely do?
 - Outcome: what proves improvement?
-- Recursive ownership: who owns the system, and how does it learn?
+- Recursive: who owns the learning loop, and how does the system improve?
 
 ## Claims Added
 
@@ -20,7 +20,7 @@ ACTOR for deployment-native AI:
 - A demo proves the model can perform; deployment proves the organization can operate.
 - Token spend, model access, and usage charts are weak proxies for whether work changed.
 - Prompting is an interface skill; workflow engineering is the durable skill.
-- Recursive ownership is the condition for enterprise AI systems to compound rather than decay.
+- Recursive is the condition for enterprise AI systems to compound rather than decay.
 
 ## Claims Updated
 

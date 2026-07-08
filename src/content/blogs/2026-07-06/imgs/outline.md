@@ -54,7 +54,7 @@ style_brief: src/content/blogs/2026-07-06/imgs/style.md
 **Position**: After the ACTOR framework and self-enhancement paragraph  
 **Type**: light framework diagram  
 **Purpose**: Turn ACTOR into a memorable practitioner framework
-**One-sentence takeaway**: Enterprise AI becomes useful when Action, Context, Trust, Outcome, and Recursive ownership form a learning loop.
+**One-sentence takeaway**: Enterprise AI becomes useful when Action, Context, Trust, Outcome, and Recursive form a learning loop.
 **Density class**: light diagram  
 **Visual Content**: Five clean field-card tiles arranged in a circular loop around a small workflow station. Each tile has one large letter only: A, C, T, O, R. The R tile connects back to A through a visible feedback path, with small evidence marks, eval checkmarks, and reusable pattern cards. The mood should emphasize self-enhancement through real use.  
 **Filename**: 04-framework-actor-loop.png

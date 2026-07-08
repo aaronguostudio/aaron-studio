@@ -39,7 +39,7 @@ The revised ending is stronger than the old "deployment matters" close because i
 - Reframe FDE as a signal of deployment capability, not the whole topic.
 - Strengthen the opening by showing the four-company convergence immediately.
 - Add internal continuity with prior posts.
-- Make ACTOR more useful by changing Responsibility into Recursive ownership.
+- Make ACTOR more useful by changing Responsibility into Recursive.
 - Avoid formulaic "not only X, it is Y" rhythm.
 
 ## Revision Notes
@@ -49,5 +49,5 @@ Completed:
 - Rewrote the English article around the deployment capability thesis.
 - Added `idea.md`, `memory-reflection.md`, `content-plan.md`, `editorial-brief.md`, `research-dossier.md`, and `argument-memo.md`.
 - Added three internal link candidates directly into the article.
-- Replaced Responsibility with Recursive ownership inside ACTOR.
+- Replaced Responsibility with Recursive inside ACTOR.
 - Ran the English style/story gate and revised the formulaic contrast issue it flagged.

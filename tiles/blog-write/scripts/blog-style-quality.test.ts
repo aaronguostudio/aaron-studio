@@ -199,7 +199,7 @@ describe("findBlogStyleIssues", () => {
 
   test("flags ACTOR lens when the article means an actionable framework", () => {
     const issues = findBlogStyleIssues(
-      "The practical lens is ACTOR: Action, Context, Trust, Outcome, Recursive ownership."
+      "The practical lens is ACTOR: Action, Context, Trust, Outcome, Recursive."
     );
 
     expect(issues).toContainEqual(
