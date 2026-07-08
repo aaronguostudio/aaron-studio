@@ -7,6 +7,7 @@ It should capture reusable ideas, frameworks, internal link clusters, and recurr
 ## Canonical Ideas
 
 - Enterprise AI value is created less by model access than by deployment capability: the system around the model that turns intelligence into trusted work.
+- Token spend, model access, and usage charts are not proof that work changed; they need to be tied to outcomes, evidence, and operating loops.
 - AI compounds when output becomes a learning loop. The durable pattern is intent -> run -> review -> memory at individual scale, and action -> context -> trust -> outcome -> recursive ownership at enterprise scale.
 
 ## Reusable Frameworks

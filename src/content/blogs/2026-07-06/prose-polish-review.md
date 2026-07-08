@@ -1,0 +1,41 @@
+# Prose Polish Review
+
+## 修改目标
+
+这次不是重写文章，而是按 2.1 做一次表达层收口：
+
+- 让标题“Expensive Tokens Won't Save Enterprise AI / 昂贵的 Token 救不了企业 AI”在开头更快兑现；
+- 强化文章和 Aaron 旧文里的 owner、boundary、evidence、memory 这条线；
+- 保留文章现在的论证结构和 source-backed claims，不新增事实；
+- 避免把文章磨成通用 enterprise AI 评论。
+
+## 英文润色重点
+
+- 开头加入 “measurement trap”：token spend、model access、usage charts 都容易汇报，但不能证明 work changed。
+- 在四家公司新闻之后加入一句判断：如果问题只是模型接入，公告会围绕 inference、context window、API tiers；但现在它们指向 deployment organizations。
+- 在技术人段落里，把 `The One-Person Project` 的 owner/boundary/evidence 逻辑升级到企业语境：deployment-native engineering 是把客户现场的混乱转成 boundary、evidence 和 learning loop。
+
+## 中文润色重点
+
+- 中文开头不做英文直译，而是用“衡量陷阱”直接承接标题。
+- 保留 `token`、`usage chart`、`workflow`、`context` 等自然技术词，不强行翻译。
+- 将略硬的 “API quota / deployment organization” 调整为“API 配额”和“deployment organization 这种能力”，让中文读起来更顺。
+
+## 保留不改的地方
+
+- 没有改变 FDE 和 consulting 的关系判断，因为原稿已经足够平衡。
+- 没有继续增加 Karp / Palantir 的比重，避免文章变成 Palantir 视角。
+- 没有新增站内链接，现有三条已经覆盖 AI operating system、one-person project、return distance。
+- 没有重写 ACTOR。这个框架已经足够清晰，继续打磨反而可能变成管理学口号。
+
+## 风险与边界
+
+- 新开头更有冲突感，但不能变成“企业浪费钱买 token”的情绪化批判；正文仍然要回到 deployment capability。
+- “deployment organization” 在中文里仍然是英文术语，但这里保留有意义，因为文章面对的是技术/企业运营读者。
+- 这次 polish 没有新增事实、数字、案例或外链。
+
+## 验证结果
+
+- English style/story gate: passed, 100/100.
+- Chinese style gate: passed, 100/100.
+- 后续最终验证会重新跑一次中英文质量门和 workflow 测试。

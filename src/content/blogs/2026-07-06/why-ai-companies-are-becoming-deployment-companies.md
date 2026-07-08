@@ -12,11 +12,17 @@ cover: imgs/web/00-cover.webp
 
 ![Enterprise AI deployment layer](imgs/web/00-cover.webp)
 
-The recent AI news has a strange rhythm.
+Enterprise AI has a measurement trap.
+
+Token spend is easy to see. Model access is easy to buy. Usage charts are easy to report. None of that proves the work changed.
+
+That is why the recent AI news has a strange rhythm.
 
 [Anthropic](https://www.anthropic.com/news/enterprise-ai-services-company) formed a new enterprise AI services company with Blackstone, Hellman & Friedman, Goldman Sachs, and other investors. [OpenAI](https://openai.com/index/openai-launches-the-deployment-company/) launched the OpenAI Deployment Company and agreed to acquire Tomoro. [AWS](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers) committed $1 billion to a Forward Deployed Engineering organization. [Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) launched Frontier Company with a $2.5 billion investment and 6,000 embedded industry and engineering experts.
 
 Different companies. Different ecosystems. Same move.
+
+If better model access were enough, these announcements would look like cheaper inference, larger context windows, and more generous API tiers. Instead, they look like deployment organizations.
 
 They are all putting engineering talent closer to the customer because enterprise AI has entered a different phase. The first phase was about access to intelligence: models, APIs, copilots, context windows, agents, benchmarks. The next phase is about deployment capability: whether a company can put that intelligence into real workflows without breaking trust, compliance, ownership, or economics.
 
@@ -163,7 +169,7 @@ That skill set is broader than prompt engineering.
 
 Prompting matters. It is one interface to intelligence. Workflow engineering is the durable skill: understanding how work moves through a system, where AI changes the cost structure, and how to redesign the loop so the output becomes useful, safe, and measurable.
 
-This connects directly to the argument I made in [The One-Person Project](../2026-07-01/one-person-project-ai-coding-v2.md). AI expands an owner's execution radius, but it also makes ownership, boundaries, and evidence more important. The enterprise version is similar. AI can accelerate work, but only if the system around the work can hold context and responsibility.
+This connects directly to the argument I made in [The One-Person Project](../2026-07-01/one-person-project-ai-coding-v2.md). AI expands an owner's execution radius, but it also makes ownership, boundaries, and evidence more important. The enterprise version is similar. Deployment-native engineering is not just being closer to the customer. It is turning customer mess into a boundary the system can respect, evidence the organization can trust, and a loop that keeps learning after launch.
 
 For a long time, strong engineering often meant keeping the customer's operational mess outside the product boundary. That made sense. Good platforms create reusable primitives. Good infrastructure hides complexity. Good product teams avoid turning every customer request into custom work.
 

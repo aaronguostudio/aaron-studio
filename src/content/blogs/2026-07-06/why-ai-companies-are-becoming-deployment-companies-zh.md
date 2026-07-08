@@ -12,11 +12,17 @@ cover: imgs/web/00-cover.webp
 
 ![企业 AI 的部署层](imgs/web/00-cover.webp)
 
-最近的 AI 新闻有一种很奇怪的节奏。
+企业 AI 有一个很容易掉进去的衡量陷阱。
+
+Token 花了多少，很容易看见。模型接入了多少，也很容易汇报。usage chart 很漂亮，也很容易让人觉得项目在前进。但这些都不能证明工作本身发生了变化。
+
+所以最近的 AI 新闻才显得很有意思。
 
 [Anthropic](https://www.anthropic.com/news/enterprise-ai-services-company) 和 Blackstone、Hellman & Friedman、Goldman Sachs 等投资方成立了一家企业 AI 服务公司。[OpenAI](https://openai.com/index/openai-launches-the-deployment-company/) 推出了 OpenAI Deployment Company，并同意收购 Tomoro。[AWS](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers) 投入 10 亿美元建立 Forward Deployed Engineering 组织。[Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) 推出 Frontier Company，投入 25 亿美元，把 6000 名行业和工程专家嵌入客户组织。
 
 公司不同，生态不同，动作却很像。
+
+如果问题只是模型还不够强，这些公告应该更多讲更便宜的 inference、更大的 context window、更充足的 API 配额。但它们真正指向的，是 deployment organization 这种能力。
 
 它们都在把工程能力推到离客户更近的地方。原因并不复杂：企业 AI 进入了一个新阶段。前一阶段的核心是获得 intelligence：模型、API、copilot、context window、agent、benchmark。下一阶段的核心是 deployment capability：企业能不能把这层 intelligence 接进真实 workflow，同时不破坏信任、合规、责任边界和经济账。
 
@@ -163,7 +169,7 @@ FDE 不只是企业销售动作。它也是给技术人的 career signal。
 
 Prompt 很重要，它是 intelligence 的一个 interface。但更耐用的能力是 workflow engineering：理解工作如何在系统里移动，AI 改变了哪里的成本结构，以及如何重构这个 loop，让输出变得有用、安全、可衡量。
 
-这和我在 [The One-Person Project](../2026-07-01/one-person-project-ai-coding-v2.md) 里写的东西是一条线。AI 扩大了一个 owner 的 execution radius，但也让 ownership、boundary、evidence 变得更重要。企业版本也是一样。AI 可以加速工作，但前提是工作周围的系统能承载 context 和 responsibility。
+这和我在 [The One-Person Project](../2026-07-01/one-person-project-ai-coding-v2.md) 里写的东西是一条线。AI 扩大了一个 owner 的 execution radius，但也让 ownership、boundary、evidence 变得更重要。企业版本也是一样。Deployment-native engineering 不只是离客户更近，而是把客户现场的混乱变成系统能遵守的边界、组织能信任的证据，以及上线后还能继续学习的工作闭环。
 
 过去很长一段时间，强工程能力往往意味着把客户的运营混乱挡在产品边界之外。这有道理。好的平台会创造 reusable primitives。好的基础设施会隐藏复杂度。好的产品团队也不会把每一个客户请求都变成定制开发。
 

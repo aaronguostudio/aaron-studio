@@ -18,6 +18,7 @@ ACTOR for deployment-native AI:
 
 - FDE is the visible job title, but the deeper durable skill is deployment-native engineering.
 - A demo proves the model can perform; deployment proves the organization can operate.
+- Token spend, model access, and usage charts are weak proxies for whether work changed.
 - Prompting is an interface skill; workflow engineering is the durable skill.
 - Recursive ownership is the condition for enterprise AI systems to compound rather than decay.
 
