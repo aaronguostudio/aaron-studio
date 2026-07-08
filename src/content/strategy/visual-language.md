@@ -4,6 +4,10 @@
 
 Aaron's blog visuals should be recognizable across posts, but they should not make a blog feel like a research deck. The visuals need to feel modern, artistic, human, and easy to understand while still carrying the sense that Aaron works with AI-native systems.
 
+## Relationship To Blog Visual System
+
+This file defines Aaron's brand-level visual language. For article-level decisions such as visual mode, visual weight, image role, visual predicate, critique gates, and style pacing, use `src/content/strategy/blog-visual-system.md`.
+
 The default style is not Microsoft Fluent, Apple Liquid Glass, Notion illustration, or generic AI art. It borrows useful qualities from those references:
 
 - liquid glass as a material accent;
