@@ -56,6 +56,24 @@ describe("blog illustration workflow 2.0", () => {
     expect(skill).toContain("Style is pacing, not skin");
   });
 
+  test("keeps article detection and visual weight vocabulary deterministic", () => {
+    const skill = read(skillPath);
+    const visualSystem = read(visualSystemPath);
+    const modeMix = read("tiles/blog-illustrate/templates/mode-mix.md");
+
+    expect(skill).toContain("published article markdown file");
+    expect(skill).toContain("Exclude `imgs/**`, `video/**`, `prompts/**`");
+    expect(skill).toContain("research-dossier.md");
+    expect(skill).toContain("If multiple candidates remain, ask the user");
+
+    expect(skill).toContain("Visual weight**: [quiet | medium | loud]");
+    expect(skill).not.toContain("Visual weight**: [low | medium | high]");
+    expect(visualSystem).toContain("quiet or medium");
+    expect(visualSystem).toContain("loud");
+    expect(modeMix).toContain("quiet / medium / loud");
+    expect(visualSystem).not.toContain("Glass Artifact");
+  });
+
   test("keeps images-stock integration optional in phase 1", () => {
     const skill = read(skillPath);
     const visualSystem = read(visualSystemPath);

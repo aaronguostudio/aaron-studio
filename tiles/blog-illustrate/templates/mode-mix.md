@@ -3,6 +3,7 @@
 ## Set-Level Pacing
 
 State how the image set balances quiet, medium, and loud images.
+Allowed visual weights: quiet / medium / loud.
 
 ## Image Plan
 

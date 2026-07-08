@@ -127,7 +127,11 @@ This file is mandatory for Blog Illustration 2.0. If it is missing, create or re
 
 **Detect article path** — from user's argument or ask:
 - If path provided: use it directly
-- If not provided: look for the most recently modified `.md` file in `src/content/blogs/`
+- If not provided: choose the most recently modified published article markdown file, not workflow artifacts
+  - Search only top-level files matching `src/content/blogs/YYYY-MM-DD/*.md`
+  - Exclude `imgs/**`, `video/**`, `prompts/**`, and internal workflow artifacts such as `research-dossier.md`, `argument-memo.md`, `content-plan.md`, `editorial-brief.md`, `plan.md`, `postmortem.md`, `youtube-script.md`, and social teaser files
+  - Prefer files with article frontmatter such as `title:` and a slug-like filename; when both `<slug>.md` and `<slug>-zh.md` exist, default to `<slug>.md` unless the user asked for Chinese
+  - If multiple candidates remain, ask the user to choose rather than guessing from generated artifact timestamps
 
 **Detect blog date dir** from article path, e.g. `src/content/blogs/2026-03-08/`.
 
@@ -252,7 +256,7 @@ style_brief: [style brief path]
 **Purpose**: Stop the scroll — visually capture the post's core theme
 **Role**: cover
 **Visual mode**: [Editorial Minimal | Human-Scale Metaphor | Operator Diagram | Real Photo Collage | Glass / Fluent Artifact]
-**Visual weight**: [low | medium | high]
+**Visual weight**: [quiet | medium | loud]
 **Visual predicate**: [single action or relation the image is allowed to show]
 **Anti-clutter rule**: [what must stay out of the image]
 **Reuse candidate?**: [yes/no + why]
@@ -266,7 +270,7 @@ style_brief: [style brief path]
 **Purpose**: [why]
 **Role**: [cover | body | framework | diagram | thumbnail]
 **Visual mode**: [Editorial Minimal | Human-Scale Metaphor | Operator Diagram | Real Photo Collage | Glass / Fluent Artifact]
-**Visual weight**: [low | medium | high]
+**Visual weight**: [quiet | medium | loud]
 **Visual predicate**: [single action or relation the image is allowed to show]
 **Anti-clutter rule**: [what must stay out of the image]
 **Reuse candidate?**: [yes/no + why]

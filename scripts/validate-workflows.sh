@@ -128,6 +128,13 @@ else
   fail "agent docs do not mention Codex compatibility"
 fi
 
+printf '\n== Workflow contract tests ==\n'
+if npx -y bun test tiles/blog-illustrate/scripts/blog-illustration-workflow.test.ts tiles/blog-write/scripts/blog-write-workflow.test.ts tiles/blog-production/scripts/workflow2-artifacts.test.ts; then
+  pass "workflow contract tests pass"
+else
+  fail "workflow contract tests fail"
+fi
+
 printf '\n'
 if [ "$failures" -gt 0 ]; then
   printf '%s validation failure(s)\n' "$failures"

@@ -171,7 +171,7 @@ First classify the article character:
 |---|---|
 | Personal AI workflow essay | Human-Scale Metaphor + Editorial Minimal + one Operator Diagram |
 | Enterprise / market argument | Editorial Minimal + Real Photo Collage + Operator Diagram |
-| Technical framework / know-how | Operator Diagram + Human-Scale Metaphor + limited Glass Artifact |
+| Technical framework / know-how | Operator Diagram + Human-Scale Metaphor + limited Glass / Fluent Artifact |
 | Reflective essay | Human-Scale Metaphor + Editorial Minimal |
 | Product/tool/process post | Glass / Fluent Artifact + Operator Diagram + Human-Scale Metaphor |
 
@@ -180,9 +180,9 @@ Then assign image role:
 | Image role | Default mode | Visual weight |
 |---|---|---|
 | Cover | Editorial Minimal or Real Photo Collage | loud |
-| Thumbnail | Editorial Minimal + typography, sometimes Glass Artifact | loud |
+| Thumbnail | Editorial Minimal + typography, sometimes Glass / Fluent Artifact | loud |
 | Body narrative | Human-Scale Metaphor | quiet or medium |
-| Framework | Operator Diagram, optionally 10-20% Glass Artifact | medium |
+| Framework | Operator Diagram, optionally 10-20% Glass / Fluent Artifact | medium |
 | Comparison | Operator Diagram or Editorial Minimal | medium |
 | Closing image | Human-Scale Metaphor or Editorial Minimal | quiet to medium |
 
