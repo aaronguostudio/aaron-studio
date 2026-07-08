@@ -1,4 +1,4 @@
-# Video Brief: Why AI Companies Are Hiring Forward Deployed Engineers
+# Video Brief: Expensive Tokens Won't Save Enterprise AI
 
 This video is not "the blog in narration form." It is about the strange fact that the biggest AI companies are all rebuilding deployment organizations, told through the pattern of four recent announcements, so the viewer leaves with one operating insight: the bottleneck has moved from model access to deployment capability.
 
@@ -12,11 +12,11 @@ Recognition. The viewer should feel: "That explains why AI feels powerful in dem
 
 ## Core Promise
 
-In 6-8 minutes, the viewer will understand why Anthropic, OpenAI, AWS, and Microsoft are all moving toward forward deployed engineering, how FDE differs from consulting, and the ACTOR deployment lens technical people can use: Action, Context, Trust, Outcome, Responsibility. The Responsibility layer should include the feedback loop that lets the system improve after launch.
+In 6-8 minutes, the viewer will understand why Anthropic, OpenAI, AWS, and Microsoft are all moving toward forward deployed engineering, how FDE differs from consulting, and the ACTOR deployment lens technical people can use: Action, Context, Trust, Outcome, Recursive ownership. The R layer should include the feedback loop that lets the system improve after launch.
 
 ## Title/Thumbnail Expectation
 
-Title expectation: "Why are all these AI companies doing the same thing?"
+Title expectation: "Expensive tokens won't save enterprise AI."
 
 Thumbnail expectation: four company names converging into one phrase: DEPLOYMENT BOTTLENECK.
 

@@ -1,5 +1,5 @@
 ---
-title: "Why Anthropic, OpenAI, AWS, and Microsoft Are All Doing the Same Thing"
+title: "Expensive Tokens Won't Save Enterprise AI"
 date: 2026-07-06
 slug: why-ai-companies-are-becoming-deployment-companies
 category: ai-native-systems
@@ -8,7 +8,7 @@ draft: true
 cover: imgs/web/00-cover.webp
 ---
 
-# Why Anthropic, OpenAI, AWS, and Microsoft Are All Doing the Same Thing
+# Expensive Tokens Won't Save Enterprise AI
 
 ![Enterprise AI deployment layer](imgs/web/00-cover.webp)
 

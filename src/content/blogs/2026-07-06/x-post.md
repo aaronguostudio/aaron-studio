@@ -1,10 +1,8 @@
 ## Main Post
 
-Anthropic, OpenAI, AWS, and Microsoft are all doing the same thing:
+Expensive tokens won't save enterprise AI.
 
-embedding engineers inside customer organizations to turn AI into operating capacity.
-
-The bottleneck moved from model access to deployment capability.
+Anthropic, OpenAI, AWS, and Microsoft are making the same bet: the bottleneck moved from model access to deployment capability.
 
 Full essay in reply.
 

@@ -1,8 +1,8 @@
-Anthropic, OpenAI, AWS, and Microsoft are all moving in the same direction: embedding engineers inside customer organizations to turn AI into operating capacity.
+Expensive tokens won't save enterprise AI.
 
-That is not a coincidence.
+That is the tension behind a strange pattern in recent AI news: Anthropic, OpenAI, AWS, and Microsoft are all moving in the same direction, putting engineers closer to customer workflows instead of only selling model access.
 
-It tells us where the enterprise AI bottleneck moved. The hard part is no longer only model capability. It is deployment: connecting AI to messy workflows, data permissions, governance, user habits, fallback paths, and measurable business outcomes.
+The bottleneck moved. The hard part is no longer only model capability. It is deployment: connecting AI to messy workflows, data permissions, governance, user habits, fallback paths, and measurable business outcomes.
 
 I wrote about why forward deployed engineering is the clearest signal of this shift, how it differs from traditional consulting, and what it means for technical people.
 

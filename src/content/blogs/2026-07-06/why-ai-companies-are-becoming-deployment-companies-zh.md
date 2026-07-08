@@ -1,5 +1,5 @@
 ---
-title: "为什么 Anthropic、OpenAI、AWS、Microsoft 都在做同一件事"
+title: "昂贵的 Token 救不了企业 AI"
 date: 2026-07-06
 slug: why-ai-companies-are-becoming-deployment-companies
 category: ai-native-systems
@@ -8,7 +8,7 @@ draft: true
 cover: imgs/web/00-cover.webp
 ---
 
-# 为什么 Anthropic、OpenAI、AWS、Microsoft 都在做同一件事
+# 昂贵的 Token 救不了企业 AI
 
 ![企业 AI 的部署层](imgs/web/00-cover.webp)
 

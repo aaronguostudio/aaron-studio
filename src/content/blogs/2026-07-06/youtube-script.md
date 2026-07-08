@@ -254,7 +254,7 @@ Trust: can AI draft, recommend, decide, or act?
 
 Outcome: what proves the work improved?
 
-Responsibility: who owns the feedback loop after launch?
+Recursive ownership: who owns the feedback loop after launch?
 
 That last layer matters.
 

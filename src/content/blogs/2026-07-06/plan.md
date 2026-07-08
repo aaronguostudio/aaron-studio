@@ -1,4 +1,4 @@
-# Blog Plan: Why Anthropic, OpenAI, AWS, and Microsoft Are All Doing the Same Thing
+# Blog Plan: Expensive Tokens Won't Save Enterprise AI
 
 ## Meta
 - **Author:** Aaron Guo
@@ -7,7 +7,7 @@
 - **Length:** 2,000-2,700 words
 - **Audience:** Product builders, senior engineers, engineering managers, technical founders, and operators trying to understand where enterprise AI is going.
 - **CTA:** reply
-- **Working subtitle:** The next AI bottleneck is not the model. It is deployment.
+- **Working subtitle:** Why Anthropic, OpenAI, AWS, and Microsoft are all moving toward deployment capability.
 
 ## Hook
 
@@ -44,7 +44,7 @@ That is why the FDE wave matters. It is the enterprise-scale version of the same
 - **Target audience:** AI-native builders, product leaders, engineering managers, senior developers, and operators.
 - **Expected distribution channel:** X long-form teaser, LinkedIn teaser, newsletter.
 - **Success metrics:** 75% scroll depth, 100% scroll depth, outbound source clicks, replies/comments from technical operators.
-- **Revision lesson:** Strengthen practitioner utility with the ACTOR deployment lens: Action, Context, Trust, Outcome, Responsibility. Responsibility includes the feedback loop and self-enhancement path after launch.
+- **Revision lesson:** Strengthen practitioner utility with the ACTOR deployment lens: Action, Context, Trust, Outcome, Recursive ownership. The R layer includes the feedback loop and self-enhancement path after launch.
 
 ## Outline
 

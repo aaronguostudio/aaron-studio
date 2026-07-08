@@ -1,5 +1,5 @@
 ---
-title: "Why Anthropic, OpenAI, AWS, and Microsoft Are All Doing the Same Thing"
+title: "Expensive Tokens Won't Save Enterprise AI"
 slug: why-ai-companies-are-becoming-deployment-companies
 date: 2026-07-06
 pillar: ai-native-execution
@@ -11,7 +11,7 @@ publish_day: Wednesday, 2026-07-08
 cta_rotation: reply
 ---
 
-# Content Plan: Why Anthropic, OpenAI, AWS, and Microsoft Are All Doing the Same Thing
+# Content Plan: Expensive Tokens Won't Save Enterprise AI
 
 ## Voice Check
 
@@ -25,7 +25,7 @@ cta_rotation: reply
 
 **Blog hook:** Start with the concrete pattern: Anthropic, OpenAI, AWS, and Microsoft all made moves toward embedded enterprise AI deployment within a short window. Then name the signal: the bottleneck has moved from model access to deployment capability.
 
-**X hook:** Anthropic, OpenAI, AWS, and Microsoft are all making the same bet: enterprise AI will not be won by the best demo. It will be won by the companies that can turn models into operating capacity.
+**X hook:** Expensive tokens won't save enterprise AI. Anthropic, OpenAI, AWS, and Microsoft are making the same bet: the bottleneck moved from model access to deployment capability.
 
 ## Core Argument / Thesis
 
@@ -85,7 +85,7 @@ As frontier models become more powerful and more available, the scarce enterpris
 
 ### X Post Brief
 **Format:** Single native post. No link in main post.
-**Hook:** Anthropic, OpenAI, AWS, and Microsoft are all doing the same thing.
+**Hook:** Expensive tokens won't save enterprise AI.
 **Key points:** model access is no longer enough; deployment is the new bottleneck; FDE is the visible job title; ACTOR is the practical frame.
 **Closing:** "Full essay in reply."
 **Visual:** ACTOR framework card or four-platform convergence image.
