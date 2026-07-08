@@ -231,4 +231,4 @@ Potential future operations:
 - `blog:image:import-stock`
 - `blog:image:publish-to-stock`
 
-This integration is optional. Blog illustration should still run with local artifacts when image stock is unavailable.
+This integration is optional: blog illustration should still run with local artifacts when image stock is unavailable.
