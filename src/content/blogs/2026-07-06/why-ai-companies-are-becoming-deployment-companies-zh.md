@@ -137,7 +137,7 @@ Frontier model 很贵。只靠 benchmark 拉开差距也越来越难。客户也
 
 这些价值大多发生在 API call 周围，而不是 API call 本身。
 
-这也是为什么 Alex Karp 最近对 AI 行业的批评值得参考，尽管要带着一点警惕去读。Palantir 不是中立观察者，它卖的正是 deployment 和 ontology 这一层。但 Karp 的不满之所以有力量，是因为很多企业确实感受到了同一种张力：token 消耗、模型访问和漂亮 demo，并不会自动变成 operating value。
+这也是为什么 Alex Karp 最近对 AI 行业的批评值得参考，尽管要带着一点警惕去读。Palantir 不是中立观察者，它卖的正是 deployment 和 ontology 这一层。但 Karp 的不满之所以有力量，是因为很多企业确实感受到了同一种落差：token 消耗、模型访问和漂亮 demo，并不会自动变成 operating value。
 
 如果 AI 平台只停在模型层，它可能变成被别人包装、集成和商业化的基础设施。进入 deployment 以后，它离客户最高价值的 workflow 更近。它能看到模型在哪里失败，哪些 pattern 会重复，哪些用例真的带来 usage，哪些关系会变得更 sticky，也可能拿到更大的 transformation budget。
 

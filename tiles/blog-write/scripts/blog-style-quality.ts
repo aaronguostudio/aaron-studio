@@ -9,7 +9,8 @@ export type BlogStyleIssueKind =
   | "missing-lived-evidence"
   | "low-rhythm-variation"
   | "generic-ending"
-  | "mechanical-chinese";
+  | "mechanical-chinese"
+  | "imprecise-chinese-word-choice";
 
 export type BlogStyleSeverity = "low" | "medium" | "high";
 
@@ -90,6 +91,17 @@ const MECHANICAL_CHINESE_PATTERNS: PhraseRule[] = [
   { phrase: "积极拥抱", pattern: /积极拥抱/g, severity: "medium" },
   { phrase: "不断提升", pattern: /不断提升/g, severity: "medium" },
   { phrase: "这一趋势", pattern: /这一趋势/g, severity: "medium" },
+];
+
+const NEGATIVE_BUSINESS_CONTEXT_PATTERN =
+  /(企业|客户|业务|成本|ROI|token|demo|模型访问|消耗|压力|挑战|质疑|困境|风险|不满|不会自动|并不会自动|无法|失败|落差|错位|不匹配|operating value)/i;
+
+const IMPRECISE_CHINESE_WORD_CHOICE_RULES: PhraseRule[] = [
+  {
+    phrase: "负面业务语境里的“张力”",
+    pattern: /[^。！？\n]{0,45}张力[^。！？\n]{0,45}/g,
+    severity: "medium",
+  },
 ];
 
 const WEAK_HOOK_PATTERNS: PhraseRule[] = [
@@ -297,6 +309,23 @@ export function findBlogStyleIssues(
         severity: count >= 5 ? "high" : "medium",
         count,
         message: `Chinese version sounds mechanically translated or formulaic (${count} markers): ${mechanicalMatches.slice(0, 5).map((rule) => rule.phrase).join(", ")}`,
+      });
+    }
+
+    const impreciseMatches = IMPRECISE_CHINESE_WORD_CHOICE_RULES.flatMap((rule) => {
+      const matches = Array.from(text.matchAll(rule.pattern))
+        .map((match) => match[0])
+        .filter((match) => NEGATIVE_BUSINESS_CONTEXT_PATTERN.test(match));
+      return matches.map((match) => ({ ...rule, match }));
+    });
+
+    if (impreciseMatches.length > 0) {
+      issues.push({
+        kind: "imprecise-chinese-word-choice",
+        severity: "medium",
+        count: impreciseMatches.length,
+        phrase: impreciseMatches[0].phrase,
+        message: `Chinese word choice may be too neutral or aesthetic for a negative business context (${impreciseMatches[0].match}). Consider 落差, 压力, 困境, 质疑, 挑战, 不匹配, or 错位.`,
       });
     }
   }

@@ -104,6 +104,21 @@ Prefer direct phrasing:
 
 Keep natural technical terms such as `AI`, `prompt`, `workflow`, `context`, `QA`, and `UAT` when that is how Aaron would say them.
 
+### 中文词义校准
+
+中文 prose review 要检查抽象词是否准确承载情绪方向和业务语境。不要只看词是否“高级”，要看它是否匹配句子的压力、风险、冲突或机会。
+
+特别注意 `张力`：
+
+- 可以用于标题、叙事、结构或观点之间的创造性拉扯，例如“这个标题更有张力”。
+- 不适合随手用于负面业务语境，例如企业面对成本、质疑、压力、落差、风险、ROI 不确定性时。
+- 当语义偏负面时，优先考虑 `落差`、`压力`、`困境`、`质疑`、`挑战`、`不匹配`、`错位`。
+
+Example:
+
+- weak: `很多企业感受到了同一种张力：token 消耗和漂亮 demo 并不会自动变成业务价值。`
+- stronger: `很多企业感受到了同一种落差：token 消耗和漂亮 demo 并不会自动变成业务价值。`
+
 ## Feedback loop
 
 When Aaron says a draft sounds too AI-like, too flat, or more natural than before:

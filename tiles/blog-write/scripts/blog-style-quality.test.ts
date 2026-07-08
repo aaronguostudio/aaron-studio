@@ -174,6 +174,28 @@ describe("findBlogStyleIssues", () => {
       })
     );
   });
+
+  test("flags imprecise Chinese word choice in negative business context", () => {
+    const issues = findBlogStyleIssues(
+      "很多企业确实感受到了同一种张力：token 消耗、模型访问和漂亮 demo，并不会自动变成 operating value。",
+      { language: "zh" }
+    );
+
+    expect(issues).toContainEqual(
+      expect.objectContaining({
+        kind: "imprecise-chinese-word-choice",
+      })
+    );
+  });
+
+  test("allows 张力 when it describes title or argument energy", () => {
+    const issues = findBlogStyleIssues(
+      "这个标题比旧标题更有张力，但正文开头需要更快兑现这个冲突。",
+      { language: "zh" }
+    );
+
+    expect(issues.map((issue) => issue.kind)).not.toContain("imprecise-chinese-word-choice");
+  });
 });
 
 describe("assessBlogStyleQuality", () => {

@@ -20,6 +20,7 @@
 - 中文开头不做英文直译，而是用“衡量陷阱”直接承接标题。
 - 保留 `token`、`usage chart`、`workflow`、`context` 等自然技术词，不强行翻译。
 - 将略硬的 “API quota / deployment organization” 调整为“API 配额”和“deployment organization 这种能力”，让中文读起来更顺。
+- 将负面业务语境里的“张力”改成“落差”。这里不是创造性拉扯，而是企业对 token 消耗、模型访问和 demo 无法转化成 operating value 的不匹配感。
 
 ## 保留不改的地方
 
@@ -38,4 +39,5 @@
 
 - English style/story gate: passed, 100/100.
 - Chinese style gate: passed, 100/100.
+- 新增中文词义校准规则：负面业务语境里的“张力”会被 scanner 提醒。
 - 后续最终验证会重新跑一次中英文质量门和 workflow 测试。

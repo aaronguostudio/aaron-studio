@@ -15,6 +15,14 @@ describe("blog-write workflow quality gate", () => {
     expect(strategy).toContain("Aaron voice craft gate");
   });
 
+  test("documents Chinese lexical precision review", () => {
+    const strategy = readFileSync("src/content/strategy/blog-writing-language.md", "utf-8");
+
+    expect(strategy).toContain("中文词义校准");
+    expect(strategy).toContain("张力");
+    expect(strategy).toContain("负面业务语境");
+  });
+
   test("requires blog-style-quality in the blog-write skill", () => {
     const skill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
 
