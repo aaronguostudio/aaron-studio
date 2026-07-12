@@ -23,3 +23,7 @@ State whether the set overuses glass, route lines, dashboards, diagrams, or any 
 ## Stock / Memory Candidates
 
 List images that should later be sent to image stock as accepted references or rejected negative examples.
+
+## Decision
+
+Decision: PENDING

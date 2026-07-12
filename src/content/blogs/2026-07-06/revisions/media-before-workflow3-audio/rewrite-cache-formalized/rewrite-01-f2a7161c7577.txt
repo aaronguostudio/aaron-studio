@@ -1,0 +1,13 @@
+A manufacturer has a serious problem: a lost supplier.
+
+Supplier data sits in one system. Production capacity is tracked in another. Customer orders are in yet another place. Approval rules depend heavily on the expertise of experienced employees.
+
+---SEGMENT---
+
+The key question is identifying which orders are now at risk. What options do planners have to address these risks? Who has the authority to approve any changes?
+
+---SEGMENT---
+
+A forward deployed engineer works alongside the operators to make decisions. They connect the data, identify key objects, and determine necessary actions. This involves setting up permissions, approvals, exceptions, and planning for recovery from the beginning. 
+
+This is deployment work.

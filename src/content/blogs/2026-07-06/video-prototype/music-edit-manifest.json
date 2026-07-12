@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source": "music.mp3",
+  "output": "music-edit.mp3",
+  "reason": "The generated source contained 0.75 seconds of leading silence and about 3.06 seconds of trailing silence, which weakened the sound-led opening and ending.",
+  "processing": {
+    "trim_start_sec": 0.75,
+    "trim_end_sec": 80.98,
+    "tempo": 0.9547,
+    "fade_in_sec": 0.12,
+    "fade_out_start_sec": 82.8,
+    "fade_out_duration_sec": 1.2,
+    "codec": "mp3",
+    "bit_rate": "192k"
+  },
+  "output_duration_sec": 84.025147,
+  "qa": {
+    "leading_silence_over_0_3_sec": false,
+    "trailing_silence_sec_at_minus_45_db": 0.622834
+  }
+}

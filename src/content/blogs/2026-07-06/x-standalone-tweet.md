@@ -1,13 +1,15 @@
-The durable AI skill is not prompt engineering.
+An AI demo can work and still fail in production.
 
-It is deployment thinking. My ACTOR framework:
+ACTOR:
 
 Action: what work changes?
-Context: what must AI know?
-Trust: draft, recommend, decide, or act?
+Context: what may it know?
+Trust: what may it do?
 Outcome: what proves value?
-Recursive: who owns the learning loop?
+Recursive: how does the next run improve?
+
+A model is an input. Changed work is the result.
 
 ## Image Idea
 
-Quote card: "Enterprise AI becomes real when intelligence has an action, context, trust boundary, outcome, owner, and feedback loop."
+Use `imgs/web/04-actor-deployment-test-v7.webp` as the visual. Publish 2-5 days after the launch post, with no external link in the main post.

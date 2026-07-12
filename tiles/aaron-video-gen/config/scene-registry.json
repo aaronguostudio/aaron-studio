@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "roles": ["evidence", "explanation", "emphasis"],
+  "intensities": ["calm", "structured", "signature"],
+  "templates": [
+    {
+      "id": "image-sequence",
+      "status": "available",
+      "description": "Full-frame evidence or illustration sequence with narration-synced crossfades.",
+      "roles": ["evidence", "explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["none", "crossfade"],
+      "max_duration_sec": 45,
+      "max_content_items": 5
+    },
+    {
+      "id": "actor-framework",
+      "status": "available",
+      "description": "ACTOR framework bridge, progressive card build, and recursive connector.",
+      "roles": ["explanation"],
+      "intensities": ["structured", "signature"],
+      "motion_recipes": ["bridge-reveal", "card-build", "connector-draw"],
+      "max_duration_sec": 55,
+      "max_content_items": 5
+    },
+    {
+      "id": "brand-end-card",
+      "status": "available",
+      "description": "A quiet author lockup that closes an essay after the argument has resolved.",
+      "roles": ["emphasis"],
+      "intensities": ["calm"],
+      "motion_recipes": ["crossfade"],
+      "max_duration_sec": 8,
+      "max_content_items": 4
+    },
+    {
+      "id": "editorial-statement",
+      "status": "prototype",
+      "description": "A concise claim, title, or question with restrained type and focus motion.",
+      "roles": ["explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["mask-reveal", "word-mask", "focus-shift"],
+      "max_duration_sec": 20,
+      "max_content_items": 3
+    },
+    {
+      "id": "data-hero",
+      "status": "prototype",
+      "description": "One dominant number or metric supported by a small amount of evidence.",
+      "roles": ["evidence", "emphasis"],
+      "intensities": ["structured", "signature"],
+      "motion_recipes": ["count-up", "stagger", "highlight-scan"],
+      "max_duration_sec": 25,
+      "max_content_items": 6
+    },
+    {
+      "id": "split-comparison",
+      "status": "prototype",
+      "description": "Two ideas compared across a stable split layout without card clutter.",
+      "roles": ["evidence", "explanation"],
+      "intensities": ["structured"],
+      "motion_recipes": ["compare-wipe", "stagger", "focus-shift"],
+      "max_duration_sec": 35,
+      "max_content_items": 8
+    },
+    {
+      "id": "progressive-cards",
+      "status": "prototype",
+      "description": "A limited set of cards that accumulate into one operating idea.",
+      "roles": ["explanation"],
+      "intensities": ["structured"],
+      "motion_recipes": ["card-build", "stagger", "focus-shift"],
+      "max_duration_sec": 45,
+      "max_content_items": 6
+    },
+    {
+      "id": "process-flow",
+      "status": "prototype",
+      "description": "A process or handoff revealed as connected stages.",
+      "roles": ["explanation"],
+      "intensities": ["structured"],
+      "motion_recipes": ["connector-draw", "card-build", "path-trace"],
+      "max_duration_sec": 45,
+      "max_content_items": 7
+    },
+    {
+      "id": "system-map",
+      "status": "prototype",
+      "description": "Objects, systems, or actors connected into a legible operating map.",
+      "roles": ["evidence", "explanation"],
+      "intensities": ["structured", "signature"],
+      "motion_recipes": ["connector-draw", "focus-shift", "highlight-scan"],
+      "max_duration_sec": 50,
+      "max_content_items": 10
+    },
+    {
+      "id": "timeline",
+      "status": "prototype",
+      "description": "Chronology, convergence, or before-and-after progression.",
+      "roles": ["evidence", "explanation"],
+      "intensities": ["structured"],
+      "motion_recipes": ["path-trace", "stagger", "focus-shift"],
+      "max_duration_sec": 40,
+      "max_content_items": 8
+    },
+    {
+      "id": "quote-source",
+      "status": "prototype",
+      "description": "A source-backed quotation or phrase with visible provenance.",
+      "roles": ["evidence", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["mask-reveal", "focus-shift"],
+      "max_duration_sec": 20,
+      "max_content_items": 3
+    },
+    {
+      "id": "custom-signature",
+      "status": "experimental",
+      "description": "A bespoke full-frame 3D, shader, or pixel transition scene used as a rare peak.",
+      "roles": ["evidence", "explanation", "emphasis"],
+      "intensities": ["signature"],
+      "motion_recipes": [
+        "three-d-flip",
+        "pixel-transition",
+        "camera-orbit",
+        "shader-field"
+      ],
+      "max_duration_sec": 25,
+      "max_content_items": 12
+    }
+  ],
+  "motion_recipes": [
+    { "id": "none", "status": "available" },
+    { "id": "crossfade", "status": "available" },
+    { "id": "bridge-reveal", "status": "available" },
+    { "id": "card-build", "status": "available" },
+    { "id": "connector-draw", "status": "available" },
+    { "id": "mask-reveal", "status": "prototype" },
+    { "id": "word-mask", "status": "prototype" },
+    { "id": "focus-shift", "status": "prototype" },
+    { "id": "count-up", "status": "prototype" },
+    { "id": "stagger", "status": "prototype" },
+    { "id": "highlight-scan", "status": "prototype" },
+    { "id": "compare-wipe", "status": "prototype" },
+    { "id": "path-trace", "status": "prototype" },
+    { "id": "three-d-flip", "status": "experimental" },
+    { "id": "pixel-transition", "status": "experimental" },
+    { "id": "camera-orbit", "status": "experimental" },
+    { "id": "shader-field", "status": "experimental" }
+  ]
+}

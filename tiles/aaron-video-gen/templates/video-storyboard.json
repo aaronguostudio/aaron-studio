@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "title": "[Video title]",
+  "duration_sec": 40,
+  "direction": {
+    "name": "[Selected treatment]",
+    "visual_spine": "[Typography, grid, color, texture, and image logic]",
+    "motion_density": "balanced",
+    "music_strategy": "bookended",
+    "references": [
+      {
+        "id": "primary-reference",
+        "url": "https://example.com/reference",
+        "borrow": "[Specific pacing, sound, layout, or motion principle]",
+        "avoid": "[What should not be copied]"
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "Concrete evidence",
+      "start_sec": 0,
+      "end_sec": 16,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Establish the real event before explaining it.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Full-frame source image with a clear subject.",
+      "first_change_sec": 5,
+      "motion_recipes": ["crossfade"],
+      "content": ["source image", "supporting image"],
+      "beats": [
+        { "at_sec": 0, "visual": "source image", "action": "hold" },
+        { "at_sec": 7, "visual": "supporting image", "action": "crossfade" }
+      ],
+      "music_cue": "opening cue under narration"
+    },
+    {
+      "id": "s02",
+      "title": "The number becomes the clue",
+      "start_sec": 16,
+      "end_sec": 40,
+      "role": "emphasis",
+      "template": "data-hero",
+      "intensity": "structured",
+      "purpose": "Make one scale signal memorable without turning it into a chart wall.",
+      "entry_mode": "bridge",
+      "entry_visual": "Prior evidence remains while the number scaffold appears.",
+      "first_change_sec": 0.6,
+      "motion_recipes": ["count-up", "stagger"],
+      "content": ["primary number", "time range", "supporting entities"],
+      "beats": [
+        { "at_sec": 0, "visual": "evidence bridge", "action": "hold" },
+        { "at_sec": 4, "visual": "primary number", "action": "count" },
+        { "at_sec": 11, "visual": "supporting entities", "action": "stagger" },
+        { "at_sec": 18, "visual": "complete scale signal", "action": "resolve" }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "opening cue resolves and exits"
+    }
+  ]
+}

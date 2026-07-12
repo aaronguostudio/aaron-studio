@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "voice_id": "R2DWp7zZuWmGxk3r8GIA",
+  "model_id": "eleven_v3",
+  "output_format": "mp3_44100_192",
+  "samples": [
+    {
+      "id": "fde-hook-full",
+      "label": "Locked FDE hook with sparse v3 direction",
+      "text": "[curious] Within fifty-nine days, Anthropic, OpenAI, A W S, and Microsoft all announced a version of the same move.\n\nThey put engineers closer to customer operations.\n\nOpenAI, A W S, and Microsoft alone described more than seven and a half billion dollars across different kinds of commitments.\n\n[thoughtful] If model capability were the whole problem, why are model companies spending billions on people?\n\nThe numbers are not perfectly comparable, but the shared priority is hard to miss: these companies are building deployment capacity.\n\nModels can already write code, analyze documents, and call tools. What they cannot do by themselves is organize a company's data, permissions, approvals, recovery paths, and responsibility into a reliable production system.\n\n[confident] That gap is where forward deployed engineering becomes important."
+    }
+  ],
+  "settings_matrix": [
+    {
+      "id": "v3-natural",
+      "notes": "Balanced v3 stability with sparse local delivery cues.",
+      "stability": 0.5,
+      "similarity_boost": 0.8,
+      "style": 0,
+      "use_speaker_boost": true,
+      "speed": 1.03
+    }
+  ],
+  "rubric": [
+    {
+      "name": "identity",
+      "max_score": 5,
+      "passing_note": "Sounds recognizably like Aaron."
+    },
+    {
+      "name": "naturalness",
+      "max_score": 5,
+      "passing_note": "Sounds spoken rather than synthesized or announced."
+    },
+    {
+      "name": "energy",
+      "max_score": 5,
+      "passing_note": "Has forward momentum without sounding theatrical."
+    },
+    {
+      "name": "authority",
+      "max_score": 5,
+      "passing_note": "Sounds confident enough for a serious technology essay."
+    }
+  ]
+}

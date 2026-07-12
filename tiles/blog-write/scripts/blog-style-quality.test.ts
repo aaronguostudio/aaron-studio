@@ -125,6 +125,15 @@ describe("findBlogStyleIssues", () => {
     expect(issues.map((issue) => issue.kind)).not.toContain("missing-lived-evidence");
   });
 
+  test("recognizes naturally written Chinese lived evidence", () => {
+    const issues = findBlogStyleIssues(
+      "我的博客流程从第一版演进到第二版。第二版加入了主张台账、反方审阅和链接验证，让一次失败能够改进下一篇文章。",
+      { language: "zh", requirePersonalAnchor: true }
+    );
+
+    expect(issues.map((issue) => issue.kind)).not.toContain("missing-lived-evidence");
+  });
+
   test("flags low rhythm variation in English paragraphs", () => {
     const issues = findBlogStyleIssues(
       [
@@ -173,6 +182,28 @@ describe("findBlogStyleIssues", () => {
         kind: "mechanical-chinese",
       })
     );
+  });
+
+  test("flags avoidable English business terms in Chinese prose", () => {
+    const issues = findBlogStyleIssues(
+      "模型公司正在增加 people layer，但 vendor 仍然把它叫作 enterprise product 和 consulting。",
+      { language: "zh" }
+    );
+
+    expect(issues).toContainEqual(
+      expect.objectContaining({
+        kind: "avoidable-chinese-code-switching",
+      })
+    );
+  });
+
+  test("allows stable acronyms and proper technical labels in Chinese prose", () => {
+    const issues = findBlogStyleIssues(
+      "FDE 团队用 ACTOR 检查 AI 系统，并通过 API 记录 Token 使用量。",
+      { language: "zh" }
+    );
+
+    expect(issues.map((issue) => issue.kind)).not.toContain("avoidable-chinese-code-switching");
   });
 
   test("flags imprecise Chinese word choice in negative business context", () => {

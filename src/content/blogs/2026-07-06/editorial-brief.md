@@ -1,52 +1,78 @@
-# Editorial Brief
+# Editorial Brief: Expensive Tokens Won't Save Enterprise AI
 
 ## Reader Pain
 
-The target reader already believes AI is powerful, but they are tired of vague enterprise AI claims. They want to understand why AI pilots stall, why FDE is becoming fashionable, and what this means for their own technical work.
+The reader already believes AI is capable. Their frustration is that pilots, token spend, and adoption dashboards can rise while cycle time, quality, margin, risk, and decision speed barely move. Technical readers also see FDE everywhere but lack a precise explanation of why the role matters now or how it differs from consulting.
+
+## Reader Job To Be Done
+
+Diagnose whether an AI initiative is becoming an operating capability or merely producing more model activity, then understand which deployment-native skills and controls are missing.
+
+## One-Sentence Promise
+
+The article will explain why major AI platforms are building FDE organizations, show what FDEs actually do in real workflows, and give readers one practical ACTOR framework for judging deployment.
 
 ## Sharp Thesis
 
-The enterprise AI bottleneck has moved from model access to deployment capability. FDE is the visible role, but the deeper durable skill is becoming deployment-native: turning intelligence into trusted operating loops.
+When model companies spend billions to put engineers inside customer workflows, they are admitting that capability is not the bottleneck. The missing layer turns fragmented data, permissions, decisions, and field failures into a customer-owned operating system that can keep improving.
+
+## Concrete Opening
+
+Open directly on the convergence: Anthropic, OpenAI, AWS, and Microsoft are all moving engineers closer to customers. Name FDE in the first line, then explain that the shared bet is not another model feature but the deployment and learning layer around the model.
+
+## Original Contribution
+
+The old draft argued that the bottleneck moved downstream. The new draft goes further:
+
+- Explain FDE through a concrete supply-disruption workflow rather than an academic loop diagram.
+- Show why FDE only scales when repeated field problems become product capability.
+- Make customer ownership of the workflow the central lock-in test.
+- Keep ACTOR as the article's only executable framework and apply it to the real blog workflow.
 
 ## Why Aaron Can Write This
 
-Aaron is not writing as a private equity analyst or enterprise consulting insider. His authority comes from building AI-native workflows himself. The credible angle is practical: small-scale AI work and enterprise AI deployment share the same pattern. The model is only valuable when the surrounding workflow has context, trust, outcomes, and memory.
+Aaron is not claiming to be a PE analyst or a veteran enterprise transformation consultant. His authority comes from building and debugging AI-native workflows where capable models still fail at context, permissions, handoffs, review, memory, and verification. He can connect that lived systems problem to public evidence from AI vendors without pretending the analogy is proof.
+
+## Authority And Scope Boundary
+
+- Direct knowledge: Aaron's own AI production workflow and its operational failures.
+- Source-backed fact: company announcements, disclosed investments, operating-model descriptions, and Palantir's published FDE methodology.
+- Inference: these moves reveal a shared deployment and learning bottleneck.
+- Outside scope: predicting the economics of each new company, evaluating private equity returns, or claiming FDE replaces consulting.
 
 ## Evidence Needed
 
-- The four-company convergence:
-  - Anthropic's AI services company for mid-sized companies.
-  - OpenAI Deployment Company and Tomoro acquisition.
-  - AWS $1B FDE organization.
-  - Microsoft Frontier Company.
-- Historical role context from Palantir FDSE / Delta.
-- Fractional AI acquisition as evidence that applied AI engineering talent is a scarce asset.
-- Karp / Palantir critique as a useful but self-interested counterweight: enterprises do not want to pay for tokens that create no value.
-- Aaron's previous writing as internal evidence: AI operating system, one-person project, return distance.
+- Anthropic, OpenAI, AWS, and Microsoft primary announcements.
+- Palantir's official description of FDE as human backpropagation.
+- Aaron's v1-to-v2 blog workflow as a personal mechanism example after the FDE argument is established, clearly labeled as analogy rather than enterprise evidence.
+- A balanced lock-in and custom-services counterargument.
 
 ## Counterargument
 
-FDE may be consulting with new branding, and the announcements may be vendor positioning more than a structural shift. Traditional consulting and systems integration still matter, especially for change management, compliance, training, and global rollout.
+The companies may simply be chasing services revenue or using FDE as new branding for consulting. Embedded teams can create one-off custom systems, hide switching costs, and fail to scale.
 
-Response: the claim is not that consulting disappears. The claim is that the center of gravity moves from recommendation to production deployment, from decks to operating loops, and from generic transformation to reusable AI-native implementation patterns.
+Response: that risk is real. The title matters less than two outcomes: the customer can operate the workflow, and field learning improves the product or next deployment. ACTOR handles the detailed inspection without adding another checklist.
 
 ## Reusable Frame
 
-ACTOR:
-
-- Action: what work actually changes?
-- Context: what must the system know, and what are the data boundaries?
-- Trust: what autonomy level is safe?
-- Outcome: what proves the work improved?
-- Recursive: who owns the learning loop, and how does the system improve after launch?
+ACTOR: Action, Context, Trust, Outcome, Recursive. Apply it to the current article so readers can see how feedback becomes a workflow rule rather than an abstract loop.
 
 ## Distribution Hook
 
-Anthropic, OpenAI, AWS, and Microsoft are all doing the same thing. That is not a coincidence.
+OpenAI, AWS, and Microsoft disclosed at least $7.5B for deployment organizations in less than two months. The surprising part is not the money. It is what the spending admits about the model.
+
+## Success Hypothesis
+
+- Primary audience: technical leaders, senior engineers, product leaders, and operators responsible for AI adoption.
+- Primary channel: blog, then X/LinkedIn teaser and video.
+- Growth lesson applied: when the subject itself carries strong news value, name it immediately; use the personal operating example later to make the mechanism tangible.
+- Success signal: qualified reading depth, saves/shares of the human-backpropagation insight, and reader reuse of ACTOR.
+- Measurement caveat: current LinkedIn manual import remains incomplete.
 
 ## Kill Criteria
 
-- If the article spends more time describing announcements than extracting a useful operating lens.
-- If it overclaims that FDE replaces consultants.
-- If ACTOR feels bolted on rather than earned by the argument.
-- If the ending merely says "AI deployment matters" instead of giving readers a sharper decision lens.
+- The article spends more than 20% of its space summarizing announcements.
+- "Human backpropagation" becomes a clever phrase without a clear mechanism.
+- The consulting comparison depends on a caricature.
+- ACTOR repeats the article instead of helping the reader make a decision.
+- The title attacks token spend but the body fails to distinguish consumption from value.

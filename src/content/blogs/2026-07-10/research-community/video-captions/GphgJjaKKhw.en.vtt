@@ -1,0 +1,498 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:03.320 --> 00:00:06.200
+Today we're excited to release a brand new
+
+00:00:06.200 --> 00:00:09.160
+ChatGPT on web, desktop and mobile.
+
+00:00:09.420 --> 00:00:11.400
+Now ChatGPT goes from just answering
+
+00:00:11.400 --> 00:00:13.720
+questions to doing work for you
+
+00:00:13.720 --> 00:00:15.900
+by connecting to all of your tools.
+
+00:00:16.240 --> 00:00:18.100
+I can switch from chat to work
+
+00:00:18.100 --> 00:00:20.360
+and this interface
+should feel very familiar.
+
+00:00:20.700 --> 00:00:22.900
+But instead of just having conversations,
+
+00:00:23.280 --> 00:00:24.960
+I can hand off real work from here.
+
+00:00:25.380 --> 00:00:27.380
+Take a look at my calendar, Slack
+
+00:00:27.380 --> 00:00:30.140
+and Drive and help me prepare for my day.
+
+00:00:30.420 --> 00:00:32.520
+While that's running,
+let me show you plugins.
+
+00:00:33.000 --> 00:00:35.120
+Some of them connect to the apps you use,
+
+00:00:35.300 --> 00:00:38.000
+others bundle role-specific
+workflows for sales,
+
+00:00:38.320 --> 00:00:39.960
+data science, marketing and more.
+
+00:00:39.980 --> 00:00:41.180
+And here we go.
+
+00:00:41.220 --> 00:00:43.620
+It found everything
+about my day, the notes
+
+00:00:43.620 --> 00:00:45.460
+and how to prepare for my next meetings.
+
+00:00:45.760 --> 00:00:48.000
+The next thing I want
+is for this to happen
+
+00:00:48.000 --> 00:00:49.540
+without me asking every time.
+
+00:00:50.860 --> 00:00:52.060
+Let's try this.
+
+00:00:52.440 --> 00:00:54.040
+Can you be my Chief of Staff
+
+00:00:54.040 --> 00:00:56.260
+and give me a briefing every morning
+
+00:00:56.260 --> 00:00:58.380
+of what I have to prepare for the day?
+
+00:00:58.660 --> 00:01:00.700
+And while the World Cup is going on,
+
+00:01:00.860 --> 00:01:03.100
+can you actually give me the scores
+
+00:01:03.100 --> 00:01:04.800
+of the German team and any other
+
+00:01:04.800 --> 00:01:06.000
+matches that I care about?
+
+00:01:06.000 --> 00:01:07.200
+And that's it.
+
+00:01:07.200 --> 00:01:08.980
+The automation is set and I don't
+
+00:01:08.980 --> 00:01:10.900
+have to remember to ask again tomorrow.
+
+00:01:11.140 --> 00:01:13.200
+And by the way, this also works on the go.
+
+00:01:13.420 --> 00:01:15.240
+The same chat is already on my phone.
+
+00:01:15.620 --> 00:01:17.720
+I can start on the web, leave
+
+00:01:17.720 --> 00:01:19.560
+my desk and keep going on my mobile.
+
+00:01:20.100 --> 00:01:22.040
+Now when I want ChatGPT to work
+
+00:01:22.040 --> 00:01:23.660
+with my local files and projects,
+
+00:01:23.820 --> 00:01:25.080
+I move to the desktop app.
+
+00:01:25.440 --> 00:01:27.220
+On the left, I can see all
+
+00:01:27.220 --> 00:01:29.280
+of my projects and everything ChatGPT
+
+00:01:29.280 --> 00:01:31.020
+is working on, but this time
+
+00:01:31.020 --> 00:01:32.640
+with all of my local files as well.
+
+00:01:33.140 --> 00:01:34.920
+For me, this is a big shift.
+
+00:01:35.160 --> 00:01:36.740
+I can give it the context,
+
+00:01:37.060 --> 00:01:38.940
+hand off the work, and then come back
+
+00:01:38.940 --> 00:01:40.600
+when it needs me or has something ready.
+
+00:01:41.000 --> 00:01:42.640
+Let's look at something more involved.
+
+00:01:42.900 --> 00:01:44.960
+I'm going to show you three different
+
+00:01:44.960 --> 00:01:48.120
+examples across marketing,
+data analytics and engineering.
+
+00:01:48.860 --> 00:01:50.500
+Let's say I'm building a fictional
+
+00:01:50.500 --> 00:01:52.460
+neobank called Hudson and we're
+
+00:01:52.460 --> 00:01:54.360
+getting ready to launch our mobile app.
+
+00:01:54.660 --> 00:01:55.860
+Here's the launch site.
+
+00:01:56.040 --> 00:01:58.040
+All of these visuals were generated
+
+00:01:58.040 --> 00:02:00.440
+using ChatGPT and image generation.
+
+00:02:00.760 --> 00:02:02.580
+All I did was give it my logo,
+
+00:02:03.020 --> 00:02:05.820
+my brand guidelines,
+and it's incredible how
+
+00:02:05.820 --> 00:02:07.820
+many different directions I can explore
+
+00:02:07.820 --> 00:02:10.200
+and how consistent they
+are with our brand.
+
+00:02:10.400 --> 00:02:12.340
+The next thing I want to do is translate
+
+00:02:12.340 --> 00:02:13.540
+this into an ad campaign.
+
+00:02:13.800 --> 00:02:15.180
+We can now create
+
+00:02:15.180 --> 00:02:17.380
+mood boards for what this could look like.
+
+00:02:17.380 --> 00:02:19.740
+I can now imagine many ideas in less time
+
+00:02:19.740 --> 00:02:21.540
+than it would take for me to explore one.
+
+00:02:21.860 --> 00:02:23.700
+I love this takeover concept.
+
+00:02:24.000 --> 00:02:25.200
+It looks amazing.
+
+00:02:25.280 --> 00:02:27.040
+Next, I asked ChatGPT to turn
+
+00:02:27.040 --> 00:02:28.920
+these into a deck to share with my team.
+
+00:02:29.820 --> 00:02:32.080
+Beautiful. Ready for our
+launch review meeting today.
+
+00:02:36.900 --> 00:02:38.500
+Let's say we just launched the app.
+
+00:02:38.640 --> 00:02:40.400
+Switching gears to data science, I want
+
+00:02:40.400 --> 00:02:41.960
+to understand how it's actually going.
+
+00:02:42.000 --> 00:02:45.020
+The metrics, the user
+feedback, team conversations,
+
+00:02:45.640 --> 00:02:47.600
+launch plans, all are in different places.
+
+00:02:47.900 --> 00:02:50.180
+And I use ChatGPT to bring
+them all together.
+
+00:02:50.800 --> 00:02:53.480
+Since it's a data question,
+ChatGPT automatically
+
+00:02:53.480 --> 00:02:55.960
+brought in the right skills and workflows.
+
+00:02:56.420 --> 00:02:57.800
+And this is what it came up with.
+
+00:02:58.080 --> 00:03:01.180
+Activation rates, signups,
+and even this onboarding funnel.
+
+00:03:01.640 --> 00:03:03.320
+Here I'm using my own data store,
+
+00:03:03.500 --> 00:03:04.960
+but your data could just as easily
+
+00:03:04.960 --> 00:03:06.880
+live in spreadsheets or a data warehouse.
+
+00:03:07.380 --> 00:03:08.940
+The launch looks healthy overall,
+
+00:03:08.940 --> 00:03:10.620
+but something looks off in Mexico.
+
+00:03:11.200 --> 00:03:13.880
+In fact, ChatGPT already flagged it and it
+
+00:03:13.880 --> 00:03:15.960
+thinks it might be a
+phone onboarding issue.
+
+00:03:16.160 --> 00:03:17.960
+So we'll have a look at this in a moment.
+
+00:03:18.180 --> 00:03:20.260
+I could build this into a deck and share
+
+00:03:20.260 --> 00:03:22.000
+this with my team, but a real-life
+
+00:03:22.000 --> 00:03:23.720
+dashboard would be much more useful.
+
+00:03:24.040 --> 00:03:26.720
+So I asked it to pull these
+metrics into this dashboard.
+
+00:03:27.380 --> 00:03:28.780
+I can visualize it
+
+00:03:28.780 --> 00:03:31.440
+in the in-app browser
+and I can click to annotate.
+
+00:03:31.940 --> 00:03:34.720
+Add a one-line summary
+on how the launch is going.
+
+00:03:35.060 --> 00:03:37.220
+I love collaborating with ChatGPT like
+
+00:03:37.220 --> 00:03:39.180
+this and seeing the changes happen live.
+
+00:03:39.800 --> 00:03:41.460
+Awesome. It looks good.
+
+00:03:42.040 --> 00:03:43.800
+Now I want to share it with my team.
+
+00:03:44.000 --> 00:03:45.320
+Sites is a great way to do this.
+
+00:03:45.720 --> 00:03:48.660
+It lets me publish websites
+directly from ChatGPT.
+
+00:03:49.260 --> 00:03:51.140
+Publish this dashboard, share the link
+
+00:03:51.140 --> 00:03:53.200
+in my team channel, and make sure
+
+00:03:53.200 --> 00:03:55.000
+that the metrics are updated every day.
+
+00:03:55.400 --> 00:03:56.600
+And just like that,
+
+00:03:56.640 --> 00:03:58.460
+we have built and shared the dashboard.
+
+00:03:58.940 --> 00:04:00.300
+Next, it's time to switch
+
+00:04:00.300 --> 00:04:02.160
+to Codex and put my engineering hat
+
+00:04:02.160 --> 00:04:04.280
+on to fix this mobile app issue.
+
+00:04:04.460 --> 00:04:05.940
+If you're already a Codex user,
+
+00:04:06.160 --> 00:04:08.020
+it's the same Codex you know and love.
+
+00:04:08.260 --> 00:04:09.700
+Now inside of ChatGPT.
+
+00:04:10.020 --> 00:04:12.520
+Thanks to ChatGPT, we know where to look,
+
+00:04:12.640 --> 00:04:15.520
+but let's confirm what the customer
+is actually experiencing.
+
+00:04:15.820 --> 00:04:17.480
+I'm going to use the Simulator
+
+00:04:17.480 --> 00:04:18.980
+and bring the app on the screen
+
+00:04:18.980 --> 00:04:22.120
+and take an appshot by pressing Cmd-Cmd.
+
+00:04:22.840 --> 00:04:24.800
+Review the phone onboarding in Mexico,
+
+00:04:25.060 --> 00:04:26.520
+then in Germany to compare
+
+00:04:26.520 --> 00:04:28.680
+and click around the main screens.
+
+00:04:28.940 --> 00:04:31.600
+You can think of an appshot
+as a smarter screenshot.
+
+00:04:31.900 --> 00:04:33.600
+It gives it the app I'm looking at
+
+00:04:33.600 --> 00:04:35.920
+and the context it needs
+to take action on.
+
+00:04:36.540 --> 00:04:38.860
+It's now triggering
+background Computer Use.
+
+00:04:39.200 --> 00:04:40.700
+That is not my cursor.
+
+00:04:41.020 --> 00:04:43.020
+This is ChatGPT using my app.
+
+00:04:43.400 --> 00:04:45.600
+When ChatGPT doesn't
+have a dedicated plugin,
+
+00:04:45.920 --> 00:04:47.600
+it can use your computer directly.
+
+00:04:47.740 --> 00:04:48.940
+It can do the same thing
+
+00:04:48.980 --> 00:04:50.900
+in the browser with the Chrome extension.
+
+00:04:51.180 --> 00:04:52.560
+Copying and pasting data,
+
+00:04:52.760 --> 00:04:55.260
+browsing sites, or checking a workflow.
+
+00:04:55.740 --> 00:04:57.700
+It looks like customers are indeed
+
+00:04:57.700 --> 00:05:00.580
+getting stuck when they're entering
+a valid Mexican phone number.
+
+00:05:00.940 --> 00:05:03.300
+That explains why the
+activation rates are lower.
+
+00:05:03.400 --> 00:05:04.620
+Let's also have it check
+
+00:05:04.620 --> 00:05:07.240
+everything works great for other countries
+in the background.
+
+00:05:07.460 --> 00:05:08.900
+Now for the final step,
+
+00:05:09.060 --> 00:05:10.800
+let's actually have it fix the problem.
+
+00:05:11.080 --> 00:05:12.380
+Prepare a fix for the
+
+00:05:12.380 --> 00:05:14.380
+phone number validation bug in Mexico.
+
+00:05:14.920 --> 00:05:16.740
+And when it's ready, I can see
+
+00:05:16.740 --> 00:05:18.560
+the diff directly within Codex,
+
+00:05:18.660 --> 00:05:20.920
+review the changes, and publish this PR
+
+00:05:20.920 --> 00:05:23.060
+so we can ship a new version of the app.
+
+00:05:23.320 --> 00:05:25.360
+So this is the new ChatGPT.
+
+00:05:25.620 --> 00:05:28.220
+One place where you
+can delegate real work.
+
+00:05:28.500 --> 00:05:30.600
+Whether that's in your apps, your
+
+00:05:30.600 --> 00:05:33.480
+local projects, or even your
+computer and browser.
+
+00:05:33.800 --> 00:05:35.100
+There's really no task
+
+00:05:35.100 --> 00:05:37.080
+that ChatGPT cannot help you with.
+
+00:05:37.540 --> 00:05:39.340
+Hey Chat, I'm done with my demo.
+
+00:05:39.520 --> 00:05:41.120
+Can you play some walkout music?
+
+00:05:42.360 --> 00:05:43.820
+This was only a quick tour
+
+00:05:43.820 --> 00:05:46.080
+and we can't wait to see
+what you do with it.
+

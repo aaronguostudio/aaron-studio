@@ -9,24 +9,29 @@ export interface RemotionAuditResult {
 
 export function auditRemotionSourceText(
   file: string,
-  text: string
+  text: string,
 ): RemotionAuditResult {
   const failures: string[] = [];
   const warnings: string[] = [];
 
   if (/\btransition\s*:|animation\s*:|animate-/.test(text)) {
     failures.push(
-      `${file} uses CSS transition/animation instead of frame-based Remotion animation`
+      `${file} uses CSS transition/animation instead of frame-based Remotion animation`,
     );
   }
   if (
-    !/useCurrentFrame|interpolate|spring|TransitionSeries|Sequence/.test(text) &&
+    !/useCurrentFrame|interpolate|spring|TransitionSeries|Sequence/.test(
+      text,
+    ) &&
+    !/remotion-static-primitives/.test(text) &&
     file.endsWith(".tsx")
   ) {
     warnings.push(`${file} has no obvious Remotion timing primitive`);
   }
   if (/per-character opacity|split\(""\).*opacity/i.test(text)) {
-    failures.push(`${file} appears to use per-character opacity for text animation`);
+    failures.push(
+      `${file} appears to use per-character opacity for text animation`,
+    );
   }
 
   return { failures, warnings };

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-07-11",
+  "reason": "Aaron approved the voice identity and performance, but requested a slightly tighter pace.",
+  "strategy": "Preserve the approved TTS take and apply a transparent tempo retime instead of generating a new stochastic performance.",
+  "speech": {
+    "source": "narration.mp3",
+    "source_sha256": "0d528e1140ec2a9f346ce2e70efb02f57c53c085c639597ff53af8a07694db15",
+    "output": "narration-v2.mp3",
+    "output_sha256": "9668549715b4dd997cb3b2cfcc400367d14ad402639c20682995f30f4dea8439",
+    "tempo": 1.04,
+    "output_duration_sec": 77.78458,
+    "voice_profile": "aaron-pvc-identity-v1",
+    "voice_id": "R2DWp7zZuWmGxk3r8GIA"
+  },
+  "captions": {
+    "strategy": "Transform every word start and end after the 2.5-second music prelude by the same 1.04 ratio."
+  },
+  "music": {
+    "source": "music-edit.mp3",
+    "source_sha256": "b2b2ea30df87fcb220e4e732efae236d4cb3e4c05e844aebbc29fbf0c195d009",
+    "output": "music-edit-v2.mp3",
+    "output_sha256": "6a3dbd091b5d0a278103fd0024e1595f15e76ec7bcb285bf08d22a19a3f73f6e",
+    "tempo": 1.03858038,
+    "output_duration_sec": 80.907324,
+    "target_master_duration_sec": 80.903846
+  },
+  "originals_preserved": true
+}

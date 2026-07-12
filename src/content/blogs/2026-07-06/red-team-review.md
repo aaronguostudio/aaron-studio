@@ -1,53 +1,105 @@
-# Red-Team Review
+# Red-Team Review: FDE Workflow 3 Rewrite
 
-## AI-Like Or Generic Sections
+## 1. The personal workflow could take over the FDE argument
 
-Issue 1: The previous draft had several polished but generic transitions around "AI companies moving downstream." The revised version grounds that pattern in specific announcements, dates, investments, and acquisition details.
+**Risk:** A personal publishing workflow is too small to establish why FDE matters. If it opens the article or carries the thesis, the analogy weakens authority.
 
-Issue 2: The old ending risked sounding like a standard enterprise AI conclusion. The revised ending uses a sharper operator question: what must be true around the model before its output changes the next step?
+**Revision:** Open directly on the four-company FDE signal. Move the blog workflow after the human-backpropagation mechanism, expand it from one 404 into the v1-to-v2 learning process, and explicitly state that it illustrates topology rather than proving enterprise impact.
 
-## News Summary Without Original Judgment
+## 2. The $7.5B total could become clickbait
 
-Issue 3: The article could easily become a roundup of Anthropic/OpenAI/AWS/Microsoft announcements. The revision keeps the facts but uses them to argue that the enterprise bottleneck moved from model access to deployment capability.
+**Risk:** OpenAI's initial investment and AWS/Microsoft organizational commitments are not identical accounting categories.
 
-## Claims That Need Stronger Evidence
+**Revision:** Add an explicit caveat in both editions. Use the sum only as a scale signal and avoid implying it is all immediate payroll or comparable capex.
 
-Issue 4: "FDE is different from consulting" needed evidence beyond assertion. The revision uses AWS's own contrast with traditional consulting and Palantir's historical FDSE definition.
+## 3. Vendor announcements are promotional evidence
 
-Issue 5: "Applied AI engineering talent is scarce" needed a concrete signal. The revision uses Fractional AI as the founding operational centerpiece of the Anthropic/Blackstone-backed firm and OpenAI's Tomoro acquisition.
+**Risk:** The article could treat announced intentions as proof of customer ROI or market success.
 
-## Paragraphs To Cut Or Merge
+**Revision:** State that the announcements reveal priorities, not audited outcomes. Attribute capacity, self-sufficiency, model-choice, and continuous-improvement claims to the vendors. Keep independent judgment separate.
 
-The old draft spent too much space explaining each corporate announcement separately. The revised version compresses the announcements into one pattern section and uses the saved space for the deployment-native and ACTOR sections.
+## 4. "Human backpropagation" could be clever but vague
 
-## Weak Counterargument Handling
+**Risk:** The phrase may attract attention without explaining a mechanism, or imply that all four companies copied Palantir's exact model.
 
-Issue 6: The consultant comparison could read as unfair. The revised version explicitly credits consulting and systems integration for governance, change management, compliance, training, rollout, and operating model design.
+**Revision:** Trace the phrase to Palantir, then show the work through a supply disruption: connect ERP/MES/CRM data, define business objects and actions, add permissions and approvals, observe exceptions, and return repeated failures to product.
 
-Issue 7: The vendor-lock-in risk needed more weight. The revised version adds model choice, customer IP, and vendor dependence as customer questions.
+## 5. People-heavy FDE could fail to scale
 
-## Missing Personal Or Operator Judgment
+**Risk:** The draft might celebrate labor-intensive delivery without addressing margins, customization, or product focus.
 
-Issue 8: The old personal anchor was present but slightly generic. The revision connects directly to Aaron's own AI operating system workflow and prior essays about one-person projects and return distance.
+**Revision:** Add the scalability test: repeated connector, permission, eval, and workflow failures must become product. An organization that solves them manually every time is delivering projects without learning.
 
-## Ending Quality
+## 6. The consulting comparison could become a straw man
 
-The revised ending is stronger than the old "deployment matters" close because it attacks the false metric directly: expensive tokens and usage reports are not business value.
+**Risk:** "FDE builds; consultants make decks" would be inaccurate and needlessly dismissive.
+
+**Revision:** Acknowledge that consultants and SIs diagnose, build, integrate, govern, and manage change. Keep one distinction: the customer can operate what was built and field learning improves the product or next deployment. Use ACTOR for the detailed inspection rather than adding another framework.
+
+## 7. Customer and vendor incentives may diverge
+
+**Risk:** Deeper deployment can improve outcomes while quietly increasing lock-in.
+
+**Revision:** Add a full risk section covering connectors, prompts, evals, permissions, model runtimes, IP, model choice, and portability. Define an escape path as part of a professional deployment.
+
+## 8. ACTOR could still feel bolted on
+
+**Risk:** A five-letter framework at the end can look like a distribution device rather than a conclusion earned by the argument.
+
+**Revision:** Tie each step to a concrete artifact and make `Recursive` the customer-side implementation of human backpropagation. ACTOR now resolves the mechanism instead of restating it.
+
+## 9. The career implication could distract from the main argument
+
+**Risk:** A separate career section creates another essay inside the essay and may imply every engineer should become customer-facing.
+
+**Revision:** Remove the separate career section. Keep one paragraph inside the FDE mechanism: the valuable skill is translating messy operations into software and recognizing reusable product primitives.
+
+## 10. The ending needed a system-level payoff
+
+**Risk:** Ending on "deployment matters" would merely summarize the article.
+
+**Revision:** End on the first principle beneath the job title: model capability creates value only when it changes real work reliably and leaves a learning loop. Position FDE as a current attempt to engineer that conversion, not as permanent doctrine.
 
 ## Required Revisions
 
-- Reframe FDE as a signal of deployment capability, not the whole topic.
-- Strengthen the opening by showing the four-company convergence immediately.
-- Add internal continuity with prior posts.
-- Make ACTOR more useful by changing Responsibility into Recursive.
-- Avoid formulaic "not only X, it is Y" rhythm.
+- Keep company recap below 20% of the article.
+- Preserve source caveats close to the $7.5B claim.
+- Make the Palantir field-work chain visible before discussing implications.
+- Ensure the Chinese edition reads as Chinese operator prose, not English syntax with translated nouns.
+- Verify every internal link and final image path through package and publish validators.
 
-## Revision Notes
+## Revision Delta
 
-Completed:
+### Added
 
-- Rewrote the English article around the deployment capability thesis.
-- Added `idea.md`, `memory-reflection.md`, `content-plan.md`, `editorial-brief.md`, `research-dossier.md`, and `argument-memo.md`.
-- Added three internal link candidates directly into the article.
-- Replaced Responsibility with Recursive inside ACTOR.
-- Ran the English style/story gate and revised the formulaic contrast issue it flagged.
+- Direct FDE market opening.
+- Five-minute myth and v1-to-v2 workflow example after the core mechanism.
+- Supply-disruption example showing FDE work from fragmented systems to product write-back.
+- Accounting caveat for the $7.5B signal.
+- Scalability test for repeated field work.
+- A single learning-and-customer-capability distinction between FDE and custom services.
+- Full customer lock-in and portability section.
+
+### Cut
+
+- Long announcement summaries.
+- Alex Karp/Reddit personality framing.
+- Apollo link to an unpublished route.
+- Repeated claims that the bottleneck "moved downstream" without explaining the learning mechanism.
+- The personal 404 as the article's opening and closing frame.
+- Separate people-layer and career sections.
+
+### Reframed
+
+- FDE from job title to feedback topology.
+- Consulting comparison from role stereotype to compounding outputs.
+- `Recursive` from post-launch responsibility to improvement architecture.
+
+### Intentionally Kept
+
+- Provocative token/value title.
+- ACTOR as the reusable reader tool.
+- Balanced recognition of consulting, SI, governance, and change management.
+- Career implications for technical people.
+
+Decision: PASS

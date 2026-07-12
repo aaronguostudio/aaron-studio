@@ -1,0 +1,11 @@
+{
+  "title": "Ink Current",
+  "artist": "Quiet Hours",
+  "trackLabel": "study / focus",
+  "durationSec": 12,
+  "theme": "paper-moon",
+  "visualStyle": "ink-current",
+  "seed": 42,
+  "volume": 0.92,
+  "audioFile": "music-preview-12s.mp3"
+}

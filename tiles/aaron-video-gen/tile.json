@@ -1,7 +1,7 @@
 {
   "name": "AaronGuo/aaron-video-gen",
-  "version": "0.1.0",
-  "summary": "Generate YouTube videos from script markdown + slide images. Supports TTS narration (edge-tts/OpenAI), fade transitions, background music, and MP4 output.",
+  "version": "0.2.0",
+  "summary": "Direct and generate editorial YouTube videos with video-native scripts, constrained Remotion storyboards, approved narration, reusable scene templates, music, visual QA, and final MP4 output.",
   "private": true,
   "skills": {
     "aaron-video-gen": {

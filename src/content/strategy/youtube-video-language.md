@@ -127,16 +127,29 @@ Do not use fake drama. The tension should come from real stakes: time, judgment,
 
 ## Visual Rules
 
-Use the same visual language as the blog unless the user asks for a different video style. For Aaron's default workflow, that means `Soft Glass Narrative`:
+Do not inherit a blog illustration style blindly. Use it as an input, then
+recommend two or three video treatments and record the selected direction in
+`video-treatment.md`.
 
-- human-scale scenes first;
-- simple metaphor second;
-- liquid-glass AI layer third;
-- no dense chart walls;
-- no glowing AI dashboard montage;
-- no generic robot/brain/cloud imagery.
+Give every scene one visual role:
 
-For slide-based videos, use 20-30 total images for a 5+ minute video, with a visual change roughly every 15-20 seconds. Each video-only image should depict a specific narration beat.
+- **Evidence:** source, photograph, screenshot, object, quote, or specific illustration.
+- **Explanation:** comparison, process, system map, timeline, framework, or changing state.
+- **Emphasis:** one number, contradiction, title, question, or payoff.
+
+Keep one visual spine across typography, grid, color, texture, and image
+treatment. Within it, mix calm evidence, structured explanation, and a small
+amount of signature motion. Static images are valid when they carry real
+information. There is no image quota.
+
+Aim for a meaningful visual beat every 3-8 seconds in dense explanation and
+every 8-12 seconds in calm evidence. A beat may be a focus shift, number change,
+connector, comparison, crop, or new asset. Do not cut on every sentence.
+
+Keep signature 3D, shader, camera, or pixel motion below roughly 20% of runtime
+unless the format itself is an animation film. Avoid dense chart walls, generic
+AI dashboards, robots, brains, clouds, and effects that exist only to signal
+"AI."
 
 ## Quality Gate
 
@@ -151,14 +164,14 @@ Reject or revise the video script before rendering if:
 - the ending merely summarizes instead of landing a payoff;
 - there are no retention beats or visual resets.
 
-## When to Use Scene-Based Video
+## Choosing The Production Path
 
-The default blog workflow uses `aaron-video-gen` for narrated slide essays. Use `yt-script-writer` and `yt-video-producer` instead when the video should be a native scene-based production:
+Use `aaron-video-gen` for hybrid editorial essays that combine narration,
+evidence, images, layouts, diagrams, music, and reusable Remotion motion scenes.
 
-- documentary or story-driven topic;
-- demo/tutorial requiring motion;
-- product walkthrough;
-- AI-generated cinematic clips;
-- a video concept that needs scenes rather than illustrated slides.
+Use `yt-script-writer` and `yt-video-producer` when the primary material is
+cinematic generated footage, documentary scenes, character continuity, or
+shot-based storytelling rather than editorial motion graphics.
 
-For those cases, still follow this language file for the video angle, spoken voice, retention beats, and quality gate.
+Use a separate experiment for a new rendering engine. Do not migrate the main
+workflow merely because one scene would be easier elsewhere.

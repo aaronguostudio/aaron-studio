@@ -1,0 +1,273 @@
+{
+  "text": "ACTOR is part of my deployment framework. Action: what work changes? Context: what may the system know? Trust: when may it recommend, decide, or act? Outcome: what proves value? Recursive: how does this run improve the next one? Tokens are inputs. Value appears when the workflow changes and the customer keeps the capability.",
+  "previousText": "F D E is not consulting with a new title. Consulting often ends with a recommendation or handoff. A strong F D E team stays through production, fixes failures beside operators, then returns reusable lessons to the product. What matters is what compounds.",
+  "audioPath": "src/content/blogs/2026-07-06/video-prototype/.video-gen-v3/narration-02.mp3",
+  "duration": 26.702948,
+  "wordTimings": [
+    {
+      "word": "ACTOR",
+      "start": 0,
+      "end": 0.395
+    },
+    {
+      "word": "is",
+      "start": 0.441,
+      "end": 0.522
+    },
+    {
+      "word": "part",
+      "start": 0.592,
+      "end": 0.801
+    },
+    {
+      "word": "of",
+      "start": 0.848,
+      "end": 0.94
+    },
+    {
+      "word": "my",
+      "start": 1.01,
+      "end": 1.115
+    },
+    {
+      "word": "deployment",
+      "start": 1.173,
+      "end": 1.683
+    },
+    {
+      "word": "framework.",
+      "start": 1.741,
+      "end": 2.438
+    },
+    {
+      "word": "Action:",
+      "start": 3.135,
+      "end": 3.715
+    },
+    {
+      "word": "what",
+      "start": 3.901,
+      "end": 4.075
+    },
+    {
+      "word": "work",
+      "start": 4.145,
+      "end": 4.331
+    },
+    {
+      "word": "changes?",
+      "start": 4.377,
+      "end": 5.074
+    },
+    {
+      "word": "Context:",
+      "start": 5.515,
+      "end": 6.304
+    },
+    {
+      "word": "what",
+      "start": 6.513,
+      "end": 6.687
+    },
+    {
+      "word": "may",
+      "start": 6.745,
+      "end": 6.861
+    },
+    {
+      "word": "the",
+      "start": 6.908,
+      "end": 6.966
+    },
+    {
+      "word": "system",
+      "start": 7.012,
+      "end": 7.338
+    },
+    {
+      "word": "know?",
+      "start": 7.384,
+      "end": 7.825
+    },
+    {
+      "word": "Trust:",
+      "start": 8.522,
+      "end": 9.172
+    },
+    {
+      "word": "when",
+      "start": 9.416,
+      "end": 9.59
+    },
+    {
+      "word": "may",
+      "start": 9.636,
+      "end": 9.752
+    },
+    {
+      "word": "it",
+      "start": 9.81,
+      "end": 9.915
+    },
+    {
+      "word": "recommend,",
+      "start": 10.019,
+      "end": 10.646
+    },
+    {
+      "word": "decide,",
+      "start": 10.751,
+      "end": 11.355
+    },
+    {
+      "word": "or",
+      "start": 11.459,
+      "end": 11.598
+    },
+    {
+      "word": "act?",
+      "start": 11.68,
+      "end": 12.144
+    },
+    {
+      "word": "Outcome:",
+      "start": 12.748,
+      "end": 13.317
+    },
+    {
+      "word": "what",
+      "start": 13.502,
+      "end": 13.665
+    },
+    {
+      "word": "proves",
+      "start": 13.723,
+      "end": 14.013
+    },
+    {
+      "word": "value?",
+      "start": 14.106,
+      "end": 14.64
+    },
+    {
+      "word": "Recursive:",
+      "start": 15.336,
+      "end": 16.114
+    },
+    {
+      "word": "how",
+      "start": 16.393,
+      "end": 16.544
+    },
+    {
+      "word": "does",
+      "start": 16.59,
+      "end": 16.73
+    },
+    {
+      "word": "this",
+      "start": 16.764,
+      "end": 16.904
+    },
+    {
+      "word": "run",
+      "start": 16.973,
+      "end": 17.147
+    },
+    {
+      "word": "improve",
+      "start": 17.217,
+      "end": 17.589
+    },
+    {
+      "word": "the",
+      "start": 17.623,
+      "end": 17.693
+    },
+    {
+      "word": "next",
+      "start": 17.763,
+      "end": 18.018
+    },
+    {
+      "word": "one?",
+      "start": 18.088,
+      "end": 18.471
+    },
+    {
+      "word": "Tokens",
+      "start": 19.075,
+      "end": 19.504
+    },
+    {
+      "word": "are",
+      "start": 19.551,
+      "end": 19.713
+    },
+    {
+      "word": "inputs.",
+      "start": 19.783,
+      "end": 20.561
+    },
+    {
+      "word": "Value",
+      "start": 21.675,
+      "end": 22.047
+    },
+    {
+      "word": "appears",
+      "start": 22.082,
+      "end": 22.523
+    },
+    {
+      "word": "when",
+      "start": 22.604,
+      "end": 22.778
+    },
+    {
+      "word": "the",
+      "start": 22.825,
+      "end": 22.894
+    },
+    {
+      "word": "workflow",
+      "start": 22.952,
+      "end": 23.452
+    },
+    {
+      "word": "changes",
+      "start": 23.521,
+      "end": 24.09
+    },
+    {
+      "word": "and",
+      "start": 24.241,
+      "end": 24.404
+    },
+    {
+      "word": "the",
+      "start": 24.45,
+      "end": 24.52
+    },
+    {
+      "word": "customer",
+      "start": 24.578,
+      "end": 25.019
+    },
+    {
+      "word": "keeps",
+      "start": 25.089,
+      "end": 25.356
+    },
+    {
+      "word": "the",
+      "start": 25.402,
+      "end": 25.483
+    },
+    {
+      "word": "capability.",
+      "start": 25.541,
+      "end": 26.702
+    }
+  ]
+}

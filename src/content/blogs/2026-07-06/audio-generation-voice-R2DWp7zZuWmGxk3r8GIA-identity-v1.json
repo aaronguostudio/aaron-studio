@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-11T15:42:11.174Z",
+  "source": {
+    "script": "youtube-script.md",
+    "script_sha256": "783fd2caad03edb291bcaf5c3d0478a3e16c652463012d35019109749fd56f31",
+    "transcript": "audio-transcript-voice-R2DWp7zZuWmGxk3r8GIA-identity-v1.md",
+    "transcript_sha256": "193926b12c6748c2610a45f6d3785e8e2dc77e596f70fda97da0210c1e8c5d53"
+  },
+  "tts": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "voice_profile_selection": {
+    "id": "aaron-pvc-identity-v1",
+    "selected_sample": "B",
+    "selected_at": "2026-07-11",
+    "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate."
+  },
+  "outputs": {
+    "final": "audio-voice-R2DWp7zZuWmGxk3r8GIA-identity-v1.mp3",
+    "raw": "audio-voice-R2DWp7zZuWmGxk3r8GIA-identity-v1-raw.mp3",
+    "sample_60s": "audio-voice-R2DWp7zZuWmGxk3r8GIA-identity-v1-sample-60s.mp3"
+  },
+  "qa": {
+    "durationSeconds": 466.976508,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192028,
+    "integratedLufs": -16.64,
+    "truePeakDb": -1.56,
+    "loudnessRange": 4.2,
+    "longSilenceCount": 0
+  }
+}

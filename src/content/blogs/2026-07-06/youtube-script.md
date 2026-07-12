@@ -1,283 +1,165 @@
-# YouTube Script: Why AI Companies Are Hiring Forward Deployed Engineers
+# YouTube Script: Expensive Tokens Won't Save Enterprise AI
 
 ## [HOOK]
 
-[IMAGE: imgs/video/00-four-ai-companies-converge.png]
+[IMAGE: imgs/video/v3-00-four-companies-one-move.png]
 
-The most interesting AI trend right now is not another model release.
+Within fifty-nine days, Anthropic, OpenAI, A W S, and Microsoft all announced a version of the same move.
 
-It is forward deployed engineering moving into the AI mainstream.
+They put engineers closer to customer operations.
 
-Anthropic.
-OpenAI.
-AWS.
-Microsoft.
+OpenAI, A W S, and Microsoft alone described more than seven and a half billion dollars across different kinds of commitments.
 
-Different companies, different ecosystems, same move:
+If model capability were the whole problem, why are model companies spending billions on people?
 
-they are all putting engineers inside customer workflows to make AI actually work.
+---
 
-That tells us something important.
+## [SLIDE: The Deployment Clue — imgs/video/v3-01-deployment-clue.png]
 
-The bottleneck has moved.
+The numbers are not perfectly comparable. OpenAI described investment in a new company. A W S and Microsoft described organizational commitments. So I would treat seven and a half billion dollars as a scale signal, not a clean spending comparison.
 
-## [SLIDE: The Same Move]
+[IMAGE: imgs/video/v3-01-four-announcements-timeline.png]
 
-[IMAGE: imgs/video/01-same-move-deployment.png]
+But the shared priority is hard to miss. These companies are building deployment capacity.
 
-Anthropic is building an enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs.
+Models can already write code, analyze documents, and call tools. What they cannot do by themselves is organize a company's data, permissions, approvals, recovery paths, and responsibility into a reliable production system.
 
-OpenAI launched the OpenAI Deployment Company.
+[IMAGE: imgs/video/v3-01-model-to-work-gap.png]
 
-AWS committed one billion dollars to forward deployed AI engineers.
+That gap is where forward deployed engineering becomes important.
 
-Microsoft launched Frontier Company with thousands of embedded industry and engineering experts.
+---
 
-These announcements look separate.
+## [SLIDE: Inside The Factory — imgs/video/v3-02-factory-disruption.png]
 
-I do not think they are.
+Imagine a manufacturer loses a critical supplier.
 
-They are all responding to the same problem:
+Supplier data lives in one system. Production capacity lives in another. Customer orders live somewhere else. Some approval rules exist only in the heads of experienced employees.
 
-enterprise AI is no longer only a model capability problem.
+[IMAGE: imgs/video/v3-02-fragmented-operating-data.png]
 
-It is a deployment problem.
+The useful question is not, "Can we add a chatbot?"
 
-## [SLIDE: Demo vs Deployment]
+It is: which orders are now at risk, what options do planners have, and who is allowed to approve a change?
 
-[IMAGE: imgs/video/02-demo-vs-deployment.png]
+[IMAGE: imgs/video/v3-02-governed-action.png]
 
-A demo proves the model can do something.
+A forward deployed engineer works through that decision with the operators. The team connects the data, defines the objects that matter, builds the action, and includes permissions, approvals, exceptions, and recovery from the beginning.
 
-Deployment proves the organization can put it to work.
+That is deployment work.
 
-That second part is much harder.
+---
 
-A demo can summarize a document, answer a support question, write code, or draft a sales email.
+## [SLIDE: Human Backpropagation — imgs/video/v3-03-human-backpropagation.png]
 
-But production has permissions.
+Palantir has a useful phrase for this. It calls forward deployed engineering the human equivalent of backpropagation.
 
-Audit trails.
+The phrase sounds academic. The job is practical.
 
-Data residency.
+[IMAGE: imgs/video/v3-03-field-failure.png]
 
-Security reviews.
+A planner finds an exception. A data source arrives late. An approval path blocks the wrong person. The engineer fixes the local system, then asks a more valuable question: will this failure happen again somewhere else?
 
-Existing tools.
+[IMAGE: imgs/video/v3-03-learning-returns-to-product.png]
 
-Employee habits.
+If the answer is yes, the lesson should return to the product. The next deployment should begin with a better connector, permission model, evaluation, or workflow primitive.
 
-Fallback paths.
+That is how field work compounds instead of becoming endless custom service.
 
-And a business metric someone has to defend.
+---
 
-## [SLIDE: Why This Feels Familiar]
+## [SLIDE: Five Minutes Is The Wrong Story — imgs/video/v3-04-five-minute-ai.png]
 
-[IMAGE: imgs/video/03-personal-ai-workflow.png]
+I see a smaller version of this in my own publishing workflow.
 
-I see the same pattern in my own AI workflows, just at a smaller scale.
+If someone says AI produced a truly good article in five minutes, they are hiding most of the work.
 
-When I use AI across code, writing, analytics, video, and publishing, the model is rarely the hard part for long.
+[IMAGE: imgs/video/v3-04-workflow-v1.png]
 
-The hard part is the system around it.
+My first workflow connected research, outlining, writing, translation, images, audio, video, and publishing. It was fast. It was also capable of moving weak evidence, awkward language, repetitive visuals, and broken links all the way to the end.
 
-Where does the agent get context?
+[IMAGE: imgs/video/v3-04-workflow-v2.png]
 
-Which files can it touch?
+The second version required more participation: rereading, rejecting, challenging claims, comparing visual directions, and testing the final package. Quality improved when those judgments became evidence gates, editorial rules, and validators.
 
-What counts as evidence?
+This does not prove F D E works at enterprise scale. It does show the same working pattern: stay close to real work, find what general capability misses, and write the correction back into the system.
 
-Who reviews the output?
+---
 
-Where does the result live?
+## [SLIDE: Not Consulting With A New Name — imgs/video/v3-05-consulting-and-fde.png]
 
-What happens when the model is wrong?
+It is too simple to call F D E consulting with a new title.
 
-That is deployment.
+Good consultants and systems integrators already understand workflows, manage change, navigate regulation, and coordinate complex transformations. Forward deployed engineers do not own those skills.
 
-## [SLIDE: What FDE Means]
+[IMAGE: imgs/video/v3-05-map-and-engine.png]
 
-[IMAGE: imgs/video/04-fde-between-workflow-and-production.png]
+The useful distinction is the connection between field work and the product. A strong F D E team stays close to production and close to core engineering.
 
-This is where forward deployed engineering becomes important.
+[IMAGE: imgs/video/v3-05-where-learning-accumulates.png]
 
-An FDE is an engineer who works close to the customer, close to the workflow, and close to production.
+If an engagement ends with custom code, a handoff, and deeper vendor dependence, the new title proves nothing. If the customer can run the system and field learning improves the platform, the model is doing something more valuable.
 
-They do not only write code.
+---
 
-They translate messy operations into working technical systems.
+## [SLIDE: The Customer Must Keep The Workflow — imgs/video/v3-06-customer-ownership.png]
 
-They have to understand the business problem well enough to avoid building the wrong thing.
+That closeness creates a risk.
 
-They have to understand the technical system well enough to build something real.
+A critical workflow can slowly bind itself to one vendor's connectors, evaluations, permission model, agent runtime, and assumptions about how work should happen.
 
-And they have to stay close enough to users to see where the workflow actually breaks.
+[IMAGE: imgs/video/v3-06-hidden-lock-in.png]
 
-## [SLIDE: Not Just Consulting]
+The deployment may look successful while the customer's ability to understand or change it gets weaker.
 
-[IMAGE: imgs/video/05-consulting-vs-fde.png]
+[IMAGE: imgs/video/v3-06-durable-assets.png]
 
-This is not just consulting with a new name.
+The customer needs to keep the durable parts: data contracts, evaluation sets, permission rules, audit history, runbooks, failure modes, and the interface between the workflow and the model.
 
-Consulting still matters.
+A good engagement leaves the customer more capable, not simply more dependent on a capable vendor.
 
-Large enterprises need change management, compliance, training, governance, and global rollout support.
+---
 
-But the center of gravity is different.
+## [SLIDE: ACTOR: My Deployment Framework — imgs/video/v3-07-actor-overview.png]
 
-Consulting often starts with analysis and ends with a roadmap.
+ACTOR is part of my deployment framework.
 
-Forward deployed engineering compresses the loop:
+It gives me five questions before I call an AI deployment successful.
 
-understand,
-build,
-test,
-deploy,
-observe,
-improve.
+[IMAGE: imgs/video/v3-07-action-context.png]
 
-The deliverable is not only advice.
+Action: name the real decision, handoff, or task that will change.
 
-It is a working system, plus the ability for the customer to keep operating it.
+Context: define what the system must know and what it is allowed to access.
 
-## [SLIDE: The Palantir Context]
+[IMAGE: imgs/video/v3-07-trust-outcome.png]
 
-[IMAGE: imgs/video/06-palantir-pattern-mainstream.png]
+Trust: decide whether the AI is drafting, recommending, deciding, or acting. Set the approval and recovery path before it fails.
 
-This role was not invented this year.
+Outcome: choose the evidence that would prove the work improved.
 
-Palantir built a lot of its operating model around forward deployed engineers years ago.
+[IMAGE: imgs/video/v3-07-recursive-loop.png]
 
-The useful distinction is simple:
+Recursive: show how this run will improve the workflow and the next run.
 
-a product engineer often builds one capability for many customers.
+That last word matters. A loop in a diagram is not self-improvement. Someone still has to notice failures, judge which ones matter, and turn repeated lessons into better evaluations, rules, runbooks, and tools.
 
-an FDE enables many capabilities for one customer.
+The goal is not permanent manual work. The goal is to make good judgment compound.
 
-AI makes that older model more broadly relevant.
+---
 
-Because AI systems are full of last-mile details.
+## [SLIDE: Tokens Are Inputs — imgs/video/v3-08-token-to-value.png]
 
-The difference between useful and dangerous can be one permission rule, one missing eval, one stale data connector, or one human approval step in the wrong place.
+Token usage measures model consumption. It does not tell you whether a decision improved, a workflow became faster, or an organization learned anything.
 
-## [SLIDE: Why AI Companies Care]
+[IMAGE: imgs/video/v3-08-customer-owned-system.png]
 
-[IMAGE: imgs/video/07-model-layer-workflow-value.png]
+That is why the biggest AI platforms are building deployment organizations. They are trying to close the distance between intelligence and operations.
 
-There is a business reason the AI companies care about this layer.
+[IMAGE: imgs/video/v3-08-final-operating-rule.png]
 
-Frontier models are expensive.
+The title F D E may change. The operating rule will not.
 
-They are also getting harder to differentiate only through benchmark jumps.
+Judge AI by the workflow it changes and the capability the customer keeps.
 
-Enterprise customers care about model quality, but they care even more about outcomes:
-
-lower cost,
-faster decisions,
-less risk,
-better products,
-more revenue.
-
-Those outcomes happen in workflows, not in API calls.
-
-So the AI companies are moving closer to the workflow.
-
-## [SLIDE: The Risk]
-
-[IMAGE: imgs/video/08-lock-in-and-trust.png]
-
-There is a risk here.
-
-If a vendor helps redesign core workflows, the customer has to ask harder questions.
-
-Can we switch models later?
-
-Who owns the workflow assets?
-
-Where does company data live?
-
-Can our internal team maintain this system?
-
-What happens when the model changes?
-
-Outside expertise can accelerate adoption.
-
-But companies should not outsource judgment.
-
-## [SLIDE: The Career Signal]
-
-[IMAGE: imgs/video/09-deployment-native-engineer.png]
-
-For technical people, this is the part that matters.
-
-The valuable engineer in the AI era is not only model-native.
-
-And not only code-native.
-
-The valuable engineer is deployment-native.
-
-They can walk into a messy workflow and find the real constraint.
-
-They can tell which task should be automated, which decision needs human judgment, and which process should disappear.
-
-They can connect models to data, tools, permissions, and business processes.
-
-They can design evals, guardrails, monitoring, and fallback paths.
-
-## [SLIDE: Workflow Engineering]
-
-<!-- motion: actorFramework -->
-
-[IMAGE: imgs/video/10-workflow-engineering.png]
-
-That skill is bigger than prompt engineering.
-
-Prompting matters.
-
-It is one interface to intelligence.
-
-But prompts are not enough when the problem is operational adoption.
-
-The durable skill is workflow engineering:
-
-understanding how work moves through a system,
-where AI changes the cost structure,
-and how to redesign the loop so the output becomes useful, safe, and measurable.
-
-The practical version is ACTOR.
-
-Action: what work actually changes?
-
-Context: what does the system need to know?
-
-Trust: can AI draft, recommend, decide, or act?
-
-Outcome: what proves the work improved?
-
-Recursive: who owns the feedback loop after launch?
-
-That last layer matters.
-
-If deployment ends at launch, the system decays.
-
-If every run leaves evidence, sharper evals, better prompts, cleaner data contracts, and reusable patterns, the system starts to improve from use.
-
-## [SLIDE: The Payoff]
-
-[IMAGE: imgs/video/11-operational-intelligence.png]
-
-The model era made intelligence feel abundant.
-
-The deployment era will decide who can turn that intelligence into work.
-
-That is why Anthropic, OpenAI, AWS, and Microsoft are all doing the same thing.
-
-They are responding to the same structural truth:
-
-AI value depends on the system around the model.
-
-The scarce work is not asking the model a better question.
-
-The scarce work is building the system where the model's answer can safely change what happens next.
-
-That is what makes intelligence operational.
+The real question is whether expensive Tokens become an operating system the company actually owns.

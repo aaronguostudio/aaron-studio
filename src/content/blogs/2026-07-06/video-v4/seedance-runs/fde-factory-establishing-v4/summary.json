@@ -1,0 +1,10 @@
+{
+  "run_id": "fde-factory-establishing-v4",
+  "provider": "volcengine-ark",
+  "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "model": "doubao-seedance-2-0-260128",
+  "request_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-07-06/video-v4/seedance-runs/fde-factory-establishing-v4/request.json",
+  "estimated_tokens": 108000,
+  "estimated_rmb": 4.968,
+  "submitted": false
+}

@@ -1,0 +1,53 @@
+{
+  "jobs": 2,
+  "tasks": [
+    {
+      "id": "00-cover-v2-candidate-a",
+      "promptFiles": ["00-cover-v2-candidate-a.md"],
+      "image": "../00-cover-v2-candidate-a.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "00-cover-v2-candidate-b",
+      "promptFiles": ["00-cover-v2-candidate-b.md"],
+      "image": "../00-cover-v2-candidate-b.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "01-scene-platforms-converge-v2",
+      "promptFiles": ["01-scene-platforms-converge-v2.md"],
+      "image": "../01-scene-platforms-converge.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "02-metaphor-demo-to-operating-loop-v2",
+      "promptFiles": ["02-metaphor-demo-to-operating-loop-v2.md"],
+      "image": "../02-metaphor-demo-to-operating-loop.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "03-comparison-fde-center-of-gravity-v2",
+      "promptFiles": ["03-comparison-fde-center-of-gravity-v2.md"],
+      "image": "../03-comparison-fde-center-of-gravity.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "04-framework-actor-loop-v3",
+      "promptFiles": ["04-framework-actor-loop-v3.md"],
+      "image": "../04-framework-actor-loop.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

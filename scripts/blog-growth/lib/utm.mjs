@@ -3,6 +3,7 @@ const CHANNEL_DEFAULTS = {
   youtube: { source: 'youtube', medium: 'video' },
   newsletter: { source: 'newsletter', medium: 'email' },
   x: { source: 'x', medium: 'social' },
+  facebook: { source: 'facebook', medium: 'social' },
   blog: { source: 'blog', medium: 'owned' },
 };
 

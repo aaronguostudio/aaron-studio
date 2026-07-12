@@ -1,87 +1,112 @@
 # Video Brief: Expensive Tokens Won't Save Enterprise AI
 
-This video is not "the blog in narration form." It is about the strange fact that the biggest AI companies are all rebuilding deployment organizations, told through the pattern of four recent announcements, so the viewer leaves with one operating insight: the bottleneck has moved from model access to deployment capability.
+This video is not the blog read aloud. It follows one question: if model capability is the main constraint, why did Anthropic, OpenAI, AWS, and Microsoft all move engineers closer to customers within 59 days? The answer is told through a factory disruption, Aaron's own publishing workflow, and ACTOR, so the viewer can recognize the difference between buying AI and building operating capability.
 
 ## Target Audience
 
-Technical builders, product managers, engineering leaders, and AI-curious operators who already believe models are powerful but are unsure why enterprise AI projects still stall after demos.
+Technical builders, product leaders, engineering managers, and operators who already believe models are powerful but have watched enterprise AI stall between a good demo and real work.
 
 ## Desired Emotion
 
-Recognition. The viewer should feel: "That explains why AI feels powerful in demos but hard inside real work."
+Recognition, followed by sober agency: "Now I can see where deployment fails and what I should inspect."
 
 ## Core Promise
 
-In 6-8 minutes, the viewer will understand why Anthropic, OpenAI, AWS, and Microsoft are all moving toward forward deployed engineering, how FDE differs from consulting, and the ACTOR deployment framework technical people can use: Action, Context, Trust, Outcome, Recursive. The R layer should include the feedback loop that lets the system improve after launch.
+In roughly seven minutes, the viewer will understand why major AI platforms are building forward deployed engineering organizations, what an FDE actually does in the field, how that work differs from consulting, and how to use ACTOR to judge whether expensive Tokens are becoming customer-owned operating value.
 
 ## Title/Thumbnail Expectation
 
-Title expectation: "Expensive tokens won't save enterprise AI."
-
-Thumbnail expectation: four company names converging into one phrase: DEPLOYMENT BOTTLENECK.
+- Title: `Expensive Tokens Won't Save Enterprise AI`
+- Viewer expectation: a sharp explanation of the missing enterprise AI layer, not a model comparison or company-news recap.
+- Opening obligation: name the four-company deployment pattern and the central question within 20 seconds.
 
 ## High-Shock Facts
 
-- Anthropic is building an enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs to bring Claude into mid-sized companies' core operations. Shock score: 8/10 because it shows a model company moving downstream.
-- OpenAI launched the OpenAI Deployment Company and agreed to acquire Tomoro for experienced FDE capacity from day one. Shock score: 8/10 because OpenAI is explicitly building deployment infrastructure.
-- AWS committed $1 billion to embed forward deployed AI engineers with customers. Shock score: 9/10 because the number makes the pattern concrete.
-- Microsoft launched Frontier Company with 6,000 embedded industry and engineering experts. Shock score: 9/10 because it shows the pattern is not limited to model labs.
-- Palantir had the FDE pattern early. Shock score: 6/10 because it reframes the trend as "AI makes an old model mainstream."
-- The real bottleneck is not prompt quality. It is workflow, data, permissions, governance, evals, fallback paths, and ownership. Shock score: 7/10 because it explains why demos fail.
+- 92: Anthropic, OpenAI, AWS, and Microsoft announced deployment organizations within 59 days.
+- 90: OpenAI, AWS, and Microsoft described more than $7.5 billion across different investment and commitment categories.
+- 88: The spending is directed at engineers and implementation capacity, not another benchmark release.
+- 84: Palantir describes FDE as the human equivalent of backpropagation from customer operations into product development.
+- 82: A supply disruption cannot be solved by adding a chatbot; the useful system must connect orders, capacity, suppliers, permissions, approvals, and actions.
+- 86: Aaron's v1 blog workflow connected every production step but still allowed weak evidence, awkward translation, repetitive images, and broken links to pass.
+- 89: A workflow can use AI everywhere and still fail to improve unless human judgment becomes reusable rules, evaluations, and tools.
+- 85: A successful vendor deployment can still weaken the customer when the durable workflow remains owned by the vendor.
 
 ## Hook Type
 
-Pattern interrupt.
+Business mystery.
 
-Target: people who think enterprise AI progress depends mainly on better models.
-
-Transformation: see why model companies are becoming deployment companies.
-
-Stakes: the valuable technical skill shifts from prompt-native to deployment-native.
+- Target: viewers who assume stronger models are the main answer to enterprise AI adoption.
+- Transformation: see deployment capability as the scarce layer.
+- Stakes: companies can spend heavily on model consumption without changing work or building internal capability.
 
 ## Story Structure
 
-Structure: pattern reveal -> bottleneck explanation -> role definition -> career implication.
+Mystery -> field scene -> learning mechanism -> personal verification -> fair objection -> ownership risk -> practical framework -> payoff.
 
-Why: the video needs to move quickly from headline curiosity to a practical operating lesson. The story should not linger on private equity or corporate structure.
+This structure earns FDE through visible work before introducing ACTOR. It keeps the personal workflow in its proper role: a small-scale illustration, not proof of enterprise outcomes.
 
 ## Retention Beat Map
 
-- 0:00 - Cold open: "The most interesting AI trend right now is not a model release. It is forward deployed engineering moving into the AI mainstream." Visual: four company names appearing one by one.
-- 0:25 - Pattern reveal: Anthropic, OpenAI, AWS, Microsoft all move into deployment. Visual: four lines converging into "deployment."
-- 0:55 - Bottleneck moved: model capability vs operational adoption. Visual: demo screen on one side, messy workflow map on the other.
-- 1:30 - Concrete failure points: permissions, data, governance, users, ROI. Visual: red friction nodes in a workflow.
-- 2:05 - FDE definition: engineer close to customer, workflow, and production. Visual: engineer between product, customer, and system.
-- 2:45 - Consulting distinction: recommendation vs working system. Visual: deck handing off to production system.
-- 3:25 - Palantir context: FDE was not invented in 2026; AI made it mainstream. Visual: old pattern becoming new mainstream wave.
-- 4:00 - Why AI companies care: model layer vs workflow value capture. Visual: API layer below business outcome layer.
-- 4:45 - Risk: lock-in and outsourcing judgment. Visual: model lock symbol next to open model routes.
-- 5:25 - Lesson for technical people: deployment-native engineer. Visual: checklist around workflow engineering.
-- 6:15 - Payoff: intelligence is abundant, operational intelligence is scarce. Visual: model output entering a real operating loop.
+- 0:00 - Four companies, 59 days, one unexpected move.
+- 0:20 - The $7.5B clue, with the accounting caveat stated immediately.
+- 0:50 - The bottleneck is deployment capacity, not another model improvement.
+- 1:20 - Enter a factory during a supplier disruption.
+- 1:55 - Reveal what an FDE actually builds and governs.
+- 2:30 - Palantir's "human backpropagation" becomes concrete.
+- 3:00 - Aaron's five-minute-AI challenge and v1 workflow failure.
+- 3:40 - The small-scale FDE analogy and the role of human write-back.
+- 4:15 - Consulting is not the villain; the distinction is where learning accumulates.
+- 4:50 - The customer-ownership risk.
+- 5:25 - ACTOR begins with one real action.
+- 6:05 - Recursive closes the learning loop.
+- 6:35 - Token consumption versus customer-owned operating value.
 
 ## What The Video Adds
 
-- A faster opening pattern that visually shows the four company announcements converging.
-- A sharper contrast between demo capability and operational adoption.
-- A more explicit career takeaway for engineers: the ACTOR deployment framework behind "deployment-native" work, including feedback loops and self-enhancement after launch.
-- A visual model of the last mile: model -> action -> context -> trust boundary -> outcome -> responsibility.
+- A single spoken mystery that connects the four announcements without becoming a news recap.
+- A factory scene that makes FDE work audible and visual through one operational decision.
+- A direct statement about the hidden participation behind "five-minute AI."
+- A fairer consulting comparison based on field-to-product learning rather than stereotypes.
+- A spoken application of ACTOR that can be remembered without reading the article's table.
+- A clear audio-first ending that lands on customer ownership, not the FDE job title.
+
+## Spoken Delivery Contract
+
+- Measured, warm, pragmatic, and engineering-minded.
+- Aim for roughly 145-155 words per minute; do not manufacture excitement.
+- Use full thoughts with natural pauses, not long bullet recitations.
+- Keep company names and numbers easy to pronounce.
+- Write `A W S` when the letters should be spoken separately.
+- Say `F D E` once before using "forward deployed engineer" naturally.
+- Say `ACTOR, like the word actor` on first introduction.
+- Keep `Recursive` as the exact framework label, then explain the learning loop in plain language.
 
 ## Banned Phrases
 
 - let's dive in
 - in today's video
-- basically
-- as we all know
-- what is interesting is
 - right
 - you know
+- basically
+- what's interesting is
+- game changer
+- here's the kicker
+- as we all know
+- this changes everything
 
 ## Ending
 
-End on the operating rule: the scarce work is not asking the model a better question. It is building the system where the model's answer can safely change what happens next.
+End with the operating rule: judge AI by the workflow it changes and the capability the customer keeps. The question is not whether FDE remains the fashionable title. It is whether expensive Tokens become an operating system the company actually owns.
+
+## Audio Gate
+
+- Voice under test: `R2DWp7zZuWmGxk3r8GIA`
+- Provider: ElevenLabs Professional Voice Clone
+- First pass speed: `1.0`
+- Review before video: identity, naturalness, English pronunciation, pace consistency, technical-term clarity, listener fatigue, and whether the transcript still sounds like Aaron rather than a presenter.
 
 ## Audit Status
 
-- Story flow: Pass. The video moves from curiosity to mechanism to role to implication.
-- Comprehension: Pass. Each technical concept is tied to a concrete example or visual.
-- Speed-to-value: Pass. The title promise is delivered in the first 30 seconds.
+- Script audit: PASS, 360-second estimate, 26 planned image beats, no warnings.
+- Spoken transcript gate: PASS for hook and all eight sections.
+- Audio listening review: PENDING Aaron review of voice `R2DWp7zZuWmGxk3r8GIA`.

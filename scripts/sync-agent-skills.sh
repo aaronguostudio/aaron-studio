@@ -24,6 +24,7 @@ MAPPINGS=(
   "muse:tiles/muse"
   "music-shorts:tiles/music-shorts"
   "music-vibe-shorts:tiles/music-vibe-shorts"
+  "music-visualizer:tiles/music-visualizer"
   "notion-task-intake:tiles/notion-task-intake"
   "publish-to-blog:tiles/publish-to-blog"
   "weekly-review:tiles/weekly-review"

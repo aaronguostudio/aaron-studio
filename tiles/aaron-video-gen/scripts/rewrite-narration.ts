@@ -51,6 +51,8 @@ export function buildRewriteUserPrompt(
     [
       "Aaron's spoken style:",
       "- Use a light edit. If the source already sounds clear, keep it close to the original.",
+      "- Preserve named framework labels, ordered steps, numbers, and technical terms exactly.",
+      "- Do not turn labels such as Action, Context, Trust, Outcome, or Recursive into generic prose.",
       "- measured, pragmatic, concrete, engineering-minded",
       "- sounds like a builder explaining a real workflow lesson, not a host performing excitement",
       "- specific examples beat broad metaphors",
@@ -99,6 +101,9 @@ export async function rewriteNarration(
   previousOpenings: string[] = [],
   context: RewriteContext = {}
 ): Promise<string> {
+  const sourceIssues = findSpokenTranscriptIssues(text);
+  if (sourceIssues.length === 0) return text;
+
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
     console.warn(

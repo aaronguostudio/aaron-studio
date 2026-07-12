@@ -95,5 +95,7 @@ test('shouldIncludeBlogMarkdown excludes workflow and image prompt files', () =>
   assert.equal(shouldIncludeBlogMarkdown('/repo/src/content/blogs/2026-06-15/youtube-script.md'), false);
   assert.equal(shouldIncludeBlogMarkdown('/repo/src/content/blogs/2026-06-15/newsletter-teaser.md'), false);
   assert.equal(shouldIncludeBlogMarkdown('/repo/src/content/blogs/2026-02-12/linkedin-post.md'), false);
+  assert.equal(shouldIncludeBlogMarkdown('/repo/src/content/blogs/2026-02-12/facebook-post.md'), false);
+  assert.equal(shouldIncludeBlogMarkdown('/repo/src/content/blogs/2026-02-12/distribution-plan.md'), false);
   assert.equal(shouldIncludeBlogMarkdown('/repo/src/content/blogs/2026-02-12/x-teaser.md'), false);
 });

@@ -1,0 +1,684 @@
+{
+  "text": "ACTOR is part of my deployment framework.\n\nIt gives me five questions before I call an AI deployment successful.\n\nAction: name the real decision, handoff, or task that will change.\n\nContext: define what the system must know and what it is allowed to access.\n\nTrust: decide whether the AI is drafting, recommending, deciding, or acting. Set the approval and recovery path before it fails.\n\nOutcome: choose the evidence that would prove the work improved.\n\nRecursive: show how this run will improve the workflow and the next run.\n\nThat last word matters. A loop in a diagram is not self-improvement. Someone still has to notice failures, judge which ones matter, and turn repeated lessons into better evaluations, rules, runbooks, and tools.\n\nThe goal is not permanent manual work. The goal is to make good judgment compound.",
+  "previousText": "That closeness creates a risk. A critical workflow can slowly bind itself to one vendor's connectors, evaluations, permission model, agent runtime, and assumptions about how work should happen. The deployment may look successful while the customer's ability to understand or change it gets weaker. The customer needs to keep the durable parts: data contracts, evaluation sets, permission rules, audit history, runbooks, failure modes, and the interface between the workflow and the model. A good engagement leaves the customer more capable, not simply more dependent on a capable vendor.",
+  "nextText": "Token usage measures model consumption. It does not tell you whether a decision improved, a workflow became faster, or an organization learned anything. That is why the biggest AI platforms are building deployment organizations. They are trying to close the distance between intelligence and operations. The title F D E may change. The operating rule will not. Judge AI by the workflow it changes and the capability the customer keeps. The real question is whether expensive Tokens become an operating system the company actually owns.",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-07-06/.video-full-v1/narration-06.mp3",
+  "duration": 68.266667,
+  "wordTimings": [
+    {
+      "word": "ACTOR",
+      "start": 0,
+      "end": 0.453
+    },
+    {
+      "word": "is",
+      "start": 0.511,
+      "end": 0.604
+    },
+    {
+      "word": "part",
+      "start": 0.708,
+      "end": 0.987
+    },
+    {
+      "word": "of",
+      "start": 1.033,
+      "end": 1.138
+    },
+    {
+      "word": "my",
+      "start": 1.242,
+      "end": 1.358
+    },
+    {
+      "word": "deployment",
+      "start": 1.416,
+      "end": 2.032
+    },
+    {
+      "word": "framework.",
+      "start": 2.113,
+      "end": 2.937
+    },
+    {
+      "word": "It",
+      "start": 3.959,
+      "end": 4.098
+    },
+    {
+      "word": "gives",
+      "start": 4.168,
+      "end": 4.377
+    },
+    {
+      "word": "me",
+      "start": 4.447,
+      "end": 4.563
+    },
+    {
+      "word": "five",
+      "start": 4.621,
+      "end": 4.888
+    },
+    {
+      "word": "questions",
+      "start": 4.946,
+      "end": 5.48
+    },
+    {
+      "word": "before",
+      "start": 5.55,
+      "end": 5.875
+    },
+    {
+      "word": "I",
+      "start": 5.921,
+      "end": 5.956
+    },
+    {
+      "word": "call",
+      "start": 6.06,
+      "end": 6.339
+    },
+    {
+      "word": "an",
+      "start": 6.409,
+      "end": 6.513
+    },
+    {
+      "word": "AI",
+      "start": 6.618,
+      "end": 6.85
+    },
+    {
+      "word": "deployment",
+      "start": 6.908,
+      "end": 7.477
+    },
+    {
+      "word": "successful.",
+      "start": 7.546,
+      "end": 8.371
+    },
+    {
+      "word": "Action:",
+      "start": 9.125,
+      "end": 9.787
+    },
+    {
+      "word": "name",
+      "start": 10.089,
+      "end": 10.298
+    },
+    {
+      "word": "the",
+      "start": 10.344,
+      "end": 10.414
+    },
+    {
+      "word": "real",
+      "start": 10.495,
+      "end": 10.67
+    },
+    {
+      "word": "decision,",
+      "start": 10.728,
+      "end": 11.413
+    },
+    {
+      "word": "handoff,",
+      "start": 11.552,
+      "end": 12.272
+    },
+    {
+      "word": "or",
+      "start": 12.411,
+      "end": 12.597
+    },
+    {
+      "word": "task",
+      "start": 12.666,
+      "end": 13.061
+    },
+    {
+      "word": "that",
+      "start": 13.154,
+      "end": 13.305
+    },
+    {
+      "word": "will",
+      "start": 13.34,
+      "end": 13.491
+    },
+    {
+      "word": "change.",
+      "start": 13.537,
+      "end": 14.071
+    },
+    {
+      "word": "Context:",
+      "start": 14.953,
+      "end": 15.812
+    },
+    {
+      "word": "define",
+      "start": 16.358,
+      "end": 16.776
+    },
+    {
+      "word": "what",
+      "start": 16.811,
+      "end": 16.95
+    },
+    {
+      "word": "the",
+      "start": 16.985,
+      "end": 17.043
+    },
+    {
+      "word": "system",
+      "start": 17.101,
+      "end": 17.461
+    },
+    {
+      "word": "must",
+      "start": 17.519,
+      "end": 17.775
+    },
+    {
+      "word": "know",
+      "start": 17.856,
+      "end": 18.134
+    },
+    {
+      "word": "and",
+      "start": 18.436,
+      "end": 18.692
+    },
+    {
+      "word": "what",
+      "start": 18.796,
+      "end": 18.982
+    },
+    {
+      "word": "it",
+      "start": 19.052,
+      "end": 19.179
+    },
+    {
+      "word": "is",
+      "start": 19.284,
+      "end": 19.435
+    },
+    {
+      "word": "allowed",
+      "start": 19.516,
+      "end": 19.899
+    },
+    {
+      "word": "to",
+      "start": 19.969,
+      "end": 20.062
+    },
+    {
+      "word": "access.",
+      "start": 20.178,
+      "end": 20.874
+    },
+    {
+      "word": "Trust:",
+      "start": 21.629,
+      "end": 22.326
+    },
+    {
+      "word": "decide",
+      "start": 22.79,
+      "end": 23.208
+    },
+    {
+      "word": "whether",
+      "start": 23.254,
+      "end": 23.533
+    },
+    {
+      "word": "the",
+      "start": 23.603,
+      "end": 23.661
+    },
+    {
+      "word": "AI",
+      "start": 23.742,
+      "end": 24.114
+    },
+    {
+      "word": "is",
+      "start": 24.195,
+      "end": 24.334
+    },
+    {
+      "word": "drafting,",
+      "start": 24.415,
+      "end": 24.996
+    },
+    {
+      "word": "recommending,",
+      "start": 25.112,
+      "end": 25.867
+    },
+    {
+      "word": "deciding,",
+      "start": 25.971,
+      "end": 26.598
+    },
+    {
+      "word": "or",
+      "start": 26.645,
+      "end": 26.796
+    },
+    {
+      "word": "acting.",
+      "start": 26.9,
+      "end": 27.469
+    },
+    {
+      "word": "Set",
+      "start": 28.026,
+      "end": 28.247
+    },
+    {
+      "word": "the",
+      "start": 28.282,
+      "end": 28.34
+    },
+    {
+      "word": "approval",
+      "start": 28.398,
+      "end": 28.897
+    },
+    {
+      "word": "and",
+      "start": 29.001,
+      "end": 29.141
+    },
+    {
+      "word": "recovery",
+      "start": 29.28,
+      "end": 29.768
+    },
+    {
+      "word": "path",
+      "start": 29.837,
+      "end": 30.128
+    },
+    {
+      "word": "before",
+      "start": 30.209,
+      "end": 30.522
+    },
+    {
+      "word": "it",
+      "start": 30.569,
+      "end": 30.685
+    },
+    {
+      "word": "fails.",
+      "start": 30.789,
+      "end": 31.405
+    },
+    {
+      "word": "Outcome:",
+      "start": 31.962,
+      "end": 32.624
+    },
+    {
+      "word": "choose",
+      "start": 32.984,
+      "end": 33.274
+    },
+    {
+      "word": "the",
+      "start": 33.297,
+      "end": 33.367
+    },
+    {
+      "word": "evidence",
+      "start": 33.437,
+      "end": 33.89
+    },
+    {
+      "word": "that",
+      "start": 33.924,
+      "end": 34.075
+    },
+    {
+      "word": "would",
+      "start": 34.11,
+      "end": 34.273
+    },
+    {
+      "word": "prove",
+      "start": 34.342,
+      "end": 34.621
+    },
+    {
+      "word": "the",
+      "start": 34.656,
+      "end": 34.726
+    },
+    {
+      "word": "work",
+      "start": 34.784,
+      "end": 35.027
+    },
+    {
+      "word": "improved.",
+      "start": 35.132,
+      "end": 35.805
+    },
+    {
+      "word": "Recursive:",
+      "start": 37.071,
+      "end": 37.907
+    },
+    {
+      "word": "show",
+      "start": 38.696,
+      "end": 38.928
+    },
+    {
+      "word": "how",
+      "start": 38.998,
+      "end": 39.149
+    },
+    {
+      "word": "this",
+      "start": 39.219,
+      "end": 39.404
+    },
+    {
+      "word": "run",
+      "start": 39.509,
+      "end": 39.753
+    },
+    {
+      "word": "will",
+      "start": 39.811,
+      "end": 39.973
+    },
+    {
+      "word": "improve",
+      "start": 40.02,
+      "end": 40.449
+    },
+    {
+      "word": "the",
+      "start": 40.484,
+      "end": 40.554
+    },
+    {
+      "word": "workflow",
+      "start": 40.635,
+      "end": 41.25
+    },
+    {
+      "word": "and",
+      "start": 41.448,
+      "end": 41.657
+    },
+    {
+      "word": "the",
+      "start": 41.715,
+      "end": 41.784
+    },
+    {
+      "word": "next",
+      "start": 41.854,
+      "end": 42.121
+    },
+    {
+      "word": "run.",
+      "start": 42.249,
+      "end": 42.667
+    },
+    {
+      "word": "That",
+      "start": 43.166,
+      "end": 43.34
+    },
+    {
+      "word": "last",
+      "start": 43.387,
+      "end": 43.7
+    },
+    {
+      "word": "word",
+      "start": 43.805,
+      "end": 44.06
+    },
+    {
+      "word": "matters.",
+      "start": 44.176,
+      "end": 44.919
+    },
+    {
+      "word": "A",
+      "start": 46.196,
+      "end": 46.266
+    },
+    {
+      "word": "loop",
+      "start": 46.359,
+      "end": 46.556
+    },
+    {
+      "word": "in",
+      "start": 46.649,
+      "end": 46.742
+    },
+    {
+      "word": "a",
+      "start": 46.8,
+      "end": 46.823
+    },
+    {
+      "word": "diagram",
+      "start": 46.893,
+      "end": 47.462
+    },
+    {
+      "word": "is",
+      "start": 47.578,
+      "end": 47.729
+    },
+    {
+      "word": "not",
+      "start": 47.81,
+      "end": 48.077
+    },
+    {
+      "word": "self-improvement.",
+      "start": 48.193,
+      "end": 49.459
+    },
+    {
+      "word": "Someone",
+      "start": 49.888,
+      "end": 50.492
+    },
+    {
+      "word": "still",
+      "start": 50.527,
+      "end": 50.875
+    },
+    {
+      "word": "has",
+      "start": 50.945,
+      "end": 51.096
+    },
+    {
+      "word": "to",
+      "start": 51.154,
+      "end": 51.223
+    },
+    {
+      "word": "notice",
+      "start": 51.305,
+      "end": 51.688
+    },
+    {
+      "word": "failures,",
+      "start": 51.746,
+      "end": 52.513
+    },
+    {
+      "word": "judge",
+      "start": 52.687,
+      "end": 52.954
+    },
+    {
+      "word": "which",
+      "start": 53,
+      "end": 53.198
+    },
+    {
+      "word": "ones",
+      "start": 53.29,
+      "end": 53.534
+    },
+    {
+      "word": "matter,",
+      "start": 53.65,
+      "end": 54.254
+    },
+    {
+      "word": "and",
+      "start": 54.521,
+      "end": 54.684
+    },
+    {
+      "word": "turn",
+      "start": 54.73,
+      "end": 54.974
+    },
+    {
+      "word": "repeated",
+      "start": 55.067,
+      "end": 55.496
+    },
+    {
+      "word": "lessons",
+      "start": 55.566,
+      "end": 56.007
+    },
+    {
+      "word": "into",
+      "start": 56.077,
+      "end": 56.297
+    },
+    {
+      "word": "better",
+      "start": 56.413,
+      "end": 56.762
+    },
+    {
+      "word": "evaluations,",
+      "start": 56.855,
+      "end": 58.085
+    },
+    {
+      "word": "rules,",
+      "start": 58.294,
+      "end": 59.107
+    },
+    {
+      "word": "runbooks,",
+      "start": 59.351,
+      "end": 60.175
+    },
+    {
+      "word": "and",
+      "start": 60.21,
+      "end": 60.396
+    },
+    {
+      "word": "tools.",
+      "start": 60.547,
+      "end": 61.336
+    },
+    {
+      "word": "The",
+      "start": 61.94,
+      "end": 62.068
+    },
+    {
+      "word": "goal",
+      "start": 62.137,
+      "end": 62.311
+    },
+    {
+      "word": "is",
+      "start": 62.404,
+      "end": 62.509
+    },
+    {
+      "word": "not",
+      "start": 62.59,
+      "end": 62.776
+    },
+    {
+      "word": "permanent",
+      "start": 62.857,
+      "end": 63.379
+    },
+    {
+      "word": "manual",
+      "start": 63.472,
+      "end": 63.914
+    },
+    {
+      "word": "work.",
+      "start": 63.972,
+      "end": 64.506
+    },
+    {
+      "word": "The",
+      "start": 65.109,
+      "end": 65.237
+    },
+    {
+      "word": "goal",
+      "start": 65.307,
+      "end": 65.527
+    },
+    {
+      "word": "is",
+      "start": 65.609,
+      "end": 65.725
+    },
+    {
+      "word": "to",
+      "start": 65.783,
+      "end": 65.864
+    },
+    {
+      "word": "make",
+      "start": 65.98,
+      "end": 66.201
+    },
+    {
+      "word": "good",
+      "start": 66.27,
+      "end": 66.456
+    },
+    {
+      "word": "judgment",
+      "start": 66.526,
+      "end": 67.06
+    },
+    {
+      "word": "compound.",
+      "start": 67.129,
+      "end": 68.267
+    }
+  ]
+}

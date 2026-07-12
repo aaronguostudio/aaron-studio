@@ -1,0 +1,15 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "content": [
+    {
+      "type": "text",
+      "text": "Five-second cinematic editorial documentary insert, 16:9. A small team of four real people in a mid-sized industrial operations room: a production planner, an operations engineer, a data specialist, and an approval lead stand around one long worktable with paper schedules and small abstract status monitors. An amber alert light wakes up; they lean in and begin comparing options together. The factory floor is visible softly behind glass. Slow controlled lateral dolly right, no cuts, tactile materials, charcoal, parchment, jade operational light, restrained amber alert. Compose the people and table in the right two thirds; keep the left third dark and visually quiet for a later title overlay. No words, subtitles, logos, readable UI, or brand marks. No camera shake."
+    }
+  ],
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "1080p",
+  "duration": 5,
+  "watermark": false,
+  "seed": 51742
+}

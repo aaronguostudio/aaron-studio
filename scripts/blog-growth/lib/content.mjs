@@ -50,6 +50,8 @@ export function shouldIncludeBlogMarkdown(filePath) {
     'youtube-script.md',
     'youtube-metadata.md',
     'linkedin-brief.md',
+    'facebook-post.md',
+    'distribution-plan.md',
   ]);
 
   return !excluded.has(file);

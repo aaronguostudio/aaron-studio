@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-11T17:14:26.720Z",
+  "source": {
+    "script": "youtube-script.md",
+    "script_sha256": "33f18eaff1a03125a41377219ea7f9f77edc92d2b131bbfd43264bc7330ded5b",
+    "transcript": "audio-transcript.md",
+    "transcript_sha256": "efc5f3287339e374db2295b0d7dabff9b79ceeb6992177a093c2d4e1777d9d6e"
+  },
+  "tts": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "voice_profile_selection": {
+    "id": "aaron-pvc-identity-v1",
+    "selected_sample": "B",
+    "selected_at": "2026-07-11",
+    "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate."
+  },
+  "outputs": {
+    "final": "narration.mp3",
+    "raw": "narration-raw.mp3",
+    "sample_60s": "narration-sample-60s.mp3"
+  },
+  "qa": {
+    "durationSeconds": 80.875102,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192128,
+    "integratedLufs": -16.94,
+    "truePeakDb": -1.69,
+    "loudnessRange": 2.9,
+    "longSilenceCount": 0
+  }
+}

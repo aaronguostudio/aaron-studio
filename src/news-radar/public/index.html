@@ -9,12 +9,38 @@
 <body>
   <header>
     <div class="header-content">
-      <h1>🔭 News Radar</h1>
-      <p class="subtitle">AI-curated tech & AI news feed</p>
+      <div>
+        <p class="eyebrow">PERSONAL SIGNAL / TECHNOLOGY</p>
+        <h1>🔭 News Radar</h1>
+        <p class="subtitle">A small, high-signal technology briefing for Aaron.</p>
+      </div>
+      <span class="segment-badge">Technology</span>
     </div>
   </header>
 
+  <section class="brief-panel" id="briefPanel" aria-live="polite">
+    <div class="brief-header">
+      <div>
+        <p class="eyebrow">TODAY'S SIGNAL</p>
+        <h2>What seems to matter</h2>
+      </div>
+      <span class="brief-meta" id="briefMeta">Loading brief…</span>
+    </div>
+    <p class="brief-thesis" id="briefThesis">Collecting the latest technology signals…</p>
+    <div class="brief-grid">
+      <div class="brief-block">
+        <div class="block-label">Selected signals</div>
+        <div id="selectedItems" class="selected-items"></div>
+      </div>
+      <div class="brief-block">
+        <div class="block-label">Themes in the feed</div>
+        <div id="themes" class="theme-list"></div>
+      </div>
+    </div>
+  </section>
+
   <div class="controls">
+    <div class="control-label">Source</div>
     <div class="filters">
       <button class="filter-btn active" data-source="">All</button>
       <button class="filter-btn" data-source="hackernews">HN</button>
@@ -25,6 +51,7 @@
       <button class="filter-btn" data-source="lobsters">Lobsters</button>
       <button class="filter-btn" data-source="arxiv">ArXiv</button>
     </div>
+    <div class="control-label">Topic</div>
     <div class="filters">
       <button class="cat-btn active" data-category="">All Topics</button>
       <button class="cat-btn" data-category="ai">🤖 AI</button>
@@ -34,7 +61,7 @@
       <button class="cat-btn" data-category="general">📰 General</button>
     </div>
     <div class="search-bar">
-      <input type="text" id="search" placeholder="Search..." />
+      <input type="text" id="search" placeholder="Search signals…" />
       <select id="minRelevance">
         <option value="0">All relevance</option>
         <option value="5">5+ relevance</option>
@@ -43,7 +70,18 @@
     </div>
   </div>
 
-  <div class="stats" id="stats"></div>
+  <div class="tag-toolbar">
+    <span class="control-label">Tags</span>
+    <div id="tagFilters" class="tag-filters"></div>
+  </div>
+
+  <div class="feed-heading">
+    <div>
+      <p class="eyebrow">THE FULL FEED</p>
+      <h2>All signals</h2>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
 
   <main id="feed"></main>
 
@@ -53,60 +91,130 @@
 
   <script>
     const API = window.location.origin + '/api';
-    let state = { source: '', category: '', q: '', minRelevance: 0, offset: 0, total: 0 };
+    let state = { source: '', category: '', tag: '', q: '', minRelevance: 0, offset: 0, total: 0 };
 
     const $ = (s) => document.querySelector(s);
     const $$ = (s) => document.querySelectorAll(s);
 
+    function escapeHTML(value) {
+      return String(value ?? '').replace(/[&<>'"]/g, (char) => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;',
+      }[char]));
+    }
+
+    function parseTags(value) {
+      if (!value) return [];
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed.filter(Boolean) : [];
+      } catch {
+        return [];
+      }
+    }
+
     function timeAgo(dateStr) {
       const now = new Date();
-      const d = new Date(dateStr + 'Z');
+      const d = new Date(String(dateStr || '').replace(' ', 'T') + 'Z');
       const diff = (now - d) / 1000;
+      if (!Number.isFinite(diff)) return '';
       if (diff < 60) return 'just now';
       if (diff < 3600) return Math.floor(diff / 60) + 'm ago';
       if (diff < 86400) return Math.floor(diff / 3600) + 'h ago';
       return Math.floor(diff / 86400) + 'd ago';
     }
 
-    function relevanceColor(r) {
+    function formatBriefTime(dateStr) {
+      if (!dateStr) return 'last 24 hours';
+      const date = new Date(String(dateStr).replace(' ', 'T') + (String(dateStr).endsWith('Z') ? '' : 'Z'));
+      if (Number.isNaN(date.getTime())) return 'last 24 hours';
+      return `updated ${date.toLocaleString([], { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}`;
+    }
+
+    function relevanceColor(relevance) {
+      const r = Number(relevance || 0);
       if (r >= 8) return '#22c55e';
       if (r >= 5) return '#eab308';
       return '#6b7280';
     }
 
-    function sourceIcon(s) {
-      if (s === 'hackernews') return '🟧';
-      if (s === 'x-twitter') return '𝕏';
-      if (s === 'reddit') return '🟣';
-      if (s === 'producthunt') return '🔶';
-      if (s === 'github') return '🐙';
-      if (s === 'lobsters') return '🦞';
-      if (s === 'arxiv') return '📄';
+    function sourceIcon(source) {
+      if (source === 'hackernews') return '🟧';
+      if (source === 'x-twitter') return '𝕏';
+      if (source === 'reddit') return '🟣';
+      if (source === 'producthunt') return '🔶';
+      if (source === 'github') return '🐙';
+      if (source === 'lobsters') return '🦞';
+      if (source === 'arxiv') return '📄';
       return '📰';
     }
 
+    function renderTags(tags) {
+      return tags.map((tag) =>
+        `<button class="tag-chip" data-item-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`,
+      ).join('');
+    }
+
     function renderItem(item) {
-      const tags = item.tags ? JSON.parse(item.tags) : [];
+      const tags = parseTags(item.tags);
       return `
         <article class="item">
           <div class="item-meta">
             <span class="source">${sourceIcon(item.source)}</span>
-            <span class="relevance" style="background:${relevanceColor(item.relevance)}">${item.relevance}</span>
-            <span class="category">${item.category}</span>
-            <span class="time">${timeAgo(item.created_at)}</span>
-            ${item.score ? `<span class="score">⬆${item.score}</span>` : ''}
+            <span class="relevance" style="background:${relevanceColor(item.relevance)}">${escapeHTML(item.relevance)}</span>
+            <span class="category">${escapeHTML(item.category || 'general')}</span>
+            <span class="time">${escapeHTML(timeAgo(item.created_at))}</span>
+            ${item.score ? `<span class="score">⬆${escapeHTML(item.score)}</span>` : ''}
           </div>
-          <h3><a href="${item.url}" target="_blank" rel="noopener">${item.title}</a></h3>
-          ${item.ai_summary ? `<p class="ai-summary">🤖 ${item.ai_summary}</p>` : ''}
-          ${item.author ? `<span class="author">by ${item.author}</span>` : ''}
+          <h3><a href="${escapeHTML(item.url)}" target="_blank" rel="noopener">${escapeHTML(item.title)}</a></h3>
+          ${item.ai_summary ? `<p class="ai-summary">${escapeHTML(item.ai_summary)}</p>` : ''}
+          ${item.author ? `<span class="author">by ${escapeHTML(item.author)}</span>` : ''}
+          ${tags.length ? `<div class="item-tags">${renderTags(tags)}</div>` : ''}
         </article>
       `;
+    }
+
+    function renderMiniItem(item) {
+      return `
+        <a class="mini-item" href="${escapeHTML(item.url)}" target="_blank" rel="noopener">
+          <span class="mini-source">${sourceIcon(item.source)}</span>
+          <span>${escapeHTML(item.title)}</span>
+        </a>
+      `;
+    }
+
+    function renderBrief(data) {
+      $('#briefThesis').textContent = data.thesis || 'No thesis generated yet.';
+      $('#briefMeta').textContent = `${data.candidate_count || 0} candidates · ${formatBriefTime(data.generated_at)}`;
+      $('#selectedItems').innerHTML = data.selected_items?.length
+        ? data.selected_items.map(renderMiniItem).join('')
+        : '<p class="muted">No selected signals yet.</p>';
+      $('#themes').innerHTML = data.themes?.length
+        ? data.themes.map((theme) => `
+            <div class="theme-card">
+              <div class="theme-title"><span>${escapeHTML(theme.label)}</span><span class="theme-count">${theme.count}</span></div>
+              ${theme.items.slice(0, 2).map((item) => `<a href="${escapeHTML(item.url)}" target="_blank" rel="noopener">${escapeHTML(item.title)}</a>`).join('')}
+            </div>
+          `).join('')
+        : '<p class="muted">Themes will appear after the next collection.</p>';
+    }
+
+    async function loadBrief() {
+      try {
+        const res = await fetch(`${API}/brief`);
+        if (!res.ok) throw new Error(`Brief request failed: ${res.status}`);
+        renderBrief(await res.json());
+      } catch (error) {
+        $('#briefThesis').textContent = 'The brief is temporarily unavailable; the full feed is still available below.';
+        $('#briefMeta').textContent = 'brief unavailable';
+        console.error(error);
+      }
     }
 
     async function loadItems(append = false) {
       const params = new URLSearchParams();
       if (state.source) params.set('source', state.source);
       if (state.category) params.set('category', state.category);
+      if (state.tag) params.set('tag', state.tag);
       if (state.q) params.set('q', state.q);
       if (state.minRelevance) params.set('minRelevance', state.minRelevance);
       params.set('limit', 50);
@@ -114,13 +222,13 @@
 
       const res = await fetch(`${API}/items?${params}`);
       const data = await res.json();
-      state.total = data.total;
+      state.total = Number(data.total || 0);
 
       const feed = $('#feed');
       if (!append) feed.innerHTML = '';
 
       if (data.items.length === 0 && !append) {
-        feed.innerHTML = '<p class="empty">No items yet. Run a collection first!</p>';
+        feed.innerHTML = '<p class="empty">No items match this filter.</p>';
       } else {
         feed.innerHTML += data.items.map(renderItem).join('');
       }
@@ -128,43 +236,61 @@
       $('#loadMore').style.display = (state.offset + 50 < state.total) ? 'block' : 'none';
     }
 
+    function setActive(selector, activeButton) {
+      $$(selector).forEach((button) => button.classList.toggle('active', button === activeButton));
+    }
+
+    function renderTagFilters(tags) {
+      const buttons = ['<button class="tag-filter active" data-tag="">All tags</button>'];
+      for (const entry of tags || []) {
+        buttons.push(`<button class="tag-filter" data-tag="${escapeHTML(entry.tag)}">${escapeHTML(entry.tag)} <span>${entry.count}</span></button>`);
+      }
+      $('#tagFilters').innerHTML = buttons.join('');
+      $$('.tag-filter').forEach((button) => {
+        button.addEventListener('click', () => {
+          setActive('.tag-filter', button);
+          state.tag = button.dataset.tag;
+          state.offset = 0;
+          loadItems();
+        });
+      });
+    }
+
     async function loadStats() {
       const res = await fetch(`${API}/stats`);
       const data = await res.json();
-      const total = data.sources.reduce((a, s) => a + s.count, 0);
+      const total = (data.sources || []).reduce((sum, source) => sum + Number(source.count || 0), 0);
       $('#stats').innerHTML = `<span>${total} items</span>` +
-        data.sources.map(s => `<span>${sourceIcon(s.source)} ${s.count}</span>`).join('');
+        (data.sources || []).map((source) => `<span>${sourceIcon(source.source)} ${source.count}</span>`).join('');
+      renderTagFilters(data.tags || []);
     }
 
-    // Filter buttons
-    $$('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        $$('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        state.source = btn.dataset.source;
+    $$('.filter-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        setActive('.filter-btn', button);
+        state.source = button.dataset.source;
         state.offset = 0;
         loadItems();
       });
     });
 
-    $$('.cat-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        $$('.cat-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        state.category = btn.dataset.category;
+    $$('.cat-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        setActive('.cat-btn', button);
+        state.category = button.dataset.category;
         state.offset = 0;
         loadItems();
       });
     });
 
-    $('#search').addEventListener('input', debounce((e) => {
-      state.q = e.target.value;
+    $('#search').addEventListener('input', debounce((event) => {
+      state.q = event.target.value;
       state.offset = 0;
       loadItems();
     }, 300));
 
-    $('#minRelevance').addEventListener('change', (e) => {
-      state.minRelevance = parseInt(e.target.value);
+    $('#minRelevance').addEventListener('change', (event) => {
+      state.minRelevance = parseInt(event.target.value, 10);
       state.offset = 0;
       loadItems();
     });
@@ -174,12 +300,23 @@
       loadItems(true);
     });
 
+    $('#feed').addEventListener('click', (event) => {
+      const button = event.target.closest('[data-item-tag]');
+      if (!button) return;
+      event.preventDefault();
+      const matchingButton = [...$$('.tag-filter')].find((tagButton) => tagButton.dataset.tag === button.dataset.itemTag);
+      if (matchingButton) matchingButton.click();
+    });
+
     function debounce(fn, ms) {
-      let t;
-      return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), ms);
+      };
     }
 
-    // Init
+    loadBrief();
     loadItems();
     loadStats();
   </script>

@@ -1,0 +1,35 @@
+{
+  "intent": "comparison",
+  "freshness_mode": "strict_recent",
+  "cluster_mode": "debate",
+  "subqueries": [
+    {
+      "label": "head_to_head",
+      "search_query": "ChatGPT Work vs Claude Cowork",
+      "ranking_query": "What do early users say ChatGPT Work does better or worse than Claude Cowork?",
+      "sources": ["reddit", "x", "youtube", "tiktok", "instagram", "hackernews", "polymarket"],
+      "weight": 1.0
+    },
+    {
+      "label": "chatgpt_work",
+      "search_query": "ChatGPT Work review agent files slides spreadsheets",
+      "ranking_query": "What are the strongest real-world results and complaints from early ChatGPT Work users?",
+      "sources": ["reddit", "x", "youtube", "hackernews"],
+      "weight": 0.8
+    },
+    {
+      "label": "claude_cowork",
+      "search_query": "Claude Cowork review files slides spreadsheets plugins",
+      "ranking_query": "What do experienced Claude Cowork users praise and complain about after sustained use?",
+      "sources": ["reddit", "x", "youtube", "hackernews"],
+      "weight": 0.8
+    },
+    {
+      "label": "finance_workflows",
+      "search_query": "ChatGPT Work Claude Cowork finance Excel PowerPoint financial analysis",
+      "ranking_query": "Which product is better suited to auditable finance workflows involving data, spreadsheets, decks, and review?",
+      "sources": ["reddit", "x", "youtube"],
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,11 +1,17 @@
-Expensive tokens won't save enterprise AI.
+## Subject
 
-That is the tension behind a strange pattern in recent AI news: Anthropic, OpenAI, AWS, and Microsoft are all moving in the same direction, putting engineers closer to customer workflows instead of only selling model access.
+Better models are not fixing the enterprise AI bottleneck
 
-The bottleneck moved. The hard part is no longer only model capability. It is deployment: connecting AI to messy workflows, data permissions, governance, user habits, fallback paths, and measurable business outcomes.
+## Preview Text
 
-I wrote about why forward deployed engineering is the clearest signal of this shift, how it differs from traditional consulting, and what it means for technical people.
+Why Anthropic, OpenAI, AWS, and Microsoft are investing in deployment capacity.
 
-The practical framework: ACTOR — Action, Context, Trust, Outcome, Recursive. That last layer matters because enterprise AI needs a learning loop, not only a launch.
+## Body
 
-[blog URL]
+The latest enterprise AI announcements look different on the surface. Underneath, they point to the same bottleneck: a model does not become operating change on its own.
+
+Anthropic, OpenAI, AWS, and Microsoft are all investing in engineers who can connect AI to the reality around it: data, permissions, decisions, approvals, exceptions, ownership, and feedback from the field.
+
+In this week's essay, I explain why Forward Deployed Engineering matters, why it is not simply consulting under a new name, and the ACTOR framework I use to judge whether an AI deployment has changed real work.
+
+Read the full essay: https://www.aaronguo.com/blogs/why-ai-companies-are-becoming-deployment-companies?utm_source=newsletter&utm_medium=email&utm_campaign=why-ai-companies-are-becoming-deployment-companies&utm_content=launch-teaser

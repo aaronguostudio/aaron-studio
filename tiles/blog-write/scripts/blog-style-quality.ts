@@ -10,6 +10,7 @@ export type BlogStyleIssueKind =
   | "low-rhythm-variation"
   | "generic-ending"
   | "mechanical-chinese"
+  | "avoidable-chinese-code-switching"
   | "imprecise-chinese-word-choice"
   | "imprecise-methodology-label";
 
@@ -92,6 +93,14 @@ const MECHANICAL_CHINESE_PATTERNS: PhraseRule[] = [
   { phrase: "积极拥抱", pattern: /积极拥抱/g, severity: "medium" },
   { phrase: "不断提升", pattern: /不断提升/g, severity: "medium" },
   { phrase: "这一趋势", pattern: /这一趋势/g, severity: "medium" },
+];
+
+const AVOIDABLE_CHINESE_CODE_SWITCHING_PATTERNS: PhraseRule[] = [
+  { phrase: "vendor", pattern: /\bvendors?\b/gi, severity: "medium" },
+  { phrase: "enterprise product", pattern: /\benterprise products?\b/gi, severity: "medium" },
+  { phrase: "people layer", pattern: /\bpeople layer\b/gi, severity: "medium" },
+  { phrase: "consulting", pattern: /\bconsulting\b/gi, severity: "medium" },
+  { phrase: "deployment test", pattern: /\bdeployment test\b/gi, severity: "medium" },
 ];
 
 const NEGATIVE_BUSINESS_CONTEXT_PATTERN =
@@ -177,9 +186,14 @@ function hasLivedEvidence(text: string): boolean {
   const datedOrMeasured = /\b(last|this|yesterday|today|month|week|year|quarter|in 20\d{2}|[0-9]+(?:\.[0-9]+)?%?|[0-9]+\s+(?:tickets|repos|days|hours|weeks|months|users|customers|prs|pull requests))\b/i.test(text);
   const operatorSpecific = /\b(QA|UAT|Codex|ticket|tickets|module|owner|review queue|deploy|shipping|production|customer|customers|repo|repos|PR|pull request|incident|migration|release)\b/i.test(text);
   const concreteWorkflow = /\b(process|workflow|handoff|review|test|tests|deploy|release|queue|module|integration)\b/i.test(text);
+  const chineseFirstPerson = /(?:我的|我们的|我们|我)/m.test(text);
+  const chineseMeasured = /(?:上周|本周|上个月|这个月|去年|今年|第一版|第二版|第[一二三四五六七八九十\d]+次|\d+(?:\.\d+)?\s*(?:天|周|月|年|人|篇|次|条|个|%|％))/i.test(text);
+  const chineseOperatorSpecific = /(?:工作流|流程|项目|文章|链接|审阅|评估|部署|客户|生产环境|系统|团队|运行|发布|验证)/i.test(text);
+  const chineseConcreteChange = /(?:改造|加入|增加|暴露|失败|修正|演进|重写|检查|验证|上线|运行|复盘|改进)/i.test(text);
 
   return (firstPerson && (datedOrMeasured || operatorSpecific || concreteWorkflow)) ||
-    (datedOrMeasured && operatorSpecific && concreteWorkflow);
+    (datedOrMeasured && operatorSpecific && concreteWorkflow) ||
+    (chineseFirstPerson && chineseOperatorSpecific && (chineseMeasured || chineseConcreteChange));
 }
 
 function sentenceStats(text: string): { sentences: string[]; lengths: number[]; stdDev: number } {
@@ -324,6 +338,17 @@ export function findBlogStyleIssues(
         severity: count >= 5 ? "high" : "medium",
         count,
         message: `Chinese version sounds mechanically translated or formulaic (${count} markers): ${mechanicalMatches.slice(0, 5).map((rule) => rule.phrase).join(", ")}`,
+      });
+    }
+
+    const codeSwitchMatches = countPhraseRules(text, AVOIDABLE_CHINESE_CODE_SWITCHING_PATTERNS);
+    if (codeSwitchMatches.length > 0) {
+      issues.push({
+        kind: "avoidable-chinese-code-switching",
+        severity: "medium",
+        count: codeSwitchMatches.reduce((sum, rule) => sum + rule.count, 0),
+        phrase: codeSwitchMatches[0].phrase,
+        message: `Chinese edition contains avoidable English business terms: ${codeSwitchMatches.map((rule) => rule.phrase).join(", ")}. Translate ordinary concepts; keep English for proper nouns, stable acronyms, or terms without a natural Chinese equivalent.`,
       });
     }
 

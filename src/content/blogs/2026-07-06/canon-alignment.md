@@ -2,54 +2,46 @@
 
 ## 文章当前判断
 
-这篇文章的公开判断已经比较清楚：企业 AI 的瓶颈不是继续购买更强模型或更多 token，而是能不能把 intelligence 部署进真实 workflow，形成可信、可衡量、可维护、可学习的业务闭环。
-
-标题“Expensive Tokens Won't Save Enterprise AI”比旧标题更有张力，但正文开头需要更早兑现这个冲突。现在文章很快进入四家公司新闻，逻辑是对的，但读者可能需要先被提醒：如果 token 本身能解决问题，这些公司就不会同时把资源投向 embedded engineering 和 deployment teams。
+新版主张比旧稿更进一步：FDE 不只是 deployment bottleneck 的组织回应，也是模型公司建设 human backpropagation layer 的方式。它让 intelligence 进入真实工作，也让真实工作中的 failure、constraint 和 pattern 回到产品。
 
 ## 与旧文章的呼应
 
-- `ai-became-my-operating-system.md`：个人 AI operating system 的核心是 intent、skill、run、review、memory。FDE 文章把这个 loop 扩展到企业层面：Action、Context、Trust、Outcome、Recursive。
-- `one-person-project-ai-coding-v2.md`：一人项目的核心是 owner、agents、boundary、evidence。FDE 文章里的 deployment-native engineer 应该被明确写成企业版本：不是单人英雄，而是能把 AI 能力放进共享边界和证据系统的人。
-- `farthest-humans-started-as-failure.md`：aspiration distance / return distance 已经在 ACTOR 部分呼应得很好。这里不需要再加重，否则会抢走 FDE 主线。
+- `I Gave Codex a Task From a Moving Tesla`：intent、skill、run、review、memory 连起来，AI 才像 operating system。新版用 broken link 证明单项 task completion 不等于 system completion。
+- `The One-Person Project`：owner、boundary、evidence 是 AI 扩大 execution radius 后的约束。企业版本对应 ACTOR 的 Context、Trust、Outcome 和 Recursive。
+- Apollo 13 / return distance：概念仍适合 trust 和 recoverability，但目标文章尚未在公开博客存在，因此不放站内链接，也不让这个比喻抢走主线。
 
 ## 观点升级
 
-这篇文章把 Aaron 过去偏个人/小团队的 AI-native workflow 观点升级到企业运营层：
+旧 canon 主要讲“如何让 AI 工作”。新版增加“工作如何反向训练组织”：
 
-- 个人层面：AI 不是工具，而是 operating system。
-- 团队层面：AI 改变 ownership grain，single owner + shared boundary + evidence。
-- 企业层面：AI 价值不在 token 消耗，而在 deployment capability 和 operating capacity。
+```text
+intent -> execution -> review -> memory
+customer problem -> deployment -> outcome -> product learning
+```
 
-这是一个自然升级，不是强行套旧观点。文章最有价值的地方在于把“AI 使用”从 usage/reporting 拉回到 work actually changed。
+这使 `Recursive` 不再只是 responsibility 的替代词，而是整个 FDE 机制的必要结尾。
 
 ## 需要避免的惯性
 
-- 不要把文章写成 Karp 或 Palantir 的代言。Karp 可以制造 tension，但不能成为主证据。
-- 不要把 FDE 神化成唯一答案。文章已经承认 consulting、SI、governance 和 change management 的价值，这一点应该保留。
-- 不要为了强调 alignment 而塞太多旧文章链接。现有三个内部链接已经够，且都服务论证。
-- 不要把 ACTOR 变成管理学 checklist。它应该保持“部署前必须回答的问题”，而不是漂亮框架。
+- 不要因为 Palantir 提供了好词，就把文章写成 Palantir thesis。
+- 不要继续堆叠旧文引用。两条公开链接足够。
+- 不要把每篇 AI 文章都收束到 operating system；这篇必须留下独立的新概念：human backpropagation。
+- 不要把 FDE 变成英雄工程师叙事。真正的主体是 feedback architecture。
 
 ## 可以加入的 Aaron 判断
 
-建议做两处轻微加强：
+- "Every task passed; the workflow failed." 这是从个人系统到企业系统的真实桥梁。
+- "The difference is not who sits closer to the customer. It is where the learning goes."
+- "A token is a unit of consumption, not a unit of enterprise value."
 
-1. 开头增加 token/value 冲突：企业可以继续买更贵 token、更大 context window、更聪明模型，但如果工作流周围没有 owner、boundary、evidence、feedback loop，价值不会自动出现。
-2. 技术人段落更明确地把 `The One-Person Project` 的 owner/boundary/evidence 升级成企业语境：deployment-native engineer 的价值不是“更接近客户”这么简单，而是能把客户现场的混乱变成可运行的边界、证据和学习循环。
-
-这两处不会改变论点，只会让文章更像 Aaron 的长期思考系统。
+这些判断都能形成 Aaron 长期写作里的可复用语言，但必须在正文里通过机制和证据赚出来。
 
 ## 站内链接建议
 
-保留现有三个站内链接：
-
-- `../2026-06-20/ai-became-my-operating-system.md`
-- `../2026-07-01/one-person-project-ai-coding-v2.md`
-- `../2026-06-27/farthest-humans-started-as-failure.md`
-
-不建议新增更多链接。下一步如果写 standalone 文章，可以把 `The Deployment-Native Engineer` 或 `ACTOR Framework for AI Workflow Design` 作为未来分支。
+- 在 personal anchor 后链接 `/blogs/ai-became-my-operating-system` 及其中文路径。
+- 在 deployment-native engineer 段落链接 `/blogs/one-person-project-ai-coding` 及其中文路径。
+- 不链接尚未出现在公开博客 repo 的 Apollo 文章。
 
 ## Alignment Decision
 
-通过，但需要小修。
-
-文章已经不是普通新闻评论，也不是通用 AI deployment 介绍。它和 Aaron canon 的关系清楚：AI 的价值来自可以执行、回看、留下证据、继续学习的工作系统。建议只做两处微调：加强标题与开头的呼应；强化 deployment-native engineer 和 owner/boundary/evidence 的关系。
+通过。新版既延续 owner、boundary、evidence、memory，也增加了独立的新判断。正文应把 human backpropagation 放在中心，把 ACTOR 作为执行结果，而不是先有框架再找论证。

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "default_profile": "aaron-pvc-identity-v1",
+  "profiles": {
+    "aaron-pvc-identity-v1": {
+      "label": "Aaron Professional Voice Clone - Identity First",
+      "provider": "elevenlabs",
+      "voice_id": "R2DWp7zZuWmGxk3r8GIA",
+      "model_id": "eleven_multilingual_v2",
+      "output_format": "mp3_44100_192",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.75,
+        "style": 0.5,
+        "use_speaker_boost": true,
+        "speed": 1.0
+      },
+      "selected_sample": "B",
+      "selected_at": "2026-07-11",
+      "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate.",
+      "source_test": "src/content/blogs/2026-07-06/audio-tests"
+    },
+    "aaron-pvc-editorial-v5-candidate": {
+      "label": "Aaron Professional Voice Clone - Editorial Energy Candidate",
+      "provider": "elevenlabs",
+      "voice_id": "R2DWp7zZuWmGxk3r8GIA",
+      "model_id": "eleven_multilingual_v2",
+      "output_format": "mp3_44100_192",
+      "voice_settings": {
+        "stability": 0.4,
+        "similarity_boost": 0.8,
+        "style": 0.56,
+        "use_speaker_boost": true,
+        "speed": 1.04
+      },
+      "selected_sample": "pending V5 listening review",
+      "selected_at": "2026-07-11",
+      "selection_reason": "V5 candidate: preserve Aaron's Professional Voice Clone while lowering stability and slightly increasing pace for a more active long-form editorial delivery.",
+      "source_test": "src/content/blogs/2026-07-06/video-v5/audio-review"
+    }
+  }
+}

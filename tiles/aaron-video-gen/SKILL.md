@@ -1,22 +1,32 @@
 ---
 name: aaron-video-gen
-description: Use when generating Aaron's YouTube video from a blog youtube-script.md, slide images, thumbnails, or metadata, especially for slideshow videos.
+description: Use when planning, prototyping, generating, or reviewing Aaron's YouTube videos from a blog, video brief, narration, images, or motion scenes. Covers video-native adaptation, director treatments, constrained Remotion storyboards, audio and music, scene templates, visual QA, thumbnails, metadata, and final rendering.
 ---
 
 # Video Generation
 
-Generate YouTube-ready MP4 videos from a script markdown file and slide images.
+Generate YouTube-ready editorial videos from a video-native script, approved
+narration, evidence, motion scenes, music, and reusable Remotion templates.
 
 ## Pipeline
 
-1. **Parse** the youtube-script.md — extract slide sections, detect `[IMAGE:]` markers for image switches
-2. **Adaptation preflight** — confirm the script is a video-native adaptation, not a blog read-through
-3. **Rewrite narration** (optional) — LLM lightly edits narration for Aaron's spoken style, then runs a transcript quality gate to remove generic YouTube filler, fake casualness, formalized business language, repeated transitions, and excessive expansion.
-4. **Generate narration** — TTS audio for each slide section (edge-tts, OpenAI, or ElevenLabs)
-5. **Compute image switch timings** — sync image changes to word-level timestamps from ElevenLabs
-6. **Build video** — Remotion renders slides with image switches, captions, transitions, and branding
-7. **Mix music** (optional) — layer background music with auto-ducking during narration
-8. **Output** — MP4 file (1920x1080 by default)
+1. **Adapt** — create `video-brief.md` and a spoken, video-native `youtube-script.md`.
+2. **Direct** — deconstruct references, recommend two or three treatments, then lock the story, media, sound, and fallback decisions in a director plan before implementation.
+3. **Storyboard** — assign every semantic beat a visual role, registered scene template, motion recipe, intensity, music cue, and fallback in `video-storyboard.json`.
+4. **Audit** — validate the script and storyboard before spending on assets or a full render.
+5. **Lock audio** — resolve the approved Aaron voice profile, generate TTS with cross-section context, and pass the listening gate.
+6. **Prototype** — render a 60-90 second slice when any scene is new, planned, or experimental.
+7. **Build** — combine evidence, static images, structured scenes, captions, music, sound, and branding in Remotion.
+8. **Review** — inspect contact sheets, full-motion pacing, layout, audio, and the complete product before publishing.
+
+Read these references when the corresponding stage begins:
+
+- `references/editorial-motion-system.md` for direction, pacing, music, and reference deconstruction;
+- `references/aaron-editorial-visual-system.md` for palette roles, grid, canonical layouts, and animation dependencies;
+- `references/director-pass.md` before selecting images, generated video, or signature motion;
+- `references/scene-catalog.md` before selecting or implementing scene templates;
+- `references/video-qa.md` before prototype review or a full render;
+- `references/aaron-voice-profile.md` before changing narration voice or settings.
 
 ## Recommended Workflow
 
@@ -26,9 +36,7 @@ For Aaron's YouTube channel, the standard command is:
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
   --script <path-to-youtube-script.md> \
   --renderer remotion \
-  --tts elevenlabs \
-  --voice 991lF4hc0xxfec4Y6B0i \
-  --speed 1.1 \
+  --voice-profile aaron-pvc-identity-v1 \
   --logo assets/aaron-logo-assets/ag-logo.png \
   --slogan "AI-native builder. Human-first thinker." \
   --website aaronguo.com \
@@ -36,60 +44,121 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 ```
 
 Key defaults for Aaron's videos:
-- **TTS**: ElevenLabs, Henry voice (991lF4hc0xxfec4Y6B0i), speed 1.1x
+- **TTS**: ElevenLabs Professional Voice Clone profile `aaron-pvc-identity-v1`
+- **Voice ID**: `R2DWp7zZuWmGxk3r8GIA`, selected through a blind identity-first listening test
+- **Delivery**: Multilingual v2, speed 1.0, with the full approved settings stored in `config/voice-profiles.json`
 - **Renderer**: Remotion (motion graphics, image switches, word-level captions)
 - **Branding**: ag-logo.png + slogan + website in intro and outro
 - **Cover**: Thumbnail image with bold title shown at video start (also uploaded as YouTube thumbnail)
 - **Transitions**: 1.2s between slides (fade, slide, wipe, flip, etc.)
 - **Images**: Static within slides (no Ken Burns), image switches via `[IMAGE:]` markers
 
-### Blog Workflow 2.0 Video Standard
+### Video Workflow 2.0 Standard
 
-When rendering a serious essay from Blog Workflow 2.0, confirm:
-- `video-brief.md` exists and is video-native, not a blog read-through;
-- `youtube-script.md` adds visual and spoken value beyond the article;
-- framework or process slides use motion only when the motion clarifies the argument;
-- structured motion slides should not sit on a mostly blank stage while narration builds context;
-- audio is reviewed as a listening product before final rendering when the voice changes.
+For a serious essay, require:
 
-## Aaron Voice Clone Workflow
+- `video-brief.md`: viewer promise, story, retention beats, and ending;
+- `youtube-script.md`: the locked spoken argument, not a blog read-through;
+- `video-treatment.md`: references, selected visual spine, scene mix, motion budget, music strategy, and prototype slice;
+- `director-plan.json`: each beat's narrative role, visual mode, entry state, motion, sound, provenance, and fallback;
+- `director-memo.md`: the human-readable visual story and explicit exclusions;
+- `asset-decision-log.md`: why every source, still, screen capture, or generated clip belongs in the film;
+- `video-storyboard.json`: audited scene roles, templates, beats, fallbacks, and timing;
+- `audio-generation-manifest.json`: exact voice request and audio QA;
+- an approved prototype whenever the storyboard uses a capability not marked `available`;
+- `video-qa-report.md`: contact-sheet, motion, audio, and full-watch findings.
 
-When Aaron wants a more personal English narration voice, prepare the clone as a reproducible experiment before using it in production. The target voice is a polished Aaron narrator voice: recognizable, male, warm, clear, and natural, while reducing uncomfortable English pronunciation artifacts.
+Use the files in `templates/` as starting points. Do not render the full video
+until the treatment, director plan, and storyboard have been reviewed.
 
-Generate the recording kit before Aaron records:
+### V5 Delivery Rules
+
+Treat the following as production constraints, not as optional style notes:
+
+- The first meaningful frame must carry the article's visual identity. Prefer
+  the approved article cover or a deliberately authored hero; never open a
+  serious essay on a taxonomy label or an empty title stage.
+- For a `cover-hero`, the article title, subtitle, and Aaron brand lockup must
+  all be visible at frame zero. The background may move gently, but the viewer
+  must not wait for identity or the central promise to animate in.
+- Select a registered layout before writing a scene. Long display titles own
+  one full-width reading axis; supporting copy moves below the title rather
+  than forcing a two-column wrap.
+- Frame chrome and captions are delivery utilities, not decoration. Keep the
+  header compact and quiet, and never add a colored rule above captions unless
+  it encodes a real state in the story.
+- Close a serious essay with the registered `brand-end-card` after the argument
+  resolves. Hide chapter chrome and captions there; use Aaron's established
+  soft-mark / `AI-NATIVE BUILDER` identity instead of ending on a stale black
+  frame. A website is optional, not a required CTA.
+- A generated still or clip needs a narrative job, a provenance label, and a
+  deterministic fallback. For a long Remotion render, pre-extract a generated
+  clip into a bounded image sequence when live video decoding compromises
+  repeatability or throughput.
+- Audio is a timed contract: retain the voice request, chapter audio, exact
+  word timings, and final retime report together. Re-encode chapter joins;
+  do not stream-copy MP3 segments with encoder padding into a long-form master.
+- A voice-setting experiment remains a candidate until Aaron has heard it in
+  a representative opening, middle, and late section. Do not silently replace
+  the selected production voice profile.
+
+### Director And Storyboard Gate
+
+Before implementation:
+
+1. Deconstruct one to three strong references. Record what to borrow and what
+   to avoid; do not merely request "the same style."
+2. Recommend two or three treatments that fit the argument. Explain the scene
+   mix, signature opportunity, music approach, and tradeoff of each.
+3. Ask Aaron to select or combine a direction unless he has already made that
+   decision explicitly.
+4. Create `director-plan.json`, `director-memo.md`, and `asset-decision-log.md`.
+   Every beat needs a narrative role, a visual mode, a meaningful first frame,
+   its first change, sound intent, provenance, and an available fallback.
+5. Give each scene one role: `evidence`, `explanation`, or `emphasis`.
+6. Select only templates and motion recipes registered in
+   `config/scene-registry.json`.
+7. Keep one visual spine across typography, grid, color, texture, and image
+   treatment while varying scene families.
+8. Mark any non-available capability `prototype_required` and provide an
+   available fallback.
+9. For any rotation, perspective, scale, or translation that changes projected
+   bounds, record a transform envelope and protected zones in the storyboard.
+
+Run the planning audit:
 
 ```bash
-npx -y bun ${SKILL_DIR}/scripts/voice-clone-workflow.ts kit \
-  --output src/content/voice-clones/aaron-english-narrator-v1 \
-  --voice-name "Aaron English Narrator v1" \
-  --target-minutes 50
+bun ${SKILL_DIR}/scripts/storyboard-audit.ts \
+  --storyboard <blog-dir>/video-storyboard.json \
+  --output <blog-dir>/video-storyboard-audit.md
+
+bun ${SKILL_DIR}/scripts/director-plan-audit.ts \
+  --plan <video-dir>/director-plan.json \
+  --output <video-dir>/director-plan-audit.md
 ```
 
-This writes:
-- `recording-script.md` with technical explainer, conversational reflection, hooks/endings, and technical-term sections.
-- `manifest.json` describing the target Professional Voice Clone dataset.
-- `eval-plan.json` with a repeatable ElevenLabs settings matrix.
-- `scorecard.md` for human listening evaluation.
-- gitignored `recordings/` and `samples/` folders so raw voice files and generated trials are not committed by accident.
+Before the full render, rerun with `--production`. Production mode must contain
+only capabilities marked `available` in the registry.
 
-After Aaron records and exports audio into `recordings/`, audit the dataset before uploading:
+For a new or changed voice, use the audio-only gate before rendering:
 
 ```bash
-npx -y bun ${SKILL_DIR}/scripts/voice-clone-workflow.ts audit \
-  --audio-dir src/content/voice-clones/aaron-english-narrator-v1/recordings \
-  --output src/content/voice-clones/aaron-english-narrator-v1/recording-audit.md \
-  --target-minutes 45
+npx -y bun ${SKILL_DIR}/scripts/main.ts \
+  --script <path-to-youtube-script.md> \
+  --audio-only \
+  --audio-output <path-to-audio.mp3> \
+  --transcript-output <path-to-audio-transcript.md> \
+  --voice-profile aaron-pvc-identity-v1
 ```
 
-Prefer ElevenLabs Professional Voice Clone for the final voice. Instant Voice Clone is useful only for quick experiments. After ElevenLabs returns a `voice_id`, put it in `eval-plan.json`, then generate A/B listening samples:
+This still runs the script audit and conversational spoken-language pass, but skips image resolution and video rendering. It preserves the raw audio, writes a normalized review file, creates a 60-second sample, runs technical QA, and records the exact request identity in `audio-generation-manifest.json`.
 
-```bash
-ELEVENLABS_API_KEY=... npx -y bun ${SKILL_DIR}/scripts/voice-clone-workflow.ts samples \
-  --plan src/content/voice-clones/aaron-english-narrator-v1/eval-plan.json \
-  --output src/content/voice-clones/aaron-english-narrator-v1/samples
-```
+### Voice Production
 
-Do not switch the video pipeline to the cloned voice until the best setting scores 4+ on identity, naturalness, clarity, pacing, and listener fatigue. Once it passes, use the cloned `voice_id` with the normal video command's `--voice` option.
+Read `references/aaron-voice-profile.md` for the listening gate, clone recording
+workflow, blind comparison rules, and promotion process. The current production
+winner remains `aaron-pvc-identity-v1`. Use `--voice` only for an explicit
+experiment; routine production must resolve the versioned profile.
 
 ## Prerequisites
 
@@ -115,10 +184,22 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts --script <path-to-youtube-script.md> [op
 |--------|-------------|---------|
 | `--script`, `-s` | Path to youtube-script.md file | (required) |
 | `--output`, `-o` | Output video file path | `<script-dir>/video.mp4` |
+| `--audio-only` | Run audit, spoken rewrite, and TTS; skip image resolution and video rendering | `false` |
+| `--audio-output` | Final concatenated audio path for `--audio-only` | `<script-dir>/audio.mp3` |
+| `--transcript-output` | Exact post-rewrite transcript sent to TTS | `<script-dir>/audio-transcript.md` |
+| `--audio-manifest-output` | Request identity, output paths, hashes, and audio QA | `<script-dir>/audio-generation-manifest.json` |
 | `--images-dir` | Directory containing slide images | `<script-dir>/imgs/` |
-| `--tts` | TTS provider: `edge-tts`, `openai`, or `elevenlabs` | `edge-tts` |
-| `--voice` | TTS voice name/ID | provider-dependent |
-| `--speed` | TTS speech speed (ElevenLabs: 0.7-1.2, OpenAI: 0.25-4.0) | `1.1` |
+| `--tts` | TTS provider: `edge-tts`, `openai`, or `elevenlabs` | selected profile (`elevenlabs`) |
+| `--voice-profile` | Versioned voice profile from `config/voice-profiles.json` | `aaron-pvc-identity-v1` |
+| `--voice` | Explicit TTS voice override for an experiment | selected profile voice ID |
+| `--speed` | TTS speech speed (ElevenLabs: 0.7-1.2, OpenAI: 0.25-4.0) | selected profile (`1.0`) |
+| `--tts-model` | ElevenLabs model override | selected profile (`eleven_multilingual_v2`) |
+| `--tts-output-format` | ElevenLabs MP3 output format | selected profile (`mp3_44100_192`) |
+| `--tts-stability` | ElevenLabs stability override (0-1) | selected profile (`0.5`) |
+| `--tts-similarity` | ElevenLabs similarity override (0-1) | selected profile (`0.75`) |
+| `--tts-style` | ElevenLabs style override (0-1) | selected profile (`0.5`) |
+| `--tts-speaker-boost`, `--no-tts-speaker-boost` | Override speaker boost | selected profile (`true`) |
+| `--tts-seed` | Optional unsigned 32-bit seed for repeatable evaluation | none in production |
 | `--renderer` | Video renderer: `remotion` (recommended) or `ffmpeg` (legacy) | `remotion` |
 | `--logo` | Path to logo image for intro/outro branding | none |
 | `--slogan` | Slogan text for intro/outro branding | none |
@@ -140,128 +221,10 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts --script <path-to-youtube-script.md> [op
 
 ## Script Format
 
-The skill parses markdown files with this structure:
-
-```markdown
-# Video Title
-
-## [HOOK]
-
-A short, attention-grabbing teaser that plays before the branding intro.
-Keeps viewers from scrolling past. 2-4 sentences max.
-
----
-
-## [SLIDE: The Promise vs Reality — cover.png]
-
-Narration text for this slide.
-
----
-
-## [SLIDE: The Pattern — 01a-pattern-history.png]
-
-First part of narration...
-
-[IMAGE: 01-full.png]
-
-Second part of narration after image change...
-
----
-```
-
-### Slide Titles — Chapter Indicators
-
-**IMPORTANT**: The title in `## [SLIDE: Title — image.png]` becomes the chapter indicator shown in the video's progress bar. Titles MUST be meaningful and descriptive — they are visible to viewers throughout each section.
-
-**Good titles**: "The Pattern", "The Effort Shift", "The Amplifier", "The Real Data"
-**Bad titles**: "Cover Image", "Illustration 01", "Section 3", "My Experience"
-
-When writing a youtube-script.md from a blog post, derive titles from the blog's section headings or core concept of each slide.
-
-### Content Hook with `[HOOK]`
-
-Add an optional `## [HOOK]` section before the first slide to create an attention-grabbing teaser at the start of the video. The hook plays before the branding intro (logo + slogan + title).
-
-- **Placement**: Must appear before the first `## [SLIDE:]` section
-- **Narration**: Gets its own TTS audio (same voice/provider as slides)
-- **Image**: Displays over the cover image (first slide's image) by default
-- **Custom image**: Use `## [HOOK: specific-image.png]` to specify a different image
-- **Duration**: Driven by TTS audio length + 1s padding
-- **Captions**: Word-level captions appear during the hook (with ElevenLabs)
-- **Optional**: If no `[HOOK]` section is present, the video starts with the branding intro as before
-
-**Example:**
-```markdown
-## [HOOK]
-
-Every few decades, a new technology promises to make everyone a creator.
-The camera. Auto-Tune. Now AI. And every single time, the same result.
-
----
-```
-
-### Image Switches with `[IMAGE:]` Markers
-
-To keep viewers engaged, add `[IMAGE:]` markers inline in the narration. The system crossfades to a different illustration synced to the narration — each image depicts a distinct concept or sub-topic:
-
-- The initial image comes from the `[SLIDE:]` header
-- `[IMAGE: filename.png]` triggers a crossfade to a new illustration at that narration point
-- Multiple markers per slide are supported (3-5 images per slide is typical, ~1 switch every 15-20s of narration)
-- ElevenLabs word-level timings enable precise sync; other TTS providers use proportional estimation
-- Each image is a **standalone illustration** — no visual consistency between images is required
-
-**Example — 4 images per slide:**
-```markdown
-## [SLIDE: The 6 Rules — s02-01-six-nodes-overview.png]
-
-Most summaries list 6 independent tips. They miss the point — these rules protect the same thing.
-
-[IMAGE: s02-02-rule1-never-stop.png]
-
-Rule 1: Never Stop. Commit to continuous learning, not "work 80 hours."
-
-[IMAGE: s02-03-rule2-no-debt.png]
-
-Rule 2: No Debt. Debt forces short-term optimization over long-term learning.
-
-[IMAGE: 02-six-rules-system.png]
-
-Together, they form an operating system for sustained excellence.
-
----
-```
-
-**Image naming convention:**
-- `NN-name.png` — blog illustration (reused in video as anchor image per section)
-- `sNN-MM-name.png` — video-only illustration (slide NN, image MM within that slide)
-
-### Motion Markers
-
-Use HTML comment markers when a slide should render as a structured motion graphic instead of a static illustration. Keep these rare and reserved for framework, process, comparison, or payoff slides.
-
-```markdown
-## [SLIDE: Workflow Engineering]
-
-<!-- motion: actorFramework -->
-
-[IMAGE: imgs/video/10-workflow-engineering.png]
-
-Narration...
-```
-
-Supported motion markers:
-- `actorFramework` — reveals the ACTOR cards one by one, synced to word timings when available, then closes Responsibility back into a learning loop.
-
-Motion-slide pacing rule:
-- Do not let a structured motion slide sit on a mostly blank stage while narration builds context. Use the anchor image or a richer bridge state first, then transition into the framework near the sentence that names it.
-- The first meaningful element should appear quickly once the framework is introduced; later elements can remain synced to word timings.
-
-### Slide Matching Rules
-
-The text after `—` (em dash) in the slide header is used to find the image:
-1. If it's a full filename (e.g., `cover.png`), use that file directly
-2. If it's a number prefix (e.g., `01`), find the first image starting with that prefix
-3. If it's a description, images are matched in order of appearance
+`youtube-script.md` remains the narration contract. It does not carry the full
+directorial plan; `video-storyboard.json` does. Read
+`references/legacy-script-format.md` for the parser shape, hook, image markers,
+the current ACTOR marker, asset matching, and cache behavior.
 
 ## Video Features
 
@@ -281,18 +244,33 @@ the visual treatment should stay stable:
 - Captions grouped into short readable phrases so the text changes calmly
 
 ### Scene Transitions
-Between-slide transitions cycle through: fade, slide, wipe, flip, clock-wipe, iris. Each transition is 1.2s by default.
+The legacy slideshow composition cycles through generic transitions. Treat this
+as a compatibility fallback, not the Video 2.0 target. A directed storyboard
+should select transitions by continuity: preserve an object, camera direction,
+spatial axis, color field, or musical phrase across the cut.
+
+Do not crossfade two full typography-heavy or diagram-heavy layouts. Use a clean
+cut, a mask or wipe, or clear the outgoing stage before the next layout enters.
+Only crossfade when the outgoing information has already become visually
+subordinate. Verify the encoded frame immediately before and after every chapter
+boundary; source stills alone are not sufficient.
 
 ### Background Music Auto-Ducking
-When `--music` is provided, the music volume automatically:
+When `--music` is provided, the current renderer supports one music track and automatically:
 - Ducks down during narration
 - Rises during transitions between slides
 - Fades in at the start and out at the end
 
+Choose `none`, `bookended`, `chaptered`, or `continuous` in
+`video-treatment.md`. `bookended` is the default experiment for serious essays.
+If the treatment needs multiple cues or precise stings, prototype and mix them
+explicitly rather than pretending the single-track option implements the score.
+
 ### TTS Caching
 TTS audio is cached in `<script-dir>/.video-gen-cache/`. On subsequent runs:
-- If the narration text + voice + speed match a cached file, the cached audio is reused automatically (no API call)
+- If narration, neighboring context, provider, profile, voice ID, model, output format, all voice settings, speed, and seed match, the cached audio is reused automatically
 - If the narration changed (e.g., after editing the script), only the changed slides regenerate TTS
+- If a neighboring section changes, continuity context invalidates that section's cache as well
 - Use `--skip-tts` to explicitly skip all TTS generation (errors if cache is missing)
 - The cache persists across runs — delete `.video-gen-cache/` to force full regeneration
 
@@ -325,7 +303,7 @@ Create `<cwd>/.aaron-skills/aaron-video-gen/EXTEND.md` or `~/.aaron-skills/aaron
 ---
 version: 1
 tts_provider: elevenlabs
-voice: 991lF4hc0xxfec4Y6B0i
+voice_profile: aaron-pvc-identity-v1
 resolution: 1920x1080
 transition_duration: 1.2
 music_volume: 0.1
@@ -333,9 +311,10 @@ padding: 1
 fps: 24
 renderer: remotion
 conversational: true
-speed: 1.1
 ---
 ```
+
+Do not duplicate the production voice ID or settings in `EXTEND.md`. Keep those in `config/voice-profiles.json`; use preference fields only for deliberate local overrides.
 
 ## Examples
 
@@ -344,9 +323,7 @@ Generate video with full branding (recommended):
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
   --script src/content/blogs/2026-02-22/youtube-script.md \
   --renderer remotion \
-  --tts elevenlabs \
-  --voice 991lF4hc0xxfec4Y6B0i \
-  --speed 1.1 \
+  --voice-profile aaron-pvc-identity-v1 \
   --logo assets/aaron-logo-assets/ag-logo.png \
   --slogan "AI-native builder. Human-first thinker." \
   --website aaronguo.com
@@ -368,18 +345,26 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 
 ## Blog-to-Video Workflow
 
-When generating a video from a blog post, follow these steps in order. Every step is required — skipping video illustrations or using generic titles will produce a low-quality video.
+When generating a video from a blog post, follow these stages in order. The
+workflow is hybrid: some beats should remain photographic or illustrative,
+some need structured layouts, and a small number may earn bespoke motion.
 
 ### Step 0: Load video language and brief
 
-Read `src/content/strategy/youtube-video-language.md` before judging or rendering a blog video. If it is missing, stop and restore/create it before proceeding.
+Read these before judging or rendering:
 
-Use its "External Skill Candidates" section as a routing aid when the video needs outside patterns:
-- Script/read-through problems: borrow the YouTube scriptwriting and hook planning checks before rewriting `youtube-script.md`.
-- Remotion implementation problems: consult the official `remotion-dev/skills@remotion-best-practices` skill before changing renderer code.
-- New video formats beyond slide essays: consider a separate HyperFrames experiment rather than forcing the current pipeline.
+- `src/content/strategy/youtube-video-language.md`;
+- `references/editorial-motion-system.md`;
+- `references/aaron-editorial-visual-system.md`;
+- `references/director-pass.md`;
+- `references/scene-catalog.md`;
+- `config/scene-registry.json`.
 
-Expect `video-brief.md` beside `youtube-script.md`. If it is missing, do not render yet; run a `blog-write` video adaptation pass first.
+Expect `video-brief.md`, `video-treatment.md`, `video-storyboard.json`,
+`director-plan.json`, `director-memo.md`, `asset-decision-log.md`, and
+`youtube-script.md` beside one another. If the brief or script is missing, run a
+`blog-write` video adaptation pass. If treatment or storyboard is missing, stop
+before visual production and create them from the templates in this skill.
 
 `video-brief.md` must define these exact `##` headings so the audit parser can read it:
 - target audience and what they already believe;
@@ -407,16 +392,20 @@ Required heading names:
 - `## Ending`
 - `## Audit Status`
 
-Before TTS or rendering, run the script audit. Rendering without a passing audit requires an explicit `--skip-script-audit` override and should be reported to Aaron.
+Before TTS, run the script audit. Before visual production, run the storyboard
+audit in planning mode. Rendering without either gate should be reported to
+Aaron.
 
-Before editing Remotion renderer code, read `src/content/strategy/remotion-video-engineering.md` and run `cd tiles/aaron-video-gen/remotion && npm run validate` after changes.
+Before editing Remotion renderer code, read
+`src/content/strategy/remotion-video-engineering.md`. After renderer changes,
+run `cd tiles/aaron-video-gen/remotion && npm run validate`.
 
 ### Step 1: Write or review youtube-script.md
 
 Convert the blog post into a narration script. For each major section:
 - Create a `## [SLIDE: Title — image.png]` header with a **meaningful title** (not "Illustration 01")
 - Write conversational narration text (the pipeline's LLM rewrite will polish it further)
-- Add `[IMAGE:]` markers at natural concept boundaries (~1 every 15-20s of narration)
+- Add `[IMAGE:]` markers only where the storyboard calls for `image-sequence`
 
 Add a `## [HOOK]` section at the top — 2-4 sentences that tease the video's core insight.
 
@@ -467,95 +456,112 @@ The rewrite must be a light edit, not a new performance. It should keep the sour
 
 The script-level rewrite scanner lives in `scripts/spoken-transcript-quality.ts`. If it flags output, `rewrite-narration.ts` repairs the segment before TTS.
 
-### Step 2: Visual richness preflight
+### Step 2: Direct the treatment
 
-Before rendering, count the unique images referenced by `youtube-script.md`:
+Create `video-treatment.md` from the template. Deconstruct one to three
+references and recommend two or three visual directions based on the argument.
+Each recommendation must state:
 
-```bash
-rg -o '\[IMAGE: [^]]+\]|## \[SLIDE: [^]]+ — [^]]+\]' <blog-dir>/youtube-script.md
-```
+- the visual spine that will keep the film coherent;
+- the mix of evidence, explanation, and emphasis scenes;
+- the calm, structured, and signature intensity balance;
+- the one signature opportunity, if the story earns one;
+- the music strategy and likely cue points;
+- the implementation tradeoff.
 
-Gate:
-- Under 3 minutes: minimum 10 unique images
-- 3-5 minutes: minimum 16 unique images
-- 5+ minutes: target 20-30 unique images
+Ask Aaron to select or combine a direction before generating new visual assets.
+Do not make a silent style decision unless he already specified it.
 
-If the script only references the blog illustrations, do not render yet. Generate video-only images and add `[IMAGE:]` markers first. The viewer should see a new visual idea roughly every 15-20 seconds.
+### Step 3: Build and audit the storyboard
 
-### Step 3: Generate additional video illustrations
+Create `video-storyboard.json` from the selected treatment and locked narration.
+For every scene, record:
 
-Blog posts typically have 5-6 illustrations. Videos need 20-30 unique images to maintain visual engagement. Generate 15-20 additional standalone illustrations depicting specific concepts from the narration.
+- start and end time;
+- one primary role: `evidence`, `explanation`, or `emphasis`;
+- a template and intensity from `config/scene-registry.json`;
+- the meaningful entry visual and first change time;
+- semantic visual beats and motion recipes;
+- content items, assets, music cue, and purpose;
+- `prototype_required` and an available fallback for any non-available capability.
 
-Each illustration is independent — no need for visual consistency between images. Use `baoyu-image-gen` to generate standalone concept images:
-
-```bash
-npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
-  --prompt "[Concept description]. [Visual metaphor]. [Style notes]." \
-  --image <blog-dir>/imgs/sNN-MM-name.png \
-  --ar 16:9 --quality 2k
-```
-
-**Naming convention:**
-- `NN-name.png` — blog illustration (reused from article, one per section)
-- `sNN-MM-name.png` — video-only illustration (slide NN, image MM)
-- `cover.png` / `thumbnail.png` — cover and thumbnail
-
-**Planning:** Before generating, list all images needed per slide based on narration segments. Target ~1 image per 15-20 seconds of narration. Blog images serve as "anchor" images within their respective slides.
-
-Quality rules:
-- Each video-only image must depict a specific narration beat, not a generic backdrop.
-- Avoid repeating the same visual metaphor across slides.
-- Match the blog's `Soft Glass Narrative` visual system unless the user requests another video style.
-- Prefer human-scale scenes, simple metaphors, before/after comparisons, operator maps, UI-free scenes, and simple conceptual images.
-- Avoid dense chart walls, glowing AI dashboards, generic robots, and repeated system-map visuals.
-- Inspect generated images before accepting them; regenerate images with unreadable text, distorted figures, clutter, or unclear meaning.
-
-### Step 4: Place `[IMAGE:]` markers in the script
-
-Insert `[IMAGE:]` markers at concept boundaries where the narration shifts to a new sub-topic:
-
-```markdown
-## [SLIDE: The 6 Rules — s02-01-six-nodes-overview.png]
-
-Overview narration (viewer sees overview image)...
-
-[IMAGE: s02-02-rule1-never-stop.png]
-
-Rule 1 narration (viewer sees Rule 1 image)...
-
-[IMAGE: s02-03-rule2-no-debt.png]
-
-Rule 2 narration (viewer sees Rule 2 image)...
-
-[IMAGE: 02-six-rules-system.png]
-
-Synthesis narration (viewer sees blog's anchor illustration)...
-```
-
-### Step 5: Generate thumbnail/cover image
-
-Generate a YouTube thumbnail with the video title in bold text. This same image is used as:
-- The video's opening frame (via `--cover`)
-- The YouTube thumbnail (uploaded separately)
-
-Use `imgs/web/00-cover-thumbnail.webp` from `blog-illustrate` only if it is visually strong and readable at mobile size. Otherwise generate two fresh thumbnail options and select the strongest one after inspection.
+Run:
 
 ```bash
-npx -y bun ${BAOYU_IMAGE_GEN_DIR}/scripts/main.ts \
-  --prompt "YouTube thumbnail, [description with bold title text]. Minimalist line art, high contrast, bold sans-serif typography." \
-  --image <blog-dir>/imgs/thumbnail.png \
-  --ar 16:9 --quality 2k
+bun ${SKILL_DIR}/scripts/storyboard-audit.ts \
+  --storyboard <blog-dir>/video-storyboard.json \
+  --output <blog-dir>/video-storyboard-audit.md
 ```
+
+Revise until planning mode passes. A warning about a prototype is expected only
+when the scene is deliberately part of the prototype slice.
+
+### Step 4: Lock narration audio
+
+Generate the audio-only build using the production voice profile. Review the
+exact post-rewrite transcript and the 60-second sample before designing precise
+motion. Word timings become the master timing source for visual beats.
+
+Do not regenerate approved narration merely to accommodate a visual idea. Move
+or redesign the visual unless the spoken argument itself is wrong.
+
+When Aaron approves the voice identity and performance but asks for only a
+slightly tighter pace, test a transparent `1.03-1.05x` retime before paying for
+a new stochastic TTS take. Preserve the original audio, retime word-level
+captions from the same ratio, and retime the score separately to the exact new
+master duration. For future recordings, prefer the TTS `speed` parameter only
+after a short listening test confirms that identity and phrasing remain intact.
+
+### Step 5: Prototype and prepare assets
+
+When the storyboard uses a `prototype` or `experimental` capability, render a
+60-90 second slice before building the full film. Include:
+
+- one calm evidence scene;
+- one structured explanation scene;
+- the signature or newest scene;
+- narration, intended music treatment, captions, and the real transitions
+  surrounding those scenes.
+
+Review pacing, layout, musical energy, comprehensibility, and fatigue. Promote a
+template to `available` only after it passes the prototype contract in
+`references/scene-catalog.md`.
+
+For information-bearing 3D motion, render 0/25/50/75/100% progress states and
+every frame range where a label, caption, or result band enters. Static entry,
+peak, and exit stills alone do not prove that the intervening layout is safe.
+
+Prepare only assets demanded by the storyboard. Possible assets include source
+screenshots, photographs, generated illustrations, logos, diagrams, textures,
+music, sound effects, and 3D models. There is no image quota. Inspect every
+generated or captured asset in its final crop.
+
+Once the visual spine is stable, generate or select two thumbnail candidates and
+review them at mobile size. The strongest candidate may also serve as the cover
+frame, but the video cold open does not have to remain on it.
 
 ### Step 6: Run the pipeline
 
-Only run the pipeline after the visual richness gate passes.
+Run the production storyboard audit first. It must pass without planned or
+experimental capabilities. If renderer code changed, run the Remotion validator
+before rendering.
+
+```bash
+bun ${SKILL_DIR}/scripts/storyboard-audit.ts \
+  --storyboard <blog-dir>/video-storyboard.json \
+  --production \
+  --output <blog-dir>/video-storyboard-audit.md
+
+cd ${SKILL_DIR}/remotion && npm run validate
+```
+
+Then render:
 
 ```bash
 npx -y bun ${SKILL_DIR}/scripts/main.ts \
   --script <blog-dir>/youtube-script.md \
-  --renderer remotion --tts elevenlabs \
-  --voice 991lF4hc0xxfec4Y6B0i --speed 1.1 \
+  --renderer remotion \
+  --voice-profile aaron-pvc-identity-v1 \
   --logo assets/aaron-logo-assets/ag-logo.png \
   --slogan "AI-native builder. Human-first thinker." \
   --website aaronguo.com \
@@ -564,127 +570,49 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 
 ### Step 7: Verify
 
-- Video opens with thumbnail/cover image (not black screen)
-- Chapter indicators show meaningful titles (not generic labels)
-- Image switches crossfade at the right narration points (~every 15-20s)
-- A 4+ minute video has enough visual variety; if it feels like repeated static slides, go back to Step 3 and add images.
-- Hook plays before branding intro
-- Word captions are in sync
-- The first 30 seconds feel like a video hook, not article narration.
-- The narration avoids repeated filler phrases and obvious TTS crutches.
-- The video contains at least 3 moments that feel additive beyond the original article.
+Use `references/video-qa.md` and create `video-qa-report.md`.
+
+- Review entry, peak, and exit stills for every structured or signature scene.
+- Confirm no scene begins mostly blank or waits on narration before showing useful content.
+- Check text fit, captions, safe areas, 3D/canvas pixels, and final crops.
+- Check dynamic projected bounds against declared transform envelopes and
+  protected zones throughout the animation, not only at the resting frame.
+- Check dependency thresholds: connectors before endpoints, evidence before
+  conclusions, and dense layouts before statements.
+- Watch the prototype and full render without stopping to judge pacing and fatigue.
+- Confirm meaningful visual beats follow the storyboard rather than an image quota.
+- Verify music rights, cue timing, narration clarity, ducking, and ending resolution.
+- Confirm the first 20 seconds deliver the title and thumbnail promise.
+- Record reusable failures as registry, template, audit, or engineering changes.
 
 ### Step 8: Generate YouTube metadata
 
-Create `<blog-dir>/youtube-metadata.md` with title, description (with chapters), tags. See the "YouTube Metadata Generation" section below for the full format. Compute chapter timestamps from the pipeline's TTS audio durations + cover card (2.5s) + hook duration + intro (2s with cover, 3.5s without) + transition overlaps (1.2s).
+Create `<blog-dir>/youtube-metadata.md` with title, description, chapters, and
+tags. Derive chapter timestamps from the final storyboard and rendered master,
+not estimated slide duration. Use the legacy duration formula only when the
+video remains an unmodified slideshow composition.
 
 ## Image Generation Workflow
 
-For each blog post video, generate 20-30 images total:
-1. **Blog illustrations** (5-7): Reused from the article as "anchor" images within each slide section
-2. **Video-only illustrations** (15-20): Standalone concept images, each depicting a specific sub-topic from the narration. Named with `sNN-MM-` prefix.
+Generate images only for storyboard beats that need evidence, illustration, or a
+static fallback. Reuse approved blog images when they fit the selected treatment;
+generate new images when the video requires a new composition or crop.
 
-Use the `baoyu-image-gen` skill to generate images. Match the art style used in the blog's illustrations (style varies per article). Each image is independent — no visual consistency between images is required. Target ~1 image per 15-20 seconds of narration for good visual pacing.
+Rules:
 
-Common settings:
-- 16:9 aspect ratio, 2K quality
-- Generate in parallel batches of 4-5 for efficiency
+- Match the treatment's visual spine across all generated assets.
+- Generate to the final scene container ratio and safe area.
+- Prefer real evidence when the viewer needs to inspect a product, source, or
+  place.
+- Avoid generic atmosphere, repeated metaphors, fake UI text, and image walls.
+- Inspect every asset before rendering.
+- A visual beat may be created through layout or motion; it does not require a
+  new bitmap.
 
 ## YouTube Metadata Generation
 
-After the video is generated, create a `youtube-metadata.md` file in the same directory as the script with optimized metadata for YouTube SEO.
-
-### Title
-- Use the video's main title — it should be compelling, include keywords, and stay under 70 characters
-- Format: hook + tension (e.g., "AI Made Me 10x More Productive. Then I Almost Burned Out.")
-
-### Description
-Structure the description in this order:
-1. **Hook** (first 2-3 lines) — visible in search results, must grab attention and include primary keywords
-2. **Brief summary** — 2-3 sentences on what the video covers
-3. **Chapters** — timestamps for each slide section (YouTube auto-generates chapter markers)
-4. **Key takeaways** — bulleted list of main insights
-5. **Research cited** — sources referenced in the video
-6. **Links** — blog post URL, website, newsletter
-7. **Hashtags** — 5-10 relevant hashtags at the end
-
-#### Computing Chapter Timestamps
-Calculate from slide audio durations + content hook duration + intro hook (3.5s) + transitions (1.2s overlap):
-- Chapter 0 starts at `0:00`
-- Each subsequent chapter: previous start + slide duration - transition overlap
-- Round to nearest second for clean timestamps
-
-### Tags
-Include 15-20 comma-separated keywords covering:
-- Primary topic keywords (e.g., "AI productivity", "AI burnout")
-- Framework/concept names (e.g., "Kahneman thinking fast and slow", "scatter mode laser mode")
-- Broad category tags (e.g., "artificial intelligence", "productivity tips", "deep work")
-- Timely tags (e.g., "AI 2026")
-
-### Example
-```markdown
-# YouTube Metadata
-
-## Title
-AI Made Me 10x More Productive. Then I Almost Burned Out.
-
-## Description
-I ran 5 AI agents in parallel — writing, generating images, building videos...
-Then I hit a wall. Not because AI failed. Because I was using the wrong cognitive mode.
-
-CHAPTERS
-0:00 — Intro
-0:28 — The 10x Trap
-1:25 — What the Research Says
-...
-
-KEY TAKEAWAYS
-- AI is the greatest System 1 accelerator ever built
-- ...
-
-READ THE FULL ARTICLE
-https://aaronguo.com/blog/...
-
-#AIProductivity #ArtificialIntelligence #Burnout ...
-
-## Tags
-AI productivity, AI burnout, artificial intelligence, ...
-```
-
-## YouTube Thumbnail Generation
-
-Generate 2 thumbnail options using the `baoyu-image-gen` skill. YouTube thumbnails must be eye-catching at small sizes. The best thumbnail also serves as the video's opening frame via `--cover` (see Blog-to-Video Workflow Step 5).
-
-### Thumbnail Best Practices
-- **Aspect ratio**: 16:9 (1920x1080 or 1280x720)
-- **Bold text**: 3-5 words max, enormous and readable at mobile size
-- **High contrast**: bright vs dark, split compositions work well
-- **Emotional element**: stick figures with clear emotions, dramatic visuals
-- **Simple composition**: one clear focal point, not cluttered
-
-### For Aaron's Channel
-Generate thumbnails that blend the minimalist illustration style with YouTube-optimized drama:
-- Use stick figures consistent with the video's art style
-- Bold sans-serif typography for any text overlay
-- Split compositions (before/after, good/bad) create tension
-- Pastel accents from the art style (#A8D4F0, #F9E79F, #FADBD8) for brand consistency
-- Save to `<script-dir>/imgs/thumbnail-1.png` and `thumbnail-2.png`
-
-### Example Prompts
-**Option 1 — Split composition:**
-```
-YouTube thumbnail, split composition. Left: energized stick figure at desk
-with glowing AI screens, bold "10x" text. Right: exhausted stick figure,
-cracked screens, "BURNOUT" text. Dramatic diagonal split. Clean minimalist
-line art, high contrast, bold sans-serif typography.
-```
-
-**Option 2 — Dramatic single focus:**
-```
-YouTube thumbnail, large cracked "10x" text in center with fire behind crack.
-Exhausted stick figure below. AI robot icons floating above. White-to-dark
-gradient background. Minimalist hand-drawn line art, bold typography.
-```
+Read `references/youtube-packaging.md` after the final render for title,
+thumbnail, description, chapter, tag, and output rules.
 
 ## Narration Rewrite Caching
 
@@ -696,10 +624,6 @@ Conversational narration rewrites are cached in `<script-dir>/.video-gen-cache/`
 
 ## Cost Estimate Per Video
 
-| Component | Provider | Estimated Cost |
-|-----------|----------|---------------|
-| Images (20-30) | Google Gemini | ~$1.00-1.50 |
-| Thumbnails (2) | Google Gemini | ~$0.10 |
-| TTS narration (~8 min) | ElevenLabs | ~$2.40 |
-| Narration rewrite | OpenAI GPT-4o-mini | ~$0.10 |
-| **Total** | | **~$3-4** |
+Estimate cost from the approved storyboard: narration length, generated image
+count, music licensing, external footage, and rendering complexity now vary by
+treatment. Do not optimize the treatment around an obsolete fixed image quota.

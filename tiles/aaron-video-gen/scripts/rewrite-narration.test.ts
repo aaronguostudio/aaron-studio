@@ -40,6 +40,23 @@ test("rewrite prompt forbids generic YouTube hype and fake casualness", () => {
   expect(prompt).toContain("consequently");
   expect(prompt).toContain("Use a light edit");
   expect(prompt).toContain("Do not replace plain words with formal synonyms");
+  expect(prompt).toContain("Preserve named framework labels");
+  expect(prompt).toContain("Action, Context, Trust, Outcome, or Recursive");
+});
+
+test("rewriteNarration preserves source text that already passes the spoken gate", async () => {
+  process.env.OPENAI_API_KEY = "test-key";
+  let calls = 0;
+  globalThis.fetch = (async () => {
+    calls += 1;
+    throw new Error("fetch should not be called");
+  }) as typeof fetch;
+
+  const source = "This changes where the bottleneck lives.";
+  const result = await rewriteNarration(source, "Bottleneck");
+
+  expect(result).toBe(source);
+  expect(calls).toBe(0);
 });
 
 test("rememberRewriteOpenings records opening words and transition phrases", () => {
@@ -86,7 +103,7 @@ test("rewriteNarration retries once when the model returns generic hype", async 
   }) as typeof fetch;
 
   const result = await rewriteNarration(
-    "AI changes where the bottleneck lives in software delivery.",
+    "Consequently, AI changes where the bottleneck lives in software delivery.",
     "Bottleneck"
   );
 
@@ -116,7 +133,10 @@ test("rewriteNarration can repair transcript quality issues twice", async () => 
     );
   }) as typeof fetch;
 
-  const result = await rewriteNarration("This changes review.", "Bottleneck");
+  const result = await rewriteNarration(
+    "Consequently, this changes review.",
+    "Bottleneck"
+  );
 
   expect(result).toBe("This changes review.");
   expect(prompts).toHaveLength(3);

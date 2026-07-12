@@ -1,0 +1,46 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {
+      "id": "00-cover-v5-infographic-editorial-set",
+      "promptFiles": ["00-cover-v5-infographic-editorial-set.md"],
+      "image": "../00-cover-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "01-platforms-converge-v5-infographic-editorial-set",
+      "promptFiles": ["01-platforms-converge-v5-infographic-editorial-set.md"],
+      "image": "../01-platforms-converge-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "02-demo-deployment-gap-v5-infographic-editorial-set",
+      "promptFiles": ["02-demo-deployment-gap-v5-infographic-editorial-set.md"],
+      "image": "../02-demo-deployment-gap-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "03-handoff-to-loop-v5-infographic-editorial-set",
+      "promptFiles": ["03-handoff-to-loop-v5-infographic-editorial-set.md"],
+      "image": "../03-handoff-to-loop-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "04-actor-framework-v5-infographic-editorial-set",
+      "promptFiles": ["04-actor-framework-v5-infographic-editorial-set.md"],
+      "image": "../04-actor-framework-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}
+

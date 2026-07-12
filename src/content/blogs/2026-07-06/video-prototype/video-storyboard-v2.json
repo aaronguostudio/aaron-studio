@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "title": "FDE Field Signal Prototype V2",
+  "duration_sec": 80.903846,
+  "direction": {
+    "name": "Field Signal Editorial V2",
+    "visual_spine": "Signal Editorial v0.1: near-black neutral field, paper only for artifacts and model surfaces, Signal jade for learning and retained capability, coral only for handoff or unresolved tension, fixed safe areas, and registered component geometry.",
+    "motion_density": "balanced",
+    "music_strategy": "continuous",
+    "references": [
+      {
+        "id": "william-shaders-gambit",
+        "url": "https://x.com/wcandillon/status/2015345960491069718",
+        "borrow": "Sound-led opening, spatial plane turn, authored scene changes, and confident holds.",
+        "avoid": "Constant shader spectacle or camera motion that competes with the argument."
+      },
+      {
+        "id": "motion-react-bits",
+        "url": "https://motion.dev/docs/react-animate-number",
+        "borrow": "Stagger, focus shifts, mask reveals, and number emphasis as selective motion vocabulary.",
+        "avoid": "Browser-timed components, hover behavior, and decorative animation on every element."
+      }
+    ],
+    "palette_version": "signal-editorial-v0.1"
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "Sound establishes the field",
+      "start_sec": 0,
+      "end_sec": 2.5,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Begin with a complete visual signal while the low cello establishes tone.",
+      "entry_mode": "meaningful",
+      "entry_visual": "FDE and a muted Model -> Field -> Product scaffold are visible on frame zero.",
+      "first_change_sec": 0.6,
+      "motion_recipes": [
+        "mask-reveal",
+        "focus-shift"
+      ],
+      "content": [
+        "FIELD NOTE 01",
+        "FDE"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "field route and note index",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.6,
+          "visual": "FDE title",
+          "action": "mask reveal"
+        },
+        {
+          "at_sec": 2.1,
+          "visual": "route reaches the company signal rail",
+          "action": "bridge"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Solo low cello begins before narration."
+    },
+    {
+      "id": "s02",
+      "title": "Four companies converge",
+      "start_sec": 2.5,
+      "end_sec": 20.5,
+      "role": "evidence",
+      "template": "timeline",
+      "intensity": "structured",
+      "purpose": "Turn four announcements into one visible deployment pattern and pose the central mystery.",
+      "entry_mode": "bridge",
+      "entry_visual": "Four muted company-card positions are visible immediately; each activates with the narration.",
+      "first_change_sec": 0.288,
+      "motion_recipes": [
+        "path-trace",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Anthropic",
+        "OpenAI",
+        "AWS",
+        "Microsoft",
+        "59 days",
+        "Engineers closer to customers"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "signal rail",
+          "action": "continue route"
+        },
+        {
+          "at_sec": 1.731,
+          "visual": "Anthropic and OpenAI markers begin",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 4.087,
+          "visual": "AWS and Microsoft markers",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 8.365,
+          "visual": "four routes converge",
+          "action": "trace"
+        },
+        {
+          "at_sec": 11.442,
+          "visual": "company evidence rail",
+          "action": "compress evidence before statement"
+        },
+        {
+          "at_sec": 12.26,
+          "visual": "central question enters",
+          "action": "focus"
+        },
+        {
+          "at_sec": 16.538,
+          "visual": "central question holds",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "The model surface opens",
+      "start_sec": 20.5,
+      "end_sec": 36.307692,
+      "role": "explanation",
+      "template": "custom-signature",
+      "intensity": "signature",
+      "purpose": "Reveal that a polished model surface is only one plane in a larger operating system.",
+      "entry_mode": "bridge",
+      "entry_visual": "The convergence endpoint is already a dimensional model card at scene entry.",
+      "first_change_sec": 0.385,
+      "motion_recipes": [
+        "three-d-flip"
+      ],
+      "content": [
+        "Model",
+        "Data",
+        "Permissions",
+        "Approvals",
+        "Exceptions",
+        "Recovery"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "model card and inherited route",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.981,
+          "visual": "model card",
+          "action": "begin spatial turn"
+        },
+        {
+          "at_sec": 5.144,
+          "visual": "data and permission planes",
+          "action": "reveal depth"
+        },
+        {
+          "at_sec": 6.827,
+          "visual": "approval and exception routes",
+          "action": "connect"
+        },
+        {
+          "at_sec": 8.99,
+          "visual": "recovery closes the system",
+          "action": "complete"
+        },
+        {
+          "at_sec": 10.673,
+          "visual": "deployment gap label",
+          "action": "focus"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Subtle analog pulse enters under the system reveal."
+    },
+    {
+      "id": "s04",
+      "title": "Handoff versus compounding loop",
+      "start_sec": 36.307692,
+      "end_sec": 56.048077,
+      "role": "explanation",
+      "template": "split-comparison",
+      "intensity": "structured",
+      "purpose": "Distinguish FDE from consulting without caricaturing either profession.",
+      "entry_mode": "bridge",
+      "entry_visual": "Two equal comparison lanes and their shared geometry are visible before either path activates.",
+      "first_change_sec": 0.337,
+      "motion_recipes": [
+        "compare-wipe",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Consulting",
+        "Recommendation",
+        "Handoff",
+        "FDE",
+        "Production",
+        "Field learning",
+        "Product",
+        "Compounds"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "two stable lanes",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.077,
+          "visual": "consulting lane",
+          "action": "wipe"
+        },
+        {
+          "at_sec": 4.519,
+          "visual": "recommendation to handoff",
+          "action": "trace"
+        },
+        {
+          "at_sec": 7.26,
+          "visual": "FDE production lane",
+          "action": "focus"
+        },
+        {
+          "at_sec": 9.231,
+          "visual": "field learning returns to product",
+          "action": "close loop"
+        },
+        {
+          "at_sec": 13.846,
+          "visual": "reusable lesson reaches the product",
+          "action": "complete loop"
+        },
+        {
+          "at_sec": 17.163,
+          "visual": "full-width project artifact versus reusable capability band",
+          "action": "resolve comparison"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "One muted low impact marks the moment the FDE loop closes."
+    },
+    {
+      "id": "s05",
+      "title": "ACTOR becomes the deployment test",
+      "start_sec": 56.048077,
+      "end_sec": 80.903846,
+      "role": "explanation",
+      "template": "actor-framework",
+      "intensity": "structured",
+      "purpose": "Give the viewer a memorable framework and land on customer-owned capability.",
+      "entry_mode": "bridge",
+      "entry_visual": "Five dim framework cards are visible immediately; the recursive path remains a quiet scaffold.",
+      "first_change_sec": 0.337,
+      "motion_recipes": [
+        "bridge-reveal",
+        "card-build",
+        "connector-draw"
+      ],
+      "content": [
+        "Action",
+        "Context",
+        "Trust",
+        "Outcome",
+        "Recursive"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "ACTOR baseline over inherited loop",
+          "action": "bridge"
+        },
+        {
+          "at_sec": 0.337,
+          "visual": "ACTOR wordmark",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 2.548,
+          "visual": "Action",
+          "action": "build"
+        },
+        {
+          "at_sec": 4.856,
+          "visual": "Context",
+          "action": "build"
+        },
+        {
+          "at_sec": 7.404,
+          "visual": "Trust",
+          "action": "build"
+        },
+        {
+          "at_sec": 11.49,
+          "visual": "Outcome",
+          "action": "build"
+        },
+        {
+          "at_sec": 13.75,
+          "visual": "Recursive",
+          "action": "build and connect"
+        },
+        {
+          "at_sec": 18.894,
+          "visual": "Tokens are inputs; capability is retained",
+          "action": "resolve"
+        }
+      ],
+      "music_cue": "Harmonic lift begins with ACTOR and resolves under the final statement."
+    }
+  ]
+}

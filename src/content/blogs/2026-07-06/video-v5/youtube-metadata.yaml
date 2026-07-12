@@ -1,0 +1,37 @@
+title: "Expensive Tokens Won't Save Enterprise AI"
+description: |
+  Expensive tokens won't save enterprise AI.
+
+  Anthropic, OpenAI, AWS, and Microsoft are all moving engineers closer to customers. This video explains why the bottleneck is shifting from model capability to deployment capability, what forward deployed engineers actually do, how FDE differs from traditional consulting, and why the workflow must ultimately belong to the customer.
+
+  Read the full article:
+  https://www.aaronguo.com/blogs/why-ai-companies-are-becoming-deployment-companies?utm_source=youtube&utm_medium=video&utm_campaign=fde-deployment-capacity&utm_content=description
+
+  Chapters:
+  00:00 The FDE signal
+  00:30 Anthropic, OpenAI, AWS, and Microsoft converge
+  01:05 Demo vs. deployment
+  01:45 What forward deployed engineering means
+  03:05 Do not equate FDE with consulting
+  03:55 The Palantir context
+  04:35 Why AI companies care
+  05:20 Lock-in and trust
+  06:05 The career signal
+  06:55 Workflow engineering
+  07:35 The payoff
+
+  #EnterpriseAI #ForwardDeployedEngineering #AI
+tags:
+  - enterprise AI
+  - forward deployed engineering
+  - FDE
+  - OpenAI Deployment Company
+  - Anthropic Claude
+  - AWS AI
+  - Microsoft Frontier Company
+  - workflow engineering
+  - AI deployment
+  - AI strategy
+category: "28"
+language: "en"
+privacy: "public"

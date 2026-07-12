@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-12T06:29:26.515Z",
+  "title": "Paper Moon",
+  "prompt": "Instrumental only. Minimalist felt upright piano, intimate close-miked recording, sparse repeating motif, gentle rubato, soft pedal noise, warm room ambience, quietly satisfying and hypnotic, low dynamic range, spacious pauses, suitable for deep work and reading. No vocals, no drums, no abrupt climax, no trailer impacts, no bright arpeggios, no dramatic key change. Structure: 20-second opening, a gentle piano theme, a small harmonic variation, one quiet lift, then a slow unresolved outro.",
+  "requestedDurationSec": 45,
+  "actualAudioDurationSec": 45.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/paper-moon-pilot/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/paper-moon-pilot/paper-moon-pilot.mp4",
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

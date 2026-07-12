@@ -1,0 +1,1008 @@
+{
+  "schema_version": 1,
+  "title": "FDE Full Film V1",
+  "duration_sec": 451.621856,
+  "direction": {
+    "name": "Signal Editorial Full Film",
+    "visual_spine": "signal-editorial-v0.1 with protected zones, transform envelopes, shared component geometry, and mutually exclusive evidence and statement stages.",
+    "motion_density": "balanced",
+    "music_strategy": "chaptered",
+    "palette_version": "signal-editorial-v0.1",
+    "references": [
+      {
+        "id": "william-shaders-gambit",
+        "url": "https://x.com/wcandillon/status/2015345960491069718",
+        "borrow": "Sound-led opening, authored scene changes, and one spatial reveal.",
+        "avoid": "Continuous spectacle or camera motion that competes with narration."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "The field signal opens",
+      "start_sec": 0,
+      "end_sec": 2.5,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Establish FDE and the visual field before narration.",
+      "entry_mode": "meaningful",
+      "entry_visual": "FDE and Model -> Field -> Product scaffold",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "mask-reveal",
+        "focus-shift"
+      ],
+      "content": [
+        "FDE",
+        "Forward deployed engineering"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "FDE and Model -> Field -> Product scaffold",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.8,
+          "visual": "Forward deployed engineering",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Approved low cello opening begins."
+    },
+    {
+      "id": "s02",
+      "title": "Four companies make one move",
+      "start_sec": 2.5,
+      "end_sec": 31.12306,
+      "role": "evidence",
+      "template": "timeline",
+      "intensity": "structured",
+      "purpose": "Make the four announcements and the spending mystery visible.",
+      "entry_mode": "bridge",
+      "entry_visual": "Four muted company positions on one signal rail",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "path-trace",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Anthropic",
+        "OpenAI",
+        "AWS",
+        "Microsoft",
+        "$7.5B+",
+        "People"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Four muted company positions on one signal rail",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Anthropic",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "OpenAI",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "AWS",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Microsoft",
+          "action": "advance"
+        },
+        {
+          "at_sec": 27.823,
+          "visual": "People",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s03",
+      "title": "Scale signal, not accounting comparison",
+      "start_sec": 31.12306,
+      "end_sec": 56.055752,
+      "role": "evidence",
+      "template": "data-hero",
+      "intensity": "structured",
+      "purpose": "Preserve the caveat while showing the shared deployment priority.",
+      "entry_mode": "bridge",
+      "entry_visual": "7.5B scale signal with three labeled commitment types",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "count-up",
+        "stagger",
+        "highlight-scan"
+      ],
+      "content": [
+        "$7.5B+",
+        "Investment",
+        "Organization",
+        "Scale signal"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "7.5B scale signal with three labeled commitment types",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "$7.5B+",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Investment",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Organization",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Scale signal",
+          "action": "advance"
+        },
+        {
+          "at_sec": 24.133,
+          "visual": "Scale signal",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s04",
+      "title": "The operating layer behind the model",
+      "start_sec": 56.055752,
+      "end_sec": 79.795657,
+      "role": "explanation",
+      "template": "custom-signature",
+      "intensity": "signature",
+      "purpose": "Reveal the operating system that model capability does not supply.",
+      "entry_mode": "bridge",
+      "entry_visual": "Readable model plane beside a quiet operating-layer scaffold",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "three-d-flip"
+      ],
+      "content": [
+        "Model",
+        "Data",
+        "Permissions",
+        "Approvals",
+        "Recovery"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Readable model plane beside a quiet operating-layer scaffold",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Model",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Data",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Permissions",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22.94,
+          "visual": "Recovery",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s05",
+      "title": "Factory information is fragmented",
+      "start_sec": 79.795657,
+      "end_sec": 101.334118,
+      "role": "evidence",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Show why a supplier disruption cannot be solved by adding a chatbot.",
+      "entry_mode": "bridge",
+      "entry_visual": "Supplier alert with three disconnected operating systems",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "connector-draw",
+        "focus-shift",
+        "highlight-scan"
+      ],
+      "content": [
+        "Supplier",
+        "Capacity",
+        "Orders",
+        "Approval knowledge"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Supplier alert with three disconnected operating systems",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Supplier",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Capacity",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Orders",
+          "action": "advance"
+        },
+        {
+          "at_sec": 20.738,
+          "visual": "Approval knowledge",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Long-form continuation crossfades in before the factory chapter."
+    },
+    {
+      "id": "s06",
+      "title": "A governed decision replaces the chatbot",
+      "start_sec": 101.334118,
+      "end_sec": 131.102826,
+      "role": "explanation",
+      "template": "process-flow",
+      "intensity": "structured",
+      "purpose": "Turn fragmented data into one actionable, permissioned decision.",
+      "entry_mode": "bridge",
+      "entry_visual": "At-risk orders enter a governed decision path",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "connector-draw",
+        "card-build",
+        "path-trace"
+      ],
+      "content": [
+        "Orders at risk",
+        "Options",
+        "Approval",
+        "Action",
+        "Recovery"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "At-risk orders enter a governed decision path",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Orders at risk",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Options",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Approval",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Action",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28.969,
+          "visual": "Recovery",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s07",
+      "title": "The field exposes failure",
+      "start_sec": 131.102826,
+      "end_sec": 151.862441,
+      "role": "explanation",
+      "template": "progressive-cards",
+      "intensity": "structured",
+      "purpose": "Translate human backpropagation into concrete operational failures.",
+      "entry_mode": "bridge",
+      "entry_visual": "Three quiet failure cards waiting for field evidence",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "card-build",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Exception",
+        "Late data",
+        "Wrong approval"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Three quiet failure cards waiting for field evidence",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Exception",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Late data",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Wrong approval",
+          "action": "advance"
+        },
+        {
+          "at_sec": 19.96,
+          "visual": "Wrong approval",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s08",
+      "title": "The lesson returns to the product",
+      "start_sec": 151.862441,
+      "end_sec": 181.606227,
+      "role": "explanation",
+      "template": "process-flow",
+      "intensity": "structured",
+      "purpose": "Show field work compounding into reusable product capability.",
+      "entry_mode": "bridge",
+      "entry_visual": "Local fix connected to a product-learning return path",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "connector-draw",
+        "card-build",
+        "path-trace"
+      ],
+      "content": [
+        "Field failure",
+        "Local fix",
+        "Pattern",
+        "Product primitive"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Local fix connected to a product-learning return path",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Field failure",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Local fix",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Pattern",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Product primitive",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28.944,
+          "visual": "Product primitive",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s09",
+      "title": "The five-minute myth",
+      "start_sec": 181.606227,
+      "end_sec": 213.548535,
+      "role": "explanation",
+      "template": "process-flow",
+      "intensity": "structured",
+      "purpose": "Expose how a fast pipeline can move weak work all the way to publication.",
+      "entry_mode": "bridge",
+      "entry_visual": "A complete publishing pipeline already visible",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "connector-draw",
+        "card-build",
+        "path-trace"
+      ],
+      "content": [
+        "Research",
+        "Write",
+        "Translate",
+        "Images",
+        "Audio",
+        "Publish"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A complete publishing pipeline already visible",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Research",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Write",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Translate",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Images",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28,
+          "visual": "Audio",
+          "action": "advance"
+        },
+        {
+          "at_sec": 31.142,
+          "visual": "Publish",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s10",
+      "title": "Participation becomes infrastructure",
+      "start_sec": 213.548535,
+      "end_sec": 247.69379,
+      "role": "explanation",
+      "template": "progressive-cards",
+      "intensity": "structured",
+      "purpose": "Show human judgment turning into gates, rules, and validators.",
+      "entry_mode": "bridge",
+      "entry_visual": "The pipeline remains while review gates enter above it",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "card-build",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Reread",
+        "Reject",
+        "Challenge",
+        "Compare",
+        "Validate"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The pipeline remains while review gates enter above it",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Reread",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Reject",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Challenge",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Compare",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28,
+          "visual": "Validate",
+          "action": "advance"
+        },
+        {
+          "at_sec": 33.345,
+          "visual": "Validate",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s11",
+      "title": "Consulting is not the straw man",
+      "start_sec": 247.69379,
+      "end_sec": 268.914944,
+      "role": "explanation",
+      "template": "split-comparison",
+      "intensity": "structured",
+      "purpose": "Reject the shallow claim that FDE merely replaces consulting.",
+      "entry_mode": "bridge",
+      "entry_visual": "Equal consulting and FDE lanes with shared capabilities",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "compare-wipe",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Workflow",
+        "Change",
+        "Regulation",
+        "Transformation"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Equal consulting and FDE lanes with shared capabilities",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Workflow",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Change",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Regulation",
+          "action": "advance"
+        },
+        {
+          "at_sec": 20.421,
+          "visual": "Transformation",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s12",
+      "title": "What compounds is the distinction",
+      "start_sec": 268.914944,
+      "end_sec": 297.616693,
+      "role": "explanation",
+      "template": "split-comparison",
+      "intensity": "structured",
+      "purpose": "Compare handoff artifacts with production and product learning.",
+      "entry_mode": "bridge",
+      "entry_visual": "Recommendation path and field-to-product loop share one baseline",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "compare-wipe",
+        "stagger",
+        "focus-shift"
+      ],
+      "content": [
+        "Handoff",
+        "Production",
+        "Field learning",
+        "Product"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Recommendation path and field-to-product loop share one baseline",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Handoff",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Production",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Field learning",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Product",
+          "action": "advance"
+        },
+        {
+          "at_sec": 27.902,
+          "visual": "Product",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s13",
+      "title": "The customer must keep the workflow",
+      "start_sec": 297.616693,
+      "end_sec": 342.672336,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make lock-in visible and identify the assets the customer should own.",
+      "entry_mode": "bridge",
+      "entry_visual": "A customer workflow inside a tightening vendor boundary",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "connector-draw",
+        "focus-shift",
+        "highlight-scan"
+      ],
+      "content": [
+        "Data contracts",
+        "Evaluations",
+        "Permissions",
+        "Runbooks",
+        "Failure modes"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A customer workflow inside a tightening vendor boundary",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Data contracts",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Evaluations",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Permissions",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Runbooks",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28,
+          "visual": "Failure modes",
+          "action": "advance"
+        },
+        {
+          "at_sec": 34,
+          "visual": "Data contracts",
+          "action": "advance"
+        },
+        {
+          "at_sec": 40,
+          "visual": "Evaluations",
+          "action": "advance"
+        },
+        {
+          "at_sec": 44.256,
+          "visual": "Failure modes",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s14",
+      "title": "ACTOR guides the deployment",
+      "start_sec": 342.672336,
+      "end_sec": 373.403105,
+      "role": "explanation",
+      "template": "actor-framework",
+      "intensity": "structured",
+      "purpose": "Introduce Aaron's framework and build Action, Context, and Trust.",
+      "entry_mode": "bridge",
+      "entry_visual": "Five muted ACTOR cards visible immediately",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "bridge-reveal",
+        "card-build",
+        "connector-draw"
+      ],
+      "content": [
+        "Action",
+        "Context",
+        "Trust",
+        "Outcome",
+        "Recursive"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Five muted ACTOR cards visible immediately",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Action",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Context",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Trust",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Outcome",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28,
+          "visual": "Recursive",
+          "action": "advance"
+        },
+        {
+          "at_sec": 29.931,
+          "visual": "Recursive",
+          "action": "resolve"
+        }
+      ],
+      "music_cue": "Harmonic lift begins with ACTOR."
+    },
+    {
+      "id": "s15",
+      "title": "Recursive means judged learning",
+      "start_sec": 373.403105,
+      "end_sec": 408.313362,
+      "role": "explanation",
+      "template": "actor-framework",
+      "intensity": "structured",
+      "purpose": "Complete Outcome and Recursive, then distinguish a drawn loop from real learning.",
+      "entry_mode": "bridge",
+      "entry_visual": "Completed ACTOR scaffold with the return path still quiet",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "bridge-reveal",
+        "card-build",
+        "connector-draw"
+      ],
+      "content": [
+        "Outcome",
+        "Recursive",
+        "Evaluations",
+        "Rules",
+        "Runbooks"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Completed ACTOR scaffold with the return path still quiet",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Outcome",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Recursive",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Evaluations",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22,
+          "visual": "Rules",
+          "action": "advance"
+        },
+        {
+          "at_sec": 28,
+          "visual": "Runbooks",
+          "action": "advance"
+        },
+        {
+          "at_sec": 34.11,
+          "visual": "Runbooks",
+          "action": "resolve"
+        }
+      ],
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s16",
+      "title": "Tokens are inputs",
+      "start_sec": 408.313362,
+      "end_sec": 432.053746,
+      "role": "emphasis",
+      "template": "data-hero",
+      "intensity": "structured",
+      "purpose": "Separate model consumption from business and organizational outcomes.",
+      "entry_mode": "bridge",
+      "entry_visual": "A large token input counter beside an empty outcome ledger",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "count-up",
+        "stagger",
+        "highlight-scan"
+      ],
+      "content": [
+        "Tokens",
+        "Decision",
+        "Speed",
+        "Learning"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A large token input counter beside an empty outcome ledger",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Tokens",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Decision",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Speed",
+          "action": "advance"
+        },
+        {
+          "at_sec": 22.94,
+          "visual": "Learning",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Continue the current chapter score beneath narration."
+    },
+    {
+      "id": "s17",
+      "title": "Judge the workflow and capability",
+      "start_sec": 432.053746,
+      "end_sec": 451.621856,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Land the operating rule and customer-owned system as the final thought.",
+      "entry_mode": "bridge",
+      "entry_visual": "Intelligence -> Operations -> Customer-owned capability",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "mask-reveal",
+        "focus-shift"
+      ],
+      "content": [
+        "Workflow changed",
+        "Capability kept",
+        "Company-owned operating system"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Intelligence -> Operations -> Customer-owned capability",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "Workflow changed",
+          "action": "develop"
+        },
+        {
+          "at_sec": 10,
+          "visual": "Capability kept",
+          "action": "advance"
+        },
+        {
+          "at_sec": 16,
+          "visual": "Company-owned operating system",
+          "action": "advance"
+        },
+        {
+          "at_sec": 18.768,
+          "visual": "Company-owned operating system",
+          "action": "resolve"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Score simplifies and resolves under the final rule."
+    }
+  ]
+}

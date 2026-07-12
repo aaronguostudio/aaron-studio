@@ -8,7 +8,7 @@
 
 import { existsSync, readFileSync, readdirSync, mkdirSync, writeFileSync, copyFileSync } from "fs";
 import { createHash } from "crypto";
-import { resolve, dirname, join, basename } from "path";
+import { resolve, dirname, join, basename, relative } from "path";
 import {
   parseYoutubeScript,
   resolveImagePaths,
@@ -16,7 +16,14 @@ import {
   type NarrationSegment,
 } from "./parse-script";
 import type { Animation, ImageChangeTiming, WordTiming } from "../remotion/src/types";
-import { generateTTS, concatenateAudio, type TTSProvider } from "./tts";
+import {
+  generateTTS,
+  concatenateAudio,
+  resolveElevenLabsConfig,
+  type ElevenLabsTTSConfig,
+  type TTSProvider,
+  type WordTiming as TTSWordTiming,
+} from "./tts";
 import {
   buildFFmpegCommand,
   executeFFmpeg,
@@ -30,6 +37,12 @@ import {
 } from "./remotion-render";
 import { rememberRewriteOpenings, rewriteAllNarrations } from "./rewrite-narration";
 import { rewriteCacheKey } from "./rewrite-cache";
+import { resolveVoiceProfile } from "./voice-profile";
+import {
+  createLongFormReviewSamples,
+  deriveAudioReviewPaths,
+  prepareAudioReview,
+} from "./audio-review";
 
 // ---------------------------------------------------------------------------
 // Environment loading (matching baoyu-skills pattern)
@@ -71,7 +84,15 @@ loadEnvFile(join(process.cwd(), ".env"));
 
 interface Preferences {
   tts_provider?: string;
+  voice_profile?: string;
   voice?: string;
+  tts_model?: string;
+  tts_output_format?: string;
+  tts_stability?: number;
+  tts_similarity?: number;
+  tts_style?: number;
+  tts_speaker_boost?: boolean | string;
+  tts_seed?: number;
   resolution?: string;
   transition?: string;
   transition_duration?: number;
@@ -122,12 +143,38 @@ function parseArgs(): Record<string, string | boolean> {
       args.script = argv[++i];
     } else if (arg === "--output" || arg === "-o") {
       args.output = argv[++i];
+    } else if (arg === "--audio-only") {
+      args.audioOnly = "true";
+    } else if (arg === "--audio-output") {
+      args.audioOutput = argv[++i];
+    } else if (arg === "--transcript-output") {
+      args.transcriptOutput = argv[++i];
+    } else if (arg === "--audio-manifest-output") {
+      args.audioManifestOutput = argv[++i];
     } else if (arg === "--images-dir") {
       args.imagesDir = argv[++i];
     } else if (arg === "--tts") {
       args.tts = argv[++i];
+    } else if (arg === "--voice-profile") {
+      args.voiceProfile = argv[++i];
     } else if (arg === "--voice") {
       args.voice = argv[++i];
+    } else if (arg === "--tts-model") {
+      args.ttsModel = argv[++i];
+    } else if (arg === "--tts-output-format") {
+      args.ttsOutputFormat = argv[++i];
+    } else if (arg === "--tts-stability") {
+      args.ttsStability = argv[++i];
+    } else if (arg === "--tts-similarity") {
+      args.ttsSimilarity = argv[++i];
+    } else if (arg === "--tts-style") {
+      args.ttsStyle = argv[++i];
+    } else if (arg === "--tts-seed") {
+      args.ttsSeed = argv[++i];
+    } else if (arg === "--tts-speaker-boost") {
+      args.ttsSpeakerBoost = "true";
+    } else if (arg === "--no-tts-speaker-boost") {
+      args.ttsSpeakerBoost = "false";
     } else if (arg === "--resolution") {
       args.resolution = argv[++i];
     } else if (arg === "--transition") {
@@ -180,6 +227,58 @@ function parseArgs(): Record<string, string | boolean> {
   }
 
   return args;
+}
+
+export interface AudioTimelineSegment {
+  id: string;
+  title: string;
+  start: number;
+  end: number;
+  duration: number;
+}
+
+export interface AudioTimeline {
+  duration: number;
+  segments: AudioTimelineSegment[];
+  wordTimings: TTSWordTiming[];
+}
+
+/**
+ * Keep narration boundaries and word timings together. Long-form film
+ * timelines can only be retimed safely when the audio artifact carries both.
+ */
+export function buildAudioTimeline(
+  entries: Array<{
+    id: string;
+    title: string;
+    duration: number;
+    wordTimings?: TTSWordTiming[];
+  }>,
+): AudioTimeline {
+  let offset = 0;
+  const segments = entries.map((entry) => {
+    const start = offset;
+    const end = start + entry.duration;
+    offset = end;
+    return {
+      id: entry.id,
+      title: entry.title,
+      start,
+      end,
+      duration: entry.duration,
+    };
+  });
+  let wordOffset = 0;
+  const wordTimings = entries.flatMap((entry) => {
+    const shifted = (entry.wordTimings || []).map((timing) => ({
+      word: timing.word,
+      start: timing.start + wordOffset,
+      end: timing.end + wordOffset,
+    }));
+    wordOffset += entry.duration;
+    return shifted;
+  });
+  return { duration: offset, segments, wordTimings };
 }
 
 // ---------------------------------------------------------------------------
@@ -255,6 +354,9 @@ function inferSlideAnimation(slide: SlideSection): Animation | null {
 async function main() {
   const args = parseArgs();
   const prefs = loadPreferences();
+  const voiceProfile = resolveVoiceProfile(
+    String(args.voiceProfile || prefs.voice_profile || "") || undefined
+  );
 
   // Validate required args
   if (!args.script) {
@@ -278,8 +380,21 @@ async function main() {
   const outputPath = resolve(
     String(args.output || join(scriptDir, "video.mp4"))
   );
+  const audioOnly = args.audioOnly === "true";
+  const audioOutputPath = resolve(
+    String(args.audioOutput || join(scriptDir, "audio.mp3"))
+  );
+  const transcriptOutputPath = resolve(
+    String(args.transcriptOutput || join(scriptDir, "audio-transcript.md"))
+  );
+  const audioManifestOutputPath = resolve(
+    String(
+      args.audioManifestOutput || join(scriptDir, "audio-generation-manifest.json")
+    )
+  );
   const ttsProvider = (args.tts ||
     prefs.tts_provider ||
+    voiceProfile.provider ||
     "edge-tts") as TTSProvider;
   const transitionDuration = Number(
     args.transitionDuration || prefs.transition_duration || 1.2
@@ -295,7 +410,7 @@ async function main() {
     ttsProvider === "openai"
       ? "nova"
       : ttsProvider === "elevenlabs"
-        ? "21m00Tcm4TlvDq8ikWAM" // ElevenLabs "Rachel" pre-built voice
+        ? voiceProfile.voice_id
         : "en-US-AndrewMultilingualNeural";
   let voice = String(args.voice || prefs.voice || defaultVoice);
 
@@ -314,7 +429,67 @@ async function main() {
     args.conversational !== undefined
       ? args.conversational !== "false"
       : prefs.conversational !== false; // default true
-  const speed = Number(args.speed || prefs.speed || 1.1);
+  const speed = Number(
+    args.speed ||
+      prefs.speed ||
+      (ttsProvider === "elevenlabs"
+        ? voiceProfile.voice_settings.speed
+        : 1.1)
+  );
+  const speakerBoostSource =
+    args.ttsSpeakerBoost ??
+    prefs.tts_speaker_boost ??
+    voiceProfile.voice_settings.use_speaker_boost;
+  const useSpeakerBoost = String(speakerBoostSource).toLowerCase() !== "false";
+  const seedSource = args.ttsSeed ?? prefs.tts_seed ?? voiceProfile.seed;
+  const elevenLabsOptions: ElevenLabsTTSConfig = {
+    modelId: String(
+      args.ttsModel ||
+        prefs.tts_model ||
+        voiceProfile.model_id ||
+        "eleven_multilingual_v2"
+    ),
+    outputFormat: String(
+      args.ttsOutputFormat ||
+        prefs.tts_output_format ||
+        voiceProfile.output_format ||
+        "mp3_44100_192"
+    ),
+    stability: Number(
+      args.ttsStability ??
+        prefs.tts_stability ??
+        voiceProfile.voice_settings.stability
+    ),
+    similarityBoost: Number(
+      args.ttsSimilarity ??
+        prefs.tts_similarity ??
+        voiceProfile.voice_settings.similarity_boost
+    ),
+    style: Number(
+      args.ttsStyle ?? prefs.tts_style ?? voiceProfile.voice_settings.style
+    ),
+    useSpeakerBoost,
+    ...(seedSource != null && { seed: Number(seedSource) }),
+  };
+  const resolvedElevenLabsConfig =
+    ttsProvider === "elevenlabs"
+      ? resolveElevenLabsConfig({
+          speed,
+          elevenLabs: elevenLabsOptions,
+        })
+      : undefined;
+  const ttsIdentity = {
+    provider: ttsProvider,
+    voiceProfile: ttsProvider === "elevenlabs" ? voiceProfile.id : undefined,
+    voice,
+    speed,
+    ...(ttsProvider === "elevenlabs" && {
+      modelId: resolvedElevenLabsConfig!.modelId,
+      outputFormat: resolvedElevenLabsConfig!.outputFormat,
+      voiceSettings: resolvedElevenLabsConfig!.voiceSettings,
+      seed: resolvedElevenLabsConfig!.seed,
+    }),
+  };
 
   // ---------------------------------------------------------------------------
   // Step 1: Parse the script
@@ -367,12 +542,18 @@ async function main() {
   // ---------------------------------------------------------------------------
   // Step 2: Resolve image paths
   // ---------------------------------------------------------------------------
-  console.log(`[images] Resolving images from: ${imagesDir}`);
-  const slides = await resolveImagePaths(parsed.slides, imagesDir);
-  for (const slide of slides) {
-    console.log(
-      `  Slide ${slide.index}: ${basename(slide.imagePath!)} — "${slide.title}"`
-    );
+  let slides: SlideSection[];
+  if (audioOnly) {
+    slides = parsed.slides;
+    console.log("[images] Skipped for --audio-only");
+  } else {
+    console.log(`[images] Resolving images from: ${imagesDir}`);
+    slides = await resolveImagePaths(parsed.slides, imagesDir);
+    for (const slide of slides) {
+      console.log(
+        `  Slide ${slide.index}: ${basename(slide.imagePath!)} — "${slide.title}"`
+      );
+    }
   }
 
   // ---------------------------------------------------------------------------
@@ -410,6 +591,26 @@ async function main() {
       retentionBeats: videoBrief.retentionBeats,
     };
     const previousOpenings: string[] = [];
+
+    if (parsed.hookNarration) {
+      const originalHook = parsed.hookNarration;
+      const hookRewriteKey = rewriteCacheKey(originalHook, 99, rewriteContext);
+      const cachedHookRewrite = loadRewriteCache(hookRewriteKey);
+      if (cachedHookRewrite) {
+        console.log("  Hook → rewrite cached");
+        parsed.hookNarration = cachedHookRewrite;
+      } else {
+        const { rewriteNarration } = await import("./rewrite-narration");
+        parsed.hookNarration = await rewriteNarration(
+          originalHook,
+          "Hook",
+          previousOpenings,
+          rewriteContext
+        );
+        saveRewriteCache(hookRewriteKey, parsed.hookNarration);
+      }
+      rememberRewriteOpenings(parsed.hookNarration, previousOpenings);
+    }
 
     // For multi-image slides, rewrite each segment individually to preserve
     // marker boundaries. For single-image slides, rewrite the full narration.
@@ -505,6 +706,43 @@ async function main() {
     }
   }
 
+  if (audioOnly) {
+    const ttsMetadata = [
+      `Provider: ${ttsProvider}`,
+      ...(ttsProvider === "elevenlabs"
+        ? [
+            `Voice profile: ${voiceProfile.id}`,
+            `Voice ID: ${voice}`,
+            `Model: ${resolvedElevenLabsConfig!.modelId}`,
+            `Output format: ${resolvedElevenLabsConfig!.outputFormat}`,
+            `Stability: ${resolvedElevenLabsConfig!.voiceSettings.stability}`,
+            `Similarity boost: ${resolvedElevenLabsConfig!.voiceSettings.similarity_boost}`,
+            `Style: ${resolvedElevenLabsConfig!.voiceSettings.style}`,
+            `Speaker boost: ${resolvedElevenLabsConfig!.voiceSettings.use_speaker_boost}`,
+          ]
+        : [`Voice: ${voice}`]),
+      `Speed: ${speed}`,
+    ];
+    const transcript = [
+      `# Audio Transcript: ${parsed.title.replace(/^YouTube Script:\s*/i, "")}`,
+      "",
+      ...ttsMetadata,
+      "",
+      ...(parsed.hookNarration
+        ? ["## Hook", "", parsed.hookNarration, ""]
+        : []),
+      ...slides.flatMap((slide) => [
+        `## ${slide.title}`,
+        "",
+        slide.narration,
+        "",
+      ]),
+    ].join("\n");
+    mkdirSync(dirname(transcriptOutputPath), { recursive: true });
+    writeFileSync(transcriptOutputPath, `${transcript.trim()}\n`, "utf-8");
+    console.log(`[audio] Final spoken transcript → ${transcriptOutputPath}`);
+  }
+
   // ---------------------------------------------------------------------------
   // Step 3: Generate TTS narration for each slide (or estimate for dry-run)
   // ---------------------------------------------------------------------------
@@ -525,6 +763,15 @@ async function main() {
     });
 
     const totalDuration = slideInputs.reduce((sum, s) => sum + s.duration, 0);
+    const hookWordCount = parsed.hookNarration?.trim().split(/\s+/).length || 0;
+    const hookDuration = hookWordCount > 0 ? (hookWordCount / 150) * 60 : 0;
+    const estimatedTotalDuration = totalDuration + hookDuration;
+    if (audioOnly) {
+      console.log(
+        `\n[audio] Estimated duration: ${estimatedTotalDuration.toFixed(1)}s`
+      );
+      process.exit(0);
+    }
     console.log(`\n[video] Estimated total duration: ${totalDuration.toFixed(1)}s`);
 
     const ffmpegCmd = buildFFmpegCommand(slideInputs, {
@@ -556,13 +803,22 @@ async function main() {
 
   const skipTts = args.skipTts === "true";
 
-  // Helper: compute a content hash for TTS cache keying
-  function ttsCacheKey(text: string, slideIndex: number): string {
-    const hash = createHash("md5")
-      .update(`${ttsProvider}|${voice}|${speed}|${text}`)
+  function ttsContentHash(
+    text: string,
+    context: { previousText?: string; nextText?: string } = {}
+  ): string {
+    return createHash("md5")
+      .update(JSON.stringify({ ttsIdentity, text, context }))
       .digest("hex")
       .slice(0, 12);
-    return `narration-${String(slideIndex).padStart(2, "0")}-${hash}`;
+  }
+
+  function ttsCacheKey(
+    text: string,
+    slideIndex: number,
+    context: { previousText?: string; nextText?: string } = {}
+  ): string {
+    return `narration-${String(slideIndex).padStart(2, "0")}-${ttsContentHash(text, context)}`;
   }
 
   interface CachedTTSResult {
@@ -593,18 +849,30 @@ async function main() {
     }
     writeFileSync(
       metaPath,
-      JSON.stringify({ duration: result.duration, wordTimings: result.wordTimings }),
+      JSON.stringify({
+        duration: result.duration,
+        wordTimings: result.wordTimings,
+        ttsIdentity,
+      }),
       "utf-8"
     );
   }
 
-  console.log(`\n[tts] Generating narration with ${ttsProvider} (voice: ${voice})`);
+  console.log(
+    `\n[tts] Generating narration with ${ttsProvider} (voice: ${voice}, profile: ${voiceProfile.id})`
+  );
   if (skipTts) {
     console.log(`  (--skip-tts: reusing cached audio)`);
   }
 
   const ttsResults: CachedTTSResult[] = [];
-  for (const slide of slides) {
+  for (let slidePosition = 0; slidePosition < slides.length; slidePosition++) {
+    const slide = slides[slidePosition];
+    const previousText =
+      slidePosition > 0
+        ? slides[slidePosition - 1].narration
+        : parsed.hookNarration;
+    const nextText = slides[slidePosition + 1]?.narration;
     if (!slide.narration.trim()) {
       console.log(`  Slide ${slide.index}: (no narration, skipping TTS)`);
       const silentPath = join(
@@ -620,7 +888,10 @@ async function main() {
       continue;
     }
 
-    const cacheKey = ttsCacheKey(slide.narration, slide.index);
+    const cacheKey = ttsCacheKey(slide.narration, slide.index, {
+      previousText,
+      nextText,
+    });
     const cached = loadTTSCache(cacheKey);
 
     if (cached && (skipTts || true)) {
@@ -647,6 +918,9 @@ async function main() {
       voice,
       outputDir: ttsOutputDir,
       speed,
+      previousText,
+      nextText,
+      elevenLabs: elevenLabsOptions,
     });
     console.log(`    → ${result.duration.toFixed(1)}s`);
 
@@ -668,13 +942,10 @@ async function main() {
 
   if (parsed.hookNarration && !dryRun) {
     console.log(`\n[tts] Generating hook narration...`);
-    const hookCacheKey = (() => {
-      const hash = createHash("md5")
-        .update(`${ttsProvider}|${voice}|${speed}|${parsed.hookNarration}`)
-        .digest("hex")
-        .slice(0, 12);
-      return `narration-hook-${hash}`;
-    })();
+    const hookCacheKey = `narration-hook-${ttsContentHash(
+      parsed.hookNarration,
+      { nextText: slides[0]?.narration }
+    )}`;
 
     const cachedHook = loadTTSCache(hookCacheKey);
     if (cachedHook) {
@@ -691,6 +962,8 @@ async function main() {
         voice,
         outputDir: ttsOutputDir,
         speed,
+        nextText: slides[0]?.narration,
+        elevenLabs: elevenLabsOptions,
       });
       console.log(`    → ${result.duration.toFixed(1)}s`);
       saveTTSCache(hookCacheKey, result);
@@ -698,7 +971,7 @@ async function main() {
     }
 
     // Resolve hook image: use hookImageRef if specified, otherwise first slide's image
-    if (parsed.hookImageRef && slides.length > 0) {
+    if (!audioOnly && parsed.hookImageRef && slides.length > 0) {
       const imageFiles = (readdirSync(imagesDir) as string[])
         .filter((f) => /\.(png|jpe?g|webp|gif|bmp|tiff?)$/i.test(f))
         .sort();
@@ -711,7 +984,7 @@ async function main() {
       }
       if (resolved) hookTTS.imagePath = resolved;
     }
-    if (!hookTTS.imagePath && slides.length > 0) {
+    if (!audioOnly && !hookTTS.imagePath && slides.length > 0) {
       hookTTS.imagePath = slides[0].imagePath!;
     }
   }
@@ -721,7 +994,7 @@ async function main() {
   // ---------------------------------------------------------------------------
   const narrationPath = join(ttsOutputDir, "narration-full.mp3");
   const narrationResults =
-    renderer === "ffmpeg" && hookTTS
+    (audioOnly || renderer === "ffmpeg") && hookTTS
       ? [hookTTS, ...ttsResults]
       : ttsResults;
   console.log(`\n[audio] Concatenating narration → ${narrationPath}`);
@@ -729,6 +1002,100 @@ async function main() {
     narrationResults.map((r) => r.audioPath),
     narrationPath
   );
+
+  if (audioOnly) {
+    mkdirSync(dirname(audioOutputPath), { recursive: true });
+    const reviewPaths = deriveAudioReviewPaths(audioOutputPath);
+    const { rawPath, samplePath, middleSamplePath, lateSamplePath } = reviewPaths;
+    copyFileSync(narrationPath, rawPath);
+    console.log(`[audio] Preserved raw narration -> ${rawPath}`);
+    console.log(`[audio] Normalizing review copy and running QA...`);
+    const review = prepareAudioReview(rawPath, audioOutputPath, samplePath);
+    const sampleWindows = createLongFormReviewSamples(audioOutputPath, reviewPaths);
+    const relativeToScript = (path: string) =>
+      relative(scriptDir, path) || basename(path);
+    const transcriptHash = createHash("sha256")
+      .update(readFileSync(transcriptOutputPath, "utf-8"))
+      .digest("hex");
+    const audioTimeline = buildAudioTimeline([
+      ...(hookTTS
+        ? [
+            {
+              id: "hook",
+              title: "Hook",
+              duration: hookTTS.duration,
+              wordTimings: hookTTS.wordTimings,
+            },
+          ]
+        : []),
+      ...ttsResults.map((result, index) => ({
+        id: `slide-${String(index + 1).padStart(2, "0")}`,
+        title: slides[index]?.title || `Slide ${index + 1}`,
+        duration: result.duration,
+        wordTimings: result.wordTimings,
+      })),
+    ]);
+    const generationManifest = {
+      schema_version: 1,
+      generated_at: new Date().toISOString(),
+      source: {
+        script: relativeToScript(scriptPath),
+        script_sha256: createHash("sha256").update(scriptContent).digest("hex"),
+        transcript: relativeToScript(transcriptOutputPath),
+        transcript_sha256: transcriptHash,
+      },
+      tts: ttsIdentity,
+      voice_profile_selection:
+        ttsProvider === "elevenlabs"
+          ? {
+              id: voiceProfile.id,
+              selected_sample: voiceProfile.selected_sample,
+              selected_at: voiceProfile.selected_at,
+              selection_reason: voiceProfile.selection_reason,
+            }
+          : undefined,
+      outputs: {
+        final: relativeToScript(audioOutputPath),
+        raw: relativeToScript(rawPath),
+        sample_60s: relativeToScript(samplePath),
+        sample_middle_60s: relativeToScript(middleSamplePath),
+        sample_late_60s: relativeToScript(lateSamplePath),
+      },
+      qa: review,
+      sample_windows: sampleWindows,
+      timeline: audioTimeline,
+    };
+    mkdirSync(dirname(audioManifestOutputPath), { recursive: true });
+    writeFileSync(
+      audioManifestOutputPath,
+      `${JSON.stringify(generationManifest, null, 2)}\n`,
+      "utf-8"
+    );
+    const { rmSync, statSync } = await import("fs");
+    try {
+      rmSync(ttsOutputDir, { recursive: true, force: true });
+    } catch {}
+    const fileSizeMB = (statSync(audioOutputPath).size / 1024 / 1024).toFixed(1);
+    console.log(`\n✅ Audio generated: ${audioOutputPath}`);
+    console.log(`   Raw: ${rawPath}`);
+    console.log(`   Opening 60s sample: ${samplePath}`);
+    console.log(`   Middle 60s sample: ${middleSamplePath}`);
+    console.log(`   Late 60s sample: ${lateSamplePath}`);
+    console.log(`   Transcript: ${transcriptOutputPath}`);
+    console.log(`   Manifest: ${audioManifestOutputPath}`);
+    console.log(`   Voice profile: ${voiceProfile.id}`);
+    console.log(`   Voice ID: ${voice}`);
+    if (ttsProvider === "elevenlabs") {
+      console.log(`   Model: ${resolvedElevenLabsConfig!.modelId}`);
+    }
+    console.log(`   Size: ${fileSizeMB} MB`);
+    console.log(`   Duration: ~${review.durationSeconds.toFixed(0)}s`);
+    console.log(
+      `   Loudness: ${review.integratedLufs.toFixed(2)} LUFS, ${review.truePeakDb.toFixed(2)} dBTP`
+    );
+    console.log(`   Long silences: ${review.longSilenceCount}`);
+    return;
+  }
 
   // ---------------------------------------------------------------------------
   // Step 5: Generate captions (optional)

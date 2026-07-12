@@ -68,11 +68,11 @@ Based on Aaron's preferences:
 - ❌ Summarizing news without a take
 - ❌ "I'm excited to announce..." corporate tone
 - ❌ Too many hashtags (max 2-3, at the end)
-- ❌ Direct links in tweet body (kills reach — put in reply or bio)
+- ❌ Treating link placement as settled algorithm law. A self-reply link can be a clean launch variant, but direct-link and reply-link performance must be tested against Aaron's own audience.
 
 ## Cross-Platform Teaser
 
-Use this when adapting a blog, video, or essay into X, LinkedIn, newsletter, or other social posts.
+Use this when adapting a blog, video, or essay into X, LinkedIn, Facebook, newsletter, or other social posts.
 
 Default to one Cross-Platform Teaser before writing platform variants:
 
@@ -89,24 +89,26 @@ Full essay in reply / link below.
 The teaser's job is not to summarize the article. It should make the right reader want the article.
 
 Rules:
-- X, LinkedIn, newsletter, and other channels should share the same core hook.
-- X is the tightest version: usually under 280 characters, link in reply.
-- LinkedIn should not expand into a mini article. Add at most one professional context sentence, then point to the blog.
+- X, LinkedIn, Facebook, newsletter, and other channels should share the same core hook while serving different reader jobs.
+- X is the tightest discovery version: usually under 280 characters, with link-in-reply treated as a launch test rather than a fixed rule.
+- LinkedIn should not expand into a mini article. It needs an operator implication and a question that invites professional experience.
+- Facebook should feel like a real-person share: why Aaron cared, why a friend should care, and one honest question.
 - Newsletter can be 80-140 words, but it should still be a teaser, not a full recap.
+- Before drafting a serious distribution package, read `tiles/blog-write/references/social-distribution.md` and create a platform-specific plan with UTMs and success metrics.
 - If Aaron asks for a LinkedIn article, thread, or long-form post, that is a separate requested format.
 
 ## Daily Routine
 
 ### Posting (15 min)
-1. One original tweet per day minimum
-2. Attach media when possible (video, screenshot, image)
-3. Best posting times: 8-9 AM MST or 6-7 PM MST
+1. Publish one deliberate original post or several substantive replies; do not trade a useful take for arbitrary daily volume.
+2. Attach media when it sharpens the point (video, screenshot, image), not as decoration.
+3. Start with a consistent time window, then adjust from Aaron's own analytics rather than generic "best time" claims.
 
 ### Strategic Commenting (15 min)
 - Find 3-5 relevant posts from target accounts (see below)
 - Leave **substantive** comments with real insight from experience
 - NOT "Great point!" — instead share a specific example, counter-argument, or extension
-- Comment within 30 min of post going live for max visibility
+- Prioritize timely replies when practical, but favor a genuinely useful contribution over racing to comment first.
 
 ### Target Accounts to Engage With
 Accounts whose audiences overlap with Aaron's positioning:

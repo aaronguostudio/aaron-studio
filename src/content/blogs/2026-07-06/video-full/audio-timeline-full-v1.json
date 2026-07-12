@@ -1,0 +1,61 @@
+{
+  "narrationOffsetSec": 2.5,
+  "speechRate": 1.04,
+  "segments": [
+    {
+      "id": "hook",
+      "start": 2.5,
+      "duration": 29.767982,
+      "end": 32.267982
+    },
+    {
+      "id": "deployment",
+      "start": 32.267982,
+      "duration": 50.619501,
+      "end": 82.887483
+    },
+    {
+      "id": "factory",
+      "start": 82.887483,
+      "duration": 53.359456,
+      "end": 136.246939
+    },
+    {
+      "id": "backprop",
+      "start": 136.246939,
+      "duration": 52.523537,
+      "end": 188.770476
+    },
+    {
+      "id": "workflow",
+      "start": 188.770476,
+      "duration": 68.731066,
+      "end": 257.501542
+    },
+    {
+      "id": "comparison",
+      "start": 257.501542,
+      "duration": 51.919819,
+      "end": 309.421361
+    },
+    {
+      "id": "ownership",
+      "start": 309.421361,
+      "duration": 46.857868,
+      "end": 356.279229
+    },
+    {
+      "id": "actor",
+      "start": 356.279229,
+      "duration": 68.266667,
+      "end": 424.545896
+    },
+    {
+      "id": "tokens",
+      "start": 424.545896,
+      "duration": 43.792834,
+      "end": 468.33873
+    }
+  ],
+  "narrationEndBaseSec": 468.33873
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "title": "[Film title]",
+  "duration_sec": 60,
+  "product_promise": "[What the viewer should understand, feel, and be able to inspect.]",
+  "visual_budget": {
+    "remotion_motion_target_ratio": 0.7,
+    "evidence_or_still_target_ratio": 0.25,
+    "max_generated_video_ratio": 0.1,
+    "max_generated_video_beats": 2
+  },
+  "beats": [
+    {
+      "id": "s01",
+      "start_sec": 0,
+      "end_sec": 12,
+      "narrative_role": "hook",
+      "visual_mode": "source-evidence",
+      "intensity": "structured",
+      "entry_mode": "meaningful",
+      "entry_visual": "[A visible fact, object, or motion is present from frame one.]",
+      "first_visual_change_sec": 0.4,
+      "visual_reason": "[Why this visual form makes the argument easier to understand.]",
+      "camera_or_motion": "[Frame-driven motion or crop plan.]",
+      "asset_id": "[asset identifier, if any]",
+      "asset_provenance": "[Official source, licensed asset, screen capture, or clearly labeled generated illustration.]",
+      "generated_video_sec": 0,
+      "sound_cue": "[Music, sting, room tone, or intentional silence.]",
+      "transition_out": "[How the next scene inherits a spatial axis, object, color field, or clean cut.]",
+      "fallback": "[Available Remotion or still-image alternative.]"
+    }
+  ]
+}

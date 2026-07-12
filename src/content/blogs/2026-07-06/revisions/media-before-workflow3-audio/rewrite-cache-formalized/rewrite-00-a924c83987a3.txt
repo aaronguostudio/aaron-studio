@@ -1,0 +1,11 @@
+The numbers don’t line up neatly. OpenAI reported an investment in a new company, while AWS and Microsoft talked about their organizational commitments. I see that seven and a half billion dollars as a scale indicator, not a direct spending comparison.
+
+---SEGMENT---
+
+The common focus here is evident. These companies are working on increasing deployment capacity.
+
+Models can generate code, analyze documents, and interact with tools, but they can't independently manage a company's data, handle permissions, secure approvals, establish recovery paths, or assign responsibilities effectively for a reliable production system.
+
+---SEGMENT---
+
+That gap highlights the significance of forward deployed engineering.

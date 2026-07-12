@@ -12,6 +12,7 @@ Polish the language layer after the argument is stable. This skill improves rhyt
 Read:
 - the English article and Chinese article
 - `argument-memo.md`
+- `claim-ledger.md`
 - `canon-alignment.md` when present
 - `red-team-review.md` when present
 - `src/content/strategy/blog-writing-language.md`
@@ -33,6 +34,7 @@ Use `research-dossier.md` only to verify claims. Do not add new evidence during 
 npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
 npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.md --language zh
 ```
+7. Hand the polished files back to the editorial scorecard pass. Do not mark `editorial-scorecard.md` as passing merely because the language scanner passes.
 
 ## `prose-polish-review.md` Structure
 

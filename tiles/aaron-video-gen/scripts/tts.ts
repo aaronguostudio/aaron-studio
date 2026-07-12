@@ -9,11 +9,113 @@ import { join } from "path";
 
 export type TTSProvider = "edge-tts" | "openai" | "elevenlabs";
 
+export interface ElevenLabsTTSConfig {
+  modelId?: string;
+  outputFormat?: string;
+  stability?: number;
+  similarityBoost?: number;
+  style?: number;
+  useSpeakerBoost?: boolean;
+  seed?: number;
+}
+
 export interface TTSOptions {
   provider: TTSProvider;
   voice: string;
   outputDir: string;
   speed?: number; // ElevenLabs: 0.7-1.2, default 1.0
+  previousText?: string;
+  nextText?: string;
+  elevenLabs?: ElevenLabsTTSConfig;
+}
+
+export interface ResolvedElevenLabsConfig {
+  modelId: string;
+  outputFormat: string;
+  voiceSettings: {
+    stability: number;
+    similarity_boost: number;
+    style: number;
+    use_speaker_boost: boolean;
+    speed: number;
+  };
+  seed?: number;
+}
+
+export interface ElevenLabsRequestPayload {
+  text: string;
+  model_id: string;
+  voice_settings: ResolvedElevenLabsConfig["voiceSettings"];
+  seed?: number;
+  previous_text?: string;
+  next_text?: string;
+}
+
+const DEFAULT_ELEVENLABS_MODEL_ID = "eleven_multilingual_v2";
+const DEFAULT_ELEVENLABS_OUTPUT_FORMAT = "mp3_44100_192";
+const ELEVENLABS_CONTEXT_CHARS = 2_000;
+
+export function resolveElevenLabsConfig(
+  options: Pick<TTSOptions, "speed" | "elevenLabs">
+): ResolvedElevenLabsConfig {
+  const config = options.elevenLabs || {};
+  const resolved: ResolvedElevenLabsConfig = {
+    modelId: config.modelId || DEFAULT_ELEVENLABS_MODEL_ID,
+    outputFormat: config.outputFormat || DEFAULT_ELEVENLABS_OUTPUT_FORMAT,
+    voiceSettings: {
+      stability: config.stability ?? 0.5,
+      similarity_boost: config.similarityBoost ?? 0.75,
+      style: config.style ?? 0.5,
+      use_speaker_boost: config.useSpeakerBoost ?? true,
+      speed: options.speed ?? 1,
+    },
+    ...(config.seed != null && { seed: config.seed }),
+  };
+  for (const [name, value] of Object.entries({
+    stability: resolved.voiceSettings.stability,
+    similarityBoost: resolved.voiceSettings.similarity_boost,
+    style: resolved.voiceSettings.style,
+  })) {
+    if (!Number.isFinite(value) || value < 0 || value > 1) {
+      throw new Error(`ElevenLabs ${name} must be between 0 and 1`);
+    }
+  }
+  if (
+    !Number.isFinite(resolved.voiceSettings.speed) ||
+    resolved.voiceSettings.speed < 0.7 ||
+    resolved.voiceSettings.speed > 1.2
+  ) {
+    throw new Error("ElevenLabs speed must be between 0.7 and 1.2");
+  }
+  if (!resolved.outputFormat.startsWith("mp3_")) {
+    throw new Error(
+      "aaron-video-gen currently requires an MP3 ElevenLabs output format"
+    );
+  }
+  if (
+    resolved.seed != null &&
+    (!Number.isInteger(resolved.seed) ||
+      resolved.seed < 0 ||
+      resolved.seed > 4_294_967_295)
+  ) {
+    throw new Error("ElevenLabs seed must be an unsigned 32-bit integer");
+  }
+  return resolved;
+}
+
+export function buildElevenLabsRequestPayload(
+  text: string,
+  config: ResolvedElevenLabsConfig,
+  context: { previousText?: string; nextText?: string } = {}
+): ElevenLabsRequestPayload {
+  return {
+    text,
+    model_id: config.modelId,
+    voice_settings: config.voiceSettings,
+    ...(config.seed != null && { seed: config.seed }),
+    ...(context.previousText && { previous_text: context.previousText }),
+    ...(context.nextText && { next_text: context.nextText }),
+  };
 }
 
 export interface WordTiming {
@@ -52,7 +154,12 @@ export async function generateTTS(
   } else if (options.provider === "openai") {
     await generateOpenAITTS(text, outputPath, options.voice, options.speed);
   } else if (options.provider === "elevenlabs") {
-    wordTimings = await generateElevenLabsTTS(text, outputPath, options.voice, options.speed);
+    wordTimings = await generateElevenLabsTTS(
+      text,
+      outputPath,
+      options.voice,
+      options
+    );
   } else {
     throw new Error(`Unknown TTS provider: ${options.provider}`);
   }
@@ -161,7 +268,7 @@ async function generateElevenLabsTTS(
   text: string,
   outputPath: string,
   voice: string,
-  speed?: number
+  options: TTSOptions
 ): Promise<WordTiming[]> {
   const apiKey = process.env.ELEVENLABS_API_KEY;
   if (!apiKey) {
@@ -171,18 +278,32 @@ async function generateElevenLabsTTS(
     );
   }
 
-  // ElevenLabs has a 5000 char limit per request for most models.
-  // Split long text into chunks and concatenate.
-  const MAX_CHARS = 4500;
-  if (text.length > MAX_CHARS) {
-    const chunks = splitTextIntoChunks(text, MAX_CHARS);
+  const config = resolveElevenLabsConfig(options);
+  const maxChars = getElevenLabsCharacterLimit(config.modelId);
+  if (text.length > maxChars) {
+    const chunks = splitTextIntoChunks(text, maxChars);
     const chunkPaths: string[] = [];
     const allTimings: WordTiming[] = [];
     let timeOffset = 0;
 
     for (let i = 0; i < chunks.length; i++) {
       const chunkPath = outputPath.replace(/\.mp3$/, `-chunk${i}.mp3`);
-      const timings = await elevenLabsRequest(chunks[i], chunkPath, voice, apiKey, speed);
+      const previousText = compactElevenLabsContext(
+        [options.previousText, chunks[i - 1]].filter(Boolean).join("\n\n"),
+        "end"
+      );
+      const nextText = compactElevenLabsContext(
+        [chunks[i + 1], options.nextText].filter(Boolean).join("\n\n"),
+        "start"
+      );
+      const timings = await elevenLabsRequest(
+        chunks[i],
+        chunkPath,
+        voice,
+        apiKey,
+        config,
+        { previousText, nextText }
+      );
       // Offset timestamps by cumulative duration of previous chunks
       for (const t of timings) {
         allTimings.push({
@@ -208,7 +329,10 @@ async function generateElevenLabsTTS(
     return allTimings;
   }
 
-  return await elevenLabsRequest(text, outputPath, voice, apiKey, speed);
+  return await elevenLabsRequest(text, outputPath, voice, apiKey, config, {
+    previousText: compactElevenLabsContext(options.previousText, "end"),
+    nextText: compactElevenLabsContext(options.nextText, "start"),
+  });
 }
 
 /**
@@ -254,28 +378,21 @@ async function elevenLabsRequest(
   outputPath: string,
   voice: string,
   apiKey: string,
-  speed?: number
+  config: ResolvedElevenLabsConfig,
+  context: { previousText?: string; nextText?: string }
 ): Promise<WordTiming[]> {
   // Use /with-timestamps endpoint for word-level timing
   const response = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${voice}/with-timestamps`,
+    `https://api.elevenlabs.io/v1/text-to-speech/${voice}/with-timestamps?output_format=${encodeURIComponent(config.outputFormat)}`,
     {
       method: "POST",
       headers: {
         "xi-api-key": apiKey,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        text,
-        model_id: "eleven_multilingual_v2",
-        voice_settings: {
-          stability: 0.5,
-          similarity_boost: 0.75,
-          style: 0.5,
-          use_speaker_boost: true,
-          ...(speed != null && { speed }),
-        },
-      }),
+      body: JSON.stringify(
+        buildElevenLabsRequestPayload(text, config, context)
+      ),
     }
   );
 
@@ -304,12 +421,42 @@ async function elevenLabsRequest(
 /**
  * Split text at sentence boundaries to stay under maxChars per chunk.
  */
-function splitTextIntoChunks(text: string, maxChars: number): string[] {
-  const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+export function getElevenLabsCharacterLimit(modelId: string): number {
+  switch (modelId) {
+    case "eleven_v3":
+      return 5_000;
+    case "eleven_multilingual_v2":
+      return 10_000;
+    case "eleven_flash_v2_5":
+      return 40_000;
+    case "eleven_flash_v2":
+      return 30_000;
+    default:
+      return 5_000;
+  }
+}
+
+export function splitTextIntoChunks(text: string, maxChars: number): string[] {
+  if (maxChars < 1) {
+    throw new Error("maxChars must be positive");
+  }
+
+  const sentences = text.match(/[^.!?]+(?:[.!?]+|$)/g) || [text];
   const chunks: string[] = [];
   let current = "";
 
   for (const sentence of sentences) {
+    if (sentence.length > maxChars) {
+      if (current.trim()) {
+        chunks.push(current.trim());
+        current = "";
+      }
+      for (let offset = 0; offset < sentence.length; offset += maxChars) {
+        const part = sentence.slice(offset, offset + maxChars).trim();
+        if (part) chunks.push(part);
+      }
+      continue;
+    }
     if (current.length + sentence.length > maxChars && current.length > 0) {
       chunks.push(current.trim());
       current = "";
@@ -320,6 +467,18 @@ function splitTextIntoChunks(text: string, maxChars: number): string[] {
     chunks.push(current.trim());
   }
   return chunks;
+}
+
+function compactElevenLabsContext(
+  text: string | undefined,
+  side: "start" | "end"
+): string | undefined {
+  const value = text?.trim();
+  if (!value) return undefined;
+  if (value.length <= ELEVENLABS_CONTEXT_CHARS) return value;
+  return side === "start"
+    ? value.slice(0, ELEVENLABS_CONTEXT_CHARS)
+    : value.slice(-ELEVENLABS_CONTEXT_CHARS);
 }
 
 /**
@@ -353,7 +512,10 @@ export function concatenateAudio(
 
   try {
     execSync(
-      `ffmpeg -y -f concat -safe 0 -i "${listPath}" -c copy "${outputPath}"`,
+      // Re-encode after concatenation. Stream-copying many MP3 segments
+      // preserves encoder padding at every boundary, which accumulates into
+      // audible gaps and makes caption timing drift on long-form narration.
+      `ffmpeg -y -f concat -safe 0 -i "${listPath}" -c:a libmp3lame -b:a 192k "${outputPath}"`,
       { stdio: "pipe", timeout: 120_000 }
     );
   } finally {

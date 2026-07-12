@@ -1,0 +1,11 @@
+Palantir refers to this as forward deployed engineering, likening it to the human equivalent of backpropagation. While that sounds academic, the work itself is practical and direct.
+
+---SEGMENT---
+
+A planner spots an exception. A data source is delayed. An approval path stops the wrong person from moving ahead. The engineer fixes the local issue, but then asks: will this failure happen again elsewhere?
+
+---SEGMENT---
+
+If the answer is yes, focus back on the product. The next deployment should include an improved connector, a refined permission model, a fresh evaluation, or a new workflow primitive.
+
+This keeps field work from becoming an endless cycle of custom services.

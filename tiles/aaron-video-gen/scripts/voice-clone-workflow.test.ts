@@ -104,6 +104,8 @@ describe("voice clone evaluation plan", () => {
 
     expect(plan.voice_id).toBe("voice_123");
     expect(plan.model_id).toBe("eleven_multilingual_v2");
+    expect(plan.output_format).toBe("mp3_44100_192");
+    expect(plan.seed).toBe(20_260_711);
     expect(plan.samples).toHaveLength(6);
     expect(plan.samples.map((sample) => sample.id)).toContain("technical-explainer");
     expect(plan.settings_matrix).toEqual(
@@ -150,5 +152,6 @@ describe("voice clone evaluation plan", () => {
       use_speaker_boost: false,
       speed: 0.98,
     });
+    expect(jobs[0].request.seed).toBe(20_260_711);
   });
 });

@@ -87,6 +87,7 @@ export interface EvaluationPlan {
   voice_id: string;
   model_id: string;
   output_format: string;
+  seed?: number;
   samples: EvaluationSample[];
   settings_matrix: EvaluationSetting[];
   rubric: EvaluationRubricItem[];
@@ -114,6 +115,7 @@ export interface SampleJob {
   request: {
     text: string;
     model_id: string;
+    seed?: number;
     voice_settings: VoiceSettings;
   };
 }
@@ -373,7 +375,8 @@ export function buildEvaluationPlan(
     schema_version: 1,
     voice_id: options.voiceId || "TODO_ELEVENLABS_VOICE_ID",
     model_id: options.modelId || DEFAULT_MODEL_ID,
-    output_format: "mp3_44100_128",
+    output_format: "mp3_44100_192",
+    seed: 20_260_711,
     samples: [
       {
         id: "cold-open",
@@ -568,6 +571,7 @@ export function buildSampleJobs(
         request: {
           text: sample.text,
           model_id: plan.model_id,
+          ...(plan.seed != null && { seed: plan.seed }),
           voice_settings: {
             stability: setting.stability,
             similarity_boost: setting.similarity_boost,

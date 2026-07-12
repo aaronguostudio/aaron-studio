@@ -15,6 +15,7 @@ Research trending topics across the web, combine them with personal experience, 
 | Memory reflection | `src/content/blogs/YYYY-MM-DD/memory-reflection.md` | prior-post connections and internal link candidates |
 | Editorial brief | `src/content/blogs/YYYY-MM-DD/editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, reusable frame, distribution hook |
 | Research dossier | `src/content/blogs/YYYY-MM-DD/research-dossier.md` | internal Chinese research notes: sources, cases, counterarguments, key facts, open questions |
+| Claim ledger | `src/content/blogs/YYYY-MM-DD/claim-ledger.md` | fact / inference / judgment map with source dates, confidence, and verification status |
 | Content plan | `src/content/blogs/YYYY-MM-DD/content-plan.md` | structured plan for writing the blog post |
 
 ## Workflow
@@ -141,16 +142,21 @@ This is the creative heart of the skill — free-form conversation.
    - What key points must be included?
 	   - What visual could anchor the thread? (screenshot, diagram, before/after, code snippet)
 
-### Step 5b: Output Editorial Brief And Research Dossier
+### Step 5b: Output Editorial Brief, Research Dossier, And Claim Ledger
 
 Before `content-plan.md`, write:
 - `editorial-brief.md`
 - `research-dossier.md`
+- `claim-ledger.md`
 
 `editorial-brief.md` must include:
 - reader pain;
+- reader job to be done and one-sentence promise;
 - sharp thesis;
+- concrete opening scene, contradiction, bottleneck, or result;
+- original contribution beyond the source material;
 - why Aaron can write this;
+- authority and scope boundary;
 - evidence needed;
 - counterargument;
 - reusable frame;
@@ -166,6 +172,8 @@ Before `content-plan.md`, write:
 - 关键事实与引用;
 - 开放问题;
 - 文章应保留的判断.
+
+Build `claim-ledger.md` from the research dossier before outlining. For every material claim, record whether it is a fact, inference, judgment, or personal observation; its source and source date; confidence; planned article use; and freshness caveat. Prefer primary sources. A vendor announcement supports what the vendor announced or claimed, not neutral proof of customer outcomes. End with `Decision: PASS` only after links, dates, numbers, and inference boundaries have been checked.
 
 ### Step 6: Output Content Plan
 

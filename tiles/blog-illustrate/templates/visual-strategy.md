@@ -18,6 +18,24 @@ Name what the reader should feel while moving through the image set.
 
 List the specific risks for this post, such as clutter, heavy glass, generic AI texture, stock-photo energy, too many diagrams, or weak cover tension.
 
+## Argument Beats That Need Images
+
+For each proposed image, name the article beat, what the image lets the reader grasp faster, and what would be lost if the image were removed. Cut decorative images that have no answer.
+
+## Concept Routes
+
+Propose three genuinely different visual concepts before choosing style. Vary the central metaphor and composition, not merely palette or rendering treatment.
+
+| Route | Central predicate | Composition | Best role | Why it fits | Main risk |
+|---|---|---|---|---|---|
+| A |  |  |  |  |  |
+| B |  |  |  |  |  |
+| C |  |  |  |  |  |
+
+## Selected Concept Route
+
+Record Aaron's choice or `Agent-selected` with a reason. Style selection happens after this decision.
+
 ## Recommended Mode Mix
 
 State the planned mix of Aaron visual modes:

@@ -15,7 +15,10 @@ Draft the article and companion distribution files from a writing plan. This ski
 | Chinese article | `src/content/blogs/YYYY-MM-DD/<slug>-zh.md` | Natural Simplified Chinese version |
 | X post | `src/content/blogs/YYYY-MM-DD/x-post.md` | Teaser-first social post with reply-link placeholder |
 | X standalone | `src/content/blogs/YYYY-MM-DD/x-standalone-tweet.md` | Follow-up single-insight teaser |
-| Newsletter teaser | `src/content/blogs/YYYY-MM-DD/newsletter-teaser.md` | Beehiiv / LinkedIn-compatible teaser |
+| LinkedIn post | `src/content/blogs/YYYY-MM-DD/linkedin-brief.md` | Professional operator post with a direct-link or native-media plan |
+| Facebook post | `src/content/blogs/YYYY-MM-DD/facebook-post.md` | Relationship-native launch post for Aaron's personal network |
+| Distribution plan | `src/content/blogs/YYYY-MM-DD/distribution-plan.md` | Platform jobs, assets, CTA, UTM links, and 7-day experiments |
+| Newsletter teaser | `src/content/blogs/YYYY-MM-DD/newsletter-teaser.md` | Beehiiv teaser |
 | Video brief | `src/content/blogs/YYYY-MM-DD/video-brief.md` | Video-native angle, story spine, retention plan |
 | YouTube script | `src/content/blogs/YYYY-MM-DD/youtube-script.md` | Slide-based script for `aaron-video-gen` |
 | YouTube script audit | `src/content/blogs/YYYY-MM-DD/youtube-script-audit.md` | Scriptwriting gate result before rendering |
@@ -34,9 +37,11 @@ Use the user's path if provided. Otherwise use the newest blog directory with on
 2. `content-plan.md`
 3. `idea.md`
 
-For serious essays using Blog Workflow 2.0/2.1, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, `argument-memo.md`, and `canon-alignment.md` when present. Treat them as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
+For serious essays using Blog Workflow 3, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, `claim-ledger.md`, `argument-memo.md`, `canon-alignment.md`, and `editorial-scorecard.md` when present. Read `tiles/blog-production/references/editorial-system.md`. Treat these as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
 
 Read `src/content/strategy/x.md`, `src/content/strategy/blog-writing-language.md`, and `config/aaron-studio.json` if present.
+
+Before writing distribution copy, read `tiles/blog-write/references/social-distribution.md`. Treat platform reach advice as a hypothesis to test with Aaron's own post data, not as a permanent algorithm rule.
 
 When producing video assets, also read `src/content/strategy/youtube-video-language.md`. If it is missing, create or restore it before writing `video-brief.md` or `youtube-script.md`.
 
@@ -79,8 +84,11 @@ Use `tags` for 2-4 specific keywords only. Tags are for search and semantic deta
 Default package:
 - English article
 - Chinese article
+- distribution plan
 - X post
 - X standalone tweet
+- LinkedIn post
+- Facebook post
 - newsletter teaser
 - video brief
 - YouTube script
@@ -103,7 +111,8 @@ tags: [specific-keyword, second-keyword]
 ```
 
 Writing rules:
-- Lead with a concrete scene, tension, or result.
+- Lead with the editorial contract's concrete scene, contradiction, bottleneck, or result. Earn the title within the first 150 words.
+- Concrete does not mean autobiographical. When a timely event or market move is the reason to read, name the subject first. Move a personal example later when it illustrates the mechanism but cannot support the opening claim by itself.
 - Use "I" voice when the plan has personal evidence.
 - Preserve the plan's thesis but improve phrasing.
 - Avoid generic AI-influencer language.
@@ -112,6 +121,12 @@ Writing rules:
 - Sections should be readable without the plan.
 - Use local image paths only after images already exist; otherwise leave no image placeholders.
 - End with a sharp implication or CTA from the plan/content-plan; avoid vague motivational endings.
+- Put the article's original judgment in the first 15%. Do not make readers finish a news recap before discovering the point.
+- Do not structure the article as one company or source per section. Sources prove the argument; they are not the argument.
+- Keep fact, inference, judgment, and personal observation distinguishable. Do not let prose smooth over an evidence boundary recorded in `claim-ledger.md`.
+- When claiming that an AI workflow learns or improves recursively, name the human participation still required and show how that judgment becomes a reusable rule, eval, runbook, tool, or product change. A loop in a diagram is not evidence of self-improvement.
+
+For a substantial rewrite, create a structural redraft rather than line-editing the old draft in place. Preserve the prior version in a versioned revision folder or versioned sibling file before replacing the active article. A structural redraft must change at least two of: opening, thesis expression, section sequence, mechanism, counterargument, framework use, or ending.
 
 ### 3b. Depth revision pass
 
@@ -132,6 +147,7 @@ Score the article against this checklist:
 - **Stakes**: Does it make clear what changes for builders, operators, teams, or companies?
 - **Nuance**: Does it include a counterargument, risk, or limitation?
 - **Frame**: Does it give readers a reusable operating lens, checklist, or decision model?
+- **Framework economy**: Is there one primary executable framework? Fold supporting diagnostics into it instead of adding a competing checklist or acronym.
 - **Ending**: Does the ending advance the thesis instead of adding a generic CTA?
 - **Reinforcement**: Does it explicitly use or reject a recent blog-growth lesson from `next-brief-context`, and is the success metric measurable in a 24h or 7d postmortem?
 
@@ -174,6 +190,8 @@ npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.m
 
 If it fails, revise the Chinese adaptation so it reads like natural Chinese writing, not a literal translation or formulaic academic prose.
 
+During Chinese review, translate ordinary business and engineering terms such as `vendor`, `enterprise product`, `people layer`, `consulting`, and `deployment test`. Preserve English when it is a proper noun, a stable acronym such as FDE or ACTOR, or genuinely clearer than the Chinese equivalent.
+
 ### 3d. Red-Team Review
 
 Before writing companion assets for a serious essay, create `red-team-review.md`.
@@ -202,6 +220,15 @@ After the red-team revision and before final distribution/media:
 - keep any polish scoped to expression, rhythm, translation tone, hook, transitions, and ending;
 - do not add new facts or change the argument during prose polish.
 
+### 3f. Editorial Scorecard
+
+After prose polish, complete `editorial-scorecard.md` using the weighted rubric in `tiles/blog-production/references/editorial-system.md`.
+
+- Cite concrete draft evidence for each score.
+- Record what was added, cut, reframed, and intentionally kept.
+- Require 85/100 or higher, with no dimension below 70% of its weight.
+- If the score fails, revise the weak dimension once and rescore. Do not raise the number without changing the draft.
+
 ### 4. Draft the Chinese version
 
 Create a natural Simplified Chinese adaptation, not a literal translation.
@@ -214,28 +241,44 @@ Rules:
 
 ### 5. Draft distribution files
 
-Social distribution is teaser-first by default.
+Social distribution is value-first by default. The shared thesis should appear across the package, but each platform needs a different reason to care and a different job in the reader journey. Do not mechanically translate one social post into three forms.
 
-Cross-platform teaser means: start from the same core hook, name one clear tension, leave the deeper mechanism for the blog, and point the reader to the full post. The goal is not to compress the whole article into social copy. It is to make a qualified reader want the article.
+First create `distribution-plan.md` using `tiles/blog-write/references/social-distribution.md`. It must define the target reader, launch hypothesis, platform job, asset, CTA, UTM link, primary metric, and one follow-up atom for X, LinkedIn, and Facebook. Use the plan to decide whether the launch should optimize for a direct blog click, a native conversation, or a video view.
 
-Default social copy should share the same core hook across X, LinkedIn, and newsletter. Platform differences are light adaptations:
-- X: shortest and sharpest; main post should fit 280 characters unless a thread is explicitly requested.
-- LinkedIn: can add one professional context sentence, but it is still not a mini article.
-- Newsletter: plain teaser, slightly warmer CTA, still short.
+The cross-platform package should share one core hook while adapting it to the platform:
+- X: discovery and conversation; shortest, sharpest, and usually under 280 characters.
+- LinkedIn: professional credibility; a concise operator argument with one real implication.
+- Facebook: real relationships; personal context, direct relevance, and an honest invitation to respond.
+- Newsletter: owned-reader follow-up; a warmer, complete teaser.
 
 `x-post.md`:
-- Teaser-first X post, not a long-form post unless Aaron explicitly asks for a thread or long-form X essay.
-- No link in the main post.
-- Strong hook in the first 1-2 lines.
-- Usually include a `## Main Post` and `## Reply With Link` structure.
+- A self-contained launch post, not a long-form post unless Aaron explicitly asks for a thread or long-form X essay.
+- Strong hook in the first 1-2 lines and one tension readers can recognize from work.
+- Usually include `## Main Post`, `## Reply With Link`, and `## Publishing Notes`.
 - Main post should fit 280 characters unless the file is clearly a thread.
-- End with a light CTA such as "Full essay in reply."
-- Do not explain the whole article; preserve curiosity.
+- Use a self-reply link as the initial launch variant when it preserves a stronger main post. Do not claim that direct links are always penalized; record link placement as an experiment in `distribution-plan.md`.
+- Name the selected visual or captioned short clip and ask one specific question that brings in practitioners rather than generic engagement.
 
 `x-standalone-tweet.md`:
 - One sharp insight from the post.
 - Fit 280 characters unless Aaron asks for a thread.
-- Include an optional image idea only when it helps the user post.
+- Include a specific visual or short-clip idea only when it helps the user post.
+- It should work 2-5 days after launch without requiring the reader to have seen the first post.
+
+`linkedin-brief.md`:
+- LinkedIn-native operator post, usually 150-260 words, not a mini article or corporate announcement.
+- Open with a professional tension, add Aaron's judgment and one practical implication, then end with a question an experienced reader can answer.
+- Choose either a direct article link with preview or a native video/document post. Do not plan a custom image and external URL in the same LinkedIn post.
+- When the final blog URL is known, use:
+  `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel linkedin --campaign <slug> --content launch-operator`
+
+`facebook-post.md`:
+- Write for Aaron's real network: personal, direct, and free of corporate announcement language.
+- Explain why Aaron made the piece before naming its wider operator relevance.
+- Use a direct article link with preview and an intentional audience setting. State whether `Public` or `Friends` is the recommended launch choice and why.
+- End with one honest, specific question rather than engagement bait.
+- When the final blog URL is known, use:
+  `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel facebook --campaign <slug> --content launch-friends`
 
 `newsletter-teaser.md`:
 - Short plain-text teaser.
@@ -244,17 +287,6 @@ Default social copy should share the same core hook across X, LinkedIn, and news
 - Ends with the blog URL placeholder if the final URL is not known.
 - When the final blog URL is known, use the growth UTM helper instead of a bare link:
   `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel newsletter --campaign <slug> --content teaser`
-
-`linkedin-brief.md` when requested:
-- LinkedIn-native teaser, not a mini article.
-- Use the same core hook as the X post.
-- Usually 120-180 words.
-- Add at most one extra professional/operator context sentence beyond the X version.
-- Do not turn the blog into a full LinkedIn essay unless Aaron explicitly asks for a LinkedIn article.
-- Include the final blog URL only after the blog is actually live, or use a clear placeholder before publishing.
-- When the final blog URL is known, use:
-  `node scripts/blog-growth.mjs utm-url --url <blog-url> --channel linkedin --campaign <slug> --content brief`
-- Make the practical insight clear enough to click, but leave the full mechanism for the blog.
 
 `video-brief.md`:
 - Must be created before `youtube-script.md`.
@@ -337,6 +369,8 @@ Before finishing:
 - `youtube-script-audit.md` exists when `youtube-script.md` exists and reports a passing gate before rendering.
 - `youtube-script.md` follows the video brief and is not a section-by-section blog recap.
 - Social distribution files are teaser-first: same core hook, clear tension, no full article recap.
+- `distribution-plan.md` gives X, LinkedIn, and Facebook distinct platform jobs, assets, CTAs, UTM links, success signals, and a testable launch hypothesis.
+- Social copy is not mechanically duplicated across platforms and does not present unverified algorithm folklore as fact.
 - `x-post.md` does not put the blog link in the main post.
 - `x-post.md` main post fits 280 characters unless it is explicitly a thread.
 - `linkedin-brief.md`, when present, is not a mini article unless Aaron explicitly requested one.
@@ -345,6 +379,7 @@ Before finishing:
 - The English article passed the depth revision checklist.
 - Serious essays have `canon-alignment.md` before final draft acceptance, or a clear reason it was skipped.
 - Serious essays have `prose-polish-review.md` after red-team revision, or a clear reason it was skipped.
+- Serious essays have a verified `claim-ledger.md` and a passing `editorial-scorecard.md`.
 - The English article passed the Anti-AI style gate and Story craft gate (`blog-style-quality.ts --require-personal-anchor --require-story-craft`), or any remaining scanner flags were reviewed and intentionally accepted.
 - The Chinese article passed the Chinese style gate (`blog-style-quality.ts --language zh`), or any remaining scanner flags were reviewed and intentionally accepted.
 - Distribution files inherit the revised thesis; they must not summarize an earlier, weaker draft.

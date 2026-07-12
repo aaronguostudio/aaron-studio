@@ -1,0 +1,10 @@
+{
+  "provider": "ElevenLabs Music API",
+  "endpoint": "https://api.elevenlabs.io/v1/music",
+  "model_id": "music_v1",
+  "music_length_ms": 377000,
+  "force_instrumental": true,
+  "output_format": "mp3_44100_128",
+  "prompt": "A seamless continuation for a premium editorial technology documentary score. Begin quietly with a sustained low cello tone and restrained piano harmonics so it can crossfade from an existing sparse 72 BPM cello opening. Keep generous space for narration throughout. Develop a subtle analog pulse for a factory decision sequence, then a practical field-learning loop, then a more reflective section about human judgment and customer ownership. Avoid drums, vocals, trailer impacts, busy melody, sentimentality, and corporate uplift. Around 268 seconds, introduce a controlled harmonic lift for a five-part deployment framework without increasing volume too much. Around 333 seconds, simplify to cello, piano, and room tone for the final argument, then resolve with a confident clean held cadence at the end. Minimal, intelligent, warm, precise, low energy, authored rather than ambient stock music.",
+  "usage": "Internal FDE full-film review. Confirm subscription terms before publication."
+}

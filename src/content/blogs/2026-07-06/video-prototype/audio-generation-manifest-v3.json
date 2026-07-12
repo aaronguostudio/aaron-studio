@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "scope": "actor-section-only",
+  "reason": "Replace deployment-test framing while preserving the approved first three narration takes.",
+  "voice_profile": "aaron-pvc-identity-v1",
+  "provider": "elevenlabs",
+  "voice_id": "R2DWp7zZuWmGxk3r8GIA",
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_192",
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.5,
+    "use_speaker_boost": true,
+    "speed": 1.0
+  },
+  "text": "ACTOR is part of my deployment framework. Action: what work changes? Context: what may the system know? Trust: when may it recommend, decide, or act? Outcome: what proves value? Recursive: how does this run improve the next one? Tokens are inputs. Value appears when the workflow changes and the customer keeps the capability.",
+  "postprocess": {
+    "combined_loudness_target_lufs": -16,
+    "combined_true_peak_target_db": -1.5,
+    "editorial_speed": 1.04,
+    "music_edit": "Keep the first 56.048 seconds unchanged and stretch only the ACTOR tail."
+  },
+  "outputs": {
+    "raw_actor_segment": ".video-gen-v3/narration-02.mp3",
+    "full_narration": "narration-v3.mp3",
+    "full_music": "music-edit-v3.mp3",
+    "transcript": "audio-transcript-v3.md"
+  },
+  "qa": {
+    "narration_duration_sec": 79.225102,
+    "narration_integrated_lufs": -17.25,
+    "narration_true_peak_db": -1.94,
+    "narration_long_silence_count": 0,
+    "encoded_mix_integrated_lufs": -17.24,
+    "encoded_mix_true_peak_db": -4.02,
+    "encoded_mix_long_silence_count": 0
+  }
+}

@@ -21,7 +21,7 @@
 | **Tweet** | Single post, 1-3 sentences | Hot takes, observations, quick wins | Medium |
 | **Long-form post** | Single post, multi-paragraph (Premium: up to 25K chars) | Frameworks, breakdowns, stories | Highest (dwell time + no thread drop-off) |
 | **Article** | Long-form native editor on X | Pillar content, evergreen guides | Good (dwell time boost) |
-| **Link post** | Tweet with external URL | ❌ Avoid — ~50% reach penalty | Lowest |
+| **Link post** | Tweet with external URL | Use deliberately with a native point of view; compare direct links with self-reply links | Audience-dependent |
 
 ---
 
@@ -66,7 +66,7 @@ This is the most important section. At your stage, **replying to others will gro
 - Your reply shows up under a big account's post → their audience sees you
 - A great reply gets likes → X shows your profile to those people
 - The big account notices you → potential relationship, retweet, collaboration
-- Replies are weighted **27x more than likes** in X's algorithm — engaging in replies trains X to show you to more people
+- A substantive reply can put Aaron's thinking in front of a relevant audience and begin a real relationship. Do not assume a universal algorithm multiplier; track which replies create profile visits and useful conversations.
 
 ### Who to Reply To (Build a Target List)
 
@@ -147,7 +147,7 @@ Find 10-15 accounts at a similar stage. These become your network — they'll en
 4. **End with a CTA.** Rotate between: follow, newsletter, reply/engage.
 5. **One idea per post.** Don't try to cover everything. Go deep on one thing.
 6. **Use "I" not "you should."** Share what you did, not what others should do. It's more authentic and less preachy.
-7. **Include a visual when possible.** Screenshots, diagrams, before/after — images boost engagement.
+7. **Include a visual when it carries part of the argument.** Screenshots, diagrams, and before/after states should clarify the idea, not decorate it.
 
 ### Hook Formulas That Work
 - "I [did surprising thing]. Here's what happened:"
@@ -201,7 +201,7 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 | **Blog post** | Newsletter signup CTA | Capture the reader's email |
 
 ### Key Rules
-- X post ALWAYS links to **blog** in a reply, never in the main post
+- X post should lead with a native point of view. Test blog-link placement in a reply versus the main post and retain the version that produces qualified reading and conversation.
 - Newsletter teaser is short — make them click through to the blog
 - Blog post always ends with newsletter signup CTA
 
@@ -212,7 +212,7 @@ Newsletter (delivers blog teaser to inboxes — links back to blog)
 When a blog post goes live on aaronguo.com:
 
 1. **Same day:** Post X teaser (single post with hook + tension + CTA)
-   - Link to blog in a reply, NOT in the main post
+   - Start with a self-reply link as one launch variant; test direct-link placement on comparable future posts before turning it into a rule.
 2. **Same day:** Newsletter goes out via Beehiiv (teaser + link to full post)
 3. **2-3 days later:** Pull a single insight from the post → standalone tweet with an image/screenshot
 
@@ -281,32 +281,17 @@ When a blog post goes live on aaronguo.com:
 
 ---
 
-## Algorithm Cheat Sheet
+## Distribution Hypotheses To Test
 
-**What X rewards:**
-- Native content (no external links in main post)
-- Replies and conversations (27x weight vs likes)
-- Dwell time (people stopping to read)
-- Bookmarks (strong quality signal)
-- Consistency (regular posting schedule)
-- Premium subscribers get a boost
+X mechanics and ranking behavior change. Do not use fixed reach penalties, engagement multipliers, or a universal content hierarchy as strategy facts. Start with these working hypotheses, then keep only what Aaron's own results support:
 
-**What X penalizes:**
-- External links (~50% reach reduction)
-- Excessive posting without engagement
-- Follow/unfollow games
-- Being muted/blocked by users
-- Posting and ghosting (not replying to comments)
+- A clear native point of view earns more useful attention than a naked link.
+- Substantive replies and follow-up conversations create more durable relationships than passive likes.
+- A visual or captioned video helps only when it makes the idea easier to understand.
+- Consistency matters when it means recurring quality and recognizable subject matter, not indiscriminate volume.
+- Link placement is an experiment: compare direct-link posts and self-reply links on comparable content, then measure qualified clicks and conversations.
 
-**Content reach hierarchy:**
-1. Native video (especially long-form)
-2. Images with text
-3. Threads
-4. Single text tweets
-5. X Articles
-6. Quote tweets
-7. Polls
-8. Link posts (avoid)
+Track the creative, media, timing, link placement, impressions, profile visits, clicks, replies, and quality of follow-on relationships. A single viral result is not a workflow rule.
 
 ---
 

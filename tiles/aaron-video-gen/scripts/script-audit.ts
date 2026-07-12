@@ -105,7 +105,9 @@ export function auditYoutubeScript(input: ScriptAuditInput): ScriptAuditResult {
     input.estimatedDurationSec ?? estimateDurationSecFromScript(input.scriptMarkdown);
   const minImages = imageTargetForDuration(estimatedDurationSec);
   if (input.imageCount < minImages) {
-    failures.push(`image count ${input.imageCount} is below target ${minImages}`);
+    warnings.push(
+      `static image count ${input.imageCount} is below legacy target ${minImages}; verify visual beats in video-storyboard.json`
+    );
   }
 
   const passed = failures.length === 0;
@@ -119,7 +121,7 @@ export function auditYoutubeScript(input: ScriptAuditInput): ScriptAuditResult {
       `Status: ${passed ? "PASS" : "FAIL"}`,
       input.scriptPath ? `Script: ${input.scriptPath}` : "",
       `Estimated duration: ${Math.round(estimatedDurationSec)}s`,
-      `Image count: ${input.imageCount}`,
+      `Static image count: ${input.imageCount}`,
       "",
       "## Failures",
       failures.length ? failures.map((failure) => `- ${failure}`).join("\n") : "- none",

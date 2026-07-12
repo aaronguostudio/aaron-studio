@@ -12,6 +12,8 @@ Style is pacing, not skin.
 
 A blog post should not apply one treatment to every image. Choose the visual mode by article character, image role, and visual weight.
 
+Concept comes before style. Compare different visual predicates and compositions before choosing how the winning concept should be rendered.
+
 ## Visual Modes
 
 ### Editorial Minimal
@@ -205,6 +207,9 @@ Image-level gates:
 - no generic stock-photo energy;
 - no irrelevant symbolic clutter;
 - readable at mobile width.
+- diagram arrows, order, and labels are semantically correct, not merely attractive;
+- generated text stays inside the explicit allowed-text budget;
+- actual dimensions and aspect ratio are inspected after generation.
 
 ## FDE regression lessons
 
@@ -214,6 +219,14 @@ Use the 2026-07-06 FDE image set as a regression case.
 - `03-comparison-fde-center-of-gravity` failed because it compressed consulting comparison, embedded work, transfer artifacts, and workflow diagram into one image.
 - `04-framework-actor-loop` failed because every tile contained multiple symbols, so ACTOR became noisy instead of memorable.
 - `02-metaphor-demo-to-operating-loop` was closer to successful, but it shows how glowing route/glass language can become a repeated trope if used too often.
+
+### Workflow 3 v7 lessons
+
+- Three cover concepts produced a better final than styling the first metaphor repeatedly. The selected cover combined the clearest conflict with the most tactile human correction.
+- A diagram can be beautiful and still fail. The first v7 ACTOR image had correct words but the wrong path; semantic correctness is a hard gate.
+- Image models may invent a style heading, caption, or engraved object copy. For exact-text images, list every permitted word and explicitly ban all other text.
+- Controlled Mix works when palette, line weight, texture, and hierarchy stay stable while composition changes by role.
+- Record actual output dimensions. Prompted pixel dimensions are intent, not proof.
 
 ## Images Stock Phase 2
 

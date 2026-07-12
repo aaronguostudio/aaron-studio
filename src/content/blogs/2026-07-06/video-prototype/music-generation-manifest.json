@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-07-11T17:15:14.916Z",
+  "request": {
+    "provider": "ElevenLabs Music API",
+    "endpoint": "https://api.elevenlabs.io/v1/music",
+    "model_id": "music_v1",
+    "music_length_ms": 84000,
+    "force_instrumental": true,
+    "output_format": "mp3_44100_128",
+    "prompt": "Original instrumental editorial score for a thoughtful technology documentary. Begin with a sparse low cello pulse and quiet room tone, with no drums for the first twelve seconds. Add restrained piano harmonics and a subtle analog pulse through the middle. Create one gentle lift near fifty-two seconds for a framework reveal, then resolve with a clean held cello cadence. Seventy-two BPM, minimal, intelligent, warm, low energy, no vocals, no trailer braams, no busy melody, and generous space for spoken narration throughout.",
+    "usage": "Internal FDE video prototype. Review subscription terms and final mix before publication.",
+    "documentation": "https://elevenlabs.io/docs/api-reference/music/compose"
+  },
+  "response": {
+    "song_id": "xuarOSGzAdKuBw7D6PCF",
+    "request_id": null,
+    "content_type": "audio/mpeg",
+    "bytes": 1344619
+  }
+}

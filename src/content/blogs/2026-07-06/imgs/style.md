@@ -1,67 +1,68 @@
----
-style_name: Field Deployment Editorial
-base_language: Soft Glass Narrative
-baseline: 2026-06-20-ai-became-my-operating-system
-article: src/content/blogs/2026-07-06/why-ai-companies-are-becoming-deployment-companies.md
----
+# Visual Style Brief: Field Signal Editorial
 
-# Field Deployment Editorial
+## Base Language
 
-## Base
+Depart from Soft Glass Narrative for this post. Keep its restraint, negative space, and human scale while replacing glass with editorial print, paper, crisp geometry, and a visible human trace.
 
-Baseline: Soft Glass Narrative, using the 2026-06-20 AI operating system image set as the reference for density, restraint, and human-scale metaphor.
+## Post-Specific Style Name
 
-This post adapts that baseline into a more operational, magazine-editorial direction: field notes, deployment desks, paper blueprints, quiet routing lines, and production workflow stations. It should feel less like a generic AI future and more like a serious operator's notebook about how intelligence enters real work.
+Field Signal Editorial
+
+## Cohesion Model
+
+Controlled Mix
 
 ## Article Thesis
 
-Enterprise AI value is moving from model capability to deployment capability. Anthropic, OpenAI, AWS, and Microsoft are all moving engineers closer to customers because the hard problem is no longer whether a model can perform a task, but whether a company can turn that capability into a trusted operating loop.
+Models provide capability; FDE turns fragmented operational reality into customer-owned workflows and returns repeated field failures to the product.
 
-## Reader Emotion
+## Reader Should Feel
 
-Curious, sober, energized, and practical. The reader should feel: "I can see the work system now, not just the model demo."
+Alert, convinced, technically oriented, and equipped.
 
 ## Real-World Anchor
 
-Forward deployed engineers working near actual enterprise workflows: service counters, factory floor plans, hospital operations rooms, regional bank process maps, compliance binders, and internal champions reviewing the next handoff.
+A manufacturing planning surface, operators working beside an FDE, customer-owned workflow machinery, field notes, and one visible governed action.
 
-## Data Layer Meaning
+## Data / System Layer
 
-- Soft cyan route lines: AI capability being connected into workflows.
-- Warm amber marks: human intent, business action, and ownership.
-- Soft green gates: trust, evaluation, approval, and measurable outcomes.
-- Muted coral boundaries: risk, permissions, data access boundaries, and fallback paths.
-- Translucent glass sheets: intelligence layer, context surfaces, and invisible infrastructure.
+Cyan marks field observations. Orange marks token input. Coral marks a failure boundary. Green marks verified work and recursive learning. Graphite provides structure.
 
 ## Palette
 
-Warm off-white paper, ink graphite, soft cyan traces, warm amber highlights, industrial soft green, muted coral for risk, and dusty violet only as a tiny secondary accent. Avoid dominant dark-blue AI palettes, pure purple gradients, beige-only creator palettes, and neon sci-fi colors.
+- Warm white `#F4F1E8`
+- Graphite `#161A1D`
+- Safety orange `#F2A516`
+- Signal cyan `#16A6B6`
+- Verified green `#6B9B52`
+- Failure coral `#ED654F`
 
-## Recurring Motifs
+## Material Language
 
-- Deployment desk with a paper blueprint or operating map.
-- A field engineer or operator reviewing a workflow with an internal champion.
-- Route lines moving from abstract model sources into concrete workflow stations.
-- Green review gates and coral permission boundaries.
-- Handwritten-style field marks, but no readable fake text except approved thumbnail text.
-- Simple letter tiles for ACTOR only where the framework image needs them.
+Premium editorial print, clean paper cut shapes, precise black linework, subtle offset registration, and restrained halftone. No vintage nostalgia, no muddy ink, no liquid glass.
 
 ## Image Set Rules
 
-- Cover: strong editorial scene, no text, scroll-stopping, less diagrammatic than body images.
-- Thumbnail: same world as cover, with a dark left text zone and a few large readable lines.
-- Body images: mostly narrative/metaphor, with one light comparison image and one ACTOR framework loop.
-- No more than one dense mechanism image. This set should not become a consulting slide deck.
-- Each image must communicate one sentence.
+- 16:9 landscape, at least 1536px wide.
+- One visual predicate per image.
+- Different silhouette and composition for each body image.
+- Cover has no text; thumbnail is the only distribution image with a headline.
+- Exact framework text is allowed only in ACTOR and thumbnail.
+- No vendor logos or fake UI.
 
 ## Anti-Patterns
 
-No robots, no brains, no glowing clouds, no generic stock meeting photos, no logos, no company names inside the image, no sci-fi HUDs, no neon dashboard walls, no floating orb decoration, no chart explosions, no tiny fake UI labels, no unreadable pseudo-text.
+- Generic AI dashboard, robot, brain, neural head, data cloud, neon network.
+- Repeating five-card grids outside ACTOR.
+- Dark luxury workbench or beige creator aesthetic.
+- Tiny labels, over-detailed diagrams, random arrows, fake charts.
+- Full-image texture or distressed grunge.
 
 ## Quality Checklist
 
-- The main idea is visible at mobile size.
-- AI is a quiet layer, not the main character.
-- Human-scale work remains central.
-- The set has rhythm: one strong cover, one readable thumbnail, two to three metaphor scenes, one comparison, one framework loop.
-- The ACTOR image suggests feedback and self-enhancement, not only a static checklist.
+- [ ] The image communicates one sentence in five seconds.
+- [ ] The composition is visibly different from adjacent images.
+- [ ] The palette and linework still connect it to the set.
+- [ ] Texture stays subordinate to hierarchy.
+- [ ] No unreadable or unintended text appears.
+- [ ] The image adds an idea or pacing function that prose alone does not provide.

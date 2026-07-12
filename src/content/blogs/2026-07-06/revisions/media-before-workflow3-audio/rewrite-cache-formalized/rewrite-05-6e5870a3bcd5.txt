@@ -1,0 +1,13 @@
+That proximity introduces a risk. 
+
+A vital workflow can gradually become dependent on a single vendor’s connectors, evaluations, permission model, agent runtime, and underlying assumptions about how tasks should be executed.
+
+---SEGMENT---
+
+Deployment can appear effective, but the customer's ability to grasp or adapt to it often diminishes.
+
+---SEGMENT---
+
+The customer must keep the essential components: data contracts, evaluation sets, permission rules, audit history, runbooks, failure modes, and the interface between the workflow and the model.
+
+A productive engagement builds the customer’s capabilities instead of creating a dependency on a vendor.

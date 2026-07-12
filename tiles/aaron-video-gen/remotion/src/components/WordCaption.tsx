@@ -1,14 +1,10 @@
 import React from "react";
-import {
-  useCurrentFrame,
-  useVideoConfig,
-  AbsoluteFill,
-} from "remotion";
+import { useCurrentFrame, useVideoConfig, AbsoluteFill } from "remotion";
 
 export interface WordTimingData {
   word: string;
   start: number; // seconds
-  end: number;   // seconds
+  end: number; // seconds
 }
 
 interface WordCaptionProps {
@@ -18,7 +14,7 @@ interface WordCaptionProps {
   maxWordsPerLine?: number;
 }
 
-interface CaptionSegment {
+export interface CaptionSegment {
   text: string;
   start: number;
   end: number;
@@ -28,9 +24,71 @@ function cleanWord(word: string): string {
   return word.replace(/\s+/g, " ").trim();
 }
 
-function buildCaptionSegments(
+const spelledLetter = (
+  word: string,
+): { letter: string; punctuation: string } | null => {
+  const match = cleanWord(word).match(/^([A-Z])([,.;:!?]*)$/);
+  if (!match) return null;
+  return { letter: match[1], punctuation: match[2] };
+};
+
+/**
+ * ElevenLabs occasionally emits a spoken acronym as one timing token per
+ * letter. Merge a contiguous cluster before phrase segmentation so `F D E`
+ * cannot become `F D` / `E consulting` on screen.
+ */
+export function mergeSpelledAcronyms(
   wordTimings: WordTimingData[],
-  maxWordsPerSegment: number
+): WordTimingData[] {
+  const normalized = wordTimings
+    .map((timing) => ({ ...timing, word: cleanWord(timing.word) }))
+    .filter((timing) => timing.word);
+  const merged: WordTimingData[] = [];
+
+  for (let index = 0; index < normalized.length; ) {
+    const first = spelledLetter(normalized[index].word);
+    if (!first) {
+      merged.push(normalized[index]);
+      index += 1;
+      continue;
+    }
+
+    const cluster = [normalized[index]];
+    let cursor = index + 1;
+    while (cursor < normalized.length) {
+      const previous = cluster[cluster.length - 1];
+      const candidate = normalized[cursor];
+      if (
+        !spelledLetter(candidate.word) ||
+        candidate.start - previous.end > 0.75
+      ) {
+        break;
+      }
+      cluster.push(candidate);
+      cursor += 1;
+    }
+
+    if (cluster.length < 2) {
+      merged.push(normalized[index]);
+      index += 1;
+      continue;
+    }
+
+    const finalToken = spelledLetter(cluster[cluster.length - 1].word)!;
+    merged.push({
+      word: `${cluster.map((timing) => spelledLetter(timing.word)!.letter).join("")}${finalToken.punctuation}`,
+      start: cluster[0].start,
+      end: cluster[cluster.length - 1].end,
+    });
+    index = cursor;
+  }
+
+  return merged;
+}
+
+export function buildCaptionSegments(
+  wordTimings: WordTimingData[],
+  maxWordsPerSegment: number,
 ): CaptionSegment[] {
   const segments: CaptionSegment[] = [];
   let current: WordTimingData[] = [];
@@ -50,7 +108,7 @@ function buildCaptionSegments(
     current = [];
   }
 
-  for (const timing of wordTimings) {
+  for (const timing of mergeSpelledAcronyms(wordTimings)) {
     const word = cleanWord(timing.word);
     if (!word) continue;
 
@@ -91,10 +149,12 @@ export const WordCaption: React.FC<WordCaptionProps> = ({
 
   const segments = React.useMemo(
     () => buildCaptionSegments(wordTimings, maxWordsPerLine),
-    [wordTimings, maxWordsPerLine]
+    [wordTimings, maxWordsPerLine],
   );
   const activeSegment = segments.find((segment) => {
-    return currentTime >= segment.start - 0.12 && currentTime <= segment.end + 0.55;
+    return (
+      currentTime >= segment.start - 0.12 && currentTime <= segment.end + 0.55
+    );
   });
 
   if (!activeSegment) return null;

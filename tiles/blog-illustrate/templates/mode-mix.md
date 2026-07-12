@@ -7,10 +7,10 @@ Allowed visual weights: quiet / medium / loud.
 
 ## Image Plan
 
-| Image | Role | Visual mode | Visual weight | Reason | Reuse candidate? |
-|---|---|---|---|---|---|
-| 00-cover | Cover | Editorial Minimal | loud | The cover needs a strong scroll-stopping thesis image. | no |
-| 00-cover-thumbnail | Thumbnail | Editorial Minimal + typography | loud | The thumbnail needs readable distribution text. | no |
+| Image | Role | Visual mode | Style family | Visual weight | Reason | Reuse candidate? |
+|---|---|---|---|---|---|---|
+| 00-cover | Cover | Editorial Minimal | [from style-directions.md] | loud | The cover needs a strong scroll-stopping thesis image. | no |
+| 00-cover-thumbnail | Thumbnail | Editorial Minimal + typography | [from style-directions.md] | loud | The thumbnail needs readable distribution text. | no |
 
 ## Density Budget
 

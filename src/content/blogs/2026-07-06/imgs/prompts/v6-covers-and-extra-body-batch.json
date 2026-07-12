@@ -1,0 +1,54 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {
+      "id": "05-value-around-api-v5-infographic-editorial-set",
+      "promptFiles": ["05-value-around-api-v5-infographic-editorial-set.md"],
+      "image": "../05-value-around-api-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "06-deployment-native-engineer-v5-infographic-editorial-set",
+      "promptFiles": ["06-deployment-native-engineer-v5-infographic-editorial-set.md"],
+      "image": "../06-deployment-native-engineer-v5-infographic-editorial-set.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "00-video-cover-v6-expensive-tokens",
+      "promptFiles": ["00-video-cover-v6-expensive-tokens.md"],
+      "image": "../00-video-cover-v6-expensive-tokens.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "00-video-cover-v6-fde",
+      "promptFiles": ["00-video-cover-v6-fde.md"],
+      "image": "../00-video-cover-v6-fde.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "00-video-cover-v6-actor",
+      "promptFiles": ["00-video-cover-v6-actor.md"],
+      "image": "../00-video-cover-v6-actor.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "00-social-cover-v6-square",
+      "promptFiles": ["00-social-cover-v6-square.md"],
+      "image": "../00-social-cover-v6-square.png",
+      "provider": "codex-cli",
+      "ar": "1:1",
+      "quality": "2k"
+    }
+  ]
+}
+

@@ -23,11 +23,12 @@ Use the user's path if provided. Otherwise inspect the newest blog directory und
 1. `argument-memo.md`
 2. `editorial-brief.md`
 3. `research-dossier.md`
-4. `memory-reflection.md`
-5. `content-plan.md`
-6. `idea.md`
-7. existing `plan.md`
-8. a rough idea from the user message
+4. `claim-ledger.md`
+5. `memory-reflection.md`
+6. `content-plan.md`
+7. `idea.md`
+8. existing `plan.md`
+9. a rough idea from the user message
 
 Always read `src/content/strategy/x.md` and `config/aaron-studio.json` if present.
 
@@ -79,7 +80,7 @@ Write it in Chinese by default because it is an internal review artifact. Use th
 ## 对读者的启发
 ```
 
-The memo must map thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication. If the research does not support the thesis, revise the thesis before creating `plan.md`.
+The memo must map thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication. Distinguish sourced fact from Aaron's inference. If the claim ledger does not support the thesis, revise the thesis before creating `plan.md`.
 
 ### 3. Build the outline
 
@@ -146,6 +147,8 @@ Before finishing:
 - The thesis is one sentence.
 - The personal anchor is concrete.
 - Every section has a job; no generic filler section.
+- The plan moves through a reader experience rather than mirroring the research dossier or listing sources company by company.
+- The original judgment appears in the first 15% and the opening earns the title within roughly 150 words.
 - The outline names the business value or strategic implication, not only a personal feeling.
 - There are no `TBD`, `TODO`, or placeholder brackets.
 - If `content-plan.md` exists, `plan.md` preserves its core thesis and CTA.

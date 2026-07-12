@@ -1,0 +1,54 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {
+      "id": "v4-style-probe-infographic-editorial",
+      "promptFiles": ["v4-style-probe-infographic-editorial.md"],
+      "image": "../v4-style-probe-infographic-editorial.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v4-style-probe-cartoon-briefing",
+      "promptFiles": ["v4-style-probe-cartoon-briefing.md"],
+      "image": "../v4-style-probe-cartoon-briefing.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v4-style-probe-executive-brief",
+      "promptFiles": ["v4-style-probe-executive-brief.md"],
+      "image": "../v4-style-probe-executive-brief.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v4-style-probe-data-poster",
+      "promptFiles": ["v4-style-probe-data-poster.md"],
+      "image": "../v4-style-probe-data-poster.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v4-style-probe-cutaway-system-map",
+      "promptFiles": ["v4-style-probe-cutaway-system-map.md"],
+      "image": "../v4-style-probe-cutaway-system-map.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "v4-style-probe-paper-system-sketch",
+      "promptFiles": ["v4-style-probe-paper-system-sketch.md"],
+      "image": "../v4-style-probe-paper-system-sketch.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}
+

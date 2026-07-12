@@ -1,0 +1,32 @@
+
+[upload] Title: "Expensive Tokens Won't Save Enterprise AI"
+[upload] Privacy: public
+[upload] File: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-07-06/video-v5/fde-full-film-v5-identity-v3.mp4 (39.3 MB)
+
+[upload] Initiating upload...
+[upload] Uploading 39.3 MB...
+
+[upload] Upload complete!
+[upload] Video ID: BhwSZpb6ag8
+[upload] URL: https://youtu.be/BhwSZpb6ag8
+
+[upload] Setting thumbnail...
+[upload] Thumbnail upload failed (400): {
+  "error": {
+    "code": 400,
+    "message": "The provided image content is invalid.",
+    "errors": [
+      {
+        "message": "The provided image content is invalid.",
+        "domain": "youtube.thumbnail",
+        "reason": "invalidImage",
+        "location": "body",
+        "locationType": "other"
+      }
+    ]
+  }
+}
+
+
+[upload] Done! Video available at: https://youtu.be/BhwSZpb6ag8
+[upload] Status: public

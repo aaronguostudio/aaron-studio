@@ -2,8 +2,8 @@
 
 Status: PASS
 Script: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-07-06/youtube-script.md
-Estimated duration: 376s
-Image count: 23
+Estimated duration: 363s
+Image count: 26
 
 ## Failures
 - none

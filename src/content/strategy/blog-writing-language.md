@@ -65,9 +65,26 @@ Good blog hooks start with a concrete disturbance:
 - a metric moved in the wrong direction;
 - a workflow worked until AI changed the cost structure.
 
+Concrete does not mean autobiographical. Choose the opening with the strongest relevance and evidentiary weight:
+
+- When a timely market event, product change, or company decision is the reason the reader should care now, name that subject immediately.
+- Use a personal scene first only when it can carry the article's opening claim without a large analogy jump.
+- A useful personal example can appear after the mechanism is established. Lived evidence does not have to occupy paragraph one.
+- Do not make an anecdote prove more than it can. Label a small personal system as an illustration when it is not evidence at enterprise scale.
+
 Good narrative tension is not fake drama. It is the real friction in the system: time, judgment, ownership, review, quality, customer risk, market timing, or execution cost.
 
 Good payoff is not a summary. It is an operating rule, implication, or decision lens the reader can reuse.
+
+### 自我提升不是自动发生
+
+当文章讨论 AI workflow、feedback loop、memory 或 recursive improvement 时，不要因为流程图里有一个回环，就暗示系统已经能够自动提高质量。
+
+- 区分“AI 能执行更多步骤”和“AI 能为整个系统负责质量”。
+- 写清楚目前仍然需要哪些人的参与：设定标准、判断证据、解决取舍、拒绝结果、发现遗漏、决定哪些修正应成为长期规则。
+- 不要把几句 prompt 描述成完整工作流。稳定运行、跨环节验证和持续升级是不同层次的问题。
+- 人的参与不是终点。更有价值的方向，是把重复判断沉淀成评估、规则、运行手册、工具和可复用模式，让下一次运行从更高的基线开始。
+- 使用 `self-improving`、`recursive` 或“自我提升”时，明确学习信号由谁发现、如何写回系统、下一次运行具体改变什么。
 
 ## Aaron voice craft gate
 
@@ -119,6 +136,17 @@ Prefer direct phrasing:
 - stronger: `真正要改的不是态度，而是工作流。AI 把执行成本打下来以后，人的判断必须更早进入系统。`
 
 Keep natural technical terms such as `AI`, `prompt`, `workflow`, `context`, `QA`, and `UAT` when that is how Aaron would say them.
+
+### 中文术语本地化
+
+保留英文应该降低理解成本，而不是增加行业感。公司名、产品名、稳定缩写，以及没有自然中文对应的术语可以保留；普通商业和工程概念应优先写成中文。
+
+- 可以保留：`AI`、`FDE`、`ACTOR`、`API`、`Token`、`FinOps`。
+- 通常翻译：`vendor` -> `厂商`，`enterprise product` -> `企业级产品`，`people layer` -> `人员交付层` 或按语境重写，`consulting` -> `咨询`，`deployment test` -> `部署框架` 或 `部署检验`。
+- `workflow`、`context`、`prompt` 等词可以在确实符合 Aaron 日常表达时保留，但同一段中大量中英切换时，优先改成自然中文。
+- 专有名词第一次出现时可以中英并列，之后使用较短、自然的一种写法。
+
+中文审校不应逐词消灭英文，也不应把可翻译的词留在句中来制造专业感。
 
 ### 中文词义校准
 

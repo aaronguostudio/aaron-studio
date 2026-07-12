@@ -45,11 +45,11 @@ async function generatePulse(items) {
       messages: [
         {
           role: "system",
-          content: "Write ONE punchy sentence (max 20 words) about today's dominant AI/tech themes. Be specific. No emoji. No 'today's news highlights include' — just state the themes directly. Example: 'AI safety and the OpenAI vs Anthropic debate dominate today, while MCP protocol adoption accelerates globally.'",
+          content: "Write ONE defensible editorial thesis (max 35 words) about today's dominant technology signal. Name the underlying shift, not a list of headlines. Be specific, source-grounded, and useful to a builder working on AI products. No emoji and no generic 'today's news highlights include' wording.",
         },
         {
           role: "user",
-          content: `Today's top ${items.length} items:\n${itemsText}\n\nWrite ONE sentence capturing today's pulse:`,
+          content: `Today's top ${items.length} items:\n${itemsText}\n\nWrite ONE sentence capturing the main technology thesis:`,
         },
       ],
     }),

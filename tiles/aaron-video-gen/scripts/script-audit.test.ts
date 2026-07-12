@@ -119,7 +119,7 @@ describe("auditYoutubeScript", () => {
     expect(result.failures).toContain("video brief missing Ending");
   });
 
-  test("fails a long video when image count is below target", () => {
+  test("warns instead of failing when a storyboard may replace image volume", () => {
     const result = auditYoutubeScript({
       scriptMarkdown:
         "# Title\n\n## [HOOK]\nTesla scene.\n\n## [SLIDE: One — 01.png]\nBody.",
@@ -128,7 +128,10 @@ describe("auditYoutubeScript", () => {
       estimatedDurationSec: 360,
     });
 
-    expect(result.failures).toContain("image count 10 is below target 20");
+    expect(result.passed).toBe(true);
+    expect(result.warnings).toContain(
+      "static image count 10 is below legacy target 20; verify visual beats in video-storyboard.json"
+    );
   });
 
   test("summary records the audited script path", () => {

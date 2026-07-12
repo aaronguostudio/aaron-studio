@@ -45,19 +45,24 @@ Use `tags` as 2-4 specific search keywords. Tags are not reader-facing navigatio
 
 ### Step 2: Determine the next post number
 
-List files in the blog site's `content/blogs/en/` directory. Posts are named `{number}.{slug}.md`. Find the highest number and increment by 1.
+First search both language directories for the target slug.
+
+- If the slug already exists, preserve its current post number and stable public route. Update the existing English and Chinese files in place.
+- If the slug does not exist, list files in `content/blogs/en/`. Posts are named `{number}.{slug}.md`; find the highest number and increment by 1.
+
+Never create a second post number merely because a previously copied article is being rewritten.
 
 ### Step 3: Copy and rename images
 
-Copy all illustration images (`.png`, `.jpg`, `.webp`) from the source `imgs/` directory to the blog site's `public/blogs-img/` directory.
+Copy the accepted cover and the images actually referenced by the final English/Chinese articles from the source `imgs/web/` directory to the blog site's `public/blogs-img/` directory. Copy distribution-only assets such as social or video covers only when the user asks for them.
 
 **Naming convention:**
-- Cover image: `{YYYY-MM-DD}-{short-slug}-cover.png`
-- Other images: `{YYYY-MM-DD}-{short-slug}-{NN}.png` (sequential: 01, 02, 03...)
+- Cover image: `{YYYY-MM-DD}-{short-slug}-cover.webp`
+- Other images: `{YYYY-MM-DD}-{short-slug}-{NN}.webp` (sequential: 01, 02, 03...)
 
 Where `{short-slug}` is a 1-2 word kebab-case identifier for the post (e.g., `marriott`, `ai-native`).
 
-**Skip non-illustration files** like `outline.md` and the `prompts/` directory.
+Do not copy rejected candidates, archived replacements, contact sheets, prompt files, or unreferenced historical images into the public blog directory.
 
 ### Step 4: Create the English blog post
 
@@ -87,7 +92,11 @@ Quote all human-written YAML strings (`title`, `description`, `alt`, and Chinese
 1. Remove the `# Title` heading (title comes from frontmatter)
 2. **Remove the cover image from body content.** The cover image (`00-cover.*`) is already displayed as the blog banner via the `image` frontmatter field. Do NOT include it again in the markdown body — it creates a repetitive experience for readers.
 3. Rewrite all remaining image paths from `imgs/{filename}` to `/blogs-img/{new-filename}`
-4. Keep all other markdown content as-is
+4. Rewrite internal source-post markdown links such as `../YYYY-MM-DD/source-slug.md` to public blog routes:
+   - English posts use `/blogs/{published-slug}`
+   - Chinese posts use `/zh/blogs/{published-slug}`
+   - If the linked source post has not been published into the blog repo, do not leave a broken link. Either remove the markdown link while keeping the reference text, or stop and ask whether to publish/link that source.
+5. Keep all other markdown content as-is
 
 ### Step 5: Create the Chinese translation
 
@@ -127,16 +136,35 @@ published: true
 **Content transformations (same as English):**
 1. Remove the `# Title` heading
 2. Rewrite image paths from `imgs/` to `/blogs-img/`
-3. Translate image alt text to Chinese
+3. Rewrite internal source-post markdown links to `/zh/blogs/{published-slug}` routes, and validate that the target Chinese post exists.
+4. Translate image alt text to Chinese
 
 ### Step 6: Verify
 
 1. Confirm both English and Chinese post files exist with valid frontmatter
 2. Confirm both use the same post number
 3. Confirm all referenced images exist in `public/blogs-img/`
-4. Report the post number, slug, and image count
+4. Confirm all internal markdown links use public blog routes, not source-relative paths like `../YYYY-MM-DD/*.md`
+5. Run the local link validator **from the aaron-studio content repo**, where `config/aaron-studio.json` is available:
 
-### Step 7: Update growth analytics catalog
+```bash
+node scripts/validate-blog-links.mjs \
+  <blog-repo>/content/blogs/en/{number}.{slug}.md \
+  <blog-repo>/content/blogs/zh/{number}.{slug}.md
+```
+
+The validator must pass before reporting that the local blog copy is ready.
+6. Start or reuse the blog dev server. Reuse an existing process only after confirming it belongs to the target blog repo and returns a healthy page; restart a stale process rather than accepting a cached 500 response.
+7. Run browser-rendered QA for both public routes:
+   - the expected H1, description, category, and language switch render;
+   - the cover appears once and is not duplicated in the Markdown body;
+   - every body image loads after normal lazy-loading scroll and has non-zero natural dimensions;
+   - the expected section count and table/framework content render;
+   - internal links resolve in the matching language;
+   - there is no horizontal overflow at the checked viewport and no browser console error.
+8. Leave the requested local preview page open and report the post number, slug, image count, link-validation result, browser-QA result, and preview URLs.
+
+### Step 8: Update growth analytics catalog
 
 After the post files have been written and verified, update the blog growth
 catalog from the configured blog repo:

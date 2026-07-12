@@ -2,51 +2,52 @@
 
 ## Canonical Idea
 
-Enterprise AI value is created less by model access than by deployment capability: the system around the model that turns intelligence into trusted work.
+The model is not the complete enterprise product. A human backpropagation layer turns intelligence into operating capacity and returns field learning to the product.
 
 ## Reusable Frame
 
-ACTOR for deployment-native AI:
+### Field-to-product mechanism
+
+- Start from a real operational decision, not a generic AI use case.
+- Connect fragmented data, business actions, permissions, and approvals into a working system.
+- Observe exceptions and failures in real use.
+- Turn repeated field failures into product capability and a better next deployment.
+
+### ACTOR
 
 - Action: what work changes?
-- Context: what must the system know, and what are the boundaries?
-- Trust: what can the system safely do?
-- Outcome: what proves improvement?
-- Recursive: who owns the learning loop, and how does the system improve?
+- Context: what must the system know and access?
+- Trust: what autonomy, approval, audit, and fallback are appropriate?
+- Outcome: what proves the work improved?
+- Recursive: how does this run improve the system and the next deployment?
 
 ## Claims Added
 
-- FDE is the visible job title, but the deeper durable skill is deployment-native engineering.
-- A demo proves the model can perform; deployment proves the organization can operate.
-- Token spend, model access, and usage charts are weak proxies for whether work changed.
-- Prompting is an interface skill; workflow engineering is the durable skill.
-- Recursive is the condition for enterprise AI systems to compound rather than decay.
+- FDE is best understood through field work connected to core product, not simply an embedded job role.
+- The customer site can be both a delivery endpoint and a product-learning source.
+- Customer ownership of the workflow and product write-back distinguish a strong FDE model from custom services.
+- A token is a unit of consumption; a changed and verified workflow is closer to a unit of enterprise value.
 
 ## Claims Updated
 
-- Earlier claim: AI becomes an operating system when intent, skill, run, review, and memory connect.
-  - Update: enterprise AI needs the same loop at organizational scale.
-
-- Earlier claim: one owner, shared boundary, evidence.
-  - Update: deployment-native engineering applies the same ownership/boundary/evidence logic to enterprise workflows.
-
-- Earlier claim: aspiration distance is different from return distance.
-  - Update: AI demos measure aspiration distance; production deployments test return distance.
+- Earlier: AI becomes an operating system when intent, skill, run, review, and memory connect.
+  - Update: a mature AI system also turns incidents into validators, evals, runbooks, and reusable patterns.
+- Earlier: AI expands one owner's execution radius, increasing the importance of boundary and evidence.
+  - Update: enterprise deployment must preserve shared boundaries, outcome ownership, and portable evidence while vendor involvement grows.
+- Earlier: Recursive emphasized post-launch responsibility.
+  - Update: Recursive now names a dual learning loop that improves both customer operation and future product/deployment patterns.
 
 ## Internal Link Map
 
-- `../2026-06-20/ai-became-my-operating-system.md`
-  - Use when discussing AI as an operating system rather than a tool.
-
-- `../2026-07-01/one-person-project-ai-coding-v2.md`
-  - Use when discussing ownership, boundary, and evidence.
-
-- `../2026-06-27/farthest-humans-started-as-failure.md`
-  - Use when discussing deployment trust and recovery.
+- `/blogs/one-person-project-ai-coding` and `/zh/blogs/one-person-project-ai-coding`
+  - Still conceptually relevant to owner, boundary, and evidence, but intentionally omitted from the compressed final draft.
+- `/blogs/ai-became-my-operating-system`
+  - Relevant future link, but intentionally omitted because ACTOR's real article-production example already carries the operating-system continuity.
+- Apollo / return-distance essay
+  - Conceptually related, but no public link exists in the blog repo. Do not insert a broken source-relative route.
 
 ## Future Branches
 
-- "The Deployment-Native Engineer" as a standalone career essay.
-- "Why Enterprise AI Fails After The Demo" as a practical checklist article.
-- "ACTOR Framework for AI Workflow Design" as a shorter tactical post with examples.
-- A video-native explainer that starts with the four-company pattern but spends most of the time on ACTOR.
+- "FDE Is Human Backpropagation" as a shorter, more technical standalone essay.
+- "ACTOR For Vendor Selection" focused on portability, lock-in, and ownership.
+- A postmortem after OpenAI/AWS/Microsoft deployment organizations have enough operating history for independent outcome evidence.

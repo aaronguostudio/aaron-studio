@@ -1,13 +1,17 @@
-Expensive tokens won't save enterprise AI.
+Better models do not turn themselves into operating change.
 
-That is the tension behind a strange pattern in recent AI news: Anthropic, OpenAI, AWS, and Microsoft are all putting engineers closer to customer workflows instead of only selling model access.
+That is why Anthropic, OpenAI, AWS, and Microsoft are moving engineers closer to customer workflows. The bottleneck is deployment: data, permissions, decision rights, exceptions, and ownership.
 
-The bottleneck moved. The hard part is no longer only model capability. It is deployment: connecting AI to real workflows, data permissions, governance, user habits, fallback paths, and measurable business outcomes.
+That is why FDE matters.
 
-That is why forward deployed engineering is becoming visible. It is not just consulting with a cooler title. At its best, it is engineering, product judgment, implementation, and operating change compressed into one loop.
+Where does AI deployment stall in your organization?
 
-For technical people, the signal is clear: the durable skill is not prompt engineering. It is workflow engineering.
+Full essay and my ACTOR deployment framework:
 
-The useful framework is ACTOR: Action, Context, Trust, Outcome, Recursive. The last layer is where the feedback loop lives: who owns learning after launch, and what reusable pattern remains?
+https://www.aaronguo.com/blogs/why-ai-companies-are-becoming-deployment-companies?utm_source=linkedin&utm_medium=social&utm_campaign=why-ai-companies-are-becoming-deployment-companies&utm_content=launch-operator
 
-Full essay: [blog URL]
+## Publishing Notes
+
+- Use the article link preview as the only media asset for this launch. Do not upload an additional image alongside the URL.
+- Paste the URL last and leave no text after it, so LinkedIn can render a clean preview instead of leaving a long visible URL in the published post.
+- Publish a separate native video or document post only for the follow-up experiment in `distribution-plan.md`.

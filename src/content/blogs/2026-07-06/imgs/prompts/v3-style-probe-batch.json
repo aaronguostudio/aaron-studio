@@ -1,0 +1,53 @@
+{
+  "jobs": 1,
+  "tasks": [
+    {
+      "id": "00-cover-v3-controlled-mix",
+      "promptFiles": ["00-cover-v3-controlled-mix.md"],
+      "image": "../00-cover-v3-controlled-mix.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "02-metaphor-demo-to-operating-loop-v3-controlled-mix",
+      "promptFiles": ["02-metaphor-demo-to-operating-loop-v3-controlled-mix.md"],
+      "image": "../02-metaphor-demo-to-operating-loop-v3-controlled-mix.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "04-framework-actor-loop-v3-controlled-mix",
+      "promptFiles": ["04-framework-actor-loop-v3-controlled-mix.md"],
+      "image": "../04-framework-actor-loop-v3-controlled-mix.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "00-cover-v3-unified",
+      "promptFiles": ["00-cover-v3-unified.md"],
+      "image": "../00-cover-v3-unified.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "02-metaphor-demo-to-operating-loop-v3-unified",
+      "promptFiles": ["02-metaphor-demo-to-operating-loop-v3-unified.md"],
+      "image": "../02-metaphor-demo-to-operating-loop-v3-unified.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    },
+    {
+      "id": "04-framework-actor-loop-v3-unified",
+      "promptFiles": ["04-framework-actor-loop-v3-unified.md"],
+      "image": "../04-framework-actor-loop-v3-unified.png",
+      "provider": "codex-cli",
+      "ar": "16:9",
+      "quality": "2k"
+    }
+  ]
+}

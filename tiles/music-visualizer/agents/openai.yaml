@@ -1,0 +1,4 @@
+interface:
+  display_name: "Music Visualizer"
+  short_description: "Generate music-led Remotion visualizers"
+  default_prompt: "Use $music-visualizer to create a music-led Remotion visualizer with an original soundtrack and deterministic motion."

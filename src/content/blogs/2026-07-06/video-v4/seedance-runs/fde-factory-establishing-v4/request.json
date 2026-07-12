@@ -1,0 +1,15 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "content": [
+    {
+      "type": "text",
+      "text": "5-second cinematic documentary insert, 16:9. Pre-dawn inside a mid-sized industrial factory operations room. An engineer and planner seen from behind stand at a long table with physical schedules and small status monitors; a factory floor is blurred behind glass. A single amber warning light turns on and both people turn toward it. Slow lateral dolly right, restrained, real materials, graphite shadows, jade operational light, warm amber warning. No words, no subtitles, no logos, no brand marks, no readable UI, no legible screens, no camera shake, no cuts."
+    }
+  ],
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 5,
+  "watermark": false,
+  "seed": 14321
+}

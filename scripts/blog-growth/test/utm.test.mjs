@@ -7,6 +7,7 @@ test('channelUtmDefaults maps distribution channels to source and medium', () =>
   assert.deepEqual(channelUtmDefaults('youtube'), { source: 'youtube', medium: 'video' });
   assert.deepEqual(channelUtmDefaults('newsletter'), { source: 'newsletter', medium: 'email' });
   assert.deepEqual(channelUtmDefaults('x'), { source: 'x', medium: 'social' });
+  assert.deepEqual(channelUtmDefaults('facebook'), { source: 'facebook', medium: 'social' });
   assert.deepEqual(channelUtmDefaults('blog'), { source: 'blog', medium: 'owned' });
 });
 

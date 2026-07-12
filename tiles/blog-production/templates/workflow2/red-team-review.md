@@ -17,3 +17,13 @@
 ## Required Revisions
 
 ## Revision Notes
+
+## Revision Delta
+
+### Added
+
+### Cut
+
+### Reframed
+
+### Intentionally Kept

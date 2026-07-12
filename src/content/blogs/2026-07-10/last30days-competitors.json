@@ -1,0 +1,9 @@
+{
+  "Claude Cowork": {
+    "x_handle": "AnthropicAI",
+    "x_related": ["claudeai", "alexalbert__"],
+    "subreddits": ["ClaudeCowork", "ClaudeAI", "claude", "AI_Agents", "productivity", "artificial", "LocalLLaMA"],
+    "github_repos": ["anthropics/financial-services-plugins"],
+    "context": "Claude Cowork launched in January 2026, added domain plugins and finance workflows in February, computer use in April, and cloud web/mobile sessions on July 7, 2026. Focus on sustained user experience, local file execution, Office deliverables, plugins, scheduling, usage limits, and governance."
+  }
+}

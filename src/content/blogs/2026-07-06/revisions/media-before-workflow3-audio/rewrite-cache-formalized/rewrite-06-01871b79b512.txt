@@ -1,0 +1,23 @@
+I use a framework called ACTOR, which is similar to the word "actor." 
+
+It outlines five questions I need to answer to assess the success of an AI deployment.
+
+---SEGMENT---
+
+What specific decision, handoff, or task will create change? 
+
+Focus on what the system needs to know and what access it has.
+
+---SEGMENT---
+
+Trust relies on understanding AI's role. Is it drafting, recommending, deciding, or acting? Who's responsible for approving its actions? If it fails, what are the consequences?
+
+For outcomes, we need clear evidence that the work has led to improvement. What benchmarks or metrics will we use to measure success?
+
+---SEGMENT---
+
+Recursive: how does this run benefit the workflow and the next run?
+
+That last word is key. A loop in a diagram doesn’t guarantee self-improvement. It depends on someone spotting failures, assessing their importance, and turning those lessons into improved evaluations, rules, runbooks, and tools.
+
+The goal isn’t to set up continuous manual tasks. It’s about improving our ability to make sound judgments over time.

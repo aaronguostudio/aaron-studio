@@ -4,233 +4,112 @@ date: 2026-07-06
 slug: why-ai-companies-are-becoming-deployment-companies
 category: ai-native-systems
 tags: [forward-deployed-engineering, enterprise-ai, ai-deployment, workflow-engineering]
+youtube: "https://youtu.be/BhwSZpb6ag8"
 draft: true
-cover: imgs/web/00-cover.webp
+cover: imgs/web/00-cover-v7-human-backpropagation.webp
 ---
 
 # 昂贵的 Token 救不了企业 AI
 
-![企业 AI 的部署层](imgs/web/00-cover.webp)
+*Anthropic、OpenAI、AWS、Microsoft 正在为同一个缺口投入数十亿美元：需要工程师把模型能力变成企业真正拥有、能够持续改进的工作流。*
 
-企业 AI 有一个很容易掉进去的衡量陷阱。
+![人工反馈修复从模型消耗到运营价值之间的断点](imgs/web/00-cover-v7-human-backpropagation.webp)
 
-Token 花了多少，很容易看见。模型接入了多少，也很容易汇报。usage chart 很漂亮，也很容易让人觉得项目在前进。但这些都不能证明工作本身发生了变化。
+Forward Deployed Engineering（FDE）已经成为企业 AI 最清晰的信号之一。把 Anthropic、OpenAI、AWS、Microsoft 最近的公告放在一起看，四家公司都在把工程师推到更靠近客户的位置。OpenAI 和 AWS 直接使用 FDE 这个名称；Anthropic 和 Microsoft 的叫法不同，押注的却是同一件事。
 
-所以最近的 AI 新闻才显得很有意思。
+模型已经会写代码、读文档、调用工具。企业真正缺的，是把数据、权限、审批、恢复和责任组织成一套能在生产环境稳定运行的工作系统。FDE 就站在这个缺口里：工程师把模型接进真实工作，再把现场暴露的问题变成更好的部署，并尽可能送回产品。
 
-[Anthropic](https://www.anthropic.com/news/enterprise-ai-services-company) 和 Blackstone、Hellman & Friedman、Goldman Sachs 等投资方成立了一家企业 AI 服务公司。[OpenAI](https://openai.com/index/openai-launches-the-deployment-company/) 推出了 OpenAI Deployment Company，并同意收购 Tomoro。[AWS](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers) 投入 10 亿美元建立 Forward Deployed Engineering 组织。[Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) 推出 Frontier Company，投入 25 亿美元，把 6000 名行业和工程专家嵌入客户组织。
+::YoutubeEmbed
+---
+videoId: "BhwSZpb6ag8"
+title: "Expensive Tokens Won't Save Enterprise AI"
+---
+::
 
-公司不同，生态不同，动作却很像。
+## 75 亿美元说明，AI 的瓶颈在落地
 
-如果问题只是模型还不够强，这些公告应该更多讲更便宜的 inference、更大的 context window、更充足的 API 配额。但它们真正指向的，是 deployment organization 这种能力。
+59 天内，四家 AI 平台先后宣布成立大型部署组织。[Anthropic](https://www.anthropic.com/news/enterprise-ai-services-company) 成立了一家面向中型企业的 AI 服务公司。[OpenAI](https://openai.com/index/openai-launches-the-deployment-company/) 推出由自己控股的部署公司，初始投资超过 40 亿美元，并同意收购 Tomoro，带入大约 150 名 FDE 与部署专家。
 
-它们都在把工程能力推到离客户更近的地方。原因并不复杂：企业 AI 进入了一个新阶段。前一阶段的核心是获得 intelligence：模型、API、copilot、context window、agent、benchmark。下一阶段的核心是 deployment capability：企业能不能把这层 intelligence 接进真实 workflow，同时不破坏信任、合规、责任边界和经济账。
+[AWS](https://www.aboutamazon.com/news/aws/aws-1-billion-forward-deployed-ai-engineers) 投入 10 亿美元，计划把数千名专家嵌入客户团队。[Microsoft](https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence/) 则为 Frontier Company 投入 25 亿美元，配置 6000 名行业和工程专家。
 
-这就是为什么 forward deployed engineering 变得显眼。
+这些投入的口径并不完全一致，但共同说明：当前 AI 真正稀缺的，不是更多模型能力，而是把数据、权限、系统集成和业务责任组织成真实结果的部署能力。
 
-FDE 是职位名称。更深的信号是：企业 AI 的瓶颈已经不只是模型能不能完成任务，而是组织能不能把这个任务变成一套可靠的工作闭环。
+软件公司为什么要花数十亿美元养一支庞大的工程队伍？因为这些工程师同时承担两个任务：帮助客户把系统做成，也告诉模型公司哪些现场问题值得变成产品。如果每支团队都在手工解决同一种连接器、权限、评估或工作流故障，FDE 只是昂贵的定制服务。只有当重复问题被沉淀进产品，这个模式才可能规模化。
 
-这个问题离发布会 demo 很远。它藏在数据权限、workflow 缺口、旧系统、安全审查、采购、审计、员工习惯、预算归属，以及每个企业买家迟早会问的那句话里：
+## FDE 到底在现场做什么
 
-这件事到底让业务发生了什么变化？
+Palantir 把 FDE 定义成一种产品开发方式，而不只是实施岗位。工程师进入工厂、运营中心等真实现场，和用户一起工作，再与核心工程团队协作，把现场反馈变成产品改进。Palantir 把这个过程称为[由人完成的反向传播](https://www.palantir.com/docs/foundry/architecture-center/overview)。这个说法听起来有些学术，实际工作却很具体。
 
-## 真正的模式是 deployment
+假设一家制造商遇到供应中断。供应商信息在一个系统里，生产能力在另一个系统里，客户订单又在第三个系统里，审批规则可能只存在于员工经验中。真正有价值的问题不是“这里能不能加一个聊天机器人”，而是“这个供应商出问题以后，哪些订单会受影响，计划人员有哪些选择，谁有权批准调整”。
 
-Anthropic 的公告是一个很好的入口，因为它直接说出了市场缺口。新公司要帮助中型企业把 Claude 用进核心运营。Anthropic 提到的客户类型包括 community banks、mid-sized manufacturers、regional health systems。这些不是小公司，它们有真实的运营复杂度，但未必有足够强的内部 AI 工程能力，能够独立建设和维护 frontier AI deployment。
+FDE 会和一线人员一起拆解这个问题。团队连接相关数据，定义工厂、生产线、供应商、订单等关键业务对象，再把真正需要采取的动作接进去：更新采购单、调整配送策略、模拟供应中断。权限、审批和失败后的处理方式，从一开始就是系统的一部分，而不是上线前补的一叠文档。
 
-这个细节很关键。最大型企业可以请大型系统集成商，可以搭平台团队，也可以用几年时间跑转型项目。但中型企业同样有碎片化数据、监管流程、昂贵的人工操作和结果压力，只是实施资源更少。它们有 AI opportunity，却缺少 implementation muscle。
+接着，系统必须接受现场检验。计划人员发现了一个例外，某个数据源来晚了，审批规则挡错了人。FDE 可以修复当前部署，更有价值的是判断这个问题会不会在其他客户身上重复，再把经验送回核心产品。
 
-OpenAI 的 Deployment Company 从另一个方向讲了同一件事。OpenAI 说，FDE 会和 business leaders、operators、frontline teams 一起工作，识别高价值 workflow，围绕 AI 重构基础设施，并把模型接入客户的数据、工具、控制机制和业务流程。它还同意收购 Tomoro，从第一天就带入大约 150 名 FDE 和 deployment specialists。
+这就是由人完成的反向传播：发现问题，做出可运行的系统，观察真实失败，改进产品，再让下一次部署从更高的起点开始。对技术人员来说，真正有价值的信号不是“离客户近”本身，而是把混乱的业务现场翻译成软件，在真实约束下保持工程严谨，并判断哪些局部经验值得成为可复用的产品能力。
 
-AWS 的动作更直接。它投入 10 亿美元建立 FDE 组织，让 AWS 工程师进入客户的业务、工程和安全团队，共同建设 agentic AI 系统。AWS 的判断是，客户已经过了“探索 AI 能做什么”的阶段，他们想让 AI 成为运营核心。
+![FDE 把真实业务决策变成受治理的工作流，再把现场学习送回产品](imgs/web/02-fde-field-loop-v8.webp)
 
-Microsoft 的语言更宽，但结构相同。Frontier Company 关注 measurable business outcomes、ROI、continuous improvement、model choice 和客户 IP 保护。它的 pitch 已经不只是“多用一点 Copilot”，而是一套企业 AI operating model。
+## 不要被“五分钟 AI”神话欺骗
 
-表面看，这是 AI vendor 在扩展服务。
+如果有人告诉你，只用几句 prompt、五分钟就让 AI 写出了一篇真正优秀的文章，他隐去的是支撑结果的整套生产系统。Prompt 可以启动一次生成，却维护不了一套高质量工作流。
 
-更准确地说，是瓶颈移动到了下游。
+我的第一版博客流程连通了调研、大纲、写作、翻译、配图、音频、视频和发布，产出速度明显提高，质量却没有自动提高。证据薄弱、生硬翻译、重复配图、失效链接和过期音视频，仍然可能顺着流程一路通过。
 
-![不同 AI 平台汇聚到部署层](imgs/web/01-scene-platforms-converge.webp)
+第二版需要我更深地参与：重读、拒绝、质疑证据、比较视觉方向、测试链接，再决定哪些修正应该成为长期规则。工作流之所以提高，是因为判断被写回了系统，变成证据门、编辑检查和验证工具。
 
-## Demo 和 deployment 之间隔着一套组织能力
+这其实就是一个缩小版的 FDE 过程：贴近真实工作，发现通用能力遗漏的问题，再把局部修正写回系统。企业部署的规模和风险当然高得多，但工作方式相同。至少在现阶段，AI 能执行的环节远多于它能负责的环节；没有人持续设定质量标准并维护系统，`Recursive` 很容易变成重复生成，而不是自我提升。
 
-我在自己的 AI workflow 里反复看到这个问题，只是规模小很多。
+目标不是永远手工操作，而是让每次参与都能沉淀，让下一次运行从更高的基线开始。不要把自动生成误认为自动生产，更不要把自动生产误认为自我提升。
 
-我用 agent 做 code、writing、analytics、video、publishing 的时候，模型本身通常不会长期是最难的部分。模型可以起草、读文件、写代码、总结文档、生成测试、批判 outline、写视频脚本，也能留下可用的 artifact。
+![博客生产流程从一组相连的任务，演进为能够复盘和学习的系统](imgs/web/01-task-passed-workflow-failed-v7.webp)
 
-真正难的是把这些能力变成一个我能信任的工作系统。
+## 不要简单地把 FDE 和咨询画等号
 
-agent 从哪里拿 context？哪些文件可以动？什么算 evidence？什么必须先 review？结果放在哪里？谁检查？错了怎么办？下一次 run 会不会从这一次学到东西？
+把 FDE 理解成咨询顾问的重新包装，是一种很片面的看法。优秀的咨询顾问和系统集成商，本来就在分析工作流、建设技术、推动组织变革、处理监管问题和协调大型转型，FDE 并不独占这些能力。
 
-我在 [I Gave Codex a Task From a Moving Tesla](../2026-06-20/ai-became-my-operating-system.md) 里写过这个问题：AI 只有在 intent、skill、run、review、memory 连起来的时候，才开始像 operating system。在那之前，它只是一个能力很强、但 workflow 很薄的工具。
+更值得关注的区别，是现场工作与产品之间的连接。在理想的 FDE 模式中，团队既靠近生产环境，也靠近核心工程。一次部署中学到的东西，可以改变平台，并缩短下一次部署。
 
-企业 AI 也是同一个结构，只是钱更多，后果更重。
+![咨询帮助企业规划和推动转型，FDE 则把现场问题持续送回产品工程](imgs/web/03-fde-role-comparison-v8.webp)
 
-让模型总结合同、起草销售邮件、回答客服问题、review 文档、写代码，都可以做出漂亮 demo。真正难的是把它放进组织的真实系统里。企业场景里有 role-based access、data residency、安全审批、合规审查、采购、现有工具、change management、员工信任、异常处理和业务 KPI。
+职位名称本身什么也证明不了。如果项目结束后只留下定制代码、一次交接，以及对厂商更深的依赖，它仍然是定制服务；如果客户能够运行建成的系统，现场经验也能改进产品，FDE 才真正形成了不同的工作方式。
 
-Demo 证明模型可以 perform。
+FDE 不会替代咨询，企业 AI 落地仍然需要工程、产品判断、安全、治理和变革管理。它的价值，是缩短这些专业与真实软件之间的距离。
 
-Deployment 证明组织可以 operate。
+## 企业必须把工作流沉淀在自己手里
 
-这才是几家公司同时下场的原因。AI adoption 越来越不像安装一个软件产品，而更像围绕一种新 intelligence 重构 workflow。模型只是其中一层。deployment 决定这层 intelligence 在哪里进入业务、能做什么、如何被评估，以及碰到真实工作以后谁负责。
+厂商越接近核心工作流，越可能创造价值，也越可能把依赖藏得更深。一个关键流程可能逐渐绑定在某家厂商的连接器、评估体系、权限模型、智能体运行环境和默认假设上。系统看起来很成功，企业理解和改变它的能力却可能越来越弱。
 
-![从模型 demo 到可信的工作闭环](imgs/web/02-metaphor-demo-to-operating-loop.webp)
+因此，企业必须掌握工作流中真正耐用的部分：数据契约、评估集、权限规则、审计记录、运行手册、失败模式，以及工作流与模型之间的接口。内部人员应该知道系统为什么有效、可能在哪里失败，也应该能够在更换模型或合作伙伴时，不必把业务流程推倒重来。
 
-## FDE 是一个信号，不只是职位
+一次好的 FDE 合作，应该让客户自身变得更有能力，而不是更依赖一家有能力的厂商。企业付费建设的应该是运营能力，而不是租用一个结果。
 
-Forward deployed engineering 不是新概念。Palantir 很早就把它变成了自己的核心模式。
+## ACTOR：我的 AI 落地执行框架
 
-按照 Palantir 自己的解释，Forward Deployed Software Engineer 会直接嵌入客户，用 Palantir 平台解决客户最难的问题。它给出的区分到今天仍然有用：传统 product engineer 往往是为很多客户建设一种 capability；FDE 更像是围绕一个客户启用很多 capabilities。
+ACTOR 是我在实际工作中用来推动 AI 落地的执行框架。它不是一套普遍真理，而是为了避免一个项目仅仅因为“模型生成了东西”，就被宣布成功。
 
-这解释了为什么这个角色适合 AI。
-
-普通 software engineer 可以离客户很远，也能做出优秀工程。sales engineer 可以离客户很近，帮助完成技术验证。consultant 可以理解业务、设计 roadmap、协调 transformation。
-
-FDE 工作在这些角色的交界处。他需要足够懂业务，避免建错东西；也要足够懂工程，把东西真正建出来；还要有 product judgment，知道哪些客户痛点值得变成可复用 pattern；同时还要有运营纪律，留下一个别人能维护的系统。
-
-AI 让这件事更重要。
-
-AI 系统里有很多听起来无聊、但失败时很致命的落地细节。权限规则错了。source citation 丢了。data connector 过期了。fallback path 不清楚。eval 奖励了错误行为。人工审批放在 workflow 里太晚。模型更新以后系统行为变了。团队说不清 agent 为什么给出某个 recommendation。
-
-这些问题通常不会出现在 demo 里。它们只会在系统碰到真实工作时暴露。
-
-FDE 的价值，就是把工程能力放到这些细节变得可见的位置。
-
-## Consultant 不是反派
-
-有一种偷懒的说法：FDE 只是 consulting 换了一个更时髦的名字。
-
-这个判断太粗。
-
-传统 consulting 和 system integration 仍然重要。大型企业需要 program governance、change management、合规规划、培训、全球 rollout、operating model design 和跨系统协调。一个很强的工程团队就算嵌入客户，如果组织无法 adoption，项目一样会失败。
-
-区别在于重心。
-
-传统 consulting 往往从 diagnosis 开始，再走向 recommendation、roadmap、operating model 或 transformation program。implementation 当然可能发生，但链条经常会被拆成不同团队、vendor、阶段和 handoff。
-
-Forward deployed engineering 试图压缩这条链。
-
-| 传统 consulting 的重心 | FDE 的重心 |
+| 维度 | 问题 |
 |---|---|
-| 诊断和建议 | 理解并建设 |
-| roadmap 和项目 artifact | production system 和 operating capability |
-| stakeholder coordination | embedded workflow redesign |
-| billable project delivery | measurable business outcomes |
-| handoff 给实施团队 | 和用户、系统一起迭代 |
-| 外部专家经验 | 反馈到产品的 field learning |
+| **Action** | 哪项真实决策、交接或任务会改变？ |
+| **Context** | 系统必须知道什么，有权访问什么？ |
+| **Trust** | AI 是起草、建议、决定还是行动？谁批准，失败后如何恢复？ |
+| **Outcome** | 什么证据能证明工作真的改善？ |
+| **Recursive** | 这次运行怎样改进当前工作流和下一次运行？ |
 
-AWS 几乎直接讲出了这个差别。它说 FDE 模式围绕 business results，而不是 billable hours；客户离开 engagement 时，应该带走 deployed systems、knowledge graphs、runbooks、architecture documentation 和 trained internal champions。
+这篇文章本身就是一个现实例子。**Action** 不是“生成文字”，而是发布一篇来源可靠、双语一致、图片和链接都能正常工作的文章。**Context** 包括一手资料、过去的文章、语言规则和目标读者。**Trust** 允许 AI 调研、起草、翻译和提出配图，但事实判断、文章结构、视觉选择和最终发布仍由我负责。**Outcome** 也不是字数或 Token 使用量，而是论证是否成立、成品是否通过验证、读者反馈是否真的有用。
 
-Microsoft 补上了 trust 这一层。Frontier Company 强调客户 IP 保护、model choice、governance、FinOps 和 continuous improvement。AI 越深入企业 workflow，客户就越不能把 lock-in、data ownership、model flexibility 和 auditability 当作采购细节。
+**Recursive** 就发生在这次修改里。读者指出“四项产出”与 ACTOR 形成了两套竞争框架。我删掉了前者，并把“一篇严肃文章只保留一个主要执行框架”写进工作流。当前文章因此更清楚，下一篇文章也会从更好的约束开始。
 
-所以 FDE 的重点不是“工程师替代 consultant”。
+这就是我实际使用 ACTOR 的方式。企业场景的数据更多、风险更高、责任人更多，但在宣布部署完成之前，仍然必须说清楚行动、背景、信任、结果和学习。
 
-更准确的读法是：企业 AI deployment 横跨多个学科。它太技术，不能只当战略做；它也太组织化，不能只当工程做。
+![ACTOR 部署框架让 Recursive 把学习结果带回 Action](imgs/web/04-actor-deployment-test-v7.webp)
 
-![FDE 把重心从 handoff 推向 embedded building](imgs/web/03-comparison-fde-center-of-gravity.webp)
+## Token 是投入，不是结果
 
-## 为什么 AI 平台都想要这一层
+Token 使用量只能衡量模型消耗，不能说明决策有没有改善、流程有没有变快、组织有没有学到东西。真正重要的产出，是一项被可靠改变的工作：它能够稳定运行，仍在企业控制之下，并且会在使用中继续提高。
 
-模型公司往下游走，还有很现实的商业原因。
+![模型消耗进入企业自己掌握的工作流，最终产生经过验证的运营价值和可复用学习](imgs/web/05-token-to-owned-workflow-v8.webp)
 
-Frontier model 很贵。只靠 benchmark 拉开差距也越来越难。客户也许关心这个月哪个模型最好，但真正签预算的人更关心另一件事：系统有没有提高收入、降低成本、减少风险、加快 workflow，或者创造产品优势。
+Anthropic、OpenAI、AWS、Microsoft 建设部署组织，是因为模型能力本身无法完成工作。它们押注的是：现场工程师能够缩短智能与运营之间的距离。AI 很快还会产生新的职位名称，但第一性原理不会变：能力只有在改变真实工作、经得住生产环境，并让组织更有能力运行下一条工作流时，才会产生价值。
 
-这些价值大多发生在 API call 周围，而不是 API call 本身。
-
-这也是为什么 Alex Karp 最近对 AI 行业的批评值得参考，尽管要带着一点警惕去读。Palantir 不是中立观察者，它卖的正是 deployment 和 ontology 这一层。但 Karp 的不满之所以有力量，是因为很多企业确实感受到了同一种落差：token 消耗、模型访问和漂亮 demo，并不会自动变成 operating value。
-
-如果 AI 平台只停在模型层，它可能变成被别人包装、集成和商业化的基础设施。进入 deployment 以后，它离客户最高价值的 workflow 更近。它能看到模型在哪里失败，哪些 pattern 会重复，哪些用例真的带来 usage，哪些关系会变得更 sticky，也可能拿到更大的 transformation budget。
-
-这就是为什么 Blackstone 和 Fractional AI 的后续动作很有意思。Anthropic-backed services firm 宣布后不久，新公司就收购了 Fractional AI，让它成为 founding operational centerpiece。信号很直接：model access 只是一种资产，applied AI engineering talent 才是把模型变成系统的稀缺能力。
-
-OpenAI 收购 Tomoro 也是同一个形状。OpenAI 没有只宣布 partner ecosystem，它买下了一支在复杂企业环境里建设和运行 AI 系统的团队。
-
-客户侧的风险也很清楚。
-
-更多 deployment help 可以加速 adoption，也可能加深 dependency。如果一个关键 workflow 被重构在某个 vendor 的模型、connector、eval、prompt 和默认假设之上，switching cost 可能直到出问题时才显现。Microsoft 强调 model-diverse systems 和客户 intelligence 保护，正是因为这个问题迟早会变成采购和治理的核心。
-
-客户真正该问的，不是哪个 vendor 能做出最惊艳的 AI demo。
-
-更好的问题是：
-
-谁能帮助我们更快建立内部能力，而不是把判断力也外包掉？
-
-## 给技术人的信号
-
-这部分是我最关心的。
-
-FDE 不只是企业销售动作。它也是给技术人的 career signal。
-
-下一阶段有价值的工程师，会懂代码，也会懂模型。但这还不够。他还需要 deployment-native。
-
-一个 deployment-native engineer 能走进混乱 workflow，找到真正的 constraint。他能区分哪些任务应该自动化，哪些决策必须保留人的判断，哪些流程其实应该被取消。他能把模型接入数据、工具、权限和业务流程。他能设计 eval、guardrail、monitoring 和 fallback path。他能和非技术用户一起工作，同时不丢掉工程严谨性。他还能衡量系统到底有没有改变结果。
-
-这比 prompt engineering 宽得多。
-
-Prompt 很重要，它是 intelligence 的一个 interface。但更耐用的能力是 workflow engineering：理解工作如何在系统里移动，AI 改变了哪里的成本结构，以及如何重构这个 loop，让输出变得有用、安全、可衡量。
-
-这和我在 [The One-Person Project](../2026-07-01/one-person-project-ai-coding-v2.md) 里写的东西是一条线。AI 扩大了一个 owner 的 execution radius，但也让 ownership、boundary、evidence 变得更重要。企业版本也是一样。Deployment-native engineering 不只是离客户更近，而是把客户现场的混乱变成系统能遵守的边界、组织能信任的证据，以及上线后还能继续学习的工作闭环。
-
-过去很长一段时间，强工程能力往往意味着把客户的运营混乱挡在产品边界之外。这有道理。好的平台会创造 reusable primitives。好的基础设施会隐藏复杂度。好的产品团队也不会把每一个客户请求都变成定制开发。
-
-AI 改变了这个边界。
-
-Generic code 变便宜了。Context 变贵了。能把技术可能性接到业务 workflow 上的人，会比只等 clean ticket 的人更有杠杆。
-
-Product leader 也一样。工作不再是抽象地“找 AI use case”。更好的问题是：哪些 workflow 值得引入 intelligence？什么 evidence 能证明价值？trust boundary 在哪里？系统上线后如何继续变好？
-
-## ACTOR 方法框架
-
-我会用 ACTOR 这个方法框架来拆企业 AI deployment。
-
-它不是 prompt trick，而是一套 deployment-native checklist。
-
-**Action.** 到底哪个业务动作、决策、handoff 或重复任务会改变？如果这里很模糊，项目就会变成一个 demo 在寻找 use case。
-
-**Context.** 系统需要知道什么？source of truth 在哪里？数据访问边界、权限规则、治理约束是什么？很多企业 AI 失败，不是 model failure，而是 context failure。
-
-**Trust.** AI 应该有多大自主权？它是在 drafting、recommending、deciding，还是 acting？每个动词都需要不同的权限模型、审批路径、fallback 和 audit trail。
-
-**Outcome.** 什么能证明工作真的变好了？cycle time 更短、escalation 更少、error rate 更低、conversion 更高、margin 更好、documentation 更干净、onboarding 更快。如果没有 outcome layer，AI adoption 很容易变成 activity reporting。
-
-**Recursive.** 上线以后，谁拥有这个 learning loop？什么 feedback 能说明系统真的改善了工作？留下什么 runbook？内部有没有 champion 能维护？哪些 pattern 被沉淀下来，让下一个 workflow 不从零开始？
-
-这一点我不想弱化。
-
-Responsibility 很重要，但只有 responsibility 仍然可能变成静态 handoff。Recursive 要求系统有 improvement loop。每次 deployment 都应该留下更清晰的 eval、更干净的数据 contract、更好的 prompt、更明确的 failure mode、更强的 runbook 和可复用 pattern。不能从真实使用中学习的系统，最终会慢慢变成另一个被遗忘的企业工具。
-
-这里也能接上我在 [The Farthest Humans Ever Went Started as a Failure](../2026-06-27/farthest-humans-started-as-failure.md) 里写过的区别。Demo 测的是 aspiration distance：一切顺利时系统能走多远。Deployment 测的是 return distance：系统偏离计划以后，还能不能恢复。
-
-ACTOR 就是提前问这个问题的一种方式。
-
-![ACTOR framework for deployment-native enterprise AI](imgs/web/04-framework-actor-loop.webp)
-
-## 更大的变化
-
-模型时代让 intelligence 看起来变得充裕。deployment 时代会检验这层 intelligence 能不能真正改变工作。
-
-这是理解这些公告最干净的方式。Anthropic、OpenAI、AWS、Microsoft 都在增加服务团队，因为它们面对的是同一个企业现实：AI 的价值取决于模型周围的系统。
-
-数据。
-
-Workflow。
-
-控制机制。
-
-Trust boundary。
-
-激励。
-
-Owner。
-
-Feedback loop。
-
-我不认为每个工程师都应该成为 FDE。有人应该继续深挖 infrastructure、model research、security、developer tools、product platform、distributed systems。但每个技术人都应该理解，为什么这个角色现在变得可见。它说明 frontier 已经更靠近客户。
-
-在我自己的工作里，现在最值得信任的问题是：
-
-在允许模型输出改变下一步之前，模型周围必须先具备什么？
-
-能回答这个问题的公司，不只是部署了 AI。它们会把 intelligence 变成 operating capacity。
-
-回答不了这个问题的公司，会继续购买昂贵的 token，把 usage report 当成 progress，然后困惑为什么这一切没有变成 margin、speed 或更好的决策。
+我最终会保留一条执行规则：判断 AI，要看它改变了什么工作流、客户留下了什么能力，而不是消耗了多少 Token，或者团队挂着什么职位名称。真正的问题不是 FDE 这个名称会不会流行，而是企业能不能把昂贵的 Token，变成自己真正拥有的运营系统。

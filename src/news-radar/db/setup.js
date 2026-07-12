@@ -36,6 +36,13 @@ async function setup() {
       status TEXT DEFAULT 'running',
       error TEXT
     );
+
+    CREATE TABLE IF NOT EXISTS daily_pulse (
+      date TEXT PRIMARY KEY,
+      pulse_text TEXT NOT NULL,
+      top_item_ids TEXT,
+      generated_at TEXT DEFAULT (datetime('now'))
+    );
   `);
 
   console.log("✅ Database schema created successfully");

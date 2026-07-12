@@ -1,0 +1,13 @@
+I encounter a smaller version of this in my own publishing workflow. 
+
+When someone claims AI can produce a solid article in five minutes, they’re overlooking a significant amount of effort involved.
+
+---SEGMENT---
+
+My first workflow brought together research, outlining, writing, translation, images, audio, video, and publishing. It was quick and efficient. However, it also had a tendency to carry weak evidence, awkward language, repetitive visuals, and broken links right through to the final product.
+
+---SEGMENT---
+
+The second version demanded more engagement. I needed to reread, reject, and challenge claims. I compared visual directions and tested the final package. Quality improved as those judgments turned into evidence gates, editorial rules, and validators.
+
+While this doesn’t confirm that FDE operates effectively at the enterprise level, it does illustrate a similar working pattern: staying close to actual work, identifying gaps in general capability, and integrating corrections back into the system.
