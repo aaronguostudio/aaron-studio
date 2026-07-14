@@ -1,0 +1,12 @@
+{
+  "title": "Prism Breaks",
+  "artist": "Visual And Sound",
+  "trackLabel": "music audition / 02",
+  "durationSec": 42.024,
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "seed": 1302,
+  "resolution": "1080p",
+  "prompt": "Instrumental only. A futuristic 42-second broken-beat focus track at 104 BPM. Use a syncopated kick-and-rim pattern with a light two-step feel, clipped hand percussion, a rubbery sub-bass motif, airy synthetic mallet plucks, and an expansive cool pad. Make the groove articulate, slightly off-center, and elegant rather than sleepy: a listener should feel a real rhythmic engine without it becoming dance-floor music. Structure: a short pulse arriving, a clean broken groove, one luminous chord change, then an uncluttered exit. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl dust, no jazzy chords, no trap hats, no build-up, no drop, no heavy wobble bass, no harsh treble.",
+  "audioFile": "music.mp3"
+}

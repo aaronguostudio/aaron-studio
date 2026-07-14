@@ -1,0 +1,54 @@
+{
+  "title": "Signal Windows — After-Hours City Study",
+  "durationSec": 600,
+  "resolution": "4k",
+  "compositionPlan": {
+    "chunks": [
+      {
+        "text": "[Concrete Arrival]\n{instrumental opening: introduce a spacious glassy chord field and a soft sub-bass outline; let the first pulse arrive gradually}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "instrumental only", "refined downtempo electronica", "90 BPM", "muted glassy synth chords", "rounded analog sub bass", "very sparse soft electronic kick", "architectural negative space", "wide clean production", "focused late-evening atmosphere"
+        ],
+        "negative_styles": ["vocals", "lyrics", "EDM drop", "festival synth lead", "harsh hi-hats", "glitch effects", "busy fills", "abrupt climax", "siren sound effects"],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Glass Facade]\n{settle into a patient pulse; add a subtle second chord color and quiet tick-like percussion without increasing urgency}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "same restrained electronic palette", "patient half-time pulse", "soft tactile percussion", "cool blue chord voicings", "small melodic fragments", "steady low dynamics", "deep work music"
+        ],
+        "negative_styles": ["vocals", "drum break", "loud snare", "busy arpeggios", "riser", "drop", "aggressive bass", "bright pop hook"],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Open Courtyard]\n{widen the harmony and leave more air between notes; let a distant synth motif answer the pulse, then dissolve back into space}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "open airy synth voicings", "soft analog warmth", "subtle harmonic opening", "distant restrained motif", "unhurried repetition", "clear negative space", "low-to-medium energy"
+        ],
+        "negative_styles": ["vocals", "sudden modulation", "solo lead", "dancefloor build", "loud percussion", "glitch", "dramatic orchestra"],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[City Lights]\n{let the bass pulse become a little more present and allow a contained shimmer in the upper register; keep the rhythm poised, never exuberant}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "contained nocturnal lift", "rounded bass pulse", "fine upper-register shimmer", "muted electronic percussion", "slow evolving chords", "urban water reflection mood", "elegant restraint"
+        ],
+        "negative_styles": ["vocals", "EDM drop", "big room kick", "harsh cymbals", "fast tempo", "party energy", "abrupt transition"],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Window Fade]\n{return to the first chord color, reduce the percussion, lengthen the gaps, and finish with a natural quiet resolution}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "sparse electronic outro", "returning opening harmony", "less percussion", "warm analog decay", "long pauses", "quiet resolution", "gentle ending without a hard stop"
+        ],
+        "negative_styles": ["vocals", "new theme", "building intensity", "sudden ending", "drum solo", "riser", "bright lead synth"],
+        "context_adherence": "high"
+      }
+    ]
+  }
+}

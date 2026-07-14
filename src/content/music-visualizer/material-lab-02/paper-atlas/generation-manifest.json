@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T20:26:31.379Z",
+  "title": "Paper Atlas",
+  "theme": "paper-moon",
+  "visualStyle": "paper-atlas",
+  "prompt": "Visual-material study using the original Afterimage Gate audio source. Printed paper, cut edges, physical shadows, and chapter-scale rearrangement replace per-beat geometric response.",
+  "requestedDurationSec": 46,
+  "actualAudioDurationSec": 46.032,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/afterimage-gate/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-lab-02/paper-atlas/paper-atlas.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-lab-02/paper-atlas/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

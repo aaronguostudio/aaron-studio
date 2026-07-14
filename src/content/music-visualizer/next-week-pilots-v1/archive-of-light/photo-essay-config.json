@@ -1,0 +1,14 @@
+{
+  "title": "Archive of Light — Quiet Interior Focus",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {"fontName": "Avenir Next", "titleSize": 34, "detailSize": 22, "left": 72, "titleBottom": 112, "detailBottom": 82, "initialDelaySec": 0.8, "fadeSec": 0.7, "exitLeadSec": 0.45},
+  "slides": [
+    {"image": "images/01-glass-ceiling.jpg", "durationSec": 19, "motion": "static", "credit": {"caption": "Ceiling Study", "photographer": "Julia Taubitz", "location": "Kunsthalle Düsseldorf, Germany", "camera": "Nikon Z6_3", "sourcePage": "https://unsplash.com/photos/sunlight-streams-through-a-modern-glass-ceiling-9hTYL6-juP4"}},
+    {"image": "images/02-stair-light.jpg", "durationSec": 19, "motion": "static", "credit": {"caption": "Stone Noon", "photographer": "QUENTIN Mahe", "location": "London, United Kingdom", "camera": "Fujifilm X-T5", "sourcePage": "https://unsplash.com/photos/dramatic-sunlight-illuminates-a-textured-wall-and-window-JsGLHErCyzw"}},
+    {"image": "images/03-white-gallery.jpg", "durationSec": 19, "motion": "zoom-out", "motionAmount": 0.01, "credit": {"caption": "White Hall", "photographer": "Julia Taubitz", "location": "Kunsthalle Düsseldorf, Germany", "camera": "Nikon Z6_3", "sourcePage": "https://unsplash.com/photos/modern-interior-with-white-walls-and-skylights-cjOYdVGCZw0"}}
+  ]
+}

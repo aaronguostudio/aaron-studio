@@ -1,0 +1,22 @@
+{
+  "provider": "Google Gemini API",
+  "model": "veo-3.1-lite-generate-preview",
+  "mode": "strict-first-last-loop",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/veo-3.1-lite/chapter-02/prompt.txt",
+  "image": {
+    "path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/seedance/chapter-02/anchor.png",
+    "sha256": "8ad55ab88a52159b3aae07b720543e3a355c2b01bd7b3c7ee29059cc9cd0dec1"
+  },
+  "lastFrame": {
+    "path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/seedance/chapter-02/anchor.png",
+    "sha256": "8ad55ab88a52159b3aae07b720543e3a355c2b01bd7b3c7ee29059cc9cd0dec1"
+  },
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/veo-3.1-lite/chapter-02/output-1080p.mp4",
+  "parameters": {
+    "aspectRatio": "16:9",
+    "durationSeconds": 8,
+    "resolution": "1080p"
+  },
+  "requestedSeed": 260714,
+  "submittedAt": "2026-07-14T00:12:56.352Z"
+}

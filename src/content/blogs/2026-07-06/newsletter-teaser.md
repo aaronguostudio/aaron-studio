@@ -1,17 +1,31 @@
 ## Subject
 
-Better models are not fixing the enterprise AI bottleneck
+A model answer is not a working system
 
 ## Preview Text
 
-Why Anthropic, OpenAI, AWS, and Microsoft are investing in deployment capacity.
+Why Anthropic, OpenAI, AWS, and Microsoft are investing billions in deployment capacity.
 
 ## Body
 
-The latest enterprise AI announcements look different on the surface. Underneath, they point to the same bottleneck: a model does not become operating change on its own.
+Hi,
 
-Anthropic, OpenAI, AWS, and Microsoft are all investing in engineers who can connect AI to the reality around it: data, permissions, decisions, approvals, exceptions, ownership, and feedback from the field.
+In 59 days, Anthropic, OpenAI, AWS, and Microsoft all made the same underlying bet: put more engineers closer to customers.
 
-In this week's essay, I explain why Forward Deployed Engineering matters, why it is not simply consulting under a new name, and the ACTOR framework I use to judge whether an AI deployment has changed real work.
+That is a clue about where enterprise AI is getting stuck.
 
-Read the full essay: https://www.aaronguo.com/blogs/why-ai-companies-are-becoming-deployment-companies?utm_source=newsletter&utm_medium=email&utm_campaign=why-ai-companies-are-becoming-deployment-companies&utm_content=launch-teaser
+A model can write code, analyze documents, and call tools. It still cannot, by itself, change how an organization works. Someone has to connect it to the messy system around it: data, permissions, decisions, exceptions, recovery paths, and the people accountable for the result.
+
+That is why Forward Deployed Engineering matters.
+
+At its best, FDE is not consulting with a new title. It is a feedback loop between the field and the product: build a workflow that works in production, see where it breaks, and turn recurring failures into a better product and a better next deployment.
+
+In the new essay, I explain the shift and share ACTOR, the framework I use to test whether an AI deployment has changed real work.
+
+Read the full essay:
+
+https://www.aaronguo.com/blogs/why-ai-companies-are-becoming-deployment-companies?utm_source=newsletter&utm_medium=email&utm_campaign=why-ai-companies-are-becoming-deployment-companies&utm_content=launch-teaser
+
+Where has AI looked promising in your work, but failed to change the workflow? Reply and tell me.
+
+Aaron

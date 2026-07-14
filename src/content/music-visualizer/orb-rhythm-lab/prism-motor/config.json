@@ -1,0 +1,12 @@
+{
+  "title": "Prism Motor",
+  "artist": "Visual And Sound",
+  "trackLabel": "music audition / 03",
+  "durationSec": 42.024,
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "seed": 1303,
+  "resolution": "1080p",
+  "prompt": "Instrumental only. A hypnotic 42-second minimal electronic focus track at 116 BPM with a steady, elegant motorik pulse. Use a soft but firm four-on-the-floor kick, a sparse dry clap or rim, one quietly ticking percussion line, a dark analog sequence, a rounded bass anchor, and wide translucent synth chords. Keep it sleek, spacious, and slightly futuristic: stronger rhythmic propulsion than lo-fi, but never clubby or aggressive. Structure: 0–6 seconds ignition, 6–29 seconds steady propulsion, 29–35 seconds color opening with a second sequence layer, 35–42 seconds reduce back to the core pulse. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl noise, no disco guitar, no EDM drop, no risers, no supersaw, no aggressive compression, no harsh hi-hats.",
+  "audioFile": "music.mp3"
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Clay Atlas",
+  "artist": "Visual And Sound",
+  "trackLabel": "material studies / 01",
+  "durationSec": 46.032,
+  "theme": "soft-slate",
+  "visualStyle": "clay-atlas",
+  "seed": 4201,
+  "resolution": "1080p",
+  "prompt": "Visual-material study using the original Glass Meridian audio source. Matte sculpture, diffused studio light, and slow camera/light choreography replace geometric beat response.",
+  "audioFile": "music.mp3"
+}

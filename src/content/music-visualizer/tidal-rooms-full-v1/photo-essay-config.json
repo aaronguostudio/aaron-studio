@@ -1,0 +1,100 @@
+{
+  "title": "Tidal Rooms — 10 Minutes of Quiet Coastal Focus",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 3,
+  "crf": 18,
+  "captionStyle": {
+    "fontName": "Avenir Next",
+    "titleSize": 46,
+    "detailSize": 30,
+    "left": 144,
+    "titleBottom": 224,
+    "detailBottom": 168,
+    "initialDelaySec": 0.8,
+    "fadeSec": 0.7,
+    "exitLeadSec": 0.45
+  },
+  "slides": [
+    {
+      "image": "images/01-sea-room.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Sea Room", "photographer": "Venti Views", "location": "Big Sur, California, USA", "camera": "Sony ILCE-7M5", "sourcePage": "https://unsplash.com/photos/rocky-coastline-with-misty-ocean-waves-7wL-HlNfi4Y"}
+    },
+    {
+      "image": "images/02-suspended-water.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Suspended Water", "photographer": "Blake Wisz", "camera": "Nikon D850", "sourcePage": "https://unsplash.com/photos/ocean-waves-hitting-rock-formation-during-daytime-QOU5Uy0drWI"}
+    },
+    {
+      "image": "images/03-tide-mirror.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Tide Mirror", "photographer": "Lera Ginzburg", "camera": "Fujifilm X100VI", "sourcePage": "https://unsplash.com/photos/rocky-shore-with-tide-pool-reflecting-the-sky-7CPhtBx42Vc"}
+    },
+    {
+      "image": "images/04-low-tide-rock.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Low-Tide Rock", "photographer": "Stefan Szankowski", "location": "Ship Harbor Trail, Southwest Harbor, Maine, USA", "camera": "Nikon D800", "sourcePage": "https://unsplash.com/photos/rocky-coastline-with-tide-pools-and-ocean-waves-J-rKjGCuSZY"}
+    },
+    {
+      "image": "images/05-salt-geometry.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Salt Geometry", "photographer": "Jack White", "location": "Madeira, Portugal", "camera": "DJI FC7203", "sourcePage": "https://unsplash.com/photos/an-aerial-view-of-the-ocean-and-a-concrete-walkway-rjOs8xxjzAs"}
+    },
+    {
+      "image": "images/06-turquoise-coast.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Blue Shelf", "photographer": "Marc anthony Saylon", "camera": "Hasselblad L3D-100c", "sourcePage": "https://unsplash.com/photos/aerial-view-of-a-rocky-coast-and-turquoise-water-mAxdU1BBc7U"}
+    },
+    {
+      "image": "images/07-coastal-threshold.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Coastal Threshold", "photographer": "Alexander Gluschenko", "location": "Baltiysk, Kaliningrad Oblast, Russia", "camera": "HUAWEI ATU-L31", "sourcePage": "https://unsplash.com/photos/a-view-of-the-ocean-from-a-concrete-pier-XIxJSGD47HU"}
+    },
+    {
+      "image": "images/08-stone-window.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Stone Window", "photographer": "Venti Views", "location": "Big Sur, California, USA", "camera": "Sony ILCE-7M4", "sourcePage": "https://unsplash.com/photos/sea-cave-opening-with-ocean-view-and-rock-fcs1Xeoylhw"}
+    },
+    {
+      "image": "images/09-cave-threshold.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Cave Threshold", "photographer": "ren hosoya", "location": "Ibaraki, Japan", "camera": "Nikon Z 5", "sourcePage": "https://unsplash.com/photos/view-through-a-cave-opening-to-a-rocky-beach-and-ocean-L5Pu3KfkXNQ"}
+    },
+    {
+      "image": "images/10-tide-pool-field.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Tide-Pool Field", "photographer": "libe paredes", "location": "Pipa, Tibau do Sul, Rio Grande do Norte, Brazil", "camera": "Nikon D5100", "sourcePage": "https://unsplash.com/photos/rocky-tide-pools-on-a-sandy-beach-with-ocean-waves-FGlC2J_QiTM"}
+    },
+    {
+      "image": "images/11-green-coast.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Green Coast", "photographer": "Kristaps Ungurs", "sourcePage": "https://unsplash.com/photos/aerial-view-of-rocky-shore-meeting-green-ocean-waves-xsZI8H3eOcw"}
+    },
+    {
+      "image": "images/12-weather-line.jpg",
+      "durationSec": 48.9230769,
+      "motion": "static",
+      "credit": {"caption": "Weather Line", "photographer": "iccup", "camera": "Sony ILCE-7RM3", "sourcePage": "https://unsplash.com/photos/ocean-waves-crashing-on-rocky-shore-during-foggy-weather-OWhvlb2UK3g"}
+    },
+    {
+      "image": "images/13-last-light-pier.jpg",
+      "durationSec": 48.9230769,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {"caption": "Last Light Pier", "photographer": "Aleksandrs Zeltisevs", "sourcePage": "https://unsplash.com/photos/a-concrete-pier-extends-into-a-calm-body-of-water-s_hG8_TzXvs"}
+    }
+  ]
+}

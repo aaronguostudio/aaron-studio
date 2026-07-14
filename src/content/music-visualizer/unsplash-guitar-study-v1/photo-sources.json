@@ -1,0 +1,46 @@
+{
+  "collection": "Mosslight — A Slow Landscape Study",
+  "license": "Unsplash License",
+  "usage": "Landscape-only editorial video study. No identifiable people, brands, logos, or artwork are intentionally included.",
+  "photos": [
+    {
+      "file": "images/01-green-mist.jpg",
+      "title": "Lush green mountain shrouded in mist",
+      "photographer": "Supriyo Maity",
+      "location": "Kedarnath, Uttarakhand, India",
+      "camera": "Nikon D5600",
+      "caption": "Mist Ridge",
+      "downloadedPixels": "5120x3081",
+      "sourcePage": "https://unsplash.com/photos/lush-green-mountain-shrouded-in-mist-MqN5vaGIUZo"
+    },
+    {
+      "file": "images/03-forest-rays.jpg",
+      "title": "sun rays coming through green trees",
+      "photographer": "Zdeněk Macháček",
+      "location": "Skryje, Czechia",
+      "camera": "Canon EOS R5",
+      "caption": "Forest Light",
+      "downloadedPixels": "4870x3142",
+      "sourcePage": "https://unsplash.com/photos/sun-rays-coming-through-green-trees-cXvTkHkfEwk"
+    },
+    {
+      "file": "images/04-cloud-hillside.jpg",
+      "title": "a lush green hillside covered in clouds and trees",
+      "photographer": "Ryan Klaus",
+      "location": "Genève, Switzerland",
+      "camera": "DJI FC8284",
+      "caption": "Cloud Hillside",
+      "downloadedPixels": "5120x2880",
+      "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-clouds-and-trees-peWBFIS865Q"
+    },
+    {
+      "file": "images/05-fog-lake.jpg",
+      "title": "A body of water surrounded by mountains and fog",
+      "photographer": "Federico Bottos",
+      "location": "Vestresand, Norway",
+      "caption": "Midnight Sun",
+      "downloadedPixels": "4000x2669",
+      "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-fog-ecntDhizSgk"
+    }
+  ]
+}

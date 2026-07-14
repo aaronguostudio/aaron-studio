@@ -1,0 +1,13 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "slides": [
+    {"image": "images/01-green-mist.jpg", "durationSec": 16.5, "motion": "static"},
+    {"image": "images/03-forest-rays.jpg", "durationSec": 16.5, "motion": "static"},
+    {"image": "images/04-cloud-hillside.jpg", "durationSec": 16.5, "motion": "static"},
+    {"image": "images/05-fog-lake.jpg", "durationSec": 16.5, "motion": "zoom-in", "motionAmount": 0.03}
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环镜头。严格保持首尾帧中整个翠绿草地岛屿、云海、完整人物、低矮木桌、电脑方向和柔金色光线一致，首尾回到完全同一构图。固定远距离、略居高临下的镜头，不推拉、不摇晃、不切换。人物完整可见，只做很小且可回到起点的循环动作：安静读一行文字，右手写一笔或轻触触控板，再回到最初的读书姿势；头、肩、双臂和盘腿坐姿始终完整留在画面内。电脑键盘和屏幕始终朝向人物，镜头始终只看见电脑背面或侧面。云海极慢移动，草叶与衣角在轻风中微微起伏后回到起点，阳光非常缓慢滑过云顶。温暖自然、田园奇幻、细腻手绘质感与真实微缩场景融合，开阔、安静、有意境。不要任何人物裁切、无头、错误电脑朝向、前景近景、裸露山体、峡谷、木屋、电线杆、文字、字幕、标志、水印、额外人物、突然动作、快云、闪烁、新物体。"
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "f5154c0a4e09ced40690c2d44cb67ba390521e3e211af4c788ab65b0e5b155dc"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "f5154c0a4e09ced40690c2d44cb67ba390521e3e211af4c788ab65b0e5b155dc"
+      }
+    }
+  ]
+}

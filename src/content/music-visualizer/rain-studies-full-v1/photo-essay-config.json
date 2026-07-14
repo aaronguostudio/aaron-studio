@@ -1,0 +1,24 @@
+{
+  "title": "Rain Studies — 10 Minutes of Blue-Window Focus",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {"fontName": "Avenir Next", "titleSize": 46, "detailSize": 30, "left": 144, "titleBottom": 224, "detailBottom": 168, "initialDelaySec": 0.8, "fadeSec": 0.7, "exitLeadSec": 0.45},
+  "slides": [
+    {"image": "images/01-blue-rain.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Blue Rain", "photographer": "Rama Krushna Behera", "location": "Andaman and Nicobar Islands, India", "camera": "Fujifilm X-M5", "sourcePage": "https://unsplash.com/photos/raindrops-on-a-window-overlooking-the-ocean-vy5aeGxRhok"}},
+    {"image": "images/02-water-on-glass.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Water on Glass", "photographer": "Noah Silliman", "camera": "Canon EOS Rebel T5", "sourcePage": "https://unsplash.com/photos/water-drops-on-glass-i2J9jnvaAbU"}},
+    {"image": "images/03-raindrop-grain.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Raindrop Grain", "photographer": "Jose Fontano", "location": "Philadelphia, United States", "camera": "Nikon D5200", "sourcePage": "https://unsplash.com/photos/raindrops-TdPQp3fjzOw"}},
+    {"image": "images/04-traffic-in-rain.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Traffic in Rain", "photographer": "C. G.", "location": "Ireland", "camera": "Canon EOS 6D", "sourcePage": "https://unsplash.com/photos/a-wet-window-with-a-traffic-light-on-it-JgDUVGAXsso"}},
+    {"image": "images/05-puddle-script.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Puddle Script", "photographer": "Yosuke Ota", "location": "Mt. Daisen, Tottori, Japan", "camera": "Sony ILCE-7M3", "sourcePage": "https://unsplash.com/photos/reflection-of-a-building-in-a-wet-street-yXawBAg2PoI"}},
+    {"image": "images/06-wet-cobble.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Wet Cobble", "photographer": "Charles Puaud", "camera": "Panasonic DC-S5M2", "sourcePage": "https://unsplash.com/photos/distorted-reflections-of-streetlights-and-architecture-on-wet-cobblestones-IbcgU1qPf90"}},
+    {"image": "images/07-reflection-lane.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Reflection Lane", "photographer": "Tanya Barrow", "camera": "Canon EOS R50", "sourcePage": "https://unsplash.com/photos/building-lights-reflected-in-a-wet-street-at-night-vpPNuoWWmZg"}},
+    {"image": "images/08-night-pane.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Night Pane", "photographer": "Max van den Oetelaar", "location": "Amsterdam, Netherlands", "camera": "Nikon D5300", "sourcePage": "https://unsplash.com/photos/a-window-with-rain-drops-on-it-at-night-1e60bqR1Ar0"}},
+    {"image": "images/09-grey-window.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Grey Window", "photographer": "Hans", "sourcePage": "https://unsplash.com/photos/rain-drops-on-a-window-with-trees-in-the-background-tfkzbIApB4s"}},
+    {"image": "images/10-frosted-pane.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Frosted Pane", "photographer": "bady abbas", "camera": "Sony ILCE-7M2", "sourcePage": "https://unsplash.com/photos/grey-and-white-wall-paint-ut_hymJ_2uA"}},
+    {"image": "images/11-fog-water.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Fog Water", "photographer": "Ricardo Resende", "location": "Aveiro, Portugal", "sourcePage": "https://unsplash.com/photos/a-large-body-of-water-with-a-boat-in-the-distance-8B107FlDxVo"}},
+    {"image": "images/12-fog-pines.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Fog Clearing", "photographer": "Majk M.", "camera": "Canon EOS 600D", "sourcePage": "https://unsplash.com/photos/foggy-forest-fvp1d197Gi0"}},
+    {"image": "images/13-low-cloud.jpg", "durationSec": 48, "motion": "zoom-out", "motionAmount": 0.01, "credit": {"caption": "Low Cloud", "photographer": "Davey Gravy", "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-trees-on-a-foggy-day-fHL01n3AffA"}}
+  ]
+}

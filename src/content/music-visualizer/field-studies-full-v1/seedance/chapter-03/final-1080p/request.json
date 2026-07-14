@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "1080p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环。严格保持首帧与尾帧中的石质河口堤岸、宽阔深色水面、极远处零星暖色灯、低云与构图完全一致；固定远距离镜头，绝不推拉、摇晃、切换或变焦。雨后深蓝夜色里，薄雾缓慢掠过河口，水面只保留很细的同向涟漪；远方两三点暖光在湿润水面留下极柔和、近乎静止的倒影，云层缓慢移动后回到起点。朴素、真实、安静、没有叙事动作。不要人物、船只、车辆、鸟、文字、字幕、标志、水印、可读招牌、霓虹、闪电、巨浪、突然动作、新物体或强烈色彩。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-studies-full-v1/seedance/chapter-03/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "cb00ae9fbfdde6bd79a992af066d12669b92c0a4d0e1c63bcfb65ffe17abb60c"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-studies-full-v1/seedance/chapter-03/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "cb00ae9fbfdde6bd79a992af066d12669b92c0a4d0e1c63bcfb65ffe17abb60c"
+      }
+    }
+  ]
+}

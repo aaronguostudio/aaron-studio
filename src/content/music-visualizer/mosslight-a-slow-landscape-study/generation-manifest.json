@@ -1,0 +1,147 @@
+{
+  "generatedAt": "2026-07-13T01:59:58.764Z",
+  "title": "Mosslight — A Slow Landscape Study",
+  "theme": "paper-moon",
+  "visualStyle": "ink-current",
+  "prompt": null,
+  "compositionPlan": {
+    "chunks": [
+      {
+        "text": "[Dawn]\n{instrumental opening: leave a few breaths before the first phrase, then introduce a simple fingerpicked guitar motif}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "instrumental only",
+          "warm intimate fingerpicked steel-string acoustic guitar",
+          "unhurried 74 BPM",
+          "open D major harmony",
+          "natural room recording",
+          "close but not dry guitar sound",
+          "long gentle phrasing",
+          "quiet concentration music",
+          "high fidelity organic production"
+        ],
+        "negative_styles": [
+          "vocals",
+          "lyrics",
+          "drums",
+          "percussion",
+          "lo-fi beat",
+          "electronic bass",
+          "dramatic trailer music",
+          "abrupt changes",
+          "bright commercial jingle"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Canopy]\n{keep the opening guitar motif recognizable; introduce a slightly fuller second guitar response and a delicate harmonic variation}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "same acoustic guitar palette",
+          "gentle counterpoint from a second acoustic guitar",
+          "warm open strings",
+          "subtle melodic variation",
+          "even softer dynamics",
+          "patient evolving arrangement",
+          "calm forest atmosphere"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drums",
+          "percussion",
+          "strumming groove",
+          "synth lead",
+          "sudden crescendo",
+          "sad minor-key drama"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Open Water]\n{let a few sparse felt-piano notes answer the guitar; keep the pace airy and reflective, with a small warm harmonic lift}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "acoustic guitar remains the lead",
+          "very sparse felt piano accents",
+          "gentle major-key harmonic lift",
+          "wide natural space",
+          "clear pauses between phrases",
+          "softly luminous",
+          "still suitable for focused work"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drums",
+          "percussion",
+          "busy piano arpeggios",
+          "orchestral swell",
+          "electronic pads",
+          "melodramatic climax"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Golden Hour]\n{let the guitar become a little more expressive with chiming natural harmonics, then relax back into the original motif}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "fingerpicked acoustic guitar",
+          "soft natural harmonics",
+          "restrained melodic bloom",
+          "warm late-afternoon color",
+          "slow breathing tempo",
+          "organic imperfection",
+          "gentle continuity with earlier sections"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drums",
+          "percussion",
+          "pop chorus",
+          "fast tempo",
+          "aggressive pick attack",
+          "big climax",
+          "sudden modulation"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Stillness]\n{return to the simplest form of the first guitar motif, gradually remove the piano, lengthen the silences, and end with a natural unhurried resolution}",
+        "duration_ms": 120000,
+        "positive_styles": [
+          "instrumental acoustic guitar outro",
+          "returning opening motif",
+          "fewer notes and longer spaces",
+          "quiet resolution",
+          "soft natural decay",
+          "warm room ambience",
+          "gentle ending without a hard stop"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drums",
+          "percussion",
+          "new theme",
+          "building intensity",
+          "sudden ending",
+          "fade-in effect",
+          "electronic sounds"
+        ],
+        "context_adherence": "high"
+      }
+    ]
+  },
+  "requestedDurationSec": 600,
+  "actualAudioDurationSec": 600.024,
+  "model": "music_v2",
+  "songId": "rUnf4nuLbMqUNMxyqOgl",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/mosslight-a-slow-landscape-study/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/mosslight-a-slow-landscape-study/mosslight-a-slow-landscape-study.mp4",
+  "resolution": "4k",
+  "width": 3840,
+  "height": 2160,
+  "renderScale": 2,
+  "gl": "swiftshader",
+  "audioAnalysisPath": null,
+  "audioAnalysisVersion": null,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

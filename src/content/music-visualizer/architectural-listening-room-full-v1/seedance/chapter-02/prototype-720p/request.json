@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向建筑电影感无缝循环。严格保持首帧与尾帧中的胡桃木书写凹室、裸露混凝土墙、宽阔矩形开口、湿润雾庭、低矮长凳和构图完全一致；固定广角镜头，绝不推拉、摇晃、切换或变焦。空间与长凳完全静止，庭院里细雨均匀下落，远处深绿植物和薄雾极慢移动，湿石地面上的灰白反光轻微改变后回到起点。温暖木材和冷灰混凝土的安静对照，真实建筑摄影质感。不要人物、动物、文字、字幕、标志、水印、电子设备、额外家具、城市天际线、强烈阳光、闪烁、突然动作或戏剧性天气。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/architectural-listening-room-full-v1/seedance/chapter-02/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "f655de639e9b7f5f363c5655a584bd31c93ee31039d4d489909d350585847b98"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/architectural-listening-room-full-v1/seedance/chapter-02/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "f655de639e9b7f5f363c5655a584bd31c93ee31039d4d489909d350585847b98"
+      }
+    }
+  ]
+}

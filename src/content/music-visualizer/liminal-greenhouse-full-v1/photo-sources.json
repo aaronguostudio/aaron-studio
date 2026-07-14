@@ -1,0 +1,19 @@
+{
+  "project": "liminal-greenhouse-full-v1",
+  "license": "Unsplash License",
+  "sources": [
+    {"file": "images/01-glasshouse-entry.jpg", "caption": "Glasshouse Entry", "photographer": "Oksana Demenko", "location": "Paris, France", "camera": "NORITSU KOKI EZ Controller", "sourcePage": "https://unsplash.com/photos/a-vintage-glass-greenhouse-with-lush-plants-inside-GxW0knzCgkY", "license": "Unsplash License"},
+    {"file": "images/02-under-glass.jpg", "caption": "Under Glass", "photographer": "Adrien Olichon", "sourcePage": "https://unsplash.com/photos/greenhouse-interior-with-lush-plants-and-glass-ceiling-1xvPUsBeI78", "license": "Unsplash License"},
+    {"file": "images/03-winter-garden.jpg", "caption": "Winter Garden", "photographer": "hoch3fotografie", "location": "Richmond, United Kingdom", "camera": "Fujifilm X100F", "sourcePage": "https://unsplash.com/photos/green-plants-inside-white-building-PSBOHyv2z7E", "license": "Unsplash License"},
+    {"file": "images/04-long-house.jpg", "caption": "Long House", "photographer": "Faruk Tokluoğlu", "location": "Maslak Kasırları, Istanbul, Türkiye", "camera": "Sony ILCE-7M4", "sourcePage": "https://unsplash.com/photos/a-greenhouse-filled-with-lots-of-plants-and-trees-D_zBdEDUWk4", "license": "Unsplash License"},
+    {"file": "images/05-tropical-volume.jpg", "caption": "Tropical Volume", "photographer": "Faruk Tokluoğlu", "location": "Maslak Kasırları, Istanbul, Türkiye", "camera": "Sony ILCE-7M4", "sourcePage": "https://unsplash.com/photos/the-inside-of-a-greenhouse-with-lots-of-trees-and-plants-3shNBF2sTAI", "license": "Unsplash License"},
+    {"file": "images/06-living-bridge.jpg", "caption": "Living Bridge", "photographer": "Declan Sun", "location": "Pudong, Shanghai, China", "camera": "Sony ILCE-7RM5", "sourcePage": "https://unsplash.com/photos/indoor-garden-features-a-wooden-bridge-and-vibrant-decorative-structures-FDpVfIdf-Gw", "license": "Unsplash License"},
+    {"file": "images/07-green-room.jpg", "caption": "Green Room", "photographer": "Tom Podmore", "location": "Kew Gardens, Richmond, United Kingdom", "camera": "Nikon D3300", "sourcePage": "https://unsplash.com/photos/green-trees-inside-greenhouse-during-daytime-oUbOAoZ3OxU", "license": "Unsplash License"},
+    {"file": "images/08-quiet-walkway.jpg", "caption": "After Glass", "photographer": "Kaylee Stoll", "location": "Denver, Colorado, United States", "camera": "Sony ILCE-7M3", "sourcePage": "https://unsplash.com/photos/greenhouse-interior-seen-through-blurry-plants-at-night-E4yvkq6Yg9k", "license": "Unsplash License"},
+    {"file": "images/09-canopy.jpg", "caption": "Canopy", "photographer": "Declan Sun", "location": "Pudong, Shanghai, China", "camera": "Sony ILCE-7RM5", "sourcePage": "https://unsplash.com/photos/modern-glass-and-metal-structure-with-green-plants-inside-GW10pB40308", "license": "Unsplash License"},
+    {"file": "images/10-potted-light.jpg", "caption": "Potted Light", "photographer": "Kellie Enge", "camera": "Fujifilm X100V", "sourcePage": "https://unsplash.com/photos/a-room-filled-with-lots-of-potted-plants-tXc_R7ZDLwo", "license": "Unsplash License"},
+    {"file": "images/11-lattice-morning.jpg", "caption": "Lattice Morning", "photographer": "Fellipe Ditadi", "camera": "Canon EOS R5", "sourcePage": "https://unsplash.com/photos/a-walkway-in-a-garden-with-lots-of-plants-KEOXUyDEfDA", "license": "Unsplash License"},
+    {"file": "images/12-lily-water.jpg", "caption": "Lily Water", "photographer": "Jonas Denil", "location": "Meise, Belgium", "camera": "Bessa R", "sourcePage": "https://unsplash.com/photos/green-plants-in-green-pond-vHwWmuWgoRw", "license": "Unsplash License"},
+    {"file": "images/13-shelf-light.jpg", "caption": "Shelf Light", "photographer": "Kristen McConville", "camera": "Canon EOS Rebel T7", "sourcePage": "https://unsplash.com/photos/greenhouse-interior-with-plants-on-shelves-and-windows-XLrtSQ4OEPE", "license": "Unsplash License"}
+  ]
+}

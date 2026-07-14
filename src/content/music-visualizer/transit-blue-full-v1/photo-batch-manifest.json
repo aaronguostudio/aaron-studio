@@ -1,0 +1,19 @@
+{
+  "project": "transit-blue-full-v1",
+  "title": "Transit Blue — 10 Minutes of Nocturnal Focus",
+  "slides": [
+    {"id": "nGJboLqJx3M", "caption": "Night Train"},
+    {"id": "1KjEtU1kbBw", "caption": "Empty Platform"},
+    {"id": "Zi4S_YiwnwI", "caption": "Night Escalators"},
+    {"id": "FhQZ3vtCEW0", "caption": "Red Platform"},
+    {"id": "N0v7SvaWz6c", "caption": "Blue Reflection"},
+    {"id": "LR3GGjaoh1w", "caption": "Red Wall"},
+    {"id": "0o9QdVSTuh4", "caption": "Blue Interior"},
+    {"id": "fAmj2spOqxc", "caption": "Concrete Rhythm"},
+    {"id": "xyoyFspOvlU", "caption": "Arched Station"},
+    {"id": "x9YN41slnAA", "caption": "Concrete Tunnel"},
+    {"id": "iYsafhfgWPA", "caption": "Tunnel Study"},
+    {"id": "BfeKjmosfBE", "caption": "Long Hall"},
+    {"id": "kpIknZHyDVw", "caption": "Last Escalator", "motion": "zoom-out", "motionAmount": 0.01}
+  ]
+}

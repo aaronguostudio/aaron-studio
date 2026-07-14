@@ -1,0 +1,155 @@
+{
+  "renderedAt": "2026-07-13T07:44:57.887Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/transit-blue-full-v1/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/transit-blue-full-v1/transit-blue-10min-master.m4a",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/transit-blue-full-v1/transit-blue-10min-4k.mp4",
+  "timelineSec": 600,
+  "inputAudioDurationSec": 600,
+  "slides": [
+    {
+      "image": "images/01-night-train.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Night Train",
+        "photographer": "Alec Favale",
+        "camera": "ILCE-6500",
+        "sourcePage": "https://unsplash.com/photos/white-train-on-train-station-during-night-time-nGJboLqJx3M"
+      }
+    },
+    {
+      "image": "images/02-empty-platform.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Empty Platform",
+        "photographer": "Nikita Kulikov",
+        "camera": "ILCE-6400A",
+        "sourcePage": "https://unsplash.com/photos/empty-train-station-platform-at-night-with-lights-1KjEtU1kbBw"
+      }
+    },
+    {
+      "image": "images/03-night-escalators.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Night Escalators",
+        "photographer": "Chani Kaplan",
+        "camera": "X-T30 III",
+        "sourcePage": "https://unsplash.com/photos/an-empty-subway-station-platform-at-night-with-escalators-Zi4S_YiwnwI"
+      }
+    },
+    {
+      "image": "images/04-red-platform.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Red Platform",
+        "photographer": "Dom Yu",
+        "camera": "ILCE-7M4",
+        "sourcePage": "https://unsplash.com/photos/modern-subway-station-with-striped-platform-and-red-accents-FhQZ3vtCEW0"
+      }
+    },
+    {
+      "image": "images/05-blue-reflection.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Blue Reflection",
+        "photographer": "Dom Yu",
+        "camera": "ILCE-7M4",
+        "sourcePage": "https://unsplash.com/photos/empty-subway-station-with-bright-lights-and-reflections-N0v7SvaWz6c"
+      }
+    },
+    {
+      "image": "images/06-red-wall.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Red Wall",
+        "photographer": "Wolfgang Weiser",
+        "camera": "ILCE-7M3",
+        "sourcePage": "https://unsplash.com/photos/modern-subway-station-with-red-illuminated-walls-LR3GGjaoh1w"
+      }
+    },
+    {
+      "image": "images/07-blue-interior.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Blue Interior",
+        "photographer": "Julia Taubitz",
+        "camera": "NIKON Z6_3",
+        "sourcePage": "https://unsplash.com/photos/modern-subway-station-interior-with-geometric-patterns-0o9QdVSTuh4"
+      }
+    },
+    {
+      "image": "images/08-concrete-rhythm.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Concrete Rhythm",
+        "photographer": "Claudio Schwarz",
+        "camera": "ILCE-7RM2",
+        "sourcePage": "https://unsplash.com/photos/empty-white-concrete-pillared-parking-lot-fAmj2spOqxc"
+      }
+    },
+    {
+      "image": "images/09-arched-station.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Arched Station",
+        "photographer": "Julia Taubitz",
+        "camera": "NIKON Z6_3",
+        "sourcePage": "https://unsplash.com/photos/modern-subway-station-with-escalators-and-arched-ceiling-xyoyFspOvlU"
+      }
+    },
+    {
+      "image": "images/10-concrete-tunnel.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Concrete Tunnel",
+        "photographer": "Luella Wong",
+        "camera": " EOS 6D Mark II",
+        "sourcePage": "https://unsplash.com/photos/empty-concrete-tunnel-with-overhead-lights-and-crosswalk-x9YN41slnAA"
+      }
+    },
+    {
+      "image": "images/11-tunnel-study.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Tunnel Study",
+        "photographer": "Segun Famisa",
+        "camera": "ILCE-7CM2",
+        "sourcePage": "https://unsplash.com/photos/a-black-and-white-view-of-a-subway-tunnel-iYsafhfgWPA"
+      }
+    },
+    {
+      "image": "images/12-long-hall.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Long Hall",
+        "photographer": "İrfan Simsar",
+        "sourcePage": "https://unsplash.com/photos/a-black-and-white-photo-of-a-long-hallway-BfeKjmosfBE"
+      }
+    },
+    {
+      "image": "images/13-last-escalator.jpg",
+      "durationSec": 48,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Last Escalator",
+        "photographer": "Dennis Zhang",
+        "camera": "ILCE-7RM5",
+        "sourcePage": "https://unsplash.com/photos/an-escalator-in-a-subway-station-at-night-kpIknZHyDVw"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/transit-blue-full-v1/youtube-description.md"
+}

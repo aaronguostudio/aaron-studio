@@ -1,0 +1,12 @@
+{
+  "title": "Pigment Tide",
+  "artist": "Visual And Sound",
+  "trackLabel": "material studies / 02",
+  "durationSec": 46.032,
+  "theme": "paper-moon",
+  "visualStyle": "pigment-tide",
+  "seed": 4202,
+  "resolution": "1080p",
+  "prompt": "Visual-material study using the original Crestline audio source. Ink, mineral pigment, waterpaper grain, and slow colour-density changes replace line-based audio visualization.",
+  "audioFile": "music.mp3"
+}

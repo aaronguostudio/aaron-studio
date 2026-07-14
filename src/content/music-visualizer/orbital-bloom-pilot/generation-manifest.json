@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:01:16.570Z",
+  "title": "Orbital Bloom",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Instrumental only. Create a 50-second nocturnal downtempo lo-fi focus piece with a gentle, tactile pulse: warm Rhodes chords, a rounded analog sub bass, a soft low kick, a dry muted rim hit slightly behind the beat, a tiny filtered synth motif, gentle tape flutter, and a distant atmospheric pad. Around 92 BPM, steady 4/4, low-to-medium energy, polished and spacious. Shape it as a short journey: sparse ignition for the first 8 seconds, a settled pulse through the middle, a small harmonic color bloom around 30 seconds, then a quiet return and soft release. No vocals, no EDM drop, no claps, no busy hi-hats, no aggressive sidechain pump, no risers, no bright lead, no abrupt change, and no harsh highs. It should feel like an illuminated energy core slowly moving through a dark room: rhythmic enough to focus with, never demanding attention.",
+  "requestedDurationSec": 50,
+  "actualAudioDurationSec": 50.04,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orbital-bloom-pilot/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orbital-bloom-pilot/orbital-bloom-pilot.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orbital-bloom-pilot/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环。严格保持首帧与尾帧中的小岛、气象观测站、云海、 水池、草地和构图完全一致；固定远距离略居高临下的广角镜头，不推拉、不摇晃、 不切换。无人小岛上的草叶随微风极轻起伏，云海缓慢而连续地流过岛屿边缘， 前景浅水池只有细微波纹，清晨暖光在金属圆顶和云顶上缓慢移动后回到起点。宁静、 宽阔、自然、细腻，有真实微缩景观的材质感。不要人物、动物、飞鸟、车辆、 新增建筑、文字、字幕、标志、水印、镜头移动、魔法光效、突然天气或戏剧性变化。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-formats-samples-v1/slow-cinema-world/seedance/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "d092762b77e50b31e095827db4af3a79cbc7621c76d76d34d8b2cca5a14a0be3"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-formats-samples-v1/slow-cinema-world/seedance/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "d092762b77e50b31e095827db4af3a79cbc7621c76d76d34d8b2cca5a14a0be3"
+      }
+    }
+  ]
+}

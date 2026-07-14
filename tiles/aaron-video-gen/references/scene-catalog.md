@@ -25,6 +25,7 @@ blank-stage rules, fallback coverage, and production readiness.
 | `timeline` | Chronology, convergence, before and after | prototype |
 | `quote-source` | Quotation with visible provenance | prototype |
 | `custom-signature` | Rare 3D, shader, camera, or pixel peak | experimental |
+| `digital-space-study` | Loop-ready 2.5D music-led ambient space | experimental |
 
 ## Director Selection
 

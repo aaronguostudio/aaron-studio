@@ -1,4 +1,4 @@
 interface:
   display_name: "Music Visualizer"
-  short_description: "Generate music-led Remotion visualizers"
-  default_prompt: "Use $music-visualizer to create a music-led Remotion visualizer with an original soundtrack and deterministic motion."
+  short_description: "Create original music, visualizers, loops, and 4K photo essays"
+  default_prompt: "Use $music-visualizer to create a Visual And Sound Photo Essay, an original visualizer, or a cinematic loop."

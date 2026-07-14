@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:13:16.131Z",
+  "title": "Prism Pulse",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Instrumental only. A polished 42-second nocturnal minimal electronica focus track at 108 BPM. Build a clear, tactile groove from a compact punchy kick, a short muted rim hit, syncopated tom-like percussion, an elastic mono-synth bass pulse, glassy analog chord stabs, and a thin granular shimmer. The rhythm should be confident and forward-moving but leave large pockets of silence; it should feel like colored light orbiting a dark energy core. Structure: 0–7 seconds sparse signal, 7–28 seconds locked groove, 28–35 seconds a subtle harmonic lift, 35–42 seconds a clean restrained release. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl crackle, no jazz harmony, no EDM riser, no big drop, no aggressive sidechain pump, no festival snare, no harsh highs.",
+  "requestedDurationSec": 42,
+  "actualAudioDurationSec": 42.024,
+  "model": "music_v2",
+  "songId": "AgxCbiK3zuRtFP3rcSRQ",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-pulse/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-pulse/prism-pulse.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-pulse/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

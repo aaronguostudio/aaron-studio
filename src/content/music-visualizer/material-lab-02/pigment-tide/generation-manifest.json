@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T20:25:31.406Z",
+  "title": "Pigment Tide",
+  "theme": "paper-moon",
+  "visualStyle": "pigment-tide",
+  "prompt": "Visual-material study using the original Crestline audio source. Ink, mineral pigment, waterpaper grain, and slow colour-density changes replace line-based audio visualization.",
+  "requestedDurationSec": 46,
+  "actualAudioDurationSec": 46.032,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/crestline/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-lab-02/pigment-tide/pigment-tide.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-lab-02/pigment-tide/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

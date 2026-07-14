@@ -1,0 +1,22 @@
+{
+  "run_id": "verdant-cloud-study-v1",
+  "provider": "volcengine-ark",
+  "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "model": "doubao-seedance-2-0-260128",
+  "mode": "strict-first-last-loop",
+  "request_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/request.json",
+  "duration": 15,
+  "resolution": "720p",
+  "ratio": "16:9",
+  "camera_fixed": "prompt-and-frame-anchoring-only; unsupported as a Seedance 2.0 API parameter",
+  "estimated_tokens": 324000,
+  "estimated_rmb": 14.904,
+  "submitted": true,
+  "task_id": "cgt-20260713054947-vpk98",
+  "final_response_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/final_response.json",
+  "output_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/output.mp4",
+  "qa": {
+    "contact_sheet": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/contact-sheet.jpg",
+    "loop_seam_preview": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/verdant-cloud-study-v1/seedance/loop-seam-preview.mp4"
+  }
+}

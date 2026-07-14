@@ -1,0 +1,38 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/liminal-greenhouse.mp3",
+      "durationSec": 143.699542
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/liminal-greenhouse-full-v1/section-02.mp3",
+      "durationSec": 153.652167
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/liminal-greenhouse-full-v1/section-03.mp3",
+      "durationSec": 149.28975
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/liminal-greenhouse-full-v1/section-04.mp3",
+      "durationSec": 166.008125
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/liminal-greenhouse-full-v1/section-05.mp3",
+      "durationSec": 161.410542
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/liminal-greenhouse-full-v1/liminal-greenhouse-10min-master.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "renderedAt": "2026-07-13T07:45:04.657Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-10min-master.m4a",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-10min-4k.mp4",
+  "timelineSec": 600,
+  "inputAudioDurationSec": 600,
+  "slides": [
+    {
+      "image": "images/01-tea-in-mist.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Tea in Mist",
+        "photographer": "Nguyen Huong",
+        "camera": " EOS 6D",
+        "sourcePage": "https://unsplash.com/photos/green-tea-plantation-covered-in-morning-mist-1wCRZ2SdqUU"
+      }
+    },
+    {
+      "image": "images/02-green-road.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Green Road",
+        "photographer": "Maksym Diachenko",
+        "camera": "L1D-20c",
+        "sourcePage": "https://unsplash.com/photos/green-trees-beside-road-during-daytime-ZQ9pHYS3w4E"
+      }
+    },
+    {
+      "image": "images/03-sunflower-field.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Sunflower Field",
+        "photographer": "Benjamin White",
+        "camera": "NIKON D780",
+        "sourcePage": "https://unsplash.com/photos/a-sunflower-field-with-a-barn-in-the-background-don5t9hwULk"
+      }
+    },
+    {
+      "image": "images/04-hedgerow.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Hedgerow",
+        "photographer": "Paul Tinsley",
+        "camera": "RICOH GR III",
+        "sourcePage": "https://unsplash.com/photos/green-grass-and-trees-beside-road-during-daytime-er9351BlWDg"
+      }
+    },
+    {
+      "image": "images/05-harvest-mist.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Harvest Mist",
+        "photographer": "John Apps",
+        "camera": "NIKON D7200",
+        "sourcePage": "https://unsplash.com/photos/misty-morning-over-a-harvested-field-with-trees-Y8w21jfYWkM"
+      }
+    },
+    {
+      "image": "images/06-single-tree.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Single Tree",
+        "photographer": "Pascal Debrunner",
+        "sourcePage": "https://unsplash.com/photos/green-field-with-a-tree-and-a-forest-in-the-background-tLqZEacCFCo"
+      }
+    },
+    {
+      "image": "images/07-green-fields.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Green Fields",
+        "photographer": "Rural Explorer",
+        "camera": "Canon EOS 70D",
+        "sourcePage": "https://unsplash.com/photos/green-fields-under-clear-blue-sky-ucwhCdVZFHM"
+      }
+    },
+    {
+      "image": "images/08-first-light.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "First Light",
+        "photographer": "Wolfgang Hasselmann",
+        "camera": "ILCE-7M4",
+        "sourcePage": "https://unsplash.com/photos/sunrise-over-a-misty-field-with-trees-and-field-zH9gD3vKYOA"
+      }
+    },
+    {
+      "image": "images/09-field-lines.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Field Lines",
+        "photographer": "Pascal Debrunner",
+        "sourcePage": "https://unsplash.com/photos/green-field-with-tire-tracks-under-cloudy-sky-myFTkJlDmfA"
+      }
+    },
+    {
+      "image": "images/10-low-mist.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Low Mist",
+        "photographer": "Rhamely",
+        "camera": " EOS 100D",
+        "sourcePage": "https://unsplash.com/photos/a-foggy-road-in-the-middle-of-a-field-miKo9Eqmxs4"
+      }
+    },
+    {
+      "image": "images/11-pale-dawn.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Pale Dawn",
+        "photographer": "Michael Beier",
+        "camera": "ILCE-5100",
+        "sourcePage": "https://unsplash.com/photos/a-misty-field-at-sunrise-with-a-gradient-sky-XYSBvh1bpUY"
+      }
+    },
+    {
+      "image": "images/12-quiet-road.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Quiet Road",
+        "photographer": "Rhamely",
+        "camera": " EOS 100D",
+        "sourcePage": "https://unsplash.com/photos/an-empty-road-surrounded-by-trees-on-a-foggy-day-jGG-KwfYOOs"
+      }
+    },
+    {
+      "image": "images/13-morning-turn.jpg",
+      "durationSec": 48,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Morning Turn",
+        "photographer": "Elisa Stone",
+        "camera": "NIKON D7500",
+        "sourcePage": "https://unsplash.com/photos/a-lonely-road-winds-through-misty-fields-at-sunrise-wernJy84Pv8"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/youtube-description.md"
+}

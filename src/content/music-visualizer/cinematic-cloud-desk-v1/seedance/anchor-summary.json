@@ -1,0 +1,19 @@
+{
+  "run_id": "cinematic-cloud-desk-v1",
+  "provider": "volcengine-ark",
+  "base_url": "https://ark.cn-beijing.volces.com/api/v3",
+  "model": "doubao-seedance-2-0-260128",
+  "mode": "text-to-video-anchor-bootstrap",
+  "request_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/seedance/anchor-request.json",
+  "duration": 4,
+  "resolution": "720p",
+  "ratio": "16:9",
+  "camera_fixed": "not-supported-for-t2v-anchor-bootstrap",
+  "estimated_tokens": 86400,
+  "estimated_rmb": 3.9744,
+  "submitted": true,
+  "task_id": "cgt-20260713052158-vg2qt",
+  "final_response_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/seedance/anchor-final-response.json",
+  "study_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/seedance/anchor-study.mp4",
+  "anchor_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/seedance/anchor.png"
+}

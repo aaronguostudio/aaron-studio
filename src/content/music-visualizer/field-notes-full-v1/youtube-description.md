@@ -1,0 +1,61 @@
+Field Notes — 10 Minutes of Morning Focus
+
+Original instrumental music and a slow landscape photo essay for reading, quiet work, and reflection.
+
+VISUAL CREDITS
+01. Tea in Mist
+Nguyen Huong ·  EOS 6D
+https://unsplash.com/photos/green-tea-plantation-covered-in-morning-mist-1wCRZ2SdqUU
+
+02. Green Road
+Maksym Diachenko · L1D-20c
+https://unsplash.com/photos/green-trees-beside-road-during-daytime-ZQ9pHYS3w4E
+
+03. Sunflower Field
+Benjamin White · NIKON D780
+https://unsplash.com/photos/a-sunflower-field-with-a-barn-in-the-background-don5t9hwULk
+
+04. Hedgerow
+Paul Tinsley · RICOH GR III
+https://unsplash.com/photos/green-grass-and-trees-beside-road-during-daytime-er9351BlWDg
+
+05. Harvest Mist
+John Apps · NIKON D7200
+https://unsplash.com/photos/misty-morning-over-a-harvested-field-with-trees-Y8w21jfYWkM
+
+06. Single Tree
+Pascal Debrunner
+https://unsplash.com/photos/green-field-with-a-tree-and-a-forest-in-the-background-tLqZEacCFCo
+
+07. Green Fields
+Rural Explorer · Canon EOS 70D
+https://unsplash.com/photos/green-fields-under-clear-blue-sky-ucwhCdVZFHM
+
+08. First Light
+Wolfgang Hasselmann · ILCE-7M4
+https://unsplash.com/photos/sunrise-over-a-misty-field-with-trees-and-field-zH9gD3vKYOA
+
+09. Field Lines
+Pascal Debrunner
+https://unsplash.com/photos/green-field-with-tire-tracks-under-cloudy-sky-myFTkJlDmfA
+
+10. Low Mist
+Rhamely ·  EOS 100D
+https://unsplash.com/photos/a-foggy-road-in-the-middle-of-a-field-miKo9Eqmxs4
+
+11. Pale Dawn
+Michael Beier · ILCE-5100
+https://unsplash.com/photos/a-misty-field-at-sunrise-with-a-gradient-sky-XYSBvh1bpUY
+
+12. Quiet Road
+Rhamely ·  EOS 100D
+https://unsplash.com/photos/an-empty-road-surrounded-by-trees-on-a-foggy-day-jGG-KwfYOOs
+
+13. Morning Turn
+Elisa Stone · NIKON D7500
+https://unsplash.com/photos/a-lonely-road-winds-through-misty-fields-at-sunrise-wernJy84Pv8
+
+Photos are used under the Unsplash License. Credits are included in appreciation of the photographers.
+
+MUSIC
+Original instrumental music created for Visual And Sound.

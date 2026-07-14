@@ -1,0 +1,24 @@
+{
+  "id": "cgt-20260713054544-gctnn",
+  "model": "doubao-seedance-2-0-260128",
+  "status": "succeeded",
+  "content": {
+    "video_url": "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedance-2-0/02178389274467600000000000000000000ffffac1743922f4e0c.mp4?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260712%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260712T214843Z&X-Tos-Expires=86400&X-Tos-Signature=5237a22d115b62d1dbce8c690396b5edf09efc1e7f54f84087694c7d655454bd&X-Tos-SignedHeaders=host"
+  },
+  "usage": {
+    "completion_tokens": 87300,
+    "total_tokens": 87300
+  },
+  "created_at": 1783892744,
+  "updated_at": 1783892946,
+  "seed": 47570,
+  "resolution": "720p",
+  "ratio": "16:9",
+  "duration": 4,
+  "framespersecond": 24,
+  "service_tier": "default",
+  "execution_expires_after": 172800,
+  "generate_audio": false,
+  "draft": false,
+  "priority": 0
+}

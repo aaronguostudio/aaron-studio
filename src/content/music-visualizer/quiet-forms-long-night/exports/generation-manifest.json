@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T15:26:23.215Z",
+  "title": "Quiet Forms — Long Night",
+  "theme": "paper-moon",
+  "visualStyle": "audio-mix",
+  "prompt": "Instrumental only. A cohesive ten-minute minimalist study and reading piece built around intimate felt upright piano, warm room ambience, soft pedal noise, sparse repeating motifs, gentle rubato, and long spacious pauses. Keep the dynamic range low and the mood quietly satisfying, calm, elegant, and hypnotic. Develop the same musical world through several subtle chapters: a 40-second arrival, a settled piano theme, a small harmonic and voicing variation, a gentle opening with very light sustained texture, a spacious middle passage, a warmer return of the theme, and a slow unresolved release. Let phrases breathe and avoid obvious looping. No vocals, no drums, no percussion, no abrupt climax, no trailer impacts, no bright arpeggios, no dramatic key change, no harsh high frequencies, no busy ostinatos. Suitable for deep work, reading, and sleep preparation.",
+  "requestedDurationSec": 600,
+  "actualAudioDurationSec": 600.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/quiet-forms-long-night/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/quiet-forms-long-night/exports/quiet-forms-long-night-4k.mp4",
+  "resolution": "4k",
+  "width": 3840,
+  "height": 2160,
+  "renderScale": 2,
+  "gl": "swiftshader",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/quiet-forms-long-night/exports/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

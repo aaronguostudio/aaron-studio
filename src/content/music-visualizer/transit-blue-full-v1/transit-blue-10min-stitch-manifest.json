@@ -1,0 +1,19 @@
+{
+  "provider": "Google Lyria with temporary production fallback",
+  "source": "transit-blue-section-01.mp3",
+  "reason": "The provider blocked additional generations with an unspecified policy response after the first approved section; Eleven Music was unavailable because its account had insufficient credits.",
+  "method": "four low-loss arrangement variants of the approved original section, joined with eight-second equal-power crossfades",
+  "variants": [
+    "original master",
+    "softened high-frequency balance",
+    "slightly lowered-rate spatial variation with softened high-frequency balance",
+    "low-density closing balance"
+  ],
+  "master": {
+    "file": "transit-blue-10min-master.m4a",
+    "durationSec": 600,
+    "crossfadeSec": 8,
+    "finalFadeSec": 8
+  },
+  "replacementPlan": "When Google Lyria permits further calls, replace the four variants with independently generated 96 BPM C sharp minor sections and rerender only this project."
+}

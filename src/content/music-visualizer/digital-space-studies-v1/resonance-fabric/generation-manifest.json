@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-07-14T05:27:19.132Z",
+  "title": "Resonance Fabric",
+  "variant": "resonance-fabric",
+  "durationSec": 18,
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/master-600s-normalized.m4a",
+  "audioStartSec": 162,
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/digital-space-studies-v1/resonance-fabric/audio-analysis.json",
+  "visualContract": "Fixed geometry; only internal material light and density respond to precomputed audio analysis.",
+  "loopContract": "The visual base cycle returns to its initial state at the specified duration. Audio-linked light remains deliberately bounded for calm playback.",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/digital-space-studies-v1/resonance-fabric/entry.png",
+    "peak": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/digital-space-studies-v1/resonance-fabric/peak.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/digital-space-studies-v1/resonance-fabric/exit.png"
+  },
+  "output": null
+}

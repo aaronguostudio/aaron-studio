@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:41:25.316Z",
+  "title": "Prism Breaks",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Two original movements combined into one continuous 10-minute broken-beat focus session. See music-structure.md for the intended long-form arc and handoff.",
+  "requestedDurationSec": 600,
+  "actualAudioDurationSec": 600,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/music-full.m4a",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/prism-breaks-long-night.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

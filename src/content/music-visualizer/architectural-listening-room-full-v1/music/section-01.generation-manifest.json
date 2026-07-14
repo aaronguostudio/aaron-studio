@@ -1,0 +1,8 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-pro-preview",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/architectural-listening-room-full-v1/music/section-01-alt.prompt.txt",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/architectural-listening-room-full-v1/music/section-01.mp3",
+  "outputMimeType": "audio/mpeg",
+  "generatedAt": "2026-07-13T22:58:39.601Z"
+}

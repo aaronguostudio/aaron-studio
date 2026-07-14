@@ -7,6 +7,7 @@
 | Felt upright piano, sparse, warm, intimate | `paper-moon` | cream paper, ink discs, moon phases, soft shadows |
 | Low-register piano, nocturnal ambient, long reverb | `deep-ink` | dark field, warm highlights, slow depth rotation |
 | Cool piano, reflective pads, open space | `soft-slate` | blue-grey paper, thin rings, restrained orbit |
+| Felt piano, quiet woodwind, chamber strings, gentle acoustic texture | `cinematic-cloud-desk` | an original stable cinematic world with one figure, environmental motion, and a Seedance first/last-frame loop |
 
 The visualizer should react to musical chapters rather than every transient.
 Use four broad phases: arrival, settling, opening, and release. Let phase changes
@@ -34,6 +35,19 @@ one gentle lift without percussion, then a slow unresolved outro.
 
 Generate several candidates, select by listening rather than by prompt wording,
 and keep the prompt plus model metadata in the generation manifest.
+
+## Cinematic Cloud Desk music prompt
+
+```text
+Instrumental only. Original pastoral chamber-focus music for writing and deep
+work: warm felt upright piano with a simple unhurried motif, one soft breathy
+woodwind color, restrained small strings in long supportive phrases, distant
+acoustic-guitar harmonics, gentle low cello warmth, natural room air, and quiet
+space between notes. Sunlit, contemplative, quietly hopeful, cinematic in scale
+but never dramatic. No vocals, no choir, no drums, no loud percussion, no
+trailer swell, no heroic climax, no recognizable melody, no imitation of any
+composer, no virtuoso piano, no abrupt key change, and no harsh highs.
+```
 
 ## Motion constraints
 

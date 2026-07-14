@@ -1,0 +1,19 @@
+{
+  "project": "field-notes-full-v1",
+  "title": "Field Notes — 10 Minutes of Morning Focus",
+  "slides": [
+    {"id": "1wCRZ2SdqUU", "caption": "Tea in Mist"},
+    {"id": "ZQ9pHYS3w4E", "caption": "Green Road"},
+    {"id": "don5t9hwULk", "caption": "Sunflower Field"},
+    {"id": "er9351BlWDg", "caption": "Hedgerow"},
+    {"id": "Y8w21jfYWkM", "caption": "Harvest Mist"},
+    {"id": "tLqZEacCFCo", "caption": "Single Tree"},
+    {"id": "ucwhCdVZFHM", "caption": "Green Fields"},
+    {"id": "zH9gD3vKYOA", "caption": "First Light"},
+    {"id": "myFTkJlDmfA", "caption": "Field Lines"},
+    {"id": "miKo9Eqmxs4", "caption": "Low Mist"},
+    {"id": "XYSBvh1bpUY", "caption": "Pale Dawn"},
+    {"id": "jGG-KwfYOOs", "caption": "Quiet Road"},
+    {"id": "wernJy84Pv8", "caption": "Morning Turn", "motion": "zoom-out", "motionAmount": 0.01}
+  ]
+}

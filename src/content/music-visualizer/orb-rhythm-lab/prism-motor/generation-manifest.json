@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:12:57.392Z",
+  "title": "Prism Motor",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Instrumental only. A hypnotic 42-second minimal electronic focus track at 116 BPM with a steady, elegant motorik pulse. Use a soft but firm four-on-the-floor kick, a sparse dry clap or rim, one quietly ticking percussion line, a dark analog sequence, a rounded bass anchor, and wide translucent synth chords. Keep it sleek, spacious, and slightly futuristic: stronger rhythmic propulsion than lo-fi, but never clubby or aggressive. Structure: 0–6 seconds ignition, 6–29 seconds steady propulsion, 29–35 seconds color opening with a second sequence layer, 35–42 seconds reduce back to the core pulse. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl noise, no disco guitar, no EDM drop, no risers, no supersaw, no aggressive compression, no harsh hi-hats.",
+  "requestedDurationSec": 42,
+  "actualAudioDurationSec": 42.024,
+  "model": "music_v2",
+  "songId": "UPY9fmLiobbQAj77QrUk",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-motor/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-motor/prism-motor.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-motor/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

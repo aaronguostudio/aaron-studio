@@ -1,0 +1,19 @@
+{
+  "project": "frost-lines-full-v1",
+  "title": "Frost Lines — 10 Minutes of Winter Reading",
+  "slides": [
+    {"id": "f60qQpYOHd4", "caption": "Pine Water"},
+    {"id": "kVKz9qnJC-k", "caption": "White Stand"},
+    {"id": "l1JFfpwzYXU", "caption": "Snow Cabin"},
+    {"id": "wiV7JsQ6lOo", "caption": "Lake House"},
+    {"id": "Wy9aq4yMq_g", "caption": "Quiet Roof"},
+    {"id": "IN1Ik_OVk_w", "caption": "Winter Barn"},
+    {"id": "9CEJTtqFXJc", "caption": "Forest Cabin"},
+    {"id": "3jjr2MTitYU", "caption": "Mountain Window"},
+    {"id": "hwjhVsNSjnE", "caption": "Snow Field"},
+    {"id": "66VzH6y5_lE", "caption": "High Range"},
+    {"id": "K2453_EClQ4", "caption": "White Mountain"},
+    {"id": "laRDmzJBzeU", "caption": "Cloud Ridge"},
+    {"id": "5zalVgSZLW4", "caption": "Frozen Lake", "motion": "zoom-out", "motionAmount": 0.01}
+  ]
+}

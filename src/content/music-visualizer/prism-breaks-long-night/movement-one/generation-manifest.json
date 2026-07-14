@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:25:14.034Z",
+  "title": "Prism Breaks — Movement I",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Instrumental only. First movement of a continuous 10-minute futuristic broken-beat focus session at 104 BPM. Preserve the elegant sonic world of the original Prism Breaks study: a syncopated kick-and-rim pattern with a light two-step feel, clipped hand percussion, a rubbery but restrained sub-bass motif, airy synthetic mallet plucks, and an expansive cool pad. Shape a calm long-form arc rather than a loop: 0:00–0:25 a soft signal arrives; 0:25–2:30 a clean, stable broken groove; 2:30–4:25 a subtle bass and mallet variation; 4:25–5:24 a slightly wider luminous harmonic color. Keep each change sparse and patient, with enough low-frequency articulation for a contained visual response. In the final six seconds, gently thin upper percussion and leave bass and pad breathing for a seamless handoff. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl dust, no jazzy chords, no trap hats, no dramatic build-up, no drop, no heavy wobble bass, no harsh treble, no EDM risers, and no abrupt ending.",
+  "requestedDurationSec": 330,
+  "actualAudioDurationSec": 330,
+  "model": "music_v2",
+  "songId": "YU84Htg8V5dkOEnKnhKb",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/movement-one/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/movement-one/movement-one.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/movement-one/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

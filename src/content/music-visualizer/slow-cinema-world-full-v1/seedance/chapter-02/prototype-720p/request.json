@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环。严格保持首帧与尾帧中的小型雪松气象棚、草坡、浅石水槽、层叠云海和构图完全一致；固定远距离略居高临下的广角镜头，不推拉、不摇晃、不切换。无人草坡悬在浅灰云层上方，草叶极轻起伏，云海从两侧非常缓慢流过，水槽表面只有微小波纹；清凉晨光偶尔掠过雪松屋檐和云顶，最后回到起点。真实微缩景观质感、安静、开阔、没有故事事件。不要人物、动物、飞鸟、车辆、文字、字幕、标志、水印、镜头移动、魔法粒子、建筑变形、突然天气或强烈光效。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/slow-cinema-world-full-v1/seedance/chapter-02/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "cbf522aea7028cbfa6003963d89d6a187dbd3d1cfdee5331f62aa53422120206"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/slow-cinema-world-full-v1/seedance/chapter-02/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "cbf522aea7028cbfa6003963d89d6a187dbd3d1cfdee5331f62aa53422120206"
+      }
+    }
+  ]
+}

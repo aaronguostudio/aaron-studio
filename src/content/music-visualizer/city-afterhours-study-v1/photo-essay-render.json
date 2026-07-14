@@ -1,0 +1,70 @@
+{
+  "renderedAt": "2026-07-13T02:57:56.669Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/city-afterhours-study-v1/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/city-afterhours-study-v1/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/city-afterhours-study-v1/signal-windows-city-sample-4k.mp4",
+  "timelineSec": 60,
+  "inputAudioDurationSec": 60.024,
+  "slides": [
+    {
+      "image": "images/01-blue-reflection.jpg",
+      "durationSec": 13.6,
+      "motion": "static",
+      "credit": {
+        "caption": "Blue Reflection",
+        "photographer": "Pang Yuhao",
+        "camera": "Sony ILCE-7M3",
+        "sourcePage": "https://unsplash.com/photos/water-reflect-photography-of-cityscape-8z0UI6IDCHY"
+      }
+    },
+    {
+      "image": "images/02-twilight-towers.jpg",
+      "durationSec": 13.6,
+      "motion": "zoom-in",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Twilight Towers",
+        "photographer": "泽宇 许",
+        "camera": "Hasselblad X2D 100C",
+        "sourcePage": "https://unsplash.com/photos/skyscrapers-illuminated-against-a-twilight-sky-NRrcyNbrQHM"
+      }
+    },
+    {
+      "image": "images/05-gold-coast.jpg",
+      "durationSec": 13.6,
+      "motion": "static",
+      "credit": {
+        "caption": "City Across Water",
+        "photographer": "City of Gold Coast",
+        "location": "Gold Coast, Australia",
+        "camera": "Canon EOS R5",
+        "sourcePage": "https://unsplash.com/photos/city-skyline-illuminated-at-night-with-reflections-on-water-gKuGQ-AGPw0"
+      }
+    },
+    {
+      "image": "images/06-overpass.jpg",
+      "durationSec": 13.6,
+      "motion": "static",
+      "credit": {
+        "caption": "Overpass at Night",
+        "photographer": "Artem Shuba",
+        "location": "Moscow, Russia",
+        "camera": "Nikon D780",
+        "sourcePage": "https://unsplash.com/photos/city-skyline-during-night-time-elCCOvIUgu4"
+      }
+    },
+    {
+      "image": "images/07-qingdao-reflection.jpg",
+      "durationSec": 13.6,
+      "motion": "static",
+      "credit": {
+        "caption": "Qingdao Lights",
+        "photographer": "YiChuan Li",
+        "location": "Qingdao, Shandong, China",
+        "sourcePage": "https://unsplash.com/photos/city-skyline-illuminated-at-night-with-colorful-reflections-w6DgzF1OMG4"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/city-afterhours-study-v1/youtube-description.md"
+}

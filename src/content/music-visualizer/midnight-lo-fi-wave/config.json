@@ -1,0 +1,12 @@
+{
+  "title": "Midnight Lo-Fi Wave",
+  "artist": "Quiet Hours",
+  "trackLabel": "lo-fi wave / deep work",
+  "durationSec": 60.024,
+  "theme": "soft-slate",
+  "visualStyle": "lofi-wave",
+  "seed": 73,
+  "volume": 0.9,
+  "prompt": "Instrumental only. Warm lo-fi wave for deep work and coding: mellow Rhodes electric piano, soft sub bass, dusty tape texture, restrained brushed kick and snare, a quiet analog pulse, and spacious chord changes. Calm, hypnotic, low-to-medium energy, no vocals, no bright lead, no abrupt drop, no harsh highs, no busy hi-hat pattern. Structure: a short arrival, a settled groove, one small harmonic opening, a restrained return, and a soft unresolved release.",
+  "audioFile": "music.mp3"
+}

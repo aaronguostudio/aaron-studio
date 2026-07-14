@@ -1,0 +1,12 @@
+{
+  "title": "Luminous Tides",
+  "artist": "Visual And Sound",
+  "trackLabel": "lo-fi / after hours",
+  "durationSec": 60.024,
+  "theme": "deep-ink",
+  "visualStyle": "neon-strands",
+  "seed": 137,
+  "volume": 0.9,
+  "prompt": "Instrumental only. Night-focus music for a luminous abstract visual: deep Rhodes chords, a soft analog bass pulse, minimal brushed percussion, distant tape texture, spacious and nocturnal. Low-to-medium energy, no vocals, no bright lead, no abrupt drop, no busy hi-hats, with a slow harmonic opening and quiet release.",
+  "audioFile": "music.mp3"
+}

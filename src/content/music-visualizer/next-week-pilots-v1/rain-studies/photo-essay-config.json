@@ -1,0 +1,14 @@
+{
+  "title": "Rain Studies — Warm Electronic Focus",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {"fontName": "Avenir Next", "titleSize": 34, "detailSize": 22, "left": 72, "titleBottom": 112, "detailBottom": 82, "initialDelaySec": 0.8, "fadeSec": 0.7, "exitLeadSec": 0.45},
+  "slides": [
+    {"image": "images/01-rain-window.jpg", "durationSec": 19, "motion": "static", "credit": {"caption": "Blue Rain", "photographer": "Rama Krushna Behera", "location": "Andaman and Nicobar Islands, India", "camera": "Fujifilm X-M5", "sourcePage": "https://unsplash.com/photos/raindrops-on-a-window-overlooking-the-ocean-vy5aeGxRhok"}},
+    {"image": "images/02-wet-reflection.jpg", "durationSec": 19, "motion": "static", "credit": {"caption": "Puddle Script", "photographer": "Yosuke Ota", "location": "Mt. Daisen, Tottori, Japan", "camera": "Sony ILCE-7M3", "sourcePage": "https://unsplash.com/photos/reflection-of-a-building-in-a-wet-street-yXawBAg2PoI"}},
+    {"image": "images/03-frosted-glass.jpg", "durationSec": 19, "motion": "zoom-out", "motionAmount": 0.01, "credit": {"caption": "Frosted Pane", "photographer": "bady abbas", "camera": "Sony ILCE-7M2", "sourcePage": "https://unsplash.com/photos/grey-and-white-wall-paint-ut_hymJ_2uA"}}
+  ]
+}

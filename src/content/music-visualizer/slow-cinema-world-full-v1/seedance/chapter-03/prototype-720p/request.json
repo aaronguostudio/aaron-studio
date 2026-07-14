@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环。严格保持首帧与尾帧中的小草岛、低矮圆顶气象灯塔、静水、蓝色暮云和构图完全一致；固定远距离略居高临下的广角镜头，不推拉、不摇晃、不切换。暮色云海缓慢经过岛屿边缘，草叶与水面只做极轻微的连续变化；圆顶内一盏很暗的暖灯轻微稳定地照亮金属边缘，远处天空由蓝灰自然过渡后回到起点。宁静、细腻、真实可感的微缩地貌，不是科幻或魔法场景。不要人物、动物、飞鸟、车辆、文字、字幕、标志、水印、镜头移动、耀眼光束、星空、突然动作或戏剧性天气。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/slow-cinema-world-full-v1/seedance/chapter-03/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "9009b5867c12ffb0d0d809ec80cee05a897ee6208d7ab5425eefb6099ae0a812"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/slow-cinema-world-full-v1/seedance/chapter-03/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "9009b5867c12ffb0d0d809ec80cee05a897ee6208d7ab5425eefb6099ae0a812"
+      }
+    }
+  ]
+}

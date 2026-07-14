@@ -1,0 +1,12 @@
+{
+  "title": "Quiet Forms — Long Night",
+  "artist": "Quiet Hours",
+  "trackLabel": "study / focus / 10 minute session",
+  "durationSec": 600.024,
+  "theme": "paper-moon",
+  "visualStyle": "audio-mix",
+  "seed": 42,
+  "volume": 0.92,
+  "prompt": "Instrumental only. A cohesive ten-minute minimalist study and reading piece built around intimate felt upright piano, warm room ambience, soft pedal noise, sparse repeating motifs, gentle rubato, and long spacious pauses. Keep the dynamic range low and the mood quietly satisfying, calm, elegant, and hypnotic. Develop the same musical world through several subtle chapters: a 40-second arrival, a settled piano theme, a small harmonic and voicing variation, a gentle opening with very light sustained texture, a spacious middle passage, a warmer return of the theme, and a slow unresolved release. Let phrases breathe and avoid obvious looping. No vocals, no drums, no percussion, no abrupt climax, no trailer impacts, no bright arpeggios, no dramatic key change, no harsh high frequencies, no busy ostinatos. Suitable for deep work, reading, and sleep preparation.",
+  "audioFile": "music.mp3"
+}

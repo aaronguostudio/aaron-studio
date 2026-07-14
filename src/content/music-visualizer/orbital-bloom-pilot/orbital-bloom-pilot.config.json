@@ -1,0 +1,12 @@
+{
+  "title": "Orbital Bloom",
+  "artist": "Visual And Sound",
+  "trackLabel": "50 sec / orbital focus",
+  "durationSec": 50,
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "seed": 809,
+  "volume": 0.9,
+  "resolution": "1080p",
+  "prompt": "Instrumental only. Create a 50-second nocturnal downtempo lo-fi focus piece with a gentle, tactile pulse: warm Rhodes chords, a rounded analog sub bass, a soft low kick, a dry muted rim hit slightly behind the beat, a tiny filtered synth motif, gentle tape flutter, and a distant atmospheric pad. Around 92 BPM, steady 4/4, low-to-medium energy, polished and spacious. Shape it as a short journey: sparse ignition for the first 8 seconds, a settled pulse through the middle, a small harmonic color bloom around 30 seconds, then a quiet return and soft release. No vocals, no EDM drop, no claps, no busy hi-hats, no aggressive sidechain pump, no risers, no bright lead, no abrupt change, and no harsh highs. It should feel like an illuminated energy core slowly moving through a dark room: rhythmic enough to focus with, never demanding attention."
+}

@@ -1,0 +1,8 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-clip-preview",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-formats-samples-v1/slow-cinema-world/music.prompt.txt",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-formats-samples-v1/slow-cinema-world/music.mp3",
+  "outputMimeType": "audio/mpeg",
+  "generatedAt": "2026-07-13T22:23:33.072Z"
+}

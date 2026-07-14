@@ -1,0 +1,12 @@
+{
+  "title": "Glass Meridian",
+  "artist": "Visual And Sound",
+  "trackLabel": "creative studies / 01",
+  "durationSec": 46.032,
+  "theme": "deep-ink",
+  "visualStyle": "prism-chamber",
+  "seed": 3101,
+  "resolution": "1080p",
+  "prompt": "Instrumental only. A 46-second precise, luminous electronic focus study at 108 BPM. Use a dry rounded kick, an asymmetric rim tick, a compact rubbery sub bass, glassy synthetic mallet fragments, and a cool suspended chord bed. The rhythm should feel articulate and forward but never aggressive or club-oriented. Structure: a small chromatic signal, a crisp settled groove, one clean harmonic refracted lift, then an uncluttered exit. No vocals, no lo-fi, no acoustic piano, no Rhodes, no vinyl noise, no trap hats, no EDM build-up, no festival drop, no harsh treble, no heavy wobble bass.",
+  "audioFile": "music.mp3"
+}

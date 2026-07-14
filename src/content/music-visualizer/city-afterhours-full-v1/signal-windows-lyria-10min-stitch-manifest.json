@@ -1,0 +1,34 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/lyria-city-afterhours-continuity-v1/pro-access-check.mp3",
+      "durationSec": 173.40075
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/lyria-city-afterhours-continuity-v1/02-windows.mp3",
+      "durationSec": 175.124833
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/lyria-city-afterhours-continuity-v1/03-clearing.mp3",
+      "durationSec": 145.815458
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/lyria-city-afterhours-continuity-v1/04-night-fade.mp3",
+      "durationSec": 131.082375
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/city-afterhours-full-v1/signal-windows-lyria-10min-master.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

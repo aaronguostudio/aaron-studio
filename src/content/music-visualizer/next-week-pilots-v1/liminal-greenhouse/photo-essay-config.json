@@ -1,0 +1,14 @@
+{
+  "title": "Liminal Greenhouse — Gentle Botanical Focus",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {"fontName": "Avenir Next", "titleSize": 34, "detailSize": 22, "left": 72, "titleBottom": 112, "detailBottom": 82, "initialDelaySec": 0.8, "fadeSec": 0.7, "exitLeadSec": 0.45},
+  "slides": [
+    {"image": "images/01-vintage-house.jpg", "durationSec": 19, "motion": "static", "credit": {"caption": "Glasshouse Entry", "photographer": "Oksana Demenko", "location": "Paris, France", "camera": "NORITSU KOKI EZ Controller", "sourcePage": "https://unsplash.com/photos/a-vintage-glass-greenhouse-with-lush-plants-inside-GxW0knzCgkY"}},
+    {"image": "images/02-bridge-garden.jpg", "durationSec": 19, "motion": "static", "credit": {"caption": "Living Bridge", "photographer": "Declan Sun", "location": "Pudong, Shanghai, China", "camera": "Sony ILCE-7RM5", "sourcePage": "https://unsplash.com/photos/indoor-garden-features-a-wooden-bridge-and-vibrant-decorative-structures-FDpVfIdf-Gw"}},
+    {"image": "images/03-glass-canopy.jpg", "durationSec": 19, "motion": "zoom-out", "motionAmount": 0.01, "credit": {"caption": "Canopy", "photographer": "Declan Sun", "location": "Pudong, Shanghai, China", "camera": "Sony ILCE-7RM5", "sourcePage": "https://unsplash.com/photos/modern-glass-and-metal-structure-with-green-plants-inside-GW10pB40308"}}
+  ]
+}

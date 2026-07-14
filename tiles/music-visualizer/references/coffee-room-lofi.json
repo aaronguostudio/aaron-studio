@@ -1,0 +1,11 @@
+{
+  "title": "Coffee Room",
+  "artist": "Quiet Hours",
+  "trackLabel": "lo-fi wave / coffee break",
+  "durationSec": 60,
+  "theme": "paper-moon",
+  "visualStyle": "coffee-room",
+  "seed": 91,
+  "volume": 0.9,
+  "prompt": "A warm, restrained lo-fi study instrumental for a quiet coffee room: soft Rhodes chords, brushed drums, gentle bass, subtle tape texture, no vocals, spacious and unhurried, made for reading and deep work."
+}

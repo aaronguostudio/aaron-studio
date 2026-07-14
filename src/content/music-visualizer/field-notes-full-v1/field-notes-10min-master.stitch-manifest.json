@@ -1,0 +1,38 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-section-01.mp3",
+      "durationSec": 177.214625
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-section-02.mp3",
+      "durationSec": 104.907708
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-section-03.mp3",
+      "durationSec": 167.627708
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-section-04.mp3",
+      "durationSec": 143.046458
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-section-05.mp3",
+      "durationSec": 177.214625
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-10min-master.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

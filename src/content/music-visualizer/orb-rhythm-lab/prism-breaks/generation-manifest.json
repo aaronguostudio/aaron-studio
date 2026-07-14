@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:40:23.160Z",
+  "title": "Prism Breaks",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Instrumental only. A futuristic 42-second broken-beat focus track at 104 BPM. Use a syncopated kick-and-rim pattern with a light two-step feel, clipped hand percussion, a rubbery sub-bass motif, airy synthetic mallet plucks, and an expansive cool pad. Make the groove articulate, slightly off-center, and elegant rather than sleepy: a listener should feel a real rhythmic engine without it becoming dance-floor music. Structure: a short pulse arriving, a clean broken groove, one luminous chord change, then an uncluttered exit. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl dust, no jazzy chords, no trap hats, no build-up, no drop, no heavy wobble bass, no harsh treble.",
+  "requestedDurationSec": 42,
+  "actualAudioDurationSec": 42.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-breaks/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-breaks/prism-breaks.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-breaks/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

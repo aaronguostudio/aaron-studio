@@ -1,0 +1,34 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/saffron-silence-full-v1/saffron-silence-section-01.mp3",
+      "durationSec": 174.445667
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/saffron-silence-full-v1/saffron-silence-section-02.mp3",
+      "durationSec": 174.968125
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/saffron-silence-full-v1/saffron-silence-section-03.mp3",
+      "durationSec": 172.042375
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/saffron-silence-full-v1/saffron-silence-section-04.mp3",
+      "durationSec": 152.790167
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/saffron-silence-full-v1/saffron-silence-10min-master.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

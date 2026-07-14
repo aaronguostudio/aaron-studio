@@ -6,6 +6,8 @@ import {
   defaultMusicVisualizerProps,
 } from "./MusicVisualizer";
 import type { MusicVisualizerProps } from "./MusicVisualizer";
+import { DigitalSpaces, defaultDigitalSpacesProps } from "./DigitalSpaces";
+import type { DigitalSpacesProps } from "./DigitalSpaces";
 import { KnowledgeShort } from "./KnowledgeShort";
 import type { KnowledgeShortProps } from "./KnowledgeShort";
 import {
@@ -221,6 +223,23 @@ export const RemotionRoot: React.FC = () => {
           };
         }}
         defaultProps={defaultMusicVisualizerProps}
+      />
+
+      {/* Experimental digital-space studies: fixed 2.5D geometry with audio-lit material. */}
+      <Composition
+        id="DigitalSpaces"
+        component={DigitalSpaces as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as DigitalSpacesProps;
+          const fps = 30;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 18) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultDigitalSpacesProps}
       />
 
       {/* Knowledge Shorts — 9:16 vertical, 15s */}

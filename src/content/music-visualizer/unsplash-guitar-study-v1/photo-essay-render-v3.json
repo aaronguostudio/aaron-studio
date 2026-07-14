@@ -1,0 +1,60 @@
+{
+  "renderedAt": "2026-07-13T01:45:22.335Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/photo-essay-config-v3.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/mosslight-study-v3.mp4",
+  "timelineSec": 60,
+  "inputAudioDurationSec": 60.024,
+  "slides": [
+    {
+      "image": "images/01-green-mist.jpg",
+      "durationSec": 16.5,
+      "motion": "static",
+      "credit": {
+        "caption": "Mist Ridge",
+        "photographer": "Supriyo Maity",
+        "location": "Kedarnath, India",
+        "camera": "Nikon D5600",
+        "sourcePage": "https://unsplash.com/photos/lush-green-mountain-shrouded-in-mist-MqN5vaGIUZo"
+      }
+    },
+    {
+      "image": "images/03-forest-rays.jpg",
+      "durationSec": 16.5,
+      "motion": "static",
+      "credit": {
+        "caption": "Forest Light",
+        "photographer": "Zdeněk Macháček",
+        "location": "Skryje, Czechia",
+        "camera": "Canon EOS R5",
+        "sourcePage": "https://unsplash.com/photos/sun-rays-coming-through-green-trees-cXvTkHkfEwk"
+      }
+    },
+    {
+      "image": "images/04-cloud-hillside.jpg",
+      "durationSec": 16.5,
+      "motion": "static",
+      "credit": {
+        "caption": "Cloud Hillside",
+        "photographer": "Ryan Klaus",
+        "location": "Genève, Switzerland",
+        "camera": "DJI FC8284",
+        "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-clouds-and-trees-peWBFIS865Q"
+      }
+    },
+    {
+      "image": "images/05-fog-lake.jpg",
+      "durationSec": 16.5,
+      "motion": "zoom-in",
+      "motionAmount": 0.03,
+      "credit": {
+        "caption": "Midnight Sun",
+        "photographer": "Federico Bottos",
+        "location": "Vestresand, Norway",
+        "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-fog-ecntDhizSgk"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/youtube-description-v3.md"
+}

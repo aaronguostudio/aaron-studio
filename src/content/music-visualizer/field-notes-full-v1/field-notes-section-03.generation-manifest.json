@@ -1,0 +1,8 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-pro-preview",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/section-03.prompt.txt",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-notes-full-v1/field-notes-section-03.mp3",
+  "outputMimeType": "audio/mpeg",
+  "generatedAt": "2026-07-13T07:15:15.204Z"
+}

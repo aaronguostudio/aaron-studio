@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T17:07:41.078Z",
+  "title": "Luminous Tides",
+  "theme": "deep-ink",
+  "visualStyle": "neon-strands",
+  "prompt": "Instrumental only. Night-focus music for a luminous abstract visual: deep Rhodes chords, a soft analog bass pulse, minimal brushed percussion, distant tape texture, spacious and nocturnal. Low-to-medium energy, no vocals, no bright lead, no abrupt drop, no busy hi-hats, with a slow harmonic opening and quiet release.",
+  "requestedDurationSec": 60,
+  "actualAudioDurationSec": 60.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/midnight-lo-fi-wave/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/neon-strands-calibrated/neon-strands-calibrated.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/neon-strands-calibrated/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

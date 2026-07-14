@@ -1,0 +1,12 @@
+{
+  "title": "Paper Atlas",
+  "artist": "Visual And Sound",
+  "trackLabel": "material studies / 03",
+  "durationSec": 46.032,
+  "theme": "paper-moon",
+  "visualStyle": "paper-atlas",
+  "seed": 4203,
+  "resolution": "1080p",
+  "prompt": "Visual-material study using the original Afterimage Gate audio source. Printed paper, cut edges, physical shadows, and chapter-scale rearrangement replace per-beat geometric response.",
+  "audioFile": "music.mp3"
+}

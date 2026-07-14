@@ -1,0 +1,8 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-pro-preview",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/archive-of-light-full-v1/section-02.prompt.txt",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/archive-of-light-full-v1/section-02.mp3",
+  "outputMimeType": "audio/mpeg",
+  "generatedAt": "2026-07-13T05:51:27.256Z"
+}

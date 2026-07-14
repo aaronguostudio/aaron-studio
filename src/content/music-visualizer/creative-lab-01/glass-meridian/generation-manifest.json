@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T20:02:35.049Z",
+  "title": "Glass Meridian",
+  "theme": "deep-ink",
+  "visualStyle": "prism-chamber",
+  "prompt": "Instrumental only. A 46-second precise, luminous electronic focus study at 108 BPM. Use a dry rounded kick, an asymmetric rim tick, a compact rubbery sub bass, glassy synthetic mallet fragments, and a cool suspended chord bed. The rhythm should feel articulate and forward but never aggressive or club-oriented. Structure: a small chromatic signal, a crisp settled groove, one clean harmonic refracted lift, then an uncluttered exit. No vocals, no lo-fi, no acoustic piano, no Rhodes, no vinyl noise, no trap hats, no EDM build-up, no festival drop, no harsh treble, no heavy wobble bass.",
+  "requestedDurationSec": 46,
+  "actualAudioDurationSec": 46.032,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/glass-meridian/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/glass-meridian/glass-meridian.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/glass-meridian/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

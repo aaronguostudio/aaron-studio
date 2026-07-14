@@ -1,0 +1,69 @@
+{
+  "title": "Mosslight — A Slow Landscape Study",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {
+    "fontFile": "/System/Library/Fonts/Avenir Next.ttc",
+    "titleSize": 23,
+    "detailSize": 15,
+    "left": 72,
+    "titleBottom": 120,
+    "detailBottom": 84,
+    "initialDelaySec": 0.8,
+    "holdSec": 4.6,
+    "fadeSec": 0.7
+  },
+  "slides": [
+    {
+      "image": "images/01-green-mist.jpg",
+      "durationSec": 16.5,
+      "motion": "static",
+      "credit": {
+        "caption": "Mist Ridge",
+        "photographer": "Supriyo Maity",
+        "location": "Kedarnath, India",
+        "camera": "Nikon D5600",
+        "sourcePage": "https://unsplash.com/photos/lush-green-mountain-shrouded-in-mist-MqN5vaGIUZo"
+      }
+    },
+    {
+      "image": "images/03-forest-rays.jpg",
+      "durationSec": 16.5,
+      "motion": "static",
+      "credit": {
+        "caption": "Forest Light",
+        "photographer": "Zdeněk Macháček",
+        "location": "Skryje, Czechia",
+        "camera": "Canon EOS R5",
+        "sourcePage": "https://unsplash.com/photos/sun-rays-coming-through-green-trees-cXvTkHkfEwk"
+      }
+    },
+    {
+      "image": "images/04-cloud-hillside.jpg",
+      "durationSec": 16.5,
+      "motion": "static",
+      "credit": {
+        "caption": "Cloud Hillside",
+        "photographer": "Ryan Klaus",
+        "location": "Genève, Switzerland",
+        "camera": "DJI FC8284",
+        "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-clouds-and-trees-peWBFIS865Q"
+      }
+    },
+    {
+      "image": "images/05-fog-lake.jpg",
+      "durationSec": 16.5,
+      "motion": "zoom-in",
+      "motionAmount": 0.03,
+      "credit": {
+        "caption": "Midnight Sun",
+        "photographer": "Federico Bottos",
+        "location": "Vestresand, Norway",
+        "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-fog-ecntDhizSgk"
+      }
+    }
+  ]
+}

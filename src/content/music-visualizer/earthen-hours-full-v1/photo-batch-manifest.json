@@ -1,0 +1,19 @@
+{
+  "project": "earthen-hours-full-v1",
+  "title": "Earthen Hours — 10 Minutes of Studio Focus",
+  "slides": [
+    {"id": "5F1etRutMGA", "caption": "Dappled Mugs"},
+    {"id": "Xow_RU8rcv4", "caption": "Black Table"},
+    {"id": "X3encuFJAN8", "caption": "Two Vessels"},
+    {"id": "68uxs8pKPSE", "caption": "Morning Cups"},
+    {"id": "ytIrICiDShA", "caption": "White Forms"},
+    {"id": "WUUx2CBMel4", "caption": "Green Vessel"},
+    {"id": "4yYK5SiGj6E", "caption": "Window Sill"},
+    {"id": "4R231dpGvUQ", "caption": "White Room"},
+    {"id": "Olb_JAKGKIs", "caption": "Yellow Vase"},
+    {"id": "IUVRYigR4ag", "caption": "Quiet Bowl"},
+    {"id": "NPPIq1XFdck", "caption": "Clay Bowls"},
+    {"id": "wp-wxGRJnls", "caption": "Shelf Study"},
+    {"id": "VegtG-B3Odc", "caption": "Brown Cup", "motion": "zoom-out", "motionAmount": 0.01}
+  ]
+}

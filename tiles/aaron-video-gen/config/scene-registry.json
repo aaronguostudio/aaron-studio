@@ -127,6 +127,17 @@
       ],
       "max_duration_sec": 25,
       "max_content_items": 12
+    },
+    {
+      "id": "digital-space-study",
+      "status": "experimental",
+      "description": "A fixed, loop-ready 2.5D digital space where precomputed music analysis only modulates material light and density. Includes a rendered static fallback frame.",
+      "roles": ["emphasis"],
+      "intensities": ["signature"],
+      "motion_recipes": ["shader-field"],
+      "max_duration_sec": 25,
+      "max_content_items": 1,
+      "fallback": "image-sequence"
     }
   ],
   "motion_recipes": [

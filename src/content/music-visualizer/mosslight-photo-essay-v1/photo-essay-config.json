@@ -1,0 +1,116 @@
+{
+  "title": "Mosslight — A Slow Landscape Study",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 3,
+  "crf": 18,
+  "captionStyle": {
+    "fontName": "Avenir Next",
+    "titleSize": 46,
+    "detailSize": 30,
+    "left": 144,
+    "titleBottom": 224,
+    "detailBottom": 168,
+    "initialDelaySec": 0.8,
+    "fadeSec": 0.7,
+    "exitLeadSec": 0.3
+  },
+  "slides": [
+    {
+      "image": "images/01-mist-ridge.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Mist Ridge", "photographer": "Supriyo Maity", "location": "Kedarnath, Uttarakhand, India", "camera": "Nikon D5600", "sourcePage": "https://unsplash.com/photos/lush-green-mountain-shrouded-in-mist-MqN5vaGIUZo"}
+    },
+    {
+      "image": "images/03-moss-forest.jpg",
+      "durationSec": 42.8,
+      "motion": "zoom-in",
+      "motionAmount": 0.01,
+      "credit": {"caption": "Moss Sanctuary", "photographer": "Ingemar Johnsson", "camera": "Nikon D7200", "sourcePage": "https://unsplash.com/photos/moss-covered-rocks-and-trees-in-a-sunlit-forest-AnKeujjK2Do"}
+    },
+    {
+      "image": "images/05-misty-lake.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Misty Lake", "photographer": "Mahmut Zeljkovic", "location": "Šatorsko jezero, Bosnia and Herzegovina", "camera": "Sony ILCE-7M3", "sourcePage": "https://unsplash.com/photos/a-misty-mountain-lake-with-lush-green-landscape-ZdUOWyAPz7k"}
+    },
+    {
+      "image": "images/06-forest-light.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Forest Light", "photographer": "Zdeněk Macháček", "location": "Skryje, Czechia", "camera": "Canon EOS R5", "sourcePage": "https://unsplash.com/photos/sun-rays-coming-through-green-trees-cXvTkHkfEwk"}
+    },
+    {
+      "image": "images/09-glencoe-stream.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Glencoe Stream", "photographer": "paws_and_prints", "location": "Glencoe, Ballachulish, Scotland", "camera": "Nikon D80", "sourcePage": "https://unsplash.com/photos/a-stream-flows-through-a-misty-green-mountain-landscape-oUu5dWo05qY"}
+    },
+    {
+      "image": "images/10-cloud-hillside.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Cloud Hillside", "photographer": "Ryan Klaus", "location": "Genève, Switzerland", "camera": "DJI FC8284", "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-clouds-and-trees-peWBFIS865Q"}
+    },
+    {
+      "image": "images/20-tea-hills.jpg",
+      "durationSec": 42.8,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {"caption": "Tea Hills in Cloud", "photographer": "Nguyen Trong Quyet", "location": "Long Coc Tea Hill, Vietnam", "camera": "Sony ILCE-7RM3", "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-fog-and-clouds-GLZeyN0HtjU"}
+    },
+    {
+      "image": "images/08-nordland-fjord.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Nordland Water", "photographer": "Myra Lange", "location": "Nordland, Norway", "camera": "DJI FC3411", "sourcePage": "https://unsplash.com/photos/an-aerial-view-of-a-body-of-water-surrounded-by-mountains-RkFBSRf5d38"}
+    },
+    {
+      "image": "images/16-yukon-lake.jpg",
+      "durationSec": 42.8,
+      "motion": "zoom-in",
+      "motionAmount": 0.01,
+      "credit": {"caption": "Tombstone Lake", "photographer": "Lesly Derksen", "location": "Tombstone Territorial Park, Yukon, Canada", "camera": "Olympus E-M1 Mark II", "sourcePage": "https://unsplash.com/photos/a-lake-in-the-mountains-iCNnt6qL7xM"}
+    },
+    {
+      "image": "images/13-deep-forest.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Deep Forest", "photographer": "Spruce", "location": "Katowice, Poland", "camera": "OnePlus Nord2 5G", "sourcePage": "https://unsplash.com/photos/a-forest-with-moss-and-trees-f8mmuf0ioVk"}
+    },
+    {
+      "image": "images/17-forest-rays.jpg",
+      "durationSec": 42.8,
+      "motion": "zoom-in",
+      "motionAmount": 0.01,
+      "credit": {"caption": "Forest Rays", "photographer": "Jan Huber", "camera": "Canon EOS 600D", "sourcePage": "https://unsplash.com/photos/brown-trees-with-sun-rays-po6xfIiuNx4"}
+    },
+    {
+      "image": "images/12-golden-mountain.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Golden Mountain", "photographer": "Rui Marinho", "camera": "Nikon D750", "sourcePage": "https://unsplash.com/photos/mountain-during-golden-hour-kbvscFFlJsI"}
+    },
+    {
+      "image": "images/19-lake-sunset.jpg",
+      "durationSec": 42.8,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {"caption": "First Light Lake", "photographer": "Gerald Berliner", "camera": "Nikon D810", "sourcePage": "https://unsplash.com/photos/a-beautiful-sunset-over-a-lake-with-mountains-in-the-background-4yAzEDnryzA"}
+    },
+    {
+      "image": "images/18-lofoten-sunset.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Lofoten Sunset", "photographer": "Daniel Seßler", "location": "Lofoten, Norway", "camera": "Sony ILCE-7RM3", "sourcePage": "https://unsplash.com/photos/the-sun-is-setting-over-the-mountains-and-the-water-uAnxVqzj8gk"}
+    },
+    {
+      "image": "images/14-midnight-sun.jpg",
+      "durationSec": 42.8,
+      "motion": "static",
+      "credit": {"caption": "Midnight Sun", "photographer": "Federico Bottos", "location": "Vestresand, Norway", "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-fog-ecntDhizSgk"}
+    }
+  ]
+}

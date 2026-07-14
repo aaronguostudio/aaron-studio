@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T21:32:02.590Z",
+  "title": "Canyon Archive",
+  "theme": "deep-ink",
+  "visualStyle": "cinematic-cloud-desk",
+  "prompt": "Instrumental only. An original pastoral chamber-focus piece for writing and deep work: warm felt upright piano carrying a simple, unhurried motif; one soft breathy woodwind color answering occasionally; restrained small string ensemble in long supportive phrases; a distant acoustic-guitar harmonic texture; gentle low cello warmth; natural room air and quiet space between notes. Sunlit, contemplative, quietly hopeful, cinematic in scale but never dramatic. Low-to-medium energy, steady attention, no vocals, no choir, no drums, no loud percussion, no trailer swell, no heroic climax, no recognizable melody, no imitation of any composer, no bright virtuoso piano, no abrupt key change, no harsh high frequencies. Structure: a calm arrival, a settled piano idea, one modest widening of harmony and strings, then a soft return and peaceful unresolved release.",
+  "requestedDurationSec": 46,
+  "actualAudioDurationSec": 46.032,
+  "model": "music_v2",
+  "songId": "CQj7xs2YIBLoFIcQNnFw",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/music-preview/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/music-preview/preview.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": null,
+  "audioAnalysisVersion": null,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

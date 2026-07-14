@@ -1,0 +1,19 @@
+{
+  "project": "rain-studies-full-v1",
+  "license": "Unsplash License",
+  "sources": [
+    {"file": "images/01-blue-rain.jpg", "caption": "Blue Rain", "photographer": "Rama Krushna Behera", "location": "Andaman and Nicobar Islands, India", "camera": "Fujifilm X-M5", "sourcePage": "https://unsplash.com/photos/raindrops-on-a-window-overlooking-the-ocean-vy5aeGxRhok", "license": "Unsplash License"},
+    {"file": "images/02-water-on-glass.jpg", "caption": "Water on Glass", "photographer": "Noah Silliman", "camera": "Canon EOS Rebel T5", "sourcePage": "https://unsplash.com/photos/water-drops-on-glass-i2J9jnvaAbU", "license": "Unsplash License"},
+    {"file": "images/03-raindrop-grain.jpg", "caption": "Raindrop Grain", "photographer": "Jose Fontano", "location": "Philadelphia, United States", "camera": "Nikon D5200", "sourcePage": "https://unsplash.com/photos/raindrops-TdPQp3fjzOw", "license": "Unsplash License"},
+    {"file": "images/04-traffic-in-rain.jpg", "caption": "Traffic in Rain", "photographer": "C. G.", "location": "Ireland", "camera": "Canon EOS 6D", "sourcePage": "https://unsplash.com/photos/a-wet-window-with-a-traffic-light-on-it-JgDUVGAXsso", "license": "Unsplash License"},
+    {"file": "images/05-puddle-script.jpg", "caption": "Puddle Script", "photographer": "Yosuke Ota", "location": "Mt. Daisen, Tottori, Japan", "camera": "Sony ILCE-7M3", "sourcePage": "https://unsplash.com/photos/reflection-of-a-building-in-a-wet-street-yXawBAg2PoI", "license": "Unsplash License"},
+    {"file": "images/06-wet-cobble.jpg", "caption": "Wet Cobble", "photographer": "Charles Puaud", "camera": "Panasonic DC-S5M2", "sourcePage": "https://unsplash.com/photos/distorted-reflections-of-streetlights-and-architecture-on-wet-cobblestones-IbcgU1qPf90", "license": "Unsplash License"},
+    {"file": "images/07-reflection-lane.jpg", "caption": "Reflection Lane", "photographer": "Tanya Barrow", "camera": "Canon EOS R50", "sourcePage": "https://unsplash.com/photos/building-lights-reflected-in-a-wet-street-at-night-vpPNuoWWmZg", "license": "Unsplash License"},
+    {"file": "images/08-night-pane.jpg", "caption": "Night Pane", "photographer": "Max van den Oetelaar", "location": "Amsterdam, Netherlands", "camera": "Nikon D5300", "sourcePage": "https://unsplash.com/photos/a-window-with-rain-drops-on-it-at-night-1e60bqR1Ar0", "license": "Unsplash License"},
+    {"file": "images/09-grey-window.jpg", "caption": "Grey Window", "photographer": "Hans", "sourcePage": "https://unsplash.com/photos/rain-drops-on-a-window-with-trees-in-the-background-tfkzbIApB4s", "license": "Unsplash License"},
+    {"file": "images/10-frosted-pane.jpg", "caption": "Frosted Pane", "photographer": "bady abbas", "camera": "Sony ILCE-7M2", "sourcePage": "https://unsplash.com/photos/grey-and-white-wall-paint-ut_hymJ_2uA", "license": "Unsplash License"},
+    {"file": "images/11-fog-water.jpg", "caption": "Fog Water", "photographer": "Ricardo Resende", "location": "Aveiro, Portugal", "sourcePage": "https://unsplash.com/photos/a-large-body-of-water-with-a-boat-in-the-distance-8B107FlDxVo", "license": "Unsplash License"},
+    {"file": "images/12-fog-pines.jpg", "caption": "Fog Clearing", "photographer": "Majk M.", "camera": "Canon EOS 600D", "sourcePage": "https://unsplash.com/photos/foggy-forest-fvp1d197Gi0", "license": "Unsplash License"},
+    {"file": "images/13-low-cloud.jpg", "caption": "Low Cloud", "photographer": "Davey Gravy", "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-trees-on-a-foggy-day-fHL01n3AffA", "license": "Unsplash License"}
+  ]
+}

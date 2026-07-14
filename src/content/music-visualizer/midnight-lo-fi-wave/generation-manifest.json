@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T16:10:37.727Z",
+  "title": "Midnight Lo-Fi Wave",
+  "theme": "soft-slate",
+  "visualStyle": "lofi-wave",
+  "prompt": "Instrumental only. Warm lo-fi wave for deep work and coding: mellow Rhodes electric piano, soft sub bass, dusty tape texture, restrained brushed kick and snare, a quiet analog pulse, and spacious chord changes. Calm, hypnotic, low-to-medium energy, no vocals, no bright lead, no abrupt drop, no harsh highs, no busy hi-hat pattern. Structure: a short arrival, a settled groove, one small harmonic opening, a restrained return, and a soft unresolved release.",
+  "requestedDurationSec": 60,
+  "actualAudioDurationSec": 60.024,
+  "model": "music_v2",
+  "songId": "tEjlh4DIkmjhbsD1amYR",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/midnight-lo-fi-wave/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/midnight-lo-fi-wave/midnight-lo-fi-wave.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/midnight-lo-fi-wave/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

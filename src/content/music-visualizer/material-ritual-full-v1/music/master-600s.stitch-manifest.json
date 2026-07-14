@@ -1,0 +1,34 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/section-01.mp3",
+      "durationSec": 177.005667
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/section-02.mp3",
+      "durationSec": 174.654625
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/section-03.mp3",
+      "durationSec": 172.773833
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/section-04.mp3",
+      "durationSec": 172.669333
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/master-600s.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

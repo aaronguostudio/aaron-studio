@@ -1,0 +1,34 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/archive-of-light.mp3",
+      "durationSec": 174.288917
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/archive-of-light-full-v1/section-02.mp3",
+      "durationSec": 175.9085
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/archive-of-light-full-v1/section-03.mp3",
+      "durationSec": 168.855458
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/archive-of-light-full-v1/section-04.mp3",
+      "durationSec": 172.512583
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/archive-of-light-full-v1/archive-of-light-10min-master.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

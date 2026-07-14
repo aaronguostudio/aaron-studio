@@ -1,0 +1,2488 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "sourceId": "https://unsplash.com/photos/a-beautiful-sunset-over-a-lake-with-mountains-in-the-background-4yAzEDnryzA",
+      "sourcePage": "https://unsplash.com/photos/a-beautiful-sunset-over-a-lake-with-mountains-in-the-background-4yAzEDnryzA",
+      "photographer": "Gerald Berliner",
+      "location": null,
+      "camera": "Nikon D810",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/19-lake-sunset.jpg",
+          "caption": "First Light Lake",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-black-and-white-photo-of-a-long-hallway-BfeKjmosfBE",
+      "sourcePage": "https://unsplash.com/photos/a-black-and-white-photo-of-a-long-hallway-BfeKjmosfBE",
+      "photographer": "İrfan Simsar",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/12-long-hall.jpg",
+          "caption": "Long Hall",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-black-and-white-view-of-a-subway-tunnel-iYsafhfgWPA",
+      "sourcePage": "https://unsplash.com/photos/a-black-and-white-view-of-a-subway-tunnel-iYsafhfgWPA",
+      "photographer": "Segun Famisa",
+      "location": null,
+      "camera": "ILCE-7CM2",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/11-tunnel-study.jpg",
+          "caption": "Tunnel Study",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-fog-ecntDhizSgk",
+      "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-mountains-and-fog-ecntDhizSgk",
+      "photographer": "Federico Bottos",
+      "location": "Vestresand, Norway",
+      "camera": null,
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/14-midnight-sun.jpg",
+          "caption": "Midnight Sun",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-body-of-water-surrounded-by-trees-on-a-foggy-day-fHL01n3AffA",
+      "sourcePage": "https://unsplash.com/photos/a-body-of-water-surrounded-by-trees-on-a-foggy-day-fHL01n3AffA",
+      "photographer": "Davey Gravy",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/13-low-cloud.jpg",
+          "caption": "Low Cloud",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-brown-cup-sitting-on-top-of-a-white-table-VegtG-B3Odc",
+      "sourcePage": "https://unsplash.com/photos/a-brown-cup-sitting-on-top-of-a-white-table-VegtG-B3Odc",
+      "photographer": "Brunxs",
+      "location": null,
+      "camera": "ILCE-7M3",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/13-brown-cup.jpg",
+          "caption": "Brown Cup",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-building-in-the-middle-of-a-desert-with-mountains-in-the-background--sqSbFhwr9M",
+      "sourcePage": "https://unsplash.com/photos/a-building-in-the-middle-of-a-desert-with-mountains-in-the-background--sqSbFhwr9M",
+      "photographer": "Taven Diorio",
+      "location": null,
+      "camera": " EOS REBEL T5i",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/12-distant-house.jpg",
+          "caption": "Distant House",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-cabin-in-the-snow-l1JFfpwzYXU",
+      "sourcePage": "https://unsplash.com/photos/a-cabin-in-the-snow-l1JFfpwzYXU",
+      "photographer": "Sheila Swayze",
+      "location": null,
+      "camera": " EOS REBEL T5",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/03-snow-cabin.jpg",
+          "caption": "Snow Cabin",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-concrete-pier-extends-into-a-calm-body-of-water-s_hG8_TzXvs",
+      "sourcePage": "https://unsplash.com/photos/a-concrete-pier-extends-into-a-calm-body-of-water-s_hG8_TzXvs",
+      "photographer": "Aleksandrs Zeltisevs",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/13-last-light-pier.jpg",
+          "caption": "Last Light Pier",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-concrete-shelter-with-picnic-tables-overlooking-vast-salt-flats-WfYQC7HsSFk",
+      "sourcePage": "https://unsplash.com/photos/a-concrete-shelter-with-picnic-tables-overlooking-vast-salt-flats-WfYQC7HsSFk",
+      "photographer": "Urvish Oza",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/05-salt-shelter.jpg",
+          "caption": "Salt Shelter",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-foggy-road-in-the-middle-of-a-field-miKo9Eqmxs4",
+      "sourcePage": "https://unsplash.com/photos/a-foggy-road-in-the-middle-of-a-field-miKo9Eqmxs4",
+      "photographer": "Rhamely",
+      "location": null,
+      "camera": " EOS 100D",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/10-low-mist.jpg",
+          "caption": "Low Mist",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-forest-with-moss-and-trees-f8mmuf0ioVk",
+      "sourcePage": "https://unsplash.com/photos/a-forest-with-moss-and-trees-f8mmuf0ioVk",
+      "photographer": "Spruce",
+      "location": "Katowice, Poland",
+      "camera": "OnePlus Nord2 5G",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/13-deep-forest.jpg",
+          "caption": "Deep Forest",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-green-vase-sitting-on-top-of-a-white-table-WUUx2CBMel4",
+      "sourcePage": "https://unsplash.com/photos/a-green-vase-sitting-on-top-of-a-white-table-WUUx2CBMel4",
+      "photographer": "Kat Sylvester",
+      "location": null,
+      "camera": " EOS REBEL T2i",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/06-green-vessel.jpg",
+          "caption": "Green Vessel",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-greenhouse-filled-with-lots-of-plants-and-trees-D_zBdEDUWk4",
+      "sourcePage": "https://unsplash.com/photos/a-greenhouse-filled-with-lots-of-plants-and-trees-D_zBdEDUWk4",
+      "photographer": "Faruk Tokluoğlu",
+      "location": "Maslak Kasırları, Istanbul, Türkiye",
+      "camera": "Sony ILCE-7M4",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/04-long-house.jpg",
+          "caption": "Long House",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-lake-in-the-mountains-iCNnt6qL7xM",
+      "sourcePage": "https://unsplash.com/photos/a-lake-in-the-mountains-iCNnt6qL7xM",
+      "photographer": "Lesly Derksen",
+      "location": "Tombstone Territorial Park, Yukon, Canada",
+      "camera": "Olympus E-M1 Mark II",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/16-yukon-lake.jpg",
+          "caption": "Tombstone Lake",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-large-body-of-water-with-a-boat-in-the-distance-8B107FlDxVo",
+      "sourcePage": "https://unsplash.com/photos/a-large-body-of-water-with-a-boat-in-the-distance-8B107FlDxVo",
+      "photographer": "Ricardo Resende",
+      "location": "Aveiro, Portugal",
+      "camera": null,
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/11-fog-water.jpg",
+          "caption": "Fog Water",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-large-staircase-with-a-skylight-above-it-LqoIlIpO6Vs",
+      "sourcePage": "https://unsplash.com/photos/a-large-staircase-with-a-skylight-above-it-LqoIlIpO6Vs",
+      "photographer": "Brandon Griggs",
+      "location": "Durham, North Carolina, United States",
+      "camera": "Canon EOS RP",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/03-arched-light.jpg",
+          "caption": "Skylight Stair",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-lone-tree-in-the-middle-of-a-desert-EyZ4Qw3U6GQ",
+      "sourcePage": "https://unsplash.com/photos/a-lone-tree-in-the-middle-of-a-desert-EyZ4Qw3U6GQ",
+      "photographer": "Taru Goyal",
+      "location": null,
+      "camera": " EOS 1200D",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/02-solitary-tree.jpg",
+          "caption": "Solitary Tree",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-lonely-road-winds-through-misty-fields-at-sunrise-wernJy84Pv8",
+      "sourcePage": "https://unsplash.com/photos/a-lonely-road-winds-through-misty-fields-at-sunrise-wernJy84Pv8",
+      "photographer": "Elisa Stone",
+      "location": null,
+      "camera": "NIKON D7500",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/13-morning-turn.jpg",
+          "caption": "Morning Turn",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-clouds-and-trees-peWBFIS865Q",
+      "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-clouds-and-trees-peWBFIS865Q",
+      "photographer": "Ryan Klaus",
+      "location": "Genève, Switzerland",
+      "camera": "DJI FC8284",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/10-cloud-hillside.jpg",
+          "caption": "Cloud Hillside",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-fog-and-clouds-GLZeyN0HtjU",
+      "sourcePage": "https://unsplash.com/photos/a-lush-green-hillside-covered-in-fog-and-clouds-GLZeyN0HtjU",
+      "photographer": "Nguyen Trong Quyet",
+      "location": "Long Coc Tea Hill, Vietnam",
+      "camera": "Sony ILCE-7RM3",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/20-tea-hills.jpg",
+          "caption": "Tea Hills in Cloud",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-misty-field-at-sunrise-with-a-gradient-sky-XYSBvh1bpUY",
+      "sourcePage": "https://unsplash.com/photos/a-misty-field-at-sunrise-with-a-gradient-sky-XYSBvh1bpUY",
+      "photographer": "Michael Beier",
+      "location": null,
+      "camera": "ILCE-5100",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/11-pale-dawn.jpg",
+          "caption": "Pale Dawn",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-misty-mountain-lake-with-lush-green-landscape-ZdUOWyAPz7k",
+      "sourcePage": "https://unsplash.com/photos/a-misty-mountain-lake-with-lush-green-landscape-ZdUOWyAPz7k",
+      "photographer": "Mahmut Zeljkovic",
+      "location": "Šatorsko jezero, Bosnia and Herzegovina",
+      "camera": "Sony ILCE-7M3",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/05-misty-lake.jpg",
+          "caption": "Misty Lake",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-room-filled-with-lots-of-potted-plants-tXc_R7ZDLwo",
+      "sourcePage": "https://unsplash.com/photos/a-room-filled-with-lots-of-potted-plants-tXc_R7ZDLwo",
+      "photographer": "Kellie Enge",
+      "location": null,
+      "camera": "Fujifilm X100V",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/10-potted-light.jpg",
+          "caption": "Potted Light",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-small-abandoned-building-stands-in-a-vast-sandy-desert-LaoYioZga00",
+      "sourcePage": "https://unsplash.com/photos/a-small-abandoned-building-stands-in-a-vast-sandy-desert-LaoYioZga00",
+      "photographer": "Baptiste Riethmann",
+      "location": null,
+      "camera": "X-T5",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/06-small-horizon.jpg",
+          "caption": "Small Horizon",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-snow-covered-field-with-a-barn-and-trees-IN1Ik_OVk_w",
+      "sourcePage": "https://unsplash.com/photos/a-snow-covered-field-with-a-barn-and-trees-IN1Ik_OVk_w",
+      "photographer": "Graphic Node",
+      "location": null,
+      "camera": " EOS 6D",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/06-winter-barn.jpg",
+          "caption": "Winter Barn",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-snow-covered-mountain-range-with-a-lake-in-the-foreground-5zalVgSZLW4",
+      "sourcePage": "https://unsplash.com/photos/a-snow-covered-mountain-range-with-a-lake-in-the-foreground-5zalVgSZLW4",
+      "photographer": "ingenious0range",
+      "location": null,
+      "camera": " EOS 2000D",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/13-frozen-lake.jpg",
+          "caption": "Frozen Lake",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-snowy-landscape-with-a-cabin-and-trees-hwjhVsNSjnE",
+      "sourcePage": "https://unsplash.com/photos/a-snowy-landscape-with-a-cabin-and-trees-hwjhVsNSjnE",
+      "photographer": "Alex Kolodziej",
+      "location": null,
+      "camera": "NIKON D5100",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/09-snow-field.jpg",
+          "caption": "Snow Field",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-snowy-landscape-with-trees-and-a-building-with-a-mountain-in-the-background-3jjr2MTitYU",
+      "sourcePage": "https://unsplash.com/photos/a-snowy-landscape-with-trees-and-a-building-with-a-mountain-in-the-background-3jjr2MTitYU",
+      "photographer": "Sabin Popa",
+      "location": null,
+      "camera": "NIKON D3500",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/08-mountain-window.jpg",
+          "caption": "Mountain Window",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-spiral-staircase-in-a-building-with-a-skylight-Ov7KWXeekvc",
+      "sourcePage": "https://unsplash.com/photos/a-spiral-staircase-in-a-building-with-a-skylight-Ov7KWXeekvc",
+      "photographer": "Ryunosuke Kikuno",
+      "location": "Québec, Canada",
+      "camera": "Nikon Z 6_2",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/13-spiral-light.jpg",
+          "caption": "Spiral Light",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-stream-flows-through-a-misty-green-mountain-landscape-oUu5dWo05qY",
+      "sourcePage": "https://unsplash.com/photos/a-stream-flows-through-a-misty-green-mountain-landscape-oUu5dWo05qY",
+      "photographer": "paws_and_prints",
+      "location": "Glencoe, Ballachulish, Scotland",
+      "camera": "Nikon D80",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/09-glencoe-stream.jpg",
+          "caption": "Glencoe Stream",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-sunflower-field-with-a-barn-in-the-background-don5t9hwULk",
+      "sourcePage": "https://unsplash.com/photos/a-sunflower-field-with-a-barn-in-the-background-don5t9hwULk",
+      "photographer": "Benjamin White",
+      "location": null,
+      "camera": "NIKON D780",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/03-sunflower-field.jpg",
+          "caption": "Sunflower Field",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-tall-wooden-structure-in-the-middle-of-a-desert-igBubhh6IoA",
+      "sourcePage": "https://unsplash.com/photos/a-tall-wooden-structure-in-the-middle-of-a-desert-igBubhh6IoA",
+      "photographer": "Ben Koorengevel",
+      "location": null,
+      "camera": "L1D-20c",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/07-desert-marker.jpg",
+          "caption": "Desert Marker",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-vase-and-a-vase-on-a-counter-X3encuFJAN8",
+      "sourcePage": "https://unsplash.com/photos/a-vase-and-a-vase-on-a-counter-X3encuFJAN8",
+      "photographer": "Liana Mikah",
+      "location": null,
+      "camera": " EOS 5D Mark IV",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/03-two-vessels.jpg",
+          "caption": "Two Vessels",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-very-tall-building-with-many-windows-reflecting-the-sky-h6PMBCL7sss",
+      "sourcePage": "https://unsplash.com/photos/a-very-tall-building-with-many-windows-reflecting-the-sky-h6PMBCL7sss",
+      "photographer": "Valentin Bolder",
+      "location": "Berlin, Germany",
+      "camera": "Sony ILCE-7M3",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/09-window-tower.jpg",
+          "caption": "Window Tower",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-view-of-the-ocean-from-a-concrete-pier-XIxJSGD47HU",
+      "sourcePage": "https://unsplash.com/photos/a-view-of-the-ocean-from-a-concrete-pier-XIxJSGD47HU",
+      "photographer": "Alexander Gluschenko",
+      "location": "Baltiysk, Kaliningrad Oblast, Russia",
+      "camera": "HUAWEI ATU-L31",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/07-coastal-threshold.jpg",
+          "caption": "Coastal Threshold",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-vintage-glass-greenhouse-with-lush-plants-inside-GxW0knzCgkY",
+      "sourcePage": "https://unsplash.com/photos/a-vintage-glass-greenhouse-with-lush-plants-inside-GxW0knzCgkY",
+      "photographer": "Oksana Demenko",
+      "location": "Paris, France",
+      "camera": "NORITSU KOKI EZ Controller",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/01-glasshouse-entry.jpg",
+          "caption": "Glasshouse Entry",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-walkway-in-a-garden-with-lots-of-plants-KEOXUyDEfDA",
+      "sourcePage": "https://unsplash.com/photos/a-walkway-in-a-garden-with-lots-of-plants-KEOXUyDEfDA",
+      "photographer": "Fellipe Ditadi",
+      "location": null,
+      "camera": "Canon EOS R5",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/11-lattice-morning.jpg",
+          "caption": "Lattice Morning",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-wet-window-with-a-traffic-light-on-it-JgDUVGAXsso",
+      "sourcePage": "https://unsplash.com/photos/a-wet-window-with-a-traffic-light-on-it-JgDUVGAXsso",
+      "photographer": "C. G.",
+      "location": "Ireland",
+      "camera": "Canon EOS 6D",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/04-traffic-in-rain.jpg",
+          "caption": "Traffic in Rain",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-white-room-with-a-vase-and-a-white-object-on-the-floor-4R231dpGvUQ",
+      "sourcePage": "https://unsplash.com/photos/a-white-room-with-a-vase-and-a-white-object-on-the-floor-4R231dpGvUQ",
+      "photographer": "nilufar nattaq",
+      "location": null,
+      "camera": "NIKON D850",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/08-white-room.jpg",
+          "caption": "White Room",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-white-vase-sitting-next-to-a-white-vase-on-a-shelf-wp-wxGRJnls",
+      "sourcePage": "https://unsplash.com/photos/a-white-vase-sitting-next-to-a-white-vase-on-a-shelf-wp-wxGRJnls",
+      "photographer": "Anita Austvika",
+      "location": null,
+      "camera": "NIKON Z 7_2",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/12-shelf-study.jpg",
+          "caption": "Shelf Study",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-window-with-rain-drops-on-it-at-night-1e60bqR1Ar0",
+      "sourcePage": "https://unsplash.com/photos/a-window-with-rain-drops-on-it-at-night-1e60bqR1Ar0",
+      "photographer": "Max van den Oetelaar",
+      "location": "Amsterdam, Netherlands",
+      "camera": "Nikon D5300",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/08-night-pane.jpg",
+          "caption": "Night Pane",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/a-yellow-and-white-vase-sitting-on-top-of-a-wooden-table-Olb_JAKGKIs",
+      "sourcePage": "https://unsplash.com/photos/a-yellow-and-white-vase-sitting-on-top-of-a-wooden-table-Olb_JAKGKIs",
+      "photographer": "Beau Carpenter",
+      "location": null,
+      "camera": "X-T4",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/09-yellow-vase.jpg",
+          "caption": "Yellow Vase",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/aerial-view-of-a-rocky-coast-and-turquoise-water-mAxdU1BBc7U",
+      "sourcePage": "https://unsplash.com/photos/aerial-view-of-a-rocky-coast-and-turquoise-water-mAxdU1BBc7U",
+      "photographer": "Marc anthony Saylon",
+      "location": null,
+      "camera": "Hasselblad L3D-100c",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/06-turquoise-coast.jpg",
+          "caption": "Blue Shelf",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/aerial-view-of-rocky-shore-meeting-green-ocean-waves-xsZI8H3eOcw",
+      "sourcePage": "https://unsplash.com/photos/aerial-view-of-rocky-shore-meeting-green-ocean-waves-xsZI8H3eOcw",
+      "photographer": "Kristaps Ungurs",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/11-green-coast.jpg",
+          "caption": "Green Coast",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/an-aerial-view-of-a-body-of-water-surrounded-by-mountains-RkFBSRf5d38",
+      "sourcePage": "https://unsplash.com/photos/an-aerial-view-of-a-body-of-water-surrounded-by-mountains-RkFBSRf5d38",
+      "photographer": "Myra Lange",
+      "location": "Nordland, Norway",
+      "camera": "DJI FC3411",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/08-nordland-fjord.jpg",
+          "caption": "Nordland Water",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/an-aerial-view-of-the-ocean-and-a-concrete-walkway-rjOs8xxjzAs",
+      "sourcePage": "https://unsplash.com/photos/an-aerial-view-of-the-ocean-and-a-concrete-walkway-rjOs8xxjzAs",
+      "photographer": "Jack White",
+      "location": "Madeira, Portugal",
+      "camera": "DJI FC7203",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/05-salt-geometry.jpg",
+          "caption": "Salt Geometry",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/an-empty-road-surrounded-by-trees-on-a-foggy-day-jGG-KwfYOOs",
+      "sourcePage": "https://unsplash.com/photos/an-empty-road-surrounded-by-trees-on-a-foggy-day-jGG-KwfYOOs",
+      "photographer": "Rhamely",
+      "location": null,
+      "camera": " EOS 100D",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/12-quiet-road.jpg",
+          "caption": "Quiet Road",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/an-empty-subway-station-platform-at-night-with-escalators-Zi4S_YiwnwI",
+      "sourcePage": "https://unsplash.com/photos/an-empty-subway-station-platform-at-night-with-escalators-Zi4S_YiwnwI",
+      "photographer": "Chani Kaplan",
+      "location": null,
+      "camera": "X-T30 III",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/03-night-escalators.jpg",
+          "caption": "Night Escalators",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/an-escalator-in-a-subway-station-at-night-kpIknZHyDVw",
+      "sourcePage": "https://unsplash.com/photos/an-escalator-in-a-subway-station-at-night-kpIknZHyDVw",
+      "photographer": "Dennis Zhang",
+      "location": null,
+      "camera": "ILCE-7RM5",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/13-last-escalator.jpg",
+          "caption": "Last Escalator",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/brown-and-white-concrete-house-on-brown-sand-r_pWa60QSvU",
+      "sourcePage": "https://unsplash.com/photos/brown-and-white-concrete-house-on-brown-sand-r_pWa60QSvU",
+      "photographer": "Christina Nguyen",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/08-sand-house.jpg",
+          "caption": "Sand House",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/brown-rock-formation-under-blue-sky-during-daytime-5-r1P92zYNE",
+      "sourcePage": "https://unsplash.com/photos/brown-rock-formation-under-blue-sky-during-daytime-5-r1P92zYNE",
+      "photographer": "Cate Bligh",
+      "location": null,
+      "camera": "NIKON D810",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/04-weathered-stone.jpg",
+          "caption": "Weathered Stone",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/brown-trees-with-sun-rays-po6xfIiuNx4",
+      "sourcePage": "https://unsplash.com/photos/brown-trees-with-sun-rays-po6xfIiuNx4",
+      "photographer": "Jan Huber",
+      "location": null,
+      "camera": "Canon EOS 600D",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/17-forest-rays.jpg",
+          "caption": "Forest Rays",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/brown-wooden-house-on-snow-covered-ground-near-trees-during-daytime-Wy9aq4yMq_g",
+      "sourcePage": "https://unsplash.com/photos/brown-wooden-house-on-snow-covered-ground-near-trees-during-daytime-Wy9aq4yMq_g",
+      "photographer": "Greg Althoff",
+      "location": null,
+      "camera": "Canon EOS 6D",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/05-quiet-roof.jpg",
+          "caption": "Quiet Roof",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/brutalist-architecture-with-arched-ceilings-and-sunlight-P5IyVUkdwxw",
+      "sourcePage": "https://unsplash.com/photos/brutalist-architecture-with-arched-ceilings-and-sunlight-P5IyVUkdwxw",
+      "photographer": "Declan Sun",
+      "location": "Shanghai, China",
+      "camera": "Nikon Z 8",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/01-concrete-threshold.jpg",
+          "caption": "Concrete Threshold",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/building-lights-reflected-in-a-wet-street-at-night-vpPNuoWWmZg",
+      "sourcePage": "https://unsplash.com/photos/building-lights-reflected-in-a-wet-street-at-night-vpPNuoWWmZg",
+      "photographer": "Tanya Barrow",
+      "location": null,
+      "camera": "Canon EOS R50",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/07-reflection-lane.jpg",
+          "caption": "Reflection Lane",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/buildings-surrounding-a-bright-blue-sky-QGlVNoOSFVk",
+      "sourcePage": "https://unsplash.com/photos/buildings-surrounding-a-bright-blue-sky-QGlVNoOSFVk",
+      "photographer": "Wolfgang Weiser",
+      "location": "Hamburg, Germany",
+      "camera": "Nikon D850",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/05-sky-courtyard.jpg",
+          "caption": "Sky Courtyard",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/ceramic-pottery-and-plates-sit-on-a-windowsill-4yYK5SiGj6E",
+      "sourcePage": "https://unsplash.com/photos/ceramic-pottery-and-plates-sit-on-a-windowsill-4yYK5SiGj6E",
+      "photographer": "Danielle-Claude Bélanger",
+      "location": null,
+      "camera": " EOS Rebel T6i",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/07-window-sill.jpg",
+          "caption": "Window Sill",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/city-skyline-illuminated-at-night-with-colorful-reflections-w6DgzF1OMG4",
+      "sourcePage": "https://unsplash.com/photos/city-skyline-illuminated-at-night-with-colorful-reflections-w6DgzF1OMG4",
+      "photographer": "YiChuan Li",
+      "location": "Qingdao, Shandong, China",
+      "camera": null,
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/06-qingdao-lights.jpg",
+          "caption": "Qingdao Lights",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/concrete-hallway-with-stairs-and-windows-NLh-6cSDErE",
+      "sourcePage": "https://unsplash.com/photos/concrete-hallway-with-stairs-and-windows-NLh-6cSDErE",
+      "photographer": "Turquo Cabbit",
+      "location": null,
+      "camera": "Nikon Z 6_2",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/07-hallway.jpg",
+          "caption": "Hallway",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/concrete-wall-with-geometric-light-patterns--4JrcIGHq80",
+      "sourcePage": "https://unsplash.com/photos/concrete-wall-with-geometric-light-patterns--4JrcIGHq80",
+      "photographer": "Johnny Ho",
+      "location": null,
+      "camera": "Sony ILCE-7CM2",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/06-light-slab.jpg",
+          "caption": "Light Slab",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/distorted-reflections-of-streetlights-and-architecture-on-wet-cobblestones-IbcgU1qPf90",
+      "sourcePage": "https://unsplash.com/photos/distorted-reflections-of-streetlights-and-architecture-on-wet-cobblestones-IbcgU1qPf90",
+      "photographer": "Charles Puaud",
+      "location": null,
+      "camera": "Panasonic DC-S5M2",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/06-wet-cobble.jpg",
+          "caption": "Wet Cobble",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/dramatic-sunlight-illuminates-a-textured-wall-and-window-JsGLHErCyzw",
+      "sourcePage": "https://unsplash.com/photos/dramatic-sunlight-illuminates-a-textured-wall-and-window-JsGLHErCyzw",
+      "photographer": "QUENTIN Mahe",
+      "location": "London, United Kingdom",
+      "camera": "Fujifilm X-T5",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/05-stone-noon.jpg",
+          "caption": "Stone Noon",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/empty-concrete-tunnel-with-overhead-lights-and-crosswalk-x9YN41slnAA",
+      "sourcePage": "https://unsplash.com/photos/empty-concrete-tunnel-with-overhead-lights-and-crosswalk-x9YN41slnAA",
+      "photographer": "Luella Wong",
+      "location": null,
+      "camera": " EOS 6D Mark II",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/10-concrete-tunnel.jpg",
+          "caption": "Concrete Tunnel",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/empty-subway-station-with-bright-lights-and-reflections-N0v7SvaWz6c",
+      "sourcePage": "https://unsplash.com/photos/empty-subway-station-with-bright-lights-and-reflections-N0v7SvaWz6c",
+      "photographer": "Dom Yu",
+      "location": null,
+      "camera": "ILCE-7M4",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/05-blue-reflection.jpg",
+          "caption": "Blue Reflection",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/empty-train-station-platform-at-night-with-lights-1KjEtU1kbBw",
+      "sourcePage": "https://unsplash.com/photos/empty-train-station-platform-at-night-with-lights-1KjEtU1kbBw",
+      "photographer": "Nikita Kulikov",
+      "location": null,
+      "camera": "ILCE-6400A",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/02-empty-platform.jpg",
+          "caption": "Empty Platform",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/empty-white-concrete-pillared-parking-lot-fAmj2spOqxc",
+      "sourcePage": "https://unsplash.com/photos/empty-white-concrete-pillared-parking-lot-fAmj2spOqxc",
+      "photographer": "Claudio Schwarz",
+      "location": null,
+      "camera": "ILCE-7RM2",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/08-concrete-rhythm.jpg",
+          "caption": "Concrete Rhythm",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/foggy-forest-fvp1d197Gi0",
+      "sourcePage": "https://unsplash.com/photos/foggy-forest-fvp1d197Gi0",
+      "photographer": "Majk M.",
+      "location": null,
+      "camera": "Canon EOS 600D",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/12-fog-pines.jpg",
+          "caption": "Fog Clearing",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/gray-concrete-building-under-blue-sky-during-daytime-5wSNKGxVzok",
+      "sourcePage": "https://unsplash.com/photos/gray-concrete-building-under-blue-sky-during-daytime-5wSNKGxVzok",
+      "photographer": "Ryunosuke Kikuno",
+      "location": "Calgary, Canada",
+      "camera": "Nikon Z 6 II",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/14-calgary-concrete.jpg",
+          "caption": "Calgary Plane",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/gray-mountain-under-blue-sky-during-daytime-66VzH6y5_lE",
+      "sourcePage": "https://unsplash.com/photos/gray-mountain-under-blue-sky-during-daytime-66VzH6y5_lE",
+      "photographer": "Mac McDade",
+      "location": null,
+      "camera": "NIKON D3200",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/10-high-range.jpg",
+          "caption": "High Range",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/grayscale-photo-of-ceramic-mugs-on-round-plates-68uxs8pKPSE",
+      "sourcePage": "https://unsplash.com/photos/grayscale-photo-of-ceramic-mugs-on-round-plates-68uxs8pKPSE",
+      "photographer": "Kate Trifo",
+      "location": null,
+      "camera": "X-T3",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/04-morning-cups.jpg",
+          "caption": "Morning Cups",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-field-with-a-tree-and-a-forest-in-the-background-tLqZEacCFCo",
+      "sourcePage": "https://unsplash.com/photos/green-field-with-a-tree-and-a-forest-in-the-background-tLqZEacCFCo",
+      "photographer": "Pascal Debrunner",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/06-single-tree.jpg",
+          "caption": "Single Tree",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-field-with-tire-tracks-under-cloudy-sky-myFTkJlDmfA",
+      "sourcePage": "https://unsplash.com/photos/green-field-with-tire-tracks-under-cloudy-sky-myFTkJlDmfA",
+      "photographer": "Pascal Debrunner",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/09-field-lines.jpg",
+          "caption": "Field Lines",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-fields-under-clear-blue-sky-ucwhCdVZFHM",
+      "sourcePage": "https://unsplash.com/photos/green-fields-under-clear-blue-sky-ucwhCdVZFHM",
+      "photographer": "Rural Explorer",
+      "location": null,
+      "camera": "Canon EOS 70D",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/07-green-fields.jpg",
+          "caption": "Green Fields",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-grass-and-trees-beside-road-during-daytime-er9351BlWDg",
+      "sourcePage": "https://unsplash.com/photos/green-grass-and-trees-beside-road-during-daytime-er9351BlWDg",
+      "photographer": "Paul Tinsley",
+      "location": null,
+      "camera": "RICOH GR III",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/04-hedgerow.jpg",
+          "caption": "Hedgerow",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-pine-tree-and-lake-f60qQpYOHd4",
+      "sourcePage": "https://unsplash.com/photos/green-pine-tree-and-lake-f60qQpYOHd4",
+      "photographer": "brandon siu",
+      "location": null,
+      "camera": "NIKON D610",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/01-pine-water.jpg",
+          "caption": "Pine Water",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-plants-in-green-pond-vHwWmuWgoRw",
+      "sourcePage": "https://unsplash.com/photos/green-plants-in-green-pond-vHwWmuWgoRw",
+      "photographer": "Jonas Denil",
+      "location": "Meise, Belgium",
+      "camera": "Bessa R",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/12-lily-water.jpg",
+          "caption": "Lily Water",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-plants-inside-white-building-PSBOHyv2z7E",
+      "sourcePage": "https://unsplash.com/photos/green-plants-inside-white-building-PSBOHyv2z7E",
+      "photographer": "hoch3fotografie",
+      "location": "Richmond, United Kingdom",
+      "camera": "X100F",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/03-winter-garden.jpg",
+          "caption": "Winter Garden",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-tea-plantation-covered-in-morning-mist-1wCRZ2SdqUU",
+      "sourcePage": "https://unsplash.com/photos/green-tea-plantation-covered-in-morning-mist-1wCRZ2SdqUU",
+      "photographer": "Nguyen Huong",
+      "location": null,
+      "camera": " EOS 6D",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/01-tea-in-mist.jpg",
+          "caption": "Tea in Mist",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-trees-beside-road-during-daytime-ZQ9pHYS3w4E",
+      "sourcePage": "https://unsplash.com/photos/green-trees-beside-road-during-daytime-ZQ9pHYS3w4E",
+      "photographer": "Maksym Diachenko",
+      "location": null,
+      "camera": "L1D-20c",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/02-green-road.jpg",
+          "caption": "Green Road",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/green-trees-inside-greenhouse-during-daytime-oUbOAoZ3OxU",
+      "sourcePage": "https://unsplash.com/photos/green-trees-inside-greenhouse-during-daytime-oUbOAoZ3OxU",
+      "photographer": "Tom Podmore",
+      "location": "Kew Gardens, Richmond, United Kingdom",
+      "camera": "Nikon D3300",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/07-green-room.jpg",
+          "caption": "Green Room",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/greenhouse-interior-seen-through-blurry-plants-at-night-E4yvkq6Yg9k",
+      "sourcePage": "https://unsplash.com/photos/greenhouse-interior-seen-through-blurry-plants-at-night-E4yvkq6Yg9k",
+      "photographer": "Kaylee Stoll",
+      "location": "Denver, Colorado, United States",
+      "camera": "Sony ILCE-7M3",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/08-quiet-walkway.jpg",
+          "caption": "After Glass",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/greenhouse-interior-with-lush-plants-and-glass-ceiling-1xvPUsBeI78",
+      "sourcePage": "https://unsplash.com/photos/greenhouse-interior-with-lush-plants-and-glass-ceiling-1xvPUsBeI78",
+      "photographer": "Adrien Olichon",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/02-under-glass.jpg",
+          "caption": "Under Glass",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/greenhouse-interior-with-plants-on-shelves-and-windows-XLrtSQ4OEPE",
+      "sourcePage": "https://unsplash.com/photos/greenhouse-interior-with-plants-on-shelves-and-windows-XLrtSQ4OEPE",
+      "photographer": "Kristen McConville",
+      "location": null,
+      "camera": "Canon EOS Rebel T7",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/13-shelf-light.jpg",
+          "caption": "Shelf Light",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/grey-and-white-wall-paint-ut_hymJ_2uA",
+      "sourcePage": "https://unsplash.com/photos/grey-and-white-wall-paint-ut_hymJ_2uA",
+      "photographer": "bady abbas",
+      "location": null,
+      "camera": "Sony ILCE-7M2",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/10-frosted-pane.jpg",
+          "caption": "Frosted Pane",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/indoor-garden-features-a-wooden-bridge-and-vibrant-decorative-structures-FDpVfIdf-Gw",
+      "sourcePage": "https://unsplash.com/photos/indoor-garden-features-a-wooden-bridge-and-vibrant-decorative-structures-FDpVfIdf-Gw",
+      "photographer": "Declan Sun",
+      "location": "Pudong, Shanghai, China",
+      "camera": "Sony ILCE-7RM5",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/06-living-bridge.jpg",
+          "caption": "Living Bridge",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/landscape-photography-of-gray-concrete-building-XK0faa4_mCQ",
+      "sourcePage": "https://unsplash.com/photos/landscape-photography-of-gray-concrete-building-XK0faa4_mCQ",
+      "photographer": "Simone Hutsch",
+      "location": null,
+      "camera": "Canon EOS 7D",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/10-concrete-sky.jpg",
+          "caption": "Concrete Sky",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/lone-building-in-sandy-desert-under-clear-blue-sky-3j9llGbD8K8",
+      "sourcePage": "https://unsplash.com/photos/lone-building-in-sandy-desert-under-clear-blue-sky-3j9llGbD8K8",
+      "photographer": "Baptiste Riethmann",
+      "location": null,
+      "camera": "X-T5",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/01-first-shelter.jpg",
+          "caption": "First Shelter",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/lush-green-mountain-shrouded-in-mist-MqN5vaGIUZo",
+      "sourcePage": "https://unsplash.com/photos/lush-green-mountain-shrouded-in-mist-MqN5vaGIUZo",
+      "photographer": "Supriyo Maity",
+      "location": "Kedarnath, Uttarakhand, India",
+      "camera": "Nikon D5600",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/01-mist-ridge.jpg",
+          "caption": "Mist Ridge",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/misty-morning-over-a-harvested-field-with-trees-Y8w21jfYWkM",
+      "sourcePage": "https://unsplash.com/photos/misty-morning-over-a-harvested-field-with-trees-Y8w21jfYWkM",
+      "photographer": "John Apps",
+      "location": null,
+      "camera": "NIKON D7200",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/05-harvest-mist.jpg",
+          "caption": "Harvest Mist",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-architecture-with-a-cable-stayed-bridge-over-water-kRW2ypGQbxw",
+      "sourcePage": "https://unsplash.com/photos/modern-architecture-with-a-cable-stayed-bridge-over-water-kRW2ypGQbxw",
+      "photographer": "Thomas K",
+      "location": "Valencia, Spain",
+      "camera": "Canon EOS 77D",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/11-valencia-bridge.jpg",
+          "caption": "Valencia Geometry",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-architecture-with-sunlight-and-shadows-buAbqKKuJ4k",
+      "sourcePage": "https://unsplash.com/photos/modern-architecture-with-sunlight-and-shadows-buAbqKKuJ4k",
+      "photographer": "Jimmy Liu",
+      "location": null,
+      "camera": "Leica Q2",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/13-sunlit-structure.jpg",
+          "caption": "Late Structure",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-bridge-over-water-with-unique-architecture-XknyvB1yWF0",
+      "sourcePage": "https://unsplash.com/photos/modern-bridge-over-water-with-unique-architecture-XknyvB1yWF0",
+      "photographer": "Yue WU",
+      "location": null,
+      "camera": "Fujifilm X-S10",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/08-modern-bridge.jpg",
+          "caption": "Bridge at Dusk",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-building-facade-surrounded-by-dry-vegetation-yGxzAWABF8A",
+      "sourcePage": "https://unsplash.com/photos/modern-building-facade-surrounded-by-dry-vegetation-yGxzAWABF8A",
+      "photographer": "Nikolai Kolosov",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/13-dry-facade.jpg",
+          "caption": "Dry Facade",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-building-facade-with-geometric-concrete-accents-9Xbh-0E5IBQ",
+      "sourcePage": "https://unsplash.com/photos/modern-building-facade-with-geometric-concrete-accents-9Xbh-0E5IBQ",
+      "photographer": "Jisang Jung",
+      "location": null,
+      "camera": "Apple iPhone 17 Pro",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/03-quiet-facade.jpg",
+          "caption": "Quiet Facade",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-building-interior-with-concrete-walls-and-skylight-TkwU40vC1Nk",
+      "sourcePage": "https://unsplash.com/photos/modern-building-interior-with-concrete-walls-and-skylight-TkwU40vC1Nk",
+      "photographer": "Julia Taubitz",
+      "location": "Düsseldorf, Germany",
+      "camera": "Nikon Z6_3",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/11-skylight-plane.jpg",
+          "caption": "Skylight Plane",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-building-interior-with-geometric-patterns-and-shadows-OEgzbN9kNy8",
+      "sourcePage": "https://unsplash.com/photos/modern-building-interior-with-geometric-patterns-and-shadows-OEgzbN9kNy8",
+      "photographer": "MChe Lee",
+      "location": null,
+      "camera": "Fujifilm X100S",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/08-rounded-hall.jpg",
+          "caption": "Rounded Hall",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-concrete-architecture-against-a-city-skyline-qhBJ3Cz477w",
+      "sourcePage": "https://unsplash.com/photos/modern-concrete-architecture-against-a-city-skyline-qhBJ3Cz477w",
+      "photographer": "Declan Sun",
+      "location": "Fengxian District, Shanghai, China",
+      "camera": "Sony ILCE-7RM5",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/10-concrete-skyline.jpg",
+          "caption": "Concrete Horizon",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-glass-and-metal-structure-with-green-plants-inside-GW10pB40308",
+      "sourcePage": "https://unsplash.com/photos/modern-glass-and-metal-structure-with-green-plants-inside-GW10pB40308",
+      "photographer": "Declan Sun",
+      "location": "Pudong, Shanghai, China",
+      "camera": "Sony ILCE-7RM5",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/09-canopy.jpg",
+          "caption": "Canopy",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-interior-with-white-walls-and-skylights-cjOYdVGCZw0",
+      "sourcePage": "https://unsplash.com/photos/modern-interior-with-white-walls-and-skylights-cjOYdVGCZw0",
+      "photographer": "Julia Taubitz",
+      "location": "Kunsthalle Düsseldorf, Germany",
+      "camera": "Nikon Z6_3",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/09-white-hall.jpg",
+          "caption": "White Hall",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-subway-station-interior-with-geometric-patterns-0o9QdVSTuh4",
+      "sourcePage": "https://unsplash.com/photos/modern-subway-station-interior-with-geometric-patterns-0o9QdVSTuh4",
+      "photographer": "Julia Taubitz",
+      "location": null,
+      "camera": "NIKON Z6_3",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/07-blue-interior.jpg",
+          "caption": "Blue Interior",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-subway-station-with-escalators-and-arched-ceiling-xyoyFspOvlU",
+      "sourcePage": "https://unsplash.com/photos/modern-subway-station-with-escalators-and-arched-ceiling-xyoyFspOvlU",
+      "photographer": "Julia Taubitz",
+      "location": null,
+      "camera": "NIKON Z6_3",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/09-arched-station.jpg",
+          "caption": "Arched Station",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-subway-station-with-red-illuminated-walls-LR3GGjaoh1w",
+      "sourcePage": "https://unsplash.com/photos/modern-subway-station-with-red-illuminated-walls-LR3GGjaoh1w",
+      "photographer": "Wolfgang Weiser",
+      "location": null,
+      "camera": "ILCE-7M3",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/06-red-wall.jpg",
+          "caption": "Red Wall",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/modern-subway-station-with-striped-platform-and-red-accents-FhQZ3vtCEW0",
+      "sourcePage": "https://unsplash.com/photos/modern-subway-station-with-striped-platform-and-red-accents-FhQZ3vtCEW0",
+      "photographer": "Dom Yu",
+      "location": null,
+      "camera": "ILCE-7M4",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/04-red-platform.jpg",
+          "caption": "Red Platform",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/moss-covered-rocks-and-trees-in-a-sunlit-forest-AnKeujjK2Do",
+      "sourcePage": "https://unsplash.com/photos/moss-covered-rocks-and-trees-in-a-sunlit-forest-AnKeujjK2Do",
+      "photographer": "Ingemar Johnsson",
+      "location": null,
+      "camera": "Nikon D7200",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/03-moss-forest.jpg",
+          "caption": "Moss Sanctuary",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/mountain-during-golden-hour-kbvscFFlJsI",
+      "sourcePage": "https://unsplash.com/photos/mountain-during-golden-hour-kbvscFFlJsI",
+      "photographer": "Rui Marinho",
+      "location": null,
+      "camera": "Nikon D750",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/12-golden-mountain.jpg",
+          "caption": "Golden Mountain",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/ocean-waves-crashing-on-rocky-shore-during-foggy-weather-OWhvlb2UK3g",
+      "sourcePage": "https://unsplash.com/photos/ocean-waves-crashing-on-rocky-shore-during-foggy-weather-OWhvlb2UK3g",
+      "photographer": "iccup",
+      "location": null,
+      "camera": "Sony ILCE-7RM3",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/12-weather-line.jpg",
+          "caption": "Weather Line",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/ocean-waves-hitting-rock-formation-during-daytime-QOU5Uy0drWI",
+      "sourcePage": "https://unsplash.com/photos/ocean-waves-hitting-rock-formation-during-daytime-QOU5Uy0drWI",
+      "photographer": "Blake Wisz",
+      "location": null,
+      "camera": "Nikon D850",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/02-suspended-water.jpg",
+          "caption": "Suspended Water",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/open-modern-architecture-with-dark-shadows-and-landscape-AIOGtbl6vMo",
+      "sourcePage": "https://unsplash.com/photos/open-modern-architecture-with-dark-shadows-and-landscape-AIOGtbl6vMo",
+      "photographer": "Laura Cleffmann",
+      "location": null,
+      "camera": "Fujifilm X-T30 II",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/07-shadow-landscape.jpg",
+          "caption": "Shadow Room",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/photo-of-body-of-water-near-brown-house-covered-with-snow-wiV7JsQ6lOo",
+      "sourcePage": "https://unsplash.com/photos/photo-of-body-of-water-near-brown-house-covered-with-snow-wiV7JsQ6lOo",
+      "photographer": "Ezra Jeffrey-Comeau",
+      "location": null,
+      "camera": "X-T10",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/04-lake-house.jpg",
+          "caption": "Lake House",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/rain-drops-on-a-window-with-trees-in-the-background-tfkzbIApB4s",
+      "sourcePage": "https://unsplash.com/photos/rain-drops-on-a-window-with-trees-in-the-background-tfkzbIApB4s",
+      "photographer": "Hans",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/09-grey-window.jpg",
+          "caption": "Grey Window",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/raindrops-on-a-window-overlooking-the-ocean-vy5aeGxRhok",
+      "sourcePage": "https://unsplash.com/photos/raindrops-on-a-window-overlooking-the-ocean-vy5aeGxRhok",
+      "photographer": "Rama Krushna Behera",
+      "location": "Andaman and Nicobar Islands, India",
+      "camera": "Fujifilm X-M5",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/01-blue-rain.jpg",
+          "caption": "Blue Rain",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/raindrops-TdPQp3fjzOw",
+      "sourcePage": "https://unsplash.com/photos/raindrops-TdPQp3fjzOw",
+      "photographer": "Jose Fontano",
+      "location": "Philadelphia, United States",
+      "camera": "Nikon D5200",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/03-raindrop-grain.jpg",
+          "caption": "Raindrop Grain",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/reflection-of-a-building-in-a-wet-street-yXawBAg2PoI",
+      "sourcePage": "https://unsplash.com/photos/reflection-of-a-building-in-a-wet-street-yXawBAg2PoI",
+      "photographer": "Yosuke Ota",
+      "location": "Mt. Daisen, Tottori, Japan",
+      "camera": "Sony ILCE-7M3",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/05-puddle-script.jpg",
+          "caption": "Puddle Script",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/rocky-coastline-with-misty-ocean-waves-7wL-HlNfi4Y",
+      "sourcePage": "https://unsplash.com/photos/rocky-coastline-with-misty-ocean-waves-7wL-HlNfi4Y",
+      "photographer": "Venti Views",
+      "location": "Big Sur, California, USA",
+      "camera": "Sony ILCE-7M5",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/01-sea-room.jpg",
+          "caption": "Sea Room",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/rocky-coastline-with-tide-pools-and-ocean-waves-J-rKjGCuSZY",
+      "sourcePage": "https://unsplash.com/photos/rocky-coastline-with-tide-pools-and-ocean-waves-J-rKjGCuSZY",
+      "photographer": "Stefan Szankowski",
+      "location": "Ship Harbor Trail, Southwest Harbor, Maine, USA",
+      "camera": "Nikon D800",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/04-low-tide-rock.jpg",
+          "caption": "Low-Tide Rock",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/rocky-shore-with-tide-pool-reflecting-the-sky-7CPhtBx42Vc",
+      "sourcePage": "https://unsplash.com/photos/rocky-shore-with-tide-pool-reflecting-the-sky-7CPhtBx42Vc",
+      "photographer": "Lera Ginzburg",
+      "location": null,
+      "camera": "Fujifilm X100VI",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/03-tide-mirror.jpg",
+          "caption": "Tide Mirror",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/rocky-tide-pools-on-a-sandy-beach-with-ocean-waves-FGlC2J_QiTM",
+      "sourcePage": "https://unsplash.com/photos/rocky-tide-pools-on-a-sandy-beach-with-ocean-waves-FGlC2J_QiTM",
+      "photographer": "libe paredes",
+      "location": "Pipa, Tibau do Sul, Rio Grande do Norte, Brazil",
+      "camera": "Nikon D5100",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/10-tide-pool-field.jpg",
+          "caption": "Tide-Pool Field",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/round-white-concrete-ceiling-with-light-fixture-eQunZaOXxTk",
+      "sourcePage": "https://unsplash.com/photos/round-white-concrete-ceiling-with-light-fixture-eQunZaOXxTk",
+      "photographer": "Pascal Meier",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/12-columns.jpg",
+          "caption": "Spiral Passage",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sea-cave-opening-with-ocean-view-and-rock-fcs1Xeoylhw",
+      "sourcePage": "https://unsplash.com/photos/sea-cave-opening-with-ocean-view-and-rock-fcs1Xeoylhw",
+      "photographer": "Venti Views",
+      "location": "Big Sur, California, USA",
+      "camera": "Sony ILCE-7M4",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/08-stone-window.jpg",
+          "caption": "Stone Window",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sepia-toned-desert-landscape-with-undulating-sand-dunes-0TW1MWvlxHs",
+      "sourcePage": "https://unsplash.com/photos/sepia-toned-desert-landscape-with-undulating-sand-dunes-0TW1MWvlxHs",
+      "photographer": "Yue WU",
+      "location": null,
+      "camera": "X-S10",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/03-pale-dunes.jpg",
+          "caption": "Pale Dunes",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/skyscrapers-illuminated-against-a-twilight-sky-NRrcyNbrQHM",
+      "sourcePage": "https://unsplash.com/photos/skyscrapers-illuminated-against-a-twilight-sky-NRrcyNbrQHM",
+      "photographer": "泽宇 许",
+      "location": null,
+      "camera": "Hasselblad X2D 100C",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/04-twilight-towers.jpg",
+          "caption": "Twilight Towers",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/snow-covered-cabin-near-trees-during-daytime-9CEJTtqFXJc",
+      "sourcePage": "https://unsplash.com/photos/snow-covered-cabin-near-trees-during-daytime-9CEJTtqFXJc",
+      "photographer": "Klara Kulikova",
+      "location": null,
+      "camera": "Canon EOS 6D",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/07-forest-cabin.jpg",
+          "caption": "Forest Cabin",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/snow-covered-mountain-during-daytime-K2453_EClQ4",
+      "sourcePage": "https://unsplash.com/photos/snow-covered-mountain-during-daytime-K2453_EClQ4",
+      "photographer": "Jason Gardner",
+      "location": null,
+      "camera": "Canon EOS 6D Mark II",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/11-white-mountain.jpg",
+          "caption": "White Mountain",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/snow-covered-mountain-under-cloudy-sky-during-daytime-laRDmzJBzeU",
+      "sourcePage": "https://unsplash.com/photos/snow-covered-mountain-under-cloudy-sky-during-daytime-laRDmzJBzeU",
+      "photographer": "Sandra Grünewald",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/12-cloud-ridge.jpg",
+          "caption": "Cloud Ridge",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/snow-covered-tree-lot-during-daytime-kVKz9qnJC-k",
+      "sourcePage": "https://unsplash.com/photos/snow-covered-tree-lot-during-daytime-kVKz9qnJC-k",
+      "photographer": "Fabian Mardi",
+      "location": null,
+      "camera": "X100F",
+      "firstUsedAt": "2026-07-13T07:51:01.409Z",
+      "lastUsedAt": "2026-07-13T07:51:01.409Z",
+      "uses": [
+        {
+          "project": "frost-lines-full-v1",
+          "image": "images/02-white-stand.jpg",
+          "caption": "White Stand",
+          "recordedAt": "2026-07-13T07:51:01.409Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/soft-white-sand-dunes-under-a-pale-sky-bsWh6w4nQio",
+      "sourcePage": "https://unsplash.com/photos/soft-white-sand-dunes-under-a-pale-sky-bsWh6w4nQio",
+      "photographer": "Royce Fonseca",
+      "location": null,
+      "camera": null,
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/09-white-sand.jpg",
+          "caption": "White Sand",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sun-rays-coming-through-green-trees-cXvTkHkfEwk",
+      "sourcePage": "https://unsplash.com/photos/sun-rays-coming-through-green-trees-cXvTkHkfEwk",
+      "photographer": "Zdeněk Macháček",
+      "location": "Skryje, Czechia",
+      "camera": "Canon EOS R5",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/06-forest-light.jpg",
+          "caption": "Forest Light",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sunlight-and-shadows-play-on-the-modern-architecture-pWE33nH3znM",
+      "sourcePage": "https://unsplash.com/photos/sunlight-and-shadows-play-on-the-modern-architecture-pWE33nH3znM",
+      "photographer": "Alex Kalinin",
+      "location": null,
+      "camera": "Fujifilm X100VI",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/10-museum-roof.jpg",
+          "caption": "Soft Structure",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sunlight-streams-through-a-modern-glass-ceiling-9hTYL6-juP4",
+      "sourcePage": "https://unsplash.com/photos/sunlight-streams-through-a-modern-glass-ceiling-9hTYL6-juP4",
+      "photographer": "Julia Taubitz",
+      "location": "Kunsthalle Düsseldorf, Germany",
+      "camera": "Nikon Z6_3",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/01-ceiling-study.jpg",
+          "caption": "Ceiling Study",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sunlight-streams-through-architectural-concrete-structure-r0ygFqpjFro",
+      "sourcePage": "https://unsplash.com/photos/sunlight-streams-through-architectural-concrete-structure-r0ygFqpjFro",
+      "photographer": "Johnny Ho",
+      "location": null,
+      "camera": "Sony ILCE-7CM2",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/04-concrete-sun.jpg",
+          "caption": "Concrete Sun",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/sunrise-over-a-misty-field-with-trees-and-field-zH9gD3vKYOA",
+      "sourcePage": "https://unsplash.com/photos/sunrise-over-a-misty-field-with-trees-and-field-zH9gD3vKYOA",
+      "photographer": "Wolfgang Hasselmann",
+      "location": null,
+      "camera": "ILCE-7M4",
+      "firstUsedAt": "2026-07-13T07:51:01.436Z",
+      "lastUsedAt": "2026-07-13T07:51:01.436Z",
+      "uses": [
+        {
+          "project": "field-notes-full-v1",
+          "image": "images/08-first-light.jpg",
+          "caption": "First Light",
+          "recordedAt": "2026-07-13T07:51:01.436Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/the-inside-of-a-greenhouse-with-lots-of-trees-and-plants-3shNBF2sTAI",
+      "sourcePage": "https://unsplash.com/photos/the-inside-of-a-greenhouse-with-lots-of-trees-and-plants-3shNBF2sTAI",
+      "photographer": "Faruk Tokluoğlu",
+      "location": "Maslak Kasırları, Istanbul, Türkiye",
+      "camera": "Sony ILCE-7M4",
+      "firstUsedAt": "2026-07-13T06:34:38.255Z",
+      "lastUsedAt": "2026-07-13T06:34:38.255Z",
+      "uses": [
+        {
+          "project": "liminal-greenhouse-full-v1",
+          "image": "images/05-tropical-volume.jpg",
+          "caption": "Tropical Volume",
+          "recordedAt": "2026-07-13T06:34:38.255Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/the-reflection-of-a-building-in-the-windows-of-another-building-2h6Xcen8kWY",
+      "sourcePage": "https://unsplash.com/photos/the-reflection-of-a-building-in-the-windows-of-another-building-2h6Xcen8kWY",
+      "photographer": "Andrey Nuraliev",
+      "location": null,
+      "camera": "Sony ILCE-7RM5",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/12-window-reflection.jpg",
+          "caption": "Window Ledger",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/the-sun-is-setting-over-the-mountains-and-the-water-uAnxVqzj8gk",
+      "sourcePage": "https://unsplash.com/photos/the-sun-is-setting-over-the-mountains-and-the-water-uAnxVqzj8gk",
+      "photographer": "Daniel Seßler",
+      "location": "Lofoten, Norway",
+      "camera": "Sony ILCE-7RM3",
+      "firstUsedAt": "2026-07-13T02:54:29.395Z",
+      "lastUsedAt": "2026-07-13T02:54:29.395Z",
+      "uses": [
+        {
+          "project": "mosslight-photo-essay-v1",
+          "image": "images/18-lofoten-sunset.jpg",
+          "caption": "Lofoten Sunset",
+          "recordedAt": "2026-07-13T02:54:29.395Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/three-mugs-sit-in-dappled-sunlight-on-a-shelf-5F1etRutMGA",
+      "sourcePage": "https://unsplash.com/photos/three-mugs-sit-in-dappled-sunlight-on-a-shelf-5F1etRutMGA",
+      "photographer": "atelierbyvineeth ...",
+      "location": null,
+      "camera": "X-T4",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/01-dappled-mugs.jpg",
+          "caption": "Dappled Mugs",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/three-white-vases-sitting-on-top-of-a-wooden-table-ytIrICiDShA",
+      "sourcePage": "https://unsplash.com/photos/three-white-vases-sitting-on-top-of-a-wooden-table-ytIrICiDShA",
+      "photographer": "Mel Poole",
+      "location": null,
+      "camera": " EOS Rebel T7",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/05-white-forms.jpg",
+          "caption": "White Forms",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/triangular-geometric-pattern-of-a-glass-ceiling-TE4WOabmrXg",
+      "sourcePage": "https://unsplash.com/photos/triangular-geometric-pattern-of-a-glass-ceiling-TE4WOabmrXg",
+      "photographer": "George Pagan III",
+      "location": null,
+      "camera": "Canon EOS 70D",
+      "firstUsedAt": "2026-07-13T06:34:38.310Z",
+      "lastUsedAt": "2026-07-13T06:34:38.310Z",
+      "uses": [
+        {
+          "project": "archive-of-light-full-v1",
+          "image": "images/02-triangle-roof.jpg",
+          "caption": "Triangle Roof",
+          "recordedAt": "2026-07-13T06:34:38.310Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/view-through-a-cave-opening-to-a-rocky-beach-and-ocean-L5Pu3KfkXNQ",
+      "sourcePage": "https://unsplash.com/photos/view-through-a-cave-opening-to-a-rocky-beach-and-ocean-L5Pu3KfkXNQ",
+      "photographer": "ren hosoya",
+      "location": "Ibaraki, Japan",
+      "camera": "Nikon Z 5",
+      "firstUsedAt": "2026-07-13T05:39:11.295Z",
+      "lastUsedAt": "2026-07-13T05:39:11.295Z",
+      "uses": [
+        {
+          "project": "tidal-rooms-full-v1",
+          "image": "images/09-cave-threshold.jpg",
+          "caption": "Cave Threshold",
+          "recordedAt": "2026-07-13T05:39:11.295Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/water-drops-on-glass-i2J9jnvaAbU",
+      "sourcePage": "https://unsplash.com/photos/water-drops-on-glass-i2J9jnvaAbU",
+      "photographer": "Noah Silliman",
+      "location": null,
+      "camera": "Canon EOS Rebel T5",
+      "firstUsedAt": "2026-07-13T06:34:38.282Z",
+      "lastUsedAt": "2026-07-13T06:34:38.282Z",
+      "uses": [
+        {
+          "project": "rain-studies-full-v1",
+          "image": "images/02-water-on-glass.jpg",
+          "caption": "Water on Glass",
+          "recordedAt": "2026-07-13T06:34:38.282Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/water-reflect-photography-of-cityscape-8z0UI6IDCHY",
+      "sourcePage": "https://unsplash.com/photos/water-reflect-photography-of-cityscape-8z0UI6IDCHY",
+      "photographer": "Pang Yuhao",
+      "location": null,
+      "camera": "Sony ILCE-7M3",
+      "firstUsedAt": "2026-07-13T03:53:48.296Z",
+      "lastUsedAt": "2026-07-13T03:53:48.296Z",
+      "uses": [
+        {
+          "project": "city-afterhours-full-v1",
+          "image": "images/02-blue-reflection.jpg",
+          "caption": "Blue Reflection",
+          "recordedAt": "2026-07-13T03:53:48.296Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/white-and-brown-ceramic-bowls-NPPIq1XFdck",
+      "sourcePage": "https://unsplash.com/photos/white-and-brown-ceramic-bowls-NPPIq1XFdck",
+      "photographer": "Vladimir Gladkov",
+      "location": null,
+      "camera": "Canon EOS 60D",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/11-clay-bowls.jpg",
+          "caption": "Clay Bowls",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/white-ceramic-bowl-on-white-table-IUVRYigR4ag",
+      "sourcePage": "https://unsplash.com/photos/white-ceramic-bowl-on-white-table-IUVRYigR4ag",
+      "photographer": "Mikayla Bronkema",
+      "location": null,
+      "camera": "ILCE-7M3",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/10-quiet-bowl.jpg",
+          "caption": "Quiet Bowl",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/white-ceramic-bowls-on-black-table-Xow_RU8rcv4",
+      "sourcePage": "https://unsplash.com/photos/white-ceramic-bowls-on-black-table-Xow_RU8rcv4",
+      "photographer": "Chanhee Lee",
+      "location": null,
+      "camera": "EZ Controller",
+      "firstUsedAt": "2026-07-13T07:51:01.465Z",
+      "lastUsedAt": "2026-07-13T07:51:01.465Z",
+      "uses": [
+        {
+          "project": "earthen-hours-full-v1",
+          "image": "images/02-black-table.jpg",
+          "caption": "Black Table",
+          "recordedAt": "2026-07-13T07:51:01.465Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-DrNCgf5RSpw",
+      "sourcePage": "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-DrNCgf5RSpw",
+      "photographer": "Laura Ockel",
+      "location": null,
+      "camera": "NIKON D610",
+      "firstUsedAt": "2026-07-13T07:51:01.378Z",
+      "lastUsedAt": "2026-07-13T07:51:01.378Z",
+      "uses": [
+        {
+          "project": "saffron-silence-full-v1",
+          "image": "images/11-white-volume.jpg",
+          "caption": "White Volume",
+          "recordedAt": "2026-07-13T07:51:01.378Z"
+        }
+      ]
+    },
+    {
+      "sourceId": "https://unsplash.com/photos/white-train-on-train-station-during-night-time-nGJboLqJx3M",
+      "sourcePage": "https://unsplash.com/photos/white-train-on-train-station-during-night-time-nGJboLqJx3M",
+      "photographer": "Alec Favale",
+      "location": null,
+      "camera": "ILCE-6500",
+      "firstUsedAt": "2026-07-13T07:51:01.492Z",
+      "lastUsedAt": "2026-07-13T07:51:01.492Z",
+      "uses": [
+        {
+          "project": "transit-blue-full-v1",
+          "image": "images/01-night-train.jpg",
+          "caption": "Night Train",
+          "recordedAt": "2026-07-13T07:51:01.492Z"
+        }
+      ]
+    }
+  ],
+  "updatedAt": "2026-07-13T07:51:01.492Z"
+}

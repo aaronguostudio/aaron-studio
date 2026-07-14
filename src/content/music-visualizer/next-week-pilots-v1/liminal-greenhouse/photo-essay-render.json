@@ -1,0 +1,49 @@
+{
+  "renderedAt": "2026-07-13T05:44:50.762Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/liminal-greenhouse/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/liminal-greenhouse.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/liminal-greenhouse/liminal-greenhouse-sample-1080p.mp4",
+  "timelineSec": 53,
+  "inputAudioDurationSec": 143.699542,
+  "slides": [
+    {
+      "image": "images/01-vintage-house.jpg",
+      "durationSec": 19,
+      "motion": "static",
+      "credit": {
+        "caption": "Glasshouse Entry",
+        "photographer": "Oksana Demenko",
+        "location": "Paris, France",
+        "camera": "NORITSU KOKI EZ Controller",
+        "sourcePage": "https://unsplash.com/photos/a-vintage-glass-greenhouse-with-lush-plants-inside-GxW0knzCgkY"
+      }
+    },
+    {
+      "image": "images/02-bridge-garden.jpg",
+      "durationSec": 19,
+      "motion": "static",
+      "credit": {
+        "caption": "Living Bridge",
+        "photographer": "Declan Sun",
+        "location": "Pudong, Shanghai, China",
+        "camera": "Sony ILCE-7RM5",
+        "sourcePage": "https://unsplash.com/photos/indoor-garden-features-a-wooden-bridge-and-vibrant-decorative-structures-FDpVfIdf-Gw"
+      }
+    },
+    {
+      "image": "images/03-glass-canopy.jpg",
+      "durationSec": 19,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Canopy",
+        "photographer": "Declan Sun",
+        "location": "Pudong, Shanghai, China",
+        "camera": "Sony ILCE-7RM5",
+        "sourcePage": "https://unsplash.com/photos/modern-glass-and-metal-structure-with-green-plants-inside-GW10pB40308"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/liminal-greenhouse/youtube-description.md"
+}

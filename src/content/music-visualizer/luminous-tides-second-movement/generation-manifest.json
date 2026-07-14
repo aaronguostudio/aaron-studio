@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T17:19:50.663Z",
+  "title": "Luminous Tides Second Movement",
+  "theme": "deep-ink",
+  "visualStyle": "neon-strands",
+  "prompt": "Instrumental only. This is the second movement of a continuous late-night focus piece, so begin already settled rather than with a new intro. Keep the same sonic family throughout: warm Rhodes chords, soft analog bass pulse, distant tape texture, minimal brushed percussion, spacious nocturnal reverb, and no vocals. For the first minute, continue quietly with a slightly darker chord color; around the middle, introduce a small shimmering harmonic response and a gentle bass variation; in the final minute, remove detail and glide toward a warm, unresolved release. Low-to-medium dynamics only. No abrupt drop, no dramatic build, no harsh highs, no busy hi-hats, no bright solo lead, no trailer impacts, and no obvious loop point.",
+  "requestedDurationSec": 276,
+  "actualAudioDurationSec": 276.024,
+  "model": "music_v2",
+  "songId": "BLXZelPpWKD5jy2LXd8l",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/luminous-tides-second-movement/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/luminous-tides-second-movement/luminous-tides-second-movement.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/luminous-tides-second-movement/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

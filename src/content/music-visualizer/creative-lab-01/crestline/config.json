@@ -1,0 +1,12 @@
+{
+  "title": "Crestline",
+  "artist": "Visual And Sound",
+  "trackLabel": "creative studies / 02",
+  "durationSec": 46.032,
+  "theme": "deep-ink",
+  "visualStyle": "wave-grid",
+  "seed": 3102,
+  "resolution": "1080p",
+  "prompt": "Instrumental only. A 46-second kinetic electronic focus piece at 118 BPM with a sculpted low kick, restrained hand-percussion details, a single clean bass motif, muted synthetic plucks, and a wide atmospheric pad. Give it a sense of forward terrain and momentum without becoming dance music: clear low-end landmarks, spacious mids, and a brief brightening near the final third. Structure: immediate arrival, stable engine, one crest, elegant release. No vocals, no lo-fi, no acoustic instruments, no jazzy chords, no busy hi-hats, no snare rolls, no EDM risers, no drop, no harsh distortion.",
+  "audioFile": "music.mp3"
+}

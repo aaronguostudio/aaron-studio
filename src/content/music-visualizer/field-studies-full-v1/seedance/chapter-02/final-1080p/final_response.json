@@ -1,0 +1,25 @@
+{
+  "id": "cgt-20260714073400-dkv2k",
+  "model": "doubao-seedance-2-0-260128",
+  "status": "succeeded",
+  "content": {
+    "video_url": "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedance-2-0/02178398564179600000000000000000000ffffac1418a698f0ce.mp4?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260713%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260713T233924Z&X-Tos-Expires=86400&X-Tos-Signature=6bf5ad34485014dcbee7a878203db4e209d395b0a1c10532a705676c84e4e727&X-Tos-SignedHeaders=host",
+    "last_frame_url": "https://ark-acg-cn-beijing.tos-cn-beijing.volces.com/doubao-seedance-2-0/02178398564179600000000000000000000ffffac1418a698f0ce_last-frame.png?X-Tos-Algorithm=TOS4-HMAC-SHA256&X-Tos-Credential=AKLTYWJkZTExNjA1ZDUyNDc3YzhjNTM5OGIyNjBhNDcyOTQ%2F20260713%2Fcn-beijing%2Ftos%2Frequest&X-Tos-Date=20260713T233924Z&X-Tos-Expires=86400&X-Tos-Signature=8cb9db7d8f2c31f469a9c2e1f50bc593fd46fae6e5a0774d5d3fad8bbc855056&X-Tos-SignedHeaders=host"
+  },
+  "usage": {
+    "completion_tokens": 731025,
+    "total_tokens": 731025
+  },
+  "created_at": 1783985641,
+  "updated_at": 1783985991,
+  "seed": 47088,
+  "resolution": "1080p",
+  "ratio": "16:9",
+  "duration": 15,
+  "framespersecond": 24,
+  "service_tier": "default",
+  "execution_expires_after": 172800,
+  "generate_audio": false,
+  "draft": false,
+  "priority": 0
+}

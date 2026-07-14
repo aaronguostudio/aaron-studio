@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向建筑电影感无缝循环。严格保持首帧与尾帧中的圆形清水混凝土亭、简洁石质长凳、雾中静水池、远处低矮植物和构图完全一致；固定远距离广角镜头，绝不推拉、摇晃、切换或变焦。亭子和长凳完全静止，池面有极细小缓慢的雨纹，薄雾从水面轻轻流过，湿润混凝土边缘的柔和反光渐变后回到起点。极简、真实、克制、带有可停留的静谧感。不要人物、动物、文字、字幕、标志、水印、电子设备、额外家具、城市天际线、戏剧性灯光、闪烁、突然动作或天气变化。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/architectural-listening-room-full-v1/seedance/chapter-03/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "84eb342b1a74b04f8088e642b62060152d9c4331d6e673af51d1cb433a40c2bf"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/architectural-listening-room-full-v1/seedance/chapter-03/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "84eb342b1a74b04f8088e642b62060152d9c4331d6e673af51d1cb433a40c2bf"
+      }
+    }
+  ]
+}

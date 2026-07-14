@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T16:37:51.192Z",
+  "title": "Folded Light",
+  "theme": "paper-moon",
+  "visualStyle": "folded-light",
+  "prompt": "A warm, restrained lo-fi study instrumental for deep work: soft Rhodes chords, gentle bass, brushed percussion, subtle tape grain, spacious harmonic movement, no vocals, no sharp transients, quietly immersive and unhurried.",
+  "requestedDurationSec": 60,
+  "actualAudioDurationSec": 60.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/midnight-lo-fi-wave/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/folded-light-lofi/folded-light-lofi.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/folded-light-lofi/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

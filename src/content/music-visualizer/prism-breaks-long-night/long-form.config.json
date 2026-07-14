@@ -1,0 +1,13 @@
+{
+  "title": "Prism Breaks",
+  "artist": "Visual And Sound",
+  "trackLabel": "10 min / broken-beat focus",
+  "durationSec": 600,
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "seed": 1302,
+  "volume": 0.92,
+  "resolution": "1080p",
+  "prompt": "Two original movements combined into one continuous 10-minute broken-beat focus session. See music-structure.md for the intended long-form arc and handoff.",
+  "audioFile": "music-full.m4a"
+}

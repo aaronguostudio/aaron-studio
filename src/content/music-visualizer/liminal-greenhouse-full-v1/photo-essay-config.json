@@ -1,0 +1,24 @@
+{
+  "title": "Liminal Greenhouse — 10 Minutes of Gentle Botanical Focus",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {"fontName": "Avenir Next", "titleSize": 46, "detailSize": 30, "left": 144, "titleBottom": 224, "detailBottom": 168, "initialDelaySec": 0.8, "fadeSec": 0.7, "exitLeadSec": 0.45},
+  "slides": [
+    {"image": "images/01-glasshouse-entry.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Glasshouse Entry", "photographer": "Oksana Demenko", "location": "Paris, France", "camera": "NORITSU KOKI EZ Controller", "sourcePage": "https://unsplash.com/photos/a-vintage-glass-greenhouse-with-lush-plants-inside-GxW0knzCgkY"}},
+    {"image": "images/02-under-glass.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Under Glass", "photographer": "Adrien Olichon", "sourcePage": "https://unsplash.com/photos/greenhouse-interior-with-lush-plants-and-glass-ceiling-1xvPUsBeI78"}},
+    {"image": "images/03-winter-garden.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Winter Garden", "photographer": "hoch3fotografie", "location": "Richmond, United Kingdom", "camera": "X100F", "sourcePage": "https://unsplash.com/photos/green-plants-inside-white-building-PSBOHyv2z7E"}},
+    {"image": "images/04-long-house.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Long House", "photographer": "Faruk Tokluoğlu", "location": "Maslak Kasırları, Istanbul, Türkiye", "camera": "Sony ILCE-7M4", "sourcePage": "https://unsplash.com/photos/a-greenhouse-filled-with-lots-of-plants-and-trees-D_zBdEDUWk4"}},
+    {"image": "images/05-tropical-volume.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Tropical Volume", "photographer": "Faruk Tokluoğlu", "location": "Maslak Kasırları, Istanbul, Türkiye", "camera": "Sony ILCE-7M4", "sourcePage": "https://unsplash.com/photos/the-inside-of-a-greenhouse-with-lots-of-trees-and-plants-3shNBF2sTAI"}},
+    {"image": "images/06-living-bridge.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Living Bridge", "photographer": "Declan Sun", "location": "Pudong, Shanghai, China", "camera": "Sony ILCE-7RM5", "sourcePage": "https://unsplash.com/photos/indoor-garden-features-a-wooden-bridge-and-vibrant-decorative-structures-FDpVfIdf-Gw"}},
+    {"image": "images/07-green-room.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Green Room", "photographer": "Tom Podmore", "location": "Kew Gardens, Richmond, United Kingdom", "camera": "Nikon D3300", "sourcePage": "https://unsplash.com/photos/green-trees-inside-greenhouse-during-daytime-oUbOAoZ3OxU"}},
+    {"image": "images/08-quiet-walkway.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "After Glass", "photographer": "Kaylee Stoll", "location": "Denver, Colorado, United States", "camera": "Sony ILCE-7M3", "sourcePage": "https://unsplash.com/photos/greenhouse-interior-seen-through-blurry-plants-at-night-E4yvkq6Yg9k"}},
+    {"image": "images/09-canopy.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Canopy", "photographer": "Declan Sun", "location": "Pudong, Shanghai, China", "camera": "Sony ILCE-7RM5", "sourcePage": "https://unsplash.com/photos/modern-glass-and-metal-structure-with-green-plants-inside-GW10pB40308"}},
+    {"image": "images/10-potted-light.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Potted Light", "photographer": "Kellie Enge", "camera": "Fujifilm X100V", "sourcePage": "https://unsplash.com/photos/a-room-filled-with-lots-of-potted-plants-tXc_R7ZDLwo"}},
+    {"image": "images/11-lattice-morning.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Lattice Morning", "photographer": "Fellipe Ditadi", "camera": "Canon EOS R5", "sourcePage": "https://unsplash.com/photos/a-walkway-in-a-garden-with-lots-of-plants-KEOXUyDEfDA"}},
+    {"image": "images/12-lily-water.jpg", "durationSec": 48, "motion": "static", "credit": {"caption": "Lily Water", "photographer": "Jonas Denil", "location": "Meise, Belgium", "camera": "Bessa R", "sourcePage": "https://unsplash.com/photos/green-plants-in-green-pond-vHwWmuWgoRw"}},
+    {"image": "images/13-shelf-light.jpg", "durationSec": 48, "motion": "zoom-out", "motionAmount": 0.01, "credit": {"caption": "Shelf Light", "photographer": "Kristen McConville", "camera": "Canon EOS Rebel T7", "sourcePage": "https://unsplash.com/photos/greenhouse-interior-with-plants-on-shelves-and-windows-XLrtSQ4OEPE"}}
+  ]
+}

@@ -1,0 +1,61 @@
+Archive of Light — 10 Minutes of Architectural Stillness
+
+Original instrumental music and a slow landscape photo essay for reading, quiet work, and reflection.
+
+VISUAL CREDITS
+01. Ceiling Study
+Julia Taubitz · Kunsthalle Düsseldorf, Germany · Nikon Z6_3
+https://unsplash.com/photos/sunlight-streams-through-a-modern-glass-ceiling-9hTYL6-juP4
+
+02. Triangle Roof
+George Pagan III · Canon EOS 70D
+https://unsplash.com/photos/triangular-geometric-pattern-of-a-glass-ceiling-TE4WOabmrXg
+
+03. Skylight Stair
+Brandon Griggs · Durham, North Carolina, United States · Canon EOS RP
+https://unsplash.com/photos/a-large-staircase-with-a-skylight-above-it-LqoIlIpO6Vs
+
+04. Concrete Sun
+Johnny Ho · Sony ILCE-7CM2
+https://unsplash.com/photos/sunlight-streams-through-architectural-concrete-structure-r0ygFqpjFro
+
+05. Stone Noon
+QUENTIN Mahe · London, United Kingdom · Fujifilm X-T5
+https://unsplash.com/photos/dramatic-sunlight-illuminates-a-textured-wall-and-window-JsGLHErCyzw
+
+06. Light Slab
+Johnny Ho · Sony ILCE-7CM2
+https://unsplash.com/photos/concrete-wall-with-geometric-light-patterns--4JrcIGHq80
+
+07. Hallway
+Turquo Cabbit · Nikon Z 6_2
+https://unsplash.com/photos/concrete-hallway-with-stairs-and-windows-NLh-6cSDErE
+
+08. Rounded Hall
+MChe Lee · Fujifilm X100S
+https://unsplash.com/photos/modern-building-interior-with-geometric-patterns-and-shadows-OEgzbN9kNy8
+
+09. White Hall
+Julia Taubitz · Kunsthalle Düsseldorf, Germany · Nikon Z6_3
+https://unsplash.com/photos/modern-interior-with-white-walls-and-skylights-cjOYdVGCZw0
+
+10. Soft Structure
+Alex Kalinin · Fujifilm X100VI
+https://unsplash.com/photos/sunlight-and-shadows-play-on-the-modern-architecture-pWE33nH3znM
+
+11. Skylight Plane
+Julia Taubitz · Düsseldorf, Germany · Nikon Z6_3
+https://unsplash.com/photos/modern-building-interior-with-concrete-walls-and-skylight-TkwU40vC1Nk
+
+12. Spiral Passage
+Pascal Meier
+https://unsplash.com/photos/round-white-concrete-ceiling-with-light-fixture-eQunZaOXxTk
+
+13. Spiral Light
+Ryunosuke Kikuno · Québec, Canada · Nikon Z 6_2
+https://unsplash.com/photos/a-spiral-staircase-in-a-building-with-a-skylight-Ov7KWXeekvc
+
+Photos are used under the Unsplash License. Credits are included in appreciation of the photographers.
+
+MUSIC
+Original instrumental music created for Visual And Sound.

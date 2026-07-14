@@ -1,0 +1,34 @@
+{
+  "provider": "Google Gemini API",
+  "method": "independent Lyria sections with equal-power crossfades",
+  "inputs": [
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/frost-lines-full-v1/frost-lines-section-01.mp3",
+      "durationSec": 170.030958
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/frost-lines-full-v1/frost-lines-section-02.mp3",
+      "durationSec": 174.053833
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/frost-lines-full-v1/frost-lines-section-03.mp3",
+      "durationSec": 176.535458
+    },
+    {
+      "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/frost-lines-full-v1/frost-lines-section-04.mp3",
+      "durationSec": 174.079958
+    }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin"
+  },
+  "master": {
+    "file": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/frost-lines-full-v1/frost-lines-10min-master.m4a",
+    "durationSec": 600,
+    "finalFade": {
+      "startSec": 592,
+      "durationSec": 8
+    }
+  }
+}

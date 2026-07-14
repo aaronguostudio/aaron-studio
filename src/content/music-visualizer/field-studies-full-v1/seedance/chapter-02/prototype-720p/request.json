@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环。严格保持首帧与尾帧中的潮汐水道、低矮黑色木质防波堤、湿润岩石、远处灰蓝岸线、雨雾与构图完全一致；固定广角镜头，绝不推拉、摇晃、切换或变焦。阴雨黄昏，水面被细雨轻轻触碰，极小的波纹沿防波堤缓慢滑行后回到起点；雾层低速掠过远岸，潮湿木头只有微弱冷光反射。真实海岸观察、暗青灰色调、沉静且有空间感。不要人物、船只、车辆、鸟、文字、字幕、标志、水印、霓虹、巨浪、闪电、突然动作、明显水位变化或戏剧性天气。 "
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-studies-full-v1/seedance/chapter-02/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "c97e8c82f7731dc6fce516a79a92d08e5700b5b4ced4bb2eae10614f28e9562e"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/field-studies-full-v1/seedance/chapter-02/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "c97e8c82f7731dc6fce516a79a92d08e5700b5b4ced4bb2eae10614f28e9562e"
+      }
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "title": "Frost Lines — 10 Minutes of Winter Reading",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {
+    "fontName": "Avenir Next",
+    "titleSize": 46,
+    "detailSize": 30,
+    "left": 144,
+    "titleBottom": 224,
+    "detailBottom": 168,
+    "initialDelaySec": 0.8,
+    "fadeSec": 0.7,
+    "exitLeadSec": 0.45
+  },
+  "slides": [
+    {
+      "image": "images/01-pine-water.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Pine Water",
+        "photographer": "brandon siu",
+        "camera": "NIKON D610",
+        "sourcePage": "https://unsplash.com/photos/green-pine-tree-and-lake-f60qQpYOHd4"
+      }
+    },
+    {
+      "image": "images/02-white-stand.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "White Stand",
+        "photographer": "Fabian Mardi",
+        "camera": "X100F",
+        "sourcePage": "https://unsplash.com/photos/snow-covered-tree-lot-during-daytime-kVKz9qnJC-k"
+      }
+    },
+    {
+      "image": "images/03-snow-cabin.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Snow Cabin",
+        "photographer": "Sheila Swayze",
+        "camera": " EOS REBEL T5",
+        "sourcePage": "https://unsplash.com/photos/a-cabin-in-the-snow-l1JFfpwzYXU"
+      }
+    },
+    {
+      "image": "images/04-lake-house.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Lake House",
+        "photographer": "Ezra Jeffrey-Comeau",
+        "camera": "X-T10",
+        "sourcePage": "https://unsplash.com/photos/photo-of-body-of-water-near-brown-house-covered-with-snow-wiV7JsQ6lOo"
+      }
+    },
+    {
+      "image": "images/05-quiet-roof.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Quiet Roof",
+        "photographer": "Greg Althoff",
+        "camera": "Canon EOS 6D",
+        "sourcePage": "https://unsplash.com/photos/brown-wooden-house-on-snow-covered-ground-near-trees-during-daytime-Wy9aq4yMq_g"
+      }
+    },
+    {
+      "image": "images/06-winter-barn.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Winter Barn",
+        "photographer": "Graphic Node",
+        "camera": " EOS 6D",
+        "sourcePage": "https://unsplash.com/photos/a-snow-covered-field-with-a-barn-and-trees-IN1Ik_OVk_w"
+      }
+    },
+    {
+      "image": "images/07-forest-cabin.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Forest Cabin",
+        "photographer": "Klara Kulikova",
+        "camera": "Canon EOS 6D",
+        "sourcePage": "https://unsplash.com/photos/snow-covered-cabin-near-trees-during-daytime-9CEJTtqFXJc"
+      }
+    },
+    {
+      "image": "images/08-mountain-window.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Mountain Window",
+        "photographer": "Sabin Popa",
+        "camera": "NIKON D3500",
+        "sourcePage": "https://unsplash.com/photos/a-snowy-landscape-with-trees-and-a-building-with-a-mountain-in-the-background-3jjr2MTitYU"
+      }
+    },
+    {
+      "image": "images/09-snow-field.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Snow Field",
+        "photographer": "Alex Kolodziej",
+        "camera": "NIKON D5100",
+        "sourcePage": "https://unsplash.com/photos/a-snowy-landscape-with-a-cabin-and-trees-hwjhVsNSjnE"
+      }
+    },
+    {
+      "image": "images/10-high-range.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "High Range",
+        "photographer": "Mac McDade",
+        "camera": "NIKON D3200",
+        "sourcePage": "https://unsplash.com/photos/gray-mountain-under-blue-sky-during-daytime-66VzH6y5_lE"
+      }
+    },
+    {
+      "image": "images/11-white-mountain.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "White Mountain",
+        "photographer": "Jason Gardner",
+        "camera": "Canon EOS 6D Mark II",
+        "sourcePage": "https://unsplash.com/photos/snow-covered-mountain-during-daytime-K2453_EClQ4"
+      }
+    },
+    {
+      "image": "images/12-cloud-ridge.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Cloud Ridge",
+        "photographer": "Sandra Grünewald",
+        "sourcePage": "https://unsplash.com/photos/snow-covered-mountain-under-cloudy-sky-during-daytime-laRDmzJBzeU"
+      }
+    },
+    {
+      "image": "images/13-frozen-lake.jpg",
+      "durationSec": 48,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Frozen Lake",
+        "photographer": "ingenious0range",
+        "camera": " EOS 2000D",
+        "sourcePage": "https://unsplash.com/photos/a-snow-covered-mountain-range-with-a-lake-in-the-foreground-5zalVgSZLW4"
+      }
+    }
+  ]
+}

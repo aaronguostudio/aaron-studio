@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T16:25:26.745Z",
+  "title": "Coffee Room",
+  "theme": "paper-moon",
+  "visualStyle": "coffee-room",
+  "prompt": "A warm, restrained lo-fi study instrumental for a quiet coffee room: soft Rhodes chords, brushed drums, gentle bass, subtle tape texture, no vocals, spacious and unhurried, made for reading and deep work.",
+  "requestedDurationSec": 60,
+  "actualAudioDurationSec": 60.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/midnight-lo-fi-wave/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/coffee-room-lofi/coffee-room-lofi.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/coffee-room-lofi/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

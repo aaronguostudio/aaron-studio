@@ -1,0 +1,19 @@
+{
+  "project": "saffron-silence-full-v1",
+  "title": "Saffron Silence — 10 Minutes of Desert Focus",
+  "slides": [
+    {"id": "3j9llGbD8K8", "caption": "First Shelter"},
+    {"id": "EyZ4Qw3U6GQ", "caption": "Solitary Tree"},
+    {"id": "0TW1MWvlxHs", "caption": "Pale Dunes"},
+    {"id": "5-r1P92zYNE", "caption": "Weathered Stone"},
+    {"id": "WfYQC7HsSFk", "caption": "Salt Shelter"},
+    {"id": "LaoYioZga00", "caption": "Small Horizon"},
+    {"id": "igBubhh6IoA", "caption": "Desert Marker"},
+    {"id": "r_pWa60QSvU", "caption": "Sand House"},
+    {"id": "bsWh6w4nQio", "caption": "White Sand"},
+    {"id": "XK0faa4_mCQ", "caption": "Concrete Sky"},
+    {"id": "DrNCgf5RSpw", "caption": "White Volume"},
+    {"id": "-sqSbFhwr9M", "caption": "Distant House"},
+    {"id": "yGxzAWABF8A", "caption": "Dry Facade", "motion": "zoom-out", "motionAmount": 0.01}
+  ]
+}

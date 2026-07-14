@@ -1,0 +1,48 @@
+{
+  "renderedAt": "2026-07-13T05:44:50.505Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/rain-studies/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/rain-studies.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/rain-studies/rain-studies-sample-1080p.mp4",
+  "timelineSec": 53,
+  "inputAudioDurationSec": 171.128125,
+  "slides": [
+    {
+      "image": "images/01-rain-window.jpg",
+      "durationSec": 19,
+      "motion": "static",
+      "credit": {
+        "caption": "Blue Rain",
+        "photographer": "Rama Krushna Behera",
+        "location": "Andaman and Nicobar Islands, India",
+        "camera": "Fujifilm X-M5",
+        "sourcePage": "https://unsplash.com/photos/raindrops-on-a-window-overlooking-the-ocean-vy5aeGxRhok"
+      }
+    },
+    {
+      "image": "images/02-wet-reflection.jpg",
+      "durationSec": 19,
+      "motion": "static",
+      "credit": {
+        "caption": "Puddle Script",
+        "photographer": "Yosuke Ota",
+        "location": "Mt. Daisen, Tottori, Japan",
+        "camera": "Sony ILCE-7M3",
+        "sourcePage": "https://unsplash.com/photos/reflection-of-a-building-in-a-wet-street-yXawBAg2PoI"
+      }
+    },
+    {
+      "image": "images/03-frosted-glass.jpg",
+      "durationSec": 19,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Frosted Pane",
+        "photographer": "bady abbas",
+        "camera": "Sony ILCE-7M2",
+        "sourcePage": "https://unsplash.com/photos/grey-and-white-wall-paint-ut_hymJ_2uA"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/rain-studies/youtube-description.md"
+}

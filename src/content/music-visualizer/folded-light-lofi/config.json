@@ -1,0 +1,12 @@
+{
+  "title": "Folded Light",
+  "artist": "Quiet Hours",
+  "trackLabel": "lo-fi wave / material study",
+  "durationSec": 60.024,
+  "theme": "paper-moon",
+  "visualStyle": "folded-light",
+  "seed": 107,
+  "volume": 0.9,
+  "prompt": "A warm, restrained lo-fi study instrumental for deep work: soft Rhodes chords, gentle bass, brushed percussion, subtle tape grain, spacious harmonic movement, no vocals, no sharp transients, quietly immersive and unhurried.",
+  "audioFile": "music.mp3"
+}

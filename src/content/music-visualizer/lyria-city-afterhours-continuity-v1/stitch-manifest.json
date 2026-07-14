@@ -1,0 +1,23 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-pro-preview",
+  "method": "three independently generated sections with matching sonic prompts",
+  "inputs": [
+    { "file": "pro-access-check.mp3", "durationSec": 173.40075 },
+    { "file": "02-windows.mp3", "durationSec": 175.124833 },
+    { "file": "03-clearing.mp3", "durationSec": 145.815458 }
+  ],
+  "crossfade": {
+    "durationSec": 6,
+    "curve": "qsin",
+    "startsAtSec": [167.40075, 336.525583]
+  },
+  "output": {
+    "file": "lyria-city-afterhours-continuity-test.m4a",
+    "durationSec": 482.340998,
+    "codec": "aac",
+    "bitrate": "320k",
+    "sampleRateHz": 44100,
+    "channels": 2
+  }
+}

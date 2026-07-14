@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T18:26:04.813Z",
+  "title": "Prism Breaks — Movement II",
+  "theme": "deep-ink",
+  "visualStyle": "neon-orb",
+  "prompt": "Instrumental only. Second movement of the same continuous 10-minute futuristic broken-beat focus session at 104 BPM. Begin as if the music has already been playing: no intro, no restart, and no new downbeat announcement. Continue the Prism Breaks palette with the same syncopated kick-and-rim pattern, clipped hand percussion, rubbery restrained sub-bass, airy synthetic mallet plucks, and cool expansive pad. Give this half a distinct but compatible color: a subtly deeper harmonic shade, a filtered answering pluck around the middle, and a brief, quiet reduction before the groove returns. Let the final minute slowly release into an uncluttered, unresolved close. Maintain low-to-medium dynamics and clear but unaggressive low-frequency hits. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl dust, no jazzy chords, no trap hats, no dramatic build-up, no drop, no heavy wobble bass, no harsh treble, no EDM risers, and no abrupt ending.",
+  "requestedDurationSec": 276,
+  "actualAudioDurationSec": 276.024,
+  "model": "music_v2",
+  "songId": "CeSe2P1dIC7TUFZtwjcf",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/movement-two/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/movement-two/movement-two.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/movement-two/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

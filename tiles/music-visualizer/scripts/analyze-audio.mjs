@@ -258,6 +258,9 @@ const analyze = (samples) => {
   const high = smoothSeries(normalizeSeries(rawFrames.map((frame) => Math.log10(frame.highPower + 1e-10)), 0.1, 0.9), 0.3, 0.12);
   const centroid = smoothSeries(rawFrames.map((frame) => clamp01((frame.centroid - 80) / 7200)), 0.28, 0.12);
   const energy = smoothSeries(rms.map((value, index) => value * 0.62 + low[index] * 0.2 + mid[index] * 0.18), 0.26, 0.1);
+  const calmEnergy = smoothSeries(energy, 0.035, 0.02);
+  const calmLow = smoothSeries(low, 0.03, 0.018);
+  const calmHigh = smoothSeries(high, 0.03, 0.018);
   const pulse = [];
   let pulseValue = 0;
   for (let index = 0; index < frameCount; index += 1) {
@@ -286,6 +289,9 @@ const analyze = (samples) => {
     flux: round(flux[index]),
     pulse: round(pulse[index]),
     energy: round(energy[index]),
+    calmEnergy: round(calmEnergy[index]),
+    calmLow: round(calmLow[index]),
+    calmHigh: round(calmHigh[index]),
     mix: buildStyleMix(index, sections),
   }));
 
@@ -295,7 +301,7 @@ const analyze = (samples) => {
     fps: FPS,
     durationSec: round(durationSec, 3),
     frameCount,
-    features: ["rms", "low", "mid", "high", "centroid", "flux", "pulse", "energy"],
+    features: ["rms", "low", "mid", "high", "centroid", "flux", "pulse", "energy", "calmEnergy", "calmLow", "calmHigh"],
     sections,
     frames,
   };

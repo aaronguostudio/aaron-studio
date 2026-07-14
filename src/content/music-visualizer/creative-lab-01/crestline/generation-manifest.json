@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T19:59:56.581Z",
+  "title": "Crestline",
+  "theme": "deep-ink",
+  "visualStyle": "wave-grid",
+  "prompt": "Instrumental only. A 46-second kinetic electronic focus piece at 118 BPM with a sculpted low kick, restrained hand-percussion details, a single clean bass motif, muted synthetic plucks, and a wide atmospheric pad. Give it a sense of forward terrain and momentum without becoming dance music: clear low-end landmarks, spacious mids, and a brief brightening near the final third. Structure: immediate arrival, stable engine, one crest, elegant release. No vocals, no lo-fi, no acoustic instruments, no jazzy chords, no busy hi-hats, no snare rolls, no EDM risers, no drop, no harsh distortion.",
+  "requestedDurationSec": 46,
+  "actualAudioDurationSec": 46.032,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/crestline/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/crestline/crestline.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/crestline/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

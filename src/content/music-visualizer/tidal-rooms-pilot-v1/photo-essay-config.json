@@ -1,0 +1,78 @@
+{
+  "title": "Tidal Rooms — A Quiet Coastal Study",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {
+    "fontName": "Avenir Next",
+    "titleSize": 46,
+    "detailSize": 30,
+    "left": 144,
+    "titleBottom": 224,
+    "detailBottom": 168,
+    "initialDelaySec": 0.8,
+    "fadeSec": 0.7,
+    "exitLeadSec": 0.45
+  },
+  "slides": [
+    {
+      "image": "images/candidate-misty-coast.jpg",
+      "durationSec": 18,
+      "motion": "static",
+      "credit": {
+        "caption": "Sea Room",
+        "photographer": "Venti Views",
+        "location": "Big Sur, California, USA",
+        "camera": "Sony ILCE-7M5",
+        "sourcePage": "https://unsplash.com/photos/rocky-coastline-with-misty-ocean-waves-7wL-HlNfi4Y"
+      }
+    },
+    {
+      "image": "images/02-tide-pool-reflection.jpg",
+      "durationSec": 18,
+      "motion": "static",
+      "credit": {
+        "caption": "Tide Mirror",
+        "photographer": "Lera Ginzburg",
+        "camera": "Fujifilm X100VI",
+        "sourcePage": "https://unsplash.com/photos/rocky-shore-with-tide-pool-reflecting-the-sky-7CPhtBx42Vc"
+      }
+    },
+    {
+      "image": "images/04-ocean-walkway.jpg",
+      "durationSec": 18,
+      "motion": "static",
+      "credit": {
+        "caption": "Salt Geometry",
+        "photographer": "Jack White",
+        "location": "Madeira, Portugal",
+        "camera": "DJI FC7203",
+        "sourcePage": "https://unsplash.com/photos/an-aerial-view-of-the-ocean-and-a-concrete-walkway-rjOs8xxjzAs"
+      }
+    },
+    {
+      "image": "images/candidate-fog-shore.jpg",
+      "durationSec": 18,
+      "motion": "static",
+      "credit": {
+        "caption": "Weather Line",
+        "photographer": "iccup",
+        "camera": "Sony ILCE-7RM3",
+        "sourcePage": "https://unsplash.com/photos/ocean-waves-crashing-on-rocky-shore-during-foggy-weather-OWhvlb2UK3g"
+      }
+    },
+    {
+      "image": "images/candidate-calm-pier.jpg",
+      "durationSec": 18,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Last Light Pier",
+        "photographer": "Aleksandrs Zeltisevs",
+        "sourcePage": "https://unsplash.com/photos/a-concrete-pier-extends-into-a-calm-body-of-water-s_hG8_TzXvs"
+      }
+    }
+  ]
+}

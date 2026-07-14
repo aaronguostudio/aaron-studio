@@ -1,0 +1,35 @@
+{
+  "model": "doubao-seedance-2-0-260128",
+  "generate_audio": false,
+  "ratio": "16:9",
+  "resolution": "720p",
+  "duration": 15,
+  "watermark": false,
+  "return_last_frame": true,
+  "content": [
+    {
+      "type": "text",
+      "text": "15秒横向电影感无缝循环镜头。严格保持首帧与尾帧中的峡谷、云海、工作桌、人物、笔记本电脑、书本、台灯、遮阳布和构图完全一致；首尾帧必须回到同一姿势、同一光线、同一镜头位置。固定广角镜头，绝不推拉、摇晃或切换。前景中不露脸的工作者只做极小、自然、可回到起始姿势的动作：右手在纸上缓慢写一小段，然后安静回到桌边；身体和椅子保持稳定。峡谷深处的云海从远处缓慢漂移，右上角的亚麻遮阳布轻轻起伏再落回原状，金色晨光在岩壁和云顶上极其缓慢地流动。温暖自然的田园奇幻电影感，手绘概念艺术与精致微缩实景融合，细腻空气透视、克制胶片颗粒、丰富但安静的光影。不要文字、字幕、标志、水印、可读屏幕内容、镜头移动、突然动作、人物起身、额外人物、飞鸟、车辆、戏剧性天气、快速云层、闪烁或任何新物体。"
+    },
+    {
+      "type": "image_url",
+      "role": "first_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/seedance/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "8fc3d2ab04cd209e848baaf9c595ceccdf0daaa5de3e1518bfb8f7a3f7e239d9"
+      }
+    },
+    {
+      "type": "image_url",
+      "role": "last_frame",
+      "input": {
+        "source": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/cinematic-cloud-desk-v1/seedance/anchor.png",
+        "kind": "local-file",
+        "mime": "image/png",
+        "sha256": "8fc3d2ab04cd209e848baaf9c595ceccdf0daaa5de3e1518bfb8f7a3f7e239d9"
+      }
+    }
+  ]
+}

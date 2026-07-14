@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-12T20:03:29.436Z",
+  "title": "Afterimage Gate",
+  "theme": "deep-ink",
+  "visualStyle": "signal-bloom",
+  "prompt": "Instrumental only. A 46-second electro-ambient focus study at 100 BPM. Use a soft but present low kick, syncopated brushed digital percussion, airy marimba-like synth notes, a rounded sub pulse, and a slowly opening ultraviolet pad. It should feel elegant, magnetic, and slightly cinematic without becoming dramatic. Structure: a quiet gate opening, a delicate rhythmic pattern, one color-rich harmonic bloom, then a soft afterimage release. No vocals, no lo-fi, no piano, no Rhodes, no vinyl crackle, no trap hats, no trailer impacts, no EDM build-up or drop, no harsh high end.",
+  "requestedDurationSec": 46,
+  "actualAudioDurationSec": 46.032,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/afterimage-gate/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/afterimage-gate/afterimage-gate.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "angle",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/creative-lab-01/afterimage-gate/audio-analysis.json",
+  "audioAnalysisVersion": 1,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

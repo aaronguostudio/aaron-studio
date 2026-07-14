@@ -1,0 +1,49 @@
+{
+  "renderedAt": "2026-07-13T05:44:50.892Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/archive-of-light/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/archive-of-light.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/archive-of-light/archive-of-light-sample-1080p.mp4",
+  "timelineSec": 53,
+  "inputAudioDurationSec": 174.288917,
+  "slides": [
+    {
+      "image": "images/01-glass-ceiling.jpg",
+      "durationSec": 19,
+      "motion": "static",
+      "credit": {
+        "caption": "Ceiling Study",
+        "photographer": "Julia Taubitz",
+        "location": "Kunsthalle Düsseldorf, Germany",
+        "camera": "Nikon Z6_3",
+        "sourcePage": "https://unsplash.com/photos/sunlight-streams-through-a-modern-glass-ceiling-9hTYL6-juP4"
+      }
+    },
+    {
+      "image": "images/02-stair-light.jpg",
+      "durationSec": 19,
+      "motion": "static",
+      "credit": {
+        "caption": "Stone Noon",
+        "photographer": "QUENTIN Mahe",
+        "location": "London, United Kingdom",
+        "camera": "Fujifilm X-T5",
+        "sourcePage": "https://unsplash.com/photos/dramatic-sunlight-illuminates-a-textured-wall-and-window-JsGLHErCyzw"
+      }
+    },
+    {
+      "image": "images/03-white-gallery.jpg",
+      "durationSec": 19,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "White Hall",
+        "photographer": "Julia Taubitz",
+        "location": "Kunsthalle Düsseldorf, Germany",
+        "camera": "Nikon Z6_3",
+        "sourcePage": "https://unsplash.com/photos/modern-interior-with-white-walls-and-skylights-cjOYdVGCZw0"
+      }
+    }
+  ],
+  "transition": "fade",
+  "descriptionPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/next-week-pilots-v1/archive-of-light/youtube-description.md"
+}

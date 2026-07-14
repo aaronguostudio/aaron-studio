@@ -9,6 +9,11 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const REMOTION_DIR = join(ROOT, "tiles/aaron-video-gen/remotion");
 const DEFAULT_PROMPT =
   "Instrumental only. Minimalist felt upright piano, intimate close-miked recording, sparse repeating motif, gentle rubato, soft pedal noise, warm room ambience, quietly satisfying and hypnotic, low dynamic range, spacious pauses, suitable for deep work and reading. No vocals, no drums, no abrupt climax, no trailer impacts, no bright arpeggios, no dramatic key change. Structure: 20-second opening, a gentle piano theme, a small harmonic variation, one quiet lift, then a slow unresolved outro.";
+const RESOLUTION_PRESETS = {
+  "1080p": { width: 1920, height: 1080, renderScale: 0.75 },
+  "2k": { width: 2560, height: 1440, renderScale: 1.333333 },
+  "4k": { width: 3840, height: 2160, renderScale: 2 },
+};
 
 function parseArgs(argv) {
   const args = {};
@@ -53,6 +58,18 @@ function absolutePath(filePath) {
   return resolve(ROOT, filePath);
 }
 
+function parseResolution(value) {
+  const normalized = String(value || "1080p").trim().toLowerCase().replace("×", "x");
+  if (RESOLUTION_PRESETS[normalized]) return { name: normalized, ...RESOLUTION_PRESETS[normalized] };
+  const match = normalized.match(/^(\d+)x(\d+)$/);
+  if (match) {
+    const width = Number(match[1]);
+    const height = Number(match[2]);
+    if (width >= 640 && height >= 360) return { name: normalized, width, height, renderScale: width / 1920 };
+  }
+  throw new Error(`Unsupported resolution: ${value}. Use 1080p, 2k, 4k, or WIDTHxHEIGHT.`);
+}
+
 function readJson(filePath) {
   return JSON.parse(readFileSync(filePath, "utf8"));
 }
@@ -68,25 +85,37 @@ function probeDuration(filePath) {
   return Number.isFinite(duration) && duration > 0 ? duration : undefined;
 }
 
-async function generateMusic({ prompt, durationSec, outputPath }) {
+async function generateMusic({ prompt, compositionPlan, durationSec, outputPath }) {
   if (!process.env.ELEVENLABS_API_KEY) {
     throw new Error("ELEVENLABS_API_KEY is required to generate music. Pass --audio for a local-audio render.");
+  }
+  if (compositionPlan && prompt) {
+    throw new Error("Provide either a prompt or a compositionPlan, not both.");
+  }
+  if (!compositionPlan && !prompt) {
+    throw new Error("An Eleven Music prompt or compositionPlan is required.");
   }
 
   const url = new URL("https://api.elevenlabs.io/v1/music");
   url.searchParams.set("output_format", "auto");
+  const requestBody = compositionPlan
+    ? {
+      composition_plan: compositionPlan,
+      model_id: "music_v2",
+    }
+    : {
+      prompt,
+      model_id: "music_v2",
+      music_length_ms: Math.round(durationSec * 1000),
+      force_instrumental: true,
+    };
   const response = await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "xi-api-key": process.env.ELEVENLABS_API_KEY,
     },
-    body: JSON.stringify({
-      prompt,
-      model_id: "music_v2",
-      music_length_ms: Math.round(durationSec * 1000),
-      force_instrumental: true,
-    }),
+    body: JSON.stringify(requestBody),
   });
 
   if (!response.ok) {
@@ -147,7 +176,8 @@ Options:
   --audio <path>       Use an existing audio file instead of Eleven Music
   --duration <sec>     Audio/video duration; default comes from config
   --output <path>      Rendered MP4 path
-  --scale <0.5-1>      Remotion render scale; default 0.75, then upscale to 1080p
+  --resolution <preset> Final output size: 1080p, 2k, 4k, or WIDTHxHEIGHT
+  --scale <0.5-2>      Override Remotion render scale; defaults from resolution
   --gl <mode>          Chromium renderer mode; defaults to swiftshader for stable renders
   --force-music        Regenerate music instead of using cached output
   --force-analysis     Recompute audio features for an audio-reactive render
@@ -155,8 +185,8 @@ Options:
 `);
 }
 
-function finalizeVideo({ inputPath, outputPath, audioPath, scale }) {
-  const filters = scale === 1 ? [] : ["-vf", "scale=1920:1080:flags=lanczos"];
+function finalizeVideo({ inputPath, outputPath, audioPath, width, height }) {
+  const filters = ["-vf", `scale=${width}:${height}:flags=lanczos`];
   const result = spawnSync("ffmpeg", [
     "-y",
     "-i", inputPath,
@@ -196,16 +226,28 @@ async function main() {
     : join(ROOT, "src/content/music-visualizer", slug);
   mkdirSync(outputDir, { recursive: true });
 
-  const durationSec = Number(args.duration || rawConfig.durationSec || 45);
+  const compositionPlan = rawConfig.compositionPlan;
+  const planDurationSec = Array.isArray(compositionPlan?.chunks)
+    ? compositionPlan.chunks.reduce((total, chunk) => total + Number(chunk.duration_ms || 0), 0) / 1000
+    : undefined;
+  const durationSec = Number(args.duration || rawConfig.durationSec || planDurationSec || 45);
   if (!Number.isFinite(durationSec) || durationSec < 3) {
     throw new Error("Duration must be at least 3 seconds.");
   }
-  const renderScale = Number(args.scale ?? 0.75);
-  if (!Number.isFinite(renderScale) || renderScale < 0.5 || renderScale > 1) {
-    throw new Error("Scale must be between 0.5 and 1.");
+  if (compositionPlan && (!Number.isFinite(planDurationSec) || planDurationSec < 3)) {
+    throw new Error("compositionPlan.chunks must contain valid duration_ms values.");
   }
-  const gl = args.gl || "swiftshader";
+  if (compositionPlan && Math.abs(planDurationSec - durationSec) > 0.01) {
+    throw new Error(`compositionPlan duration (${planDurationSec}s) must equal requested duration (${durationSec}s).`);
+  }
+  const resolution = parseResolution(args.resolution || rawConfig.resolution || "1080p");
+  const renderScale = Number(args.scale ?? resolution.renderScale);
+  if (!Number.isFinite(renderScale) || renderScale < 0.5 || renderScale > 2) {
+    throw new Error("Scale must be between 0.5 and 2.");
+  }
   const visualStyle = rawConfig.visualStyle || "ink-current";
+  const audioReactiveStyles = new Set(["audio-mix", "lofi-wave", "coffee-room", "folded-light", "neon-strands", "neon-orb", "prism-chamber", "wave-grid", "signal-bloom", "clay-atlas", "pigment-tide", "paper-atlas"]);
+  const gl = args.gl || (visualStyle === "neon-strands" || visualStyle === "neon-orb" || visualStyle === "prism-chamber" || visualStyle === "wave-grid" || visualStyle === "signal-bloom" || visualStyle === "clay-atlas" || visualStyle === "pigment-tide" ? "angle" : "swiftshader");
 
   const configuredAudio = args.audio ? absolutePath(args.audio) : join(outputDir, "music.mp3");
   let audioPath = configuredAudio;
@@ -214,7 +256,8 @@ async function main() {
   if (!args.audio && (args.forceMusic || !existsSync(audioPath))) {
     console.log(`Generating ${durationSec}s instrumental track with Eleven Music...`);
     musicMeta = await generateMusic({
-      prompt: rawConfig.prompt || DEFAULT_PROMPT,
+      prompt: compositionPlan ? undefined : rawConfig.prompt || DEFAULT_PROMPT,
+      compositionPlan,
       durationSec,
       outputPath: audioPath,
     });
@@ -228,7 +271,7 @@ async function main() {
   const actualDuration = probeDuration(audioPath) || durationSec;
   const analysisPath = join(outputDir, "audio-analysis.json");
   let audioAnalysis;
-  if (visualStyle === "audio-mix") {
+  if (audioReactiveStyles.has(visualStyle)) {
     if (args.forceAnalysis || !existsSync(analysisPath)) {
       console.log(`Analyzing audio for audio-reactive motion → ${analysisPath}`);
       runAudioAnalysis({ audioPath, analysisPath });
@@ -255,7 +298,8 @@ async function main() {
     title: config.title,
     theme: config.theme || "paper-moon",
     visualStyle,
-    prompt: rawConfig.prompt || DEFAULT_PROMPT,
+    prompt: compositionPlan ? null : rawConfig.prompt || DEFAULT_PROMPT,
+    compositionPlan: compositionPlan || null,
     requestedDurationSec: durationSec,
     actualAudioDurationSec: actualDuration,
     model: musicMeta.model || null,
@@ -263,9 +307,12 @@ async function main() {
     source: musicMeta.source,
     audioPath,
     outputPath,
+    resolution: resolution.name,
+    width: resolution.width,
+    height: resolution.height,
     renderScale,
     gl,
-    audioAnalysisPath: visualStyle === "audio-mix" ? analysisPath : null,
+    audioAnalysisPath: audioReactiveStyles.has(visualStyle) ? analysisPath : null,
     audioAnalysisVersion: audioAnalysis?.analysisVersion || null,
     commercialUseNote: "Verify the active ElevenLabs paid-plan music terms before commercial publication.",
   };
@@ -276,7 +323,7 @@ async function main() {
       console.log(`Rendering MusicVisualizer → ${outputPath}`);
       runRender({ propsPath, outputPath: renderPath, gl, scale: renderScale });
       console.log(`Finalizing ${renderScale}x render with music → 1920×1080`);
-      finalizeVideo({ inputPath: renderPath, outputPath, audioPath, scale: renderScale });
+      finalizeVideo({ inputPath: renderPath, outputPath, audioPath, width: resolution.width, height: resolution.height });
       if (existsSync(renderPath)) unlinkSync(renderPath);
     }
   } finally {

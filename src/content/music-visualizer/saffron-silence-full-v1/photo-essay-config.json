@@ -1,0 +1,161 @@
+{
+  "title": "Saffron Silence — 10 Minutes of Desert Focus",
+  "width": 3840,
+  "height": 2160,
+  "fps": 30,
+  "transitionSec": 2,
+  "crf": 18,
+  "captionStyle": {
+    "fontName": "Avenir Next",
+    "titleSize": 46,
+    "detailSize": 30,
+    "left": 144,
+    "titleBottom": 224,
+    "detailBottom": 168,
+    "initialDelaySec": 0.8,
+    "fadeSec": 0.7,
+    "exitLeadSec": 0.45
+  },
+  "slides": [
+    {
+      "image": "images/01-first-shelter.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "First Shelter",
+        "photographer": "Baptiste Riethmann",
+        "camera": "X-T5",
+        "sourcePage": "https://unsplash.com/photos/lone-building-in-sandy-desert-under-clear-blue-sky-3j9llGbD8K8"
+      }
+    },
+    {
+      "image": "images/02-solitary-tree.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Solitary Tree",
+        "photographer": "Taru Goyal",
+        "camera": " EOS 1200D",
+        "sourcePage": "https://unsplash.com/photos/a-lone-tree-in-the-middle-of-a-desert-EyZ4Qw3U6GQ"
+      }
+    },
+    {
+      "image": "images/03-pale-dunes.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Pale Dunes",
+        "photographer": "Yue WU",
+        "camera": "X-S10",
+        "sourcePage": "https://unsplash.com/photos/sepia-toned-desert-landscape-with-undulating-sand-dunes-0TW1MWvlxHs"
+      }
+    },
+    {
+      "image": "images/04-weathered-stone.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Weathered Stone",
+        "photographer": "Cate Bligh",
+        "camera": "NIKON D810",
+        "sourcePage": "https://unsplash.com/photos/brown-rock-formation-under-blue-sky-during-daytime-5-r1P92zYNE"
+      }
+    },
+    {
+      "image": "images/05-salt-shelter.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Salt Shelter",
+        "photographer": "Urvish Oza",
+        "sourcePage": "https://unsplash.com/photos/a-concrete-shelter-with-picnic-tables-overlooking-vast-salt-flats-WfYQC7HsSFk"
+      }
+    },
+    {
+      "image": "images/06-small-horizon.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Small Horizon",
+        "photographer": "Baptiste Riethmann",
+        "camera": "X-T5",
+        "sourcePage": "https://unsplash.com/photos/a-small-abandoned-building-stands-in-a-vast-sandy-desert-LaoYioZga00"
+      }
+    },
+    {
+      "image": "images/07-desert-marker.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Desert Marker",
+        "photographer": "Ben Koorengevel",
+        "camera": "L1D-20c",
+        "sourcePage": "https://unsplash.com/photos/a-tall-wooden-structure-in-the-middle-of-a-desert-igBubhh6IoA"
+      }
+    },
+    {
+      "image": "images/08-sand-house.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Sand House",
+        "photographer": "Christina Nguyen",
+        "sourcePage": "https://unsplash.com/photos/brown-and-white-concrete-house-on-brown-sand-r_pWa60QSvU"
+      }
+    },
+    {
+      "image": "images/09-white-sand.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "White Sand",
+        "photographer": "Royce Fonseca",
+        "sourcePage": "https://unsplash.com/photos/soft-white-sand-dunes-under-a-pale-sky-bsWh6w4nQio"
+      }
+    },
+    {
+      "image": "images/10-concrete-sky.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Concrete Sky",
+        "photographer": "Simone Hutsch",
+        "camera": "Canon EOS 7D",
+        "sourcePage": "https://unsplash.com/photos/landscape-photography-of-gray-concrete-building-XK0faa4_mCQ"
+      }
+    },
+    {
+      "image": "images/11-white-volume.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "White Volume",
+        "photographer": "Laura Ockel",
+        "camera": "NIKON D610",
+        "sourcePage": "https://unsplash.com/photos/white-concrete-building-under-blue-sky-during-daytime-DrNCgf5RSpw"
+      }
+    },
+    {
+      "image": "images/12-distant-house.jpg",
+      "durationSec": 48,
+      "motion": "static",
+      "credit": {
+        "caption": "Distant House",
+        "photographer": "Taven Diorio",
+        "camera": " EOS REBEL T5i",
+        "sourcePage": "https://unsplash.com/photos/a-building-in-the-middle-of-a-desert-with-mountains-in-the-background--sqSbFhwr9M"
+      }
+    },
+    {
+      "image": "images/13-dry-facade.jpg",
+      "durationSec": 48,
+      "motion": "zoom-out",
+      "motionAmount": 0.01,
+      "credit": {
+        "caption": "Dry Facade",
+        "photographer": "Nikolai Kolosov",
+        "sourcePage": "https://unsplash.com/photos/modern-building-facade-surrounded-by-dry-vegetation-yGxzAWABF8A"
+      }
+    }
+  ]
+}

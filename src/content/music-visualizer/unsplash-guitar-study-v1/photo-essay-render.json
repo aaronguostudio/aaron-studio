@@ -1,0 +1,31 @@
+{
+  "renderedAt": "2026-07-13T01:20:53.264Z",
+  "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/photo-essay-config.json",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/unsplash-guitar-study-v1/mosslight-study.mp4",
+  "timelineSec": 60,
+  "inputAudioDurationSec": 60.024,
+  "slides": [
+    {
+      "image": "images/01-green-mist.jpg",
+      "durationSec": 16.5,
+      "motion": "zoom-in"
+    },
+    {
+      "image": "images/03-forest-rays.jpg",
+      "durationSec": 16.5,
+      "motion": "pan-right"
+    },
+    {
+      "image": "images/04-cloud-hillside.jpg",
+      "durationSec": 16.5,
+      "motion": "pan-left"
+    },
+    {
+      "image": "images/05-fog-lake.jpg",
+      "durationSec": 16.5,
+      "motion": "zoom-out"
+    }
+  ],
+  "transition": "fade"
+}
