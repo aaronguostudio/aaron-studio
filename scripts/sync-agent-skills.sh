@@ -18,6 +18,7 @@ MAPPINGS=(
   "blog-production:tiles/blog-production"
   "blog-write:tiles/blog-write"
   "brain-ingest:tiles/brain-ingest"
+  "pattern-atlas:tiles/pattern-atlas"
   "daily-log:tiles/daily-log"
   "home-decor-shorts:tiles/home-decor-shorts"
   "knowledge-shorts:tiles/knowledge-shorts"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pattern Atlas"
+  short_description: "Turn any concept into a connected visual mental model"
+  default_prompt: "Use $pattern-atlas to analyze a concept, connect its neighboring patterns, and prepare a bilingual Blog Learn page."

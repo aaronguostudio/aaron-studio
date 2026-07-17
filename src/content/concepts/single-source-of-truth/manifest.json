@@ -1,0 +1,7 @@
+{
+  "slug": "single-source-of-truth",
+  "source": "src/brain/concepts/single-source-of-truth.md",
+  "status": "public-ready",
+  "updated": "2026-07-16",
+  "files": ["en.md", "zh.md", "visual.vue"]
+}

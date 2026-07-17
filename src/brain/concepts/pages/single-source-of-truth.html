@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Single Source of Truth（SSOT，单一事实来源）的互动解释：理解权威源、派生物、漂移与恢复路径。">
+  <title>Single Source of Truth · 单一事实来源</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f3efe5;
+      --paper-deep: #e8e0d0;
+      --ink: #171712;
+      --muted: #686358;
+      --line: rgba(23, 23, 18, .16);
+      --blue: #84d8ff;
+      --lime: #d8ff67;
+      --orange: #ff795f;
+      --amber: #e9b750;
+      --white: rgba(255, 255, 255, .55);
+      --shadow: 0 20px 68px rgba(52, 45, 31, .13);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 86% 6%, rgba(132, 216, 255, .38), transparent 27rem),
+        radial-gradient(circle at 10% 70%, rgba(216, 255, 103, .23), transparent 30rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      opacity: .24;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+    }
+
+    button, a { font: inherit; }
+    a { color: inherit; }
+
+    .shell {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 720;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .back::before {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      content: "←";
+      background: var(--lime);
+    }
+
+    .edition {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.35);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+      gap: 64px;
+      align-items: end;
+      min-height: 650px;
+      padding: 82px 0 86px;
+    }
+
+    .kicker, .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      font-weight: 680;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .kicker::before, .eyebrow::before {
+      width: 24px;
+      height: 2px;
+      content: "";
+      background: var(--orange);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(64px, 9vw, 124px);
+      font-weight: 500;
+      letter-spacing: -.065em;
+      line-height: .82;
+    }
+
+    h1 em {
+      position: relative;
+      font-weight: inherit;
+      font-style: italic;
+    }
+
+    h1 em::after {
+      position: absolute;
+      right: 0;
+      bottom: 3%;
+      left: 1%;
+      z-index: -1;
+      height: 18%;
+      content: "";
+      background: var(--lime);
+      transform: rotate(-1.4deg);
+    }
+
+    .hero-copy {
+      padding: 28px 0 2px 28px;
+      border-left: 1px solid var(--ink);
+    }
+
+    .hero-copy p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .hero-copy strong { color: var(--ink); }
+
+    .memory-card {
+      margin-top: 28px;
+      padding: 16px 18px;
+      border: 1px solid var(--ink);
+      border-radius: 14px;
+      color: var(--paper);
+      background: var(--ink);
+      box-shadow: 7px 7px 0 var(--blue);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .section {
+      padding: 90px 0;
+      border-top: 1px solid var(--ink);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .55fr);
+      gap: 54px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      max-width: 790px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 74px);
+      font-weight: 500;
+      letter-spacing: -.05em;
+      line-height: .98;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .lab {
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: rgba(255,255,255,.4);
+      box-shadow: var(--shadow);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tab {
+      flex: 0 0 auto;
+      padding: 10px 14px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--muted);
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .tab:hover, .tab:focus-visible { color: var(--ink); background: var(--white); }
+    .tab.active { border-color: var(--ink); color: var(--paper); background: var(--ink); }
+
+    .lab-copy {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .lab-copy h3 {
+      margin: 0;
+      font-size: 25px;
+      letter-spacing: -.025em;
+    }
+
+    .lab-copy p {
+      max-width: 720px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .state-badge {
+      flex: 0 0 auto;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(216,255,103,.5);
+    }
+
+    .state-badge.warning { background: rgba(233,183,80,.42); }
+    .state-badge.conflict { background: rgba(255,121,95,.38); }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+      gap: 8px;
+      align-items: stretch;
+      padding: 0 30px 30px;
+    }
+
+    .node {
+      min-height: 220px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.48);
+    }
+
+    .node.authority { border-color: #4caad1; box-shadow: inset 0 4px 0 var(--blue); }
+    .node.warning { border-color: #b48327; background: rgba(233,183,80,.1); }
+    .node.conflict { border-color: #d65f4d; background: rgba(255,121,95,.1); }
+
+    .node small {
+      display: block;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .node h4 { margin: 28px 0 10px; font-size: 18px; }
+
+    .node code {
+      display: inline-block;
+      padding: 5px 7px;
+      border-radius: 5px;
+      background: rgba(23,23,18,.08);
+      font-size: 11px;
+    }
+
+    .node p { margin: 18px 0 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .arrow { align-self: center; color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .verdict {
+      margin: 0;
+      padding: 20px 30px;
+      border-top: 1px solid var(--line);
+      line-height: 1.6;
+      background: rgba(216,255,103,.12);
+    }
+
+    .verdict.warning { background: rgba(233,183,80,.13); }
+    .verdict.conflict { background: rgba(255,121,95,.12); }
+
+    .repair {
+      display: none;
+      padding: 26px 30px 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .repair.visible { display: block; }
+
+    .repair-track {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .repair-step {
+      padding-top: 8px;
+      border-top: 3px solid var(--line);
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .repair-step.done { border-color: var(--lime); color: var(--ink); }
+    .repair-step.current { border-color: var(--blue); color: var(--ink); }
+
+    .repair-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .repair-message { min-height: 48px; margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .controls { display: flex; flex: 0 0 auto; gap: 8px; }
+
+    .button {
+      padding: 11px 15px;
+      border: 1px solid var(--ink);
+      border-radius: 9px;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .button.primary { color: var(--paper); background: var(--ink); }
+
+    .contract-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .contract-card {
+      min-height: 250px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--white);
+    }
+
+    .contract-card header {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .contract-card header code { color: #855800; }
+    .contract-card h3 { margin: 70px 0 12px; font-size: 23px; letter-spacing: -.03em; }
+    .contract-card p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .sticky { position: sticky; top: 30px; }
+
+    .sticky p { color: var(--muted); line-height: 1.72; }
+
+    .myths { border-top: 1px solid var(--ink); }
+
+    .myth {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 26px;
+      padding: 27px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .myth span {
+      color: #855800;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .myth h3 { margin: 0 0 10px; font-size: 20px; }
+    .myth p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+    .neighbor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .neighbor {
+      position: relative;
+      min-height: 230px;
+      overflow: hidden;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,255,255,.45);
+    }
+
+    .neighbor::after {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      content: "";
+      background: var(--blue);
+      opacity: .55;
+    }
+
+    .neighbor:nth-child(3n + 2)::after { background: var(--lime); }
+    .neighbor:nth-child(3n + 3)::after { background: var(--orange); }
+
+    .neighbor header { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; }
+    .neighbor h3 { margin: 0; font-size: 24px; letter-spacing: -.035em; }
+    .neighbor header span { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; text-transform: uppercase; }
+    .full-name { margin: 18px 0 0; color: #855800; font-size: 12px; font-weight: 650; }
+    .neighbor p:last-child { margin: 12px 0 0; color: var(--muted); line-height: 1.65; }
+
+    .takeaway {
+      margin: 90px 0;
+      padding: 54px;
+      border-radius: 28px;
+      color: var(--paper);
+      background: var(--ink);
+      box-shadow: 12px 12px 0 var(--lime);
+    }
+
+    .takeaway h2 { max-width: 920px; }
+    .takeaway p { max-width: 760px; margin: 28px 0 0; color: rgba(243,239,229,.72); font-size: 18px; line-height: 1.75; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 28px 0 38px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .04em;
+    }
+
+    button:focus-visible, a:focus-visible { outline: 3px solid #3f9fc7; outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .hero, .section-head, .split-section { grid-template-columns: 1fr; }
+      .hero { gap: 36px; min-height: auto; padding: 68px 0; }
+      .pipeline { grid-template-columns: 1fr; }
+      .arrow { justify-self: center; transform: rotate(90deg); }
+      .sticky { position: static; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 24px, 1180px); }
+      .edition { display: none; }
+      .hero { padding-top: 45px; }
+      .hero-copy { padding-left: 18px; }
+      .section { padding: 66px 0; }
+      .lab-copy, .repair-bottom { flex-direction: column; }
+      .pipeline { padding: 0 16px 16px; }
+      .lab-copy, .verdict, .repair { padding-left: 16px; padding-right: 16px; }
+      .repair-track { grid-template-columns: repeat(3, 1fr); row-gap: 14px; }
+      .controls { width: 100%; }
+      .controls .button { flex: 1; }
+      .contract-grid, .neighbor-grid { grid-template-columns: 1fr; }
+      .myth { grid-template-columns: 1fr; gap: 10px; }
+      .takeaway { padding: 38px 26px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="topbar" aria-label="Page navigation">
+      <a class="back" href="../index.html">Pattern Atlas</a>
+      <span class="edition">02 · Information systems</span>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <p class="kicker">Authority · Lineage · Recovery</p>
+        <h1>Single Source<br>of <em>Truth</em></h1>
+      </div>
+      <div class="hero-copy">
+        <p><strong>Single Source of Truth（SSOT，单一事实来源）</strong>不是只保存一份数据，而是让同一个事实只有一个被授权的裁决者；其余副本都知道自己从哪里来、多久会过期、怎样重建。</p>
+        <div class="memory-card">一个事实可以有很多副本，<br>但只能有一个明确的修正入口。</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" aria-labelledby="lab-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">01 · Drift lab</p>
+            <h2 id="lab-title">亲手把一条发布链变成两个真相。</h2>
+          </div>
+          <p class="section-intro">切换三个场景，观察 source、public package、blog copy 与 production 的角色怎样变化。文件数量不决定健康程度，权威方向才决定。</p>
+        </div>
+
+        <div class="lab">
+          <div class="tabs" role="tablist" aria-label="SSOT scenarios">
+            <button class="tab active" type="button" role="tab" aria-selected="true" data-scenario="healthy">健康发布链</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-scenario="drift">直接改副本</button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-scenario="split">两个写入者</button>
+          </div>
+          <div class="lab-copy">
+            <div>
+              <h3 id="scenario-title">一个权威源，可重复生成多个投影</h3>
+              <p id="scenario-description">源头前进到 version 4；所有下游表示沿一个方向重新生成，并记录同一个 source version。</p>
+            </div>
+            <span id="state-badge" class="state-badge">Healthy</span>
+          </div>
+          <div id="pipeline" class="pipeline" aria-live="polite"></div>
+          <p id="verdict" class="verdict" aria-live="polite">物理副本可以很多，修正路径只有一条，而且没有歧义。</p>
+          <div id="repair" class="repair">
+            <div id="repair-track" class="repair-track" aria-hidden="true"></div>
+            <div class="repair-bottom">
+              <p id="repair-message" class="repair-message" aria-live="polite">先恢复权威，再恢复一致。</p>
+              <div class="controls">
+                <button id="reset-repair" class="button" type="button">重置</button>
+                <button id="next-repair" class="button primary" type="button">开始修复 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="contract-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">02 · Authority contract</p>
+            <h2 id="contract-title">四个问题都有答案，SSOT 才真正存在。</h2>
+          </div>
+          <p class="section-intro">把一个文件叫作 canonical 只是承诺。周围的流程必须让所有权、方向、新鲜度和恢复路径都可以执行。</p>
+        </div>
+        <div class="contract-grid">
+          <article class="contract-card"><header><span>01</span><code>authority</code></header><h3>谁可以发起一次修正？</h3><p>为这类有边界的事实，明确拥有者与唯一被接受的写入路径。</p></article>
+          <article class="contract-card"><header><span>02</span><code>direction</code></header><h3>更新朝哪个方向流动？</h3><p>除非领域真的需要多个写入者，否则优先使用单向、可重复的生成。</p></article>
+          <article class="contract-card"><header><span>03</span><code>freshness</code></header><h3>副本允许落后多久？</h3><p>声明 source version、刷新触发条件和业务可以接受的延迟。</p></article>
+          <article class="contract-card"><header><span>04</span><code>recovery</code></header><h3>删除它以后怎样重建？</h3><p>每个派生物都需要确定、可重复而且经过验证的恢复路径。</p></article>
+        </div>
+      </section>
+
+      <section class="section split-section" aria-labelledby="boundary-title">
+        <div class="sticky">
+          <p class="eyebrow">03 · Boundary check</p>
+          <h2 id="boundary-title">“单一”最容易制造三种误会。</h2>
+          <p>SSOT 集中的是某一类事实的裁决权，而不是把所有系统、数据与副本强行塞进一个地方。</p>
+        </div>
+        <div class="myths">
+          <article class="myth"><span>物理存储</span><div><h3>误区：一个源，就只能有一份副本。</h3><p>Replica、缓存、报表和搜索索引都应该存在。它们可以落后、失效与重建，只是不能悄悄获得定义事实的权力。</p></div></article>
+          <article class="myth"><span>系统设计</span><div><h3>误区：一个源，就是一个巨大数据库。</h3><p>Order Service 可以拥有订单，Identity Service 可以拥有法定姓名。权威应该按 domain boundary（领域边界）切分。</p></div></article>
+          <article class="myth"><span>数据质量</span><div><h3>误区：权威源一定自动正确。</h3><p>它仍然可能出错。SSOT 的价值是让所有人知道修正落在哪里，并能从那里重新生成下游。</p></div></article>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="neighbors-title">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">04 · Concept neighborhood</p>
+            <h2 id="neighbors-title">邻居是在拥有、追踪，还是投影这个事实？</h2>
+          </div>
+          <p class="section-intro">知道每个术语属于哪一种关系，比把它们当成 SSOT 的同义词更有用。</p>
+        </div>
+        <div class="neighbor-grid">
+          <article class="neighbor"><header><h3>Canonical Source</h3><span>authority mechanism</span></header><p class="full-name">Canonical Source · 规范源</p><p>被正式选为某类事实权威表示的具体文件、存储或日志。</p></article>
+          <article class="neighbor"><header><h3>Lineage</h3><span>provenance</span></header><p class="full-name">Data Lineage · 数据血缘</p><p>记录数据从哪里来、经过哪些转换，以及由哪个 source version 产生。</p></article>
+          <article class="neighbor"><header><h3>Materialized View</h3><span>derived projection</span></header><p class="full-name">Materialized View · 物化视图</p><p>为查询保存的派生表示；它可以落后，并且应该能从源头重建。</p></article>
+          <article class="neighbor"><header><h3>Event Sourcing</h3><span>implementation</span></header><p class="full-name">Event Sourcing · 事件溯源</p><p>把按顺序排列的事件日志作为权威记录，通过 replay 构建当前状态。</p></article>
+          <article class="neighbor"><header><h3>CQRS</h3><span>architecture pattern</span></header><p class="full-name">Command Query Responsibility Segregation · 命令查询职责分离</p><p>把权威命令与读优化投影分开，同时显式承担同步延迟。</p></article>
+          <article class="neighbor"><header><h3>SVOT</h3><span>consumption agreement</span></header><p class="full-name">Single Version of Truth · 单一版本的真相</p><p>强调消费者对统一定义或结果达成一致；SSOT 更强调权威从哪里产生。</p></article>
+        </div>
+      </section>
+
+      <section class="takeaway" aria-labelledby="takeaway-title">
+        <p class="eyebrow">Takeaway</p>
+        <h2 id="takeaway-title">先在源头修，再重新生成下游。</h2>
+        <p>最值得记住的不是缩写 SSOT，而是一个判断动作：每当你不知道“应该改哪个文件、信哪个数字、从哪边同步”时，先停止复制，明确这个事实的权威、方向、版本与恢复路径。</p>
+      </section>
+    </main>
+
+    <footer><span>Markdown is the source · This page is a lens</span><span>Pattern Atlas · 2026-07-16</span></footer>
+  </div>
+
+  <script>
+    const scenarios = {
+      healthy: {
+        title: "一个权威源，可重复生成多个投影",
+        description: "源头前进到 version 4；所有下游表示沿一个方向重新生成，并记录同一个 source version。",
+        badge: "Healthy",
+        tone: "",
+        verdict: "物理副本可以很多，修正路径只有一条，而且没有歧义。",
+        nodes: [
+          ["Brain Markdown", "语义权威", "source · v4", "唯一可以发起内容修改的地方。", "authority"],
+          ["Public package", "双语投影", "from v4", "从源头生成，随时可以重建。", ""],
+          ["Blog copy", "站点输入", "from v4", "为发布应用准备的内容副本。", ""],
+          ["Production", "发布证据", "main · v4", "服务由发布链产生的已提交 revision。", ""]
+        ]
+      },
+      drift: {
+        title: "一次方便的 hotfix 制造了隐形漂移",
+        description: "Blog copy 被直接改成 version 4，权威源仍停在 version 3；下一次同步无法自动保留两边的意图。",
+        badge: "Drift detected",
+        tone: "warning",
+        verdict: "页面现在也许是对的，但修复发生在错误的层；下一次 publish 可能把它覆盖。",
+        nodes: [
+          ["Brain Markdown", "声明的权威源", "source · v3", "仍然保存旧文案。", "authority"],
+          ["Public package", "双语投影", "from v3", "与源一致，却不知道 hotfix。", ""],
+          ["Blog copy", "被编辑的派生物", "local · v4", "有价值的修改只存在于可重建输出。", "warning"],
+          ["Production", "发布证据", "main · v3", "生产与本地副本不再证明同一个状态。", "warning"]
+        ]
+      },
+      split: {
+        title: "两个系统都认为自己拥有事实",
+        description: "源头修改标题，blog 修改简介；环形同步现在必须处理顺序、合并规则与冲突所有权。",
+        badge: "Split authority",
+        tone: "conflict",
+        verdict: "这还不是同步，而是一个尚未设计的分布式权威协议。",
+        nodes: [
+          ["Brain Markdown", "Writer A", "branch A · v4", "产生了一次有效标题修改。", "conflict"],
+          ["Public package", "混合投影", "from v3", "无法表达两个尚未合并的分支。", "warning"],
+          ["Blog copy", "Writer B", "branch B · v4", "产生了一次有效简介修改。", "conflict"],
+          ["Production", "含糊输出", "unknown", "发布任何一边都会静默丢掉另一边。", "warning"]
+        ]
+      }
+    };
+
+    const repairSteps = [
+      ["Freeze", "暂停直接修改与发布，停止扩大分叉。"],
+      ["Name", "说清楚冲突的是标题、简介，还是部署 revision。"],
+      ["Choose", "根据所有权、完整性、时间线与审计证据确认权威。"],
+      ["Reconcile", "把下游独有且正确的修改带回权威源。"],
+      ["Regenerate", "从修复后的同一个 source version 重建所有投影。"],
+      ["Guard", "增加 lineage、diff check、写权限与确定性发布路径。"]
+    ];
+
+    const pipeline = document.querySelector("#pipeline");
+    const title = document.querySelector("#scenario-title");
+    const description = document.querySelector("#scenario-description");
+    const badge = document.querySelector("#state-badge");
+    const verdict = document.querySelector("#verdict");
+    const repair = document.querySelector("#repair");
+    const repairTrack = document.querySelector("#repair-track");
+    const repairMessage = document.querySelector("#repair-message");
+    let current = "healthy";
+    let repairIndex = -1;
+
+    repairTrack.innerHTML = repairSteps.map((step) => `<span class="repair-step">${step[0]}</span>`).join("");
+
+    function renderScenario(key) {
+      current = key;
+      repairIndex = -1;
+      const scenario = scenarios[key];
+      title.textContent = scenario.title;
+      description.textContent = scenario.description;
+      badge.textContent = scenario.badge;
+      badge.className = `state-badge ${scenario.tone}`;
+      verdict.textContent = scenario.verdict;
+      verdict.className = `verdict ${scenario.tone}`;
+      repair.classList.toggle("visible", key !== "healthy");
+      repairMessage.textContent = "先恢复权威，再恢复一致。";
+      renderRepair();
+      pipeline.innerHTML = scenario.nodes.map((node, index) => {
+        const card = `<article class="node ${node[4]}"><small>${node[1]}</small><h4>${node[0]}</h4><code>${node[2]}</code><p>${node[3]}</p></article>`;
+        return index < scenario.nodes.length - 1 ? `${card}<span class="arrow" aria-hidden="true">→</span>` : card;
+      }).join("");
+    }
+
+    function renderRepair() {
+      [...repairTrack.children].forEach((step, index) => {
+        step.classList.toggle("done", repairIndex > index);
+        step.classList.toggle("current", repairIndex === index);
+      });
+    }
+
+    document.querySelectorAll(".tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-selected", "false");
+        });
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        renderScenario(tab.dataset.scenario);
+      });
+    });
+
+    document.querySelector("#next-repair").addEventListener("click", () => {
+      repairIndex = repairIndex >= repairSteps.length - 1 ? 0 : repairIndex + 1;
+      repairMessage.textContent = `${repairSteps[repairIndex][0]} · ${repairSteps[repairIndex][1]}`;
+      renderRepair();
+      if (repairIndex === repairSteps.length - 1) {
+        window.setTimeout(() => {
+          repairMessage.textContent += " 修复完成后，所有派生物再次拥有同一个来源。";
+        }, 250);
+      }
+    });
+
+    document.querySelector("#reset-repair").addEventListener("click", () => {
+      repairIndex = -1;
+      repairMessage.textContent = "先恢复权威，再恢复一致。";
+      renderRepair();
+    });
+
+    renderScenario(current);
+  </script>
+</body>
+</html>
