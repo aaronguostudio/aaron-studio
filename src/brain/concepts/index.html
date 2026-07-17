@@ -274,6 +274,20 @@
     .card.ssot .orb { background: var(--blue); }
     .card.ssot .status-dot { background: var(--orange); box-shadow: 0 0 0 5px rgba(255,121,95,.12); }
 
+    .card.idempotency {
+      grid-column: 1 / -1;
+      min-height: 340px;
+      background:
+        radial-gradient(circle at 88% 22%, rgba(132,216,255,.2), transparent 230px),
+        var(--ink);
+    }
+
+    .card.idempotency .orb {
+      width: 230px;
+      height: 230px;
+      background: var(--lime);
+    }
+
     .neighbors {
       grid-column: 1 / -1;
       display: flex;
@@ -423,7 +437,7 @@
     <section aria-labelledby="concepts-heading">
       <div class="section-head">
         <h2 id="concepts-heading">Indexed now</h2>
-        <span>02 concepts · 17 neighbors</span>
+        <span>03 concepts · 23 neighbors</span>
       </div>
 
       <div class="cards">
@@ -455,6 +469,20 @@
           </a>
         </article>
 
+        <article class="card idempotency">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/idempotency.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>03 / Software systems</span>
+            </div>
+            <div>
+              <h3>Idempotency</h3>
+              <p>同一个业务意图可以被重复送达，但只产生一次业务效果。让一次“扣款成功、响应丢失”的重试亲手走向 $42 或 $84。</p>
+            </div>
+          </a>
+        </article>
+
         <aside class="neighbors" aria-label="Related concepts">
           <div>
             <h3>Concept neighbors</h3>
@@ -470,6 +498,11 @@
             <span class="pill">Isolation</span>
             <span class="pill">Idempotency</span>
             <span class="pill">Retry</span>
+            <span class="pill">Idempotency Key</span>
+            <span class="pill">Deduplication</span>
+            <span class="pill">At-least-once Delivery</span>
+            <span class="pill">Transactional Outbox</span>
+            <span class="pill">Exactly-once Processing</span>
             <span class="pill" aria-label="CRDT, Conflict-free Replicated Data Type">CRDT</span>
             <span class="pill">Lease</span>
           </div>

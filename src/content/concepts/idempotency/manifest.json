@@ -1,0 +1,7 @@
+{
+  "slug": "idempotency",
+  "source": "src/brain/concepts/idempotency.md",
+  "status": "public-ready",
+  "updated": "2026-07-16",
+  "files": ["en.md", "zh.md", "visual.vue"]
+}

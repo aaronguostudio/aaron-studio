@@ -18,6 +18,8 @@ status: active
 - [打开 Optimistic Concurrency 互动解释页](pages/optimistic-concurrency.html)
 - [Single Source of Truth · 单一事实来源](single-source-of-truth.md)
 - [打开 Single Source of Truth 互动解释页](pages/single-source-of-truth.html)
+- [Idempotency · 幂等性](idempotency.md)
+- [打开 Idempotency 互动解释页](pages/idempotency.html)
 
 ## 概念索引
 
@@ -25,6 +27,7 @@ status: active
 |---|---|---|---|---|
 | [Optimistic Concurrency](optimistic-concurrency.md) | 乐观并发控制 | 数据库 / 分布式系统 | 先让大家并行工作，提交时再检查有没有撞车 | growing |
 | [Single Source of Truth](single-source-of-truth.md) | 单一事实来源 | 信息架构 / 数据系统 | 一个事实可以有很多副本，但只能有一个明确的裁决者 | growing |
+| [Idempotency](idempotency.md) | 幂等性 | 软件系统 / 分布式系统 | 同一个意图可以被重复送达，但只产生一次业务效果 | growing |
 
 ## 每条概念的固定骨架
 
