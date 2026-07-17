@@ -47,6 +47,8 @@ Use the same slug, translation key, neighbor identities, and source URLs in both
 - accept `locale: 'en' | 'zh'`;
 - contain only public-safe copy;
 - use the blog's theme variables, typography, and responsive conventions;
+- inherit `--foreground`, `--muted-foreground`, `--card`, `--secondary`, and
+  `--line-*` tokens; never fall back to fixed light-theme text or surfaces;
 - include the concept-specific interactions, not duplicate the entire Markdown article;
 - expose every changing explanation through visible text and `aria-live`;
 - avoid external requests.
@@ -71,7 +73,8 @@ After sync:
 
 1. Run the blog unit tests and production build.
 2. Start the blog dev server and verify `/learn/<slug>` and `/zh/learn/<slug>`.
-3. Check H1, full names, interaction, source links, language switch, mobile width, and console errors.
+3. Check H1, full names, interaction, source links, language switch, mobile
+   width, light/dark computed colors, and console errors.
 4. Review the blog diff and stage only intended Learn files.
 5. Commit on `main` only after Aaron approves release.
 6. Push `main` only after explicit authorization.

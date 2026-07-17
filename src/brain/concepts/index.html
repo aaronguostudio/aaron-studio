@@ -274,9 +274,13 @@
     .card.ssot .orb { background: var(--blue); }
     .card.ssot .status-dot { background: var(--orange); box-shadow: 0 0 0 5px rgba(255,121,95,.12); }
 
-    .card.idempotency {
-      grid-column: 1 / -1;
+    .card.idempotency,
+    .card.progressive {
+      grid-column: span 6;
       min-height: 340px;
+    }
+
+    .card.idempotency {
       background:
         radial-gradient(circle at 88% 22%, rgba(132,216,255,.2), transparent 230px),
         var(--ink);
@@ -287,6 +291,17 @@
       height: 230px;
       background: var(--lime);
     }
+
+    .card.progressive {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 22%, rgba(183,165,255,.22), transparent 220px),
+        rgba(255,255,255,.6);
+    }
+
+    .card.progressive p { color: var(--muted); }
+    .card.progressive .orb { width: 210px; height: 210px; background: var(--violet, #b7a5ff); }
+    .card.progressive .status-dot { background: var(--blue); box-shadow: 0 0 0 5px rgba(132,216,255,.15); }
 
     .neighbors {
       grid-column: 1 / -1;
@@ -437,7 +452,7 @@
     <section aria-labelledby="concepts-heading">
       <div class="section-head">
         <h2 id="concepts-heading">Indexed now</h2>
-        <span>03 concepts · 23 neighbors</span>
+        <span>04 concepts · 29 neighbors</span>
       </div>
 
       <div class="cards">
@@ -483,6 +498,20 @@
           </a>
         </article>
 
+        <article class="card progressive">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/progressive-disclosure.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>04 / Interaction design</span>
+            </div>
+            <div>
+              <h3>Progressive<br>Disclosure</h3>
+              <p>复杂度不被删除，而是随着用户意图逐层出现。亲手比较“全部一次显示”和“最小完整界面”，再判断哪些风险绝不能隐藏。</p>
+            </div>
+          </a>
+        </article>
+
         <aside class="neighbors" aria-label="Related concepts">
           <div>
             <h3>Concept neighbors</h3>
@@ -505,6 +534,12 @@
             <span class="pill">Exactly-once Processing</span>
             <span class="pill" aria-label="CRDT, Conflict-free Replicated Data Type">CRDT</span>
             <span class="pill">Lease</span>
+            <span class="pill">Disclosure Widget</span>
+            <span class="pill">Contextual Disclosure</span>
+            <span class="pill">Staged Disclosure</span>
+            <span class="pill">Information Architecture</span>
+            <span class="pill">Defaults</span>
+            <span class="pill">Feature Gating</span>
           </div>
         </aside>
       </div>

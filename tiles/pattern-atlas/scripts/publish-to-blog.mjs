@@ -30,6 +30,34 @@ async function sameContent(source, destination) {
   return left.equals(right)
 }
 
+async function validateVisualThemeContract(visualPath) {
+  const source = await readFile(visualPath, 'utf8')
+  const retiredTokens = [
+    '--color-text',
+    '--color-text-muted',
+    '--color-surface',
+    '--color-surface-soft',
+  ]
+  const foundRetiredTokens = retiredTokens.filter((token) => source.includes(token))
+
+  if (foundRetiredTokens.length > 0) {
+    throw new Error(
+      `Visual uses retired light-only theme token(s): ${foundRetiredTokens.join(', ')}. ` +
+        'Use the blog runtime tokens documented in references/visual-system.md.',
+    )
+  }
+
+  const requiredTokens = ['var(--foreground)', 'var(--muted-foreground)']
+  const missingTokens = requiredTokens.filter((token) => !source.includes(token))
+
+  if (missingTokens.length > 0) {
+    throw new Error(
+      `Visual is missing required theme token(s): ${missingTokens.join(', ')}. ` +
+        'Public Learn components must inherit the site light/dark theme.',
+    )
+  }
+}
+
 const args = parseArgs(process.argv.slice(2))
 if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(args.slug)) {
   throw new Error('Pass a kebab-case concept slug with --slug <slug>.')
@@ -58,6 +86,7 @@ const mappings = [
 
 const visualSource = path.join(packageRoot, 'visual.vue')
 if (await exists(visualSource)) {
+  await validateVisualThemeContract(visualSource)
   mappings.push([
     'visual.vue',
     path.join(blogRoot, 'components', 'learn', 'concepts', `${args.slug}.vue`),
@@ -105,4 +134,6 @@ if (args.check && differences > 0) {
   throw new Error(`${differences} public concept file(s) are missing or out of date.`)
 }
 
-console.log('Local sync only. No commit, push, deployment, or production alias change was performed.')
+console.log(
+  'Local sync only. No commit, push, deployment, or production alias change was performed.',
+)

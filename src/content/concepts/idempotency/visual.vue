@@ -34,7 +34,13 @@ interface Copy {
   contractDescription: string
   cases: Record<
     EdgeCase,
-    { tab: string; request: string; decision: string; result: string; rule: string }
+    {
+      tab: string
+      request: string
+      decision: string
+      result: string
+      rule: string
+    }
   >
   judgeEyebrow: string
   judgeTitle: string
@@ -48,7 +54,12 @@ interface Copy {
   neighborsEyebrow: string
   neighborsTitle: string
   neighborsDescription: string
-  neighbors: Array<{ name: string; fullName: string; type: string; description: string }>
+  neighbors: Array<{
+    name: string
+    fullName: string
+    type: string
+    description: string
+  }>
 }
 
 const props = defineProps<{ locale: Locale }>()
@@ -612,12 +623,12 @@ function reset() {
 
 <style scoped>
 .idempotency-visual {
-  --idem-ink: var(--color-text, #171717);
-  --idem-muted: var(--color-text-muted, #6b6872);
-  --idem-surface: var(--color-surface, #ffffff);
-  --idem-soft: var(--color-surface-soft, #f6f7fb);
-  --idem-border: var(--color-border, #dedfe7);
-  --idem-accent: var(--color-accent, #6d5dfc);
+  --idem-ink: var(--foreground);
+  --idem-muted: var(--muted-foreground);
+  --idem-surface: var(--card);
+  --idem-soft: var(--secondary);
+  --idem-border: var(--line-card);
+  --idem-accent: color-mix(in srgb, #6d5dfc 82%, var(--foreground));
   --idem-accent-soft: color-mix(in srgb, var(--idem-accent) 10%, var(--idem-surface));
   --idem-cyan: #72d7ee;
   --idem-lime: #c7f36a;
