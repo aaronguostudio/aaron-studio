@@ -14,6 +14,8 @@ published: true
 featured: false
 translationKey: 'idempotency'
 interaction: 'idempotency'
+cardImage: '/learn-img/idempotency/card-4x5.jpg'
+cardImageAlt: 'Three paper receipts with the same order ID converge into one completed receipt, illustrating repeated attempts producing one business effect.'
 neighbors:
   - name: 'Retry'
     fullName: 'Retry'

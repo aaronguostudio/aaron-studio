@@ -14,6 +14,10 @@ published: true
 featured: true
 translationKey: "optimistic-concurrency"
 interaction: "optimistic-concurrency"
+socialImage: "/learn-img/optimistic-concurrency/og-1200x627.jpg"
+socialImageAlt: "两条并行工作路径在验证门汇合：当前版本成功提交，过期版本返回重试。"
+cardImage: "/learn-img/optimistic-concurrency/card-4x5.jpg"
+cardImageAlt: "一台纸艺版本检查装置把当前文档送往提交通道，并拦下过期副本。"
 neighbors:
   - name: "PCC"
     fullName: "Pessimistic Concurrency Control · 悲观并发控制"

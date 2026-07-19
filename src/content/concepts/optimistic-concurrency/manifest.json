@@ -3,5 +3,18 @@
   "source": "src/brain/concepts/optimistic-concurrency.md",
   "status": "public-ready",
   "updated": "2026-07-16",
-  "files": ["en.md", "zh.md", "visual.vue"]
+  "files": [
+    "en.md",
+    "zh.md",
+    "visual.vue",
+    "social/og-1200x627.jpg",
+    "social/card-4x5.jpg"
+  ],
+  "social": {
+    "sourceArtwork": "social/og-art-source.png",
+    "ogImage": "social/og-1200x627.jpg",
+    "cardSourceArtwork": "social/card-art-source.png",
+    "cardImage": "social/card-4x5.jpg",
+    "linkedInDraft": "social/linkedin-manual.md"
+  }
 }

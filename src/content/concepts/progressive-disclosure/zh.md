@@ -14,6 +14,8 @@ published: true
 featured: false
 translationKey: 'progressive-disclosure'
 interaction: 'progressive-disclosure'
+cardImage: '/learn-img/progressive-disclosure/card-4x5.jpg'
+cardImageAlt: '三层纸艺界面分别标注“必要”“情境”和“专家”，表示选项随着用户意图加深而逐层显露。'
 neighbors:
   - name: 'Disclosure Widget'
     fullName: 'Disclosure Widget · 披露控件'

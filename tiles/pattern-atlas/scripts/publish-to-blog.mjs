@@ -58,6 +58,28 @@ async function validateVisualThemeContract(visualPath) {
   }
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+async function validateCardMetadata(markdownPath, expectedCardPath) {
+  const source = await readFile(markdownPath, 'utf8')
+  const cardPattern = new RegExp(
+    `^cardImage:\\s*["']${escapeRegExp(expectedCardPath)}["']\\s*$`,
+    'm',
+  )
+  const altPattern = /^cardImageAlt:\s*["'].+["']\s*$/m
+
+  if (!cardPattern.test(source)) {
+    throw new Error(
+      `${markdownPath} must declare cardImage: ${expectedCardPath} when card-4x5.jpg exists.`,
+    )
+  }
+  if (!altPattern.test(source)) {
+    throw new Error(`${markdownPath} must declare a localized cardImageAlt.`)
+  }
+}
+
 const args = parseArgs(process.argv.slice(2))
 if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(args.slug)) {
   throw new Error('Pass a kebab-case concept slug with --slug <slug>.')
@@ -91,6 +113,25 @@ if (await exists(visualSource)) {
     'visual.vue',
     path.join(blogRoot, 'components', 'learn', 'concepts', `${args.slug}.vue`),
   ])
+}
+
+const socialAssets = ['og-1200x627.jpg', 'card-4x5.jpg']
+for (const filename of socialAssets) {
+  const relativeSource = path.join('social', filename)
+  const source = path.join(packageRoot, relativeSource)
+  if (await exists(source)) {
+    mappings.push([relativeSource, path.join(blogRoot, 'public', 'learn-img', args.slug, filename)])
+  }
+}
+
+const cardSource = path.join(packageRoot, 'social', 'card-4x5.jpg')
+if (await exists(cardSource)) {
+  const expectedCardPath = `/learn-img/${args.slug}/card-4x5.jpg`
+  await Promise.all(
+    ['en.md', 'zh.md'].map((filename) =>
+      validateCardMetadata(path.join(packageRoot, filename), expectedCardPath),
+    ),
+  )
 }
 
 const scaffold = path.join(blogRoot, 'pages', 'learn', 'index.vue')

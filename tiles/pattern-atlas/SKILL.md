@@ -16,6 +16,7 @@ Turn an idea from any domain into a connected mental model that remains useful a
 - Store visual explainers in `<brainRoot>/concepts/pages/`.
 - Use `<brainRoot>/concepts/index.html` as the visual catalog and `<brainRoot>/concepts/README.md` as the text index.
 - Stage public-safe bilingual derivatives in `<contentRoot>/concepts/<slug>/`; never publish directly from private brain files.
+- Store the concept's durable share asset at `<contentRoot>/concepts/<slug>/social/card-4x5.jpg` and its manual distribution copy at `social/linkedin-manual.md`.
 - Read `<brainRoot>/concepts/_template.md` before creating a new Markdown entry.
 - For a visual page, read [references/visual-system.md](references/visual-system.md) completely and inspect `<brainRoot>/concepts/pages/optimistic-concurrency.html` as the canonical quality reference.
 - For domain-specific evidence standards, read [references/domain-evidence.md](references/domain-evidence.md).
@@ -111,10 +112,20 @@ When Aaron requests a blog-ready or published concept:
 1. Read [references/blog-publishing.md](references/blog-publishing.md).
 2. Create `<contentRoot>/concepts/<slug>/en.md`, `zh.md`, `visual.vue`, and `manifest.json`.
 3. Remove private context, personal identifiers, speculative claims, and unpublished project details.
-4. Run `node tiles/pattern-atlas/scripts/publish-to-blog.mjs --slug <slug> --dry-run`.
-5. Run the publisher without `--dry-run`, then run it with `--check`.
-6. Validate the blog build and both language routes.
-7. Stop before commit or push unless Aaron explicitly authorizes the release. Production must come only from a committed `main` Git deployment.
+4. Design a concept-specific `social/card-4x5.jpg` at 1080×1350. Use the official Aaron Guo mark, English-first phone-readable typography, restrained color, and one visual metaphor that teaches the concept. Keep a family resemblance across the series, but do not force every concept into the same layout, timeline, or illustration style.
+5. Add `cardImage` and localized `cardImageAlt` to both public Markdown files. Treat the original JPEG as the durable download/share asset; let the blog render responsive WebP derivatives for the Learn index and detail page.
+6. Create `social/linkedin-manual.md` with concise post copy, accessible image alt text, the canonical Learn URL, and the campaign link defined by the manifest. The image is the visual hook; the post text should invite the click rather than repeat the whole article.
+7. Run `node tiles/pattern-atlas/scripts/publish-to-blog.mjs --slug <slug> --dry-run`.
+8. Run the publisher without `--dry-run`, then run it with `--check`. The sync must publish the bilingual content, interactive component, manifest metadata, and available card/OG assets together.
+9. Validate targeted tests, the production build, and the English and Chinese routes. Browser QA the Learn index and concept detail in light/dark modes and at desktop/mobile widths; check image loading, localized alt text, language switching, overflow, and console errors.
+10. Keep content publication and social distribution as separate states. A concept may be live in the Learn library before it enters the social cadence; record distribution status in the manifest instead of coupling it to the blog release.
+11. Stop before commit or push unless Aaron explicitly authorizes the release. When authorized, commit only the intended concept and site files to `main`, push `main`, and verify that production was created by that Git revision and that the real domain serves it. Never use a local production deploy, promotion, or alias swap.
+
+The reusable delivery chain is:
+
+`private concept → public bilingual package → interactive Learn page → 4:5 visual memory card → responsive website integration → scheduled/manual social distribution`
+
+Do not consider a published Pattern Atlas entry complete when the card only exists in a social folder. The same visual memory card should appear compactly in the Learn catalog, at useful reading size on the detail page, and as an original-file download for manual sharing.
 
 ## Example invocations
 

@@ -14,6 +14,10 @@ published: true
 featured: true
 translationKey: "optimistic-concurrency"
 interaction: "optimistic-concurrency"
+socialImage: "/learn-img/optimistic-concurrency/og-1200x627.jpg"
+socialImageAlt: "Two parallel work paths meet at a validation gate; the current version commits while a stale version loops back to retry."
+cardImage: "/learn-img/optimistic-concurrency/card-4x5.jpg"
+cardImageAlt: "A tactile paper version-check machine routes the current document to commit and blocks a stale copy."
 neighbors:
   - name: "PCC"
     fullName: "Pessimistic Concurrency Control"

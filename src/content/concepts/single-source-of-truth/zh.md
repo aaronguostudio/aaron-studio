@@ -14,6 +14,8 @@ published: true
 featured: false
 translationKey: 'single-source-of-truth'
 interaction: 'single-source-of-truth'
+cardImage: '/learn-img/single-source-of-truth/card-4x5.jpg'
+cardImageAlt: '一份放在深色基座上的纸艺主记录分流到仪表盘、报告与缓存，表示一个权威来源生成多个派生视图。'
 neighbors:
   - name: 'Canonical Source'
     fullName: 'Canonical Source · 规范源'

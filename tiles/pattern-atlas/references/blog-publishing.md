@@ -12,10 +12,14 @@ src/content/concepts/<slug>/                 public package
   ├── en.md
   ├── zh.md
   ├── visual.vue
+  ├── social/
+  │   ├── og-1200x627.jpg
+  │   └── card-4x5.jpg                       optional native social asset
   └── manifest.json
                  ↓ publish-to-blog.mjs
 <blogRepo>/content/learn/{en,zh}/<slug>.md
 <blogRepo>/components/learn/concepts/<slug>.vue
+<blogRepo>/public/learn-img/<slug>/
 ```
 
 The blog's generic `/learn` and `/learn/[slug]` routes discover new content and visual components automatically. Adding a concept must not require route or registry edits.
@@ -37,6 +41,8 @@ Both Markdown files must include:
 - `featured`
 - `translationKey`
 - `interaction`
+- `socialImage` and `socialImageAlt` when the concept has a static share image
+- `cardImage` and localized `cardImageAlt` when the concept has a native 4:5 card
 - `neighbors` with `name`, `fullName`, `category`, and `summary`
 - `sources` with `title` and `url`
 
@@ -54,6 +60,25 @@ Use the same slug, translation key, neighbor identities, and source URLs in both
 - avoid external requests.
 
 `manifest.json` must include `slug`, `source`, `status`, `updated`, and `files`.
+
+## Social image contract
+
+- Use `social/og-1200x627.jpg` for Open Graph and link-preview distribution. Keep it a
+  static JPEG so LinkedIn, Facebook, and other crawlers do not depend on runtime image
+  generation.
+- Use `social/card-4x5.jpg` when a native portrait social post is prepared. It is a
+  separate composition, not a crop of the link-preview image. The same original JPEG
+  is the durable source for the Learn index thumbnail and detail-page memory card;
+  Nuxt Image must produce smaller responsive WebP derivatives for browser delivery.
+- Keep brand anchors consistent, but let the concept determine the visual metaphor and
+  composition. Do not force every concept into one fixed card layout.
+- Put the public URL in frontmatter, for example
+  `/learn-img/<slug>/og-1200x627.jpg`, and localize `socialImageAlt`.
+- Put the portrait URL in `cardImage`, for example
+  `/learn-img/<slug>/card-4x5.jpg`, and localize `cardImageAlt`. When the JPEG exists,
+  the publisher treats both fields as required in English and Chinese.
+- Keep source artwork in the public package when it is useful for future recomposition,
+  but list only publishable derivatives in `manifest.files`.
 
 ## Commands
 

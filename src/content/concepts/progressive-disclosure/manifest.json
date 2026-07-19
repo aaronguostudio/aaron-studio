@@ -2,6 +2,16 @@
   "slug": "progressive-disclosure",
   "source": "src/brain/concepts/progressive-disclosure.md",
   "status": "public-ready",
-  "updated": "2026-07-17",
-  "files": ["en.md", "zh.md", "visual.vue"]
+  "updated": "2026-07-18",
+  "files": [
+    "en.md",
+    "zh.md",
+    "visual.vue",
+    "social/card-4x5.jpg"
+  ],
+  "social": {
+    "cardSourceArtwork": "social/card-art-source.png",
+    "cardImage": "social/card-4x5.jpg",
+    "linkedInDraft": "social/linkedin-manual.md"
+  }
 }

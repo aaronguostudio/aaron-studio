@@ -14,6 +14,8 @@ published: true
 featured: false
 translationKey: 'progressive-disclosure'
 interaction: 'progressive-disclosure'
+cardImage: '/learn-img/progressive-disclosure/card-4x5.jpg'
+cardImageAlt: 'Three tactile paper interfaces labeled Essential, Context, and Expert sit in layered trays, illustrating options revealed as user intent deepens.'
 neighbors:
   - name: 'Disclosure Widget'
     fullName: 'Disclosure Widget'

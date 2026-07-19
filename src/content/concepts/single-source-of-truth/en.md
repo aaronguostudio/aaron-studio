@@ -14,6 +14,8 @@ published: true
 featured: false
 translationKey: 'single-source-of-truth'
 interaction: 'single-source-of-truth'
+cardImage: '/learn-img/single-source-of-truth/card-4x5.jpg'
+cardImageAlt: 'One paper master record on a dark pedestal branches into a dashboard, report, and cache, showing one authority feeding many derived views.'
 neighbors:
   - name: 'Canonical Source'
     fullName: 'Canonical Source'

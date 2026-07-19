@@ -14,6 +14,8 @@ published: true
 featured: false
 translationKey: 'idempotency'
 interaction: 'idempotency'
+cardImage: '/learn-img/idempotency/card-4x5.jpg'
+cardImageAlt: '三张具有相同订单编号的纸质收据汇入一张完成收据，表示多次尝试只产生一次业务效果。'
 neighbors:
   - name: 'Retry'
     fullName: 'Retry（重试）'
