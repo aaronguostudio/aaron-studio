@@ -70,6 +70,16 @@ Use the same slug, translation key, neighbor identities, and source URLs in both
   separate composition, not a crop of the link-preview image. The same original JPEG
   is the durable source for the Learn index thumbnail and detail-page memory card;
   Nuxt Image must produce smaller responsive WebP derivatives for browser delivery.
+- Render Learn index thumbnails in a true `4 / 5` frame with `object-contain` so the
+  complete card, including its designed padding, remains visible. Do not stretch the
+  grid item and compensate with `object-cover`; that silently crops the card edges.
+- Compose the portrait card natively at 1080×1350 with 72–88 px horizontal padding
+  as the default standard. This keeps the title and teaching copy large enough at
+  phone-feed size. Do not scale a 2:3 source down to fit inside 4:5 and accept the
+  resulting side gutters; reflow or regenerate the composition for the target canvas.
+- Wider margins are an intentional exception for unusually sparse artwork, not a
+  second default specification. Review exceptions at a 50% phone-sized preview and
+  confirm they improve the concept rather than merely adding empty space.
 - Keep brand anchors consistent, but let the concept determine the visual metaphor and
   composition. Do not force every concept into one fixed card layout.
 - Put the public URL in frontmatter, for example
