@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用五层视觉语言栈与四条风格坐标轴，理解文档类型、设计谱系、风格原型、主题预设、Design Token 和组件规则的区别。">
+  <title>Document Visual Language · Pattern Atlas</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4efe5;
+      --paper-2: #ebe3d4;
+      --ink: #171713;
+      --muted: #69645a;
+      --line: rgba(23, 23, 19, .17);
+      --soft-line: rgba(23, 23, 19, .09);
+      --lime: #d9ff66;
+      --orange: #ff735a;
+      --blue: #83d9ff;
+      --violet: #b7a5ff;
+      --shadow: 0 24px 78px rgba(54, 46, 31, .13);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 94% 3%, rgba(183,165,255,.27), transparent 28rem),
+        radial-gradient(circle at 4% 20%, rgba(217,255,102,.22), transparent 30rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      opacity: .22;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 30;
+      height: 4px;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    .shell {
+      width: min(1260px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 0 92px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 72px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 740;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    .back::before {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      content: "←";
+      transition: transform .2s ease;
+    }
+
+    .back:hover::before { transform: translateX(-3px); }
+
+    .maturity {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.36);
+    }
+
+    .maturity::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      content: "";
+      background: var(--lime);
+      box-shadow: 0 0 0 4px rgba(217,255,102,.2);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, .36fr);
+      align-items: end;
+      gap: 60px;
+      min-height: 650px;
+      padding-bottom: 64px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+      font: 12px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      content: "";
+      background: var(--orange);
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(65px, 9vw, 128px);
+      font-weight: 500;
+      letter-spacing: -.068em;
+      line-height: .79;
+    }
+
+    h1 em {
+      position: relative;
+      font-weight: inherit;
+      font-style: italic;
+    }
+
+    h1 em::after {
+      position: absolute;
+      right: -1%;
+      bottom: 3%;
+      left: -1%;
+      z-index: -1;
+      height: 17%;
+      content: "";
+      background: var(--blue);
+      transform: rotate(-1deg);
+    }
+
+    .hero-note {
+      padding: 24px 0 8px 28px;
+      border-left: 1px solid var(--ink);
+    }
+
+    .hero-note .big {
+      display: block;
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+    }
+
+    .hero-note p { margin: 0; color: var(--muted); font-size: 15px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 900px);
+      justify-content: space-between;
+      gap: 64px;
+      padding-top: 76px;
+    }
+
+    .rail {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+    }
+
+    .rail-label {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font: 10px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .rail nav { display: grid; gap: 11px; }
+    .rail a { color: var(--muted); font-size: 13px; text-decoration: none; transition: color .2s ease, transform .2s ease; }
+    .rail a:hover { color: var(--ink); transform: translateX(3px); }
+
+    .content { min-width: 0; }
+
+    .section {
+      padding: 22px 0 92px;
+      scroll-margin-top: 24px;
+    }
+
+    .section + .section { border-top: 1px solid var(--line); }
+
+    .section-number {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--orange);
+      font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 800px;
+      margin: 0 0 25px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(39px, 5vw, 64px);
+      font-weight: 500;
+      letter-spacing: -.048em;
+      line-height: .98;
+    }
+
+    h3 { margin: 34px 0 12px; font-size: 17px; letter-spacing: -.01em; }
+
+    .lead {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.72;
+    }
+
+    .definition {
+      position: relative;
+      overflow: hidden;
+      margin: 32px 0;
+      padding: clamp(30px, 5vw, 52px);
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      color: var(--paper);
+      background: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .definition::after {
+      position: absolute;
+      top: -74px;
+      right: -48px;
+      width: 190px;
+      height: 190px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      content: "";
+      background: var(--violet);
+      box-shadow: 0 0 0 28px rgba(183,165,255,.08), 0 0 0 58px rgba(183,165,255,.04);
+    }
+
+    .definition span {
+      display: block;
+      margin-bottom: 20px;
+      color: var(--lime);
+      font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .definition p {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 4vw, 43px);
+      letter-spacing: -.03em;
+      line-height: 1.2;
+    }
+
+    .lab {
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: rgba(255,255,255,.42);
+      box-shadow: var(--shadow);
+    }
+
+    .lab-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 17px 22px;
+      border-bottom: 1px solid var(--line);
+      font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .live {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      content: "";
+      background: #2a8d63;
+      box-shadow: 0 0 0 4px rgba(42,141,99,.12);
+    }
+
+    .lab-grid {
+      display: grid;
+      grid-template-columns: minmax(240px, .75fr) minmax(0, 1.25fr);
+      min-height: 610px;
+    }
+
+    .controls {
+      padding: 24px;
+      border-right: 1px solid var(--line);
+      background: rgba(235,227,212,.7);
+    }
+
+    .control-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font: 10px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .preset {
+      cursor: pointer;
+      padding: 12px 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 750;
+      background: rgba(255,255,255,.46);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+
+    .preset:hover, .preset:focus-visible { border-color: var(--ink); outline: none; transform: translateY(-2px); }
+    .preset[aria-pressed="true"] { color: var(--paper); background: var(--ink); }
+    .preset small { display: block; margin-top: 2px; color: var(--muted); font-size: 9px; font-weight: 500; }
+    .preset[aria-pressed="true"] small { color: rgba(244,239,229,.6); }
+
+    .axis {
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .axis-top, .axis-ends {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .axis-top { margin-bottom: 8px; }
+    .axis-top strong { font-size: 13px; }
+    .axis-value { color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .axis-ends { margin-top: 2px; color: var(--muted); font-size: 9px; }
+
+    input[type="range"] {
+      width: 100%;
+      height: 20px;
+      margin: 0;
+      accent-color: var(--orange);
+      cursor: pointer;
+    }
+
+    .preview-wrap {
+      display: grid;
+      place-items: center;
+      padding: clamp(22px, 5vw, 42px);
+      background:
+        linear-gradient(135deg, rgba(23,23,19,.035) 25%, transparent 25%) 0 0 / 18px 18px,
+        rgba(255,255,255,.28);
+    }
+
+    .document {
+      --doc-bg: #f4f0e7;
+      --doc-ink: #283128;
+      --doc-muted: #687167;
+      --doc-accent: #7a8a55;
+      --doc-soft: #e7e2d3;
+      --doc-radius: 18px;
+      --doc-gap: 18px;
+      --doc-border: 1px;
+      --doc-title: Georgia, "Times New Roman", serif;
+      --doc-body: Georgia, "Times New Roman", serif;
+      width: min(100%, 520px);
+      min-height: 560px;
+      padding: clamp(24px, 5vw, 42px);
+      border: 1px solid rgba(23,23,19,.18);
+      border-radius: 4px;
+      color: var(--doc-ink);
+      background: var(--doc-bg);
+      box-shadow: 0 20px 50px rgba(23,23,19,.15);
+      font-family: var(--doc-body);
+      transition: color .25s ease, background .25s ease, padding .25s ease;
+    }
+
+    .doc-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: calc(var(--doc-gap) * .75);
+      border-bottom: var(--doc-border) solid var(--doc-ink);
+      font: 9px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .doc-kicker {
+      display: inline-block;
+      margin: calc(var(--doc-gap) * 1.25) 0 8px;
+      color: var(--doc-accent);
+      font: 9px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .document h3 {
+      max-width: 430px;
+      margin: 0;
+      font-family: var(--doc-title);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 560;
+      letter-spacing: -.045em;
+      line-height: .96;
+    }
+
+    .doc-deck { margin: 14px 0 calc(var(--doc-gap) * 1.2); color: var(--doc-muted); font-size: 12px; line-height: 1.55; }
+
+    .doc-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: calc(var(--doc-gap) * .55);
+      margin-bottom: var(--doc-gap);
+    }
+
+    .doc-metric {
+      padding: calc(var(--doc-gap) * .7);
+      border: var(--doc-border) solid color-mix(in srgb, var(--doc-ink) 24%, transparent);
+      border-radius: var(--doc-radius);
+      background: var(--doc-soft);
+    }
+
+    .doc-metric span { display: block; margin-bottom: 6px; color: var(--doc-muted); font: 8px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
+    .doc-metric strong { font-family: var(--doc-title); font-size: 21px; font-weight: 600; }
+
+    .doc-block {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: var(--doc-gap);
+      padding-top: var(--doc-gap);
+      border-top: var(--doc-border) solid color-mix(in srgb, var(--doc-ink) 35%, transparent);
+    }
+
+    .doc-quote {
+      margin: 0;
+      padding: 0 0 0 12px;
+      border-left: 3px solid var(--doc-accent);
+      font-family: var(--doc-title);
+      font-size: 16px;
+      line-height: 1.3;
+    }
+
+    .doc-table { display: grid; gap: 8px; }
+    .doc-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; padding-bottom: 6px; border-bottom: var(--doc-border) solid color-mix(in srgb, var(--doc-ink) 20%, transparent); font-size: 10px; }
+    .doc-row span { color: var(--doc-muted); }
+    .doc-foot { margin-top: calc(var(--doc-gap) * 1.2); color: var(--doc-muted); font: 8px ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+    .lab-output {
+      min-height: 84px;
+      padding: 17px 22px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      background: rgba(235,227,212,.62);
+    }
+
+    .lab-output strong { color: var(--ink); }
+
+    .stack {
+      display: grid;
+      gap: 9px;
+      margin: 34px 0;
+    }
+
+    .layer {
+      display: grid;
+      grid-template-columns: 48px minmax(150px, .65fr) 1.35fr;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.4);
+    }
+
+    .layer b {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font: 10px ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: var(--lime);
+    }
+
+    .layer:nth-child(2) b { background: var(--blue); }
+    .layer:nth-child(3) b { background: var(--violet); }
+    .layer:nth-child(4) b { background: var(--orange); }
+    .layer:nth-child(5) b { color: var(--paper); background: var(--ink); }
+    .layer h3 { margin: 0; font-size: 15px; }
+    .layer h3 small { display: block; margin-top: 2px; color: var(--muted); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; }
+    .layer p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .formula {
+      margin: 24px 0;
+      padding: 18px 20px;
+      border-left: 3px solid var(--orange);
+      color: var(--muted);
+      font: 12px/1.8 ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: rgba(255,255,255,.36);
+    }
+
+    .archetypes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .archetype {
+      position: relative;
+      min-height: 245px;
+      overflow: hidden;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.4);
+    }
+
+    .archetype::after {
+      position: absolute;
+      right: -26px;
+      bottom: -26px;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      content: "";
+      background: var(--blue);
+      opacity: .32;
+    }
+
+    .archetype:nth-child(3n + 2)::after { background: var(--lime); }
+    .archetype:nth-child(3n + 3)::after { background: var(--orange); }
+    .identity { display: inline-block; margin-bottom: 28px; color: var(--muted); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
+    .archetype h3 { margin: 0 0 8px; font-family: Georgia, "Times New Roman", serif; font-size: 24px; font-weight: 500; line-height: 1.04; }
+    .archetype p { position: relative; z-index: 1; margin: 0; color: var(--muted); font-size: 12px; }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .theme-card {
+      min-height: 330px;
+      padding: 26px;
+      border: 1.5px solid var(--ink);
+      border-radius: 24px;
+    }
+
+    .theme-card.alder { color: #2b342a; background: #e8e1cf; }
+    .theme-card.granite { color: #edf0ed; background: #293038; }
+    .theme-card .tag { display: inline-block; padding: 6px 9px; border: 1px solid currentColor; border-radius: 999px; font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; opacity: .72; }
+    .theme-card h3 { margin: 58px 0 10px; font-family: Georgia, "Times New Roman", serif; font-size: 44px; font-weight: 500; letter-spacing: -.05em; }
+    .theme-card p { max-width: 330px; margin: 0 0 22px; opacity: .72; font-size: 13px; }
+    .coords { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; opacity: .72; }
+
+    .failures {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .failure {
+      padding: 22px;
+      border: 1px solid rgba(197,63,50,.3);
+      border-radius: 18px;
+      background: rgba(255,115,90,.09);
+    }
+
+    .failure strong { display: block; margin-bottom: 7px; }
+    .failure p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .map {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .node {
+      min-height: 174px;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.4);
+    }
+
+    .node h3 { margin: 0 0 6px; }
+    .node h3 small { color: var(--muted); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .node p { margin: 0; color: var(--muted); font-size: 12px; }
+
+    .distinction {
+      grid-column: 1 / -1;
+      padding: 24px;
+      border: 1.5px solid var(--ink);
+      border-radius: 20px;
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .distinction strong { color: var(--lime); }
+
+    .takeaways {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      margin: 32px 0 0;
+      padding: 0;
+      border: 1.5px solid var(--ink);
+      border-radius: 24px;
+      background: var(--ink);
+      list-style: none;
+    }
+
+    .takeaways li { display: grid; grid-template-columns: 42px 1fr; gap: 16px; padding: 20px 22px; background: var(--paper); }
+    .takeaways b { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--lime); }
+    .takeaways span { align-self: center; }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 38px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font: 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .rail { display: none; }
+      .content { max-width: 900px; margin: 0 auto; }
+    }
+
+    @media (max-width: 780px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; min-height: auto; padding-top: 48px; }
+      .hero-note { max-width: 560px; }
+      .lab-grid { grid-template-columns: 1fr; }
+      .controls { border-right: 0; border-bottom: 1px solid var(--line); }
+      .archetypes { grid-template-columns: 1fr 1fr; }
+      .layer { grid-template-columns: 48px 1fr; }
+      .layer p { grid-column: 2; }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 24px, 1260px); padding-top: 18px; }
+      .topbar { margin-bottom: 28px; }
+      .maturity { display: none; }
+      h1 { font-size: clamp(58px, 20vw, 90px); }
+      .layout { padding-top: 56px; }
+      .section { padding-bottom: 68px; }
+      .lab-head { align-items: flex-start; flex-direction: column; }
+      .preset-grid, .compare, .failures, .map, .archetypes { grid-template-columns: 1fr; }
+      .preview-wrap { padding: 15px; }
+      .document { padding: 24px 20px; }
+      .doc-metrics { grid-template-columns: 1fr; }
+      .doc-block { grid-template-columns: 1fr; }
+      .layer { grid-template-columns: 42px 1fr; gap: 12px; padding: 16px; }
+      .distinction { grid-column: auto; }
+      .page-footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="read-progress"></span></div>
+
+  <main class="shell">
+    <header class="topbar">
+      <a class="back" href="../index.html">Pattern Atlas</a>
+      <span class="maturity">Growing · updated 2026.07.18</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">06 · Design systems</div>
+        <h1 id="page-title">Document<br><em>Visual Language</em></h1>
+      </div>
+      <aside class="hero-note">
+        <span class="big">主题名让人记住，<br>视觉语言让团队做对。</span>
+        <p>`Alder` 与 `Granite` 可以是好名字，但只有映射到类型、谱系、原型、参数和组件规则以后，它们才是可重复的设计。</p>
+      </aside>
+    </section>
+
+    <div class="layout">
+      <aside class="rail" aria-label="Page navigation">
+        <span class="rail-label">Design field notes</span>
+        <nav>
+          <a href="#problem">01 · 问题</a>
+          <a href="#compiler">02 · 风格编译器</a>
+          <a href="#stack">03 · 五层栈</a>
+          <a href="#dictionary">04 · 风格词典</a>
+          <a href="#themes">05 · Alder / Granite</a>
+          <a href="#failure">06 · 失败模式</a>
+          <a href="#neighbors">07 · 概念邻居</a>
+          <a href="#memory">08 · 最小记忆</a>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section class="section" id="problem">
+          <span class="section-number">01 · The problem</span>
+          <h2>“更专业一点”不是设计规格。</h2>
+          <p class="lead">Artificial Intelligence（AI，人工智能）让 Portable Document Format（PDF，便携式文档格式）的生成成本迅速下降。但如果团队只能用“高级、温暖、科技感”评审结果，生成越快，抽卡和返工也会越快。</p>
+
+          <div class="definition">
+            <span>One-sentence definition</span>
+            <p>文档视觉语言把希望读者怎样感受、怎样阅读、怎样行动，翻译成可重复的版式、字体、颜色、密度与组件规则。</p>
+          </div>
+        </section>
+
+        <section class="section" id="compiler">
+          <span class="section-number">02 · Style compiler</span>
+          <h2>先选主题，再移动四条风格坐标。</h2>
+          <p class="lead">预设是起点，不是牢笼。选择一个方向，再调整 Temperature（温度）、Geometry（几何）、Density（密度）与 Expression（表现力），观察同一份运营报告怎样改变性格。</p>
+
+          <div class="lab">
+            <div class="lab-head">
+              <span>Document theme laboratory</span>
+              <span class="live">Preview linked to design rules</span>
+            </div>
+
+            <div class="lab-grid">
+              <div class="controls">
+                <span class="control-label">Theme presets</span>
+                <div class="preset-grid" aria-label="Theme presets">
+                  <button class="preset" type="button" data-preset="alder" aria-pressed="true">Alder<small>Organic Humanist</small></button>
+                  <button class="preset" type="button" data-preset="granite" aria-pressed="false">Granite<small>Institutional Modern</small></button>
+                  <button class="preset" type="button" data-preset="editorial" aria-pressed="false">Editorial<small>Image-led rhythm</small></button>
+                  <button class="preset" type="button" data-preset="technical" aria-pressed="false">Technical<small>Functional density</small></button>
+                </div>
+
+                <div class="axis">
+                  <div class="axis-top"><strong>Temperature</strong><span class="axis-value" id="temperature-value">28 / 100</span></div>
+                  <input id="temperature" type="range" min="0" max="100" value="28" aria-label="Temperature from warm to cool">
+                  <div class="axis-ends"><span>Warm</span><span>Cool</span></div>
+                </div>
+
+                <div class="axis">
+                  <div class="axis-top"><strong>Geometry</strong><span class="axis-value" id="geometry-value">30 / 100</span></div>
+                  <input id="geometry" type="range" min="0" max="100" value="30" aria-label="Geometry from soft to hard">
+                  <div class="axis-ends"><span>Soft</span><span>Hard</span></div>
+                </div>
+
+                <div class="axis">
+                  <div class="axis-top"><strong>Density</strong><span class="axis-value" id="density-value">36 / 100</span></div>
+                  <input id="density" type="range" min="0" max="100" value="36" aria-label="Density from sparse to dense">
+                  <div class="axis-ends"><span>Sparse</span><span>Dense</span></div>
+                </div>
+
+                <div class="axis">
+                  <div class="axis-top"><strong>Expression</strong><span class="axis-value" id="expression-value">45 / 100</span></div>
+                  <input id="expression" type="range" min="0" max="100" value="45" aria-label="Expression from restrained to expressive">
+                  <div class="axis-ends"><span>Restrained</span><span>Expressive</span></div>
+                </div>
+              </div>
+
+              <div class="preview-wrap">
+                <article class="document" id="document-preview" aria-label="Live document theme preview">
+                  <div class="doc-meta"><span>Quarterly operating review</span><span>2026 · Q2</span></div>
+                  <span class="doc-kicker" id="doc-kicker">Alder · Warm Editorial</span>
+                  <h3>What changed in the business?</h3>
+                  <p class="doc-deck">Revenue grew, but review capacity became the constraint. The document should help leaders see the bottleneck before they admire the output.</p>
+                  <div class="doc-metrics">
+                    <div class="doc-metric"><span>Revenue</span><strong>+18%</strong></div>
+                    <div class="doc-metric"><span>Cycle time</span><strong>−24%</strong></div>
+                    <div class="doc-metric"><span>Review load</span><strong>+41%</strong></div>
+                  </div>
+                  <div class="doc-block">
+                    <p class="doc-quote">The bottleneck moved from generation to judgment.</p>
+                    <div class="doc-table">
+                      <div class="doc-row"><span>Generate</span><strong>2.4× faster</strong></div>
+                      <div class="doc-row"><span>Review</span><strong>1.1× faster</strong></div>
+                      <div class="doc-row"><span>Rework</span><strong>+16%</strong></div>
+                      <div class="doc-row"><span>Decision</span><strong>Redesign gate</strong></div>
+                    </div>
+                  </div>
+                  <div class="doc-foot">SOURCE · INTERNAL OPERATING SAMPLE · PAGE 01 / 24</div>
+                </article>
+              </div>
+            </div>
+            <div class="lab-output" id="lab-output" aria-live="polite"><strong>Alder</strong>：偏温暖、柔和、疏朗，适合教育、生活方式与需要建立亲近感的叙事。</div>
+          </div>
+        </section>
+
+        <section class="section" id="stack">
+          <span class="section-number">03 · Five-layer stack</span>
+          <h2>名字只在第四层。前三层解释选择，最后一层负责落地。</h2>
+          <p class="lead">同一套颜色不能让研究报告、品牌杂志和操作手册自动成为同一种设计。视觉语言从读者任务开始，一层层走到可实现的参数与组件。</p>
+
+          <div class="stack">
+            <article class="layer"><b>01</b><h3>Document Genre<small>Function contract</small></h3><p>报告、长文、手册、提案或专题。它定义读者主要是在阅读、扫描、执行还是决策。</p></article>
+            <article class="layer"><b>02</b><h3>Design Lineage<small>Historical grammar</small></h3><p>Swiss、New Typography 或古典书籍传统。它提供已经形成边界的构图与层级关系。</p></article>
+            <article class="layer"><b>03</b><h3>Style Archetype<small>Working vocabulary</small></h3><p>Organic Humanist、Technical Functional、Institutional Modern 等当代工作型原型。</p></article>
+            <article class="layer"><b>04</b><h3>Theme Preset<small>Named instance</small></h3><p>Alder、Granite 等可记忆的具体实现。名字属于产品，不自动拥有行业通用含义。</p></article>
+            <article class="layer"><b>05</b><h3>Tokens + Components<small>Executable rules</small></h3><p>字体、字号、行高、颜色、间距、网格，以及标题、表格、引语、警告与页脚的行为。</p></article>
+          </div>
+
+          <div class="formula">Visual language = intent + genre + lineage + archetype + theme + tokens + component rules + accessibility constraints</div>
+        </section>
+
+        <section class="section" id="dictionary">
+          <span class="section-number">04 · Style dictionary</span>
+          <h2>先标明“这是什么类型的名字”，再谈它长什么样。</h2>
+          <p class="lead">历史运动、文档类型、工作型原型和跨领域类比不能装成同一级别的标准。好的词典会把身份与边界一起保存。</p>
+
+          <div class="archetypes">
+            <article class="archetype"><span class="identity">Convention</span><h3>Classical Bookish</h3><p>安静的衬线正文、稳定比例与宽页边距。适合连续阅读；数据密集时会显得迟缓。</p></article>
+            <article class="archetype"><span class="identity">Historical movement</span><h3>Swiss / International</h3><p>无衬线、网格、非对称、摄影与明确层级。适合信息报告；失败时只剩企业冷感。</p></article>
+            <article class="archetype"><span class="identity">Historical movement</span><h3>New Typography</h3><p>文字块、图像、标准格式和强烈对比。适合海报与专题进入页，不适合每页都持续喊叫。</p></article>
+            <article class="archetype"><span class="identity">Genre + method</span><h3>Editorial</h3><p>展示字体、图片、分栏、引语与节奏变化。适合故事；缺少规则时会变成随机构图。</p></article>
+            <article class="archetype"><span class="identity">Working archetype</span><h3>Technical Functional</h3><p>模块网格、编号、表格、细线与较高密度。适合规范和审计；拥挤不等于专业。</p></article>
+            <article class="archetype"><span class="identity">Working archetype</span><h3>Organic Humanist</h3><p>暖中性色、人文字体、柔和边界和舒展节奏。适合教育与生活方式；低对比会削弱可信度。</p></article>
+            <article class="archetype"><span class="identity">Working archetype</span><h3>Institutional Modern</h3><p>冷灰、严格网格、克制无衬线和稳定重复。适合治理和金融；容易正确却不可记忆。</p></article>
+            <article class="archetype"><span class="identity">Working archetype</span><h3>Luxury Editorial</h3><p>高对比展示衬线、大量留白、细线与少量颜色。适合品牌展示；小字浅灰会让“高级”变难读。</p></article>
+            <article class="archetype"><span class="identity">Transferred analogy</span><h3>Brutalist / Raw</h3><p>巨大字体、硬边框、裸露结构和强反差。适合文化实验；阅读困难不是态度本身。</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="themes">
+          <span class="section-number">05 · Theme instances</span>
+          <h2>诗意名字可以留下，但要带着专业姓氏。</h2>
+          <p class="lead">`Alder` 与 `Granite` 的真正价值，是让人快速选方向。最稳的写法是“诗意名字 + 风格原型 + 坐标 + 参数配方”。</p>
+
+          <div class="compare">
+            <article class="theme-card alder">
+              <span class="tag">Organic Humanist · Warm Editorial</span>
+              <h3>Alder</h3>
+              <p>亲近、自然、从容。适合教育、可持续、个人叙事和需要降低距离感的内容。</p>
+              <div class="coords"><span>Warm 72</span><span>Soft 70</span><span>Sparse 64</span><span>Expression 45</span></div>
+            </article>
+            <article class="theme-card granite">
+              <span class="tag">Institutional Modern · Cool Technical</span>
+              <h3>Granite</h3>
+              <p>稳定、冷静、经过审查。适合金融、治理、咨询、研究和技术报告。</p>
+              <div class="coords"><span>Cool 82</span><span>Hard 78</span><span>Dense 68</span><span>Expression 24</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="failure">
+          <span class="section-number">06 · Failure modes</span>
+          <h2>风格失败，很少只是“颜色选错了”。</h2>
+          <p class="lead">真正的失败通常发生在层级错位：名字没有规格、风格压过任务、参数没有关系，或者视觉漂亮却破坏阅读与语义。</p>
+
+          <div class="failures">
+            <article class="failure"><strong>Poetry without specification</strong><p>名字有意象，没有原型、坐标和参数。每次实现都重新猜一次。</p></article>
+            <article class="failure"><strong>Style soup</strong><p>Swiss、奢华、温暖、粗野、极简、高密度全部都要，却没有优先级。</p></article>
+            <article class="failure"><strong>Fashion before function</strong><p>为了喜欢的视觉，把操作手册做成杂志，把数据证据藏在“极简”背后。</p></article>
+            <article class="failure"><strong>Token theater</strong><p>有数百个 Design Token，却说不清读者任务和组件怎样协同。</p></article>
+            <article class="failure"><strong>Alias drift</strong><p>不同团队都说 Granite，一个指金融报告，另一个指深色技术手册。</p></article>
+            <article class="failure"><strong>Accessibility laundering</strong><p>用“高级”解释低对比，用“实验”解释错误阅读顺序。风格不能替代语义结构与可访问性。</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="neighbors">
+          <span class="section-number">07 · Concept neighborhood</span>
+          <h2>最容易混淆的，是同一套页面上的不同系统。</h2>
+          <p class="lead">把功能、感知、结构、实现与品牌分开以后，团队才知道一次反馈应该改哪一层。</p>
+
+          <div class="map">
+            <article class="node"><h3>Visual Style <small>PERCEPTION</small></h3><p>读者感受到的稳定性格。视觉语言还包含任务、结构与实现。</p></article>
+            <article class="node"><h3>Document Genre <small>FUNCTION</small></h3><p>读者来完成什么工作。报告与杂志可以共享颜色，却不能共享阅读结构。</p></article>
+            <article class="node"><h3>Layout System <small>STRUCTURE</small></h3><p>网格、分栏、页边距和基线，是骨架，不单独决定语气。</p></article>
+            <article class="node"><h3>Typography System <small>SUBSYSTEM</small></h3><p>字体角色、字号层级、行长与行高。很显眼，但不是全部。</p></article>
+            <article class="node"><h3>Design Tokens <small>IMPLEMENTATION DATA</small></h3><p>保存颜色、尺寸、字体和间距的命名值，不负责判断它是否适合任务。</p></article>
+            <article class="node"><h3>Brand Identity <small>CROSS-MEDIA SYSTEM</small></h3><p>跨标志、语气、图像和接触点的身份；文档视觉语言只是其中一种表达。</p></article>
+            <article class="node"><h3>Template <small>CONTENT SKELETON</small></h3><p>保存重复页面结构。一个模板可以换主题，一个主题也可以服务多个模板。</p></article>
+            <article class="node"><h3>Progressive Disclosure <small>INFORMATION STRATEGY</small></h3><p>决定复杂度何时出现；视觉语言决定出现以后怎样建立层级与密度。</p></article>
+            <div class="distinction"><strong>一句辨别：</strong>Theme 是已经命名的一套实现；Style 是它表现出的性格；Layout 是空间结构；Typography 是文字子系统；Design Token 是可交换的实现值。它们互相依赖，但不是同义词。</div>
+          </div>
+        </section>
+
+        <section class="section" id="memory">
+          <span class="section-number">08 · Pocket memory</span>
+          <h2>最后，只记住这五件事。</h2>
+          <ul class="takeaways">
+            <li><b>01</b><span><strong>主题名让人记住，视觉语言让团队做对。</strong></span></li>
+            <li><b>02</b><span>先确定文档类型，再选择设计谱系和工作型原型，最后才给主题命名。</span></li>
+            <li><b>03</b><span>用 Warm–Cool、Soft–Hard、Sparse–Dense、Restrained–Expressive 说明方向和强度。</span></li>
+            <li><b>04</b><span>Design Token 保存数值，组件规则保存关系；两者都不能代替沟通意图。</span></li>
+            <li><b>05</b><span>风格不能修复错误内容，也不能替代可读性、语义结构与可访问性。</span></li>
+          </ul>
+        </section>
+      </article>
+    </div>
+
+    <footer class="page-footer">
+      <span>Pattern Atlas · 06 / Design systems</span>
+      <span>Source note: ../document-visual-language.md</span>
+    </footer>
+  </main>
+
+  <script>
+    const presets = {
+      alder: {
+        label: "Alder",
+        subtitle: "Organic Humanist · Warm Editorial",
+        temperature: 28,
+        geometry: 30,
+        density: 36,
+        expression: 45,
+        note: "偏温暖、柔和、疏朗，适合教育、生活方式与需要建立亲近感的叙事。"
+      },
+      granite: {
+        label: "Granite",
+        subtitle: "Institutional Modern · Cool Technical",
+        temperature: 82,
+        geometry: 78,
+        density: 68,
+        expression: 24,
+        note: "偏冷静、硬朗、紧凑，适合金融、治理、研究与技术报告。"
+      },
+      editorial: {
+        label: "Editorial",
+        subtitle: "Editorial · Narrative rhythm",
+        temperature: 44,
+        geometry: 42,
+        density: 46,
+        expression: 82,
+        note: "表现力更强，靠字体跨度、图文节奏与构图变化带领阅读，适合专题和品牌故事。"
+      },
+      technical: {
+        label: "Technical",
+        subtitle: "Technical Functional · Dense evidence",
+        temperature: 70,
+        geometry: 88,
+        density: 84,
+        expression: 18,
+        note: "高密度、强结构、低装饰，适合规范、审计和操作材料；拥挤仍然是需要避免的失败。"
+      }
+    };
+
+    const axes = ["temperature", "geometry", "density", "expression"];
+    const preview = document.getElementById("document-preview");
+    const output = document.getElementById("lab-output");
+    const kicker = document.getElementById("doc-kicker");
+    let activePreset = "alder";
+
+    function mix(from, to, amount) {
+      const a = from.match(/\w\w/g).map((value) => parseInt(value, 16));
+      const b = to.match(/\w\w/g).map((value) => parseInt(value, 16));
+      const channels = a.map((value, index) => Math.round(value + (b[index] - value) * amount));
+      return `#${channels.map((value) => value.toString(16).padStart(2, "0")).join("")}`;
+    }
+
+    function render() {
+      const values = Object.fromEntries(axes.map((axis) => [axis, Number(document.getElementById(axis).value)]));
+      axes.forEach((axis) => {
+        document.getElementById(`${axis}-value`).textContent = `${values[axis]} / 100`;
+      });
+
+      const cool = values.temperature / 100;
+      const hard = values.geometry / 100;
+      const dense = values.density / 100;
+      const expressive = values.expression / 100;
+
+      preview.style.setProperty("--doc-bg", mix("f0e6cf", "eef2f4", cool));
+      preview.style.setProperty("--doc-ink", mix("293328", "202832", cool));
+      preview.style.setProperty("--doc-muted", mix("716a59", "64707a", cool));
+      preview.style.setProperty("--doc-accent", mix("8b7953", "416f8b", cool));
+      preview.style.setProperty("--doc-soft", mix("e5dbc3", "dbe3e7", cool));
+      preview.style.setProperty("--doc-radius", `${Math.round(22 - hard * 20)}px`);
+      preview.style.setProperty("--doc-border", `${(0.7 + hard * 0.9).toFixed(2)}px`);
+      preview.style.setProperty("--doc-gap", `${Math.round(24 - dense * 11)}px`);
+      preview.style.setProperty("--doc-title", expressive > 0.55 ? 'Georgia, "Times New Roman", serif' : 'Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif');
+      preview.style.setProperty("--doc-body", dense > 0.66 ? 'Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' : 'Georgia, "Times New Roman", serif');
+      preview.style.padding = `${Math.round(46 - dense * 19)}px`;
+
+      const tempWord = cool < .4 ? "温暖" : cool > .65 ? "冷静" : "中性";
+      const geometryWord = hard < .4 ? "柔和" : hard > .65 ? "硬朗" : "平衡";
+      const densityWord = dense < .4 ? "疏朗" : dense > .65 ? "紧凑" : "适中";
+      const expressionWord = expressive < .35 ? "克制" : expressive > .65 ? "强表达" : "有节奏";
+      const preset = presets[activePreset];
+
+      kicker.textContent = `${preset.label} · ${tempWord} / ${geometryWord}`;
+      output.innerHTML = `<strong>${preset.label}</strong>：当前是${tempWord}、${geometryWord}、${densityWord}、${expressionWord}。${preset.note}`;
+    }
+
+    function applyPreset(name) {
+      activePreset = name;
+      const preset = presets[name];
+      axes.forEach((axis) => {
+        document.getElementById(axis).value = preset[axis];
+      });
+      document.querySelectorAll(".preset").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.preset === name));
+      });
+      render();
+    }
+
+    axes.forEach((axis) => {
+      document.getElementById(axis).addEventListener("input", () => {
+        document.querySelectorAll(".preset").forEach((button) => button.setAttribute("aria-pressed", "false"));
+        render();
+      });
+    });
+
+    document.querySelectorAll(".preset").forEach((button) => {
+      button.addEventListener("click", () => applyPreset(button.dataset.preset));
+    });
+
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+      document.getElementById("read-progress").style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+    }
+
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    applyPreset("alder");
+    updateProgress();
+  </script>
+</body>
+</html>

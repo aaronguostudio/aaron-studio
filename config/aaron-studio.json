@@ -21,5 +21,25 @@
     "publishBlog": "tiles/publish-to-blog",
     "publishYoutube": "tiles/aaron-yt-pipeline/skills/yt-publish"
   },
-  "ctaRotation": ["follow", "newsletter", "reply"]
+  "ctaRotation": ["follow", "newsletter", "reply"],
+  "assetLibrary": {
+    "catalogRoot": "src/content/asset-library",
+    "databasePath": ".cache/asset-library/assets.sqlite",
+    "scanRoots": ["src/content/music-visualizer"],
+    "spectrumCatalog": "src/content/music-visualizer/spectrum-demos-v1/catalog.json",
+    "defaultStatuses": ["approved", "candidate"],
+    "hashConcurrency": 4,
+    "excludePathSegments": ["node_modules", ".git", "render-tmp", ".video-gen-cache"],
+    "hook": {
+      "enabled": true,
+      "candidateRoots": [
+        "src/content/music-visualizer",
+        "src/content/blogs",
+        "src/content/videos"
+      ],
+      "maxCandidatesPerTurn": 20,
+      "clockSkewMs": 100,
+      "excludePathSegments": ["qa-frames", "frames", "caption-assets"]
+    }
+  }
 }

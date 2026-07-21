@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-15T13:26:33.366Z",
+  "source": {
+    "script": "narration-en.md",
+    "script_sha256": "b4a031f95548d73ede18a8bc1d82b42b0befa3f70adefddea0d9a34d8151787f",
+    "transcript": "audio/en/transcript.md",
+    "transcript_sha256": "4bc80c5719cf2c47ec403e93985a21dd483508c15063f50eace7eff3549bac9c"
+  },
+  "tts": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "voice_profile_selection": {
+    "id": "aaron-pvc-identity-v1",
+    "selected_sample": "B",
+    "selected_at": "2026-07-11",
+    "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate."
+  },
+  "outputs": {
+    "final": "audio/en/narration.mp3",
+    "raw": "audio/en/narration-raw.mp3",
+    "sample_60s": "audio/en/narration-sample-60s.mp3",
+    "sample_middle_60s": "audio/en/narration-sample-middle-60s.mp3",
+    "sample_late_60s": "audio/en/narration-sample-late-60s.mp3"
+  },
+  "qa": {
+    "durationSeconds": 39.706122,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192261,
+    "integratedLufs": -16.7,
+    "truePeakDb": -1.73,
+    "loudnessRange": 2.3,
+    "longSilenceCount": 0
+  },
+  "sample_windows": {
+    "openingStartSeconds": 0,
+    "middleStartSeconds": 0,
+    "lateStartSeconds": 0
+  },
+  "timeline": {
+    "duration": 39.706122,
+    "segments": [
+      {
+        "id": "hook",
+        "title": "Hook",
+        "start": 0,
+        "end": 3.018594,
+        "duration": 3.018594
+      },
+      {
+        "id": "slide-01",
+        "title": "Keep the decisions",
+        "start": 3.018594,
+        "end": 39.706122,
+        "duration": 36.687528
+      }
+    ],
+    "wordTimings": [
+      {
+        "word": "Every",
+        "start": 0,
+        "end": 0.279
+      },
+      {
+        "word": "morning,",
+        "start": 0.348,
+        "end": 0.789
+      },
+      {
+        "word": "the",
+        "start": 0.813,
+        "end": 0.917
+      },
+      {
+        "word": "same",
+        "start": 0.975,
+        "end": 1.242
+      },
+      {
+        "word": "work",
+        "start": 1.289,
+        "end": 1.521
+      },
+      {
+        "word": "starts",
+        "start": 1.591,
+        "end": 1.95
+      },
+      {
+        "word": "again.",
+        "start": 2.02,
+        "end": 3.019
+      },
+      {
+        "word": "Scan",
+        "start": 3.018594,
+        "end": 3.482594
+      },
+      {
+        "word": "the",
+        "start": 3.5405940000000005,
+        "end": 3.6105940000000003
+      },
+      {
+        "word": "news,",
+        "start": 3.680594,
+        "end": 4.388594
+      },
+      {
+        "word": "compare",
+        "start": 4.632594,
+        "end": 5.0035940000000005
+      },
+      {
+        "word": "product",
+        "start": 5.061594,
+        "end": 5.503594
+      },
+      {
+        "word": "updates,",
+        "start": 5.584594,
+        "end": 6.408594000000001
+      },
+      {
+        "word": "and",
+        "start": 6.582594,
+        "end": 6.722594000000001
+      },
+      {
+        "word": "decide",
+        "start": 6.791594,
+        "end": 7.209594
+      },
+      {
+        "word": "what",
+        "start": 7.232594000000001,
+        "end": 7.395594
+      },
+      {
+        "word": "deserves",
+        "start": 7.453594,
+        "end": 7.906594
+      },
+      {
+        "word": "a",
+        "start": 7.9875940000000005,
+        "end": 8.034594
+      },
+      {
+        "word": "video.",
+        "start": 8.115594000000002,
+        "end": 8.765594
+      },
+      {
+        "word": "A",
+        "start": 9.148594,
+        "end": 9.241594
+      },
+      {
+        "word": "content",
+        "start": 9.334594,
+        "end": 9.740594000000002
+      },
+      {
+        "word": "factory",
+        "start": 9.798594000000001,
+        "end": 10.263594000000001
+      },
+      {
+        "word": "should",
+        "start": 10.321594000000001,
+        "end": 10.564594
+      },
+      {
+        "word": "not",
+        "start": 10.646594,
+        "end": 10.936594
+      },
+      {
+        "word": "remove",
+        "start": 11.087594000000001,
+        "end": 11.563594
+      },
+      {
+        "word": "your",
+        "start": 11.633594,
+        "end": 11.900594
+      },
+      {
+        "word": "judgment.",
+        "start": 12.016594,
+        "end": 12.794594
+      },
+      {
+        "word": "It",
+        "start": 13.177594000000001,
+        "end": 13.304594
+      },
+      {
+        "word": "should",
+        "start": 13.339594,
+        "end": 13.525594
+      },
+      {
+        "word": "remove",
+        "start": 13.606594,
+        "end": 14.001594
+      },
+      {
+        "word": "the",
+        "start": 14.036594000000001,
+        "end": 14.117594
+      },
+      {
+        "word": "repetition.",
+        "start": 14.187594,
+        "end": 15.046594
+      },
+      {
+        "word": "Schedule",
+        "start": 15.371594,
+        "end": 15.917594
+      },
+      {
+        "word": "one",
+        "start": 15.963594,
+        "end": 16.126594
+      },
+      {
+        "word": "task",
+        "start": 16.160594,
+        "end": 16.590594
+      },
+      {
+        "word": "to",
+        "start": 16.660594,
+        "end": 16.776594
+      },
+      {
+        "word": "collect",
+        "start": 16.857594,
+        "end": 17.206594000000003
+      },
+      {
+        "word": "signals",
+        "start": 17.322594000000002,
+        "end": 17.949593999999998
+      },
+      {
+        "word": "and",
+        "start": 18.262594,
+        "end": 18.483594
+      },
+      {
+        "word": "rank",
+        "start": 18.634594,
+        "end": 18.947594000000002
+      },
+      {
+        "word": "five",
+        "start": 19.191594,
+        "end": 19.562594
+      },
+      {
+        "word": "ideas.",
+        "start": 19.620594,
+        "end": 20.398594
+      },
+      {
+        "word": "Then",
+        "start": 21.002594000000002,
+        "end": 21.246594
+      },
+      {
+        "word": "stop",
+        "start": 21.339594,
+        "end": 21.641594
+      },
+      {
+        "word": "for",
+        "start": 21.734594,
+        "end": 21.884594
+      },
+      {
+        "word": "approval.",
+        "start": 21.942594,
+        "end": 22.697594
+      },
+      {
+        "word": "Once",
+        "start": 23.649594,
+        "end": 23.905594
+      },
+      {
+        "word": "you",
+        "start": 23.951594,
+        "end": 24.044594
+      },
+      {
+        "word": "choose",
+        "start": 24.114594,
+        "end": 24.392594
+      },
+      {
+        "word": "the",
+        "start": 24.427594,
+        "end": 24.497594
+      },
+      {
+        "word": "topic,",
+        "start": 24.555594,
+        "end": 25.066594
+      },
+      {
+        "word": "the",
+        "start": 25.089594,
+        "end": 25.182594
+      },
+      {
+        "word": "system",
+        "start": 25.251594,
+        "end": 25.658594
+      },
+      {
+        "word": "builds",
+        "start": 25.727594,
+        "end": 26.018594
+      },
+      {
+        "word": "a",
+        "start": 26.064594,
+        "end": 26.099594
+      },
+      {
+        "word": "fact",
+        "start": 26.192594,
+        "end": 26.459594
+      },
+      {
+        "word": "pack,",
+        "start": 26.494594,
+        "end": 27.062594
+      },
+      {
+        "word": "writes",
+        "start": 27.446594,
+        "end": 27.759594
+      },
+      {
+        "word": "the",
+        "start": 27.840594,
+        "end": 27.922594
+      },
+      {
+        "word": "script,",
+        "start": 27.980594,
+        "end": 28.758594
+      },
+      {
+        "word": "plans",
+        "start": 28.967594000000002,
+        "end": 29.326594
+      },
+      {
+        "word": "every",
+        "start": 29.419594,
+        "end": 29.663594
+      },
+      {
+        "word": "asset,",
+        "start": 29.733594,
+        "end": 30.429594
+      },
+      {
+        "word": "and",
+        "start": 30.813594000000002,
+        "end": 31.010594
+      },
+      {
+        "word": "renders",
+        "start": 31.161594,
+        "end": 31.602594
+      },
+      {
+        "word": "a",
+        "start": 31.660594,
+        "end": 31.695594
+      },
+      {
+        "word": "draft.",
+        "start": 31.765594,
+        "end": 32.380594
+      },
+      {
+        "word": "Then",
+        "start": 32.891594,
+        "end": 33.065594000000004
+      },
+      {
+        "word": "it",
+        "start": 33.135594,
+        "end": 33.204594
+      },
+      {
+        "word": "stops",
+        "start": 33.262594,
+        "end": 33.599593999999996
+      },
+      {
+        "word": "again",
+        "start": 33.657594,
+        "end": 33.924594
+      },
+      {
+        "word": "for",
+        "start": 33.994594,
+        "end": 34.133594
+      },
+      {
+        "word": "QA.",
+        "start": 34.249594,
+        "end": 34.922594000000004
+      },
+      {
+        "word": "The",
+        "start": 35.364594,
+        "end": 35.491594
+      },
+      {
+        "word": "machine",
+        "start": 35.561594,
+        "end": 35.921594
+      },
+      {
+        "word": "keeps",
+        "start": 35.967594,
+        "end": 36.246594
+      },
+      {
+        "word": "moving.",
+        "start": 36.339594,
+        "end": 36.943594
+      },
+      {
+        "word": "You",
+        "start": 37.453594,
+        "end": 37.593594
+      },
+      {
+        "word": "keep",
+        "start": 37.686594,
+        "end": 37.895594
+      },
+      {
+        "word": "the",
+        "start": 37.976594,
+        "end": 38.057594
+      },
+      {
+        "word": "decisions",
+        "start": 38.115594,
+        "end": 38.661594
+      },
+      {
+        "word": "that",
+        "start": 38.719594,
+        "end": 38.893594
+      },
+      {
+        "word": "matter.",
+        "start": 38.974594,
+        "end": 39.706594
+      }
+    ]
+  }
+}

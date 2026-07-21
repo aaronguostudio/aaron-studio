@@ -303,6 +303,32 @@
     .card.progressive .orb { width: 210px; height: 210px; background: var(--violet, #b7a5ff); }
     .card.progressive .status-dot { background: var(--blue); box-shadow: 0 0 0 5px rgba(132,216,255,.15); }
 
+    .design-section { margin-top: 84px; }
+
+    .card.document-language {
+      grid-column: span 6;
+      min-height: 340px;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(183,165,255,.28), transparent 220px),
+        linear-gradient(135deg, #1d2024, #282934);
+    }
+
+    .card.document-language .orb { width: 230px; height: 230px; background: var(--blue); }
+    .card.document-language .status-dot { background: var(--violet, #b7a5ff); box-shadow: 0 0 0 5px rgba(183,165,255,.15); }
+    .design-neighbors { background: linear-gradient(135deg, rgba(183,165,255,.18), rgba(132,216,255,.18)); }
+
+    .card.statistics {
+      grid-column: 1 / -1;
+      min-height: 360px;
+      color: var(--ink);
+      background:
+        linear-gradient(115deg, rgba(217,255,102,.78), rgba(131,217,255,.55) 58%, rgba(183,165,255,.5));
+    }
+
+    .card.statistics p { color: rgba(23,23,18,.68); }
+    .card.statistics .orb { width: 250px; height: 250px; background: var(--orange); }
+    .card.statistics .status-dot { background: var(--orange); box-shadow: 0 0 0 5px rgba(255,121,95,.16); }
+
     .neighbors {
       grid-column: 1 / -1;
       display: flex;
@@ -451,8 +477,8 @@
 
     <section aria-labelledby="concepts-heading">
       <div class="section-head">
-        <h2 id="concepts-heading">Indexed now</h2>
-        <span>04 concepts · 29 neighbors</span>
+        <h2 id="concepts-heading">Systems &amp; Evidence</h2>
+        <span>04 concepts · 22 neighbors</span>
       </div>
 
       <div class="cards">
@@ -498,16 +524,16 @@
           </a>
         </article>
 
-        <article class="card progressive">
+        <article class="card statistics">
           <span class="orb" aria-hidden="true"></span>
-          <a href="pages/progressive-disclosure.html">
+          <a href="pages/paired-randomization-test.html">
             <div class="card-label">
               <span><span class="status-dot"></span>Growing</span>
-              <span>04 / Interaction design</span>
+              <span>04 / Evaluation evidence</span>
             </div>
             <div>
-              <h3>Progressive<br>Disclosure</h3>
-              <p>复杂度不被删除，而是随着用户意图逐层出现。亲手比较“全部一次显示”和“最小完整界面”，再判断哪些风险绝不能隐藏。</p>
+              <h3>Paired Randomization<br>Test</h3>
+              <p>分数上涨只是观察，不是改进证据。先看双峰分布怎样欺骗均值，再亲手切换逐案差值，枚举全部符号翻转，看同样的 +2 分为何可能是 IMPROVED，也可能是 INCONCLUSIVE。</p>
             </div>
           </a>
         </article>
@@ -534,12 +560,72 @@
             <span class="pill">Exactly-once Processing</span>
             <span class="pill" aria-label="CRDT, Conflict-free Replicated Data Type">CRDT</span>
             <span class="pill">Lease</span>
+            <span class="pill">Paired Delta</span>
+            <span class="pill">Sign-flip Test</span>
+            <span class="pill">Effect Size</span>
+            <span class="pill">Statistical Power</span>
+            <span class="pill">Exchangeability</span>
+            <span class="pill">Calibrated Abstention</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="design-section" aria-labelledby="design-heading">
+      <div class="section-head">
+        <h2 id="design-heading">Design</h2>
+        <span>02 concepts · 14 neighbors</span>
+      </div>
+
+      <div class="cards">
+        <article class="card progressive">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/progressive-disclosure.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>01 / Interaction design</span>
+            </div>
+            <div>
+              <h3>Progressive<br>Disclosure</h3>
+              <p>复杂度不被删除，而是随着用户意图逐层出现。亲手比较“全部一次显示”和“最小完整界面”，再判断哪些风险绝不能隐藏。</p>
+            </div>
+          </a>
+        </article>
+
+        <article class="card document-language">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/document-visual-language.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>02 / Document design</span>
+            </div>
+            <div>
+              <h3>Document Visual<br>Language</h3>
+              <p>主题名让人记住，视觉语言让团队做对。选择 Alder 或 Granite，再移动温度、几何、密度与表现力，看模糊气质怎样变成可执行规则。</p>
+            </div>
+          </a>
+        </article>
+
+        <aside class="neighbors design-neighbors" aria-label="Design concept neighbors">
+          <div>
+            <h3>Design neighbors</h3>
+            <p>把信息策略、文档类型、视觉性格、版式骨架、实现参数与品牌身份分开。</p>
+          </div>
+          <div class="concept-list">
             <span class="pill">Disclosure Widget</span>
             <span class="pill">Contextual Disclosure</span>
             <span class="pill">Staged Disclosure</span>
             <span class="pill">Information Architecture</span>
             <span class="pill">Defaults</span>
             <span class="pill">Feature Gating</span>
+            <span class="pill">Visual Style</span>
+            <span class="pill">Document Genre</span>
+            <span class="pill">Design Theme</span>
+            <span class="pill">Layout System</span>
+            <span class="pill">Typography System</span>
+            <span class="pill">Design Tokens</span>
+            <span class="pill">Brand Identity</span>
+            <span class="pill">Template</span>
           </div>
         </aside>
       </div>

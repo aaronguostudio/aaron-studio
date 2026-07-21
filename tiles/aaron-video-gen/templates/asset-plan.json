@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "title": "Replace with the video title",
+  "duration_sec": 10,
+  "aspect_ratio": "9:16",
+  "asset_library": {
+    "queries": [],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "s01",
+      "start_sec": 0,
+      "end_sec": 5,
+      "copy": "The exact on-screen or narrated claim for this beat.",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": ["fact-1"],
+      "source_ids": ["source-1"],
+      "asset_path": "relative/path/to/source.png",
+      "status": "planned",
+      "provenance": "Where this visual came from and how it was captured.",
+      "rights": "public-source",
+      "fallback": "The visual used when the preferred asset cannot ship."
+    },
+    {
+      "id": "s02",
+      "start_sec": 5,
+      "end_sec": 10,
+      "copy": "A licensed real-world action that illustrates the explanation.",
+      "visual_role": "explanation",
+      "asset_type": "stock",
+      "fact_ids": [],
+      "source_ids": ["stock-source-1"],
+      "asset_path": "relative/path/to/licensed-clip.mp4",
+      "status": "planned",
+      "provenance": "Source page, original file, processed file, and hashes recorded in the asset decision log.",
+      "rights": "licensed",
+      "license_url": "https://example.com/license",
+      "creator": "Replace with creator",
+      "retrieved_at": "YYYY-MM-DD",
+      "source_start_sec": 0,
+      "source_end_sec": 5,
+      "editorial_approval": "not-required",
+      "fallback": "Static frame or a Remotion-native explanation card."
+    }
+  ]
+}

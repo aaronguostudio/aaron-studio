@@ -64,7 +64,8 @@
 ## Observations
 - **2026-04-18** — Declined Justin's final 50/50 Nova offer (Friday 2026-04-17). Nova decline now articulated externally (to Jon), not just internally. VGBT + Mawer PW line confirmed as the post-Nova focus. (source: [[../_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security]])
 - **2026-04-18** — W16: positional pivot declared publicly (client-facing AI lab). Brain infrastructure deepened (continuous ingest, 4 new nodes, weekly-review skill). Goals layer still empty — flagged. (source: [[../../reviews/weekly/2026-W16]])
+- **2026-07-17** — Authorized a bounded-autonomy AI employee to research, promote, and eventually publish low-risk content for Aaron's blog within explicit brand, privacy, budget, and approval guardrails, with daily reporting and immediate escalation for high-risk actions. (source: [[../_archive/2026-07-17/aaron-blog-ai-brand-sales-agent-contract]])
 
 ---
 
-**Last observation:** 2026-05-04 (Hermes migration cleanup; older daily notes archived under `/Users/aaron/.hermes/migration/openclaw/20260503T231629/archive/workspace/memory/`)
+**Last observation:** 2026-07-17 (Aaron Blog AI brand sales and distribution agent contract)

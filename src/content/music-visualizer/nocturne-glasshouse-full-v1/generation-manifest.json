@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-07-14T15:34:32.215Z",
+  "title": "Nocturne Glasshouse — 600s Visual Study",
+  "format": "1080p / 30fps / H.264 + AAC",
+  "durationSec": 600,
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/luminous-tides-long-night/music-full.m4a",
+  "audioStartSec": 0,
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/audio-analysis.json",
+  "visualAssets": [
+    {
+      "file": "music-visualizer/nocturne-glasshouse/scene-01-stillness.png",
+      "scene": "Stillness",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    },
+    {
+      "file": "music-visualizer/nocturne-glasshouse/scene-02-interval.png",
+      "scene": "Soft Interval",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    },
+    {
+      "file": "music-visualizer/nocturne-glasshouse/scene-03-release.png",
+      "scene": "Canopy Release",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    }
+  ],
+  "visualContract": "Three original image-generation plates in one museum-scale prism-installation world. Geometry is still; precomputed music analysis only modulates transmitted light, edge shimmer, and floor caustics.",
+  "motionContract": "Three long-form rooms joined by 3-second crossfades. No pan, bob, beat-driven scale, or object translation; music modulates only transmitted light, edge shimmer, and floor caustics.",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/entry.png",
+    "handoff-01": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/handoff-01.png",
+    "peak": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/peak.png",
+    "handoff-02": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/handoff-02.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/exit.png"
+  },
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/nocturne-glasshouse-full-v1/nocturne-glasshouse-600s-1080p.mp4"
+}

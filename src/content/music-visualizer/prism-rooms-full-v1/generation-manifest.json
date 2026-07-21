@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-07-14T15:02:43.425Z",
+  "title": "Prism Rooms — 600s Visual Study",
+  "format": "1080p / 30fps / H.264 + AAC",
+  "durationSec": 600,
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/master-600s-normalized.m4a",
+  "audioStartSec": 0,
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/audio-analysis.json",
+  "visualAssets": [
+    {
+      "file": "music-visualizer/prism-rooms/scene-01-suspended.png",
+      "scene": "Suspended Prism",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    },
+    {
+      "file": "music-visualizer/prism-rooms/scene-02-aperture.png",
+      "scene": "The Aperture",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    },
+    {
+      "file": "music-visualizer/prism-rooms/scene-03-quiet-field.png",
+      "scene": "The Quiet Field",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    }
+  ],
+  "visualContract": "Three original image-generation plates in one museum-scale prism-installation world. Geometry is still; precomputed music analysis only modulates transmitted light, edge shimmer, and floor caustics.",
+  "motionContract": "Three long-form rooms joined by 3-second crossfades. No pan, bob, beat-driven scale, or object translation; music modulates only transmitted light, edge shimmer, and floor caustics.",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/entry.png",
+    "handoff-01": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/handoff-01.png",
+    "peak": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/peak.png",
+    "handoff-02": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/handoff-02.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/exit.png"
+  },
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-full-v1/prism-rooms-600s-1080p.mp4"
+}

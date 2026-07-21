@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "title": "FDE Guizang-Hybrid Full Film",
+  "status": "private-review",
+  "palette": {
+    "paper": "#F5F0E7",
+    "ink": "#1B1916",
+    "cyan": "#157A8A",
+    "coral": "#C65C48",
+    "amber": "#D08A24",
+    "olive": "#78843E"
+  },
+  "rules": [
+    "Show title and author identity on frame zero.",
+    "Use a small registered set of layouts; do not synthesize free-form dashboard geometry.",
+    "Keep chapter titles on a full reading axis before splitting a scene into columns.",
+    "Let nodes settle before lines or loops reveal.",
+    "Do not crossfade dense layouts; cut through a stable paper or ink field.",
+    "Reserve the lower safe area for captions."
+  ],
+  "families": [
+    "cover-editorial",
+    "announcement-ledger",
+    "operating-layer",
+    "decision-row",
+    "learning-loop",
+    "workflow-gates",
+    "comparison-spread",
+    "asset-library",
+    "actor-framework",
+    "outcome-statement"
+  ],
+  "assets": [
+    {
+      "id": "cover-hero",
+      "purpose": "Opening identity",
+      "provenance": "Existing FDE cover illustration"
+    },
+    {
+      "id": "operators-filmstrip",
+      "purpose": "Factory context",
+      "provenance": "Existing FDE visual asset; conceptual illustration only"
+    },
+    {
+      "id": "personal-workflow",
+      "purpose": "Personal workflow example",
+      "provenance": "Existing Aaron blog illustration"
+    },
+    {
+      "id": "token-to-owned-workflow",
+      "purpose": "Ownership chapter texture",
+      "provenance": "Existing Aaron blog illustration"
+    }
+  ]
+}

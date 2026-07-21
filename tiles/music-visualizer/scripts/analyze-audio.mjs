@@ -15,6 +15,11 @@ const SAMPLE_RATE = 22050;
 const FPS = 30;
 const FFT_SIZE = 1024;
 const HOP_SIZE = Math.round(SAMPLE_RATE / FPS);
+const SPECTRUM_BAND_COUNT = 48;
+const SPECTRUM_MIN_HZ = 43;
+const SPECTRUM_MAX_HZ = 10000;
+const SPECTRUM_ATTACK = 0.46;
+const SPECTRUM_RELEASE = 0.14;
 const TWO_PI = Math.PI * 2;
 
 const clamp01 = (value) => Math.max(0, Math.min(1, value));
@@ -142,6 +147,33 @@ const fftMagnitude = (samples, window) => {
   return magnitudes;
 };
 
+const createSpectrumBandRanges = () => {
+  const nyquist = SAMPLE_RATE / 2;
+  const minHz = Math.max(SPECTRUM_MIN_HZ, SAMPLE_RATE / FFT_SIZE);
+  const maxHz = Math.min(SPECTRUM_MAX_HZ, nyquist);
+  const ratio = maxHz / minHz;
+
+  return Array.from({ length: SPECTRUM_BAND_COUNT }, (_, index) => {
+    const startHz = minHz * ratio ** (index / SPECTRUM_BAND_COUNT);
+    const endHz = minHz * ratio ** ((index + 1) / SPECTRUM_BAND_COUNT);
+    const startBin = Math.max(1, Math.floor((startHz * FFT_SIZE) / SAMPLE_RATE));
+    const endBin = Math.min(
+      FFT_SIZE / 2 + 1,
+      Math.max(startBin + 1, Math.ceil((endHz * FFT_SIZE) / SAMPLE_RATE)),
+    );
+    return { startBin, endBin };
+  });
+};
+
+const spectrumDbForFrame = (magnitude, bandRanges) => bandRanges.map(({ startBin, endBin }) => {
+  let sumSquares = 0;
+  for (let index = startBin; index < endBin; index += 1) {
+    sumSquares += magnitude[index] * magnitude[index];
+  }
+  const rms = Math.sqrt(sumSquares / Math.max(1, endBin - startBin));
+  return 20 * Math.log10(rms + 1e-9);
+});
+
 const findBreakpoints = (energy, onset, durationSec) => {
   const minimumSpacing = Math.round(FPS * 5);
   const searchRadius = Math.round(FPS * Math.min(5, durationSec * 0.1));
@@ -202,6 +234,7 @@ const analyze = (samples) => {
   const durationSec = samples.length / SAMPLE_RATE;
   const frameCount = Math.max(1, Math.ceil(durationSec * FPS));
   const window = createHannWindow();
+  const spectrumBandRanges = createSpectrumBandRanges();
   const frequencies = Array.from({ length: FFT_SIZE / 2 + 1 }, (_, index) => (index * SAMPLE_RATE) / FFT_SIZE);
   const rawFrames = [];
   let previousMagnitude = new Float64Array(FFT_SIZE / 2 + 1);
@@ -243,6 +276,7 @@ const analyze = (samples) => {
       midPower: midEnergy,
       highPower: highEnergy,
       flux: frameIndex < 3 ? 0 : flux / Math.max(Math.sqrt(totalEnergy), 1e-8),
+      spectrumDb: spectrumDbForFrame(magnitude, spectrumBandRanges),
     });
     previousMagnitude = magnitude;
   }
@@ -261,6 +295,31 @@ const analyze = (samples) => {
   const calmEnergy = smoothSeries(energy, 0.035, 0.02);
   const calmLow = smoothSeries(low, 0.03, 0.018);
   const calmHigh = smoothSeries(high, 0.03, 0.018);
+  const previousSpectrum = Array.from({ length: SPECTRUM_BAND_COUNT }, () => 0);
+  const spectrumFrames = rawFrames.map((rawFrame, frameIndex) => {
+    const adjustedDb = rawFrame.spectrumDb.map((value, bandIndex) => (
+      value - (bandIndex / Math.max(1, SPECTRUM_BAND_COUNT - 1)) * 12
+    ));
+    const framePeak = Math.max(...adjustedDb);
+    const energyGate = smoothstep(clamp01(rms[frameIndex] * 1.35));
+    const normalized = adjustedDb.map((value) => {
+      const withinRange = clamp01((value - framePeak + 38) / 38);
+      return Math.pow(withinRange, 1.28) * energyGate;
+    });
+    const spatiallySmoothed = normalized.map((value, bandIndex) => {
+      const before = normalized[Math.max(0, bandIndex - 1)];
+      const after = normalized[Math.min(normalized.length - 1, bandIndex + 1)];
+      return before * 0.18 + value * 0.64 + after * 0.18;
+    });
+
+    return spatiallySmoothed.map((value, bandIndex) => {
+      const previous = previousSpectrum[bandIndex];
+      const coefficient = value > previous ? SPECTRUM_ATTACK : SPECTRUM_RELEASE;
+      const smoothed = previous + (value - previous) * coefficient;
+      previousSpectrum[bandIndex] = smoothed;
+      return round(smoothed, 3);
+    });
+  });
   const pulse = [];
   let pulseValue = 0;
   for (let index = 0; index < frameCount; index += 1) {
@@ -292,16 +351,26 @@ const analyze = (samples) => {
     calmEnergy: round(calmEnergy[index]),
     calmLow: round(calmLow[index]),
     calmHigh: round(calmHigh[index]),
+    spectrum: spectrumFrames[index],
     mix: buildStyleMix(index, sections),
   }));
 
   return {
-    analysisVersion: 1,
+    analysisVersion: 2,
     sampleRate: SAMPLE_RATE,
     fps: FPS,
     durationSec: round(durationSec, 3),
     frameCount,
-    features: ["rms", "low", "mid", "high", "centroid", "flux", "pulse", "energy", "calmEnergy", "calmLow", "calmHigh"],
+    features: ["rms", "low", "mid", "high", "centroid", "flux", "pulse", "energy", "calmEnergy", "calmLow", "calmHigh", "spectrum"],
+    spectrum: {
+      bandCount: SPECTRUM_BAND_COUNT,
+      minHz: SPECTRUM_MIN_HZ,
+      maxHz: SPECTRUM_MAX_HZ,
+      scale: "log",
+      tiltDb: -12,
+      attack: SPECTRUM_ATTACK,
+      release: SPECTRUM_RELEASE,
+    },
     sections,
     frames,
   };

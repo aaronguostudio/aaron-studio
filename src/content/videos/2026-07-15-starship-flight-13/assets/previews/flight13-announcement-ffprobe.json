@@ -1,0 +1,29 @@
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "index": 0,
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "24000/1001"
+        },
+        {
+            "index": 1,
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+        }
+    ],
+    "format": {
+        "filename": "src/content/videos/2026-07-15-starship-flight-13/assets/raw/flight13-announcement.mp4",
+        "duration": "60.522667",
+        "size": "35670022"
+    }
+}

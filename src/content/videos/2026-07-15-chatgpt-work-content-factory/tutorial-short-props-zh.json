@@ -1,0 +1,122 @@
+{
+  "brandName": "Aaron Guo",
+  "seriesLabel": "AI-NATIVE CONTENT SYSTEMS",
+  "durationSec": 44.5,
+  "narrationFile": "tutorial-shorts/chatgpt-work-content-factory/narration-zh.mp3",
+  "narrationVolume": 1,
+  "musicFile": "music-visualizer/paper-moon.mp3",
+  "musicVolume": 0.18,
+  "accent": "#C65F47",
+  "steps": [
+    {
+      "id": "zh-s01",
+      "startSec": 0,
+      "endSec": 4.55,
+      "kind": "title",
+      "eyebrow": "CONTENT FACTORY / 01",
+      "title": "每天早上，\n又要从头开始。",
+      "subtitle": "同样的研究，同样的准备，同样的判断。"
+    },
+    {
+      "id": "zh-s02",
+      "startSec": 4.55,
+      "endSec": 9.9,
+      "kind": "clip",
+      "eyebrow": "每天重复的循环",
+      "title": "扫描新闻，\n然后重新开始。",
+      "subtitle": "创作还没开始，研究工作已经重新归零。",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/news-scroll-licensed-vertical.mp4",
+      "sourceStartSec": 1,
+      "sourceLabel": "PEXELS · WWW.KABOOMPICS.COM · 6271585",
+      "labels": ["授权记录完整 ✓"]
+    },
+    {
+      "id": "zh-s03",
+      "startSec": 9.9,
+      "endSec": 15.9,
+      "kind": "comparison",
+      "eyebrow": "核心原则",
+      "title": "内容工厂，\n不该替代你的判断",
+      "subtitle": "它应该替你拿走重复劳动。",
+      "labels": ["保留", "拿走"],
+      "items": ["你的判断", "重复劳动"],
+      "badge": "HUMAN-IN-THE-LOOP"
+    },
+    {
+      "id": "zh-s04a",
+      "startSec": 15.9,
+      "endSec": 18.7,
+      "kind": "clip",
+      "eyebrow": "素材研究 / 已授权视频",
+      "title": "先找到来源，\n再决定叙事角度",
+      "subtitle": "真实镜头用来承接“查资料”这个动作。",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/research-laptop-licensed-vertical.mp4",
+      "sourceStartSec": 1.5,
+      "sourceLabel": "PEXELS · MEDIA HOPPER STUDIO · 38496194",
+      "labels": ["授权记录完整 ✓"]
+    },
+    {
+      "id": "zh-s04b",
+      "startSec": 18.7,
+      "endSec": 21.4,
+      "kind": "evidence",
+      "eyebrow": "定时任务 / 官方资料",
+      "title": "先把重复工作\n安排成任务",
+      "subtitle": "每天收集信号，排出 5 个选题，然后停下来等待批准。",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/work-official-doc.png",
+      "sourceLabel": "OPENAI · CHATGPT LEARN · 2026-07",
+      "labels": ["已核验 ✓"]
+    },
+    {
+      "id": "zh-s05",
+      "startSec": 21.4,
+      "endSec": 24.1,
+      "kind": "approval",
+      "eyebrow": "人工判断 / 01",
+      "title": "系统停下，\n判断权交给你",
+      "items": ["批准这个选题？"],
+      "labels": ["选题审批", "等待中"],
+      "actions": ["退回修改", "批准 →"],
+      "badge": "批准前，不进入生产"
+    },
+    {
+      "id": "zh-s06",
+      "startSec": 24.1,
+      "endSec": 33.1,
+      "kind": "workflow",
+      "eyebrow": "选题通过以后 / PRODUCTION",
+      "title": "再生成一版\n可以检查的成片",
+      "subtitle": "每一步都会留下可以打开审阅的文件。",
+      "items": [
+        "事实包：哪些话能说",
+        "文案：逐镜头讲清故事",
+        "素材计划：来源与版权",
+        "渲染：生成第一版成片"
+      ],
+      "badge": "可审阅的文件，不是黑箱"
+    },
+    {
+      "id": "zh-s07",
+      "startSec": 33.1,
+      "endSec": 37.9,
+      "kind": "approval",
+      "eyebrow": "人工判断 / 02",
+      "title": "发布之前，\n再停一次",
+      "subtitle": "先看完整成片，再决定要不要发。",
+      "items": ["这条视频通过 QA 了吗？"],
+      "labels": ["发布审批", "等待中"],
+      "actions": ["继续修改", "批准发布 →"],
+      "badge": "GATE 2 · PUBLISH APPROVAL"
+    },
+    {
+      "id": "zh-s08",
+      "startSec": 37.9,
+      "endSec": 44.5,
+      "kind": "end",
+      "eyebrow": "THE CONTENT FACTORY",
+      "title": "机器负责\n持续推进。",
+      "subtitle": "你保留真正重要的决定。",
+      "badge": "AARON GUO · AI-NATIVE BUILDER"
+    }
+  ]
+}

@@ -10,7 +10,9 @@ SURFACES=(".agents" ".codex" ".claude" ".cursor" ".gemini")
 
 MAPPINGS=(
   "aaron-video-gen:tiles/aaron-video-gen"
+  "asset-library:tiles/asset-library"
   "blog-brainstorm:tiles/blog-brainstorm"
+  "blog-notes:tiles/blog-notes"
   "blog-canon-alignment:tiles/blog-canon-alignment"
   "blog-illustrate:tiles/blog-illustrate"
   "blog-outline:tiles/blog-outline"

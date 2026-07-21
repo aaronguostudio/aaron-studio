@@ -39,3 +39,6 @@ Thumbs.db
 # Node
 node_modules/
 credentials/
+
+# Rebuildable local asset search index
+.cache/asset-library/

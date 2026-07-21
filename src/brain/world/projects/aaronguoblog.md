@@ -2,7 +2,7 @@
 
 **Status:** 🟢 Professional credibility asset
 **Category:** Alpha / brand / writing
-**Last updated:** 2026-05-04
+**Last updated:** 2026-07-17
 
 ## What It Is
 Aaron's professional blog and credibility layer. It documents AI-native execution, product thinking, financial-industry technology, and lessons from building real systems.
@@ -25,6 +25,10 @@ Aaron should not sound like a generic AI influencer. Best position:
 - financial-industry operator
 - business+tech bridge
 - "I build with AI and report what works"
+
+## Observations
+
+- **2026-07-17** — Aaron defined the first bounded-autonomy AI employee experiment: an agent serving as the blog's brand sales and distribution lead, starting with a four-day, zero-budget pilot measured by attributable traffic and qualified reading rather than raw exposure. (source: [[../_archive/2026-07-17/aaron-blog-ai-brand-sales-agent-contract]])
 
 ## Related
 - [[projects/signal]]

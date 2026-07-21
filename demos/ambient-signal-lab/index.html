@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Ambient Signal Engine</title>
+    <link rel="stylesheet" href="./styles.css?v=2" />
+  </head>
+  <body>
+    <main class="lab-shell">
+      <header class="lab-header">
+        <div>
+          <p class="eyebrow">Visual &amp; Sound / Generative Systems</p>
+          <h1>Ambient Signal Engine</h1>
+        </div>
+        <div class="status"><span></span> deterministic web + Remotion</div>
+      </header>
+
+      <section class="stage-card">
+        <canvas id="ambient-canvas" aria-label="Ambient animation preview"></canvas>
+        <div class="stage-overlay">
+          <div>
+            <p id="scene-kicker">Focus system</p>
+            <h2 id="scene-title">Signal Loom</h2>
+          </div>
+          <p id="scene-purpose">Attention gathers into a legible system.</p>
+        </div>
+      </section>
+
+      <section class="control-deck">
+        <nav class="scene-tabs" aria-label="Ambient scene">
+          <button class="scene-tab is-active" data-scene="focus"><span>01</span> Focus</button>
+          <button class="scene-tab" data-scene="sleep"><span>02</span> Sleep</button>
+          <button class="scene-tab" data-scene="relax"><span>03</span> Relax</button>
+        </nav>
+
+        <div class="music-strip">
+          <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false" disabled>
+            <span class="music-pulse" aria-hidden="true"></span>
+            <span id="music-toggle-label">Loading music…</span>
+          </button>
+          <div class="music-meta">
+            <strong>Luminous Tides</strong>
+            <span id="music-status" role="status">Loading precomputed signal…</span>
+          </div>
+          <audio
+            id="music-player"
+            src="../../src/content/music-visualizer/midnight-lo-fi-wave/music.mp3"
+            preload="metadata"
+            loop
+          ></audio>
+        </div>
+
+        <div class="timeline-row">
+          <button id="play-toggle" class="play-toggle" aria-label="Pause animation">Pause</button>
+          <input id="timeline" type="range" min="0" max="1" step="0.001" value="0" aria-label="Loop position" />
+          <output id="time-output">00.0 / 18s</output>
+        </div>
+
+        <div class="parameter-grid">
+          <label>
+            <span>Palette</span>
+            <select id="palette">
+              <option value="signal">Signal</option>
+              <option value="lunar">Lunar</option>
+              <option value="mono">Monochrome</option>
+            </select>
+          </label>
+          <label>
+            <span>Intensity</span>
+            <input id="intensity" type="range" min="0.35" max="1.2" step="0.01" value="0.82" />
+          </label>
+          <label>
+            <span>Playback</span>
+            <input id="speed" type="range" min="0.25" max="1.5" step="0.05" value="1" />
+          </label>
+          <label>
+            <span>Seed</span>
+            <input id="seed" type="number" min="1" max="99999" value="2718" />
+          </label>
+        </div>
+      </section>
+
+      <footer>
+        <p>One engine, one precomputed music signal, two render targets.</p>
+        <p>Keys 1–3 switch scenes · Space pauses</p>
+      </footer>
+    </main>
+    <script type="module" src="./app.js?v=2"></script>
+  </body>
+</html>

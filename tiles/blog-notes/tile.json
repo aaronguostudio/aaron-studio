@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/blog-notes",
+  "version": "0.2.0",
+  "summary": "Turns rough ideas into concise, illustrated bilingual Builder Notes for aaronguo.com.",
+  "private": true,
+  "skills": {
+    "blog-notes": {
+      "path": "SKILL.md"
+    }
+  }
+}

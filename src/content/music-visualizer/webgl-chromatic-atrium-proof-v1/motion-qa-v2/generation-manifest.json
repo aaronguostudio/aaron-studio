@@ -1,0 +1,19 @@
+{
+  "artDirection": "Chromatic Atrium — a fixed, dark architectural corner made of matte mineral planes. Slow projected colour and refractive light establish the spatial composition; there are no independent objects, rings, UI panels, camera moves, or geometry pulses.",
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/audio-analysis.json",
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/music-full.m4a",
+  "audioStartSec": 15,
+  "durationSec": 8,
+  "format": "1920×1080 / 60fps / H.264 CRF 12 + AAC 256k",
+  "generatedAt": "2026-07-15T04:42:10.327Z",
+  "motionContract": "Music controls the brightness and density of projected amber, cyan, and violet light. Qualifying low-frequency onsets send one short-lived refraction across existing light on the architecture, then it dissolves. No perpetual beat mechanic.",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/chromatic-atrium-8s-1080p60.mp4",
+  "renderProps": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/render-props.json",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/entry-1080p.png",
+    "refraction-a": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/refraction-a-1080p.png",
+    "refraction-b": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/refraction-b-1080p.png",
+    "refraction-c": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/refraction-c-1080p.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-chromatic-atrium-proof-v1/motion-qa-v2/exit-1080p.png"
+  }
+}

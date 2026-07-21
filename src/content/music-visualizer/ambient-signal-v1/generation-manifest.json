@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-07-18T17:00:00.000Z",
+  "title": "Ambient Signal Engine v1",
+  "visualStyle": "ambient-signal",
+  "source": "owned-code",
+  "durationSec": 18,
+  "format": "1920×1080 / 30fps / H.264",
+  "engine": "tiles/aaron-video-gen/remotion/src/ambient/ambient-engine.js",
+  "remotionComposition": "AmbientSignal",
+  "webPreview": "demos/ambient-signal-lab/index.html",
+  "motionContract": "Three deterministic periodic Canvas scene families. Audio may modulate light and density, never introduce beat-to-position jitter. Browser and Remotion share the same drawing engine.",
+  "output": "src/content/music-visualizer/ambient-signal-v1/ambient-signal-focus-loop.mp4",
+  "stills": {
+    "contactSheet": "src/content/music-visualizer/ambient-signal-v1/contact-sheet.jpg",
+    "focusPeak": "src/content/music-visualizer/ambient-signal-v1/qa/focus-peak.png",
+    "sleepPeak": "src/content/music-visualizer/ambient-signal-v1/qa/sleep-peak.png",
+    "relaxPeak": "src/content/music-visualizer/ambient-signal-v1/qa/relax-peak.png"
+  },
+  "rights": {
+    "status": "owned",
+    "commercialUse": true,
+    "externalAssets": false
+  },
+  "asset_library": {
+    "policy": "auto",
+    "scope": "generic",
+    "kind": "visualizer-preset"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/audio-analysis.json",
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/music-full.m4a",
+  "audioStartSec": 15,
+  "durationSec": 16,
+  "format": "1920×1080 / 60fps / H.264 + AAC",
+  "generatedAt": "2026-07-15T03:55:26.440Z",
+  "motionContract": "One stationary 3D obsidian basin. Music changes liquid refraction, internal caustics, and restrained rim light. Infrequent qualifying low-frequency peaks send one finite pressure wave across the water surface. No camera drift, object scale, floating UI panels, or perpetual rings.",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/webgl-moonpool-proof-16s-1080p60.mp4",
+  "renderProps": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/render-props.json",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/entry.png",
+    "ripple-a": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/ripple-a.png",
+    "ripple-b": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/ripple-b.png",
+    "ripple-c": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/ripple-c.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-moonpool-proof-v1/exit.png"
+  }
+}

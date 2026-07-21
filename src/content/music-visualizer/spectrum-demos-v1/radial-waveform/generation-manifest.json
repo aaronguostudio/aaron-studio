@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-07-15T13:36:41.741Z",
+  "title": "Frequency Field / Radial Waveform",
+  "theme": "deep-ink",
+  "visualStyle": "radial-waveform",
+  "prompt": "Instrumental only. Minimalist felt upright piano, intimate close-miked recording, sparse repeating motif, gentle rubato, soft pedal noise, warm room ambience, quietly satisfying and hypnotic, low dynamic range, spacious pauses, suitable for deep work and reading. No vocals, no drums, no abrupt climax, no trailer impacts, no bright arpeggios, no dramatic key change. Structure: 20-second opening, a gentle piano theme, a small harmonic variation, one quiet lift, then a slow unresolved outro.",
+  "compositionPlan": null,
+  "requestedDurationSec": 42.024,
+  "actualAudioDurationSec": 42.024,
+  "model": null,
+  "songId": null,
+  "source": "local-audio",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/radial-waveform.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 1,
+  "gl": "swiftshader",
+  "audioAnalysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/audio-analysis.json",
+  "audioAnalysisVersion": 2,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

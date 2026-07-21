@@ -1,0 +1,4 @@
+interface:
+  display_name: "Asset Library"
+  short_description: "Index, search, curate, and reuse studio assets"
+  default_prompt: "Use $asset-library to search, register, or curate reusable Aaron Studio media assets before generating new ones."

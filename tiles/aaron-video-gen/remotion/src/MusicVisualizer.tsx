@@ -10,9 +10,14 @@ import { NeonStrands } from "./NeonStrands";
 import { NeonOrb } from "./NeonOrb";
 import { ExperimentalFields, type ExperimentalFieldVariant } from "./ExperimentalFields";
 import { MaterialStudies, type MaterialStudyVariant } from "./MaterialStudies";
+import {
+  SpectrumVisualizer,
+  isSpectrumVisualizerVariant,
+  type SpectrumVisualizerVariant,
+} from "./SpectrumVisualizers";
 
 export type MusicVisualizerTheme = "paper-moon" | "deep-ink" | "soft-slate";
-export type MusicVisualizerStyle = "ink-current" | "paper-resonance" | "soft-relic" | "lofi-wave" | "coffee-room" | "folded-light" | "neon-strands" | "neon-orb" | "prism-chamber" | "wave-grid" | "signal-bloom" | "clay-atlas" | "pigment-tide" | "paper-atlas" | "audio-mix";
+export type MusicVisualizerStyle = SpectrumVisualizerVariant | "ink-current" | "paper-resonance" | "soft-relic" | "lofi-wave" | "coffee-room" | "folded-light" | "neon-strands" | "neon-orb" | "prism-chamber" | "wave-grid" | "signal-bloom" | "clay-atlas" | "pigment-tide" | "paper-atlas" | "audio-mix";
 
 export type AudioMixWeights = [number, number, number];
 
@@ -29,6 +34,7 @@ export interface AudioAnalysisFrame {
   calmEnergy: number;
   calmLow: number;
   calmHigh: number;
+  spectrum?: number[];
   mix: AudioMixWeights;
 }
 
@@ -39,6 +45,15 @@ export interface AudioAnalysis {
   durationSec: number;
   frameCount: number;
   features: string[];
+  spectrum?: {
+    bandCount: number;
+    minHz: number;
+    maxHz: number;
+    scale: "log";
+    tiltDb?: number;
+    attack: number;
+    release: number;
+  };
   sections: Array<{
     startFrame: number;
     endFrame: number;
@@ -152,6 +167,11 @@ const fallbackAudioFrame = (timeSec: number, durationSec: number, seed: number):
     calmEnergy: Math.max(energy, energyAt(timeSec, durationSec)),
     calmLow: 0.38,
     calmHigh: 0.32,
+    spectrum: Array.from({ length: 48 }, (_, index) => {
+      const position = index / 47;
+      const lowShelf = Math.exp(-position * 2.8);
+      return clamp01((0.18 + energy * 0.38) * (0.56 + lowShelf * 0.44) * (0.82 + Math.sin(index * 0.74 + timeSec * 0.8 + seed) * 0.12));
+    }),
     mix: [1, 0, 0],
   };
 };
@@ -696,6 +716,16 @@ export const MusicVisualizer: React.FC<MusicVisualizerProps> = ({
         )}
         {visualStyle === "folded-light" && (
           <FoldedLight colors={colors} timeSec={timeSec} durationSec={durationSec} seed={seed} opacity={opacity} audio={audio} />
+        )}
+        {isSpectrumVisualizerVariant(visualStyle) && (
+          <SpectrumVisualizer
+            variant={visualStyle}
+            colors={colors}
+            timeSec={timeSec}
+            seed={seed}
+            opacity={opacity}
+            audio={audio}
+          />
         )}
         {visualStyle === "audio-mix" && (
           <>

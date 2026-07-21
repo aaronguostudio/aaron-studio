@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blog Notes"
+  short_description: "Create concise bilingual Notes with on-brand visuals"
+  default_prompt: "Use $blog-notes to turn this rough thought into a concise illustrated bilingual Builder Note."

@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-07-18T16:56:00.963Z",
+  "title": "Signal Loom — Luminous Tides Focus Study",
+  "listeningJob": "Deep work and coding: calm visual attention without beat prediction.",
+  "direction": "Midnight Lo-Fi Wave × Signal Loom",
+  "status": "candidate — user listening pass required",
+  "format": "1920×1080 / 30fps / H.264 + AAC",
+  "durationSec": 60,
+  "music": {
+    "title": "Luminous Tides",
+    "assetId": "music:783d2bf966a67bb4",
+    "sourcePath": "src/content/music-visualizer/midnight-lo-fi-wave/music.mp3",
+    "startSec": 0,
+    "outputGainDb": -1.4,
+    "rights": "needs-verification before commercial publication"
+  },
+  "audioAnalysis": {
+    "path": "src/content/music-visualizer/ambient-signal-focus-audio-v1/audio-analysis.json",
+    "version": 2,
+    "featuresUsed": [
+      "calmEnergy",
+      "calmLow",
+      "calmHigh",
+      "pulse"
+    ]
+  },
+  "visualContract": "One original signal architecture. Frame-driven geometry follows one 60-second cycle; music changes only internal light pressure, route clarity, and a restrained transient highlight.",
+  "motionContract": "No beat-driven position, scale, camera movement, or jitter. Route travel and structural drift are deterministic and independent from audio.",
+  "reviewFrames": {
+    "entry": {
+      "frame": 0,
+      "path": "src/content/music-visualizer/ambient-signal-focus-audio-v1/entry.png"
+    },
+    "first-change": {
+      "frame": 45,
+      "path": "src/content/music-visualizer/ambient-signal-focus-audio-v1/first-change.png"
+    },
+    "midpoint": {
+      "frame": 899,
+      "path": "src/content/music-visualizer/ambient-signal-focus-audio-v1/midpoint.png"
+    },
+    "release": {
+      "frame": 1799,
+      "path": "src/content/music-visualizer/ambient-signal-focus-audio-v1/release.png"
+    }
+  },
+  "contactSheet": "src/content/music-visualizer/ambient-signal-focus-audio-v1/contact-sheet.jpg",
+  "output": "src/content/music-visualizer/ambient-signal-focus-audio-v1/ambient-signal-focus-60s-1080p.mp4",
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "side_data_list": [
+          {}
+        ]
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "channels": 2,
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "60.000000"
+    }
+  }
+}

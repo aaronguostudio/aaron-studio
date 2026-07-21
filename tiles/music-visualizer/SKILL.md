@@ -276,6 +276,22 @@ Keep these artifacts together:
 - rendered `.mp4`;
 - a short QA note or contact sheet when reviewing a new direction.
 
+After the generation manifest and QA artifacts exist, refresh `asset-library`
+so the music and reusable preset become discoverable without moving their
+source files:
+
+```bash
+node tiles/asset-library/scripts/asset-library.mjs scan
+node tiles/asset-library/scripts/asset-library.mjs search \
+  --query "<title, mood, and listening job>" \
+  --type music \
+  --status candidate,approved
+```
+
+New output enters as `candidate` or `experimental`. Promote it with `curate`
+only after listening QA and rights review. Record a `use` event when another
+project actually selects it, not merely because the scan discovered it.
+
 ## Scope boundaries
 
 - This skill owns music-led visualizers, not narration-led essays.

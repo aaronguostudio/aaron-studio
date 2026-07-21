@@ -1,0 +1,101 @@
+{
+  "brandName": "Aaron Guo",
+  "seriesLabel": "AARON / NEWS EXPLAINED",
+  "durationSec": 59,
+  "narrationFile": "tutorial-shorts/starship-flight-13/narration-en.mp3",
+  "narrationVolume": 1,
+  "musicFile": "tutorial-shorts/starship-flight-13/prism-pulse-59s.mp3",
+  "musicVolume": 0.11,
+  "accent": "#C65F47",
+  "steps": [
+    {
+      "id": "starship-s01",
+      "startSec": 0,
+      "endSec": 6.4,
+      "kind": "clip",
+      "eyebrow": "STARSHIP FLIGHT 13 / OFFICIAL",
+      "title": "July 16.\nFlight 13.",
+      "subtitle": "SpaceX is preparing the second Starship V3 test.",
+      "assetFile": "tutorial-shorts/starship-flight-13/booster-rollout-vertical.mp4",
+      "sourceStartSec": 0,
+      "sourceLabel": "SPACEX OFFICIAL · BOOSTER 20 · JUL 9, 2026",
+      "labels": ["COMMENTARY EXCERPT"]
+    },
+    {
+      "id": "starship-s02",
+      "startSec": 6.4,
+      "endSec": 12.6,
+      "kind": "clip",
+      "eyebrow": "THE REAL QUESTION",
+      "title": "The launch\nisn't the test.",
+      "subtitle": "Did the Flight 12 fixes actually work?",
+      "assetFile": "tutorial-shorts/starship-flight-13/static-fire-vertical.mp4",
+      "sourceStartSec": 0,
+      "sourceLabel": "SPACEX OFFICIAL · FLIGHT 13 PREPARATION",
+      "labels": ["COMMENTARY EXCERPT"]
+    },
+    {
+      "id": "starship-s03",
+      "startSec": 12.6,
+      "endSec": 26.5,
+      "kind": "comparison",
+      "eyebrow": "FAA / FLIGHT 12 INVESTIGATION",
+      "title": "Two likely\nbooster-loss causes",
+      "subtitle": "The FAA closed the investigation on July 13.",
+      "labels": ["CAUSE 01", "CAUSE 02"],
+      "items": ["Heat affected propulsion components", "Engine-alarm settings were erroneous"],
+      "badge": "FAA · FOUR CORRECTIVE ACTIONS ACCEPTED"
+    },
+    {
+      "id": "starship-s03b",
+      "startSec": 26.5,
+      "endSec": 29.5,
+      "kind": "clip",
+      "eyebrow": "THE FIXES / HARDWARE + SOFTWARE",
+      "title": "Four fixes.\nOne flight.",
+      "subtitle": "Corrective action is not the same as proof.",
+      "assetFile": "tutorial-shorts/starship-flight-13/ship-static-fire-vertical.mp4",
+      "sourceStartSec": 0,
+      "sourceLabel": "SPACEX OFFICIAL · SHIP 40 TEST",
+      "labels": ["COMMENTARY EXCERPT"]
+    },
+    {
+      "id": "starship-s04",
+      "startSec": 29.5,
+      "endSec": 40.2,
+      "kind": "workflow",
+      "eyebrow": "FLIGHT 13 / THREE TESTS",
+      "title": "Three things\nto watch",
+      "subtitle": "These are planned objectives, not completed achievements.",
+      "items": [
+        "Complete boostback + soft splashdown",
+        "Deploy 20 Starlink V3 satellites",
+        "Relight one Raptor in space"
+      ],
+      "badge": "SOURCE · SPACEX MISSION PLAN"
+    },
+    {
+      "id": "starship-s05",
+      "startSec": 40.2,
+      "endSec": 46.6,
+      "kind": "clip",
+      "eyebrow": "THE DIFFERENCE",
+      "title": "Spectacle isn't\ncapability.",
+      "subtitle": "A test matters when the system can repeat it.",
+      "assetFile": "tutorial-shorts/starship-flight-13/launch-archive-vertical.mp4",
+      "sourceStartSec": 0,
+      "sourceLabel": "SPACEX OFFICIAL · STARSHIP TEST ARCHIVE",
+      "labels": ["ARCHIVE · NOT FLIGHT 13"]
+    },
+    {
+      "id": "starship-s06",
+      "startSec": 46.6,
+      "endSec": 59,
+      "kind": "end",
+      "eyebrow": "WHY FLIGHT 13 MATTERS",
+      "title": "The spectacle\ngets the click.",
+      "subtitle": "Repeatability is what turns Starship into a lunar architecture.",
+      "badge": "AARON GUO · AI-NATIVE BUILDER"
+    }
+  ]
+}

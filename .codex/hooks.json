@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/tiles/asset-library/scripts/asset-hook.mjs\" start",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/tiles/asset-library/scripts/asset-hook.mjs\" stop",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -14,6 +14,8 @@ blank-stage rules, fallback coverage, and production readiness.
 | Template | Best use | Current status |
 |---|---|---|
 | `image-sequence` | Photos, sources, illustrations, screenshots | available |
+| `tutorial-short` | Vertical text-led tutorial with source proof and review gates | prototype |
+| `licensed-footage-insert` | Short real-world B-roll with visible source and warm editorial overlay | prototype |
 | `actor-framework` | ACTOR framework build | available |
 | `brand-end-card` | Author identity, website, and a quiet closing lockup | available |
 | `editorial-statement` | Claim, question, title, payoff | prototype |
@@ -25,6 +27,7 @@ blank-stage rules, fallback coverage, and production readiness.
 | `timeline` | Chronology, convergence, before and after | prototype |
 | `quote-source` | Quotation with visible provenance | prototype |
 | `custom-signature` | Rare 3D, shader, camera, or pixel peak | experimental |
+| `ambient-signal-loop` | Deterministic, loop-ready Focus/Sleep/Relax visual field | prototype |
 | `digital-space-study` | Loop-ready 2.5D music-led ambient space | experimental |
 
 ## Director Selection
@@ -36,6 +39,8 @@ Before picking a template, choose the visual mode in `director-plan.json`.
   data artifact is the proof.
 - `screen-capture`: an actual working artifact gives a personal or operational
   claim credibility.
+- `licensed-footage`: real-world action or setting from a recorded license;
+  illustrative footage must never be presented as factual proof of a claim.
 - `generated-still`: a quiet conceptual reset; it must not pretend to be proof.
 - `generated-video`: one brief, text-free atmospheric or spatial insert with a
   still/Remotion fallback.
@@ -49,6 +54,12 @@ attention.
 
 - Select by information shape, not by preferred visual effect.
 - Use `image-sequence` when the evidence is already visually strong.
+- Use `tutorial-short` for a bounded 9:16 tutorial whose copy is the spine and
+  whose evidence can be linked beat by beat to a fact pack. Keep a static
+  `image-sequence` fallback until the template completes prototype review.
+- Use `licensed-footage-insert` when a real-world action makes a beat more
+  legible than another card. Keep it brief, source-labelled, silent beneath
+  narration, and paired with a deterministic still or Remotion fallback.
 - Use `editorial-statement` only for one concise idea.
 - Use `data-hero` only when a real number carries the argument.
 - Use `split-comparison` when both sides share comparable dimensions.
@@ -58,6 +69,10 @@ attention.
 - Use `timeline` only when chronology or convergence matters.
 - Use `custom-signature` for one memorable peak and always provide an available
   fallback.
+- Use `ambient-signal-loop` for a calm music-led or focus background whose
+  source must remain editable in both a browser preview and Remotion. Keep the
+  loop deterministic, reserve geometry for the selected cognitive role, and
+  retain an `image-sequence` fallback until motion QA passes.
 - Use the canonical geometry in `aaron-editorial-visual-system.md`; a template
   is not permission to invent new padding, type sizes, or peer dimensions for
   every scene.
@@ -87,6 +102,7 @@ recipe and at most two supporting recipes.
 | `pixel-transition` | Resolve one state into another through a grid |
 | `camera-orbit` | Reveal structure through controlled 3D camera movement |
 | `shader-field` | Establish a rare generative visual world |
+| `ambient-cycle` | Sustain a periodic visual state without a visible loop seam |
 
 ## React Bits And Motion Mapping
 

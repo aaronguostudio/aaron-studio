@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "name": "Editorial Field Journal",
+  "purpose": "A Guizang-informed art direction layer for Remotion editorial films. It supplies constrained layouts and visual roles; Remotion owns timing and motion.",
+  "source_influence": "Guizang Magazine Web PPT: editorial hierarchy, theme rhythm, serif display, monospace metadata, and named layout families.",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "safe_area": { "top": 72, "right": 120, "bottom": 112, "left": 120 }
+  },
+  "palette": {
+    "paper": "#F5F0E7",
+    "ink": "#1B1916",
+    "muted_ink": "#716B62",
+    "rule": "#D8D0C3",
+    "cyan": "#157A8A",
+    "coral": "#C65C48",
+    "amber": "#D78B23"
+  },
+  "type": {
+    "display": "Georgia, Times New Roman, serif",
+    "body": "Arial, Helvetica, sans-serif",
+    "metadata": "SFMono-Regular, Menlo, monospace"
+  },
+  "layout_families": [
+    {
+      "id": "cover-editorial",
+      "role": "emphasis",
+      "structure": "Full-bleed editorial image with a bottom-left paper text block.",
+      "motion": "Only a controlled image settle; article title and brand are present at frame zero."
+    },
+    {
+      "id": "convergence-ledger",
+      "role": "evidence",
+      "structure": "One full-width statement axis with four aligned source rows that converge on one operating idea.",
+      "motion": "Rows enter on a shared baseline; the conclusion does not appear until the rows resolve."
+    },
+    {
+      "id": "operating-loop",
+      "role": "explanation",
+      "structure": "One full-width statement above three equal operating nodes and a bounded feedback loop.",
+      "motion": "Nodes establish first. Connector strokes only draw after their endpoints are visible."
+    }
+  ],
+  "motion_rules": [
+    "A heading has one reading axis and never shares a narrow column with supporting copy.",
+    "Every transformed object remains inside its declared layout slot and protected caption zone.",
+    "No decorative progress bars, green caption rules, or generic dashboard chrome.",
+    "Accent colors encode roles: cyan for field connection, coral for the deployment gap, amber for evidence only.",
+    "Transitions are clean cuts or a brief paper field, never a crossfade between two information-heavy layouts."
+  ],
+  "qa": [
+    "The identity, title, and subtitle are visible at the first meaningful frame.",
+    "No title wraps because of a side-column constraint.",
+    "Connector lines never appear before the nodes they connect.",
+    "Each layout retains the declared safe area at all animated frames."
+  ]
+}

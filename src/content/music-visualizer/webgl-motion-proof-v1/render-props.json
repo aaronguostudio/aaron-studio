@@ -1,0 +1,6915 @@
+{
+  "audioAnalysis": {
+    "analysisVersion": 1,
+    "sampleRate": 22050,
+    "fps": 30,
+    "durationSec": 12.011,
+    "frameCount": 361,
+    "features": [
+      "rms",
+      "low",
+      "mid",
+      "high",
+      "centroid",
+      "flux",
+      "pulse",
+      "energy",
+      "calmEnergy",
+      "calmLow",
+      "calmHigh"
+    ],
+    "sections": [
+      {
+        "startFrame": 0,
+        "endFrame": 104,
+        "startSec": 0,
+        "endSec": 3.47,
+        "style": "ink-current"
+      },
+      {
+        "startFrame": 104,
+        "endFrame": 173,
+        "startSec": 3.47,
+        "endSec": 5.77,
+        "style": "paper-resonance"
+      },
+      {
+        "startFrame": 173,
+        "endFrame": 260,
+        "startSec": 5.77,
+        "endSec": 8.67,
+        "style": "ink-current"
+      },
+      {
+        "startFrame": 260,
+        "endFrame": 361,
+        "startSec": 8.67,
+        "endSec": 12.03,
+        "style": "soft-relic"
+      }
+    ],
+    "frames": [
+      {
+        "t": 0,
+        "rms": 0.0916,
+        "low": 0.2023,
+        "mid": 0.1258,
+        "high": 0.074,
+        "centroid": 0.7198,
+        "flux": 0,
+        "pulse": 0,
+        "energy": 0.1199,
+        "calmEnergy": 0.1199,
+        "calmLow": 0.2023,
+        "calmHigh": 0.074,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.033,
+        "rms": 0.1341,
+        "low": 0.1861,
+        "mid": 0.2747,
+        "high": 0.1495,
+        "centroid": 0.7181,
+        "flux": 0,
+        "pulse": 0,
+        "energy": 0.1329,
+        "calmEnergy": 0.1203,
+        "calmLow": 0.2021,
+        "calmHigh": 0.0762,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.067,
+        "rms": 0.1243,
+        "low": 0.1911,
+        "mid": 0.3254,
+        "high": 0.1463,
+        "centroid": 0.7097,
+        "flux": 0,
+        "pulse": 0,
+        "energy": 0.1435,
+        "calmEnergy": 0.1212,
+        "calmLow": 0.2019,
+        "calmHigh": 0.0783,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.1,
+        "rms": 0.1094,
+        "low": 0.2276,
+        "mid": 0.3302,
+        "high": 0.1287,
+        "centroid": 0.7084,
+        "flux": 0.0189,
+        "pulse": 0,
+        "energy": 0.1511,
+        "calmEnergy": 0.1222,
+        "calmLow": 0.2026,
+        "calmHigh": 0.0798,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.133,
+        "rms": 0.0974,
+        "low": 0.2382,
+        "mid": 0.3605,
+        "high": 0.1133,
+        "centroid": 0.692,
+        "flux": 0.0488,
+        "pulse": 0.0678,
+        "energy": 0.1568,
+        "calmEnergy": 0.1234,
+        "calmLow": 0.2037,
+        "calmHigh": 0.0808,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.167,
+        "rms": 0.1431,
+        "low": 0.288,
+        "mid": 0.4916,
+        "high": 0.1943,
+        "centroid": 0.6682,
+        "flux": 0.1613,
+        "pulse": 0.8681,
+        "energy": 0.1771,
+        "calmEnergy": 0.1253,
+        "calmLow": 0.2062,
+        "calmHigh": 0.0842,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.2,
+        "rms": 0.1454,
+        "low": 0.2824,
+        "mid": 0.4654,
+        "high": 0.2298,
+        "centroid": 0.6574,
+        "flux": 0.169,
+        "pulse": 0.8333,
+        "energy": 0.1909,
+        "calmEnergy": 0.1276,
+        "calmLow": 0.2085,
+        "calmHigh": 0.0886,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.233,
+        "rms": 0.1354,
+        "low": 0.2822,
+        "mid": 0.5209,
+        "high": 0.2235,
+        "centroid": 0.6422,
+        "flux": 0.1908,
+        "pulse": 0.9045,
+        "energy": 0.2022,
+        "calmEnergy": 0.1302,
+        "calmLow": 0.2107,
+        "calmHigh": 0.0927,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.267,
+        "rms": 0.1213,
+        "low": 0.254,
+        "mid": 0.4864,
+        "high": 0.2086,
+        "centroid": 0.6224,
+        "flux": 0.1846,
+        "pulse": 0.7643,
+        "energy": 0.2051,
+        "calmEnergy": 0.1328,
+        "calmLow": 0.212,
+        "calmHigh": 0.0961,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.3,
+        "rms": 0.1907,
+        "low": 0.433,
+        "mid": 0.6097,
+        "high": 0.3351,
+        "centroid": 0.616,
+        "flux": 0.4039,
+        "pulse": 1,
+        "energy": 0.2336,
+        "calmEnergy": 0.1364,
+        "calmLow": 0.2187,
+        "calmHigh": 0.1033,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.333,
+        "rms": 0.1887,
+        "low": 0.5623,
+        "mid": 0.6713,
+        "high": 0.316,
+        "centroid": 0.6201,
+        "flux": 0.368,
+        "pulse": 1,
+        "energy": 0.264,
+        "calmEnergy": 0.1408,
+        "calmLow": 0.229,
+        "calmHigh": 0.1097,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.367,
+        "rms": 0.1715,
+        "low": 0.6244,
+        "mid": 0.6489,
+        "high": 0.2781,
+        "centroid": 0.6503,
+        "flux": 0.3319,
+        "pulse": 1,
+        "energy": 0.2858,
+        "calmEnergy": 0.1459,
+        "calmLow": 0.2408,
+        "calmHigh": 0.1147,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.4,
+        "rms": 0.1509,
+        "low": 0.6489,
+        "mid": 0.6241,
+        "high": 0.2447,
+        "centroid": 0.6507,
+        "flux": 0.2969,
+        "pulse": 0.9991,
+        "energy": 0.2988,
+        "calmEnergy": 0.1512,
+        "calmLow": 0.2531,
+        "calmHigh": 0.1186,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.433,
+        "rms": 0.234,
+        "low": 0.7331,
+        "mid": 0.7048,
+        "high": 0.3328,
+        "centroid": 0.6518,
+        "flux": 0.5942,
+        "pulse": 1,
+        "energy": 0.3299,
+        "calmEnergy": 0.1575,
+        "calmLow": 0.2675,
+        "calmHigh": 0.1251,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.467,
+        "rms": 0.343,
+        "low": 0.6745,
+        "mid": 0.6689,
+        "high": 0.4738,
+        "centroid": 0.7224,
+        "flux": 0.5943,
+        "pulse": 1,
+        "energy": 0.3658,
+        "calmEnergy": 0.1648,
+        "calmLow": 0.2797,
+        "calmHigh": 0.1355,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.5,
+        "rms": 0.3512,
+        "low": 0.6107,
+        "mid": 0.632,
+        "high": 0.5243,
+        "centroid": 0.7696,
+        "flux": 0.5222,
+        "pulse": 1,
+        "energy": 0.3886,
+        "calmEnergy": 0.1726,
+        "calmLow": 0.2896,
+        "calmHigh": 0.1472,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.533,
+        "rms": 0.3387,
+        "low": 0.5497,
+        "mid": 0.5703,
+        "high": 0.52,
+        "centroid": 0.8074,
+        "flux": 0.4282,
+        "pulse": 1,
+        "energy": 0.3975,
+        "calmEnergy": 0.1805,
+        "calmLow": 0.2974,
+        "calmHigh": 0.1584,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.567,
+        "rms": 0.3145,
+        "low": 0.4999,
+        "mid": 0.5133,
+        "high": 0.493,
+        "centroid": 0.8317,
+        "flux": 0.3586,
+        "pulse": 0.82,
+        "energy": 0.3964,
+        "calmEnergy": 0.1881,
+        "calmLow": 0.3035,
+        "calmHigh": 0.1684,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.6,
+        "rms": 0.2958,
+        "low": 0.4736,
+        "mid": 0.4619,
+        "high": 0.4812,
+        "centroid": 0.8524,
+        "flux": 0.3586,
+        "pulse": 0.6724,
+        "energy": 0.3929,
+        "calmEnergy": 0.1952,
+        "calmLow": 0.3086,
+        "calmHigh": 0.1778,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.633,
+        "rms": 0.2718,
+        "low": 0.4262,
+        "mid": 0.4157,
+        "high": 0.4513,
+        "centroid": 0.865,
+        "flux": 0.3007,
+        "pulse": 0.5514,
+        "energy": 0.3865,
+        "calmEnergy": 0.2019,
+        "calmLow": 0.3121,
+        "calmHigh": 0.186,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.667,
+        "rms": 0.2392,
+        "low": 0.3836,
+        "mid": 0.3742,
+        "high": 0.4109,
+        "centroid": 0.876,
+        "flux": 0.2503,
+        "pulse": 0.4521,
+        "energy": 0.3771,
+        "calmEnergy": 0.208,
+        "calmLow": 0.3143,
+        "calmHigh": 0.1927,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.7,
+        "rms": 0.2105,
+        "low": 0.3452,
+        "mid": 0.3367,
+        "high": 0.3616,
+        "centroid": 0.8766,
+        "flux": 0.2053,
+        "pulse": 0.3707,
+        "energy": 0.3654,
+        "calmEnergy": 0.2136,
+        "calmLow": 0.3152,
+        "calmHigh": 0.1978,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.733,
+        "rms": 0.2078,
+        "low": 0.4279,
+        "mid": 0.4519,
+        "high": 0.4423,
+        "centroid": 0.8466,
+        "flux": 0.6026,
+        "pulse": 1,
+        "energy": 0.3584,
+        "calmEnergy": 0.2186,
+        "calmLow": 0.3186,
+        "calmHigh": 0.2051,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.767,
+        "rms": 0.2003,
+        "low": 0.4032,
+        "mid": 0.4637,
+        "high": 0.4316,
+        "centroid": 0.8058,
+        "flux": 0.5041,
+        "pulse": 1,
+        "energy": 0.3514,
+        "calmEnergy": 0.2233,
+        "calmLow": 0.3211,
+        "calmHigh": 0.2119,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.8,
+        "rms": 0.1822,
+        "low": 0.3629,
+        "mid": 0.4801,
+        "high": 0.4064,
+        "centroid": 0.7654,
+        "flux": 0.4517,
+        "pulse": 0.8478,
+        "energy": 0.3435,
+        "calmEnergy": 0.2275,
+        "calmLow": 0.3224,
+        "calmHigh": 0.2178,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.833,
+        "rms": 0.1603,
+        "low": 0.3266,
+        "mid": 0.4321,
+        "high": 0.3657,
+        "centroid": 0.7368,
+        "flux": 0.3944,
+        "pulse": 0.6952,
+        "energy": 0.3334,
+        "calmEnergy": 0.2312,
+        "calmLow": 0.3225,
+        "calmHigh": 0.2222,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.867,
+        "rms": 0.2106,
+        "low": 0.4882,
+        "mid": 0.5338,
+        "high": 0.4247,
+        "centroid": 0.7307,
+        "flux": 0.6972,
+        "pulse": 1,
+        "energy": 0.3325,
+        "calmEnergy": 0.2347,
+        "calmLow": 0.3275,
+        "calmHigh": 0.2283,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.9,
+        "rms": 0.2426,
+        "low": 0.5549,
+        "mid": 0.6012,
+        "high": 0.4425,
+        "centroid": 0.7282,
+        "flux": 0.6146,
+        "pulse": 1,
+        "energy": 0.3421,
+        "calmEnergy": 0.2385,
+        "calmLow": 0.3343,
+        "calmHigh": 0.2347,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.933,
+        "rms": 0.2353,
+        "low": 0.5822,
+        "mid": 0.5933,
+        "high": 0.4222,
+        "centroid": 0.74,
+        "flux": 0.504,
+        "pulse": 0.82,
+        "energy": 0.3491,
+        "calmEnergy": 0.2424,
+        "calmLow": 0.3417,
+        "calmHigh": 0.2403,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 0.967,
+        "rms": 0.2205,
+        "low": 0.612,
+        "mid": 0.5791,
+        "high": 0.3925,
+        "centroid": 0.7389,
+        "flux": 0.4132,
+        "pulse": 0.6724,
+        "energy": 0.3528,
+        "calmEnergy": 0.2462,
+        "calmLow": 0.3498,
+        "calmHigh": 0.2449,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1,
+        "rms": 0.2016,
+        "low": 0.6278,
+        "mid": 0.5745,
+        "high": 0.3475,
+        "centroid": 0.7311,
+        "flux": 0.3765,
+        "pulse": 0.5514,
+        "energy": 0.3531,
+        "calmEnergy": 0.25,
+        "calmLow": 0.3582,
+        "calmHigh": 0.248,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.033,
+        "rms": 0.1786,
+        "low": 0.6214,
+        "mid": 0.5461,
+        "high": 0.3058,
+        "centroid": 0.7489,
+        "flux": 0.3685,
+        "pulse": 0.4521,
+        "energy": 0.3511,
+        "calmEnergy": 0.2535,
+        "calmLow": 0.3661,
+        "calmHigh": 0.2497,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.067,
+        "rms": 0.1572,
+        "low": 0.6044,
+        "mid": 0.4963,
+        "high": 0.2691,
+        "centroid": 0.7635,
+        "flux": 0.3256,
+        "pulse": 0.3707,
+        "energy": 0.3468,
+        "calmEnergy": 0.2568,
+        "calmLow": 0.3732,
+        "calmHigh": 0.2503,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.1,
+        "rms": 0.1383,
+        "low": 0.5916,
+        "mid": 0.4577,
+        "high": 0.2368,
+        "centroid": 0.7604,
+        "flux": 0.2862,
+        "pulse": 0.304,
+        "energy": 0.3408,
+        "calmEnergy": 0.2597,
+        "calmLow": 0.3798,
+        "calmHigh": 0.2501,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.133,
+        "rms": 0.1217,
+        "low": 0.5791,
+        "mid": 0.4125,
+        "high": 0.2084,
+        "centroid": 0.7646,
+        "flux": 0.2358,
+        "pulse": 0.2493,
+        "energy": 0.3332,
+        "calmEnergy": 0.2623,
+        "calmLow": 0.3857,
+        "calmHigh": 0.2493,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.167,
+        "rms": 0.1294,
+        "low": 0.5949,
+        "mid": 0.4934,
+        "high": 0.205,
+        "centroid": 0.7526,
+        "flux": 0.6179,
+        "pulse": 1,
+        "energy": 0.3287,
+        "calmEnergy": 0.2646,
+        "calmLow": 0.392,
+        "calmHigh": 0.2485,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.2,
+        "rms": 0.1293,
+        "low": 0.6088,
+        "mid": 0.615,
+        "high": 0.1804,
+        "centroid": 0.7152,
+        "flux": 0.5334,
+        "pulse": 1,
+        "energy": 0.3271,
+        "calmEnergy": 0.2668,
+        "calmLow": 0.3985,
+        "calmHigh": 0.2473,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.233,
+        "rms": 0.1151,
+        "low": 0.5972,
+        "mid": 0.6497,
+        "high": 0.1588,
+        "centroid": 0.6899,
+        "flux": 0.4637,
+        "pulse": 0.82,
+        "energy": 0.3252,
+        "calmEnergy": 0.2688,
+        "calmLow": 0.4045,
+        "calmHigh": 0.2457,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.267,
+        "rms": 0.1013,
+        "low": 0.5529,
+        "mid": 0.6508,
+        "high": 0.1397,
+        "centroid": 0.662,
+        "flux": 0.458,
+        "pulse": 0.6724,
+        "energy": 0.3217,
+        "calmEnergy": 0.2707,
+        "calmLow": 0.4089,
+        "calmHigh": 0.2438,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.3,
+        "rms": 0.1127,
+        "low": 0.6391,
+        "mid": 0.6313,
+        "high": 0.1362,
+        "centroid": 0.6581,
+        "flux": 0.729,
+        "pulse": 1,
+        "energy": 0.3207,
+        "calmEnergy": 0.2724,
+        "calmLow": 0.4158,
+        "calmHigh": 0.2418,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.333,
+        "rms": 0.1443,
+        "low": 0.6286,
+        "mid": 0.6165,
+        "high": 0.1685,
+        "centroid": 0.6875,
+        "flux": 0.6549,
+        "pulse": 1,
+        "energy": 0.3221,
+        "calmEnergy": 0.2742,
+        "calmLow": 0.4222,
+        "calmHigh": 0.2405,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.367,
+        "rms": 0.1331,
+        "low": 0.6187,
+        "mid": 0.5831,
+        "high": 0.1561,
+        "centroid": 0.7121,
+        "flux": 0.537,
+        "pulse": 0.82,
+        "energy": 0.321,
+        "calmEnergy": 0.2758,
+        "calmLow": 0.4281,
+        "calmHigh": 0.239,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.4,
+        "rms": 0.1171,
+        "low": 0.5926,
+        "mid": 0.546,
+        "high": 0.1374,
+        "centroid": 0.7384,
+        "flux": 0.4404,
+        "pulse": 0.6724,
+        "energy": 0.3178,
+        "calmEnergy": 0.2773,
+        "calmLow": 0.4331,
+        "calmHigh": 0.2372,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.433,
+        "rms": 0.1093,
+        "low": 0.592,
+        "mid": 0.5082,
+        "high": 0.1209,
+        "centroid": 0.756,
+        "flux": 0.6668,
+        "pulse": 1,
+        "energy": 0.3138,
+        "calmEnergy": 0.2786,
+        "calmLow": 0.4378,
+        "calmHigh": 0.2351,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.467,
+        "rms": 0.1374,
+        "low": 0.5357,
+        "mid": 0.5072,
+        "high": 0.2428,
+        "centroid": 0.7286,
+        "flux": 0.6799,
+        "pulse": 1,
+        "energy": 0.3108,
+        "calmEnergy": 0.2797,
+        "calmLow": 0.4408,
+        "calmHigh": 0.2353,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.5,
+        "rms": 0.1293,
+        "low": 0.5159,
+        "mid": 0.5022,
+        "high": 0.239,
+        "centroid": 0.7034,
+        "flux": 0.5676,
+        "pulse": 0.82,
+        "energy": 0.3071,
+        "calmEnergy": 0.2807,
+        "calmLow": 0.443,
+        "calmHigh": 0.2354,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.533,
+        "rms": 0.1138,
+        "low": 0.4862,
+        "mid": 0.452,
+        "high": 0.2155,
+        "centroid": 0.6895,
+        "flux": 0.4661,
+        "pulse": 0.6724,
+        "energy": 0.3013,
+        "calmEnergy": 0.2814,
+        "calmLow": 0.4443,
+        "calmHigh": 0.2351,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.567,
+        "rms": 0.1001,
+        "low": 0.4375,
+        "mid": 0.4234,
+        "high": 0.1896,
+        "centroid": 0.6791,
+        "flux": 0.4155,
+        "pulse": 0.5514,
+        "energy": 0.2938,
+        "calmEnergy": 0.2818,
+        "calmLow": 0.4442,
+        "calmHigh": 0.2342,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.6,
+        "rms": 0.1822,
+        "low": 0.5725,
+        "mid": 0.5618,
+        "high": 0.3211,
+        "centroid": 0.6782,
+        "flux": 0.7077,
+        "pulse": 1,
+        "energy": 0.3028,
+        "calmEnergy": 0.2825,
+        "calmLow": 0.448,
+        "calmHigh": 0.2369,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.633,
+        "rms": 0.1964,
+        "low": 0.6751,
+        "mid": 0.6481,
+        "high": 0.3131,
+        "centroid": 0.673,
+        "flux": 0.5803,
+        "pulse": 0.82,
+        "energy": 0.3212,
+        "calmEnergy": 0.2839,
+        "calmLow": 0.4548,
+        "calmHigh": 0.2391,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.667,
+        "rms": 0.186,
+        "low": 0.734,
+        "mid": 0.6723,
+        "high": 0.2779,
+        "centroid": 0.6749,
+        "flux": 0.4759,
+        "pulse": 0.6724,
+        "energy": 0.3373,
+        "calmEnergy": 0.2858,
+        "calmLow": 0.4632,
+        "calmHigh": 0.2403,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.7,
+        "rms": 0.167,
+        "low": 0.7491,
+        "mid": 0.6648,
+        "high": 0.2445,
+        "centroid": 0.6741,
+        "flux": 0.3902,
+        "pulse": 0.5514,
+        "energy": 0.3466,
+        "calmEnergy": 0.2879,
+        "calmLow": 0.4718,
+        "calmHigh": 0.2404,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.733,
+        "rms": 0.1603,
+        "low": 0.7563,
+        "mid": 0.6541,
+        "high": 0.2152,
+        "centroid": 0.705,
+        "flux": 0.4694,
+        "pulse": 0.4521,
+        "energy": 0.3522,
+        "calmEnergy": 0.2901,
+        "calmLow": 0.4803,
+        "calmHigh": 0.24,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.767,
+        "rms": 0.1514,
+        "low": 0.7576,
+        "mid": 0.6507,
+        "high": 0.1894,
+        "centroid": 0.7019,
+        "flux": 0.3849,
+        "pulse": 0.3707,
+        "energy": 0.3549,
+        "calmEnergy": 0.2924,
+        "calmLow": 0.4887,
+        "calmHigh": 0.2391,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.8,
+        "rms": 0.1332,
+        "low": 0.7475,
+        "mid": 0.6168,
+        "high": 0.1666,
+        "centroid": 0.6917,
+        "flux": 0.3156,
+        "pulse": 0.304,
+        "energy": 0.3537,
+        "calmEnergy": 0.2946,
+        "calmLow": 0.4964,
+        "calmHigh": 0.2378,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 1.833,
+        "rms": 0.1173,
+        "low": 0.6987,
+        "mid": 0.5551,
+        "high": 0.1467,
+        "centroid": 0.6958,
+        "flux": 0.2588,
+        "pulse": 0.2493,
+        "energy": 0.3496,
+        "calmEnergy": 0.2965,
+        "calmLow": 0.5025,
+        "calmHigh": 0.2361,
+        "mix": [
+          0.999,
+          0.001,
+          0
+        ]
+      },
+      {
+        "t": 1.867,
+        "rms": 0.1339,
+        "low": 0.6834,
+        "mid": 0.5081,
+        "high": 0.1291,
+        "centroid": 0.6923,
+        "flux": 0.6294,
+        "pulse": 1,
+        "energy": 0.3458,
+        "calmEnergy": 0.2982,
+        "calmLow": 0.5079,
+        "calmHigh": 0.2342,
+        "mix": [
+          0.997,
+          0.003,
+          0
+        ]
+      },
+      {
+        "t": 1.9,
+        "rms": 0.2806,
+        "low": 0.6614,
+        "mid": 0.4816,
+        "high": 0.3408,
+        "centroid": 0.7528,
+        "flux": 0.8147,
+        "pulse": 1,
+        "energy": 0.358,
+        "calmEnergy": 0.3003,
+        "calmLow": 0.5125,
+        "calmHigh": 0.2374,
+        "mix": [
+          0.996,
+          0.004,
+          0
+        ]
+      },
+      {
+        "t": 1.933,
+        "rms": 0.2986,
+        "low": 0.5952,
+        "mid": 0.4408,
+        "high": 0.4134,
+        "centroid": 0.7973,
+        "flux": 0.6681,
+        "pulse": 1,
+        "energy": 0.3647,
+        "calmEnergy": 0.3026,
+        "calmLow": 0.515,
+        "calmHigh": 0.2427,
+        "mix": [
+          0.993,
+          0.007,
+          0
+        ]
+      },
+      {
+        "t": 1.967,
+        "rms": 0.2907,
+        "low": 0.5357,
+        "mid": 0.3968,
+        "high": 0.4415,
+        "centroid": 0.8238,
+        "flux": 0.5528,
+        "pulse": 0.82,
+        "energy": 0.3641,
+        "calmEnergy": 0.3047,
+        "calmLow": 0.5156,
+        "calmHigh": 0.2486,
+        "mix": [
+          0.99,
+          0.01,
+          0
+        ]
+      },
+      {
+        "t": 2,
+        "rms": 0.2749,
+        "low": 0.4821,
+        "mid": 0.3571,
+        "high": 0.4304,
+        "centroid": 0.8519,
+        "flux": 0.4543,
+        "pulse": 0.6724,
+        "energy": 0.3608,
+        "calmEnergy": 0.3067,
+        "calmLow": 0.515,
+        "calmHigh": 0.2541,
+        "mix": [
+          0.987,
+          0.013,
+          0
+        ]
+      },
+      {
+        "t": 2.033,
+        "rms": 0.2694,
+        "low": 0.5524,
+        "mid": 0.4076,
+        "high": 0.4767,
+        "centroid": 0.8435,
+        "flux": 0.7272,
+        "pulse": 1,
+        "energy": 0.3598,
+        "calmEnergy": 0.3085,
+        "calmLow": 0.5161,
+        "calmHigh": 0.2608,
+        "mix": [
+          0.983,
+          0.017,
+          0
+        ]
+      },
+      {
+        "t": 2.067,
+        "rms": 0.2567,
+        "low": 0.515,
+        "mid": 0.3902,
+        "high": 0.4621,
+        "centroid": 0.8414,
+        "flux": 0.5963,
+        "pulse": 0.82,
+        "energy": 0.357,
+        "calmEnergy": 0.3102,
+        "calmLow": 0.5161,
+        "calmHigh": 0.2668,
+        "mix": [
+          0.978,
+          0.022,
+          0
+        ]
+      },
+      {
+        "t": 2.1,
+        "rms": 0.2358,
+        "low": 0.5248,
+        "mid": 0.3588,
+        "high": 0.4277,
+        "centroid": 0.8404,
+        "flux": 0.4991,
+        "pulse": 0.6724,
+        "energy": 0.3529,
+        "calmEnergy": 0.3117,
+        "calmLow": 0.5164,
+        "calmHigh": 0.2716,
+        "mix": [
+          0.973,
+          0.027,
+          0
+        ]
+      },
+      {
+        "t": 2.133,
+        "rms": 0.2075,
+        "low": 0.52,
+        "mid": 0.3412,
+        "high": 0.3794,
+        "centroid": 0.8392,
+        "flux": 0.4515,
+        "pulse": 0.5514,
+        "energy": 0.347,
+        "calmEnergy": 0.313,
+        "calmLow": 0.5165,
+        "calmHigh": 0.2749,
+        "mix": [
+          0.968,
+          0.032,
+          0
+        ]
+      },
+      {
+        "t": 2.167,
+        "rms": 0.1956,
+        "low": 0.5052,
+        "mid": 0.3071,
+        "high": 0.3534,
+        "centroid": 0.8353,
+        "flux": 0.7126,
+        "pulse": 1,
+        "energy": 0.3401,
+        "calmEnergy": 0.3139,
+        "calmLow": 0.5163,
+        "calmHigh": 0.2772,
+        "mix": [
+          0.962,
+          0.038,
+          0
+        ]
+      },
+      {
+        "t": 2.2,
+        "rms": 0.1902,
+        "low": 0.4801,
+        "mid": 0.3788,
+        "high": 0.3491,
+        "centroid": 0.8021,
+        "flux": 0.6447,
+        "pulse": 0.82,
+        "energy": 0.3343,
+        "calmEnergy": 0.3146,
+        "calmLow": 0.5156,
+        "calmHigh": 0.2794,
+        "mix": [
+          0.955,
+          0.045,
+          0
+        ]
+      },
+      {
+        "t": 2.233,
+        "rms": 0.1674,
+        "low": 0.4417,
+        "mid": 0.3763,
+        "high": 0.321,
+        "centroid": 0.772,
+        "flux": 0.5322,
+        "pulse": 0.6724,
+        "energy": 0.3268,
+        "calmEnergy": 0.3151,
+        "calmLow": 0.5143,
+        "calmHigh": 0.2806,
+        "mix": [
+          0.949,
+          0.051,
+          0
+        ]
+      },
+      {
+        "t": 2.267,
+        "rms": 0.1473,
+        "low": 0.4199,
+        "mid": 0.3387,
+        "high": 0.2825,
+        "centroid": 0.7598,
+        "flux": 0.4743,
+        "pulse": 0.5514,
+        "energy": 0.3178,
+        "calmEnergy": 0.3151,
+        "calmLow": 0.5126,
+        "calmHigh": 0.2807,
+        "mix": [
+          0.941,
+          0.059,
+          0
+        ]
+      },
+      {
+        "t": 2.3,
+        "rms": 0.1352,
+        "low": 0.4281,
+        "mid": 0.3071,
+        "high": 0.2486,
+        "centroid": 0.7543,
+        "flux": 0.7372,
+        "pulse": 1,
+        "energy": 0.3085,
+        "calmEnergy": 0.315,
+        "calmLow": 0.5111,
+        "calmHigh": 0.2801,
+        "mix": [
+          0.934,
+          0.066,
+          0
+        ]
+      },
+      {
+        "t": 2.333,
+        "rms": 0.1785,
+        "low": 0.4119,
+        "mid": 0.4118,
+        "high": 0.3101,
+        "centroid": 0.7497,
+        "flux": 0.7174,
+        "pulse": 1,
+        "energy": 0.3044,
+        "calmEnergy": 0.3148,
+        "calmLow": 0.5093,
+        "calmHigh": 0.281,
+        "mix": [
+          0.926,
+          0.074,
+          0
+        ]
+      },
+      {
+        "t": 2.367,
+        "rms": 0.1697,
+        "low": 0.3979,
+        "mid": 0.4862,
+        "high": 0.2869,
+        "centroid": 0.7408,
+        "flux": 0.603,
+        "pulse": 0.82,
+        "energy": 0.3011,
+        "calmEnergy": 0.3145,
+        "calmLow": 0.5073,
+        "calmHigh": 0.2812,
+        "mix": [
+          0.918,
+          0.082,
+          0
+        ]
+      },
+      {
+        "t": 2.4,
+        "rms": 0.1493,
+        "low": 0.3581,
+        "mid": 0.4772,
+        "high": 0.2525,
+        "centroid": 0.7324,
+        "flux": 0.4945,
+        "pulse": 0.6724,
+        "energy": 0.296,
+        "calmEnergy": 0.3142,
+        "calmLow": 0.5046,
+        "calmHigh": 0.2807,
+        "mix": [
+          0.909,
+          0.091,
+          0
+        ]
+      },
+      {
+        "t": 2.433,
+        "rms": 0.1314,
+        "low": 0.3518,
+        "mid": 0.4462,
+        "high": 0.2222,
+        "centroid": 0.7186,
+        "flux": 0.4361,
+        "pulse": 0.5514,
+        "energy": 0.2897,
+        "calmEnergy": 0.3137,
+        "calmLow": 0.5019,
+        "calmHigh": 0.2796,
+        "mix": [
+          0.9,
+          0.1,
+          0
+        ]
+      },
+      {
+        "t": 2.467,
+        "rms": 0.1157,
+        "low": 0.4014,
+        "mid": 0.433,
+        "high": 0.2065,
+        "centroid": 0.743,
+        "flux": 0.6635,
+        "pulse": 0.8022,
+        "energy": 0.2837,
+        "calmEnergy": 0.3131,
+        "calmLow": 0.5001,
+        "calmHigh": 0.2783,
+        "mix": [
+          0.89,
+          0.11,
+          0
+        ]
+      },
+      {
+        "t": 2.5,
+        "rms": 0.1018,
+        "low": 0.4012,
+        "mid": 0.3897,
+        "high": 0.1817,
+        "centroid": 0.7352,
+        "flux": 0.5441,
+        "pulse": 0.6578,
+        "energy": 0.2767,
+        "calmEnergy": 0.3123,
+        "calmLow": 0.4983,
+        "calmHigh": 0.2766,
+        "mix": [
+          0.881,
+          0.119,
+          0
+        ]
+      },
+      {
+        "t": 2.533,
+        "rms": 0.0896,
+        "low": 0.3972,
+        "mid": 0.3649,
+        "high": 0.1599,
+        "centroid": 0.7185,
+        "flux": 0.501,
+        "pulse": 0.5394,
+        "energy": 0.2691,
+        "calmEnergy": 0.3115,
+        "calmLow": 0.4965,
+        "calmHigh": 0.2745,
+        "mix": [
+          0.87,
+          0.13,
+          0
+        ]
+      },
+      {
+        "t": 2.567,
+        "rms": 0.0788,
+        "low": 0.3597,
+        "mid": 0.3284,
+        "high": 0.1407,
+        "centroid": 0.7088,
+        "flux": 0.4384,
+        "pulse": 0.4423,
+        "energy": 0.2601,
+        "calmEnergy": 0.3104,
+        "calmLow": 0.494,
+        "calmHigh": 0.2721,
+        "mix": [
+          0.86,
+          0.14,
+          0
+        ]
+      },
+      {
+        "t": 2.6,
+        "rms": 0.1439,
+        "low": 0.5133,
+        "mid": 0.4141,
+        "high": 0.226,
+        "centroid": 0.707,
+        "flux": 0.7192,
+        "pulse": 1,
+        "energy": 0.2618,
+        "calmEnergy": 0.3095,
+        "calmLow": 0.4946,
+        "calmHigh": 0.2712,
+        "mix": [
+          0.849,
+          0.151,
+          0
+        ]
+      },
+      {
+        "t": 2.633,
+        "rms": 0.1972,
+        "low": 0.6164,
+        "mid": 0.5351,
+        "high": 0.262,
+        "centroid": 0.6975,
+        "flux": 0.6153,
+        "pulse": 0.82,
+        "energy": 0.2826,
+        "calmEnergy": 0.3089,
+        "calmLow": 0.4982,
+        "calmHigh": 0.2711,
+        "mix": [
+          0.838,
+          0.162,
+          0
+        ]
+      },
+      {
+        "t": 2.667,
+        "rms": 0.1827,
+        "low": 0.668,
+        "mid": 0.5771,
+        "high": 0.2337,
+        "centroid": 0.6891,
+        "flux": 0.5096,
+        "pulse": 0.6724,
+        "energy": 0.3003,
+        "calmEnergy": 0.3088,
+        "calmLow": 0.5033,
+        "calmHigh": 0.2704,
+        "mix": [
+          0.827,
+          0.173,
+          0
+        ]
+      },
+      {
+        "t": 2.7,
+        "rms": 0.1608,
+        "low": 0.685,
+        "mid": 0.5569,
+        "high": 0.2057,
+        "centroid": 0.697,
+        "flux": 0.4233,
+        "pulse": 0.5514,
+        "energy": 0.3098,
+        "calmEnergy": 0.3088,
+        "calmLow": 0.5088,
+        "calmHigh": 0.2692,
+        "mix": [
+          0.815,
+          0.185,
+          0
+        ]
+      },
+      {
+        "t": 2.733,
+        "rms": 0.2072,
+        "low": 0.7606,
+        "mid": 0.5412,
+        "high": 0.1999,
+        "centroid": 0.6911,
+        "flux": 0.7116,
+        "pulse": 1,
+        "energy": 0.3276,
+        "calmEnergy": 0.3095,
+        "calmLow": 0.5163,
+        "calmHigh": 0.268,
+        "mix": [
+          0.803,
+          0.197,
+          0
+        ]
+      },
+      {
+        "t": 2.767,
+        "rms": 0.3552,
+        "low": 0.7282,
+        "mid": 0.5311,
+        "high": 0.4018,
+        "centroid": 0.7474,
+        "flux": 0.7382,
+        "pulse": 1,
+        "energy": 0.3624,
+        "calmEnergy": 0.3113,
+        "calmLow": 0.5227,
+        "calmHigh": 0.272,
+        "mix": [
+          0.791,
+          0.209,
+          0
+        ]
+      },
+      {
+        "t": 2.8,
+        "rms": 0.3789,
+        "low": 0.6554,
+        "mid": 0.4916,
+        "high": 0.4916,
+        "centroid": 0.7902,
+        "flux": 0.6053,
+        "pulse": 0.82,
+        "energy": 0.3863,
+        "calmEnergy": 0.3139,
+        "calmLow": 0.5267,
+        "calmHigh": 0.2786,
+        "mix": [
+          0.779,
+          0.221,
+          0
+        ]
+      },
+      {
+        "t": 2.833,
+        "rms": 0.3702,
+        "low": 0.5899,
+        "mid": 0.4424,
+        "high": 0.5181,
+        "centroid": 0.8255,
+        "flux": 0.4963,
+        "pulse": 0.6724,
+        "energy": 0.3969,
+        "calmEnergy": 0.3168,
+        "calmLow": 0.5286,
+        "calmHigh": 0.2858,
+        "mix": [
+          0.766,
+          0.234,
+          0
+        ]
+      },
+      {
+        "t": 2.867,
+        "rms": 0.3467,
+        "low": 0.5309,
+        "mid": 0.3982,
+        "high": 0.4998,
+        "centroid": 0.8503,
+        "flux": 0.407,
+        "pulse": 0.5514,
+        "energy": 0.3965,
+        "calmEnergy": 0.3196,
+        "calmLow": 0.5286,
+        "calmHigh": 0.2922,
+        "mix": [
+          0.754,
+          0.246,
+          0
+        ]
+      },
+      {
+        "t": 2.9,
+        "rms": 0.3095,
+        "low": 0.4947,
+        "mid": 0.3587,
+        "high": 0.4543,
+        "centroid": 0.8471,
+        "flux": 0.3984,
+        "pulse": 0.4521,
+        "energy": 0.3924,
+        "calmEnergy": 0.3222,
+        "calmLow": 0.528,
+        "calmHigh": 0.297,
+        "mix": [
+          0.741,
+          0.259,
+          0
+        ]
+      },
+      {
+        "t": 2.933,
+        "rms": 0.2724,
+        "low": 0.4452,
+        "mid": 0.3228,
+        "high": 0.3998,
+        "centroid": 0.8431,
+        "flux": 0.3387,
+        "pulse": 0.3707,
+        "energy": 0.3848,
+        "calmEnergy": 0.3244,
+        "calmLow": 0.5265,
+        "calmHigh": 0.3001,
+        "mix": [
+          0.728,
+          0.272,
+          0
+        ]
+      },
+      {
+        "t": 2.967,
+        "rms": 0.2397,
+        "low": 0.4007,
+        "mid": 0.2905,
+        "high": 0.3518,
+        "centroid": 0.832,
+        "flux": 0.3269,
+        "pulse": 0.304,
+        "energy": 0.3744,
+        "calmEnergy": 0.3261,
+        "calmLow": 0.5243,
+        "calmHigh": 0.3017,
+        "mix": [
+          0.714,
+          0.286,
+          0
+        ]
+      },
+      {
+        "t": 3,
+        "rms": 0.2109,
+        "low": 0.3606,
+        "mid": 0.2615,
+        "high": 0.3096,
+        "centroid": 0.8285,
+        "flux": 0.3151,
+        "pulse": 0.2493,
+        "energy": 0.3619,
+        "calmEnergy": 0.3274,
+        "calmLow": 0.5213,
+        "calmHigh": 0.3019,
+        "mix": [
+          0.701,
+          0.299,
+          0
+        ]
+      },
+      {
+        "t": 3.033,
+        "rms": 0.1948,
+        "low": 0.4272,
+        "mid": 0.3027,
+        "high": 0.3091,
+        "centroid": 0.8102,
+        "flux": 0.6576,
+        "pulse": 1,
+        "energy": 0.3518,
+        "calmEnergy": 0.3282,
+        "calmLow": 0.5196,
+        "calmHigh": 0.3021,
+        "mix": [
+          0.687,
+          0.313,
+          0
+        ]
+      },
+      {
+        "t": 3.067,
+        "rms": 0.1902,
+        "low": 0.3926,
+        "mid": 0.397,
+        "high": 0.3534,
+        "centroid": 0.7696,
+        "flux": 0.5838,
+        "pulse": 0.8654,
+        "energy": 0.3434,
+        "calmEnergy": 0.3288,
+        "calmLow": 0.5173,
+        "calmHigh": 0.3037,
+        "mix": [
+          0.673,
+          0.327,
+          0
+        ]
+      },
+      {
+        "t": 3.1,
+        "rms": 0.1774,
+        "low": 0.3873,
+        "mid": 0.3856,
+        "high": 0.3399,
+        "centroid": 0.7406,
+        "flux": 0.4944,
+        "pulse": 0.7096,
+        "energy": 0.3348,
+        "calmEnergy": 0.329,
+        "calmLow": 0.515,
+        "calmHigh": 0.3048,
+        "mix": [
+          0.659,
+          0.341,
+          0
+        ]
+      },
+      {
+        "t": 3.133,
+        "rms": 0.1582,
+        "low": 0.3638,
+        "mid": 0.3683,
+        "high": 0.3065,
+        "centroid": 0.7163,
+        "flux": 0.4054,
+        "pulse": 0.5819,
+        "energy": 0.325,
+        "calmEnergy": 0.3289,
+        "calmLow": 0.5123,
+        "calmHigh": 0.3048,
+        "mix": [
+          0.645,
+          0.355,
+          0
+        ]
+      },
+      {
+        "t": 3.167,
+        "rms": 0.2148,
+        "low": 0.4418,
+        "mid": 0.4025,
+        "high": 0.3205,
+        "centroid": 0.7016,
+        "flux": 0.7027,
+        "pulse": 1,
+        "energy": 0.3219,
+        "calmEnergy": 0.3288,
+        "calmLow": 0.511,
+        "calmHigh": 0.3053,
+        "mix": [
+          0.631,
+          0.369,
+          0
+        ]
+      },
+      {
+        "t": 3.2,
+        "rms": 0.3112,
+        "low": 0.5566,
+        "mid": 0.5277,
+        "high": 0.411,
+        "centroid": 0.7191,
+        "flux": 0.6903,
+        "pulse": 1,
+        "energy": 0.342,
+        "calmEnergy": 0.3292,
+        "calmLow": 0.5124,
+        "calmHigh": 0.3085,
+        "mix": [
+          0.617,
+          0.383,
+          0
+        ]
+      },
+      {
+        "t": 3.233,
+        "rms": 0.3035,
+        "low": 0.6137,
+        "mid": 0.5667,
+        "high": 0.4039,
+        "centroid": 0.7257,
+        "flux": 0.5661,
+        "pulse": 0.82,
+        "energy": 0.3605,
+        "calmEnergy": 0.3303,
+        "calmLow": 0.5154,
+        "calmHigh": 0.3113,
+        "mix": [
+          0.602,
+          0.398,
+          0
+        ]
+      },
+      {
+        "t": 3.267,
+        "rms": 0.2829,
+        "low": 0.6375,
+        "mid": 0.5605,
+        "high": 0.3781,
+        "centroid": 0.7346,
+        "flux": 0.4642,
+        "pulse": 0.6724,
+        "energy": 0.3717,
+        "calmEnergy": 0.3318,
+        "calmLow": 0.5191,
+        "calmHigh": 0.3133,
+        "mix": [
+          0.588,
+          0.412,
+          0
+        ]
+      },
+      {
+        "t": 3.3,
+        "rms": 0.2556,
+        "low": 0.6499,
+        "mid": 0.5504,
+        "high": 0.3327,
+        "centroid": 0.7315,
+        "flux": 0.3806,
+        "pulse": 0.5514,
+        "energy": 0.3758,
+        "calmEnergy": 0.3333,
+        "calmLow": 0.523,
+        "calmHigh": 0.3139,
+        "mix": [
+          0.573,
+          0.427,
+          0
+        ]
+      },
+      {
+        "t": 3.333,
+        "rms": 0.2298,
+        "low": 0.6377,
+        "mid": 0.5518,
+        "high": 0.3104,
+        "centroid": 0.7286,
+        "flux": 0.4027,
+        "pulse": 0.4521,
+        "energy": 0.3752,
+        "calmEnergy": 0.3348,
+        "calmLow": 0.5264,
+        "calmHigh": 0.3138,
+        "mix": [
+          0.559,
+          0.441,
+          0
+        ]
+      },
+      {
+        "t": 3.367,
+        "rms": 0.2022,
+        "low": 0.6212,
+        "mid": 0.4966,
+        "high": 0.2732,
+        "centroid": 0.7434,
+        "flux": 0.3669,
+        "pulse": 0.3707,
+        "energy": 0.3716,
+        "calmEnergy": 0.3361,
+        "calmLow": 0.5293,
+        "calmHigh": 0.3131,
+        "mix": [
+          0.544,
+          0.456,
+          0
+        ]
+      },
+      {
+        "t": 3.4,
+        "rms": 0.1779,
+        "low": 0.6174,
+        "mid": 0.447,
+        "high": 0.2404,
+        "centroid": 0.7611,
+        "flux": 0.3486,
+        "pulse": 0.304,
+        "energy": 0.3658,
+        "calmEnergy": 0.3371,
+        "calmLow": 0.5319,
+        "calmHigh": 0.3118,
+        "mix": [
+          0.529,
+          0.471,
+          0
+        ]
+      },
+      {
+        "t": 3.433,
+        "rms": 0.1566,
+        "low": 0.5952,
+        "mid": 0.4023,
+        "high": 0.2115,
+        "centroid": 0.759,
+        "flux": 0.3968,
+        "pulse": 0.2493,
+        "energy": 0.3581,
+        "calmEnergy": 0.3378,
+        "calmLow": 0.5338,
+        "calmHigh": 0.31,
+        "mix": [
+          0.515,
+          0.485,
+          0
+        ]
+      },
+      {
+        "t": 3.467,
+        "rms": 0.3534,
+        "low": 0.5744,
+        "mid": 0.5457,
+        "high": 0.4481,
+        "centroid": 0.7587,
+        "flux": 0.6984,
+        "pulse": 1,
+        "energy": 0.3774,
+        "calmEnergy": 0.3392,
+        "calmLow": 0.535,
+        "calmHigh": 0.3141,
+        "mix": [
+          0.5,
+          0.5,
+          0
+        ]
+      },
+      {
+        "t": 3.5,
+        "rms": 0.5991,
+        "low": 0.517,
+        "mid": 0.6548,
+        "high": 0.6136,
+        "centroid": 0.818,
+        "flux": 0.5996,
+        "pulse": 0.9339,
+        "energy": 0.4334,
+        "calmEnergy": 0.3425,
+        "calmLow": 0.5347,
+        "calmHigh": 0.3231,
+        "mix": [
+          0.485,
+          0.515,
+          0
+        ]
+      },
+      {
+        "t": 3.533,
+        "rms": 0.7515,
+        "low": 0.4653,
+        "mid": 0.5893,
+        "high": 0.7296,
+        "centroid": 0.869,
+        "flux": 0.5087,
+        "pulse": 0.7658,
+        "energy": 0.4936,
+        "calmEnergy": 0.3478,
+        "calmLow": 0.5335,
+        "calmHigh": 0.3353,
+        "mix": [
+          0.471,
+          0.529,
+          0
+        ]
+      },
+      {
+        "t": 3.567,
+        "rms": 0.7397,
+        "low": 0.4187,
+        "mid": 0.5575,
+        "high": 0.744,
+        "centroid": 0.896,
+        "flux": 0.4171,
+        "pulse": 0.6279,
+        "energy": 0.5324,
+        "calmEnergy": 0.3543,
+        "calmLow": 0.5314,
+        "calmHigh": 0.3476,
+        "mix": [
+          0.456,
+          0.544,
+          0
+        ]
+      },
+      {
+        "t": 3.6,
+        "rms": 0.6872,
+        "low": 0.4038,
+        "mid": 0.5018,
+        "high": 0.6725,
+        "centroid": 0.9042,
+        "flux": 0.3849,
+        "pulse": 0.5149,
+        "energy": 0.5492,
+        "calmEnergy": 0.3611,
+        "calmLow": 0.5291,
+        "calmHigh": 0.3573,
+        "mix": [
+          0.441,
+          0.559,
+          0
+        ]
+      },
+      {
+        "t": 3.633,
+        "rms": 0.6461,
+        "low": 0.4411,
+        "mid": 0.4766,
+        "high": 0.6574,
+        "centroid": 0.9058,
+        "flux": 0.5778,
+        "pulse": 0.782,
+        "energy": 0.5558,
+        "calmEnergy": 0.3679,
+        "calmLow": 0.5275,
+        "calmHigh": 0.3663,
+        "mix": [
+          0.427,
+          0.573,
+          0
+        ]
+      },
+      {
+        "t": 3.667,
+        "rms": 0.5966,
+        "low": 0.4651,
+        "mid": 0.4416,
+        "high": 0.637,
+        "centroid": 0.9017,
+        "flux": 0.5072,
+        "pulse": 0.6412,
+        "energy": 0.5545,
+        "calmEnergy": 0.3744,
+        "calmLow": 0.5264,
+        "calmHigh": 0.3744,
+        "mix": [
+          0.412,
+          0.588,
+          0
+        ]
+      },
+      {
+        "t": 3.7,
+        "rms": 0.5476,
+        "low": 0.4461,
+        "mid": 0.4117,
+        "high": 0.6014,
+        "centroid": 0.899,
+        "flux": 0.4203,
+        "pulse": 0.5258,
+        "energy": 0.5493,
+        "calmEnergy": 0.3805,
+        "calmLow": 0.525,
+        "calmHigh": 0.3813,
+        "mix": [
+          0.398,
+          0.602,
+          0
+        ]
+      },
+      {
+        "t": 3.733,
+        "rms": 0.505,
+        "low": 0.4339,
+        "mid": 0.3845,
+        "high": 0.5672,
+        "centroid": 0.9063,
+        "flux": 0.3778,
+        "pulse": 0.4312,
+        "energy": 0.5413,
+        "calmEnergy": 0.3862,
+        "calmLow": 0.5233,
+        "calmHigh": 0.3868,
+        "mix": [
+          0.383,
+          0.617,
+          0
+        ]
+      },
+      {
+        "t": 3.767,
+        "rms": 0.4826,
+        "low": 0.4531,
+        "mid": 0.3989,
+        "high": 0.5904,
+        "centroid": 0.8761,
+        "flux": 0.6695,
+        "pulse": 1,
+        "energy": 0.5333,
+        "calmEnergy": 0.3913,
+        "calmLow": 0.5221,
+        "calmHigh": 0.3929,
+        "mix": [
+          0.369,
+          0.631,
+          0
+        ]
+      },
+      {
+        "t": 3.8,
+        "rms": 0.4571,
+        "low": 0.4078,
+        "mid": 0.4526,
+        "high": 0.5905,
+        "centroid": 0.842,
+        "flux": 0.5619,
+        "pulse": 0.82,
+        "energy": 0.5246,
+        "calmEnergy": 0.396,
+        "calmLow": 0.52,
+        "calmHigh": 0.3989,
+        "mix": [
+          0.355,
+          0.645,
+          0
+        ]
+      },
+      {
+        "t": 3.833,
+        "rms": 0.4257,
+        "low": 0.367,
+        "mid": 0.4073,
+        "high": 0.5756,
+        "centroid": 0.8315,
+        "flux": 0.495,
+        "pulse": 0.6724,
+        "energy": 0.5132,
+        "calmEnergy": 0.4001,
+        "calmLow": 0.5172,
+        "calmHigh": 0.4042,
+        "mix": [
+          0.341,
+          0.659,
+          0
+        ]
+      },
+      {
+        "t": 3.867,
+        "rms": 0.395,
+        "low": 0.3303,
+        "mid": 0.3809,
+        "high": 0.5606,
+        "centroid": 0.8186,
+        "flux": 0.4545,
+        "pulse": 0.5514,
+        "energy": 0.4999,
+        "calmEnergy": 0.4036,
+        "calmLow": 0.5139,
+        "calmHigh": 0.4089,
+        "mix": [
+          0.327,
+          0.673,
+          0
+        ]
+      },
+      {
+        "t": 3.9,
+        "rms": 0.3931,
+        "low": 0.4425,
+        "mid": 0.5295,
+        "high": 0.5796,
+        "centroid": 0.8066,
+        "flux": 0.7272,
+        "pulse": 1,
+        "energy": 0.4926,
+        "calmEnergy": 0.4067,
+        "calmLow": 0.5126,
+        "calmHigh": 0.414,
+        "mix": [
+          0.313,
+          0.687,
+          0
+        ]
+      },
+      {
+        "t": 3.933,
+        "rms": 0.3911,
+        "low": 0.5679,
+        "mid": 0.6351,
+        "high": 0.5715,
+        "centroid": 0.8018,
+        "flux": 0.612,
+        "pulse": 0.82,
+        "energy": 0.4904,
+        "calmEnergy": 0.4096,
+        "calmLow": 0.5143,
+        "calmHigh": 0.4187,
+        "mix": [
+          0.299,
+          0.701,
+          0
+        ]
+      },
+      {
+        "t": 3.967,
+        "rms": 0.3824,
+        "low": 0.6231,
+        "mid": 0.6571,
+        "high": 0.5625,
+        "centroid": 0.7992,
+        "flux": 0.5363,
+        "pulse": 0.6724,
+        "energy": 0.4894,
+        "calmEnergy": 0.4124,
+        "calmLow": 0.5175,
+        "calmHigh": 0.423,
+        "mix": [
+          0.286,
+          0.714,
+          0
+        ]
+      },
+      {
+        "t": 4,
+        "rms": 0.3631,
+        "low": 0.6151,
+        "mid": 0.6781,
+        "high": 0.5437,
+        "centroid": 0.7913,
+        "flux": 0.456,
+        "pulse": 0.5514,
+        "energy": 0.4874,
+        "calmEnergy": 0.415,
+        "calmLow": 0.5204,
+        "calmHigh": 0.4266,
+        "mix": [
+          0.272,
+          0.728,
+          0
+        ]
+      },
+      {
+        "t": 4.033,
+        "rms": 0.3572,
+        "low": 0.6126,
+        "mid": 0.6583,
+        "high": 0.5229,
+        "centroid": 0.7958,
+        "flux": 0.6722,
+        "pulse": 1,
+        "energy": 0.485,
+        "calmEnergy": 0.4175,
+        "calmLow": 0.5232,
+        "calmHigh": 0.4295,
+        "mix": [
+          0.259,
+          0.741,
+          0
+        ]
+      },
+      {
+        "t": 4.067,
+        "rms": 0.6015,
+        "low": 0.6319,
+        "mid": 0.6575,
+        "high": 0.666,
+        "centroid": 0.7911,
+        "flux": 0.6139,
+        "pulse": 0.82,
+        "energy": 0.5195,
+        "calmEnergy": 0.4211,
+        "calmLow": 0.5265,
+        "calmHigh": 0.4366,
+        "mix": [
+          0.246,
+          0.754,
+          0
+        ]
+      },
+      {
+        "t": 4.1,
+        "rms": 0.7529,
+        "low": 0.6129,
+        "mid": 0.6313,
+        "high": 0.7662,
+        "centroid": 0.8473,
+        "flux": 0.5087,
+        "pulse": 0.6724,
+        "energy": 0.5672,
+        "calmEnergy": 0.4262,
+        "calmLow": 0.5291,
+        "calmHigh": 0.4465,
+        "mix": [
+          0.234,
+          0.766,
+          0
+        ]
+      },
+      {
+        "t": 4.133,
+        "rms": 0.7697,
+        "low": 0.6173,
+        "mid": 0.6446,
+        "high": 0.8213,
+        "centroid": 0.8666,
+        "flux": 0.4358,
+        "pulse": 0.5514,
+        "energy": 0.6061,
+        "calmEnergy": 0.4325,
+        "calmLow": 0.5317,
+        "calmHigh": 0.4578,
+        "mix": [
+          0.221,
+          0.779,
+          0
+        ]
+      },
+      {
+        "t": 4.167,
+        "rms": 0.7279,
+        "low": 0.6812,
+        "mid": 0.6137,
+        "high": 0.7851,
+        "centroid": 0.8639,
+        "flux": 0.3843,
+        "pulse": 0.4521,
+        "energy": 0.63,
+        "calmEnergy": 0.4394,
+        "calmLow": 0.5362,
+        "calmHigh": 0.4676,
+        "mix": [
+          0.209,
+          0.791,
+          0
+        ]
+      },
+      {
+        "t": 4.2,
+        "rms": 0.7058,
+        "low": 0.6631,
+        "mid": 0.5997,
+        "high": 0.8128,
+        "centroid": 0.8798,
+        "flux": 0.6464,
+        "pulse": 0.9925,
+        "energy": 0.6425,
+        "calmEnergy": 0.4465,
+        "calmLow": 0.54,
+        "calmHigh": 0.4779,
+        "mix": [
+          0.197,
+          0.803,
+          0
+        ]
+      },
+      {
+        "t": 4.233,
+        "rms": 0.6716,
+        "low": 0.6142,
+        "mid": 0.5898,
+        "high": 0.7956,
+        "centroid": 0.8795,
+        "flux": 0.5474,
+        "pulse": 0.8138,
+        "energy": 0.6432,
+        "calmEnergy": 0.4534,
+        "calmLow": 0.5422,
+        "calmHigh": 0.4875,
+        "mix": [
+          0.185,
+          0.815,
+          0
+        ]
+      },
+      {
+        "t": 4.267,
+        "rms": 0.6292,
+        "low": 0.6068,
+        "mid": 0.5636,
+        "high": 0.7705,
+        "centroid": 0.88,
+        "flux": 0.4562,
+        "pulse": 0.6673,
+        "energy": 0.6402,
+        "calmEnergy": 0.4599,
+        "calmLow": 0.5442,
+        "calmHigh": 0.496,
+        "mix": [
+          0.173,
+          0.827,
+          0
+        ]
+      },
+      {
+        "t": 4.3,
+        "rms": 0.5865,
+        "low": 0.5606,
+        "mid": 0.54,
+        "high": 0.7393,
+        "centroid": 0.8772,
+        "flux": 0.4083,
+        "pulse": 0.5472,
+        "energy": 0.6335,
+        "calmEnergy": 0.466,
+        "calmLow": 0.5447,
+        "calmHigh": 0.5033,
+        "mix": [
+          0.162,
+          0.838,
+          0
+        ]
+      },
+      {
+        "t": 4.333,
+        "rms": 0.5555,
+        "low": 0.658,
+        "mid": 0.6229,
+        "high": 0.7166,
+        "centroid": 0.861,
+        "flux": 0.7041,
+        "pulse": 1,
+        "energy": 0.629,
+        "calmEnergy": 0.4717,
+        "calmLow": 0.5481,
+        "calmHigh": 0.5097,
+        "mix": [
+          0.151,
+          0.849,
+          0
+        ]
+      },
+      {
+        "t": 4.367,
+        "rms": 0.5276,
+        "low": 0.6324,
+        "mid": 0.6085,
+        "high": 0.7001,
+        "centroid": 0.8566,
+        "flux": 0.6137,
+        "pulse": 0.82,
+        "energy": 0.6224,
+        "calmEnergy": 0.477,
+        "calmLow": 0.5506,
+        "calmHigh": 0.5154,
+        "mix": [
+          0.14,
+          0.86,
+          0
+        ]
+      },
+      {
+        "t": 4.4,
+        "rms": 0.4933,
+        "low": 0.661,
+        "mid": 0.5767,
+        "high": 0.6724,
+        "centroid": 0.8719,
+        "flux": 0.5529,
+        "pulse": 0.6724,
+        "energy": 0.6143,
+        "calmEnergy": 0.4818,
+        "calmLow": 0.5539,
+        "calmHigh": 0.5201,
+        "mix": [
+          0.13,
+          0.87,
+          0
+        ]
+      },
+      {
+        "t": 4.433,
+        "rms": 0.4592,
+        "low": 0.6787,
+        "mid": 0.5489,
+        "high": 0.6375,
+        "centroid": 0.8762,
+        "flux": 0.5168,
+        "pulse": 0.5514,
+        "energy": 0.6048,
+        "calmEnergy": 0.4861,
+        "calmLow": 0.5576,
+        "calmHigh": 0.5236,
+        "mix": [
+          0.119,
+          0.881,
+          0
+        ]
+      },
+      {
+        "t": 4.467,
+        "rms": 0.4331,
+        "low": 0.6493,
+        "mid": 0.5366,
+        "high": 0.6135,
+        "centroid": 0.8657,
+        "flux": 0.5033,
+        "pulse": 0.4521,
+        "energy": 0.5938,
+        "calmEnergy": 0.4899,
+        "calmLow": 0.5604,
+        "calmHigh": 0.5263,
+        "mix": [
+          0.11,
+          0.89,
+          0
+        ]
+      },
+      {
+        "t": 4.5,
+        "rms": 0.4178,
+        "low": 0.6337,
+        "mid": 0.4829,
+        "high": 0.6093,
+        "centroid": 0.8518,
+        "flux": 0.4901,
+        "pulse": 0.3707,
+        "energy": 0.5817,
+        "calmEnergy": 0.4931,
+        "calmLow": 0.5626,
+        "calmHigh": 0.5288,
+        "mix": [
+          0.1,
+          0.9,
+          0
+        ]
+      },
+      {
+        "t": 4.533,
+        "rms": 0.3966,
+        "low": 0.6688,
+        "mid": 0.4798,
+        "high": 0.6068,
+        "centroid": 0.8342,
+        "flux": 0.4705,
+        "pulse": 0.304,
+        "energy": 0.5701,
+        "calmEnergy": 0.4958,
+        "calmLow": 0.5658,
+        "calmHigh": 0.5311,
+        "mix": [
+          0.091,
+          0.909,
+          0
+        ]
+      },
+      {
+        "t": 4.567,
+        "rms": 0.3793,
+        "low": 0.6785,
+        "mid": 0.4684,
+        "high": 0.5966,
+        "centroid": 0.8229,
+        "flux": 0.4307,
+        "pulse": 0.2493,
+        "energy": 0.5586,
+        "calmEnergy": 0.498,
+        "calmLow": 0.5692,
+        "calmHigh": 0.5331,
+        "mix": [
+          0.082,
+          0.918,
+          0
+        ]
+      },
+      {
+        "t": 4.6,
+        "rms": 0.3705,
+        "low": 0.7557,
+        "mid": 0.4216,
+        "high": 0.582,
+        "centroid": 0.8337,
+        "flux": 0.4057,
+        "pulse": 0.2044,
+        "energy": 0.5484,
+        "calmEnergy": 0.4997,
+        "calmLow": 0.5748,
+        "calmHigh": 0.5346,
+        "mix": [
+          0.074,
+          0.926,
+          0
+        ]
+      },
+      {
+        "t": 4.633,
+        "rms": 0.6097,
+        "low": 0.7789,
+        "mid": 0.5604,
+        "high": 0.7074,
+        "centroid": 0.8132,
+        "flux": 0.554,
+        "pulse": 0.3621,
+        "energy": 0.5709,
+        "calmEnergy": 0.5022,
+        "calmLow": 0.5809,
+        "calmHigh": 0.5397,
+        "mix": [
+          0.066,
+          0.934,
+          0
+        ]
+      },
+      {
+        "t": 4.667,
+        "rms": 0.758,
+        "low": 0.7985,
+        "mid": 0.5531,
+        "high": 0.7952,
+        "centroid": 0.8578,
+        "flux": 0.5014,
+        "pulse": 0.2969,
+        "energy": 0.612,
+        "calmEnergy": 0.5061,
+        "calmLow": 0.5874,
+        "calmHigh": 0.5474,
+        "mix": [
+          0.059,
+          0.941,
+          0
+        ]
+      },
+      {
+        "t": 4.7,
+        "rms": 0.85,
+        "low": 0.7517,
+        "mid": 0.5345,
+        "high": 0.8566,
+        "centroid": 0.8917,
+        "flux": 0.4111,
+        "pulse": 0.2435,
+        "energy": 0.654,
+        "calmEnergy": 0.5112,
+        "calmLow": 0.5923,
+        "calmHigh": 0.5567,
+        "mix": [
+          0.051,
+          0.949,
+          0
+        ]
+      },
+      {
+        "t": 4.733,
+        "rms": 0.8036,
+        "low": 0.6766,
+        "mid": 0.5017,
+        "high": 0.8338,
+        "centroid": 0.887,
+        "flux": 0.3371,
+        "pulse": 0.1997,
+        "energy": 0.6722,
+        "calmEnergy": 0.5169,
+        "calmLow": 0.5949,
+        "calmHigh": 0.565,
+        "mix": [
+          0.045,
+          0.955,
+          0
+        ]
+      },
+      {
+        "t": 4.767,
+        "rms": 0.7484,
+        "low": 0.723,
+        "mid": 0.5406,
+        "high": 0.8067,
+        "centroid": 0.8741,
+        "flux": 0.5602,
+        "pulse": 0.6207,
+        "energy": 0.681,
+        "calmEnergy": 0.5226,
+        "calmLow": 0.5987,
+        "calmHigh": 0.5722,
+        "mix": [
+          0.038,
+          0.962,
+          0
+        ]
+      },
+      {
+        "t": 4.8,
+        "rms": 0.6929,
+        "low": 0.6507,
+        "mid": 0.5564,
+        "high": 0.789,
+        "centroid": 0.8433,
+        "flux": 0.4984,
+        "pulse": 0.5089,
+        "energy": 0.6788,
+        "calmEnergy": 0.5281,
+        "calmLow": 0.6003,
+        "calmHigh": 0.5788,
+        "mix": [
+          0.032,
+          0.968,
+          0
+        ]
+      },
+      {
+        "t": 4.833,
+        "rms": 0.6397,
+        "low": 0.644,
+        "mid": 0.5644,
+        "high": 0.7476,
+        "centroid": 0.8291,
+        "flux": 0.4689,
+        "pulse": 0.4173,
+        "energy": 0.6737,
+        "calmEnergy": 0.5332,
+        "calmLow": 0.6016,
+        "calmHigh": 0.5838,
+        "mix": [
+          0.027,
+          0.973,
+          0
+        ]
+      },
+      {
+        "t": 4.867,
+        "rms": 0.5929,
+        "low": 0.7137,
+        "mid": 0.5633,
+        "high": 0.7181,
+        "centroid": 0.8117,
+        "flux": 0.4636,
+        "pulse": 0.3422,
+        "energy": 0.6675,
+        "calmEnergy": 0.5379,
+        "calmLow": 0.6049,
+        "calmHigh": 0.5878,
+        "mix": [
+          0.022,
+          0.978,
+          0
+        ]
+      },
+      {
+        "t": 4.9,
+        "rms": 0.5568,
+        "low": 0.7672,
+        "mid": 0.5448,
+        "high": 0.6979,
+        "centroid": 0.8017,
+        "flux": 0.6049,
+        "pulse": 0.831,
+        "energy": 0.6604,
+        "calmEnergy": 0.5422,
+        "calmLow": 0.6098,
+        "calmHigh": 0.5911,
+        "mix": [
+          0.017,
+          0.983,
+          0
+        ]
+      },
+      {
+        "t": 4.933,
+        "rms": 0.5307,
+        "low": 0.7655,
+        "mid": 0.6074,
+        "high": 0.6795,
+        "centroid": 0.7877,
+        "flux": 0.5667,
+        "pulse": 0.6814,
+        "energy": 0.6535,
+        "calmEnergy": 0.5461,
+        "calmLow": 0.6145,
+        "calmHigh": 0.5938,
+        "mix": [
+          0.013,
+          0.987,
+          0
+        ]
+      },
+      {
+        "t": 4.967,
+        "rms": 0.497,
+        "low": 0.7146,
+        "mid": 0.628,
+        "high": 0.6493,
+        "centroid": 0.7792,
+        "flux": 0.5197,
+        "pulse": 0.5588,
+        "energy": 0.6446,
+        "calmEnergy": 0.5495,
+        "calmLow": 0.6175,
+        "calmHigh": 0.5955,
+        "mix": [
+          0.01,
+          0.99,
+          0
+        ]
+      },
+      {
+        "t": 5,
+        "rms": 0.4604,
+        "low": 0.7818,
+        "mid": 0.6268,
+        "high": 0.609,
+        "centroid": 0.7855,
+        "flux": 0.4913,
+        "pulse": 0.4582,
+        "energy": 0.6356,
+        "calmEnergy": 0.5525,
+        "calmLow": 0.6224,
+        "calmHigh": 0.5959,
+        "mix": [
+          0.007,
+          0.993,
+          0
+        ]
+      },
+      {
+        "t": 5.033,
+        "rms": 0.4374,
+        "low": 0.7196,
+        "mid": 0.5983,
+        "high": 0.5672,
+        "centroid": 0.8059,
+        "flux": 0.4446,
+        "pulse": 0.3757,
+        "energy": 0.6243,
+        "calmEnergy": 0.555,
+        "calmLow": 0.6253,
+        "calmHigh": 0.5954,
+        "mix": [
+          0.004,
+          0.996,
+          0
+        ]
+      },
+      {
+        "t": 5.067,
+        "rms": 0.484,
+        "low": 0.7673,
+        "mid": 0.5854,
+        "high": 0.6691,
+        "centroid": 0.8356,
+        "flux": 0.7223,
+        "pulse": 1,
+        "energy": 0.6178,
+        "calmEnergy": 0.5572,
+        "calmLow": 0.6296,
+        "calmHigh": 0.5976,
+        "mix": [
+          0.003,
+          0.997,
+          0
+        ]
+      },
+      {
+        "t": 5.1,
+        "rms": 0.4809,
+        "low": 0.8231,
+        "mid": 0.5541,
+        "high": 0.685,
+        "centroid": 0.8561,
+        "flux": 0.6081,
+        "pulse": 0.82,
+        "energy": 0.6122,
+        "calmEnergy": 0.5592,
+        "calmLow": 0.6354,
+        "calmHigh": 0.6002,
+        "mix": [
+          0.001,
+          0.999,
+          0
+        ]
+      },
+      {
+        "t": 5.133,
+        "rms": 0.4669,
+        "low": 0.8287,
+        "mid": 0.4987,
+        "high": 0.6784,
+        "centroid": 0.8778,
+        "flux": 0.5118,
+        "pulse": 0.6724,
+        "energy": 0.6055,
+        "calmEnergy": 0.5608,
+        "calmLow": 0.6412,
+        "calmHigh": 0.6025,
+        "mix": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "t": 5.167,
+        "rms": 0.446,
+        "low": 0.7707,
+        "mid": 0.4843,
+        "high": 0.6562,
+        "centroid": 0.8867,
+        "flux": 0.4464,
+        "pulse": 0.5514,
+        "energy": 0.5967,
+        "calmEnergy": 0.562,
+        "calmLow": 0.6451,
+        "calmHigh": 0.6041,
+        "mix": [
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "t": 5.2,
+        "rms": 0.5456,
+        "low": 0.7595,
+        "mid": 0.5216,
+        "high": 0.7087,
+        "centroid": 0.8754,
+        "flux": 0.6464,
+        "pulse": 0.864,
+        "energy": 0.5955,
+        "calmEnergy": 0.5632,
+        "calmLow": 0.6485,
+        "calmHigh": 0.6073,
+        "mix": [
+          0.259,
+          0.741,
+          0
+        ]
+      },
+      {
+        "t": 5.233,
+        "rms": 0.7183,
+        "low": 0.7462,
+        "mid": 0.5211,
+        "high": 0.7961,
+        "centroid": 0.9086,
+        "flux": 0.5772,
+        "pulse": 0.7085,
+        "energy": 0.6196,
+        "calmEnergy": 0.5652,
+        "calmLow": 0.6514,
+        "calmHigh": 0.6129,
+        "mix": [
+          0.272,
+          0.728,
+          0
+        ]
+      },
+      {
+        "t": 5.267,
+        "rms": 0.8253,
+        "low": 0.7576,
+        "mid": 0.4954,
+        "high": 0.8573,
+        "centroid": 0.934,
+        "flux": 0.4733,
+        "pulse": 0.581,
+        "energy": 0.6541,
+        "calmEnergy": 0.5683,
+        "calmLow": 0.6546,
+        "calmHigh": 0.6203,
+        "mix": [
+          0.286,
+          0.714,
+          0
+        ]
+      },
+      {
+        "t": 5.3,
+        "rms": 0.797,
+        "low": 0.6885,
+        "mid": 0.4459,
+        "high": 0.8313,
+        "centroid": 0.9317,
+        "flux": 0.3881,
+        "pulse": 0.4764,
+        "energy": 0.6692,
+        "calmEnergy": 0.5718,
+        "calmLow": 0.6556,
+        "calmHigh": 0.6266,
+        "mix": [
+          0.299,
+          0.701,
+          0
+        ]
+      },
+      {
+        "t": 5.333,
+        "rms": 0.7456,
+        "low": 0.7208,
+        "mid": 0.4243,
+        "high": 0.7931,
+        "centroid": 0.9241,
+        "flux": 0.4381,
+        "pulse": 0.3906,
+        "energy": 0.6727,
+        "calmEnergy": 0.5754,
+        "calmLow": 0.6576,
+        "calmHigh": 0.6316,
+        "mix": [
+          0.313,
+          0.687,
+          0
+        ]
+      },
+      {
+        "t": 5.367,
+        "rms": 0.6914,
+        "low": 0.6831,
+        "mid": 0.412,
+        "high": 0.7672,
+        "centroid": 0.8992,
+        "flux": 0.413,
+        "pulse": 0.3203,
+        "energy": 0.6694,
+        "calmEnergy": 0.5787,
+        "calmLow": 0.6584,
+        "calmHigh": 0.6357,
+        "mix": [
+          0.327,
+          0.673,
+          0
+        ]
+      },
+      {
+        "t": 5.4,
+        "rms": 0.6273,
+        "low": 0.6262,
+        "mid": 0.4057,
+        "high": 0.7206,
+        "centroid": 0.8742,
+        "flux": 0.3651,
+        "pulse": 0.2627,
+        "energy": 0.6612,
+        "calmEnergy": 0.5815,
+        "calmLow": 0.6578,
+        "calmHigh": 0.6382,
+        "mix": [
+          0.341,
+          0.659,
+          0
+        ]
+      },
+      {
+        "t": 5.433,
+        "rms": 0.5688,
+        "low": 0.6094,
+        "mid": 0.3668,
+        "high": 0.6741,
+        "centroid": 0.8597,
+        "flux": 0.3476,
+        "pulse": 0.2154,
+        "energy": 0.6491,
+        "calmEnergy": 0.5839,
+        "calmLow": 0.6569,
+        "calmHigh": 0.6393,
+        "mix": [
+          0.355,
+          0.645,
+          0
+        ]
+      },
+      {
+        "t": 5.467,
+        "rms": 0.5299,
+        "low": 0.5588,
+        "mid": 0.3555,
+        "high": 0.6403,
+        "centroid": 0.8438,
+        "flux": 0.4126,
+        "pulse": 0.1766,
+        "energy": 0.6346,
+        "calmEnergy": 0.5857,
+        "calmLow": 0.6551,
+        "calmHigh": 0.6393,
+        "mix": [
+          0.369,
+          0.631,
+          0
+        ]
+      },
+      {
+        "t": 5.5,
+        "rms": 0.5293,
+        "low": 0.6647,
+        "mid": 0.5102,
+        "high": 0.6732,
+        "centroid": 0.83,
+        "flux": 0.7063,
+        "pulse": 1,
+        "energy": 0.6265,
+        "calmEnergy": 0.5871,
+        "calmLow": 0.6554,
+        "calmHigh": 0.6403,
+        "mix": [
+          0.383,
+          0.617,
+          0
+        ]
+      },
+      {
+        "t": 5.533,
+        "rms": 0.5116,
+        "low": 0.7452,
+        "mid": 0.6146,
+        "high": 0.6559,
+        "centroid": 0.823,
+        "flux": 0.5844,
+        "pulse": 0.82,
+        "energy": 0.6215,
+        "calmEnergy": 0.5883,
+        "calmLow": 0.6581,
+        "calmHigh": 0.6408,
+        "mix": [
+          0.398,
+          0.602,
+          0
+        ]
+      },
+      {
+        "t": 5.567,
+        "rms": 0.4803,
+        "low": 0.7364,
+        "mid": 0.634,
+        "high": 0.6264,
+        "centroid": 0.817,
+        "flux": 0.4879,
+        "pulse": 0.6724,
+        "energy": 0.6153,
+        "calmEnergy": 0.5893,
+        "calmLow": 0.6605,
+        "calmHigh": 0.6405,
+        "mix": [
+          0.412,
+          0.588,
+          0
+        ]
+      },
+      {
+        "t": 5.6,
+        "rms": 0.4449,
+        "low": 0.7195,
+        "mid": 0.6241,
+        "high": 0.5787,
+        "centroid": 0.8202,
+        "flux": 0.4247,
+        "pulse": 0.5514,
+        "energy": 0.607,
+        "calmEnergy": 0.5899,
+        "calmLow": 0.6622,
+        "calmHigh": 0.6394,
+        "mix": [
+          0.427,
+          0.573,
+          0
+        ]
+      },
+      {
+        "t": 5.633,
+        "rms": 0.4156,
+        "low": 0.7,
+        "mid": 0.6169,
+        "high": 0.5739,
+        "centroid": 0.8152,
+        "flux": 0.5922,
+        "pulse": 0.7629,
+        "energy": 0.5971,
+        "calmEnergy": 0.5901,
+        "calmLow": 0.6634,
+        "calmHigh": 0.6383,
+        "mix": [
+          0.441,
+          0.559,
+          0
+        ]
+      },
+      {
+        "t": 5.667,
+        "rms": 0.3917,
+        "low": 0.6836,
+        "mid": 0.5683,
+        "high": 0.5592,
+        "centroid": 0.8215,
+        "flux": 0.5185,
+        "pulse": 0.6256,
+        "energy": 0.5856,
+        "calmEnergy": 0.59,
+        "calmLow": 0.664,
+        "calmHigh": 0.6368,
+        "mix": [
+          0.456,
+          0.544,
+          0
+        ]
+      },
+      {
+        "t": 5.7,
+        "rms": 0.3749,
+        "low": 0.6862,
+        "mid": 0.5442,
+        "high": 0.5548,
+        "centroid": 0.8232,
+        "flux": 0.4605,
+        "pulse": 0.513,
+        "energy": 0.5738,
+        "calmEnergy": 0.5897,
+        "calmLow": 0.6646,
+        "calmHigh": 0.6354,
+        "mix": [
+          0.471,
+          0.529,
+          0
+        ]
+      },
+      {
+        "t": 5.733,
+        "rms": 0.3578,
+        "low": 0.7594,
+        "mid": 0.5127,
+        "high": 0.5498,
+        "centroid": 0.8313,
+        "flux": 0.4308,
+        "pulse": 0.4207,
+        "energy": 0.563,
+        "calmEnergy": 0.5892,
+        "calmLow": 0.6675,
+        "calmHigh": 0.6338,
+        "mix": [
+          0.485,
+          0.515,
+          0
+        ]
+      },
+      {
+        "t": 5.767,
+        "rms": 0.4266,
+        "low": 0.8172,
+        "mid": 0.6023,
+        "high": 0.5771,
+        "centroid": 0.824,
+        "flux": 0.7154,
+        "pulse": 1,
+        "energy": 0.5604,
+        "calmEnergy": 0.5886,
+        "calmLow": 0.672,
+        "calmHigh": 0.6328,
+        "mix": [
+          0.5,
+          0.5,
+          0
+        ]
+      },
+      {
+        "t": 5.8,
+        "rms": 0.6445,
+        "low": 0.8098,
+        "mid": 0.6977,
+        "high": 0.7039,
+        "centroid": 0.8324,
+        "flux": 0.6368,
+        "pulse": 0.8819,
+        "energy": 0.5933,
+        "calmEnergy": 0.5888,
+        "calmLow": 0.6761,
+        "calmHigh": 0.6349,
+        "mix": [
+          0.515,
+          0.485,
+          0
+        ]
+      },
+      {
+        "t": 5.833,
+        "rms": 0.7796,
+        "low": 0.7473,
+        "mid": 0.6793,
+        "high": 0.7928,
+        "centroid": 0.8779,
+        "flux": 0.53,
+        "pulse": 0.7231,
+        "energy": 0.6354,
+        "calmEnergy": 0.5904,
+        "calmLow": 0.6782,
+        "calmHigh": 0.6397,
+        "mix": [
+          0.529,
+          0.471,
+          0
+        ]
+      },
+      {
+        "t": 5.867,
+        "rms": 0.7733,
+        "low": 0.6725,
+        "mid": 0.6113,
+        "high": 0.7837,
+        "centroid": 0.8948,
+        "flux": 0.4346,
+        "pulse": 0.593,
+        "energy": 0.6584,
+        "calmEnergy": 0.5928,
+        "calmLow": 0.6781,
+        "calmHigh": 0.644,
+        "mix": [
+          0.544,
+          0.456,
+          0
+        ]
+      },
+      {
+        "t": 5.9,
+        "rms": 0.7132,
+        "low": 0.6649,
+        "mid": 0.5502,
+        "high": 0.7298,
+        "centroid": 0.8981,
+        "flux": 0.3751,
+        "pulse": 0.4862,
+        "energy": 0.6625,
+        "calmEnergy": 0.5952,
+        "calmLow": 0.6779,
+        "calmHigh": 0.6466,
+        "mix": [
+          0.559,
+          0.441,
+          0
+        ]
+      },
+      {
+        "t": 5.933,
+        "rms": 0.6638,
+        "low": 0.68,
+        "mid": 0.5503,
+        "high": 0.7173,
+        "centroid": 0.8908,
+        "flux": 0.5341,
+        "pulse": 0.3987,
+        "energy": 0.6609,
+        "calmEnergy": 0.5975,
+        "calmLow": 0.678,
+        "calmHigh": 0.6487,
+        "mix": [
+          0.573,
+          0.427,
+          0
+        ]
+      },
+      {
+        "t": 5.967,
+        "rms": 0.615,
+        "low": 0.7502,
+        "mid": 0.5548,
+        "high": 0.6839,
+        "centroid": 0.8799,
+        "flux": 0.479,
+        "pulse": 0.3269,
+        "energy": 0.658,
+        "calmEnergy": 0.5996,
+        "calmLow": 0.6801,
+        "calmHigh": 0.6497,
+        "mix": [
+          0.588,
+          0.412,
+          0
+        ]
+      },
+      {
+        "t": 6,
+        "rms": 0.5709,
+        "low": 0.7414,
+        "mid": 0.5514,
+        "high": 0.6485,
+        "centroid": 0.8754,
+        "flux": 0.4423,
+        "pulse": 0.2681,
+        "energy": 0.6523,
+        "calmEnergy": 0.6015,
+        "calmLow": 0.682,
+        "calmHigh": 0.6497,
+        "mix": [
+          0.602,
+          0.398,
+          0
+        ]
+      },
+      {
+        "t": 6.033,
+        "rms": 0.5308,
+        "low": 0.8035,
+        "mid": 0.5444,
+        "high": 0.6147,
+        "centroid": 0.8752,
+        "flux": 0.4078,
+        "pulse": 0.2198,
+        "energy": 0.6459,
+        "calmEnergy": 0.603,
+        "calmLow": 0.6856,
+        "calmHigh": 0.6491,
+        "mix": [
+          0.617,
+          0.383,
+          0
+        ]
+      },
+      {
+        "t": 6.067,
+        "rms": 0.5061,
+        "low": 0.8506,
+        "mid": 0.6047,
+        "high": 0.6113,
+        "centroid": 0.8588,
+        "flux": 0.7039,
+        "pulse": 1,
+        "energy": 0.6406,
+        "calmEnergy": 0.6043,
+        "calmLow": 0.6906,
+        "calmHigh": 0.6484,
+        "mix": [
+          0.631,
+          0.369,
+          0
+        ]
+      },
+      {
+        "t": 6.1,
+        "rms": 0.4774,
+        "low": 0.8865,
+        "mid": 0.5894,
+        "high": 0.5947,
+        "centroid": 0.8445,
+        "flux": 0.5984,
+        "pulse": 0.82,
+        "energy": 0.6344,
+        "calmEnergy": 0.6054,
+        "calmLow": 0.6965,
+        "calmHigh": 0.6474,
+        "mix": [
+          0.645,
+          0.355,
+          0
+        ]
+      },
+      {
+        "t": 6.133,
+        "rms": 0.4428,
+        "low": 0.7978,
+        "mid": 0.5304,
+        "high": 0.5713,
+        "centroid": 0.842,
+        "flux": 0.5322,
+        "pulse": 0.6724,
+        "energy": 0.6239,
+        "calmEnergy": 0.606,
+        "calmLow": 0.6995,
+        "calmHigh": 0.6461,
+        "mix": [
+          0.659,
+          0.341,
+          0
+        ]
+      },
+      {
+        "t": 6.167,
+        "rms": 0.4075,
+        "low": 0.7552,
+        "mid": 0.5027,
+        "high": 0.5438,
+        "centroid": 0.8402,
+        "flux": 0.4864,
+        "pulse": 0.5514,
+        "energy": 0.611,
+        "calmEnergy": 0.6062,
+        "calmLow": 0.7012,
+        "calmHigh": 0.6442,
+        "mix": [
+          0.673,
+          0.327,
+          0
+        ]
+      },
+      {
+        "t": 6.2,
+        "rms": 0.3961,
+        "low": 0.814,
+        "mid": 0.5076,
+        "high": 0.5226,
+        "centroid": 0.8388,
+        "flux": 0.7432,
+        "pulse": 1,
+        "energy": 0.5998,
+        "calmEnergy": 0.6061,
+        "calmLow": 0.7045,
+        "calmHigh": 0.642,
+        "mix": [
+          0.687,
+          0.313,
+          0
+        ]
+      },
+      {
+        "t": 6.233,
+        "rms": 0.4072,
+        "low": 0.8076,
+        "mid": 0.5953,
+        "high": 0.5552,
+        "centroid": 0.8224,
+        "flux": 0.6686,
+        "pulse": 0.912,
+        "energy": 0.592,
+        "calmEnergy": 0.6058,
+        "calmLow": 0.7076,
+        "calmHigh": 0.6405,
+        "mix": [
+          0.701,
+          0.299,
+          0
+        ]
+      },
+      {
+        "t": 6.267,
+        "rms": 0.4018,
+        "low": 0.7966,
+        "mid": 0.6891,
+        "high": 0.5571,
+        "centroid": 0.8081,
+        "flux": 0.6007,
+        "pulse": 0.7478,
+        "energy": 0.586,
+        "calmEnergy": 0.6054,
+        "calmLow": 0.7103,
+        "calmHigh": 0.639,
+        "mix": [
+          0.714,
+          0.286,
+          0
+        ]
+      },
+      {
+        "t": 6.3,
+        "rms": 0.3873,
+        "low": 0.8454,
+        "mid": 0.6989,
+        "high": 0.5448,
+        "centroid": 0.8038,
+        "flux": 0.5299,
+        "pulse": 0.6132,
+        "energy": 0.5809,
+        "calmEnergy": 0.6049,
+        "calmLow": 0.7144,
+        "calmHigh": 0.6373,
+        "mix": [
+          0.728,
+          0.272,
+          0
+        ]
+      },
+      {
+        "t": 6.333,
+        "rms": 0.3719,
+        "low": 0.8341,
+        "mid": 0.629,
+        "high": 0.5364,
+        "centroid": 0.8059,
+        "flux": 0.4761,
+        "pulse": 0.5028,
+        "energy": 0.5739,
+        "calmEnergy": 0.6043,
+        "calmLow": 0.718,
+        "calmHigh": 0.6355,
+        "mix": [
+          0.741,
+          0.259,
+          0
+        ]
+      },
+      {
+        "t": 6.367,
+        "rms": 0.5748,
+        "low": 0.8149,
+        "mid": 0.657,
+        "high": 0.6754,
+        "centroid": 0.7821,
+        "flux": 0.477,
+        "pulse": 0.4123,
+        "energy": 0.5905,
+        "calmEnergy": 0.604,
+        "calmLow": 0.7209,
+        "calmHigh": 0.6367,
+        "mix": [
+          0.754,
+          0.246,
+          0
+        ]
+      },
+      {
+        "t": 6.4,
+        "rms": 0.7364,
+        "low": 0.8081,
+        "mid": 0.7355,
+        "high": 0.7728,
+        "centroid": 0.8286,
+        "flux": 0.441,
+        "pulse": 0.3381,
+        "energy": 0.6321,
+        "calmEnergy": 0.605,
+        "calmLow": 0.7235,
+        "calmHigh": 0.6407,
+        "mix": [
+          0.766,
+          0.234,
+          0
+        ]
+      },
+      {
+        "t": 6.433,
+        "rms": 0.8298,
+        "low": 0.8266,
+        "mid": 0.7156,
+        "high": 0.833,
+        "centroid": 0.8463,
+        "flux": 0.3616,
+        "pulse": 0.2772,
+        "energy": 0.678,
+        "calmEnergy": 0.6076,
+        "calmLow": 0.7266,
+        "calmHigh": 0.6465,
+        "mix": [
+          0.779,
+          0.221,
+          0
+        ]
+      },
+      {
+        "t": 6.467,
+        "rms": 0.7844,
+        "low": 0.7823,
+        "mid": 0.6686,
+        "high": 0.8089,
+        "centroid": 0.8736,
+        "flux": 0.306,
+        "pulse": 0.2273,
+        "energy": 0.7001,
+        "calmEnergy": 0.6108,
+        "calmLow": 0.7282,
+        "calmHigh": 0.6514,
+        "mix": [
+          0.791,
+          0.209,
+          0
+        ]
+      },
+      {
+        "t": 6.5,
+        "rms": 0.749,
+        "low": 0.7829,
+        "mid": 0.7364,
+        "high": 0.8289,
+        "centroid": 0.8714,
+        "flux": 0.653,
+        "pulse": 1,
+        "energy": 0.714,
+        "calmEnergy": 0.6144,
+        "calmLow": 0.7299,
+        "calmHigh": 0.6567,
+        "mix": [
+          0.803,
+          0.197,
+          0
+        ]
+      },
+      {
+        "t": 6.533,
+        "rms": 0.7099,
+        "low": 0.7499,
+        "mid": 0.6728,
+        "high": 0.8168,
+        "centroid": 0.8722,
+        "flux": 0.5482,
+        "pulse": 0.82,
+        "energy": 0.7137,
+        "calmEnergy": 0.6179,
+        "calmLow": 0.7305,
+        "calmHigh": 0.6615,
+        "mix": [
+          0.815,
+          0.185,
+          0
+        ]
+      },
+      {
+        "t": 6.567,
+        "rms": 0.6654,
+        "low": 0.738,
+        "mid": 0.643,
+        "high": 0.7914,
+        "centroid": 0.8699,
+        "flux": 0.48,
+        "pulse": 0.6724,
+        "energy": 0.7099,
+        "calmEnergy": 0.6211,
+        "calmLow": 0.7307,
+        "calmHigh": 0.6654,
+        "mix": [
+          0.827,
+          0.173,
+          0
+        ]
+      },
+      {
+        "t": 6.6,
+        "rms": 0.6231,
+        "low": 0.7349,
+        "mid": 0.6092,
+        "high": 0.7648,
+        "centroid": 0.8797,
+        "flux": 0.4593,
+        "pulse": 0.5514,
+        "energy": 0.7032,
+        "calmEnergy": 0.624,
+        "calmLow": 0.7308,
+        "calmHigh": 0.6684,
+        "mix": [
+          0.838,
+          0.162,
+          0
+        ]
+      },
+      {
+        "t": 6.633,
+        "rms": 0.5927,
+        "low": 0.7835,
+        "mid": 0.5749,
+        "high": 0.7442,
+        "centroid": 0.886,
+        "flux": 0.5251,
+        "pulse": 0.4521,
+        "energy": 0.6957,
+        "calmEnergy": 0.6265,
+        "calmLow": 0.7324,
+        "calmHigh": 0.6707,
+        "mix": [
+          0.849,
+          0.151,
+          0
+        ]
+      },
+      {
+        "t": 6.667,
+        "rms": 0.5672,
+        "low": 0.8354,
+        "mid": 0.5682,
+        "high": 0.7255,
+        "centroid": 0.8843,
+        "flux": 0.5085,
+        "pulse": 0.3707,
+        "energy": 0.6882,
+        "calmEnergy": 0.6287,
+        "calmLow": 0.7355,
+        "calmHigh": 0.6723,
+        "mix": [
+          0.86,
+          0.14,
+          0
+        ]
+      },
+      {
+        "t": 6.7,
+        "rms": 0.5354,
+        "low": 0.8749,
+        "mid": 0.5809,
+        "high": 0.7109,
+        "centroid": 0.874,
+        "flux": 0.4561,
+        "pulse": 0.304,
+        "energy": 0.6805,
+        "calmEnergy": 0.6305,
+        "calmLow": 0.7397,
+        "calmHigh": 0.6735,
+        "mix": [
+          0.87,
+          0.13,
+          0
+        ]
+      },
+      {
+        "t": 6.733,
+        "rms": 0.5063,
+        "low": 0.9049,
+        "mid": 0.5475,
+        "high": 0.6905,
+        "centroid": 0.8726,
+        "flux": 0.4408,
+        "pulse": 0.2493,
+        "energy": 0.6718,
+        "calmEnergy": 0.6319,
+        "calmLow": 0.7446,
+        "calmHigh": 0.674,
+        "mix": [
+          0.881,
+          0.119,
+          0
+        ]
+      },
+      {
+        "t": 6.767,
+        "rms": 0.4733,
+        "low": 0.9122,
+        "mid": 0.4965,
+        "high": 0.6527,
+        "centroid": 0.887,
+        "flux": 0.4203,
+        "pulse": 0.2044,
+        "energy": 0.6612,
+        "calmEnergy": 0.6329,
+        "calmLow": 0.7497,
+        "calmHigh": 0.6736,
+        "mix": [
+          0.89,
+          0.11,
+          0
+        ]
+      },
+      {
+        "t": 6.8,
+        "rms": 0.4512,
+        "low": 0.821,
+        "mid": 0.4896,
+        "high": 0.6446,
+        "centroid": 0.868,
+        "flux": 0.4456,
+        "pulse": 0.1676,
+        "energy": 0.6483,
+        "calmEnergy": 0.6335,
+        "calmLow": 0.7518,
+        "calmHigh": 0.6731,
+        "mix": [
+          0.9,
+          0.1,
+          0
+        ]
+      },
+      {
+        "t": 6.833,
+        "rms": 0.421,
+        "low": 0.7885,
+        "mid": 0.4924,
+        "high": 0.621,
+        "centroid": 0.8518,
+        "flux": 0.3844,
+        "pulse": 0.1374,
+        "energy": 0.6342,
+        "calmEnergy": 0.6335,
+        "calmLow": 0.7529,
+        "calmHigh": 0.6721,
+        "mix": [
+          0.909,
+          0.091,
+          0
+        ]
+      },
+      {
+        "t": 6.867,
+        "rms": 0.395,
+        "low": 0.7706,
+        "mid": 0.4865,
+        "high": 0.6001,
+        "centroid": 0.8405,
+        "flux": 0.3755,
+        "pulse": 0.1127,
+        "energy": 0.6194,
+        "calmEnergy": 0.6332,
+        "calmLow": 0.7534,
+        "calmHigh": 0.6708,
+        "mix": [
+          0.918,
+          0.082,
+          0
+        ]
+      },
+      {
+        "t": 6.9,
+        "rms": 0.3686,
+        "low": 0.7673,
+        "mid": 0.4861,
+        "high": 0.5696,
+        "centroid": 0.8342,
+        "flux": 0.3539,
+        "pulse": 0.0924,
+        "energy": 0.6044,
+        "calmEnergy": 0.6326,
+        "calmLow": 0.7539,
+        "calmHigh": 0.669,
+        "mix": [
+          0.926,
+          0.074,
+          0
+        ]
+      },
+      {
+        "t": 6.933,
+        "rms": 0.4969,
+        "low": 0.8231,
+        "mid": 0.5962,
+        "high": 0.6726,
+        "centroid": 0.8441,
+        "flux": 0.6732,
+        "pulse": 1,
+        "energy": 0.602,
+        "calmEnergy": 0.632,
+        "calmLow": 0.7559,
+        "calmHigh": 0.6691,
+        "mix": [
+          0.934,
+          0.066,
+          0
+        ]
+      },
+      {
+        "t": 6.967,
+        "rms": 0.6881,
+        "low": 0.7643,
+        "mid": 0.5787,
+        "high": 0.7708,
+        "centroid": 0.8827,
+        "flux": 0.5786,
+        "pulse": 0.82,
+        "energy": 0.6232,
+        "calmEnergy": 0.6319,
+        "calmLow": 0.7562,
+        "calmHigh": 0.6722,
+        "mix": [
+          0.941,
+          0.059,
+          0
+        ]
+      },
+      {
+        "t": 7,
+        "rms": 0.8066,
+        "low": 0.7588,
+        "mid": 0.6065,
+        "high": 0.8396,
+        "centroid": 0.8878,
+        "flux": 0.5204,
+        "pulse": 0.6724,
+        "energy": 0.659,
+        "calmEnergy": 0.6328,
+        "calmLow": 0.7563,
+        "calmHigh": 0.6772,
+        "mix": [
+          0.949,
+          0.051,
+          0
+        ]
+      },
+      {
+        "t": 7.033,
+        "rms": 0.7821,
+        "low": 0.7322,
+        "mid": 0.5459,
+        "high": 0.8314,
+        "centroid": 0.9,
+        "flux": 0.4537,
+        "pulse": 0.5514,
+        "energy": 0.6774,
+        "calmEnergy": 0.6344,
+        "calmLow": 0.7558,
+        "calmHigh": 0.6818,
+        "mix": [
+          0.955,
+          0.045,
+          0
+        ]
+      },
+      {
+        "t": 7.067,
+        "rms": 0.7298,
+        "low": 0.6971,
+        "mid": 0.5328,
+        "high": 0.7918,
+        "centroid": 0.9025,
+        "flux": 0.4462,
+        "pulse": 0.4521,
+        "energy": 0.6801,
+        "calmEnergy": 0.636,
+        "calmLow": 0.7548,
+        "calmHigh": 0.6851,
+        "mix": [
+          0.962,
+          0.038,
+          0
+        ]
+      },
+      {
+        "t": 7.1,
+        "rms": 0.6808,
+        "low": 0.659,
+        "mid": 0.585,
+        "high": 0.7525,
+        "centroid": 0.8755,
+        "flux": 0.4666,
+        "pulse": 0.3707,
+        "energy": 0.678,
+        "calmEnergy": 0.6374,
+        "calmLow": 0.753,
+        "calmHigh": 0.6871,
+        "mix": [
+          0.968,
+          0.032,
+          0
+        ]
+      },
+      {
+        "t": 7.133,
+        "rms": 0.6279,
+        "low": 0.6309,
+        "mid": 0.6158,
+        "high": 0.7156,
+        "centroid": 0.8564,
+        "flux": 0.4101,
+        "pulse": 0.304,
+        "energy": 0.6728,
+        "calmEnergy": 0.6387,
+        "calmLow": 0.7508,
+        "calmHigh": 0.688,
+        "mix": [
+          0.973,
+          0.027,
+          0
+        ]
+      },
+      {
+        "t": 7.167,
+        "rms": 0.5775,
+        "low": 0.5918,
+        "mid": 0.6418,
+        "high": 0.6777,
+        "centroid": 0.8398,
+        "flux": 0.3809,
+        "pulse": 0.2493,
+        "energy": 0.6647,
+        "calmEnergy": 0.6396,
+        "calmLow": 0.748,
+        "calmHigh": 0.6878,
+        "mix": [
+          0.978,
+          0.022,
+          0
+        ]
+      },
+      {
+        "t": 7.2,
+        "rms": 0.5297,
+        "low": 0.5888,
+        "mid": 0.5835,
+        "high": 0.6293,
+        "centroid": 0.8335,
+        "flux": 0.3655,
+        "pulse": 0.2044,
+        "energy": 0.6534,
+        "calmEnergy": 0.6401,
+        "calmLow": 0.7451,
+        "calmHigh": 0.6868,
+        "mix": [
+          0.983,
+          0.017,
+          0
+        ]
+      },
+      {
+        "t": 7.233,
+        "rms": 0.4935,
+        "low": 0.553,
+        "mid": 0.5553,
+        "high": 0.6097,
+        "centroid": 0.8258,
+        "flux": 0.467,
+        "pulse": 0.1676,
+        "energy": 0.6397,
+        "calmEnergy": 0.6401,
+        "calmLow": 0.7417,
+        "calmHigh": 0.6854,
+        "mix": [
+          0.987,
+          0.013,
+          0
+        ]
+      },
+      {
+        "t": 7.267,
+        "rms": 0.4633,
+        "low": 0.6119,
+        "mid": 0.5909,
+        "high": 0.5895,
+        "centroid": 0.8139,
+        "flux": 0.4481,
+        "pulse": 0.1374,
+        "energy": 0.6273,
+        "calmEnergy": 0.6398,
+        "calmLow": 0.7393,
+        "calmHigh": 0.6836,
+        "mix": [
+          0.99,
+          0.01,
+          0
+        ]
+      },
+      {
+        "t": 7.3,
+        "rms": 0.441,
+        "low": 0.5992,
+        "mid": 0.6388,
+        "high": 0.5755,
+        "centroid": 0.8047,
+        "flux": 0.4407,
+        "pulse": 0.1127,
+        "energy": 0.6154,
+        "calmEnergy": 0.6393,
+        "calmLow": 0.7368,
+        "calmHigh": 0.6817,
+        "mix": [
+          0.993,
+          0.007,
+          0
+        ]
+      },
+      {
+        "t": 7.333,
+        "rms": 0.4156,
+        "low": 0.6954,
+        "mid": 0.6275,
+        "high": 0.5518,
+        "centroid": 0.8089,
+        "flux": 0.4066,
+        "pulse": 0.0924,
+        "energy": 0.6048,
+        "calmEnergy": 0.6386,
+        "calmLow": 0.7361,
+        "calmHigh": 0.6794,
+        "mix": [
+          0.996,
+          0.004,
+          0
+        ]
+      },
+      {
+        "t": 7.367,
+        "rms": 0.4749,
+        "low": 0.7685,
+        "mid": 0.6703,
+        "high": 0.6863,
+        "centroid": 0.822,
+        "flux": 0.7033,
+        "pulse": 1,
+        "energy": 0.6012,
+        "calmEnergy": 0.6379,
+        "calmLow": 0.737,
+        "calmHigh": 0.6796,
+        "mix": [
+          0.997,
+          0.003,
+          0
+        ]
+      },
+      {
+        "t": 7.4,
+        "rms": 0.4896,
+        "low": 0.7851,
+        "mid": 0.6245,
+        "high": 0.7102,
+        "centroid": 0.8501,
+        "flux": 0.5777,
+        "pulse": 0.82,
+        "energy": 0.5984,
+        "calmEnergy": 0.6371,
+        "calmLow": 0.7385,
+        "calmHigh": 0.6805,
+        "mix": [
+          0.999,
+          0.001,
+          0
+        ]
+      },
+      {
+        "t": 7.433,
+        "rms": 0.4731,
+        "low": 0.7966,
+        "mid": 0.5838,
+        "high": 0.6945,
+        "centroid": 0.873,
+        "flux": 0.4902,
+        "pulse": 0.6724,
+        "energy": 0.5943,
+        "calmEnergy": 0.6362,
+        "calmLow": 0.7402,
+        "calmHigh": 0.6809,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 7.467,
+        "rms": 0.4538,
+        "low": 0.7865,
+        "mid": 0.5545,
+        "high": 0.6726,
+        "centroid": 0.8756,
+        "flux": 0.4337,
+        "pulse": 0.5514,
+        "energy": 0.5888,
+        "calmEnergy": 0.6353,
+        "calmLow": 0.7416,
+        "calmHigh": 0.6808,
+        "mix": [
+          1,
+          0,
+          0
+        ]
+      },
+      {
+        "t": 7.5,
+        "rms": 0.4668,
+        "low": 0.7607,
+        "mid": 0.6416,
+        "high": 0.6603,
+        "centroid": 0.8626,
+        "flux": 0.6347,
+        "pulse": 1,
+        "energy": 0.5856,
+        "calmEnergy": 0.6343,
+        "calmLow": 0.7422,
+        "calmHigh": 0.6804,
+        "mix": [
+          0.934,
+          0,
+          0.066
+        ]
+      },
+      {
+        "t": 7.533,
+        "rms": 0.6694,
+        "low": 0.7509,
+        "mid": 0.6086,
+        "high": 0.7622,
+        "centroid": 0.8664,
+        "flux": 0.5751,
+        "pulse": 0.82,
+        "energy": 0.6088,
+        "calmEnergy": 0.6338,
+        "calmLow": 0.7424,
+        "calmHigh": 0.6828,
+        "mix": [
+          0.926,
+          0,
+          0.074
+        ]
+      },
+      {
+        "t": 7.567,
+        "rms": 0.7951,
+        "low": 0.7483,
+        "mid": 0.6839,
+        "high": 0.8336,
+        "centroid": 0.8786,
+        "flux": 0.5134,
+        "pulse": 0.6724,
+        "energy": 0.6496,
+        "calmEnergy": 0.6343,
+        "calmLow": 0.7426,
+        "calmHigh": 0.6874,
+        "mix": [
+          0.918,
+          0,
+          0.082
+        ]
+      },
+      {
+        "t": 7.6,
+        "rms": 0.7883,
+        "low": 0.7387,
+        "mid": 0.6361,
+        "high": 0.8835,
+        "centroid": 0.8961,
+        "flux": 0.4521,
+        "pulse": 0.5514,
+        "energy": 0.6759,
+        "calmEnergy": 0.6358,
+        "calmLow": 0.7425,
+        "calmHigh": 0.6933,
+        "mix": [
+          0.909,
+          0,
+          0.091
+        ]
+      },
+      {
+        "t": 7.633,
+        "rms": 0.7352,
+        "low": 0.6771,
+        "mid": 0.5824,
+        "high": 0.8464,
+        "centroid": 0.906,
+        "flux": 0.4036,
+        "pulse": 0.4521,
+        "energy": 0.6812,
+        "calmEnergy": 0.6374,
+        "calmLow": 0.7414,
+        "calmHigh": 0.6978,
+        "mix": [
+          0.9,
+          0,
+          0.1
+        ]
+      },
+      {
+        "t": 7.667,
+        "rms": 0.6742,
+        "low": 0.6707,
+        "mid": 0.6216,
+        "high": 0.7919,
+        "centroid": 0.8845,
+        "flux": 0.4225,
+        "pulse": 0.3707,
+        "energy": 0.6795,
+        "calmEnergy": 0.6389,
+        "calmLow": 0.7401,
+        "calmHigh": 0.7007,
+        "mix": [
+          0.89,
+          0,
+          0.11
+        ]
+      },
+      {
+        "t": 7.7,
+        "rms": 0.6115,
+        "low": 0.7173,
+        "mid": 0.6429,
+        "high": 0.7316,
+        "centroid": 0.8611,
+        "flux": 0.4095,
+        "pulse": 0.304,
+        "energy": 0.6754,
+        "calmEnergy": 0.6401,
+        "calmLow": 0.7397,
+        "calmHigh": 0.7016,
+        "mix": [
+          0.881,
+          0,
+          0.119
+        ]
+      },
+      {
+        "t": 7.733,
+        "rms": 0.5507,
+        "low": 0.7517,
+        "mid": 0.5985,
+        "high": 0.6707,
+        "centroid": 0.8571,
+        "flux": 0.3762,
+        "pulse": 0.2493,
+        "energy": 0.6678,
+        "calmEnergy": 0.6411,
+        "calmLow": 0.74,
+        "calmHigh": 0.701,
+        "mix": [
+          0.87,
+          0,
+          0.13
+        ]
+      },
+      {
+        "t": 7.767,
+        "rms": 0.4981,
+        "low": 0.7439,
+        "mid": 0.5784,
+        "high": 0.6139,
+        "centroid": 0.8502,
+        "flux": 0.3334,
+        "pulse": 0.2044,
+        "energy": 0.6572,
+        "calmEnergy": 0.6417,
+        "calmLow": 0.7402,
+        "calmHigh": 0.6995,
+        "mix": [
+          0.86,
+          0,
+          0.14
+        ]
+      },
+      {
+        "t": 7.8,
+        "rms": 0.4838,
+        "low": 0.764,
+        "mid": 0.6796,
+        "high": 0.6334,
+        "centroid": 0.835,
+        "flux": 0.6667,
+        "pulse": 1,
+        "energy": 0.649,
+        "calmEnergy": 0.6419,
+        "calmLow": 0.7409,
+        "calmHigh": 0.6983,
+        "mix": [
+          0.849,
+          0,
+          0.151
+        ]
+      },
+      {
+        "t": 7.833,
+        "rms": 0.4694,
+        "low": 0.8207,
+        "mid": 0.6868,
+        "high": 0.6235,
+        "centroid": 0.8269,
+        "flux": 0.5734,
+        "pulse": 0.82,
+        "energy": 0.6419,
+        "calmEnergy": 0.6419,
+        "calmLow": 0.7433,
+        "calmHigh": 0.6969,
+        "mix": [
+          0.838,
+          0,
+          0.162
+        ]
+      },
+      {
+        "t": 7.867,
+        "rms": 0.446,
+        "low": 0.8637,
+        "mid": 0.6772,
+        "high": 0.6008,
+        "centroid": 0.8249,
+        "flux": 0.4934,
+        "pulse": 0.6724,
+        "energy": 0.6349,
+        "calmEnergy": 0.6418,
+        "calmLow": 0.7469,
+        "calmHigh": 0.6952,
+        "mix": [
+          0.827,
+          0,
+          0.173
+        ]
+      },
+      {
+        "t": 7.9,
+        "rms": 0.4172,
+        "low": 0.8964,
+        "mid": 0.6513,
+        "high": 0.5631,
+        "centroid": 0.8392,
+        "flux": 0.4622,
+        "pulse": 0.5514,
+        "energy": 0.6269,
+        "calmEnergy": 0.6415,
+        "calmLow": 0.7514,
+        "calmHigh": 0.6928,
+        "mix": [
+          0.815,
+          0,
+          0.185
+        ]
+      },
+      {
+        "t": 7.933,
+        "rms": 0.3886,
+        "low": 0.8677,
+        "mid": 0.5862,
+        "high": 0.5302,
+        "centroid": 0.864,
+        "flux": 0.4925,
+        "pulse": 0.4521,
+        "energy": 0.6162,
+        "calmEnergy": 0.641,
+        "calmLow": 0.7549,
+        "calmHigh": 0.6899,
+        "mix": [
+          0.803,
+          0,
+          0.197
+        ]
+      },
+      {
+        "t": 7.967,
+        "rms": 0.3654,
+        "low": 0.847,
+        "mid": 0.565,
+        "high": 0.5089,
+        "centroid": 0.8653,
+        "flux": 0.4527,
+        "pulse": 0.3707,
+        "energy": 0.6043,
+        "calmEnergy": 0.6402,
+        "calmLow": 0.7576,
+        "calmHigh": 0.6866,
+        "mix": [
+          0.791,
+          0,
+          0.209
+        ]
+      },
+      {
+        "t": 8,
+        "rms": 0.3448,
+        "low": 0.843,
+        "mid": 0.5229,
+        "high": 0.499,
+        "centroid": 0.8623,
+        "flux": 0.4102,
+        "pulse": 0.304,
+        "energy": 0.5916,
+        "calmEnergy": 0.6393,
+        "calmLow": 0.7602,
+        "calmHigh": 0.6833,
+        "mix": [
+          0.779,
+          0,
+          0.221
+        ]
+      },
+      {
+        "t": 8.033,
+        "rms": 0.3239,
+        "low": 0.8724,
+        "mid": 0.4706,
+        "high": 0.4914,
+        "centroid": 0.8612,
+        "flux": 0.3925,
+        "pulse": 0.2493,
+        "energy": 0.5784,
+        "calmEnergy": 0.6381,
+        "calmLow": 0.7636,
+        "calmHigh": 0.6798,
+        "mix": [
+          0.766,
+          0,
+          0.234
+        ]
+      },
+      {
+        "t": 8.067,
+        "rms": 0.3242,
+        "low": 0.8275,
+        "mid": 0.464,
+        "high": 0.4633,
+        "centroid": 0.8555,
+        "flux": 0.4895,
+        "pulse": 0.2044,
+        "energy": 0.5656,
+        "calmEnergy": 0.6366,
+        "calmLow": 0.7655,
+        "calmHigh": 0.6759,
+        "mix": [
+          0.754,
+          0,
+          0.246
+        ]
+      },
+      {
+        "t": 8.1,
+        "rms": 0.581,
+        "low": 0.7848,
+        "mid": 0.5926,
+        "high": 0.6243,
+        "centroid": 0.8186,
+        "flux": 0.5068,
+        "pulse": 0.2288,
+        "energy": 0.5807,
+        "calmEnergy": 0.6355,
+        "calmLow": 0.7661,
+        "calmHigh": 0.675,
+        "mix": [
+          0.741,
+          0,
+          0.259
+        ]
+      },
+      {
+        "t": 8.133,
+        "rms": 0.7402,
+        "low": 0.7659,
+        "mid": 0.6904,
+        "high": 0.737,
+        "centroid": 0.8442,
+        "flux": 0.4432,
+        "pulse": 0.1876,
+        "energy": 0.6212,
+        "calmEnergy": 0.6352,
+        "calmLow": 0.766,
+        "calmHigh": 0.6768,
+        "mix": [
+          0.728,
+          0,
+          0.272
+        ]
+      },
+      {
+        "t": 8.167,
+        "rms": 0.8105,
+        "low": 0.7207,
+        "mid": 0.6329,
+        "high": 0.8159,
+        "centroid": 0.8743,
+        "flux": 0.3702,
+        "pulse": 0.1538,
+        "energy": 0.6574,
+        "calmEnergy": 0.636,
+        "calmLow": 0.7652,
+        "calmHigh": 0.681,
+        "mix": [
+          0.714,
+          0,
+          0.286
+        ]
+      },
+      {
+        "t": 8.2,
+        "rms": 0.7585,
+        "low": 0.6789,
+        "mid": 0.5983,
+        "high": 0.793,
+        "centroid": 0.8848,
+        "flux": 0.3084,
+        "pulse": 0.1262,
+        "energy": 0.6721,
+        "calmEnergy": 0.6372,
+        "calmLow": 0.7637,
+        "calmHigh": 0.6844,
+        "mix": [
+          0.701,
+          0,
+          0.299
+        ]
+      },
+      {
+        "t": 8.233,
+        "rms": 0.7006,
+        "low": 0.6825,
+        "mid": 0.6311,
+        "high": 0.7678,
+        "centroid": 0.8731,
+        "flux": 0.5371,
+        "pulse": 0.6954,
+        "energy": 0.6753,
+        "calmEnergy": 0.6386,
+        "calmLow": 0.7622,
+        "calmHigh": 0.6869,
+        "mix": [
+          0.687,
+          0,
+          0.313
+        ]
+      },
+      {
+        "t": 8.267,
+        "rms": 0.6344,
+        "low": 0.6267,
+        "mid": 0.6143,
+        "high": 0.7074,
+        "centroid": 0.8488,
+        "flux": 0.4546,
+        "pulse": 0.5702,
+        "energy": 0.6707,
+        "calmEnergy": 0.6397,
+        "calmLow": 0.7598,
+        "calmHigh": 0.6875,
+        "mix": [
+          0.673,
+          0,
+          0.327
+        ]
+      },
+      {
+        "t": 8.3,
+        "rms": 0.5706,
+        "low": 0.564,
+        "mid": 0.5963,
+        "high": 0.6584,
+        "centroid": 0.8201,
+        "flux": 0.4059,
+        "pulse": 0.4676,
+        "energy": 0.661,
+        "calmEnergy": 0.6404,
+        "calmLow": 0.7563,
+        "calmHigh": 0.687,
+        "mix": [
+          0.659,
+          0,
+          0.341
+        ]
+      },
+      {
+        "t": 8.333,
+        "rms": 0.5169,
+        "low": 0.5499,
+        "mid": 0.5611,
+        "high": 0.6204,
+        "centroid": 0.8,
+        "flux": 0.3685,
+        "pulse": 0.3834,
+        "energy": 0.6481,
+        "calmEnergy": 0.6407,
+        "calmLow": 0.7525,
+        "calmHigh": 0.6858,
+        "mix": [
+          0.645,
+          0,
+          0.355
+        ]
+      },
+      {
+        "t": 8.367,
+        "rms": 0.4908,
+        "low": 0.6162,
+        "mid": 0.607,
+        "high": 0.6065,
+        "centroid": 0.7844,
+        "flux": 0.6842,
+        "pulse": 1,
+        "energy": 0.6369,
+        "calmEnergy": 0.6406,
+        "calmLow": 0.7501,
+        "calmHigh": 0.6843,
+        "mix": [
+          0.631,
+          0,
+          0.369
+        ]
+      },
+      {
+        "t": 8.4,
+        "rms": 0.4757,
+        "low": 0.5845,
+        "mid": 0.6787,
+        "high": 0.6243,
+        "centroid": 0.7573,
+        "flux": 0.5985,
+        "pulse": 0.9704,
+        "energy": 0.6266,
+        "calmEnergy": 0.6404,
+        "calmLow": 0.7471,
+        "calmHigh": 0.6833,
+        "mix": [
+          0.617,
+          0,
+          0.383
+        ]
+      },
+      {
+        "t": 8.433,
+        "rms": 0.4547,
+        "low": 0.6403,
+        "mid": 0.7193,
+        "high": 0.619,
+        "centroid": 0.7297,
+        "flux": 0.5372,
+        "pulse": 0.7957,
+        "energy": 0.6179,
+        "calmEnergy": 0.6399,
+        "calmLow": 0.7452,
+        "calmHigh": 0.6821,
+        "mix": [
+          0.602,
+          0,
+          0.398
+        ]
+      },
+      {
+        "t": 8.467,
+        "rms": 0.4275,
+        "low": 0.6102,
+        "mid": 0.7046,
+        "high": 0.6051,
+        "centroid": 0.7034,
+        "flux": 0.4535,
+        "pulse": 0.6525,
+        "energy": 0.6075,
+        "calmEnergy": 0.6393,
+        "calmLow": 0.7428,
+        "calmHigh": 0.6807,
+        "mix": [
+          0.588,
+          0,
+          0.412
+        ]
+      },
+      {
+        "t": 8.5,
+        "rms": 0.4011,
+        "low": 0.687,
+        "mid": 0.6948,
+        "high": 0.5845,
+        "centroid": 0.684,
+        "flux": 0.4664,
+        "pulse": 0.535,
+        "energy": 0.5979,
+        "calmEnergy": 0.6384,
+        "calmLow": 0.7417,
+        "calmHigh": 0.679,
+        "mix": [
+          0.573,
+          0,
+          0.427
+        ]
+      },
+      {
+        "t": 8.533,
+        "rms": 0.3825,
+        "low": 0.6735,
+        "mid": 0.6913,
+        "high": 0.5714,
+        "centroid": 0.6624,
+        "flux": 0.4357,
+        "pulse": 0.4387,
+        "energy": 0.5877,
+        "calmEnergy": 0.6374,
+        "calmLow": 0.7405,
+        "calmHigh": 0.6771,
+        "mix": [
+          0.559,
+          0,
+          0.441
+        ]
+      },
+      {
+        "t": 8.567,
+        "rms": 0.3541,
+        "low": 0.6381,
+        "mid": 0.7034,
+        "high": 0.5409,
+        "centroid": 0.6447,
+        "flux": 0.3903,
+        "pulse": 0.3598,
+        "energy": 0.5763,
+        "calmEnergy": 0.6362,
+        "calmLow": 0.7387,
+        "calmHigh": 0.6746,
+        "mix": [
+          0.544,
+          0,
+          0.456
+        ]
+      },
+      {
+        "t": 8.6,
+        "rms": 0.3291,
+        "low": 0.6478,
+        "mid": 0.7477,
+        "high": 0.5006,
+        "centroid": 0.6263,
+        "flux": 0.392,
+        "pulse": 0.295,
+        "energy": 0.5655,
+        "calmEnergy": 0.6348,
+        "calmLow": 0.737,
+        "calmHigh": 0.6715,
+        "mix": [
+          0.529,
+          0,
+          0.471
+        ]
+      },
+      {
+        "t": 8.633,
+        "rms": 0.3129,
+        "low": 0.7193,
+        "mid": 0.8082,
+        "high": 0.4589,
+        "centroid": 0.6088,
+        "flux": 0.3838,
+        "pulse": 0.2419,
+        "energy": 0.5573,
+        "calmEnergy": 0.6332,
+        "calmLow": 0.7367,
+        "calmHigh": 0.6676,
+        "mix": [
+          0.515,
+          0,
+          0.485
+        ]
+      },
+      {
+        "t": 8.667,
+        "rms": 0.488,
+        "low": 0.7455,
+        "mid": 0.8543,
+        "high": 0.554,
+        "centroid": 0.6347,
+        "flux": 0.5525,
+        "pulse": 0.7033,
+        "energy": 0.5698,
+        "calmEnergy": 0.632,
+        "calmLow": 0.737,
+        "calmHigh": 0.6656,
+        "mix": [
+          0.5,
+          0,
+          0.5
+        ]
+      },
+      {
+        "t": 8.7,
+        "rms": 0.6825,
+        "low": 0.7435,
+        "mid": 0.853,
+        "high": 0.6878,
+        "centroid": 0.7247,
+        "flux": 0.4836,
+        "pulse": 0.5767,
+        "energy": 0.6103,
+        "calmEnergy": 0.6315,
+        "calmLow": 0.7372,
+        "calmHigh": 0.6663,
+        "mix": [
+          0.485,
+          0,
+          0.515
+        ]
+      },
+      {
+        "t": 8.733,
+        "rms": 0.8023,
+        "low": 0.8051,
+        "mid": 0.8446,
+        "high": 0.7815,
+        "centroid": 0.7879,
+        "flux": 0.4255,
+        "pulse": 0.4729,
+        "energy": 0.6623,
+        "calmEnergy": 0.6326,
+        "calmLow": 0.7392,
+        "calmHigh": 0.6697,
+        "mix": [
+          0.471,
+          0,
+          0.529
+        ]
+      },
+      {
+        "t": 8.767,
+        "rms": 0.7479,
+        "low": 0.8053,
+        "mid": 0.7725,
+        "high": 0.7723,
+        "centroid": 0.8254,
+        "flux": 0.3489,
+        "pulse": 0.3878,
+        "energy": 0.6887,
+        "calmEnergy": 0.6346,
+        "calmLow": 0.7412,
+        "calmHigh": 0.6728,
+        "mix": [
+          0.456,
+          0,
+          0.544
+        ]
+      },
+      {
+        "t": 8.8,
+        "rms": 0.6962,
+        "low": 0.809,
+        "mid": 0.7581,
+        "high": 0.7477,
+        "centroid": 0.8153,
+        "flux": 0.6745,
+        "pulse": 1,
+        "energy": 0.6994,
+        "calmEnergy": 0.6368,
+        "calmLow": 0.7432,
+        "calmHigh": 0.6751,
+        "mix": [
+          0.441,
+          0,
+          0.559
+        ]
+      },
+      {
+        "t": 8.833,
+        "rms": 0.6415,
+        "low": 0.776,
+        "mid": 0.7047,
+        "high": 0.7077,
+        "centroid": 0.8121,
+        "flux": 0.5805,
+        "pulse": 0.82,
+        "energy": 0.6974,
+        "calmEnergy": 0.639,
+        "calmLow": 0.7442,
+        "calmHigh": 0.676,
+        "mix": [
+          0.427,
+          0,
+          0.573
+        ]
+      },
+      {
+        "t": 8.867,
+        "rms": 0.5769,
+        "low": 0.7346,
+        "mid": 0.6987,
+        "high": 0.6494,
+        "centroid": 0.7866,
+        "flux": 0.541,
+        "pulse": 0.6724,
+        "energy": 0.6907,
+        "calmEnergy": 0.6408,
+        "calmLow": 0.744,
+        "calmHigh": 0.6755,
+        "mix": [
+          0.412,
+          0,
+          0.588
+        ]
+      },
+      {
+        "t": 8.9,
+        "rms": 0.5178,
+        "low": 0.7109,
+        "mid": 0.7012,
+        "high": 0.5876,
+        "centroid": 0.7557,
+        "flux": 0.4654,
+        "pulse": 0.5514,
+        "energy": 0.6806,
+        "calmEnergy": 0.6422,
+        "calmLow": 0.7434,
+        "calmHigh": 0.674,
+        "mix": [
+          0.398,
+          0,
+          0.602
+        ]
+      },
+      {
+        "t": 8.933,
+        "rms": 0.4786,
+        "low": 0.6988,
+        "mid": 0.6925,
+        "high": 0.557,
+        "centroid": 0.7373,
+        "flux": 0.5874,
+        "pulse": 0.6867,
+        "energy": 0.6687,
+        "calmEnergy": 0.6431,
+        "calmLow": 0.7426,
+        "calmHigh": 0.6719,
+        "mix": [
+          0.383,
+          0,
+          0.617
+        ]
+      },
+      {
+        "t": 8.967,
+        "rms": 0.4603,
+        "low": 0.6533,
+        "mid": 0.6549,
+        "high": 0.584,
+        "centroid": 0.7416,
+        "flux": 0.5745,
+        "pulse": 0.5631,
+        "energy": 0.6552,
+        "calmEnergy": 0.6435,
+        "calmLow": 0.741,
+        "calmHigh": 0.6703,
+        "mix": [
+          0.369,
+          0,
+          0.631
+        ]
+      },
+      {
+        "t": 9,
+        "rms": 0.4391,
+        "low": 0.588,
+        "mid": 0.6308,
+        "high": 0.5937,
+        "centroid": 0.7412,
+        "flux": 0.4938,
+        "pulse": 0.4617,
+        "energy": 0.64,
+        "calmEnergy": 0.6434,
+        "calmLow": 0.7383,
+        "calmHigh": 0.6689,
+        "mix": [
+          0.355,
+          0,
+          0.645
+        ]
+      },
+      {
+        "t": 9.033,
+        "rms": 0.4165,
+        "low": 0.6869,
+        "mid": 0.6576,
+        "high": 0.584,
+        "centroid": 0.7242,
+        "flux": 0.4573,
+        "pulse": 0.3786,
+        "energy": 0.6274,
+        "calmEnergy": 0.6431,
+        "calmLow": 0.7374,
+        "calmHigh": 0.6674,
+        "mix": [
+          0.341,
+          0,
+          0.659
+        ]
+      },
+      {
+        "t": 9.067,
+        "rms": 0.3957,
+        "low": 0.7523,
+        "mid": 0.7061,
+        "high": 0.5586,
+        "centroid": 0.7106,
+        "flux": 0.4333,
+        "pulse": 0.3105,
+        "energy": 0.617,
+        "calmEnergy": 0.6426,
+        "calmLow": 0.7378,
+        "calmHigh": 0.6654,
+        "mix": [
+          0.327,
+          0,
+          0.673
+        ]
+      },
+      {
+        "t": 9.1,
+        "rms": 0.3907,
+        "low": 0.7821,
+        "mid": 0.7767,
+        "high": 0.6005,
+        "centroid": 0.6885,
+        "flux": 0.5237,
+        "pulse": 0.2546,
+        "energy": 0.6091,
+        "calmEnergy": 0.6419,
+        "calmLow": 0.7391,
+        "calmHigh": 0.6642,
+        "mix": [
+          0.313,
+          0,
+          0.687
+        ]
+      },
+      {
+        "t": 9.133,
+        "rms": 0.3838,
+        "low": 0.7565,
+        "mid": 0.7804,
+        "high": 0.6093,
+        "centroid": 0.6692,
+        "flux": 0.4608,
+        "pulse": 0.2087,
+        "energy": 0.6012,
+        "calmEnergy": 0.6411,
+        "calmLow": 0.7397,
+        "calmHigh": 0.6633,
+        "mix": [
+          0.299,
+          0,
+          0.701
+        ]
+      },
+      {
+        "t": 9.167,
+        "rms": 0.3726,
+        "low": 0.7367,
+        "mid": 0.7734,
+        "high": 0.604,
+        "centroid": 0.6571,
+        "flux": 0.4085,
+        "pulse": 0.1712,
+        "energy": 0.5928,
+        "calmEnergy": 0.6402,
+        "calmLow": 0.7396,
+        "calmHigh": 0.6622,
+        "mix": [
+          0.286,
+          0,
+          0.714
+        ]
+      },
+      {
+        "t": 9.2,
+        "rms": 0.3605,
+        "low": 0.6631,
+        "mid": 0.7968,
+        "high": 0.6014,
+        "centroid": 0.6419,
+        "flux": 0.3868,
+        "pulse": 0.1404,
+        "energy": 0.5835,
+        "calmEnergy": 0.639,
+        "calmLow": 0.7382,
+        "calmHigh": 0.6611,
+        "mix": [
+          0.272,
+          0,
+          0.728
+        ]
+      },
+      {
+        "t": 9.233,
+        "rms": 0.4418,
+        "low": 0.6777,
+        "mid": 0.8151,
+        "high": 0.6355,
+        "centroid": 0.6848,
+        "flux": 0.6934,
+        "pulse": 1,
+        "energy": 0.5808,
+        "calmEnergy": 0.6379,
+        "calmLow": 0.7371,
+        "calmHigh": 0.6606,
+        "mix": [
+          0.259,
+          0,
+          0.741
+        ]
+      },
+      {
+        "t": 9.267,
+        "rms": 0.6539,
+        "low": 0.6106,
+        "mid": 0.8595,
+        "high": 0.7448,
+        "centroid": 0.7407,
+        "flux": 0.6215,
+        "pulse": 0.8921,
+        "energy": 0.6071,
+        "calmEnergy": 0.6372,
+        "calmLow": 0.7349,
+        "calmHigh": 0.6632,
+        "mix": [
+          0.246,
+          0,
+          0.754
+        ]
+      },
+      {
+        "t": 9.3,
+        "rms": 0.7854,
+        "low": 0.5548,
+        "mid": 0.8436,
+        "high": 0.8214,
+        "centroid": 0.8075,
+        "flux": 0.5185,
+        "pulse": 0.7315,
+        "energy": 0.6442,
+        "calmEnergy": 0.6375,
+        "calmLow": 0.7316,
+        "calmHigh": 0.6679,
+        "mix": [
+          0.234,
+          0,
+          0.766
+        ]
+      },
+      {
+        "t": 9.333,
+        "rms": 0.7699,
+        "low": 0.5977,
+        "mid": 0.8313,
+        "high": 0.852,
+        "centroid": 0.8394,
+        "flux": 0.4271,
+        "pulse": 0.5998,
+        "energy": 0.6708,
+        "calmEnergy": 0.6387,
+        "calmLow": 0.7292,
+        "calmHigh": 0.6734,
+        "mix": [
+          0.221,
+          0,
+          0.779
+        ]
+      },
+      {
+        "t": 9.367,
+        "rms": 0.7192,
+        "low": 0.5678,
+        "mid": 0.7818,
+        "high": 0.8032,
+        "centroid": 0.8312,
+        "flux": 0.4031,
+        "pulse": 0.4919,
+        "energy": 0.6785,
+        "calmEnergy": 0.64,
+        "calmLow": 0.7263,
+        "calmHigh": 0.6773,
+        "mix": [
+          0.209,
+          0,
+          0.791
+        ]
+      },
+      {
+        "t": 9.4,
+        "rms": 0.6792,
+        "low": 0.5362,
+        "mid": 0.8154,
+        "high": 0.7737,
+        "centroid": 0.8073,
+        "flux": 0.4845,
+        "pulse": 0.4033,
+        "energy": 0.6781,
+        "calmEnergy": 0.6414,
+        "calmLow": 0.7229,
+        "calmHigh": 0.6802,
+        "mix": [
+          0.197,
+          0,
+          0.803
+        ]
+      },
+      {
+        "t": 9.433,
+        "rms": 0.6334,
+        "low": 0.5363,
+        "mid": 0.8138,
+        "high": 0.75,
+        "centroid": 0.7709,
+        "flux": 0.442,
+        "pulse": 0.3307,
+        "energy": 0.675,
+        "calmEnergy": 0.6426,
+        "calmLow": 0.7195,
+        "calmHigh": 0.6823,
+        "mix": [
+          0.185,
+          0,
+          0.815
+        ]
+      },
+      {
+        "t": 9.467,
+        "rms": 0.5921,
+        "low": 0.5275,
+        "mid": 0.8462,
+        "high": 0.7221,
+        "centroid": 0.7395,
+        "flux": 0.5046,
+        "pulse": 0.2712,
+        "energy": 0.67,
+        "calmEnergy": 0.6435,
+        "calmLow": 0.7161,
+        "calmHigh": 0.6835,
+        "mix": [
+          0.173,
+          0,
+          0.827
+        ]
+      },
+      {
+        "t": 9.5,
+        "rms": 0.5533,
+        "low": 0.4876,
+        "mid": 0.8649,
+        "high": 0.6763,
+        "centroid": 0.7121,
+        "flux": 0.4421,
+        "pulse": 0.2224,
+        "energy": 0.6626,
+        "calmEnergy": 0.6442,
+        "calmLow": 0.712,
+        "calmHigh": 0.6834,
+        "mix": [
+          0.162,
+          0,
+          0.838
+        ]
+      },
+      {
+        "t": 9.533,
+        "rms": 0.5349,
+        "low": 0.5625,
+        "mid": 0.8973,
+        "high": 0.6661,
+        "centroid": 0.696,
+        "flux": 0.721,
+        "pulse": 1,
+        "energy": 0.6569,
+        "calmEnergy": 0.6446,
+        "calmLow": 0.7093,
+        "calmHigh": 0.6831,
+        "mix": [
+          0.151,
+          0,
+          0.849
+        ]
+      },
+      {
+        "t": 9.567,
+        "rms": 0.5116,
+        "low": 0.6451,
+        "mid": 0.9137,
+        "high": 0.6521,
+        "centroid": 0.6849,
+        "flux": 0.6117,
+        "pulse": 0.82,
+        "energy": 0.6523,
+        "calmEnergy": 0.6449,
+        "calmLow": 0.7081,
+        "calmHigh": 0.6825,
+        "mix": [
+          0.14,
+          0,
+          0.86
+        ]
+      },
+      {
+        "t": 9.6,
+        "rms": 0.4844,
+        "low": 0.6778,
+        "mid": 0.8936,
+        "high": 0.6392,
+        "centroid": 0.6745,
+        "flux": 0.5274,
+        "pulse": 0.6724,
+        "energy": 0.6467,
+        "calmEnergy": 0.645,
+        "calmLow": 0.7076,
+        "calmHigh": 0.6817,
+        "mix": [
+          0.13,
+          0,
+          0.87
+        ]
+      },
+      {
+        "t": 9.633,
+        "rms": 0.4558,
+        "low": 0.7263,
+        "mid": 0.8997,
+        "high": 0.6133,
+        "centroid": 0.6552,
+        "flux": 0.4878,
+        "pulse": 0.5514,
+        "energy": 0.641,
+        "calmEnergy": 0.6449,
+        "calmLow": 0.7081,
+        "calmHigh": 0.6805,
+        "mix": [
+          0.119,
+          0,
+          0.881
+        ]
+      },
+      {
+        "t": 9.667,
+        "rms": 0.4551,
+        "low": 0.7002,
+        "mid": 0.9238,
+        "high": 0.6637,
+        "centroid": 0.6552,
+        "flux": 0.7439,
+        "pulse": 1,
+        "energy": 0.6358,
+        "calmEnergy": 0.6447,
+        "calmLow": 0.708,
+        "calmHigh": 0.6802,
+        "mix": [
+          0.11,
+          0,
+          0.89
+        ]
+      },
+      {
+        "t": 9.7,
+        "rms": 0.4432,
+        "low": 0.6301,
+        "mid": 0.899,
+        "high": 0.6553,
+        "centroid": 0.6805,
+        "flux": 0.6174,
+        "pulse": 0.82,
+        "energy": 0.6285,
+        "calmEnergy": 0.6444,
+        "calmLow": 0.7066,
+        "calmHigh": 0.6797,
+        "mix": [
+          0.1,
+          0,
+          0.9
+        ]
+      },
+      {
+        "t": 9.733,
+        "rms": 0.4256,
+        "low": 0.6128,
+        "mid": 0.8443,
+        "high": 0.6499,
+        "centroid": 0.6918,
+        "flux": 0.5281,
+        "pulse": 0.6724,
+        "energy": 0.6194,
+        "calmEnergy": 0.6439,
+        "calmLow": 0.7049,
+        "calmHigh": 0.6792,
+        "mix": [
+          0.091,
+          0,
+          0.909
+        ]
+      },
+      {
+        "t": 9.767,
+        "rms": 0.4052,
+        "low": 0.6341,
+        "mid": 0.7741,
+        "high": 0.6388,
+        "centroid": 0.7002,
+        "flux": 0.4441,
+        "pulse": 0.5514,
+        "energy": 0.6092,
+        "calmEnergy": 0.6432,
+        "calmLow": 0.7036,
+        "calmHigh": 0.6785,
+        "mix": [
+          0.082,
+          0,
+          0.918
+        ]
+      },
+      {
+        "t": 9.8,
+        "rms": 0.3998,
+        "low": 0.6346,
+        "mid": 0.7484,
+        "high": 0.6298,
+        "centroid": 0.7144,
+        "flux": 0.5173,
+        "pulse": 0.4521,
+        "energy": 0.5993,
+        "calmEnergy": 0.6423,
+        "calmLow": 0.7024,
+        "calmHigh": 0.6776,
+        "mix": [
+          0.074,
+          0,
+          0.926
+        ]
+      },
+      {
+        "t": 9.833,
+        "rms": 0.6279,
+        "low": 0.572,
+        "mid": 0.7864,
+        "high": 0.7408,
+        "centroid": 0.7111,
+        "flux": 0.4901,
+        "pulse": 0.3707,
+        "energy": 0.6112,
+        "calmEnergy": 0.6417,
+        "calmLow": 0.7,
+        "calmHigh": 0.6795,
+        "mix": [
+          0.066,
+          0,
+          0.934
+        ]
+      },
+      {
+        "t": 9.867,
+        "rms": 0.7693,
+        "low": 0.5455,
+        "mid": 0.7811,
+        "high": 0.8186,
+        "centroid": 0.792,
+        "flux": 0.4277,
+        "pulse": 0.304,
+        "energy": 0.6412,
+        "calmEnergy": 0.6417,
+        "calmLow": 0.6972,
+        "calmHigh": 0.6837,
+        "mix": [
+          0.059,
+          0,
+          0.941
+        ]
+      },
+      {
+        "t": 9.9,
+        "rms": 0.7918,
+        "low": 0.4952,
+        "mid": 0.76,
+        "high": 0.873,
+        "centroid": 0.8406,
+        "flux": 0.3507,
+        "pulse": 0.2493,
+        "energy": 0.6635,
+        "calmEnergy": 0.6424,
+        "calmLow": 0.6936,
+        "calmHigh": 0.6894,
+        "mix": [
+          0.051,
+          0,
+          0.949
+        ]
+      },
+      {
+        "t": 9.933,
+        "rms": 0.7455,
+        "low": 0.4731,
+        "mid": 0.6914,
+        "high": 0.8332,
+        "centroid": 0.8366,
+        "flux": 0.2885,
+        "pulse": 0.2044,
+        "energy": 0.6681,
+        "calmEnergy": 0.6433,
+        "calmLow": 0.6896,
+        "calmHigh": 0.6937,
+        "mix": [
+          0.045,
+          0,
+          0.955
+        ]
+      },
+      {
+        "t": 9.967,
+        "rms": 0.7025,
+        "low": 0.5283,
+        "mid": 0.6438,
+        "high": 0.8195,
+        "centroid": 0.8198,
+        "flux": 0.4368,
+        "pulse": 0.1676,
+        "energy": 0.667,
+        "calmEnergy": 0.6442,
+        "calmLow": 0.6867,
+        "calmHigh": 0.6974,
+        "mix": [
+          0.038,
+          0,
+          0.962
+        ]
+      },
+      {
+        "t": 10,
+        "rms": 0.6516,
+        "low": 0.5161,
+        "mid": 0.6437,
+        "high": 0.7803,
+        "centroid": 0.7819,
+        "flux": 0.3942,
+        "pulse": 0.1374,
+        "energy": 0.6626,
+        "calmEnergy": 0.6448,
+        "calmLow": 0.6837,
+        "calmHigh": 0.6999,
+        "mix": [
+          0.032,
+          0,
+          0.968
+        ]
+      },
+      {
+        "t": 10.033,
+        "rms": 0.5981,
+        "low": 0.5036,
+        "mid": 0.703,
+        "high": 0.7361,
+        "centroid": 0.7484,
+        "flux": 0.3664,
+        "pulse": 0.1127,
+        "energy": 0.6562,
+        "calmEnergy": 0.6452,
+        "calmLow": 0.6804,
+        "calmHigh": 0.701,
+        "mix": [
+          0.027,
+          0,
+          0.973
+        ]
+      },
+      {
+        "t": 10.067,
+        "rms": 0.546,
+        "low": 0.4533,
+        "mid": 0.7608,
+        "high": 0.6885,
+        "centroid": 0.7165,
+        "flux": 0.3125,
+        "pulse": 0.0924,
+        "energy": 0.6472,
+        "calmEnergy": 0.6453,
+        "calmLow": 0.6763,
+        "calmHigh": 0.7008,
+        "mix": [
+          0.022,
+          0,
+          0.978
+        ]
+      },
+      {
+        "t": 10.1,
+        "rms": 0.5391,
+        "low": 0.4838,
+        "mid": 0.8182,
+        "high": 0.6957,
+        "centroid": 0.7017,
+        "flux": 0.6562,
+        "pulse": 1,
+        "energy": 0.6403,
+        "calmEnergy": 0.6452,
+        "calmLow": 0.6729,
+        "calmHigh": 0.7007,
+        "mix": [
+          0.017,
+          0,
+          0.983
+        ]
+      },
+      {
+        "t": 10.133,
+        "rms": 0.5377,
+        "low": 0.6077,
+        "mid": 0.8618,
+        "high": 0.6945,
+        "centroid": 0.7007,
+        "flux": 0.583,
+        "pulse": 0.9833,
+        "energy": 0.6372,
+        "calmEnergy": 0.645,
+        "calmLow": 0.6717,
+        "calmHigh": 0.7006,
+        "mix": [
+          0.013,
+          0,
+          0.987
+        ]
+      },
+      {
+        "t": 10.167,
+        "rms": 0.5184,
+        "low": 0.7018,
+        "mid": 0.895,
+        "high": 0.6754,
+        "centroid": 0.6928,
+        "flux": 0.4781,
+        "pulse": 0.8063,
+        "energy": 0.6358,
+        "calmEnergy": 0.6448,
+        "calmLow": 0.6726,
+        "calmHigh": 0.7001,
+        "mix": [
+          0.01,
+          0,
+          0.99
+        ]
+      },
+      {
+        "t": 10.2,
+        "rms": 0.4928,
+        "low": 0.7228,
+        "mid": 0.9202,
+        "high": 0.6416,
+        "centroid": 0.6813,
+        "flux": 0.4102,
+        "pulse": 0.6612,
+        "energy": 0.6338,
+        "calmEnergy": 0.6446,
+        "calmLow": 0.6741,
+        "calmHigh": 0.6991,
+        "mix": [
+          0.007,
+          0,
+          0.993
+        ]
+      },
+      {
+        "t": 10.233,
+        "rms": 0.4635,
+        "low": 0.7174,
+        "mid": 0.9393,
+        "high": 0.6075,
+        "centroid": 0.6676,
+        "flux": 0.3706,
+        "pulse": 0.5422,
+        "energy": 0.6304,
+        "calmEnergy": 0.6443,
+        "calmLow": 0.6754,
+        "calmHigh": 0.6974,
+        "mix": [
+          0.004,
+          0,
+          0.996
+        ]
+      },
+      {
+        "t": 10.267,
+        "rms": 0.44,
+        "low": 0.6456,
+        "mid": 0.938,
+        "high": 0.5961,
+        "centroid": 0.6655,
+        "flux": 0.3622,
+        "pulse": 0.4446,
+        "energy": 0.6244,
+        "calmEnergy": 0.6439,
+        "calmLow": 0.6749,
+        "calmHigh": 0.6956,
+        "mix": [
+          0.003,
+          0,
+          0.997
+        ]
+      },
+      {
+        "t": 10.3,
+        "rms": 0.4183,
+        "low": 0.7307,
+        "mid": 0.8939,
+        "high": 0.5869,
+        "centroid": 0.6599,
+        "flux": 0.3532,
+        "pulse": 0.3646,
+        "energy": 0.6186,
+        "calmEnergy": 0.6434,
+        "calmLow": 0.6765,
+        "calmHigh": 0.6937,
+        "mix": [
+          0.001,
+          0,
+          0.999
+        ]
+      },
+      {
+        "t": 10.333,
+        "rms": 0.3953,
+        "low": 0.7953,
+        "mid": 0.8482,
+        "high": 0.5797,
+        "centroid": 0.6519,
+        "flux": 0.3359,
+        "pulse": 0.2989,
+        "energy": 0.6125,
+        "calmEnergy": 0.6428,
+        "calmLow": 0.6801,
+        "calmHigh": 0.6916,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.367,
+        "rms": 0.383,
+        "low": 0.7912,
+        "mid": 0.815,
+        "high": 0.573,
+        "centroid": 0.6349,
+        "flux": 0.3348,
+        "pulse": 0.2451,
+        "energy": 0.6054,
+        "calmEnergy": 0.6421,
+        "calmLow": 0.6834,
+        "calmHigh": 0.6895,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.4,
+        "rms": 0.6044,
+        "low": 0.7856,
+        "mid": 0.8594,
+        "high": 0.7011,
+        "centroid": 0.6312,
+        "flux": 0.5076,
+        "pulse": 0.7123,
+        "energy": 0.6265,
+        "calmEnergy": 0.6417,
+        "calmLow": 0.6865,
+        "calmHigh": 0.6898,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.433,
+        "rms": 0.7547,
+        "low": 0.7463,
+        "mid": 0.8932,
+        "high": 0.7907,
+        "centroid": 0.7202,
+        "flux": 0.4512,
+        "pulse": 0.5841,
+        "energy": 0.6659,
+        "calmEnergy": 0.6426,
+        "calmLow": 0.6883,
+        "calmHigh": 0.6928,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.467,
+        "rms": 0.8479,
+        "low": 0.7059,
+        "mid": 0.9188,
+        "high": 0.8535,
+        "centroid": 0.7716,
+        "flux": 0.3717,
+        "pulse": 0.479,
+        "energy": 0.7092,
+        "calmEnergy": 0.6449,
+        "calmLow": 0.6888,
+        "calmHigh": 0.6977,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.5,
+        "rms": 0.8066,
+        "low": 0.6911,
+        "mid": 0.9018,
+        "high": 0.8257,
+        "centroid": 0.7678,
+        "flux": 0.3048,
+        "pulse": 0.3928,
+        "energy": 0.733,
+        "calmEnergy": 0.648,
+        "calmLow": 0.6889,
+        "calmHigh": 0.7015,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.533,
+        "rms": 0.7572,
+        "low": 0.6774,
+        "mid": 0.8947,
+        "high": 0.779,
+        "centroid": 0.7612,
+        "flux": 0.5469,
+        "pulse": 1,
+        "energy": 0.7415,
+        "calmEnergy": 0.6513,
+        "calmLow": 0.6887,
+        "calmHigh": 0.7038,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.567,
+        "rms": 0.7094,
+        "low": 0.7254,
+        "mid": 0.92,
+        "high": 0.744,
+        "centroid": 0.7508,
+        "flux": 0.5053,
+        "pulse": 0.82,
+        "energy": 0.7439,
+        "calmEnergy": 0.6545,
+        "calmLow": 0.6898,
+        "calmHigh": 0.705,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.6,
+        "rms": 0.6541,
+        "low": 0.709,
+        "mid": 0.9392,
+        "high": 0.6946,
+        "centroid": 0.7306,
+        "flux": 0.419,
+        "pulse": 0.6724,
+        "energy": 0.7411,
+        "calmEnergy": 0.6575,
+        "calmLow": 0.6904,
+        "calmHigh": 0.7048,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.633,
+        "rms": 0.5995,
+        "low": 0.6755,
+        "mid": 0.9347,
+        "high": 0.6495,
+        "centroid": 0.7087,
+        "flux": 0.383,
+        "pulse": 0.5514,
+        "energy": 0.7345,
+        "calmEnergy": 0.6602,
+        "calmLow": 0.6901,
+        "calmHigh": 0.7038,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.667,
+        "rms": 0.561,
+        "low": 0.7,
+        "mid": 0.905,
+        "high": 0.624,
+        "centroid": 0.6937,
+        "flux": 0.6278,
+        "pulse": 1,
+        "energy": 0.7261,
+        "calmEnergy": 0.6625,
+        "calmLow": 0.6904,
+        "calmHigh": 0.7024,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.7,
+        "rms": 0.5356,
+        "low": 0.6915,
+        "mid": 0.8501,
+        "high": 0.645,
+        "centroid": 0.6759,
+        "flux": 0.5554,
+        "pulse": 0.82,
+        "energy": 0.7159,
+        "calmEnergy": 0.6644,
+        "calmLow": 0.6904,
+        "calmHigh": 0.7014,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.733,
+        "rms": 0.5039,
+        "low": 0.646,
+        "mid": 0.8377,
+        "high": 0.6431,
+        "centroid": 0.6575,
+        "flux": 0.5075,
+        "pulse": 0.6724,
+        "energy": 0.7035,
+        "calmEnergy": 0.6658,
+        "calmLow": 0.6896,
+        "calmHigh": 0.7003,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.767,
+        "rms": 0.4701,
+        "low": 0.603,
+        "mid": 0.865,
+        "high": 0.6097,
+        "centroid": 0.6401,
+        "flux": 0.4631,
+        "pulse": 0.5514,
+        "energy": 0.6899,
+        "calmEnergy": 0.6666,
+        "calmLow": 0.6881,
+        "calmHigh": 0.6987,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.8,
+        "rms": 0.4412,
+        "low": 0.5661,
+        "mid": 0.8974,
+        "high": 0.5691,
+        "centroid": 0.6216,
+        "flux": 0.3973,
+        "pulse": 0.4521,
+        "energy": 0.6758,
+        "calmEnergy": 0.6669,
+        "calmLow": 0.6859,
+        "calmHigh": 0.6964,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.833,
+        "rms": 0.4408,
+        "low": 0.6702,
+        "mid": 0.922,
+        "high": 0.5847,
+        "centroid": 0.6185,
+        "flux": 0.6987,
+        "pulse": 1,
+        "energy": 0.6655,
+        "calmEnergy": 0.6669,
+        "calmLow": 0.6856,
+        "calmHigh": 0.6944,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.867,
+        "rms": 0.4327,
+        "low": 0.6461,
+        "mid": 0.9403,
+        "high": 0.5842,
+        "centroid": 0.6148,
+        "flux": 0.5828,
+        "pulse": 0.82,
+        "energy": 0.6557,
+        "calmEnergy": 0.6667,
+        "calmLow": 0.6849,
+        "calmHigh": 0.6924,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.9,
+        "rms": 0.4211,
+        "low": 0.6441,
+        "mid": 0.9381,
+        "high": 0.5794,
+        "centroid": 0.6057,
+        "flux": 0.5069,
+        "pulse": 0.6724,
+        "energy": 0.646,
+        "calmEnergy": 0.6663,
+        "calmLow": 0.6841,
+        "calmHigh": 0.6903,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.933,
+        "rms": 0.4024,
+        "low": 0.7014,
+        "mid": 0.931,
+        "high": 0.5636,
+        "centroid": 0.5996,
+        "flux": 0.4341,
+        "pulse": 0.5514,
+        "energy": 0.6371,
+        "calmEnergy": 0.6657,
+        "calmLow": 0.6847,
+        "calmHigh": 0.6881,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 10.967,
+        "rms": 0.5188,
+        "low": 0.7731,
+        "mid": 0.9476,
+        "high": 0.6926,
+        "centroid": 0.6501,
+        "flux": 0.7171,
+        "pulse": 1,
+        "energy": 0.6396,
+        "calmEnergy": 0.6652,
+        "calmLow": 0.6873,
+        "calmHigh": 0.6882,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11,
+        "rms": 0.7016,
+        "low": 0.7653,
+        "mid": 0.9601,
+        "high": 0.7848,
+        "centroid": 0.719,
+        "flux": 0.6417,
+        "pulse": 0.9298,
+        "energy": 0.6712,
+        "calmEnergy": 0.6654,
+        "calmLow": 0.6897,
+        "calmHigh": 0.6911,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.033,
+        "rms": 0.815,
+        "low": 0.765,
+        "mid": 0.9697,
+        "high": 0.8494,
+        "centroid": 0.7851,
+        "flux": 0.5262,
+        "pulse": 0.7625,
+        "energy": 0.7132,
+        "calmEnergy": 0.6671,
+        "calmLow": 0.6919,
+        "calmHigh": 0.6958,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.067,
+        "rms": 0.7859,
+        "low": 0.7863,
+        "mid": 0.9093,
+        "high": 0.8204,
+        "centroid": 0.798,
+        "flux": 0.4315,
+        "pulse": 0.6252,
+        "energy": 0.7379,
+        "calmEnergy": 0.6695,
+        "calmLow": 0.6947,
+        "calmHigh": 0.6996,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.1,
+        "rms": 0.7413,
+        "low": 0.7861,
+        "mid": 0.8775,
+        "high": 0.7698,
+        "centroid": 0.7917,
+        "flux": 0.5607,
+        "pulse": 0.5127,
+        "energy": 0.7475,
+        "calmEnergy": 0.6723,
+        "calmLow": 0.6975,
+        "calmHigh": 0.7017,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.133,
+        "rms": 0.7195,
+        "low": 0.8026,
+        "mid": 0.8656,
+        "high": 0.7882,
+        "centroid": 0.8059,
+        "flux": 0.6515,
+        "pulse": 0.928,
+        "energy": 0.7514,
+        "calmEnergy": 0.675,
+        "calmLow": 0.7006,
+        "calmHigh": 0.7043,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.167,
+        "rms": 0.6785,
+        "low": 0.7318,
+        "mid": 0.8461,
+        "high": 0.7704,
+        "centroid": 0.8133,
+        "flux": 0.5477,
+        "pulse": 0.7609,
+        "energy": 0.7482,
+        "calmEnergy": 0.6776,
+        "calmLow": 0.7016,
+        "calmHigh": 0.7063,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.2,
+        "rms": 0.6366,
+        "low": 0.6715,
+        "mid": 0.8339,
+        "high": 0.7436,
+        "centroid": 0.8053,
+        "flux": 0.4689,
+        "pulse": 0.624,
+        "energy": 0.7413,
+        "calmEnergy": 0.6798,
+        "calmLow": 0.701,
+        "calmHigh": 0.7074,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.233,
+        "rms": 0.5922,
+        "low": 0.6513,
+        "mid": 0.7998,
+        "high": 0.7153,
+        "centroid": 0.7913,
+        "flux": 0.42,
+        "pulse": 0.5116,
+        "energy": 0.7313,
+        "calmEnergy": 0.6816,
+        "calmLow": 0.7001,
+        "calmHigh": 0.7076,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.267,
+        "rms": 0.5595,
+        "low": 0.69,
+        "mid": 0.806,
+        "high": 0.7054,
+        "centroid": 0.7792,
+        "flux": 0.5266,
+        "pulse": 0.4195,
+        "energy": 0.7211,
+        "calmEnergy": 0.683,
+        "calmLow": 0.7,
+        "calmHigh": 0.7076,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.3,
+        "rms": 0.5312,
+        "low": 0.6661,
+        "mid": 0.7989,
+        "high": 0.6903,
+        "centroid": 0.7699,
+        "flux": 0.4648,
+        "pulse": 0.344,
+        "energy": 0.7097,
+        "calmEnergy": 0.6839,
+        "calmLow": 0.6993,
+        "calmHigh": 0.7073,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.333,
+        "rms": 0.5006,
+        "low": 0.7157,
+        "mid": 0.8236,
+        "high": 0.6644,
+        "centroid": 0.7547,
+        "flux": 0.4124,
+        "pulse": 0.2821,
+        "energy": 0.6989,
+        "calmEnergy": 0.6845,
+        "calmLow": 0.6998,
+        "calmHigh": 0.7065,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.367,
+        "rms": 0.4702,
+        "low": 0.7167,
+        "mid": 0.8377,
+        "high": 0.6367,
+        "centroid": 0.7373,
+        "flux": 0.4053,
+        "pulse": 0.2313,
+        "energy": 0.6875,
+        "calmEnergy": 0.6846,
+        "calmLow": 0.7003,
+        "calmHigh": 0.7052,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.4,
+        "rms": 0.4411,
+        "low": 0.7799,
+        "mid": 0.8669,
+        "high": 0.621,
+        "centroid": 0.7186,
+        "flux": 0.5798,
+        "pulse": 0.6384,
+        "energy": 0.6773,
+        "calmEnergy": 0.6844,
+        "calmLow": 0.7027,
+        "calmHigh": 0.7037,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.433,
+        "rms": 0.408,
+        "low": 0.7593,
+        "mid": 0.8215,
+        "high": 0.5953,
+        "centroid": 0.6973,
+        "flux": 0.4957,
+        "pulse": 0.5235,
+        "energy": 0.6649,
+        "calmEnergy": 0.684,
+        "calmLow": 0.7044,
+        "calmHigh": 0.7018,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.467,
+        "rms": 0.3756,
+        "low": 0.7207,
+        "mid": 0.7593,
+        "high": 0.578,
+        "centroid": 0.6749,
+        "flux": 0.4232,
+        "pulse": 0.4293,
+        "energy": 0.6498,
+        "calmEnergy": 0.6833,
+        "calmLow": 0.7049,
+        "calmHigh": 0.6995,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.5,
+        "rms": 0.3494,
+        "low": 0.6538,
+        "mid": 0.7265,
+        "high": 0.5595,
+        "centroid": 0.653,
+        "flux": 0.3951,
+        "pulse": 0.352,
+        "energy": 0.6326,
+        "calmEnergy": 0.6823,
+        "calmLow": 0.704,
+        "calmHigh": 0.697,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.533,
+        "rms": 0.4165,
+        "low": 0.6981,
+        "mid": 0.7685,
+        "high": 0.5343,
+        "centroid": 0.6524,
+        "flux": 0.6976,
+        "pulse": 1,
+        "energy": 0.623,
+        "calmEnergy": 0.6811,
+        "calmLow": 0.7039,
+        "calmHigh": 0.6941,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.567,
+        "rms": 0.6382,
+        "low": 0.6283,
+        "mid": 0.8241,
+        "high": 0.674,
+        "centroid": 0.6611,
+        "flux": 0.6558,
+        "pulse": 1,
+        "energy": 0.6351,
+        "calmEnergy": 0.6802,
+        "calmLow": 0.7025,
+        "calmHigh": 0.6937,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.6,
+        "rms": 0.7757,
+        "low": 0.6343,
+        "mid": 0.8271,
+        "high": 0.7718,
+        "centroid": 0.7425,
+        "flux": 0.565,
+        "pulse": 0.82,
+        "energy": 0.6667,
+        "calmEnergy": 0.68,
+        "calmLow": 0.7013,
+        "calmHigh": 0.6961,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.633,
+        "rms": 0.8032,
+        "low": 0.6005,
+        "mid": 0.8252,
+        "high": 0.7969,
+        "centroid": 0.7715,
+        "flux": 0.4851,
+        "pulse": 0.6724,
+        "energy": 0.6927,
+        "calmEnergy": 0.6804,
+        "calmLow": 0.6995,
+        "calmHigh": 0.6991,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.667,
+        "rms": 0.7529,
+        "low": 0.6136,
+        "mid": 0.8014,
+        "high": 0.7472,
+        "centroid": 0.7657,
+        "flux": 0.4278,
+        "pulse": 0.5514,
+        "energy": 0.7034,
+        "calmEnergy": 0.6812,
+        "calmLow": 0.6979,
+        "calmHigh": 0.7005,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.7,
+        "rms": 0.7095,
+        "low": 0.7063,
+        "mid": 0.8491,
+        "high": 0.7384,
+        "centroid": 0.7443,
+        "flux": 0.5974,
+        "pulse": 0.6173,
+        "energy": 0.7113,
+        "calmEnergy": 0.6823,
+        "calmLow": 0.6982,
+        "calmHigh": 0.7017,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.733,
+        "rms": 0.6568,
+        "low": 0.6875,
+        "mid": 0.8477,
+        "high": 0.7162,
+        "centroid": 0.7222,
+        "flux": 0.5187,
+        "pulse": 0.5062,
+        "energy": 0.7099,
+        "calmEnergy": 0.6832,
+        "calmLow": 0.698,
+        "calmHigh": 0.7021,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.767,
+        "rms": 0.6105,
+        "low": 0.6507,
+        "mid": 0.8293,
+        "high": 0.6944,
+        "centroid": 0.6968,
+        "flux": 0.4743,
+        "pulse": 0.4151,
+        "energy": 0.7047,
+        "calmEnergy": 0.684,
+        "calmLow": 0.6971,
+        "calmHigh": 0.702,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.8,
+        "rms": 0.5666,
+        "low": 0.7197,
+        "mid": 0.8094,
+        "high": 0.6837,
+        "centroid": 0.6763,
+        "flux": 0.4262,
+        "pulse": 0.3404,
+        "energy": 0.6983,
+        "calmEnergy": 0.6845,
+        "calmLow": 0.6978,
+        "calmHigh": 0.7016,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.833,
+        "rms": 0.5436,
+        "low": 0.787,
+        "mid": 0.8527,
+        "high": 0.7031,
+        "centroid": 0.6696,
+        "flux": 0.7131,
+        "pulse": 1,
+        "energy": 0.6933,
+        "calmEnergy": 0.6848,
+        "calmLow": 0.7005,
+        "calmHigh": 0.7017,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.867,
+        "rms": 0.5216,
+        "low": 0.8381,
+        "mid": 0.8881,
+        "high": 0.6769,
+        "centroid": 0.657,
+        "flux": 0.611,
+        "pulse": 0.82,
+        "energy": 0.6891,
+        "calmEnergy": 0.6849,
+        "calmLow": 0.7046,
+        "calmHigh": 0.7012,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.9,
+        "rms": 0.4919,
+        "low": 0.8366,
+        "mid": 0.9149,
+        "high": 0.6479,
+        "centroid": 0.6354,
+        "flux": 0.516,
+        "pulse": 0.6724,
+        "energy": 0.6839,
+        "calmEnergy": 0.6849,
+        "calmLow": 0.7086,
+        "calmHigh": 0.7003,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.933,
+        "rms": 0.4551,
+        "low": 0.807,
+        "mid": 0.9037,
+        "high": 0.6103,
+        "centroid": 0.6187,
+        "flux": 0.448,
+        "pulse": 0.5514,
+        "energy": 0.6761,
+        "calmEnergy": 0.6847,
+        "calmLow": 0.7115,
+        "calmHigh": 0.6987,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 11.967,
+        "rms": 0.4247,
+        "low": 0.7849,
+        "mid": 0.9034,
+        "high": 0.6052,
+        "centroid": 0.6136,
+        "flux": 0.724,
+        "pulse": 1,
+        "energy": 0.6668,
+        "calmEnergy": 0.6844,
+        "calmLow": 0.7137,
+        "calmHigh": 0.697,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "t": 12,
+        "rms": 0.3738,
+        "low": 0.7064,
+        "mid": 0.8131,
+        "high": 0.5326,
+        "centroid": 0.6552,
+        "flux": 0.5937,
+        "pulse": 0.82,
+        "energy": 0.652,
+        "calmEnergy": 0.6837,
+        "calmLow": 0.7136,
+        "calmHigh": 0.694,
+        "mix": [
+          0,
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "durationSec": 12,
+  "seed": 1204
+}

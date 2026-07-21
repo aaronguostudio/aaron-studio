@@ -246,7 +246,7 @@ async function main() {
     throw new Error("Scale must be between 0.5 and 2.");
   }
   const visualStyle = rawConfig.visualStyle || "ink-current";
-  const audioReactiveStyles = new Set(["audio-mix", "lofi-wave", "coffee-room", "folded-light", "neon-strands", "neon-orb", "prism-chamber", "wave-grid", "signal-bloom", "clay-atlas", "pigment-tide", "paper-atlas"]);
+  const audioReactiveStyles = new Set(["audio-mix", "lofi-wave", "coffee-room", "folded-light", "neon-strands", "neon-orb", "prism-chamber", "wave-grid", "signal-bloom", "clay-atlas", "pigment-tide", "paper-atlas", "spectrum-bars", "mirrored-spectrum", "waveform-line", "mirrored-waveform", "filled-spectrum", "spectrum-dots", "twin-spectrum", "radial-spectrum", "radial-waveform", "radial-dots", "spectrum-arc", "filled-radial-spectrum", "triangle-spectrum", "x-spectrum", "side-burst-ring"]);
   const gl = args.gl || (visualStyle === "neon-strands" || visualStyle === "neon-orb" || visualStyle === "prism-chamber" || visualStyle === "wave-grid" || visualStyle === "signal-bloom" || visualStyle === "clay-atlas" || visualStyle === "pigment-tide" ? "angle" : "swiftshader");
 
   const configuredAudio = args.audio ? absolutePath(args.audio) : join(outputDir, "music.mp3");

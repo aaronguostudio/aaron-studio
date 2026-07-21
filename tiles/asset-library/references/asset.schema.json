@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aaron.studio/schemas/asset.schema.json",
+  "title": "Aaron Studio Asset Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "type",
+    "title",
+    "summary",
+    "files",
+    "technical",
+    "semantics",
+    "quality",
+    "rights",
+    "provenance",
+    "relations",
+    "usage",
+    "search_text",
+    "indexed_at"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+:[a-z0-9][a-z0-9:._-]*$" },
+    "type": {
+      "enum": ["music", "sound-effect", "image", "video", "visualizer-preset", "template"]
+    },
+    "subtype": { "type": "string" },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string" },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "path"],
+        "properties": {
+          "role": {
+            "enum": ["master", "alternate", "preview", "waveform", "config", "analysis", "render", "image"]
+          },
+          "path": { "type": "string" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "mime_type": { "type": "string" },
+          "size_bytes": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "technical": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "duration_sec": { "type": "number", "minimum": 0 },
+        "duration_bucket": { "enum": ["sting", "short", "medium", "long"] },
+        "format": { "type": "string" },
+        "codec": { "type": "string" },
+        "sample_rate_hz": { "type": "integer", "minimum": 0 },
+        "channels": { "type": "integer", "minimum": 0 },
+        "bit_rate_bps": { "type": "integer", "minimum": 0 },
+        "width": { "type": "integer", "minimum": 0 },
+        "height": { "type": "integer", "minimum": 0 },
+        "aspect_ratio": { "type": "string" },
+        "fps": { "type": "number", "minimum": 0 },
+        "loopable": { "type": ["boolean", "null"] },
+        "instrumental": { "type": ["boolean", "null"] }
+      }
+    },
+    "semantics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["moods", "energy", "use_cases", "topics", "tags"],
+      "properties": {
+        "moods": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "energy": { "enum": ["low", "medium", "high", "dynamic", "unknown"] },
+        "use_cases": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "topics": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "qa_notes"],
+      "properties": {
+        "status": { "enum": ["experimental", "candidate", "approved", "archived"] },
+        "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "qa_notes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "approved_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "commercial_use"],
+      "properties": {
+        "status": { "enum": ["owned", "licensed", "public-source", "needs-verification", "restricted", "unknown"] },
+        "commercial_use": { "type": ["boolean", "null"] },
+        "license": { "type": "string" },
+        "attribution": { "type": "string" },
+        "source_url": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_type", "manifest_paths"],
+      "properties": {
+        "source_type": { "enum": ["generated", "local", "external", "derived", "unknown"] },
+        "provider": { "type": "string" },
+        "model": { "type": "string" },
+        "generator": { "type": "string" },
+        "prompt": { "type": "string" },
+        "created_at": { "type": "string" },
+        "source_url": { "type": "string" },
+        "manifest_paths": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["derived_from", "variants", "demonstrated_with", "paired_with"],
+      "properties": {
+        "derived_from": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "variants": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "demonstrated_with": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "paired_with": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["use_count", "used_in"],
+      "properties": {
+        "use_count": { "type": "integer", "minimum": 0 },
+        "last_used_at": { "type": ["string", "null"] },
+        "used_in": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["project", "recorded_at"],
+            "properties": {
+              "project": { "type": "string" },
+              "role": { "type": "string" },
+              "recorded_at": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "search_text": { "type": "string" },
+    "indexed_at": { "type": "string", "format": "date-time" }
+  }
+}

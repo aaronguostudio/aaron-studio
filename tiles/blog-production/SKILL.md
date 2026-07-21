@@ -230,6 +230,18 @@ This creates the prediction side of the feedback loop. The 24h and 7d postmortem
 
 **Image quality gate** — before accepting images, confirm `blog-illustrate` loaded Aaron's visual strategy files and recorded the image backend in `imgs/generation-manifest.md`. In Codex, prefer the built-in image generator; use the baoyu path when the built-in tool is unavailable or the user explicitly wants the reusable CLI/batch path. Compare at least three genuinely different cover concepts before committing to a style, then generate at least two candidates for the selected cover and thumbnail. Reject generic glowing-AI imagery, unreadable text, cluttered diagrams, stock-photo vibes, repeated compositions, and body images that do not add a distinct idea.
 
+**Reusable asset gate** — after the outline, distribution plan, video brief, or treatment is stable and before generating companion media, use `asset-library` to search existing approved or reviewable music and visualizer presets. Translate the editorial job into mood, duration, energy, and rights constraints; do not search by topic alone.
+
+```bash
+node tiles/asset-library/scripts/asset-library.mjs search \
+  --query "<mood, narrative role, and use case>" \
+  --type music,visualizer-preset \
+  --status approved,candidate \
+  --limit 5
+```
+
+Record candidate IDs and the selected ID in `distribution-plan.md`, `video-treatment.md`, or `asset-decision-log.md`, whichever owns the media decision. A `candidate` needs human review; an asset with `unknown`, `needs-verification`, or `restricted` rights cannot silently pass the publishing gate. If no candidate fits, generate a new asset, finish its manifest and QA, run the library `scan`, and curate it before reuse.
+
 **Video adaptation gate** — before visual enrichment or rendering, confirm `video-brief.md` exists and the script is a video-native adaptation rather than a blog read-through. It passes only if it has:
 - a specific video promise;
 - a cold open that starts with story, tension, or surprise, not meta-introduction;

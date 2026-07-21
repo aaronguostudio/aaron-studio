@@ -1,0 +1,18 @@
+{
+  "title": "Ambient Signal / Signal Loom",
+  "artist": "Visual And Sound",
+  "trackLabel": "ambient signal engine / prototype 01",
+  "durationSec": 18,
+  "cycleDurationSec": 18,
+  "seed": 2718,
+  "palette": "signal",
+  "scene": "focus",
+  "visualStyle": "ambient-signal",
+  "intensity": 0.82,
+  "resolution": "1080p",
+  "variants": [
+    { "scene": "focus", "title": "Signal Loom", "cycleDurationSec": 18, "palette": "signal" },
+    { "scene": "sleep", "title": "Moon Tides", "cycleDurationSec": 24, "palette": "lunar" },
+    { "scene": "relax", "title": "Breath Field", "cycleDurationSec": 20, "palette": "signal" }
+  ]
+}

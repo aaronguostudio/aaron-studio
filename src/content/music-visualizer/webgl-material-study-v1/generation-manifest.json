@@ -1,0 +1,23 @@
+{
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/audio-analysis.json",
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/music-full.m4a",
+  "audioStartSec": 15,
+  "audioWindow": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/music-sample.m4a",
+  "durationSec": 15,
+  "format": "3840×2160 / 60fps / high-bitrate H.264 + AAC",
+  "generatedAt": "2026-07-15T02:37:20.941Z",
+  "mapping": {
+    "calmEnergy": "transmitted light and internal luminance",
+    "calmHigh": "rim chroma and specular clarity",
+    "calmLow": "material density and optical depth",
+    "pulse": "bounded warm tint only; no flash, ring, scale, translation, or camera response"
+  },
+  "motionContract": "Native OGL/WebGL mesh. Fixed camera and fixed silhouette. Time only moves internal surface interference at a long, non-repeating pace.",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/webgl-material-study-15s-4k60.mp4",
+  "renderProps": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/render-props.json",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/entry-4k.png",
+    "body": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/body-4k.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/webgl-material-study-v1/exit-4k.png"
+  }
+}

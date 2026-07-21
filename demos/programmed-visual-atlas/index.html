@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark" />
+    <title>Programmed Visual Atlas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="atlas">
+      <canvas id="gl-canvas" aria-hidden="true"></canvas>
+      <canvas id="paint-canvas" aria-hidden="true"></canvas>
+
+      <header class="topline">
+        <p>VISUAL AND SOUND / PROGRAMMED VISUAL ATLAS</p>
+        <p id="counter">01 / 06</p>
+      </header>
+
+      <section class="study-copy" aria-live="polite">
+        <p class="eyebrow" id="study-medium"></p>
+        <h1 id="study-title"></h1>
+        <p class="description" id="study-description"></p>
+        <p class="interaction" id="study-interaction"></p>
+      </section>
+
+      <nav class="study-nav" aria-label="Visual studies">
+        <button class="arrow" id="previous" aria-label="Previous study">←</button>
+        <div class="study-list" id="study-list"></div>
+        <button class="arrow" id="next" aria-label="Next study">→</button>
+      </nav>
+
+      <footer class="footer-note">
+        <span>move gently · click / tap to disturb</span>
+        <span>1–6 to select</span>
+      </footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

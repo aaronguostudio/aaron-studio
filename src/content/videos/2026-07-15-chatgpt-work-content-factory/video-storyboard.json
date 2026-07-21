@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "title": "ChatGPT Work：每天自动找选题，等你批准后再生产",
+  "duration_sec": 45,
+  "direction": {
+    "name": "Footage-integrated light editorial tutorial",
+    "visual_spine": "Warm off-white canvas, paper-white cards, charcoal type, warm-red signal, two source-labelled licensed inserts, and one official source screenshot.",
+    "motion_density": "balanced",
+    "music_strategy": "continuous",
+    "references": [
+      {
+        "id": "news-story-reference",
+        "url": "https://www.youtube.com/shorts/2ewTt816Ca8",
+        "borrow": "Compact story, real-world footage, persistent headline hierarchy, visible subtitles or narration support, and presenter identity.",
+        "avoid": "Exact copy, typography, footage, channel identity, or source-account reuse."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "Name the repeated setup",
+      "start_sec": 0,
+      "end_sec": 4.5,
+      "role": "emphasis",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Name the recurring pain before explaining the system.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Full hook copy on a warm paper card.",
+      "first_change_sec": 0.2,
+      "motion_recipes": ["none"],
+      "content": ["Every morning", "start again", "repeated research"],
+      "beats": [
+        {"at_sec": 0, "visual": "paper hook", "action": "hold"},
+        {"at_sec": 0.2, "visual": "signal line", "action": "reveal"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration and minimal score begin."
+    },
+    {
+      "id": "s02",
+      "title": "Make the news scan physical",
+      "start_sec": 4.5,
+      "end_sec": 10,
+      "role": "explanation",
+      "template": "licensed-footage-insert",
+      "intensity": "structured",
+      "purpose": "Replace an abstract loop card with a recognizable repeated action.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Phone scrolling is visible beneath the warm headline card.",
+      "first_change_sec": 0.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["Scan the news", "Pexels 6271585", "license recorded"],
+      "beats": [
+        {"at_sec": 0, "visual": "phone clip", "action": "hold"},
+        {"at_sec": 0.1, "visual": "vertical crop", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Source audio muted; narration continues."
+    },
+    {
+      "id": "s03",
+      "title": "Draw the judgment boundary",
+      "start_sec": 10,
+      "end_sec": 15.9,
+      "role": "explanation",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Show that the system removes repetition, not judgment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Keep/remove comparison headline and lanes.",
+      "first_change_sec": 0.25,
+      "motion_recipes": ["crossfade"],
+      "content": ["keep judgment", "remove repetition"],
+      "beats": [
+        {"at_sec": 0, "visual": "comparison field", "action": "hold"},
+        {"at_sec": 0.25, "visual": "left card", "action": "reveal"},
+        {"at_sec": 0.6, "visual": "right card", "action": "reveal"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Contrast lands with the narration."
+    },
+    {
+      "id": "s04",
+      "title": "Show source research",
+      "start_sec": 15.9,
+      "end_sec": 18.7,
+      "role": "explanation",
+      "template": "licensed-footage-insert",
+      "intensity": "calm",
+      "purpose": "Bridge from operating principle to actual evidence gathering.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Laptop research page is visible under a compact source-research headline.",
+      "first_change_sec": 0.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["Find the source", "Pexels 38496194", "license recorded"],
+      "beats": [
+        {"at_sec": 0, "visual": "laptop clip", "action": "hold"},
+        {"at_sec": 0.1, "visual": "research screen", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Source audio muted."
+    },
+    {
+      "id": "s05",
+      "title": "Show the official capability",
+      "start_sec": 18.7,
+      "end_sec": 21.4,
+      "role": "evidence",
+      "template": "tutorial-short",
+      "intensity": "calm",
+      "purpose": "Ground the workflow in official product documentation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Official OpenAI documentation screenshot in a source frame.",
+      "first_change_sec": 0.2,
+      "motion_recipes": ["none"],
+      "content": ["official screenshot", "schedule", "approval", "verified label"],
+      "beats": [
+        {"at_sec": 0, "visual": "source frame", "action": "hold"},
+        {"at_sec": 0.2, "visual": "source crop", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Calm evidence hold."
+    },
+    {
+      "id": "s06",
+      "title": "Hold at topic judgment",
+      "start_sec": 21.4,
+      "end_sec": 24.1,
+      "role": "emphasis",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Make Aaron's highest-value decision visible.",
+      "entry_mode": "bridge",
+      "entry_visual": "Large editorial gate with a waiting state.",
+      "first_change_sec": 0.15,
+      "motion_recipes": ["crossfade"],
+      "content": ["editorial gate", "approve topic", "revise"],
+      "beats": [
+        {"at_sec": 0, "visual": "approval card", "action": "bridge"},
+        {"at_sec": 0.15, "visual": "waiting state", "action": "hold"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Open space around the decision."
+    },
+    {
+      "id": "s07",
+      "title": "Build inspectable production files",
+      "start_sec": 24.1,
+      "end_sec": 33.1,
+      "role": "explanation",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Name the files that make production reviewable.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Production headline and first file contract.",
+      "first_change_sec": 0.25,
+      "motion_recipes": ["none"],
+      "content": ["fact pack", "script", "asset plan", "render"],
+      "beats": [
+        {"at_sec": 0, "visual": "production axis", "action": "hold"},
+        {"at_sec": 0.25, "visual": "fact pack", "action": "reveal"},
+        {"at_sec": 0.55, "visual": "script", "action": "reveal"},
+        {"at_sec": 0.85, "visual": "asset plan", "action": "reveal"},
+        {"at_sec": 1.15, "visual": "render", "action": "reveal"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Four rows resolve with the phrase."
+    },
+    {
+      "id": "s08",
+      "title": "Hold again before publication",
+      "start_sec": 33.1,
+      "end_sec": 37.9,
+      "role": "emphasis",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Prevent the workflow from implying unattended publication.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Second editorial gate with QA pending.",
+      "first_change_sec": 0.2,
+      "motion_recipes": ["none"],
+      "content": ["render", "QA", "approve publish"],
+      "beats": [
+        {"at_sec": 0, "visual": "publishing gate", "action": "hold"},
+        {"at_sec": 0.2, "visual": "QA state", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Final decision phrase."
+    },
+    {
+      "id": "s09",
+      "title": "Land the operating principle",
+      "start_sec": 37.9,
+      "end_sec": 45,
+      "role": "emphasis",
+      "template": "tutorial-short",
+      "intensity": "calm",
+      "purpose": "Turn the demo into a reusable content-factory principle.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Final statement and Aaron identity on the light editorial grid.",
+      "first_change_sec": 0.15,
+      "motion_recipes": ["none"],
+      "content": ["machine moves", "human judgment", "Aaron identity"],
+      "beats": [
+        {"at_sec": 0, "visual": "final principle", "action": "hold"},
+        {"at_sec": 0.15, "visual": "signal line", "action": "reveal"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration and score resolve."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-18T17:35:18.652Z",
+  "asset_count": 128,
+  "by_type": {
+    "music": 113,
+    "visualizer-preset": 15
+  },
+  "by_status": {
+    "candidate": 105,
+    "experimental": 23
+  },
+  "by_rights": {
+    "needs-verification": 21,
+    "owned": 15,
+    "unknown": 92
+  },
+  "total_source_files": 207,
+  "duplicate_source_files": 19,
+  "warnings": []
+}

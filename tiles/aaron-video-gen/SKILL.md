@@ -10,14 +10,15 @@ narration, evidence, motion scenes, music, and reusable Remotion templates.
 
 ## Pipeline
 
-1. **Adapt** — create `video-brief.md` and a spoken, video-native `youtube-script.md`.
+1. **Adapt** — create `video-brief.md`, a source-backed `fact-pack.json`, and a video-native `youtube-script.md`.
 2. **Direct** — deconstruct references, recommend two or three treatments, then lock the story, media, sound, and fallback decisions in a director plan before implementation.
-3. **Storyboard** — assign every semantic beat a visual role, registered scene template, motion recipe, intensity, music cue, and fallback in `video-storyboard.json`.
-4. **Audit** — validate the script and storyboard before spending on assets or a full render.
-5. **Lock audio** — resolve the approved Aaron voice profile, generate TTS with cross-section context, and pass the listening gate.
-6. **Prototype** — render a 60-90 second slice when any scene is new, planned, or experimental.
-7. **Build** — combine evidence, static images, structured scenes, captions, music, sound, and branding in Remotion.
-8. **Review** — inspect contact sheets, full-motion pacing, layout, audio, and the complete product before publishing.
+3. **Search assets** — query `asset-library` for technically suitable, rights-cleared music and visualizer presets before generating replacements.
+4. **Storyboard** — assign every semantic beat a visual role, registered scene template, motion recipe, intensity, music cue, and fallback in `video-storyboard.json`.
+5. **Audit** — validate the script, evidence links, asset plan, and storyboard before spending on assets or a full render.
+6. **Lock audio** — resolve the approved Aaron voice profile, generate TTS with cross-section context, and pass the listening gate.
+7. **Prototype** — render a 60-90 second slice when any scene is new, planned, or experimental.
+8. **Build** — combine evidence, static images, structured scenes, captions, music, sound, and branding in Remotion.
+9. **Review** — inspect contact sheets, full-motion pacing, layout, audio, and the complete product before publishing.
 
 Read these references when the corresponding stage begins:
 
@@ -58,18 +59,21 @@ Key defaults for Aaron's videos:
 For a serious essay, require:
 
 - `video-brief.md`: viewer promise, story, retention beats, and ending;
+- `fact-pack.json`: verified sources, bounded claims, confidence, and script-use status;
 - `youtube-script.md`: the locked spoken argument, not a blog read-through;
 - `video-treatment.md`: references, selected visual spine, scene mix, motion budget, music strategy, and prototype slice;
 - `director-plan.json`: each beat's narrative role, visual mode, entry state, motion, sound, provenance, and fallback;
 - `director-memo.md`: the human-readable visual story and explicit exclusions;
 - `asset-decision-log.md`: why every source, still, screen capture, or generated clip belongs in the film;
+- `asset-plan.json`: beat-level copy, fact links, source links, provenance, rights, readiness, and fallback;
 - `video-storyboard.json`: audited scene roles, templates, beats, fallbacks, and timing;
 - `audio-generation-manifest.json`: exact voice request and audio QA;
 - an approved prototype whenever the storyboard uses a capability not marked `available`;
 - `video-qa-report.md`: contact-sheet, motion, audio, and full-watch findings.
 
 Use the files in `templates/` as starting points. Do not render the full video
-until the treatment, director plan, and storyboard have been reviewed.
+until the fact pack, asset plan, treatment, director plan, and storyboard have
+been reviewed.
 
 ### V5 Delivery Rules
 
@@ -112,7 +116,8 @@ Before implementation:
    mix, signature opportunity, music approach, and tradeoff of each.
 3. Ask Aaron to select or combine a direction unless he has already made that
    decision explicitly.
-4. Create `director-plan.json`, `director-memo.md`, and `asset-decision-log.md`.
+4. Create `fact-pack.json`, `asset-plan.json`, `director-plan.json`,
+   `director-memo.md`, and `asset-decision-log.md`.
    Every beat needs a narrative role, a visual mode, a meaningful first frame,
    its first change, sound intent, provenance, and an available fallback.
 5. Give each scene one role: `evidence`, `explanation`, or `emphasis`.
@@ -135,6 +140,11 @@ bun ${SKILL_DIR}/scripts/storyboard-audit.ts \
 bun ${SKILL_DIR}/scripts/director-plan-audit.ts \
   --plan <video-dir>/director-plan.json \
   --output <video-dir>/director-plan-audit.md
+
+bun ${SKILL_DIR}/scripts/content-evidence-audit.ts \
+  --fact-pack <video-dir>/fact-pack.json \
+  --asset-plan <video-dir>/asset-plan.json \
+  --output <video-dir>/content-evidence-audit.md
 ```
 
 Before the full render, rerun with `--production`. Production mode must contain
@@ -360,9 +370,10 @@ Read these before judging or rendering:
 - `references/scene-catalog.md`;
 - `config/scene-registry.json`.
 
-Expect `video-brief.md`, `video-treatment.md`, `video-storyboard.json`,
-`director-plan.json`, `director-memo.md`, `asset-decision-log.md`, and
-`youtube-script.md` beside one another. If the brief or script is missing, run a
+Expect `video-brief.md`, `fact-pack.json`, `video-treatment.md`,
+`video-storyboard.json`, `director-plan.json`, `director-memo.md`,
+`asset-decision-log.md`, `asset-plan.json`, and `youtube-script.md` beside one
+another. If the brief or script is missing, run a
 `blog-write` video adaptation pass. If treatment or storyboard is missing, stop
 before visual production and create them from the templates in this skill.
 
@@ -392,9 +403,9 @@ Required heading names:
 - `## Ending`
 - `## Audit Status`
 
-Before TTS, run the script audit. Before visual production, run the storyboard
-audit in planning mode. Rendering without either gate should be reported to
-Aaron.
+Before TTS, run the script audit. Before visual production, run the content
+evidence audit and storyboard audit in planning mode. Rendering without these
+gates should be reported to Aaron.
 
 Before editing Remotion renderer code, read
 `src/content/strategy/remotion-video-engineering.md`. After renderer changes,
@@ -472,9 +483,44 @@ Each recommendation must state:
 Ask Aaron to select or combine a direction before generating new visual assets.
 Do not make a silent style decision unless he already specified it.
 
+### Step 2b: Search reusable assets
+
+Once the treatment's music and motion jobs are concrete, search `asset-library`
+before generating or copying media:
+
+```bash
+node tiles/asset-library/scripts/asset-library.mjs search \
+  --query "<mood, energy, narrative role, and duration>" \
+  --type music,visualizer-preset \
+  --status approved,candidate \
+  --limit 5
+```
+
+Reject candidates that miss duration, aspect ratio, quality, or rights even if
+their mood is attractive. Record reviewed candidates and the selected IDs in
+`asset-decision-log.md`; add `library_asset_id` to any asset-plan beat that uses
+one. Only `approved` assets with resolved rights may pass directly to a final
+render. When a `candidate` wins, inspect its preview/master, complete QA and
+curation, then record its use after selection.
+
 ### Step 3: Build and audit the storyboard
 
-Create `video-storyboard.json` from the selected treatment and locked narration.
+Create `fact-pack.json` and `asset-plan.json` before the storyboard. A fact may
+enter the script only when it points to a verified source. Every evidence beat
+must point back to both the fact and the source; generated media may explain or
+emphasize, but it may not impersonate factual evidence. Record rights and a
+deterministic fallback for every beat.
+
+Run the evidence gate:
+
+```bash
+bun ${SKILL_DIR}/scripts/content-evidence-audit.ts \
+  --fact-pack <blog-dir>/fact-pack.json \
+  --asset-plan <blog-dir>/asset-plan.json \
+  --output <blog-dir>/content-evidence-audit.md
+```
+
+Then create `video-storyboard.json` from the selected treatment and locked narration.
 For every scene, record:
 
 - start and end time;
@@ -532,9 +578,47 @@ every frame range where a label, caption, or result band enters. Static entry,
 peak, and exit stills alone do not prove that the intervening layout is safe.
 
 Prepare only assets demanded by the storyboard. Possible assets include source
-screenshots, photographs, generated illustrations, logos, diagrams, textures,
-music, sound effects, and 3D models. There is no image quota. Inspect every
+screenshots, licensed or reviewed video excerpts, photographs, generated
+illustrations, logos, diagrams, textures, music, sound effects, and 3D models.
+There is no image quota. Inspect every
 generated or captured asset in its final crop.
+
+For a reused library item, preserve its `library_asset_id` and canonical path in
+the asset plan. After the final selection, record the reuse event:
+
+```bash
+node tiles/asset-library/scripts/asset-library.mjs use \
+  --id <library-asset-id> \
+  --project <video-dir> \
+  --role <music-or-scene-role>
+```
+
+#### Source-footage acquisition and rights gate
+
+Use the browser to search, open, and visually inspect candidate footage. Record
+the source page before acquiring the file. Keep the raw download unchanged,
+hash it, create a separate normalized edit, and write both hashes plus the
+source page, creator, retrieval date, license URL, crop, time range, narrative
+job, and fallback to `asset-decision-log.md` and `asset-plan.json`.
+
+Route every clip through one of these lanes:
+
+- **Automatic:** owned screen recordings, public-domain footage, generated
+  footage used as atmosphere, or stock with a license that covers the intended
+  use. A licensed beat needs `license_url`, `creator`, and `retrieved_at`.
+- **Editorial review:** a minimal excerpt from a broadcast, interview, social
+  post, film, sport, or other copyrighted source used for actual criticism,
+  commentary, or news reporting. Mark it `commentary-review`, record exact
+  `source_start_sec` and `source_end_sec`, keep the source visible, and require
+  `editorial_approval: approved` before production.
+- **Blocked:** unknown provenance, repost accounts, missing source files,
+  unverifiable licenses, or clips used only as decoration. Do not render these
+  into a production master.
+
+Never infer permission from the clip being short, publicly accessible, credited,
+or labelled “fair use.” A source URL proves provenance, not media rights. Keep
+source audio muted unless it is essential to the commentary and separately
+cleared or approved.
 
 Once the visual spine is stable, generate or select two thumbnail candidates and
 review them at mobile size. The strongest candidate may also serve as the cover
@@ -551,6 +635,12 @@ bun ${SKILL_DIR}/scripts/storyboard-audit.ts \
   --storyboard <blog-dir>/video-storyboard.json \
   --production \
   --output <blog-dir>/video-storyboard-audit.md
+
+bun ${SKILL_DIR}/scripts/content-evidence-audit.ts \
+  --fact-pack <blog-dir>/fact-pack.json \
+  --asset-plan <blog-dir>/asset-plan.json \
+  --production \
+  --output <blog-dir>/content-evidence-audit.md
 
 cd ${SKILL_DIR}/remotion && npm run validate
 ```

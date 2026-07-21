@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-15T02:05:46.738Z",
+  "title": "Glass Orbit",
+  "variant": "glass-orbit",
+  "format": "1080p / 30fps / H.264 + AAC",
+  "durationSec": 45,
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-breaks-long-night/music-full.m4a",
+  "audioStartSec": 15,
+  "audioWindow": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/audio-material-studies-v1/glass-orbit/audio-window.m4a",
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/audio-material-studies-v1/glass-orbit/audio-analysis.json",
+  "renderProps": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/audio-material-studies-v1/glass-orbit/render-props.json",
+  "mapping": "low-band controls volume depth; high-band controls glass rim light; transient controls one contained aperture bloom",
+  "motionContract": "Precomputed frame-indexed audio analysis only. No beat-driven position, scale, camera movement, or shake.",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/audio-material-studies-v1/glass-orbit/glass-orbit-45s-1080p.mp4"
+}

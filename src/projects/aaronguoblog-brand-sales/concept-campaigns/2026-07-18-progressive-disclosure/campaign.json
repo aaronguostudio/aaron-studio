@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "campaignId": "concept-progressive-disclosure-v1",
+  "conceptSlug": "progressive-disclosure",
+  "prepared": "2026-07-18",
+  "status": "draft-awaiting-calibration",
+  "cadence": {
+    "minimumDaysSinceLastConceptPost": 2,
+    "minimumDaysBeforeRepeat": 30
+  },
+  "sourceBrief": "src/content/concepts/progressive-disclosure/social-brief.json",
+  "card": "card-4x5.png",
+  "vectorMaster": "card-4x5.svg",
+  "htmlPreview": "card-4x5.html",
+  "publicPostingAuthorized": false
+}

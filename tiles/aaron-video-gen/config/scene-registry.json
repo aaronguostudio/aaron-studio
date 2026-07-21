@@ -14,6 +14,28 @@
       "max_content_items": 5
     },
     {
+      "id": "tutorial-short",
+      "status": "prototype",
+      "description": "Vertical text-led tutorial with source evidence, comparison, workflow, approval, and end-card stages.",
+      "roles": ["evidence", "explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["none", "crossfade"],
+      "max_duration_sec": 60,
+      "max_content_items": 8,
+      "fallback": "image-sequence"
+    },
+    {
+      "id": "licensed-footage-insert",
+      "status": "prototype",
+      "description": "Brief real-world footage with a recorded license, visible source label, narration-safe mute, and deterministic fallback.",
+      "roles": ["explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["none", "crossfade", "focus-shift"],
+      "max_duration_sec": 8,
+      "max_content_items": 3,
+      "fallback": "image-sequence"
+    },
+    {
       "id": "actor-framework",
       "status": "available",
       "description": "ACTOR framework bridge, progressive card build, and recursive connector.",
@@ -129,6 +151,17 @@
       "max_content_items": 12
     },
     {
+      "id": "ambient-signal-loop",
+      "status": "prototype",
+      "description": "A deterministic web-first ambient Canvas loop with Focus, Sleep, and Relax scene families and a Remotion frame-clock wrapper.",
+      "roles": ["emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["ambient-cycle", "focus-shift", "path-trace"],
+      "max_duration_sec": 30,
+      "max_content_items": 1,
+      "fallback": "image-sequence"
+    },
+    {
       "id": "digital-space-study",
       "status": "experimental",
       "description": "A fixed, loop-ready 2.5D digital space where precomputed music analysis only modulates material light and density. Includes a rendered static fallback frame.",
@@ -157,6 +190,7 @@
     { "id": "three-d-flip", "status": "experimental" },
     { "id": "pixel-transition", "status": "experimental" },
     { "id": "camera-orbit", "status": "experimental" },
-    { "id": "shader-field", "status": "experimental" }
+    { "id": "shader-field", "status": "experimental" },
+    { "id": "ambient-cycle", "status": "prototype" }
   ]
 }

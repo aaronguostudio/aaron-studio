@@ -1,0 +1,174 @@
+{
+  "generatedAt": "2026-07-15T13:44:53.759Z",
+  "sourceReference": "https://www.youtube.com/shorts/-PxCBtKoJmA",
+  "sourceAudio": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/orb-rhythm-lab/prism-pulse/music.mp3",
+  "durationSec": 42.024,
+  "renderScale": 1,
+  "styles": [
+    {
+      "order": 1,
+      "id": "spectrum-bars",
+      "slug": "linear",
+      "title": "Linear Bars",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/linear/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/linear/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/linear/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/linear/linear.mp4",
+      "rendered": true
+    },
+    {
+      "order": 2,
+      "id": "mirrored-spectrum",
+      "slug": "mirrored",
+      "title": "Mirrored Bars",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored/mirrored.mp4",
+      "rendered": true
+    },
+    {
+      "order": 3,
+      "id": "waveform-line",
+      "slug": "waveform-line",
+      "title": "Waveform Line",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/waveform-line/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/waveform-line/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/waveform-line/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/waveform-line/waveform-line.mp4",
+      "rendered": true
+    },
+    {
+      "order": 4,
+      "id": "mirrored-waveform",
+      "slug": "mirrored-waveform",
+      "title": "Mirrored Waveform",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/mirrored-waveform.mp4",
+      "rendered": true
+    },
+    {
+      "order": 5,
+      "id": "filled-spectrum",
+      "slug": "filled-spectrum",
+      "title": "Filled Spectrum",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/filled-spectrum.mp4",
+      "rendered": true
+    },
+    {
+      "order": 6,
+      "id": "spectrum-dots",
+      "slug": "spectrum-dots",
+      "title": "Dot Matrix",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/spectrum-dots.mp4",
+      "rendered": true
+    },
+    {
+      "order": 7,
+      "id": "twin-spectrum",
+      "slug": "twin-spectrum",
+      "title": "Twin Track",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/twin-spectrum.mp4",
+      "rendered": true
+    },
+    {
+      "order": 8,
+      "id": "radial-spectrum",
+      "slug": "radial",
+      "title": "Radial Bars",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial/radial.mp4",
+      "rendered": true
+    },
+    {
+      "order": 9,
+      "id": "radial-waveform",
+      "slug": "radial-waveform",
+      "title": "Radial Waveform",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/radial-waveform.mp4",
+      "rendered": true
+    },
+    {
+      "order": 10,
+      "id": "radial-dots",
+      "slug": "radial-dots",
+      "title": "Radial Dots",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-dots/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-dots/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-dots/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-dots/radial-dots.mp4",
+      "rendered": true
+    },
+    {
+      "order": 11,
+      "id": "spectrum-arc",
+      "slug": "spectrum-arc",
+      "title": "Half Arc",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/spectrum-arc.mp4",
+      "rendered": true
+    },
+    {
+      "order": 12,
+      "id": "filled-radial-spectrum",
+      "slug": "filled-radial-spectrum",
+      "title": "Filled Radial",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/filled-radial-spectrum.mp4",
+      "rendered": true
+    },
+    {
+      "order": 13,
+      "id": "triangle-spectrum",
+      "slug": "triangle-spectrum",
+      "title": "Triangle Trace",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/triangle-spectrum.mp4",
+      "rendered": true
+    },
+    {
+      "order": 14,
+      "id": "x-spectrum",
+      "slug": "x-spectrum",
+      "title": "X Trace",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/x-spectrum/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/x-spectrum/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/x-spectrum/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/x-spectrum/x-spectrum.mp4",
+      "rendered": true
+    },
+    {
+      "order": 15,
+      "id": "side-burst-ring",
+      "slug": "side-burst-ring",
+      "title": "Side Burst Ring",
+      "configPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/render-config.json",
+      "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/music.mp3",
+      "analysisPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/audio-analysis.json",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/side-burst-ring.mp4",
+      "rendered": true
+    }
+  ]
+}

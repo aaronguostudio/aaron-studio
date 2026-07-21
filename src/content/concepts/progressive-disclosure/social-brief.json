@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "slug": "progressive-disclosure",
+  "seriesNumber": 4,
+  "status": "eligible",
+  "canonicalPath": "/learn/progressive-disclosure",
+  "zhCanonicalPath": "/zh/learn/progressive-disclosure",
+  "audience": ["product builders", "AI-native operators", "design leaders"],
+  "hook": {
+    "en": "Most products do not have too much complexity. They charge it too early.",
+    "zh": "很多产品不是复杂度太多，而是向用户收费太早。"
+  },
+  "mentalModel": {
+    "en": "Do not delete complexity; let users pay for it in installments as their intent deepens.",
+    "zh": "复杂度不要被删除，而要按用户意图分期支付。"
+  },
+  "guardrail": {
+    "en": "Low frequency does not mean low consequence. Never hide cost, risk, permission, or destructive effects.",
+    "zh": "低频不等于低后果。费用、风险、权限和破坏性效果不能被隐藏。"
+  },
+  "card": {
+    "language": "en",
+    "hook": ["COMPLEXITY ISN'T THE PROBLEM.", "TIMING IS."],
+    "thesis": ["Don't delete complexity.", "Reveal it as intent deepens."]
+  },
+  "visual": {
+    "primitive": "layers",
+    "theme": "sleek-dark",
+    "background": "#0b0b0f",
+    "accent": "#7c6cff",
+    "secondary": "#8ed9ff",
+    "signal": "#d7ff4f"
+  },
+  "atoms": [
+    { "type": "mental-model", "status": "ready" },
+    { "type": "misconception", "status": "ready" },
+    { "type": "failure-mode", "status": "ready" },
+    { "type": "neighbor-comparison", "status": "ready" },
+    { "type": "self-test", "status": "ready" }
+  ],
+  "cadence": {
+    "minimumDaysSinceLastConceptPost": 2,
+    "minimumDaysBeforeRepeat": 30
+  }
+}

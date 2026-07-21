@@ -1,0 +1,328 @@
+{
+  "generatedAt": "2026-07-15T13:46:24.729Z",
+  "status": "pass",
+  "styleCount": 15,
+  "sharedAnalysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+  "sharedAudioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+  "temporaryRenderCount": 0,
+  "styles": [
+    {
+      "order": 1,
+      "id": "spectrum-bars",
+      "slug": "linear",
+      "name": "Linear Bars",
+      "family": "linear",
+      "sourceEvidence": "Intro waveform and horizontal bar templates",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/linear/linear.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 2,
+      "id": "mirrored-spectrum",
+      "slug": "mirrored",
+      "name": "Mirrored Bars",
+      "family": "linear",
+      "sourceEvidence": "Avee twin-sided horizontal template",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored/mirrored.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 3,
+      "id": "waveform-line",
+      "slug": "waveform-line",
+      "name": "Waveform Line",
+      "family": "linear",
+      "sourceEvidence": "Avee cyan and white continuous-line templates",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/waveform-line/waveform-line.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 4,
+      "id": "mirrored-waveform",
+      "slug": "mirrored-waveform",
+      "name": "Mirrored Waveform",
+      "family": "linear",
+      "sourceEvidence": "Avee upper/lower waveform template",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/mirrored-waveform.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 5,
+      "id": "filled-spectrum",
+      "slug": "filled-spectrum",
+      "name": "Filled Spectrum",
+      "family": "linear",
+      "sourceEvidence": "Motion Ninja filled visualizer presets",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/filled-spectrum.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 6,
+      "id": "spectrum-dots",
+      "slug": "spectrum-dots",
+      "name": "Dot Matrix",
+      "family": "linear",
+      "sourceEvidence": "Motion Ninja dotted visualizer preset",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/spectrum-dots.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 7,
+      "id": "twin-spectrum",
+      "slug": "twin-spectrum",
+      "name": "Twin Track",
+      "family": "linear",
+      "sourceEvidence": "Avee stacked player layout",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/twin-spectrum.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 8,
+      "id": "radial-spectrum",
+      "slug": "radial",
+      "name": "Radial Bars",
+      "family": "radial",
+      "sourceEvidence": "Motion Ninja circular visualizer and Avee ring templates",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial/radial.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 9,
+      "id": "radial-waveform",
+      "slug": "radial-waveform",
+      "name": "Radial Waveform",
+      "family": "radial",
+      "sourceEvidence": "Organic circular contour shown in Motion Ninja demo",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-waveform/radial-waveform.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 10,
+      "id": "radial-dots",
+      "slug": "radial-dots",
+      "name": "Radial Dots",
+      "family": "radial",
+      "sourceEvidence": "Dotted circular and half-ring presets",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/radial-dots/radial-dots.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 11,
+      "id": "spectrum-arc",
+      "slug": "spectrum-arc",
+      "name": "Half Arc",
+      "family": "radial",
+      "sourceEvidence": "Motion Ninja semicircle presets",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/spectrum-arc.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 12,
+      "id": "filled-radial-spectrum",
+      "slug": "filled-radial-spectrum",
+      "name": "Filled Radial",
+      "family": "radial",
+      "sourceEvidence": "Motion Ninja filled circular presets",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/filled-radial-spectrum.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 13,
+      "id": "triangle-spectrum",
+      "slug": "triangle-spectrum",
+      "name": "Triangle Trace",
+      "family": "shape",
+      "sourceEvidence": "Avee triangle perimeter template",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/triangle-spectrum.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 14,
+      "id": "x-spectrum",
+      "slug": "x-spectrum",
+      "name": "X Trace",
+      "family": "shape",
+      "sourceEvidence": "Avee X-shaped template",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/x-spectrum/x-spectrum.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    },
+    {
+      "order": 15,
+      "id": "side-burst-ring",
+      "slug": "side-burst-ring",
+      "name": "Side Burst Ring",
+      "family": "radial",
+      "sourceEvidence": "Avee ring with directional side emissions",
+      "videoPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/side-burst-ring.mp4",
+      "analysisSha256": "10c910b23adddeddfbd4c403eeebb6dfd0137f652e895f762e84551e97d96c3f",
+      "audioSha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+      "checks": {
+        "decoded": true,
+        "resolution": true,
+        "frameRate": true,
+        "frameCount": true,
+        "audioCodec": true,
+        "durationDeltaMs": 24
+      }
+    }
+  ],
+  "showcase": {
+    "path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/spectrum-demos-v1/spectrum-library-showcase.mp4",
+    "decoded": true,
+    "media": {
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30/1",
+          "duration": "42.000000",
+          "nb_frames": "1260",
+          "side_data_list": [
+            {}
+          ]
+        },
+        {
+          "codec_name": "aac",
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "42.000000",
+          "nb_frames": "1970"
+        }
+      ],
+      "format": {
+        "duration": "42.000000",
+        "size": "3607240"
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "topic": "A reviewable content factory built with ChatGPT Work and Scheduled Tasks",
+  "thesis": "The useful automation is not unattended publishing; it is recurring research and production that pauses at human judgment points.",
+  "sources": [
+    {
+      "id": "openai-work-doc",
+      "url": "https://learn.chatgpt.com/docs/whats-new#take-on-ambitious-work-with-chatgpt-work",
+      "publisher": "OpenAI — ChatGPT Learn",
+      "published_at": "2026-07-09",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Verified against the official ChatGPT Learn page on 2026-07-15. A cropped browser screenshot is used as visible source evidence. Product availability may change."
+    },
+    {
+      "id": "openai-scheduled-tasks-doc",
+      "url": "https://learn.chatgpt.com/docs/automations",
+      "publisher": "OpenAI — ChatGPT Learn",
+      "published_at": "2026-07-10",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Verified against the official Scheduled Tasks documentation on 2026-07-15. The documentation recommends testing the prompt manually before scheduling it."
+    },
+    {
+      "id": "pexels-phone-scroll-6271585",
+      "url": "https://www.pexels.com/video/a-person-scrolling-through-a-mobile-phone-6271585/",
+      "publisher": "Pexels — www.kaboompics.com",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "licensed",
+      "notes": "Licensed stock footage selected through the Pexels page and license link on 2026-07-15. Used as illustrative B-roll, not factual evidence."
+    },
+    {
+      "id": "pexels-research-laptop-38496194",
+      "url": "https://www.pexels.com/video/browsing-open-access-guide-on-laptop-38496194/",
+      "publisher": "Pexels — Media Hopper Studio",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "licensed",
+      "notes": "Licensed stock footage selected through the Pexels page and license link on 2026-07-15. Used as illustrative B-roll, not factual evidence."
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-work-hours",
+      "claim": "ChatGPT Work can break a goal into steps and work for hours on a longer-running task.",
+      "source_ids": ["openai-work-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not imply that every task will run for hours or complete without review."
+    },
+    {
+      "id": "fact-work-actions",
+      "claim": "ChatGPT Work can gather context from files and plugins and take actions across a workflow.",
+      "source_ids": ["openai-work-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Available tools, permissions, and connectors determine which actions are possible."
+    },
+    {
+      "id": "fact-reviewable-output",
+      "claim": "ChatGPT Work is designed to create reviewable finished work such as documents, presentations, spreadsheets, and Sites.",
+      "source_ids": ["openai-work-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Use 'reviewable work', not 'perfect finished work'."
+    },
+    {
+      "id": "fact-approval",
+      "claim": "A user can follow progress, change direction, and approve important actions while ChatGPT Work is running.",
+      "source_ids": ["openai-work-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Editorial approval gates in this video are an implementation choice built on this review model."
+    },
+    {
+      "id": "fact-schedules",
+      "claim": "Scheduled Tasks can run once, on a recurring schedule, in response to an event, or as a monitor for changes.",
+      "source_ids": ["openai-scheduled-tasks-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "A schedule does not expand permissions or remove approval requirements."
+    },
+    {
+      "id": "fact-scheduled-skills",
+      "claim": "Scheduled Tasks can be combined with skills, and their runs can be reviewed in the Scheduled inbox.",
+      "source_ids": ["openai-scheduled-tasks-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "The exact task UI and product availability may change."
+    },
+    {
+      "id": "fact-test-first",
+      "claim": "OpenAI recommends testing a task prompt manually before putting it on a schedule.",
+      "source_ids": ["openai-scheduled-tasks-doc"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "This supports the MVP-first recommendation; it is not a guarantee of later task quality."
+    }
+  ]
+}

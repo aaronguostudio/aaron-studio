@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "topic": "What Starship Flight 13 must prove",
+  "thesis": "The meaningful result is not liftoff alone; it is whether Flight 13 completes the repaired booster return sequence, deploys its payload, and relights a Raptor in space.",
+  "sources": [
+    {
+      "id": "spacex-flight13-x",
+      "url": "https://x.com/SpaceX/status/2076075162420629714",
+      "publisher": "SpaceX",
+      "published_at": "2026-07-11",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "commentary-review",
+      "notes": "Official Flight 13 announcement and 60-second montage. Source video retained unchanged; only minimal muted excerpts are used with an on-screen source label."
+    },
+    {
+      "id": "spacex-booster20-x",
+      "url": "https://x.com/SpaceX/status/2075353490713432440",
+      "publisher": "SpaceX",
+      "published_at": "2026-07-09",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "commentary-review",
+      "notes": "Official 4K footage of Booster 20 moving to the Starbase pad. Minimal muted excerpt used to identify the vehicle and current preparation."
+    },
+    {
+      "id": "spacex-flight13-mission",
+      "url": "https://www.spacex.com/launches/starship-flight-13",
+      "publisher": "SpaceX",
+      "published_at": "2026-07-11",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Official mission page used for the target date and planned test objectives. Publication timing may change."
+    },
+    {
+      "id": "faa-flight12-closure",
+      "url": "https://www.faa.gov/newsroom/statements/general-statements",
+      "publisher": "Federal Aviation Administration",
+      "published_at": "2026-07-13",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Official FAA statement closing the Flight 12 mishap investigation and listing the two most probable causes and four corrective actions."
+    },
+    {
+      "id": "nasa-hls",
+      "url": "https://www.nasa.gov/humans-in-space/human-landing-system/",
+      "publisher": "NASA",
+      "published_at": "2026-03-25",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Official NASA program page confirming work with SpaceX on Starship HLS for Artemis III and Artemis IV. Third-party artwork on the page is not reused."
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-launch-target",
+      "claim": "SpaceX is targeting July 16, 2026 for Starship Flight 13.",
+      "source_ids": ["spacex-flight13-x", "spacex-flight13-mission"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "State this as a target because launch schedules can change."
+    },
+    {
+      "id": "fact-faa-causes",
+      "claim": "The FAA says the two most probable causes for the Flight 12 booster loss were heat effects on propulsion-system components and erroneous engine-alarm settings.",
+      "source_ids": ["faa-flight12-closure"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Attribute the findings to the FAA's accepted investigation rather than presenting an independent diagnosis."
+    },
+    {
+      "id": "fact-four-actions",
+      "claim": "SpaceX identified four corrective actions after Flight 12, including hardware and software configuration updates.",
+      "source_ids": ["faa-flight12-closure"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not imply the corrective actions guarantee Flight 13 success."
+    },
+    {
+      "id": "fact-flight13-objectives",
+      "claim": "Flight 13 plans a complete Super Heavy boostback burn and soft splashdown, deployment of twenty Starlink V3 satellites, and an in-space Raptor relight before Starship's descent.",
+      "source_ids": ["spacex-flight13-mission"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "These are planned objectives, not completed achievements."
+    },
+    {
+      "id": "fact-nasa-hls",
+      "claim": "NASA is working with SpaceX to develop Starship HLS for Artemis III and Artemis IV.",
+      "source_ids": ["nasa-hls"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not imply this flight alone certifies the lunar lander."
+    }
+  ]
+}

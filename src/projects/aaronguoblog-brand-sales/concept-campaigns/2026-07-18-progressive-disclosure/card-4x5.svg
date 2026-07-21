@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title description">
+  <title id="title">Progressive Disclosure · Working Vocabulary</title>
+  <desc id="description">Do not delete complexity; let users pay for it in installments as their intent deepens.</desc>
+  <defs>
+    <style>
+      .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: "SFMono-Regular", Menlo, Monaco, monospace; }
+      .title { font-size: 104px; font-weight: 760; letter-spacing: -5.5px; fill: #f7f7f4; }
+      .layer-title { font-size: 20px; font-weight: 760; letter-spacing: 1.5px; }
+      .layer-copy { font-size: 16px; }
+      .pill { font-size: 11px; letter-spacing: 1.1px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="1080" height="1350" fill="#0b0b0f"/>
+  <rect width="10" height="1350" fill="#7c6cff"/>
+
+  <g transform="translate(68 66)">
+    <path d="M0 32 L17 3 L34 32 Z" fill="#7c6cff"/>
+    <circle cx="29" cy="25" r="13" fill="#8ed9ff"/>
+    <text x="52" y="25" class="mono" font-size="18" font-weight="800" fill="#f7f7f4" letter-spacing="2.5">AARON GUO</text>
+    <text x="944" y="25" text-anchor="end" class="mono" font-size="14" fill="#777783" letter-spacing="2">WORKING VOCABULARY / 004</text>
+  </g>
+
+  <g>
+    <circle cx="76" cy="201" r="6" fill="#d7ff4f"/>
+    <text x="98" y="207" class="mono" font-size="17" font-weight="800" fill="#7c6cff" letter-spacing="2.2">INTERACTION DESIGN</text>
+    <text x="68" y="320" class="sans title" >Progressive</text><text x="68" y="413.6" class="sans title" >Disclosure</text>
+    <text x="68" y="535" class="mono" font-size="18" font-weight="700" fill="#a0a0aa" letter-spacing="1.4">COMPLEXITY ISN'T THE PROBLEM.</text>
+    <text x="68" y="570" class="mono" font-size="18" font-weight="800" fill="#d7ff4f" letter-spacing="1.4">TIMING IS.</text>
+  </g>
+
+  <text x="68" y="648" class="mono" font-size="13" font-weight="700" fill="#777783" letter-spacing="2">REVEALED AS INTENT DEEPENS</text>
+
+  <g transform="translate(68 678)">
+    <rect width="880" height="106" rx="24" fill="#f7f7f4"/>
+    <text x="26" y="63" class="mono" font-size="17" font-weight="700" fill="#0b0b0f" fill-opacity=".44">01</text>
+    <text x="88" y="47" class="sans layer-title" fill="#0b0b0f">ESSENTIAL</text>
+    <text x="88" y="74" class="sans layer-copy" fill="#0b0b0f" fill-opacity=".58">complete first task</text>
+    <rect x="726" y="35" width="126" height="36" rx="18" fill="#0b0b0f"/>
+    <text x="789" y="58" text-anchor="middle" class="mono pill" fill="#f7f7f4">VISIBLE</text>
+
+    <g transform="translate(48 126)">
+      <rect width="832" height="106" rx="24" fill="#7c6cff"/>
+      <text x="26" y="63" class="mono" font-size="17" font-weight="700" fill="#ffffff" fill-opacity=".55">02</text>
+      <text x="88" y="47" class="sans layer-title" fill="#ffffff">CONTEXT</text>
+      <text x="88" y="74" class="sans layer-copy" fill="#ffffff" fill-opacity=".72">appears when relevant</text>
+      <rect x="656" y="35" width="148" height="36" rx="18" fill="none" stroke="#ffffff" stroke-opacity=".72"/>
+      <text x="730" y="58" text-anchor="middle" class="mono pill" fill="#ffffff">ON INTENT</text>
+    </g>
+
+    <g transform="translate(96 252)">
+      <rect width="784" height="106" rx="24" fill="#17171d" stroke="#373741" stroke-width="1.5"/>
+      <text x="26" y="63" class="mono" font-size="17" font-weight="700" fill="#ffffff" fill-opacity=".35">03</text>
+      <text x="88" y="47" class="sans layer-title" fill="#f7f7f4">EXPERT</text>
+      <text x="88" y="74" class="sans layer-copy" fill="#ffffff" fill-opacity=".5">depth without clutter</text>
+      <rect x="592" y="35" width="164" height="36" rx="18" fill="none" stroke="#777783"/>
+      <text x="674" y="58" text-anchor="middle" class="mono pill" fill="#b1b1bb">ON DEMAND</text>
+    </g>
+
+    <rect y="390" width="880" height="3" fill="#d7ff4f"/>
+    <text x="880" y="424" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#d7ff4f" letter-spacing="1.8">INTENT DEEPENS →</text>
+  </g>
+
+  <text x="68" y="1142" class="mono" font-size="13" font-weight="700" fill="#777783" letter-spacing="2">THE MENTAL MODEL</text>
+  <text x="68" y="1194" class="sans" font-size="34" font-weight="690" fill="#f7f7f4" letter-spacing="-.7">Don't delete complexity.</text>
+  <text x="68" y="1238" class="sans" font-size="34" font-weight="690" fill="#d7ff4f" letter-spacing="-.7">Reveal it as intent deepens.</text>
+
+  <line x1="68" y1="1276" x2="1012" y2="1276" stroke="#2d2d35"/>
+  <text x="68" y="1311" class="mono" font-size="13" fill="#777783">Read the full interactive explainer</text>
+  <text x="1012" y="1311" text-anchor="end" class="mono" font-size="13" font-weight="700" fill="#f7f7f4">aaronguo.com/learn/progressive-disclosure →</text>
+</svg>

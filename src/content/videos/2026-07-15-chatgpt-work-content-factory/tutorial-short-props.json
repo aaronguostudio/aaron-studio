@@ -1,0 +1,95 @@
+{
+  "brandName": "Aaron Guo",
+  "seriesLabel": "AI-NATIVE CONTENT SYSTEMS",
+  "durationSec": 45,
+  "musicFile": "music-visualizer/paper-moon.mp3",
+  "musicVolume": 0.75,
+  "accent": "#58D1A3",
+  "steps": [
+    {
+      "id": "s01",
+      "startSec": 0,
+      "endSec": 4.5,
+      "kind": "title",
+      "eyebrow": "CONTENT FACTORY / 01",
+      "title": "每天找选题？\n别每天重做。",
+      "subtitle": "把重复执行交给系统，把判断留给自己。"
+    },
+    {
+      "id": "s02",
+      "startSec": 4.5,
+      "endSec": 10,
+      "kind": "comparison",
+      "eyebrow": "先纠正一个误会",
+      "title": "内容工厂 ≠ 无人值守",
+      "subtitle": "真正有用的是：每天交付一批可以审阅的工作。",
+      "items": ["一键自动发布", "每天交付可审阅工作"],
+      "badge": "CHATGPT WORK + SCHEDULED TASKS"
+    },
+    {
+      "id": "s03",
+      "startSec": 10,
+      "endSec": 17,
+      "kind": "evidence",
+      "eyebrow": "官方能力 / SOURCE",
+      "title": "它可以持续工作，\n但重要动作等你批准",
+      "subtitle": "Scheduled Tasks 负责按时启动；Work 负责把目标拆成步骤。",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/work-official-doc.png",
+      "sourceLabel": "OPENAI · CHATGPT LEARN · 2026-07"
+    },
+    {
+      "id": "s04",
+      "startSec": 17,
+      "endSec": 24,
+      "kind": "workflow",
+      "eyebrow": "每天 09:00 / DISCOVERY",
+      "title": "先自动完成\n最重复的部分",
+      "subtitle": "这个 task 每天跑一次：",
+      "items": ["扫描新闻、产品更新和社区信号", "按频道定位排名 5 个选题", "停在这里，等你批准"],
+      "badge": "GATE 1 · TOPIC APPROVAL"
+    },
+    {
+      "id": "s05",
+      "startSec": 24,
+      "endSec": 29.5,
+      "kind": "approval",
+      "eyebrow": "HUMAN JUDGMENT / 01",
+      "title": "你只做最值钱的\n那一个决定",
+      "subtitle": "研究可以批量，判断不能外包。",
+      "items": ["批准这个选题？"],
+      "badge": "NO PRODUCTION BEFORE APPROVAL"
+    },
+    {
+      "id": "s06",
+      "startSec": 29.5,
+      "endSec": 36.5,
+      "kind": "workflow",
+      "eyebrow": "批准之后 / PRODUCTION",
+      "title": "再让系统\n完成生产闭环",
+      "subtitle": "每一步都有可以打开检查的文件：",
+      "items": ["Fact pack：哪些话能说", "Copy：逐镜头文案", "Asset plan：素材、来源和版权", "Render + QA：生成并完整观看"],
+      "badge": "REVIEWABLE FILES, NOT MAGIC"
+    },
+    {
+      "id": "s07",
+      "startSec": 36.5,
+      "endSec": 41.5,
+      "kind": "approval",
+      "eyebrow": "HUMAN JUDGMENT / 02",
+      "title": "发布之前，\n再停一次",
+      "subtitle": "先渲染，先 QA，再决定要不要发。",
+      "items": ["批准发布这条视频？"],
+      "badge": "GATE 2 · PUBLISH APPROVAL"
+    },
+    {
+      "id": "s08",
+      "startSec": 41.5,
+      "endSec": 45,
+      "kind": "end",
+      "eyebrow": "THE OPERATING PRINCIPLE",
+      "title": "内容工厂，\n不是无人值守。",
+      "subtitle": "是把人留在判断点。",
+      "badge": "AARON GUO · AI-NATIVE BUILDER"
+    }
+  ]
+}

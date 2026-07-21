@@ -8,8 +8,47 @@ import {
 import type { MusicVisualizerProps } from "./MusicVisualizer";
 import { DigitalSpaces, defaultDigitalSpacesProps } from "./DigitalSpaces";
 import type { DigitalSpacesProps } from "./DigitalSpaces";
+import { AmbientSignal, defaultAmbientSignalProps } from "./AmbientSignal";
+import type { AmbientSignalProps } from "./AmbientSignal";
+import {
+  AudioMaterialStudies,
+  defaultAudioMaterialStudiesProps,
+} from "./AudioMaterialStudies";
+import type { AudioMaterialStudiesProps } from "./AudioMaterialStudies";
+import {
+  WebGLMaterialStudy,
+  defaultWebGLMaterialStudyProps,
+} from "./WebGLMaterialStudy";
+import type { WebGLMaterialStudyProps } from "./WebGLMaterialStudy";
+import {
+  WebGLMotionProof,
+  defaultWebGLMotionProofProps,
+} from "./WebGLMotionProof";
+import type { WebGLMotionProofProps } from "./WebGLMotionProof";
+import {
+  WebGLMoonpool,
+  defaultWebGLMoonpoolProps,
+} from "./WebGLMoonpool";
+import type { WebGLMoonpoolProps } from "./WebGLMoonpool";
+import {
+  WebGLFoldedVeil,
+  defaultWebGLFoldedVeilProps,
+} from "./WebGLFoldedVeil";
+import type { WebGLFoldedVeilProps } from "./WebGLFoldedVeil";
+import {
+  WebGLChromaticAtrium,
+  defaultWebGLChromaticAtriumProps,
+} from "./WebGLChromaticAtrium";
+import type { WebGLChromaticAtriumProps } from "./WebGLChromaticAtrium";
+import { PrismRooms, defaultPrismRoomsProps } from "./PrismRooms";
+import type { PrismRoomsProps } from "./PrismRooms";
 import { KnowledgeShort } from "./KnowledgeShort";
 import type { KnowledgeShortProps } from "./KnowledgeShort";
+import {
+  TutorialShort,
+  defaultTutorialShortProps,
+} from "./TutorialShort";
+import type { TutorialShortProps } from "./TutorialShort";
 import {
   SignalWorkflowBriefSample,
   signalWorkflowBriefSampleDurationFrames,
@@ -42,6 +81,16 @@ import {
   fdeFullFilmDurationFrames,
   fdeFullFilmV5BrandedDurationFrames,
 } from "./FdeFullFilmV1";
+import {
+  GuizangHybridFdeStudy,
+  GUIZANG_HYBRID_FDE_FPS,
+  guizangHybridFdeStudyDurationFrames,
+} from "./GuizangHybridFdeStudy";
+import {
+  FdeGuizangHybridFullFilm,
+  GUIZANG_HYBRID_FULL_FPS,
+  guizangHybridFullDurationFrames,
+} from "./FdeGuizangHybridFullFilm";
 import { getIntroHookDuration } from "./components/IntroHook";
 import { getContentHookDuration } from "./components/ContentHook";
 import { getCoverCardDuration } from "./components/CoverCard";
@@ -136,6 +185,28 @@ export const RemotionRoot: React.FC = () => {
         component={FdeFullFilmV5Branded}
         durationInFrames={fdeFullFilmV5BrandedDurationFrames(FDE_FULL_FILM_FPS)}
         fps={FDE_FULL_FILM_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="GuizangHybridFdeStudy"
+        component={GuizangHybridFdeStudy}
+        durationInFrames={guizangHybridFdeStudyDurationFrames(
+          GUIZANG_HYBRID_FDE_FPS,
+        )}
+        fps={GUIZANG_HYBRID_FDE_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="FdeGuizangHybridFullFilmPrivate"
+        component={FdeGuizangHybridFullFilm}
+        durationInFrames={guizangHybridFullDurationFrames(
+          GUIZANG_HYBRID_FULL_FPS,
+        )}
+        fps={GUIZANG_HYBRID_FULL_FPS}
         width={1920}
         height={1080}
       />
@@ -242,6 +313,143 @@ export const RemotionRoot: React.FC = () => {
         defaultProps={defaultDigitalSpacesProps}
       />
 
+      {/* Web-first deterministic ambient loops shared with the browser lab. */}
+      <Composition
+        id="AmbientSignal"
+        component={AmbientSignal as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as AmbientSignalProps;
+          const fps = 30;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 18) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultAmbientSignalProps}
+      />
+
+      {/* Frame-indexed audio controls material qualities, never geometry jitter. */}
+      <Composition
+        id="AudioMaterialStudies"
+        component={AudioMaterialStudies as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as AudioMaterialStudiesProps;
+          const fps = 30;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 45) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultAudioMaterialStudiesProps}
+      />
+
+      {/* Native WebGL 4K technical study: stable 3D material, no beat geometry. */}
+      <Composition
+        id="WebGLMaterialStudy"
+        component={WebGLMaterialStudy as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as WebGLMaterialStudyProps;
+          const fps = 60;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 15) * fps)),
+            fps,
+            width: 3840,
+            height: 2160,
+          };
+        }}
+        defaultProps={defaultWebGLMaterialStudyProps}
+      />
+
+      {/* Motion proof: make the material/audio relationship readable before 4K delivery. */}
+      <Composition
+        id="WebGLMotionProof"
+        component={WebGLMotionProof as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as WebGLMotionProofProps;
+          const fps = 60;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 12) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultWebGLMotionProofProps}
+      />
+
+      {/* One static gallery object with material-led, music-aware liquid motion. */}
+      <Composition
+        id="WebGLMoonpool"
+        component={WebGLMoonpool as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as WebGLMoonpoolProps;
+          const fps = 60;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 16) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultWebGLMoonpoolProps}
+      />
+
+      {/* One asymmetric textile sculpture, driven by material light rather than object motion. */}
+      <Composition
+        id="WebGLFoldedVeil"
+        component={WebGLFoldedVeil as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as WebGLFoldedVeilProps;
+          const fps = 60;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 16) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultWebGLFoldedVeilProps}
+      />
+
+      {/* Architectural light study: no floating objects, only slow projected colour on fixed planes. */}
+      <Composition
+        id="WebGLChromaticAtrium"
+        component={WebGLChromaticAtrium as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as WebGLChromaticAtriumProps;
+          const fps = 60;
+          const is4k = props.renderResolution === "4k";
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 14) * fps)),
+            fps,
+            width: is4k ? 3840 : 1920,
+            height: is4k ? 2160 : 1080,
+          };
+        }}
+        defaultProps={defaultWebGLChromaticAtriumProps}
+      />
+
+      {/* Experimental generated-still image sequence with frame-driven light response. */}
+      <Composition
+        id="PrismRooms"
+        component={PrismRooms as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as PrismRoomsProps;
+          const fps = 30;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 54) * fps)),
+            fps,
+            width: 1920,
+            height: 1080,
+          };
+        }}
+        defaultProps={defaultPrismRoomsProps}
+      />
+
       {/* Knowledge Shorts — 9:16 vertical, 15s */}
       <Composition
         id="KnowledgeShort"
@@ -267,6 +475,23 @@ export const RemotionRoot: React.FC = () => {
             durationSec: 15,
           } as KnowledgeShortProps
         }
+      />
+
+      {/* Tutorial Shorts — source-backed, text-led, reviewable vertical explainers */}
+      <Composition
+        id="TutorialShort"
+        component={TutorialShort as any}
+        calculateMetadata={({ props: rawProps }) => {
+          const props = rawProps as unknown as TutorialShortProps;
+          const fps = 30;
+          return {
+            durationInFrames: Math.max(1, Math.ceil((props.durationSec || 45) * fps)),
+            fps,
+            width: 1080,
+            height: 1920,
+          };
+        }}
+        defaultProps={defaultTutorialShortProps}
       />
     </>
   );

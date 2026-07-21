@@ -1,0 +1,121 @@
+{
+  "brandName": "Aaron Guo",
+  "seriesLabel": "AI-NATIVE CONTENT SYSTEMS",
+  "durationSec": 42,
+  "narrationFile": "tutorial-shorts/chatgpt-work-content-factory/narration-en.mp3",
+  "narrationVolume": 1,
+  "musicFile": "music-visualizer/paper-moon.mp3",
+  "musicVolume": 0.18,
+  "accent": "#C65F47",
+  "steps": [
+    {
+      "id": "en-s01",
+      "startSec": 0,
+      "endSec": 3.25,
+      "kind": "title",
+      "eyebrow": "CONTENT FACTORY / 01",
+      "title": "Every morning,\nit starts again.",
+      "subtitle": "The same research. The same setup. The same decision."
+    },
+    {
+      "id": "en-s02",
+      "startSec": 3.25,
+      "endSec": 9.15,
+      "kind": "clip",
+      "eyebrow": "THE REPEATED LOOP",
+      "title": "Scan the news.\nStart again.",
+      "subtitle": "The research loop resets before the creative work begins.",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/news-scroll-licensed-vertical.mp4",
+      "sourceStartSec": 1,
+      "sourceLabel": "PEXELS · WWW.KABOOMPICS.COM · 6271585",
+      "labels": ["LICENSE RECORDED ✓"]
+    },
+    {
+      "id": "en-s03",
+      "startSec": 9.15,
+      "endSec": 15.35,
+      "kind": "comparison",
+      "eyebrow": "THE OPERATING PRINCIPLE",
+      "title": "A content factory\nshouldn't replace you",
+      "subtitle": "It should remove the repetition.",
+      "labels": ["KEEP", "REMOVE"],
+      "items": ["Your judgment", "The repetition"],
+      "badge": "HUMAN-IN-THE-LOOP"
+    },
+    {
+      "id": "en-s04a",
+      "startSec": 15.35,
+      "endSec": 18.25,
+      "kind": "clip",
+      "eyebrow": "SOURCE RESEARCH / LICENSED CLIP",
+      "title": "Find the source\nbefore the angle",
+      "subtitle": "Real footage can carry the evidence-gathering beat.",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/research-laptop-licensed-vertical.mp4",
+      "sourceStartSec": 1.5,
+      "sourceLabel": "PEXELS · MEDIA HOPPER STUDIO · 38496194",
+      "labels": ["LICENSE RECORDED ✓"]
+    },
+    {
+      "id": "en-s04b",
+      "startSec": 18.25,
+      "endSec": 21.05,
+      "kind": "evidence",
+      "eyebrow": "SCHEDULED TASK / OFFICIAL SOURCE",
+      "title": "Schedule the\nrepeated work",
+      "subtitle": "Collect signals. Rank five ideas. Then stop for approval.",
+      "assetFile": "tutorial-shorts/chatgpt-work-content-factory/work-official-doc.png",
+      "sourceLabel": "OPENAI · CHATGPT LEARN · 2026-07",
+      "labels": ["VERIFIED ✓"]
+    },
+    {
+      "id": "en-s05",
+      "startSec": 21.05,
+      "endSec": 23.65,
+      "kind": "approval",
+      "eyebrow": "HUMAN JUDGMENT / 01",
+      "title": "The system stops\nwhere judgment starts",
+      "items": ["Approve this topic?"],
+      "labels": ["EDITORIAL GATE", "WAITING"],
+      "actions": ["Revise", "Approve →"],
+      "badge": "NO PRODUCTION BEFORE APPROVAL"
+    },
+    {
+      "id": "en-s06",
+      "startSec": 23.65,
+      "endSec": 32.95,
+      "kind": "workflow",
+      "eyebrow": "AFTER APPROVAL / PRODUCTION",
+      "title": "Build a draft\nyou can inspect",
+      "subtitle": "Every stage leaves behind a reviewable file.",
+      "items": [
+        "Fact pack: what can be claimed",
+        "Script: the story, beat by beat",
+        "Asset plan: sources and rights",
+        "Render: the first reviewable cut"
+      ],
+      "badge": "REVIEWABLE FILES, NOT MAGIC"
+    },
+    {
+      "id": "en-s07",
+      "startSec": 32.95,
+      "endSec": 35.45,
+      "kind": "approval",
+      "eyebrow": "HUMAN JUDGMENT / 02",
+      "title": "Before publishing,\nstop again",
+      "items": ["Does this cut pass QA?"],
+      "labels": ["PUBLISH GATE", "WAITING"],
+      "actions": ["Revise", "Approve →"],
+      "badge": "GATE 2 · PUBLISH APPROVAL"
+    },
+    {
+      "id": "en-s08",
+      "startSec": 35.45,
+      "endSec": 42,
+      "kind": "end",
+      "eyebrow": "THE CONTENT FACTORY",
+      "title": "The machine\nkeeps moving.",
+      "subtitle": "You keep the decisions that matter.",
+      "badge": "AARON GUO · AI-NATIVE BUILDER"
+    }
+  ]
+}

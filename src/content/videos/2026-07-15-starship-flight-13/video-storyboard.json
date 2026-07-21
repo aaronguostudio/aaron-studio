@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "title": "Starship Flight 13: The Three Tests That Matter",
+  "duration_sec": 59,
+  "direction": {
+    "name": "Official footage, light editorial explanation",
+    "visual_spine": "Warm ivory field, paper-white cards, charcoal type, burnt-orange signal, source-labelled SpaceX excerpts, and original explanatory geometry.",
+    "motion_density": "balanced",
+    "music_strategy": "continuous",
+    "references": [
+      {
+        "id": "news-story-reference",
+        "url": "https://www.youtube.com/shorts/2ewTt816Ca8",
+        "borrow": "Immediate real-world footage, compact story, headline hierarchy, and narration-led evidence changes.",
+        "avoid": "Exact graphics, typography, channel identity, or footage reuse."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "Open on Booster 20",
+      "start_sec": 0,
+      "end_sec": 6.4,
+      "role": "emphasis",
+      "template": "licensed-footage-insert",
+      "intensity": "structured",
+      "purpose": "Establish the current vehicle and target date immediately.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Booster 20 rollout with the July 16 headline and source label.",
+      "first_change_sec": 0.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["July 16 target", "Booster 20", "SpaceX official"],
+      "beats": [
+        {"at_sec": 0, "visual": "official rollout", "action": "hold"},
+        {"at_sec": 0.1, "visual": "vertical treatment", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration and low score begin; source audio muted."
+    },
+    {
+      "id": "s02",
+      "title": "Reframe the spectacle",
+      "start_sec": 6.4,
+      "end_sec": 12.6,
+      "role": "emphasis",
+      "template": "licensed-footage-insert",
+      "intensity": "structured",
+      "purpose": "Use engine fire to state that liftoff alone is not the test.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Raptor fire beneath the reframe headline.",
+      "first_change_sec": 0.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["engine fire", "not the real test", "SpaceX official"],
+      "beats": [
+        {"at_sec": 0, "visual": "official fire", "action": "hold"},
+        {"at_sec": 0.1, "visual": "source label", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Source audio muted."
+    },
+    {
+      "id": "s03",
+      "title": "Show the two FAA causes",
+      "start_sec": 12.6,
+      "end_sec": 26.5,
+      "role": "explanation",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Explain the accepted Flight 12 booster-loss causes and corrective-action count.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two equal cause lanes and the FAA source label.",
+      "first_change_sec": 0.25,
+      "motion_recipes": ["crossfade"],
+      "content": ["heat effects", "alarm settings", "four corrective actions"],
+      "beats": [
+        {"at_sec": 0, "visual": "comparison scaffold", "action": "hold"},
+        {"at_sec": 0.25, "visual": "heat lane", "action": "reveal"},
+        {"at_sec": 0.6, "visual": "alarm lane", "action": "reveal"},
+        {"at_sec": 8.4, "visual": "alarm lane", "action": "focus"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Quiet evidence hold."
+    },
+    {
+      "id": "s03b",
+      "title": "Return briefly to Ship 40",
+      "start_sec": 26.5,
+      "end_sec": 29.5,
+      "role": "emphasis",
+      "template": "licensed-footage-insert",
+      "intensity": "structured",
+      "purpose": "Connect the four corrective actions to current physical testing.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Ship 40 overhead test shot with a fixed source label.",
+      "first_change_sec": 0.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["four fixes", "Ship 40", "SpaceX official"],
+      "beats": [
+        {"at_sec": 0, "visual": "official Ship 40 test", "action": "hold"},
+        {"at_sec": 0.1, "visual": "source label", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Source audio muted."
+    },
+    {
+      "id": "s04",
+      "title": "Build the three mission tests",
+      "start_sec": 29.5,
+      "end_sec": 40.2,
+      "role": "explanation",
+      "template": "tutorial-short",
+      "intensity": "structured",
+      "purpose": "Give the viewer three observable mission objectives.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Full checklist scaffold and first active objective.",
+      "first_change_sec": 0.3,
+      "motion_recipes": ["none"],
+      "content": ["complete boostback", "twenty Starlink V3", "Raptor relight"],
+      "beats": [
+        {"at_sec": 0, "visual": "three-test scaffold", "action": "hold"},
+        {"at_sec": 0.3, "visual": "boostback", "action": "reveal"},
+        {"at_sec": 5.0, "visual": "payload", "action": "reveal"},
+        {"at_sec": 9.5, "visual": "relight", "action": "reveal"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Three objectives land in sequence."
+    },
+    {
+      "id": "s05",
+      "title": "Return to the physical rocket",
+      "start_sec": 40.2,
+      "end_sec": 46.6,
+      "role": "emphasis",
+      "template": "licensed-footage-insert",
+      "intensity": "structured",
+      "purpose": "Reset attention before the payoff while remaining temporally honest.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Archived Starship ignition labelled as archive.",
+      "first_change_sec": 0.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["Starship archive", "spectacle", "repeatability"],
+      "beats": [
+        {"at_sec": 0, "visual": "official archive", "action": "hold"},
+        {"at_sec": 0.1, "visual": "archive label", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Small lift; source audio muted."
+    },
+    {
+      "id": "s06",
+      "title": "Land the repeatability payoff",
+      "start_sec": 46.6,
+      "end_sec": 59,
+      "role": "emphasis",
+      "template": "tutorial-short",
+      "intensity": "calm",
+      "purpose": "Connect Flight 13's engineering outcome to the future lunar architecture without overclaiming.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Full payoff and Aaron identity on the ivory field.",
+      "first_change_sec": 0.15,
+      "motion_recipes": ["none"],
+      "content": ["repeatability", "two-stage recovery", "future lunar missions"],
+      "beats": [
+        {"at_sec": 0, "visual": "payoff", "action": "hold"},
+        {"at_sec": 0.15, "visual": "signal line", "action": "reveal"},
+        {"at_sec": 5.5, "visual": "Aaron identity", "action": "settle"}
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration and score resolve."
+    }
+  ]
+}

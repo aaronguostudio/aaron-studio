@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-07-14T06:24:57.997Z",
+  "title": "Prism Rooms — 54s Visual Study",
+  "format": "1080p / 30fps / H.264 + AAC",
+  "durationSec": 54,
+  "audioSource": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/material-ritual-full-v1/music/master-600s-normalized.m4a",
+  "audioStartSec": 162,
+  "audioAnalysis": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/audio-analysis.json",
+  "visualAssets": [
+    {
+      "file": "music-visualizer/prism-rooms/scene-01-suspended.png",
+      "scene": "Suspended Prism",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    },
+    {
+      "file": "music-visualizer/prism-rooms/scene-02-aperture.png",
+      "scene": "The Aperture",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    },
+    {
+      "file": "music-visualizer/prism-rooms/scene-03-quiet-field.png",
+      "scene": "The Quiet Field",
+      "source": "Original ImageGen artwork, built-in generation tool"
+    }
+  ],
+  "visualContract": "Three original image-generation plates in one museum-scale prism-installation world. Geometry is still; precomputed music analysis only modulates transmitted light, edge shimmer, and floor caustics.",
+  "motionContract": "Three 20-second rooms joined by 3-second crossfades. No pan, bob, beat-driven scale, or object translation.",
+  "stills": {
+    "entry": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/entry.png",
+    "handoff-01": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/handoff-01.png",
+    "peak": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/peak.png",
+    "handoff-02": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/handoff-02.png",
+    "exit": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/exit.png"
+  },
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/prism-rooms-pilot/prism-rooms-54s-1080p.mp4"
+}
