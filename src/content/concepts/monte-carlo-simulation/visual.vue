@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 
 type Locale = 'en' | 'zh'
 
@@ -234,6 +234,9 @@ const defaults: Settings = {
 
 const settings = reactive<Settings>({ ...defaults })
 const seed = ref(20260722)
+const workspace = ref<HTMLElement | null>(null)
+const isPreviewPinned = ref(false)
+let previewFrame = 0
 
 const controls: Array<{
   key: keyof Settings
@@ -573,6 +576,38 @@ const yTicks = computed(() =>
   })),
 )
 
+function updatePreviewPin() {
+  const element = workspace.value
+  if (!element || typeof window === 'undefined') return
+
+  const workspaceRect = element.getBoundingClientRect()
+  const headerOffset = 84
+  isPreviewPinned.value =
+    window.matchMedia('(max-width: 1049px)').matches &&
+    workspaceRect.top < headerOffset &&
+    workspaceRect.bottom > headerOffset
+}
+
+function schedulePreviewPin() {
+  if (previewFrame) return
+  previewFrame = window.requestAnimationFrame(() => {
+    previewFrame = 0
+    updatePreviewPin()
+  })
+}
+
+onMounted(() => {
+  updatePreviewPin()
+  window.addEventListener('scroll', schedulePreviewPin, { passive: true })
+  window.addEventListener('resize', schedulePreviewPin)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', schedulePreviewPin)
+  window.removeEventListener('resize', schedulePreviewPin)
+  if (previewFrame) window.cancelAnimationFrame(previewFrame)
+})
+
 const reading = computed(
   () =>
     `${copy.value.conditionalLead} ${percentFormatter.value.format(currentResult.value.successRate)} ${copy.value.conditionalTail}`,
@@ -598,176 +633,189 @@ const reading = computed(
       </div>
     </header>
 
-    <div class="control-section" aria-labelledby="primary-controls-title">
-      <div class="section-heading">
-        <h3 id="primary-controls-title">{{ copy.primary }}</h3>
-        <span v-if="changedKeys.length" class="change-count"
-          >{{ changedKeys.length }} {{ copy.changed }}</span
-        >
+    <div ref="workspace" class="lab-workspace">
+      <div class="result-panel" :class="{ 'is-pinned': isPreviewPinned }">
+        <div class="metric-grid" aria-live="polite">
+          <article class="metric metric-signal">
+            <span>{{ copy.metrics.success }}</span>
+            <strong>{{ percentFormatter.format(currentResult.successRate) }}</strong>
+            <small>{{
+              deltaLabel(currentResult.successRate, baselineResult.successRate, 'percent')
+            }}</small>
+          </article>
+          <article class="metric">
+            <span>{{ copy.metrics.median }}</span>
+            <strong>{{ formatMetricMoney(currentResult.medianEnd) }}</strong>
+            <small>{{
+              deltaLabel(currentResult.medianEnd, baselineResult.medianEnd, 'money')
+            }}</small>
+          </article>
+          <article class="metric">
+            <span>{{ copy.metrics.lower }}</span>
+            <strong>{{ formatMetricMoney(currentResult.p10End) }}</strong>
+            <small>{{ deltaLabel(currentResult.p10End, baselineResult.p10End, 'money') }}</small>
+          </article>
+          <article class="metric">
+            <span>{{ copy.metrics.failure }}</span>
+            <strong>
+              {{
+                currentResult.medianFailureYear === null
+                  ? copy.metrics.noFailure
+                  : `${currentResult.medianFailureYear} ${copy.yearsLabel}`
+              }}
+            </strong>
+            <small
+              v-if="
+                currentResult.medianFailureYear !== null &&
+                baselineResult.medianFailureYear !== null
+              "
+            >
+              {{
+                deltaLabel(
+                  currentResult.medianFailureYear,
+                  baselineResult.medianFailureYear,
+                  'year',
+                )
+              }}
+            </small>
+            <small v-else>{{ copy.baselineSame }}</small>
+          </article>
+        </div>
+
+        <figure class="chart-card">
+          <figcaption>
+            <div>
+              <h3>{{ copy.chartTitle }}</h3>
+              <p>{{ copy.chartDescription }}</p>
+            </div>
+            <div class="legend" aria-label="Chart legend">
+              <span><i class="legend-path"></i>{{ copy.legend.paths }}</span>
+              <span><i class="legend-band"></i>{{ copy.legend.middle }}</span>
+              <span><i class="legend-current"></i>{{ copy.legend.current }}</span>
+              <span><i class="legend-baseline"></i>{{ copy.legend.baseline }}</span>
+            </div>
+          </figcaption>
+
+          <div class="chart-scroll">
+            <svg
+              :viewBox="`0 0 ${chartWidth} ${chartHeight}`"
+              role="img"
+              :aria-label="copy.chartDescription"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <g class="chart-grid">
+                <g v-for="tick in yTicks" :key="tick.y">
+                  <line :x1="plot.left" :x2="plot.right" :y1="tick.y" :y2="tick.y" />
+                  <text :x="plot.left - 10" :y="tick.y + 4" text-anchor="end">
+                    {{ tick.label }}
+                  </text>
+                </g>
+                <line
+                  v-for="year in [0, Math.round(chartYears / 2), chartYears]"
+                  :key="`x-${year}`"
+                  :x1="plot.left + (year / chartYears) * (plot.right - plot.left)"
+                  :x2="plot.left + (year / chartYears) * (plot.right - plot.left)"
+                  :y1="plot.top"
+                  :y2="plot.bottom"
+                />
+                <text :x="plot.left" :y="chartHeight - 18" text-anchor="start">0</text>
+                <text :x="(plot.left + plot.right) / 2" :y="chartHeight - 18" text-anchor="middle">
+                  {{ Math.round(chartYears / 2) }}
+                </text>
+                <text :x="plot.right" :y="chartHeight - 18" text-anchor="end">
+                  {{ chartYears }} {{ copy.yearsLabel }}
+                </text>
+              </g>
+
+              <polygon class="outer-band" :points="currentOuterBand" />
+              <polygon class="inner-band" :points="currentInnerBand" />
+
+              <polyline
+                v-for="(path, index) in samplePaths"
+                :key="index"
+                class="sample-path"
+                :points="path"
+              />
+
+              <line
+                :x1="plot.left"
+                :x2="plot.right"
+                :y1="plot.bottom"
+                :y2="plot.bottom"
+                class="depletion-line"
+              />
+              <polyline class="baseline-line" :points="baselineMedian" />
+              <polyline class="median-line" :points="currentMedian" />
+            </svg>
+          </div>
+
+          <p class="reading" aria-live="polite">{{ reading }}</p>
+        </figure>
       </div>
-      <div class="control-grid primary-grid">
-        <label
-          v-for="control in primaryControls"
-          :key="control.key"
-          class="control-card"
-          :class="{ 'is-changed': isChanged(control.key) }"
-        >
-          <span class="control-top">
-            <span>{{ copy.labels[control.key] }}</span>
-            <output>{{ formatControl(control) }}</output>
-          </span>
-          <input
-            v-model.number="settings[control.key]"
-            type="range"
-            :min="control.min"
-            :max="control.max"
-            :step="control.step"
-            :aria-label="copy.labels[control.key]"
-          />
-          <span v-if="isChanged(control.key)" class="changed-dot">{{ copy.changed }}</span>
-        </label>
+
+      <div class="control-panel">
+        <div class="control-section" aria-labelledby="primary-controls-title">
+          <div class="section-heading">
+            <h3 id="primary-controls-title">{{ copy.primary }}</h3>
+            <span v-if="changedKeys.length" class="change-count"
+              >{{ changedKeys.length }} {{ copy.changed }}</span
+            >
+          </div>
+          <div class="control-grid primary-grid">
+            <label
+              v-for="control in primaryControls"
+              :key="control.key"
+              class="control-card"
+              :class="{ 'is-changed': isChanged(control.key) }"
+            >
+              <span class="control-top">
+                <span>{{ copy.labels[control.key] }}</span>
+                <output>{{ formatControl(control) }}</output>
+              </span>
+              <input
+                v-model.number="settings[control.key]"
+                type="range"
+                :min="control.min"
+                :max="control.max"
+                :step="control.step"
+                :aria-label="copy.labels[control.key]"
+              />
+              <span v-if="isChanged(control.key)" class="changed-dot">{{ copy.changed }}</span>
+            </label>
+          </div>
+        </div>
+
+        <details class="assumptions" @toggle="schedulePreviewPin">
+          <summary>
+            <span>{{ copy.assumptions }}</span>
+            <span aria-hidden="true" class="summary-icon">+</span>
+          </summary>
+          <p class="assumptions-note">{{ copy.assumptionsNote }}</p>
+          <div class="control-grid advanced-grid">
+            <label
+              v-for="control in advancedControls"
+              :key="control.key"
+              class="control-card"
+              :class="{ 'is-changed': isChanged(control.key) }"
+            >
+              <span class="control-top">
+                <span>{{ copy.labels[control.key] }}</span>
+                <output>{{ formatControl(control) }}</output>
+              </span>
+              <input
+                v-model.number="settings[control.key]"
+                type="range"
+                :min="control.min"
+                :max="control.max"
+                :step="control.step"
+                :aria-label="copy.labels[control.key]"
+              />
+              <span v-if="isChanged(control.key)" class="changed-dot">{{ copy.changed }}</span>
+            </label>
+          </div>
+        </details>
       </div>
     </div>
-
-    <details class="assumptions" open>
-      <summary>
-        <span>{{ copy.assumptions }}</span>
-        <span aria-hidden="true" class="summary-icon">+</span>
-      </summary>
-      <p class="assumptions-note">{{ copy.assumptionsNote }}</p>
-      <div class="control-grid advanced-grid">
-        <label
-          v-for="control in advancedControls"
-          :key="control.key"
-          class="control-card"
-          :class="{ 'is-changed': isChanged(control.key) }"
-        >
-          <span class="control-top">
-            <span>{{ copy.labels[control.key] }}</span>
-            <output>{{ formatControl(control) }}</output>
-          </span>
-          <input
-            v-model.number="settings[control.key]"
-            type="range"
-            :min="control.min"
-            :max="control.max"
-            :step="control.step"
-            :aria-label="copy.labels[control.key]"
-          />
-          <span v-if="isChanged(control.key)" class="changed-dot">{{ copy.changed }}</span>
-        </label>
-      </div>
-    </details>
-
-    <div class="metric-grid" aria-live="polite">
-      <article class="metric metric-signal">
-        <span>{{ copy.metrics.success }}</span>
-        <strong>{{ percentFormatter.format(currentResult.successRate) }}</strong>
-        <small>{{
-          deltaLabel(currentResult.successRate, baselineResult.successRate, 'percent')
-        }}</small>
-      </article>
-      <article class="metric">
-        <span>{{ copy.metrics.median }}</span>
-        <strong>{{ formatMetricMoney(currentResult.medianEnd) }}</strong>
-        <small>{{ deltaLabel(currentResult.medianEnd, baselineResult.medianEnd, 'money') }}</small>
-      </article>
-      <article class="metric">
-        <span>{{ copy.metrics.lower }}</span>
-        <strong>{{ formatMetricMoney(currentResult.p10End) }}</strong>
-        <small>{{ deltaLabel(currentResult.p10End, baselineResult.p10End, 'money') }}</small>
-      </article>
-      <article class="metric">
-        <span>{{ copy.metrics.failure }}</span>
-        <strong>
-          {{
-            currentResult.medianFailureYear === null
-              ? copy.metrics.noFailure
-              : `${currentResult.medianFailureYear} ${copy.yearsLabel}`
-          }}
-        </strong>
-        <small
-          v-if="
-            currentResult.medianFailureYear !== null && baselineResult.medianFailureYear !== null
-          "
-        >
-          {{
-            deltaLabel(currentResult.medianFailureYear, baselineResult.medianFailureYear, 'year')
-          }}
-        </small>
-        <small v-else>{{ copy.baselineSame }}</small>
-      </article>
-    </div>
-
-    <figure class="chart-card">
-      <figcaption>
-        <div>
-          <h3>{{ copy.chartTitle }}</h3>
-          <p>{{ copy.chartDescription }}</p>
-        </div>
-        <div class="legend" aria-label="Chart legend">
-          <span><i class="legend-path"></i>{{ copy.legend.paths }}</span>
-          <span><i class="legend-band"></i>{{ copy.legend.middle }}</span>
-          <span><i class="legend-current"></i>{{ copy.legend.current }}</span>
-          <span><i class="legend-baseline"></i>{{ copy.legend.baseline }}</span>
-        </div>
-      </figcaption>
-
-      <div class="chart-scroll">
-        <svg
-          :viewBox="`0 0 ${chartWidth} ${chartHeight}`"
-          role="img"
-          :aria-label="copy.chartDescription"
-          preserveAspectRatio="xMidYMid meet"
-        >
-          <g class="chart-grid">
-            <g v-for="tick in yTicks" :key="tick.y">
-              <line :x1="plot.left" :x2="plot.right" :y1="tick.y" :y2="tick.y" />
-              <text :x="plot.left - 10" :y="tick.y + 4" text-anchor="end">
-                {{ tick.label }}
-              </text>
-            </g>
-            <line
-              v-for="year in [0, Math.round(chartYears / 2), chartYears]"
-              :key="`x-${year}`"
-              :x1="plot.left + (year / chartYears) * (plot.right - plot.left)"
-              :x2="plot.left + (year / chartYears) * (plot.right - plot.left)"
-              :y1="plot.top"
-              :y2="plot.bottom"
-            />
-            <text :x="plot.left" :y="chartHeight - 18" text-anchor="start">0</text>
-            <text :x="(plot.left + plot.right) / 2" :y="chartHeight - 18" text-anchor="middle">
-              {{ Math.round(chartYears / 2) }}
-            </text>
-            <text :x="plot.right" :y="chartHeight - 18" text-anchor="end">
-              {{ chartYears }} {{ copy.yearsLabel }}
-            </text>
-          </g>
-
-          <polygon class="outer-band" :points="currentOuterBand" />
-          <polygon class="inner-band" :points="currentInnerBand" />
-
-          <polyline
-            v-for="(path, index) in samplePaths"
-            :key="index"
-            class="sample-path"
-            :points="path"
-          />
-
-          <line
-            :x1="plot.left"
-            :x2="plot.right"
-            :y1="plot.bottom"
-            :y2="plot.bottom"
-            class="depletion-line"
-          />
-          <polyline class="baseline-line" :points="baselineMedian" />
-          <polyline class="median-line" :points="currentMedian" />
-        </svg>
-      </div>
-
-      <p class="reading" aria-live="polite">{{ reading }}</p>
-    </figure>
 
     <section class="insight-section" aria-labelledby="simulation-reading-title">
       <p class="eyebrow">{{ copy.insightEyebrow }}</p>
@@ -887,12 +935,59 @@ const reading = computed(
   background: var(--foreground);
 }
 
+.lab-workspace {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border: 1px solid var(--line-card);
+  border-top: 0;
+  border-radius: 0 0 1.5rem 1.5rem;
+  background: var(--card);
+}
+
+.result-panel,
+.control-panel {
+  grid-row: 1;
+  grid-column: 1;
+  min-width: 0;
+}
+
+.result-panel {
+  position: sticky;
+  z-index: 4;
+  top: 5.25rem;
+  align-self: start;
+  border-bottom: 1px solid var(--line-card);
+  background: var(--card);
+  box-shadow: 0 1rem 2.5rem color-mix(in srgb, var(--foreground) 10%, transparent);
+}
+
+.result-panel.is-pinned {
+  position: fixed;
+  z-index: 40;
+  right: 1rem;
+  left: 1rem;
+}
+
+.control-panel {
+  min-height: 100%;
+  padding-top: calc(clamp(9rem, 38vw, 17rem) + 20rem);
+  background: color-mix(in srgb, var(--card) 72%, transparent);
+}
+
 .control-section,
 .assumptions {
   padding: clamp(1.25rem, 3vw, 2rem);
-  border: 1px solid var(--line-card);
-  border-top: 0;
+  border: 0;
   background: color-mix(in srgb, var(--card) 72%, transparent);
+}
+
+.control-section {
+  border-bottom: 1px solid var(--line-card);
+}
+
+.assumptions {
+  border-radius: 0 0 1.5rem 1.5rem;
 }
 
 .section-heading,
@@ -998,6 +1093,10 @@ const reading = computed(
   display: none;
 }
 
+.assumptions:not([open]) > :not(summary) {
+  display: none;
+}
+
 .summary-icon {
   font-size: 1.4rem;
   transition: transform 180ms ease;
@@ -1017,27 +1116,22 @@ const reading = computed(
 .metric-grid {
   display: grid;
   gap: 1px;
-  border: 1px solid var(--line-card);
-  border-top: 0;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(9.25rem, 42vw);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border: 0;
+  border-bottom: 1px solid var(--line-card);
   background: var(--line-card);
-}
-
-@media (min-width: 700px) {
-  .metric-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1000px) {
-  .metric-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
 }
 
 .metric {
   min-width: 0;
-  padding: 1.25rem;
+  padding: 0.8rem 0.9rem;
   background: var(--card);
+  scroll-snap-align: start;
 }
 
 .metric-signal {
@@ -1063,7 +1157,7 @@ const reading = computed(
   overflow: hidden;
   margin-top: 0.45rem;
   color: inherit;
-  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.75rem);
   line-height: 1.05;
   text-overflow: ellipsis;
 }
@@ -1074,10 +1168,9 @@ const reading = computed(
 
 .chart-card {
   margin: 0;
-  padding: clamp(1rem, 3vw, 2rem);
-  border: 1px solid var(--line-card);
-  border-top: 0;
-  border-radius: 0 0 1.5rem 1.5rem;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 0;
   background: var(--card);
 }
 
@@ -1087,6 +1180,7 @@ const reading = computed(
 }
 
 .chart-card figcaption p {
+  display: none;
   max-width: 42rem;
   margin: 0.4rem 0 0;
   color: var(--muted-foreground);
@@ -1096,14 +1190,19 @@ const reading = computed(
 
 .legend {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 0.75rem 1rem;
+  width: 100%;
+  padding-bottom: 0.2rem;
   color: var(--muted-foreground);
   font-size: 0.65rem;
+  scrollbar-width: thin;
 }
 
 .legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 0.4rem;
 }
@@ -1132,7 +1231,7 @@ const reading = computed(
 
 .chart-scroll {
   overflow-x: auto;
-  margin-top: 1.25rem;
+  margin-top: 0.75rem;
   border: 1px solid var(--line-subtle);
   border-radius: 1rem;
   background: color-mix(in srgb, var(--card) 82%, var(--foreground) 2%);
@@ -1141,8 +1240,8 @@ const reading = computed(
 .chart-scroll svg {
   display: block;
   width: 100%;
-  min-width: 42rem;
-  height: auto;
+  min-width: 0;
+  height: clamp(9rem, 38vw, 17rem);
 }
 
 .chart-grid line {
@@ -1188,13 +1287,96 @@ const reading = computed(
 }
 
 .reading {
-  margin: 1rem 0 0;
-  padding: 1rem 1.1rem;
+  margin: 0.75rem 0 0;
+  padding: 0.7rem 0.8rem;
   border-left: 4px solid var(--orange);
   color: var(--foreground);
   background: var(--orange-soft);
-  font-size: 0.82rem;
-  line-height: 1.65;
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 1050px) {
+  .lab-workspace {
+    display: grid;
+    grid-template-columns: minmax(18.5rem, 0.72fr) minmax(0, 1.65fr);
+    grid-template-areas: 'controls results';
+  }
+
+  .control-panel {
+    grid-area: controls;
+    padding-top: 0;
+    border-right: 1px solid var(--line-card);
+  }
+
+  .result-panel {
+    grid-area: results;
+    border-bottom: 0;
+    box-shadow: none;
+  }
+
+  .result-panel.is-pinned {
+    position: sticky;
+    right: auto;
+    left: auto;
+  }
+
+  .control-panel .primary-grid,
+  .control-panel .advanced-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .control-section,
+  .assumptions {
+    padding: 1.25rem;
+  }
+
+  .assumptions {
+    border-radius: 0 0 0 1.5rem;
+  }
+
+  .metric-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .metric {
+    padding: 0.9rem;
+  }
+
+  .chart-card {
+    padding: 1.25rem;
+    border-radius: 0 0 1.5rem 0;
+  }
+
+  .chart-card figcaption p {
+    display: block;
+  }
+
+  .legend {
+    flex-wrap: wrap;
+    overflow: visible;
+    width: auto;
+    padding-bottom: 0;
+  }
+
+  .chart-scroll {
+    margin-top: 1rem;
+  }
+
+  .chart-scroll svg {
+    height: auto;
+  }
+
+  .reading {
+    margin-top: 0.85rem;
+    padding: 0.85rem 0.95rem;
+    font-size: 0.76rem;
+    line-height: 1.55;
+  }
 }
 
 .insight-section {
