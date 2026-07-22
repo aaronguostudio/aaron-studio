@@ -15,9 +15,9 @@ featured: true
 translationKey: 'monte-carlo-simulation'
 interaction: 'monte-carlo-simulation'
 socialImage: '/learn-img/monte-carlo-simulation/og-1200x627.jpg'
-socialImageAlt: '许多可能路径从一个起点向外展开，位于蒙特卡洛模拟标题下方，表示一个模型产生许多条件式未来。'
+socialImageAlt: '纯英文横版图：许多可能路径从一个起点向外展开，位于 Monte Carlo Simulation 标题旁，表示一个模型产生许多条件式未来。'
 cardImage: '/learn-img/monte-carlo-simulation/card-4x5.jpg'
-cardImageAlt: '一条橙色预测线展开成许多可能路径，配文从一个预测到许多条件式未来。'
+cardImageAlt: '纯英文分享卡：一条橙色预测线展开成许多可能路径，标题为 Monte Carlo Simulation，并配有 one forecast to many conditional futures。'
 neighbors:
   - name: '情景分析'
     fullName: 'Scenario Analysis · 情景分析'
