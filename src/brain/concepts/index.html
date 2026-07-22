@@ -329,6 +329,19 @@
     .card.statistics .orb { width: 250px; height: 250px; background: var(--orange); }
     .card.statistics .status-dot { background: var(--orange); box-shadow: 0 0 0 5px rgba(255,121,95,.16); }
 
+    .card.monte-carlo {
+      grid-column: 1 / -1;
+      min-height: 360px;
+      background:
+        radial-gradient(circle at 18% 115%, rgba(132,216,255,.24), transparent 280px),
+        radial-gradient(circle at 88% 20%, rgba(183,165,255,.2), transparent 260px),
+        var(--ink);
+    }
+
+    .card.monte-carlo a { position: relative; z-index: 1; }
+    .card.monte-carlo .orb { width: 270px; height: 270px; opacity: .18; background: var(--violet, #b7a5ff); }
+    .card.monte-carlo .status-dot { background: var(--lime); box-shadow: 0 0 0 5px rgba(216,255,103,.15); }
+
     .neighbors {
       grid-column: 1 / -1;
       display: flex;
@@ -478,7 +491,7 @@
     <section aria-labelledby="concepts-heading">
       <div class="section-head">
         <h2 id="concepts-heading">Systems &amp; Evidence</h2>
-        <span>04 concepts · 22 neighbors</span>
+        <span>05 concepts · 31 neighbors</span>
       </div>
 
       <div class="cards">
@@ -538,6 +551,20 @@
           </a>
         </article>
 
+        <article class="card monte-carlo">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/monte-carlo-simulation.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>05 / Finance &amp; simulation</span>
+            </div>
+            <div>
+              <h3>Monte Carlo<br>Simulation</h3>
+              <p>未来不是一条平均线，而是一片以假设为条件的路径。调回报、波动、相关性、通胀、费用与提款，再用完全相同的年度回报亲手看见收益顺序风险。</p>
+            </div>
+          </a>
+        </article>
+
         <aside class="neighbors" aria-label="Related concepts">
           <div>
             <h3>Concept neighbors</h3>
@@ -566,6 +593,15 @@
             <span class="pill">Statistical Power</span>
             <span class="pill">Exchangeability</span>
             <span class="pill">Calibrated Abstention</span>
+            <span class="pill">Scenario Analysis</span>
+            <span class="pill">Stress Testing</span>
+            <span class="pill">Sensitivity Analysis</span>
+            <span class="pill">Historical Simulation</span>
+            <span class="pill">Bootstrap</span>
+            <span class="pill" aria-label="DCF, Discounted Cash Flow">DCF</span>
+            <span class="pill" aria-label="VaR, Value at Risk">VaR</span>
+            <span class="pill">Sequence-of-Returns Risk</span>
+            <span class="pill">Model Risk</span>
           </div>
         </aside>
       </div>

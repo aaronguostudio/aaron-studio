@@ -1,0 +1,21 @@
+{
+  "slug": "monte-carlo-simulation",
+  "source": "src/brain/concepts/monte-carlo-simulation.md",
+  "status": "public-ready",
+  "updated": "2026-07-22",
+  "files": [
+    "en.md",
+    "zh.md",
+    "visual.vue",
+    "social/og-1200x627.jpg",
+    "social/card-4x5.jpg"
+  ],
+  "social": {
+    "status": "manual-ready",
+    "sourceArtwork": "social/og-art-source.png",
+    "ogImage": "social/og-1200x627.jpg",
+    "cardSourceArtwork": "social/card-art-source.png",
+    "cardImage": "social/card-4x5.jpg",
+    "linkedInDraft": "social/linkedin-manual.md"
+  }
+}

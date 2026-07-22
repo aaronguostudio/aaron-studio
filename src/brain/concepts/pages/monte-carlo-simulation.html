@@ -1,0 +1,1926 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="通过投资路径模拟器、收益顺序实验和估值应用对照，理解 Monte Carlo Simulation（蒙特卡洛模拟）的机制、用途与模型风险。">
+  <title>Monte Carlo Simulation · Pattern Atlas</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4efe5;
+      --paper-2: #ebe3d4;
+      --ink: #171713;
+      --muted: #69645a;
+      --line: rgba(23, 23, 19, .17);
+      --soft-line: rgba(23, 23, 19, .09);
+      --lime: #d9ff66;
+      --orange: #ff735a;
+      --blue: #83d9ff;
+      --violet: #b7a5ff;
+      --green: #267658;
+      --red: #b73d31;
+      --shadow: 0 22px 70px rgba(54, 46, 31, .13);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 94% 2%, rgba(183,165,255,.28), transparent 27rem),
+        radial-gradient(circle at 4% 28%, rgba(131,217,255,.25), transparent 30rem),
+        radial-gradient(circle at 88% 70%, rgba(217,255,102,.18), transparent 30rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      opacity: .23;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 30;
+      height: 4px;
+      background: transparent;
+    }
+
+    .progress span {
+      display: block;
+      width: 0;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    .shell {
+      width: min(1260px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 26px 0 92px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 62px;
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 760;
+      letter-spacing: .04em;
+      text-decoration: none;
+    }
+
+    .back::before {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      content: "←";
+      transition: transform .2s ease;
+    }
+
+    .back:hover::before { transform: translateX(-3px); }
+
+    .maturity {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.38);
+    }
+
+    .maturity::before {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      content: "";
+      background: var(--lime);
+      box-shadow: 0 0 0 4px rgba(217,255,102,.2);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, .42fr);
+      align-items: end;
+      gap: 56px;
+      min-height: 650px;
+      padding-bottom: 58px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 28px;
+      height: 2px;
+      content: "";
+      background: var(--orange);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(64px, 9.5vw, 136px);
+      font-weight: 500;
+      letter-spacing: -.075em;
+      line-height: .76;
+    }
+
+    h1 em {
+      position: relative;
+      font-weight: inherit;
+      font-style: italic;
+    }
+
+    h1 em::after {
+      position: absolute;
+      right: -1%;
+      bottom: 2%;
+      left: -1%;
+      z-index: -1;
+      height: 16%;
+      content: "";
+      background: var(--lime);
+      transform: rotate(-1deg);
+    }
+
+    .hero-note {
+      padding: 24px 0 6px 28px;
+      border-left: 1px solid var(--ink);
+    }
+
+    .hero-note .big {
+      display: block;
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 3vw, 40px);
+      letter-spacing: -.035em;
+      line-height: 1.08;
+    }
+
+    .hero-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .path-swatch {
+      display: grid;
+      gap: 7px;
+      margin: 30px 0 0;
+      padding: 18px 0;
+      overflow: hidden;
+    }
+
+    .path-swatch i {
+      display: block;
+      width: var(--w);
+      height: 2px;
+      margin-left: var(--x);
+      opacity: var(--o);
+      background: var(--c);
+      transform: rotate(var(--r));
+      transform-origin: left center;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 900px);
+      justify-content: space-between;
+      gap: 64px;
+      padding-top: 74px;
+    }
+
+    .rail {
+      position: sticky;
+      top: 28px;
+      align-self: start;
+    }
+
+    .rail-label {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .rail nav { display: grid; gap: 11px; }
+
+    .rail a {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: none;
+      transition: color .2s ease, transform .2s ease;
+    }
+
+    .rail a:hover { color: var(--ink); transform: translateX(3px); }
+    .content { min-width: 0; }
+
+    .section {
+      padding: 22px 0 90px;
+      scroll-margin-top: 24px;
+    }
+
+    .section + .section { border-top: 1px solid var(--line); }
+
+    .section-number {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--orange);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      max-width: 800px;
+      margin: 0 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(39px, 5vw, 64px);
+      font-weight: 500;
+      letter-spacing: -.048em;
+      line-height: .98;
+    }
+
+    h3 { margin: 0 0 12px; font-size: 18px; letter-spacing: -.015em; }
+
+    .lead {
+      max-width: 760px;
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.72;
+    }
+
+    .definition {
+      position: relative;
+      overflow: hidden;
+      margin: 32px 0;
+      padding: clamp(30px, 5vw, 52px);
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      color: var(--paper);
+      background: var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    .definition::after {
+      position: absolute;
+      top: -72px;
+      right: -48px;
+      width: 190px;
+      height: 190px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50%;
+      content: "";
+      background: var(--violet);
+      box-shadow: 0 0 0 30px rgba(183,165,255,.08), 0 0 0 60px rgba(183,165,255,.04);
+    }
+
+    .definition span,
+    .micro-label {
+      display: block;
+      color: var(--lime);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .definition span { margin-bottom: 20px; }
+
+    .definition p {
+      position: relative;
+      z-index: 1;
+      max-width: 730px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 4vw, 42px);
+      letter-spacing: -.03em;
+      line-height: 1.2;
+    }
+
+    .two-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .analogy {
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.42);
+    }
+
+    .analogy .icon {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 24px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font-size: 20px;
+      background: var(--lime);
+    }
+
+    .analogy:nth-child(2) .icon { background: var(--blue); }
+    .analogy p { margin: 0; color: var(--muted); }
+
+    .education-note,
+    .warning {
+      margin: 26px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--orange);
+      border-radius: 0 14px 14px 0;
+      color: var(--muted);
+      background: rgba(255,255,255,.45);
+    }
+
+    .education-note strong,
+    .warning strong { color: var(--ink); }
+    .education-note p,
+    .warning p { margin: 0; }
+
+    .lab {
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: rgba(255,255,255,.5);
+      box-shadow: var(--shadow);
+    }
+
+    .lab-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--line);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .live-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--lime);
+    }
+
+    .live-chip::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      content: "";
+      background: currentColor;
+      box-shadow: 0 0 0 4px rgba(217,255,102,.12);
+    }
+
+    .lab-body { padding: clamp(20px, 4vw, 34px); }
+
+    .control-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .control {
+      position: relative;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(244,239,229,.7);
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .control.changed {
+      border-color: rgba(255,115,90,.78);
+      background: rgba(255,115,90,.08);
+      box-shadow: inset 0 0 0 1px rgba(255,115,90,.24);
+    }
+
+    .control.changed::after {
+      position: absolute;
+      top: -9px;
+      right: 13px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      color: var(--paper);
+      content: "已调整";
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      letter-spacing: .05em;
+      background: var(--orange);
+    }
+
+    .control-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .control label {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    .control output {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 22px;
+      margin: 0;
+      accent-color: var(--ink);
+      cursor: pointer;
+    }
+
+    details.assumptions {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.35);
+    }
+
+    details.assumptions summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 720;
+      list-style: none;
+    }
+
+    details.assumptions summary::-webkit-details-marker { display: none; }
+    details.assumptions summary::after { content: "+"; font-size: 20px; font-weight: 400; }
+    details.assumptions[open] summary::after { content: "−"; }
+
+    .advanced-controls {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 0 16px 16px;
+    }
+
+    .lab-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .seed-note {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+    }
+
+    .button-row { display: flex; flex-wrap: wrap; gap: 9px; }
+
+    .btn,
+    .tab,
+    .quiz-card {
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn { padding: 10px 15px; font-size: 13px; font-weight: 720; }
+    .btn.primary { color: var(--paper); background: var(--ink); }
+    .btn:hover, .tab:hover, .quiz-card:hover { transform: translateY(-2px); }
+    .btn:focus-visible, .tab:focus-visible, .quiz-card:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 22px 0;
+    }
+
+    .metric {
+      min-width: 0;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+    }
+
+    .metric span {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .metric strong {
+      display: block;
+      overflow: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .metric small {
+      display: block;
+      min-height: 29px;
+      margin-top: 9px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      line-height: 1.45;
+    }
+
+    .metric.success small { color: rgba(23,23,19,.7); }
+    .metric-delta.changed { color: var(--ink); font-weight: 760; }
+
+    .metric.success { background: var(--lime); }
+    .metric.tail { background: rgba(255,115,90,.16); }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(240px, .75fr);
+      gap: 12px;
+    }
+
+    .chart-card {
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.55);
+    }
+
+    .chart-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .chart-head strong { font-size: 13px; }
+    .chart-head span { color: var(--muted); font-size: 10px; }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 320px;
+      border-radius: 10px;
+    }
+
+    #histogram-canvas { height: 320px; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .legend span { display: inline-flex; align-items: center; gap: 6px; }
+    .legend i { width: 14px; height: 3px; background: var(--orange); }
+    .legend .band i { height: 9px; background: rgba(131,217,255,.5); }
+    .legend .paths i { height: 1px; background: rgba(23,23,19,.4); }
+    .legend .baseline i { height: 0; border-top: 2px dashed var(--violet); background: transparent; }
+
+    .simulation-reading {
+      margin: 18px 0 0;
+      padding: 18px 20px;
+      border-radius: 16px;
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .simulation-reading strong { color: var(--lime); }
+    .simulation-reading p { margin: 0; }
+
+    .receipt {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--line);
+    }
+
+    .receipt div { padding: 14px; background: var(--paper); }
+    .receipt span { display: block; color: var(--muted); font-size: 10px; }
+    .receipt strong { display: block; margin-top: 4px; font-size: 12px; line-height: 1.35; }
+
+    .sequence-lab {
+      padding: clamp(22px, 4vw, 34px);
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: rgba(255,255,255,.48);
+      box-shadow: var(--shadow);
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 5px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-2);
+    }
+
+    .tab {
+      padding: 10px 14px;
+      border-color: transparent;
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .tab[aria-selected="true"] { color: var(--paper); background: var(--ink); }
+
+    .sequence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .sequence-card {
+      min-width: 0;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--paper);
+    }
+
+    .sequence-card h3 { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .sequence-card h3 span { color: var(--muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; font-weight: 500; }
+
+    .returns {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 5px;
+      margin: 20px 0;
+    }
+
+    .return-chip {
+      display: grid;
+      min-height: 42px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      background: rgba(131,217,255,.25);
+    }
+
+    .return-chip.negative { color: var(--red); background: rgba(255,115,90,.14); }
+
+    .end-label {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .end-label strong { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 28px; font-weight: 500; }
+    .end-track { height: 12px; overflow: hidden; border: 1px solid var(--line); border-radius: 999px; background: var(--paper-2); }
+    .end-fill { width: 50%; height: 100%; background: var(--blue); transition: width .35s ease; }
+    .sequence-card:first-child .end-fill { background: var(--orange); }
+
+    .sequence-answer {
+      margin: 18px 0 0;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: var(--lime);
+    }
+
+    .sequence-answer p { margin: 0; }
+
+    .mechanism {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .mechanism article {
+      min-height: 220px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.4);
+    }
+
+    .mechanism b {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      margin-bottom: 42px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      background: var(--lime);
+    }
+
+    .mechanism article:nth-child(2) b { background: var(--blue); }
+    .mechanism article:nth-child(3) b { background: var(--violet); }
+    .mechanism article:nth-child(4) b { background: var(--orange); }
+    .mechanism article:nth-child(5) b { background: var(--paper-2); }
+    .mechanism p { margin: 0; color: var(--muted); font-size: 13px; }
+
+    .formula {
+      margin: 26px 0;
+      padding: 22px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+      line-height: 1.8;
+      background: var(--ink);
+      color: var(--paper);
+      white-space: nowrap;
+    }
+
+    .formula strong { color: var(--lime); }
+
+    .lens {
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: rgba(255,255,255,.45);
+    }
+
+    .lens-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--ink);
+    }
+
+    .lens-tab {
+      padding: 18px;
+      border: 0;
+      color: var(--paper);
+      background: var(--ink);
+      cursor: pointer;
+      font-weight: 760;
+    }
+
+    .lens-tab[aria-selected="true"] { color: var(--ink); background: var(--lime); }
+    .lens-panel { padding: clamp(24px, 4vw, 38px); }
+
+    .lens-title {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, .6fr);
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 28px;
+    }
+
+    .lens-title h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 4vw, 46px); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; }
+    .lens-title p { margin: 0; color: var(--muted); }
+
+    .lens-flow {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 9px;
+    }
+
+    .lens-flow article {
+      min-height: 180px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+    }
+
+    .lens-flow span { color: var(--orange); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .lens-flow h4 { margin: 30px 0 8px; font-size: 15px; }
+    .lens-flow p { margin: 0; color: var(--muted); font-size: 12px; }
+    .source-note { margin: 22px 0 0; color: var(--muted); font-size: 12px; }
+    .source-note a { text-underline-offset: 3px; }
+
+    .map {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .node {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.43);
+    }
+
+    .node h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 5px; }
+    .node h3 small { color: var(--orange); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 9px; letter-spacing: .08em; text-transform: uppercase; }
+    .full-name { display: block; min-height: 38px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .node p { margin: 24px 0 0; color: var(--muted); font-size: 13px; }
+
+    .risk-stack { display: grid; gap: 12px; margin-top: 28px; }
+
+    .risk-layer {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 180px;
+      align-items: center;
+      gap: 22px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.43);
+    }
+
+    .risk-layer:nth-child(1) { margin-inline: 80px; background: rgba(131,217,255,.3); }
+    .risk-layer:nth-child(2) { margin-inline: 40px; background: rgba(183,165,255,.24); }
+    .risk-layer:nth-child(3) { background: rgba(255,115,90,.16); }
+    .risk-layer h3 { margin: 0; }
+    .risk-layer p { margin: 0; color: var(--muted); font-size: 13px; }
+    .risk-layer strong { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; text-align: right; }
+
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .quiz-card {
+      min-height: 180px;
+      padding: 19px;
+      border-radius: 18px;
+      text-align: left;
+      background: rgba(255,255,255,.42);
+    }
+
+    .quiz-card span { display: block; margin-bottom: 34px; color: var(--orange); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; }
+    .quiz-card strong { display: block; font-size: 15px; line-height: 1.45; }
+    .quiz-card.chosen { background: var(--lime); }
+
+    .quiz-answer {
+      min-height: 90px;
+      margin-top: 12px;
+      padding: 20px;
+      border-radius: 18px;
+      color: var(--paper);
+      background: var(--ink);
+    }
+
+    .quiz-answer p { margin: 0; }
+
+    .memory {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 40px;
+      padding: clamp(28px, 5vw, 48px);
+      border-radius: 28px;
+      background: var(--paper-2);
+    }
+
+    .memory h2 { margin: 0; }
+    .memory ol { display: grid; gap: 16px; margin: 0; padding: 0; list-style: none; counter-reset: memory; }
+    .memory li { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; color: var(--muted); counter-increment: memory; }
+    .memory li::before { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid var(--ink); border-radius: 50%; color: var(--ink); content: counter(memory, decimal-leading-zero); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; }
+
+    .reading-list {
+      display: grid;
+      gap: 9px;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .reading-list strong { color: var(--ink); }
+    .reading-list a { text-underline-offset: 3px; }
+
+    .page-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 38px;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1060px) {
+      .layout { grid-template-columns: 1fr; }
+      .rail { display: none; }
+      .control-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mechanism { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .lens-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; align-content: end; gap: 36px; min-height: 660px; }
+      .hero-note { max-width: 520px; }
+      .two-up, .chart-grid, .sequence-grid, .map, .lens-title, .memory { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .advanced-controls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mechanism { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .receipt { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .risk-layer { grid-template-columns: 1fr; gap: 8px; }
+      .risk-layer:nth-child(n) { margin-inline: 0; }
+      .risk-layer strong { text-align: left; }
+      .quiz-grid { grid-template-columns: 1fr; }
+      .quiz-card { min-height: 130px; }
+      .quiz-card span { margin-bottom: 24px; }
+    }
+
+    @media (max-width: 540px) {
+      .shell { width: min(100% - 24px, 1260px); padding-top: 18px; }
+      .topbar { margin-bottom: 26px; }
+      .maturity { display: none; }
+      h1 { font-size: clamp(58px, 21vw, 92px); }
+      .hero { min-height: 590px; }
+      .layout { padding-top: 54px; }
+      .section { padding-bottom: 68px; }
+      .control-grid, .advanced-controls, .metrics, .mechanism, .lens-flow, .receipt { grid-template-columns: 1fr; }
+      .lab-head { align-items: flex-start; flex-direction: column; }
+      .lab-actions { align-items: stretch; flex-direction: column; }
+      .button-row { flex-direction: column-reverse; }
+      .btn { width: 100%; }
+      .tabs, .lens-tabs { grid-template-columns: 1fr; border-radius: 18px; }
+      .returns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      canvas, #histogram-canvas { height: 270px; }
+      .mechanism article { min-height: 170px; }
+      .mechanism b { margin-bottom: 24px; }
+      .page-footer { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="read-progress"></span></div>
+
+  <main class="shell">
+    <header class="topbar">
+      <a class="back" href="../index.html">Pattern Atlas</a>
+      <span class="maturity">Growing · updated 2026.07.22</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow">Probability · Finance · Decision-making</div>
+        <h1 id="page-title">Monte Carlo<br><em>Simulation</em></h1>
+      </div>
+      <aside class="hero-note">
+        <span class="big">未来不是一条线，<br>而是一片路径。</span>
+        <p>它不告诉你哪条路径会发生；它让你看见，在一组明确假设下，可能结果有多宽、失败藏在哪里。</p>
+        <div class="path-swatch" aria-hidden="true">
+          <i style="--w:88%;--x:2%;--o:.95;--c:var(--orange);--r:-5deg"></i>
+          <i style="--w:72%;--x:8%;--o:.55;--c:var(--blue);--r:3deg"></i>
+          <i style="--w:94%;--x:1%;--o:.45;--c:var(--violet);--r:-1deg"></i>
+          <i style="--w:64%;--x:18%;--o:.7;--c:var(--lime);--r:7deg"></i>
+          <i style="--w:82%;--x:4%;--o:.35;--c:var(--ink);--r:1deg"></i>
+        </div>
+      </aside>
+    </section>
+
+    <div class="layout">
+      <aside class="rail" aria-label="Page navigation">
+        <span class="rail-label">Field notes</span>
+        <nav>
+          <a href="#intuition">01 · 先解决问题</a>
+          <a href="#lab">02 · 路径实验室</a>
+          <a href="#sequence">03 · 顺序风险</a>
+          <a href="#mechanism">04 · 工作机制</a>
+          <a href="#applications">05 · 两种投资应用</a>
+          <a href="#neighbors">06 · 概念邻居</a>
+          <a href="#limits">07 · 模型边界</a>
+          <a href="#memory">08 · 最小记忆</a>
+        </nav>
+      </aside>
+
+      <article class="content">
+        <section class="section" id="intuition">
+          <span class="section-number">01 · The problem before the definition</span>
+          <h2>一条平均线，会把最重要的事藏起来。</h2>
+          <p class="lead">“未来 30 年每年回报 6%”很容易算，却没有告诉你中途会不会先跌 25%、资金何时可能耗尽，或坏结果到底是偶发还是结构性脆弱。</p>
+
+          <div class="definition">
+            <span>One-sentence mental model</span>
+            <p>把不确定输入反复抽样成许多条可能路径，再用结果分布回答范围、尾部、失败概率与敏感因素。</p>
+          </div>
+
+          <div class="two-up">
+            <article class="analogy">
+              <span class="icon" aria-hidden="true">—</span>
+              <h3>单一路径</h3>
+              <p>户外婚礼只看“平均 22°C”，然后默认那天不需要备用方案。数字很干净，决策信息却很少。</p>
+            </article>
+            <article class="analogy">
+              <span class="icon" aria-hidden="true">∿</span>
+              <h3>Monte Carlo Simulation</h3>
+              <p>把气温、降雨和风速按合理关系重播一万次：不是预测真实那天，而是决定帐篷值不值得准备。</p>
+            </article>
+          </div>
+
+          <div class="education-note">
+            <p><strong>教育性说明：</strong>本页使用简化的通用教学模型，不复刻任何机构的专有方法，也不是个人投资建议。所有输出都是假设性结果，不反映实际投资表现，也不保证未来结果。</p>
+          </div>
+        </section>
+
+        <section class="section" id="lab">
+          <span class="section-number">02 · Portfolio path lab</span>
+          <h2>调一个假设，看 2,000 个未来一起移动。</h2>
+          <p class="lead">模型从每年股票与债券回报中联合抽样，按固定比例再平衡，年初提款并扣除费用。成功定义只有一个：在整个期间资金从未耗尽。</p>
+
+          <div class="lab">
+            <div class="lab-head">
+              <span>Educational retirement-path model · Canadian dollars / 加元</span>
+              <span class="live-chip" id="lab-live-chip">2,000 paths ready</span>
+            </div>
+
+            <div class="lab-body">
+              <div class="control-grid">
+                <div class="control">
+                  <div class="control-top"><label for="initial">起始资产</label><output id="initial-output" for="initial"></output></div>
+                  <input id="initial" type="range" min="250000" max="3000000" step="50000" value="1000000">
+                </div>
+                <div class="control">
+                  <div class="control-top"><label for="spending">第一年提款</label><output id="spending-output" for="spending"></output></div>
+                  <input id="spending" type="range" min="0" max="120000" step="2500" value="40000">
+                </div>
+                <div class="control">
+                  <div class="control-top"><label for="years">计划年数</label><output id="years-output" for="years"></output></div>
+                  <input id="years" type="range" min="10" max="40" step="1" value="30">
+                </div>
+                <div class="control">
+                  <div class="control-top"><label for="stocks">股票比例</label><output id="stocks-output" for="stocks"></output></div>
+                  <input id="stocks" type="range" min="0" max="100" step="5" value="60">
+                </div>
+              </div>
+
+              <details class="assumptions">
+                <summary>打开模型假设 · 收益、波动、相关性、通胀与费用</summary>
+                <div class="advanced-controls">
+                  <div class="control">
+                    <div class="control-top"><label for="stock-return">股票名义回报均值</label><output id="stock-return-output" for="stock-return"></output></div>
+                    <input id="stock-return" type="range" min="0" max="12" step="0.5" value="7">
+                  </div>
+                  <div class="control">
+                    <div class="control-top"><label for="stock-vol">股票年度波动</label><output id="stock-vol-output" for="stock-vol"></output></div>
+                    <input id="stock-vol" type="range" min="5" max="35" step="1" value="18">
+                  </div>
+                  <div class="control">
+                    <div class="control-top"><label for="bond-return">债券名义回报均值</label><output id="bond-return-output" for="bond-return"></output></div>
+                    <input id="bond-return" type="range" min="0" max="8" step="0.5" value="3">
+                  </div>
+                  <div class="control">
+                    <div class="control-top"><label for="bond-vol">债券年度波动</label><output id="bond-vol-output" for="bond-vol"></output></div>
+                    <input id="bond-vol" type="range" min="1" max="18" step="1" value="7">
+                  </div>
+                  <div class="control">
+                    <div class="control-top"><label for="correlation">股票–债券相关性</label><output id="correlation-output" for="correlation"></output></div>
+                    <input id="correlation" type="range" min="-50" max="80" step="5" value="15">
+                  </div>
+                  <div class="control">
+                    <div class="control-top"><label for="inflation">年通胀率</label><output id="inflation-output" for="inflation"></output></div>
+                    <input id="inflation" type="range" min="0" max="6" step="0.25" value="2">
+                  </div>
+                  <div class="control">
+                    <div class="control-top"><label for="fee">年度费用率</label><output id="fee-output" for="fee"></output></div>
+                    <input id="fee" type="range" min="0" max="2" step="0.1" value="0.6">
+                  </div>
+                </div>
+              </details>
+
+              <div class="lab-actions">
+                <span class="seed-note" id="seed-note">Seed · 20260722</span>
+                <div class="button-row">
+                  <button class="btn" id="reset-model" type="button">恢复示例假设</button>
+                  <button class="btn primary" id="resample" type="button">换一批随机路径 ↻</button>
+                </div>
+              </div>
+
+              <div class="metrics" aria-label="Simulation summary">
+                <div class="metric success"><span>撑完整个期间</span><strong id="success-rate">—</strong><small class="metric-delta" id="success-delta">与示例假设相同</small></div>
+                <div class="metric"><span>期末余额中位数</span><strong id="median-final">—</strong><small class="metric-delta" id="median-delta">与示例假设相同</small></div>
+                <div class="metric tail"><span>第 10 百分位期末余额</span><strong id="p10-final">—</strong><small class="metric-delta" id="p10-delta">与示例假设相同</small></div>
+                <div class="metric"><span>失败路径的典型耗尽年</span><strong id="median-failure">—</strong><small class="metric-delta" id="failure-delta">与示例假设相同</small></div>
+              </div>
+
+              <div class="chart-grid">
+                <section class="chart-card" aria-labelledby="fan-title">
+                  <div class="chart-head"><strong id="fan-title">资产路径扇形图</strong><span>当前与示例共用纵轴</span></div>
+                  <canvas id="fan-canvas" role="img" aria-label="2,000 条当前模拟资产路径的第 10 到第 90 百分位区间、中位数，以及示例假设中位数基准"></canvas>
+                  <div class="legend" aria-hidden="true">
+                    <span class="paths"><i></i>抽样路径</span>
+                    <span class="band"><i></i>第 10–90 百分位</span>
+                    <span><i></i>当前中位数</span>
+                    <span class="baseline"><i></i>示例假设中位数</span>
+                  </div>
+                </section>
+                <section class="chart-card" aria-labelledby="histogram-title">
+                  <div class="chart-head"><strong id="histogram-title">期末结果分布</strong><span>失败集中在 $0</span></div>
+                  <canvas id="histogram-canvas" role="img" aria-label="2,000 条模拟路径的期末资产直方图"></canvas>
+                </section>
+              </div>
+
+              <div class="simulation-reading" id="simulation-reading" aria-live="polite">
+                <p><strong>正在计算。</strong> 结果只在当前模型假设下成立。</p>
+              </div>
+
+              <div class="receipt" aria-label="Model receipt">
+                <div><span>抽样</span><strong>年度联合正态近似</strong></div>
+                <div><span>组合规则</span><strong>每年回到目标股债比例</strong></div>
+                <div><span>提款时点</span><strong>每年年初，随通胀增长</strong></div>
+                <div><span>失败定义</span><strong>任一年提款后余额 ≤ 0</strong></div>
+                <div><span>回报边界</span><strong>组合净回报最低截到 −95%</strong></div>
+                <div><span>没有建模</span><strong>税、制度切换、动态支出、寿命不确定性</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="warning">
+            <p><strong>如何读“成功率”：</strong>不是“你有 X% 的客观人生概率成功”，而是“在这些可见假设和固定策略下，X% 的合成路径没有耗尽”。换分布、费用、现金流规则或失败定义，数字就会变。</p>
+          </div>
+        </section>
+
+        <section class="section" id="sequence">
+          <span class="section-number">03 · Sequence-of-returns risk</span>
+          <h2>平均回报相同，顺序仍能改变命运。</h2>
+          <p class="lead">下面两条路径包含完全相同的十个年度回报，只是顺序相反。切换提款，观察为什么退休初期的坏年份格外危险。</p>
+
+          <div class="sequence-lab">
+            <div class="tabs" role="tablist" aria-label="提款模式">
+              <button class="tab" id="sequence-no-withdrawal" role="tab" aria-selected="false" aria-controls="sequence-panel" type="button">不提款 · 只复利</button>
+              <button class="tab" id="sequence-withdrawal" role="tab" aria-selected="true" aria-controls="sequence-panel" type="button">每年年初提款 $50,000</button>
+            </div>
+
+            <div id="sequence-panel" role="tabpanel">
+              <div class="sequence-grid">
+                <article class="sequence-card">
+                  <h3>坏年份先来 <span>EARLY LOSS</span></h3>
+                  <div class="returns" id="early-returns" aria-label="坏年份先来的年度回报"></div>
+                  <div class="end-label"><span>10 年后</span><strong id="early-ending">—</strong></div>
+                  <div class="end-track" aria-hidden="true"><div class="end-fill" id="early-fill"></div></div>
+                </article>
+                <article class="sequence-card">
+                  <h3>好年份先来 <span>LATE LOSS</span></h3>
+                  <div class="returns" id="late-returns" aria-label="好年份先来的年度回报"></div>
+                  <div class="end-label"><span>10 年后</span><strong id="late-ending">—</strong></div>
+                  <div class="end-track" aria-hidden="true"><div class="end-fill" id="late-fill"></div></div>
+                </article>
+              </div>
+              <div class="sequence-answer" id="sequence-answer" aria-live="polite"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="mechanism">
+          <span class="section-number">04 · Under the hood</span>
+          <h2>Monte Carlo 不是“多做几个情景”，而是一条完整的不确定性管道。</h2>
+          <p class="lead">最难的通常不是随机数，而是定义哪些世界可信、变量如何一起移动，以及什么结果才算失败。</p>
+
+          <div class="mechanism">
+            <article><b>01</b><h3>Frame</h3><p>先定义决策、时间尺度、成功阈值和输出单位。</p></article>
+            <article><b>02</b><h3>Model</h3><p>写出结果如何由现金流、回报或经营驱动因素产生。</p></article>
+            <article><b>03</b><h3>Sample</h3><p>从输入分布联合抽样，保留相关性与因果约束。</p></article>
+            <article><b>04</b><h3>Repeat</h3><p>让每个世界走完路径，再重复成百上千次。</p></article>
+            <article><b>05</b><h3>Challenge</h3><p>读分布、尾部和失败路径，再做敏感度与压力测试。</p></article>
+          </div>
+
+          <div class="formula" aria-label="Monte Carlo simulation formula">
+            <strong>Model</strong> · Y = f(X₁, X₂, …, Xₖ)<br>
+            <strong>One run</strong> · draw jointly: X⁽ⁱ⁾ → compute Y⁽ⁱ⁾<br>
+            <strong>Repeat</strong> · i = 1 … N → empirical distribution of Y
+          </div>
+
+          <div class="warning">
+            <p><strong>关键边界：</strong>增加 N 只会降低 Monte Carlo sampling error（蒙特卡洛抽样误差）。如果输入分布、相关性、现金流机制或目标函数错了，十万次运行只是把同一个错误算得更稳定。</p>
+          </div>
+        </section>
+
+        <section class="section" id="applications">
+          <span class="section-number">05 · Same engine, different question</span>
+          <h2>长期资金规划和企业价值分析，用的是同一台机器。</h2>
+          <p class="lead">差别不在“有没有随机数”，而在输入、业务模型、输出与最终决策问题。切换两种镜头看同一套机制。</p>
+
+          <div class="lens">
+            <div class="lens-tabs" role="tablist" aria-label="投资应用">
+              <button class="lens-tab" id="planning-tab" role="tab" aria-selected="true" aria-controls="lens-panel" type="button">长期资金规划 · 人生目标</button>
+              <button class="lens-tab" id="valuation-tab" role="tab" aria-selected="false" aria-controls="lens-panel" type="button">企业价值分析 · 估值范围</button>
+            </div>
+            <div class="lens-panel" id="lens-panel" role="tabpanel" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <section class="section" id="neighbors">
+          <span class="section-number">06 · Concept neighborhood</span>
+          <h2>最容易误会的，是那些会一起出现的方法。</h2>
+          <p class="lead">它们不是 Monte Carlo 的不同名字，而是输入机制、基础模型、补充证据或输出指标。</p>
+
+          <div class="map">
+            <article class="node"><h3>Scenario Analysis <small>NARRATIVE METHOD</small></h3><span class="full-name">情景分析</span><p>用少量一致、可解释的未来讲清因果；Monte Carlo 则系统抽取大量可能组合。</p></article>
+            <article class="node"><h3>Stress Testing <small>COMPLEMENTARY EVIDENCE</small></h3><span class="full-name">压力测试</span><p>强迫模型进入指定坏世界。它覆盖模拟分布可能几乎从不生成的危机与制度切换。</p></article>
+            <article class="node"><h3>Sensitivity Analysis <small>DIAGNOSTIC METHOD</small></h3><span class="full-name">敏感度分析</span><p>解释哪个输入最推动结果；Monte Carlo 负责传播联合不确定性，两者常一起使用。</p></article>
+            <article class="node"><h3>Bootstrap <small>SAMPLING MECHANISM</small></h3><span class="full-name">自助抽样</span><p>从经验数据重复抽样；它可以成为 Monte Carlo 的输入生成方法，区块抽样还能保留部分时间依赖。</p></article>
+            <article class="node"><h3>DCF <small>VALUATION MODEL</small></h3><span class="full-name">Discounted Cash Flow · 贴现现金流</span><p>DCF 是计算价值的 f(·)；Monte Carlo 反复给它不同输入，输出内在价值分布。</p></article>
+            <article class="node"><h3>VaR <small>OUTPUT METRIC</small></h3><span class="full-name">Value at Risk · 在险价值</span><p>可以从模拟结果读取的损失分位数；它不是模拟方法，也不告诉你超过阈值以后会有多糟。</p></article>
+            <article class="node"><h3>Sequence Risk <small>APPLICATION RISK</small></h3><span class="full-name">Sequence-of-Returns Risk · 收益顺序风险</span><p>提款或现金流让年度回报顺序改变结局；它是路径模拟在长期资金规划中最直观的应用之一。</p></article>
+            <article class="node"><h3>Model Risk <small>PARENT RISK</small></h3><span class="full-name">模型风险</span><p>模型结构、数据、参数和使用方式本身造成的风险。Monte Carlo 能展示模型内不确定性，不能消除模型风险。</p></article>
+          </div>
+        </section>
+
+        <section class="section" id="limits">
+          <span class="section-number">07 · Failure modes and judgment</span>
+          <h2>模拟看起来越精密，越要问它在哪一层可能错。</h2>
+          <p class="lead">把不确定性分三层：随机抽样的噪音、模型本身的错误，以及把模型输出翻译成行动时的判断风险。</p>
+
+          <div class="risk-stack">
+            <article class="risk-layer"><h3>Sampling error</h3><p>同一模型换一个随机种子，分位数略有变化。增加运行次数可以缩小这层误差。</p><strong>More runs can help</strong></article>
+            <article class="risk-layer"><h3>Model risk</h3><p>厚尾、相关性飙升、税、流动性、行为反应或制度切换被漏掉。更多运行次数无法修复。</p><strong>Challenge assumptions</strong></article>
+            <article class="risk-layer"><h3>Decision risk</h3><p>把 84.7% 当成确定性，或为了得到漂亮数字反向调假设。需要治理、解释与行动规则。</p><strong>Use judgment</strong></article>
+          </div>
+
+          <div class="quiz-grid" aria-label="判断练习">
+            <button class="quiz-card" type="button" data-answer="runs"><span>01 · MODEL CHECK</span><strong>成功率只有 78%。把 2,000 次增加到 100,000 次，会让计划更安全吗？</strong></button>
+            <button class="quiz-card" type="button" data-answer="crisis"><span>02 · TAIL CHECK</span><strong>模型几乎从不生成流动性危机。下一步最有价值的动作是什么？</strong></button>
+            <button class="quiz-card" type="button" data-answer="compare"><span>03 · DECISION CHECK</span><strong>成功率 86% 变成 89%。你首先应该问哪一个问题？</strong></button>
+          </div>
+          <div class="quiz-answer" id="quiz-answer" aria-live="polite"><p>选择一个情景，检查你是在修复抽样误差、模型风险，还是决策解释。</p></div>
+        </section>
+
+        <section class="section" id="memory">
+          <span class="section-number">08 · Pocket memory</span>
+          <div class="memory">
+            <h2>五件事，带走就够。</h2>
+            <ol>
+              <li>它不是一条预测线，而是一组以假设为条件的可能路径。</li>
+              <li>机制是：定义输入与关系 → 联合抽样 → 跑完整模型 → 重复 → 看分布。</li>
+              <li>最有用的输出不是平均值，而是范围、尾部、失败路径与敏感因素。</li>
+              <li>更多运行次数减少抽样噪音，不减少模型风险。</li>
+              <li>长期资金规划看目标能否撑住；企业价值分析看价值如何分布——机器相同，问题不同。</li>
+            </ol>
+          </div>
+
+          <div class="reading-list">
+            <strong>Further reading · primary and authoritative sources</strong>
+            <a href="https://doi.org/10.1080/01621459.1949.10483310">Metropolis &amp; Ulam (1949) · The Monte Carlo Method</a>
+            <a href="https://www.nist.gov/news-events/news/2020/01/new-tool-account-uncertainty">National Institute of Standards and Technology · uncertainty propagation by Monte Carlo analysis</a>
+            <a href="https://www.finra.org/rules-guidance/rulebooks/finra-rules/2214">Financial Industry Regulatory Authority Rule 2214 · Investment Analysis Tools</a>
+            <a href="https://www.cfp.net/-/media/files/cfp-board/standards-and-ethics/compliance-resources/cfp-board-tech-guide-questionnaires-checklist.pdf">Certified Financial Planner Board · Core Financial Planning Technologies questionnaire</a>
+          </div>
+        </section>
+      </article>
+    </div>
+
+    <footer class="page-footer">
+      <span>Pattern Atlas · Finance / Probability</span>
+      <span>Educational model · assumptions before outputs</span>
+    </footer>
+  </main>
+
+  <script>
+    const byId = (id) => document.getElementById(id);
+    const money = new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", maximumFractionDigits: 0 });
+    const compactMoney = new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", notation: "compact", maximumFractionDigits: 1 });
+    const percent = new Intl.NumberFormat("zh-CN", { style: "percent", maximumFractionDigits: 1 });
+
+    const defaults = {
+      initial: 1000000,
+      spending: 40000,
+      years: 30,
+      stocks: 60,
+      "stock-return": 7,
+      "stock-vol": 18,
+      "bond-return": 3,
+      "bond-vol": 7,
+      correlation: 15,
+      inflation: 2,
+      fee: 0.6
+    };
+
+    const formatters = {
+      initial: (value) => compactMoney.format(value),
+      spending: (value) => compactMoney.format(value),
+      years: (value) => `${value} 年`,
+      stocks: (value) => `${value}%`,
+      "stock-return": (value) => `${value}%`,
+      "stock-vol": (value) => `${value}%`,
+      "bond-return": (value) => `${value}%`,
+      "bond-vol": (value) => `${value}%`,
+      correlation: (value) => (value > 0 ? `+${(value / 100).toFixed(2)}` : (value / 100).toFixed(2)),
+      inflation: (value) => `${value}%`,
+      fee: (value) => `${value}%`
+    };
+
+    let simulationSeed = 20260722;
+    let simulationResult = null;
+    let baselineResult = null;
+    let baselineSeed = null;
+    let renderTimer = 0;
+
+    function settingsFromValues(values) {
+      return {
+        initial: values.initial,
+        spending: values.spending,
+        years: values.years,
+        stockWeight: values.stocks / 100,
+        stockMean: values["stock-return"] / 100,
+        stockVol: values["stock-vol"] / 100,
+        bondMean: values["bond-return"] / 100,
+        bondVol: values["bond-vol"] / 100,
+        correlation: values.correlation / 100,
+        inflation: values.inflation / 100,
+        fee: values.fee / 100
+      };
+    }
+
+    function readInputs() {
+      const values = {};
+      Object.keys(defaults).forEach((id) => { values[id] = Number(byId(id).value); });
+      return settingsFromValues(values);
+    }
+
+    function updateOutputs() {
+      let changedCount = 0;
+      Object.keys(defaults).forEach((id) => {
+        const value = Number(byId(id).value);
+        byId(`${id}-output`).textContent = formatters[id](value);
+        const changed = Math.abs(value - defaults[id]) > Number.EPSILON;
+        byId(id).closest(".control").classList.toggle("changed", changed);
+        if (changed) changedCount += 1;
+      });
+      return changedCount;
+    }
+
+    function mulberry32(seed) {
+      return function random() {
+        let value = seed += 0x6D2B79F5;
+        value = Math.imul(value ^ value >>> 15, value | 1);
+        value ^= value + Math.imul(value ^ value >>> 7, value | 61);
+        return ((value ^ value >>> 14) >>> 0) / 4294967296;
+      };
+    }
+
+    function normalPair(random) {
+      const u1 = Math.max(random(), Number.EPSILON);
+      const u2 = random();
+      const radius = Math.sqrt(-2 * Math.log(u1));
+      const angle = 2 * Math.PI * u2;
+      return [radius * Math.cos(angle), radius * Math.sin(angle)];
+    }
+
+    function quantile(sorted, probability) {
+      if (!sorted.length) return 0;
+      const index = (sorted.length - 1) * probability;
+      const lower = Math.floor(index);
+      const upper = Math.ceil(index);
+      if (lower === upper) return sorted[lower];
+      return sorted[lower] + (sorted[upper] - sorted[lower]) * (index - lower);
+    }
+
+    function runSimulation(settings, seed) {
+      const runs = 2000;
+      const random = mulberry32(seed);
+      const paths = [];
+      const failureYears = [];
+      const endingValues = [];
+      const root = Math.sqrt(Math.max(0, 1 - settings.correlation ** 2));
+
+      for (let trial = 0; trial < runs; trial += 1) {
+        let balance = settings.initial;
+        let failedAt = null;
+        const path = [balance];
+
+        for (let year = 0; year < settings.years; year += 1) {
+          if (balance <= 0) {
+            path.push(0);
+            continue;
+          }
+
+          const withdrawal = settings.spending * ((1 + settings.inflation) ** year);
+          balance -= withdrawal;
+
+          if (balance <= 0) {
+            balance = 0;
+            failedAt = year + 1;
+            path.push(0);
+            continue;
+          }
+
+          const [zStock, zIndependent] = normalPair(random);
+          const zBond = settings.correlation * zStock + root * zIndependent;
+          const stockReturn = settings.stockMean + settings.stockVol * zStock;
+          const bondReturn = settings.bondMean + settings.bondVol * zBond;
+          const portfolioReturn = settings.stockWeight * stockReturn + (1 - settings.stockWeight) * bondReturn - settings.fee;
+          const boundedReturn = Math.max(-0.95, Math.min(1.5, portfolioReturn));
+          balance *= (1 + boundedReturn);
+          path.push(Math.max(0, balance));
+        }
+
+        if (failedAt !== null) failureYears.push(failedAt);
+        paths.push(path);
+        endingValues.push(path[path.length - 1]);
+      }
+
+      const bands = [];
+      for (let year = 0; year <= settings.years; year += 1) {
+        const values = paths.map((path) => path[year]).sort((a, b) => a - b);
+        bands.push({
+          p10: quantile(values, .10),
+          p25: quantile(values, .25),
+          median: quantile(values, .50),
+          p75: quantile(values, .75),
+          p90: quantile(values, .90)
+        });
+      }
+
+      const sortedEndings = [...endingValues].sort((a, b) => a - b);
+      const sortedFailures = [...failureYears].sort((a, b) => a - b);
+      return {
+        runs,
+        paths,
+        bands,
+        endingValues,
+        successRate: (runs - failureYears.length) / runs,
+        medianFinal: quantile(sortedEndings, .50),
+        p10Final: quantile(sortedEndings, .10),
+        p95Final: quantile(sortedEndings, .95),
+        medianFailure: sortedFailures.length ? quantile(sortedFailures, .50) : null,
+        failureCount: failureYears.length
+      };
+    }
+
+    function prepareCanvas(canvas) {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      const rect = canvas.getBoundingClientRect();
+      const width = Math.max(280, rect.width);
+      const height = Math.max(240, rect.height);
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      const context = canvas.getContext("2d");
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      return { context, width, height };
+    }
+
+    function drawFanChart(result, reference) {
+      const canvas = byId("fan-canvas");
+      const { context, width, height } = prepareCanvas(canvas);
+      const pad = { left: 58, right: 14, top: 24, bottom: 40 };
+      const plotWidth = width - pad.left - pad.right;
+      const plotHeight = height - pad.top - pad.bottom;
+      const currentYears = result.bands.length - 1;
+      const visibleReferenceBands = reference ? reference.bands.slice(0, currentYears + 1) : [];
+      const maximum = Math.max(
+        1,
+        ...result.bands.map((band) => band.p90),
+        ...visibleReferenceBands.map((band) => band.p90)
+      ) * 1.08;
+      const x = (year) => pad.left + (year / (result.bands.length - 1)) * plotWidth;
+      const y = (value) => pad.top + plotHeight - (Math.min(value, maximum) / maximum) * plotHeight;
+
+      context.clearRect(0, 0, width, height);
+      context.font = "10px ui-monospace, SFMono-Regular, Menlo, monospace";
+      context.textAlign = "right";
+      context.textBaseline = "middle";
+
+      for (let step = 0; step <= 4; step += 1) {
+        const value = maximum * (step / 4);
+        const py = y(value);
+        context.strokeStyle = "rgba(23,23,19,.10)";
+        context.lineWidth = 1;
+        context.beginPath();
+        context.moveTo(pad.left, py);
+        context.lineTo(width - pad.right, py);
+        context.stroke();
+        context.fillStyle = "rgba(23,23,19,.55)";
+        context.fillText(compactMoney.format(value), pad.left - 8, py);
+      }
+
+      const sampleEvery = Math.max(1, Math.floor(result.paths.length / 36));
+      result.paths.filter((_, index) => index % sampleEvery === 0).slice(0, 36).forEach((path) => {
+        context.beginPath();
+        path.forEach((value, year) => {
+          if (year === 0) context.moveTo(x(year), y(value));
+          else context.lineTo(x(year), y(value));
+        });
+        context.strokeStyle = "rgba(23,23,19,.075)";
+        context.lineWidth = 1;
+        context.stroke();
+      });
+
+      function fillBand(upperKey, lowerKey, fillStyle) {
+        context.beginPath();
+        result.bands.forEach((band, year) => {
+          const px = x(year);
+          const py = y(band[upperKey]);
+          if (year === 0) context.moveTo(px, py);
+          else context.lineTo(px, py);
+        });
+        for (let year = result.bands.length - 1; year >= 0; year -= 1) {
+          context.lineTo(x(year), y(result.bands[year][lowerKey]));
+        }
+        context.closePath();
+        context.fillStyle = fillStyle;
+        context.fill();
+      }
+
+      fillBand("p90", "p10", "rgba(131,217,255,.25)");
+      fillBand("p75", "p25", "rgba(131,217,255,.43)");
+
+      if (visibleReferenceBands.length) {
+        context.save();
+        context.beginPath();
+        visibleReferenceBands.forEach((band, year) => {
+          if (year === 0) context.moveTo(x(year), y(band.median));
+          else context.lineTo(x(year), y(band.median));
+        });
+        context.strokeStyle = "#7f69d9";
+        context.lineWidth = 2;
+        context.setLineDash([7, 5]);
+        context.stroke();
+        context.restore();
+      }
+
+      context.beginPath();
+      result.bands.forEach((band, year) => {
+        if (year === 0) context.moveTo(x(year), y(band.median));
+        else context.lineTo(x(year), y(band.median));
+      });
+      context.strokeStyle = "#ff735a";
+      context.lineWidth = 3;
+      context.stroke();
+
+      context.textBaseline = "top";
+      context.fillStyle = "rgba(23,23,19,.58)";
+      [
+        [0, "left"],
+        [Math.round((result.bands.length - 1) / 2), "center"],
+        [result.bands.length - 1, "right"]
+      ].forEach(([year, alignment]) => {
+        context.textAlign = alignment;
+        context.fillText(`第 ${year} 年`, x(year), height - pad.bottom + 12);
+      });
+    }
+
+    function drawHistogram(result) {
+      const canvas = byId("histogram-canvas");
+      const { context, width, height } = prepareCanvas(canvas);
+      const pad = { left: 36, right: 12, top: 26, bottom: 44 };
+      const plotWidth = width - pad.left - pad.right;
+      const plotHeight = height - pad.top - pad.bottom;
+      const cap = Math.max(1, result.p95Final);
+      const bins = 12;
+      const counts = Array(bins).fill(0);
+
+      result.endingValues.forEach((value) => {
+        if (value <= 0) counts[0] += 1;
+        else {
+          const index = Math.min(bins - 1, Math.max(1, Math.floor((value / cap) * (bins - 1)) + 1));
+          counts[index] += 1;
+        }
+      });
+
+      const maxCount = Math.max(1, ...counts);
+      const gap = 4;
+      const barWidth = Math.max(4, (plotWidth - gap * (bins - 1)) / bins);
+      context.clearRect(0, 0, width, height);
+
+      counts.forEach((count, index) => {
+        const barHeight = (count / maxCount) * plotHeight;
+        const px = pad.left + index * (barWidth + gap);
+        const py = pad.top + plotHeight - barHeight;
+        context.fillStyle = index === 0 ? "#ff735a" : "#d9ff66";
+        context.fillRect(px, py, barWidth, barHeight);
+        context.strokeStyle = "rgba(23,23,19,.5)";
+        context.strokeRect(px, py, barWidth, barHeight);
+      });
+
+      context.strokeStyle = "rgba(23,23,19,.4)";
+      context.beginPath();
+      context.moveTo(pad.left, pad.top + plotHeight + .5);
+      context.lineTo(width - pad.right, pad.top + plotHeight + .5);
+      context.stroke();
+
+      context.font = "10px ui-monospace, SFMono-Regular, Menlo, monospace";
+      context.fillStyle = "rgba(23,23,19,.58)";
+      context.textBaseline = "top";
+      context.textAlign = "left";
+      context.fillText("$0 / 失败", pad.left, height - pad.bottom + 12);
+      context.textAlign = "right";
+      context.fillText(`${compactMoney.format(cap)}+`, width - pad.right, height - pad.bottom + 12);
+      context.textBaseline = "bottom";
+      context.fillText(`${maxCount} 条`, width - pad.right, pad.top - 5);
+    }
+
+    function setMetricDelta(id, text, changed) {
+      const node = byId(id);
+      node.textContent = text;
+      node.classList.toggle("changed", changed);
+    }
+
+    function signedMoneyDelta(value) {
+      if (Math.abs(value) < 500) return "$0";
+      const sign = value > 0 ? "+" : "−";
+      return `${sign}${compactMoney.format(Math.abs(value))}`;
+    }
+
+    function renderMetricDeltas(current, reference, changedCount) {
+      if (changedCount === 0) {
+        ["success-delta", "median-delta", "p10-delta", "failure-delta"].forEach((id) => {
+          setMetricDelta(id, "与示例假设相同", false);
+        });
+        return;
+      }
+
+      const successDelta = (current.successRate - reference.successRate) * 100;
+      const successSign = successDelta > 0 ? "+" : successDelta < 0 ? "−" : "";
+      setMetricDelta(
+        "success-delta",
+        `vs 示例 ${successSign}${Math.abs(successDelta).toFixed(1)} 个百分点`,
+        Math.abs(successDelta) >= .05
+      );
+
+      const medianDelta = current.medianFinal - reference.medianFinal;
+      const p10Delta = current.p10Final - reference.p10Final;
+      setMetricDelta("median-delta", `vs 示例 ${signedMoneyDelta(medianDelta)}`, Math.abs(medianDelta) >= 500);
+      setMetricDelta("p10-delta", `vs 示例 ${signedMoneyDelta(p10Delta)}`, Math.abs(p10Delta) >= 500);
+
+      if (current.medianFailure === null && reference.medianFailure === null) {
+        setMetricDelta("failure-delta", "当前与示例均无失败路径", false);
+      } else if (current.medianFailure === null) {
+        setMetricDelta("failure-delta", "vs 示例 · 当前无失败路径", true);
+      } else if (reference.medianFailure === null) {
+        setMetricDelta("failure-delta", "vs 示例 · 示例无失败路径", true);
+      } else {
+        const yearDelta = Math.round(current.medianFailure - reference.medianFailure);
+        const yearText = yearDelta > 0 ? `晚 ${yearDelta} 年` : yearDelta < 0 ? `早 ${Math.abs(yearDelta)} 年` : "同一年";
+        setMetricDelta("failure-delta", `vs 示例 ${yearText}`, yearDelta !== 0);
+      }
+    }
+
+    function renderSimulation() {
+      const changedCount = updateOutputs();
+      const settings = readInputs();
+      if (baselineSeed !== simulationSeed || baselineResult === null) {
+        baselineResult = runSimulation(settingsFromValues(defaults), simulationSeed);
+        baselineSeed = simulationSeed;
+      }
+      simulationResult = changedCount === 0 ? baselineResult : runSimulation(settings, simulationSeed);
+
+      byId("success-rate").textContent = percent.format(simulationResult.successRate);
+      byId("median-final").textContent = compactMoney.format(simulationResult.medianFinal);
+      byId("p10-final").textContent = compactMoney.format(simulationResult.p10Final);
+      byId("median-failure").textContent = simulationResult.medianFailure === null ? "无失败路径" : `第 ${Math.round(simulationResult.medianFailure)} 年`;
+      byId("seed-note").textContent = `Seed · ${simulationSeed}`;
+      renderMetricDeltas(simulationResult, baselineResult, changedCount);
+
+      const successText = percent.format(simulationResult.successRate);
+      const failures = simulationResult.failureCount.toLocaleString("zh-CN");
+      const failureClause = simulationResult.failureCount
+        ? `另外 ${failures} 条路径在期间内耗尽；失败路径的典型耗尽时点是第 ${Math.round(simulationResult.medianFailure)} 年。`
+        : "这批路径没有发生资金耗尽，但不代表模型之外的风险消失。";
+      byId("simulation-reading").innerHTML = `<p><strong>准确读法：</strong>在当前回报、波动、相关性、通胀、费用与固定提款规则下，2,000 条合成路径中有 ${successText} 撑完整个期间。${failureClause}</p>`;
+      byId("lab-live-chip").textContent = changedCount
+        ? `updated · ${changedCount} assumptions changed`
+        : "updated · example assumptions";
+
+      drawFanChart(simulationResult, baselineResult);
+      drawHistogram(simulationResult);
+    }
+
+    function scheduleSimulation() {
+      updateOutputs();
+      byId("lab-live-chip").textContent = "recalculating…";
+      window.clearTimeout(renderTimer);
+      renderTimer = window.setTimeout(renderSimulation, 100);
+    }
+
+    Object.keys(defaults).forEach((id) => byId(id).addEventListener("input", scheduleSimulation));
+
+    byId("resample").addEventListener("click", () => {
+      simulationSeed = (simulationSeed + 7919) >>> 0;
+      renderSimulation();
+    });
+
+    byId("reset-model").addEventListener("click", () => {
+      Object.entries(defaults).forEach(([id, value]) => { byId(id).value = value; });
+      simulationSeed = 20260722;
+      renderSimulation();
+    });
+
+    const sequenceReturns = [-.25, -.10, .04, .06, .08, .10, .12, .14, .16, .18];
+    let sequenceHasWithdrawal = true;
+
+    function renderReturnChips(container, returns) {
+      container.replaceChildren(...returns.map((value, index) => {
+        const chip = document.createElement("span");
+        chip.className = `return-chip${value < 0 ? " negative" : ""}`;
+        chip.textContent = `${index + 1}Y\n${value >= 0 ? "+" : ""}${Math.round(value * 100)}%`;
+        chip.style.whiteSpace = "pre-line";
+        return chip;
+      }));
+    }
+
+    function sequenceEnding(returns, hasWithdrawal) {
+      let balance = 1000000;
+      returns.forEach((annualReturn) => {
+        if (hasWithdrawal) balance -= 50000;
+        balance = Math.max(0, balance * (1 + annualReturn));
+      });
+      return balance;
+    }
+
+    function renderSequence() {
+      const early = sequenceReturns;
+      const late = [...sequenceReturns].reverse();
+      const earlyEnding = sequenceEnding(early, sequenceHasWithdrawal);
+      const lateEnding = sequenceEnding(late, sequenceHasWithdrawal);
+      const maxEnding = Math.max(earlyEnding, lateEnding, 1);
+      renderReturnChips(byId("early-returns"), early);
+      renderReturnChips(byId("late-returns"), late);
+      byId("early-ending").textContent = compactMoney.format(earlyEnding);
+      byId("late-ending").textContent = compactMoney.format(lateEnding);
+      byId("early-fill").style.width = `${Math.max(2, earlyEnding / maxEnding * 100)}%`;
+      byId("late-fill").style.width = `${Math.max(2, lateEnding / maxEnding * 100)}%`;
+      byId("sequence-no-withdrawal").setAttribute("aria-selected", String(!sequenceHasWithdrawal));
+      byId("sequence-withdrawal").setAttribute("aria-selected", String(sequenceHasWithdrawal));
+
+      if (sequenceHasWithdrawal) {
+        const difference = lateEnding - earlyEnding;
+        byId("sequence-answer").innerHTML = `<p><strong>同样十个回报，差出 ${compactMoney.format(difference)}。</strong> 早期亏损发生在本金最大、提款持续的阶段；低位卖出的资产失去了后来复利的机会。这就是 sequence-of-returns risk（收益顺序风险）。</p>`;
+      } else {
+        byId("sequence-answer").innerHTML = `<p><strong>两条路径终点相同。</strong> 没有中间现金流时，年度增长因子的乘法顺序不改变乘积；有提款后，这个对称性才被打破。</p>`;
+      }
+    }
+
+    byId("sequence-no-withdrawal").addEventListener("click", () => { sequenceHasWithdrawal = false; renderSequence(); });
+    byId("sequence-withdrawal").addEventListener("click", () => { sequenceHasWithdrawal = true; renderSequence(); });
+
+    const lenses = {
+      planning: {
+        title: "计划会不会在坏路径里先断掉？",
+        intro: "把人生目标翻译成现金流与策略规则，比较哪些可控动作最能改善脆弱路径。",
+        steps: [
+          ["01 · Inputs", "不确定输入", "资产回报、波动、相关性、通胀、费用、寿命与支出。"],
+          ["02 · Model", "人生现金流", "储蓄、提款、税、再平衡、养老金与动态支出规则。"],
+          ["03 · Output", "目标分布", "资金耗尽率、期末范围、短缺年份与尾部严重度。"],
+          ["04 · Decision", "调整哪一个杠杆？", "少花一点、晚退两年、改变配置或保留更大安全垫。"]
+        ],
+        note: "好的长期资金规划模型不是只给一个分数，而是能说明失败路径、假设与可调整行动。"
+      },
+      valuation: {
+        title: "企业价值在哪个范围里，分布是否有吸引力？",
+        intro: "把点估值改成条件式分布，观察 downside、upside 与 margin of safety（安全边际）。",
+        steps: [
+          ["01 · Inputs", "随机价值驱动因素", "收入增长、利润率、再投资、资本成本与终值增长。"],
+          ["02 · Model", "贴现现金流估值引擎", "DCF（Discounted Cash Flow，贴现现金流）把每组经营路径折现成价值。"],
+          ["03 · Output", "内在价值分布", "中位数、下行分位数、分布偏度与落在当前价格以下的比例。"],
+          ["04 · Decision", "赔率是否值得？", "当前价格相对价值分布是否留下足够的安全边际。"]
+        ],
+        note: "这是一个通用企业价值分析框架；不同机构会使用不同的输入、约束、估值结构与模型治理方法。"
+      }
+    };
+
+    function setLens(name) {
+      const lens = lenses[name];
+      byId("planning-tab").setAttribute("aria-selected", String(name === "planning"));
+      byId("valuation-tab").setAttribute("aria-selected", String(name === "valuation"));
+      const flow = lens.steps.map(([label, title, copy]) => `<article><span>${label}</span><h4>${title}</h4><p>${copy}</p></article>`).join("");
+      const source = lens.note;
+      byId("lens-panel").innerHTML = `<div class="lens-title"><h3>${lens.title}</h3><p>${lens.intro}</p></div><div class="lens-flow">${flow}</div><p class="source-note">${source}</p>`;
+    }
+
+    byId("planning-tab").addEventListener("click", () => setLens("planning"));
+    byId("valuation-tab").addEventListener("click", () => setLens("valuation"));
+
+    const quizAnswers = {
+      runs: "<p><strong>不会。</strong> 更多运行次数只会让 78% 在同一模型下更稳定，不会改变组合、支出或模型风险。要提高计划韧性，必须改变策略或假设所代表的现实。</p>",
+      crisis: "<p><strong>补做明确的 stress test（压力测试）。</strong> 强迫模型进入流动性枯竭、相关性飙升或跳跃损失的世界；不要等一个不含这些机制的分布自己抽出来。</p>",
+      compare: "<p><strong>先问：哪一个假设或策略改变造成了 3 个百分点？</strong> 然后检查差异是否大于随机种子波动、是否在压力测试中仍成立，以及失败严重度有没有一起改善。</p>"
+    };
+
+    document.querySelectorAll(".quiz-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".quiz-card").forEach((item) => item.classList.remove("chosen"));
+        card.classList.add("chosen");
+        byId("quiz-answer").innerHTML = quizAnswers[card.dataset.answer];
+      });
+    });
+
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+      byId("read-progress").style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+    }
+
+    let resizeTimer = 0;
+    window.addEventListener("resize", () => {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        if (simulationResult) {
+          drawFanChart(simulationResult, baselineResult);
+          drawHistogram(simulationResult);
+        }
+      }, 100);
+    });
+    window.addEventListener("scroll", updateProgress, { passive: true });
+
+    updateOutputs();
+    renderSimulation();
+    renderSequence();
+    setLens("planning");
+    updateProgress();
+  </script>
+</body>
+</html>

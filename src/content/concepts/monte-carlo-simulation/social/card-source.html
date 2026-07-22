@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <title>Monte Carlo Simulation · Share card</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 1080px; height: 1350px; margin: 0; overflow: hidden; }
+    body {
+      color: #181714;
+      background: #f4f0e7;
+      font-family: Inter, "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+    }
+    .card { position: relative; width: 100%; height: 100%; padding: 78px 84px 64px; overflow: hidden; }
+    .grid { position: absolute; inset: 0; opacity: .5; background-image: linear-gradient(rgba(24,23,20,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(24,23,20,.055) 1px, transparent 1px); background-size: 54px 54px; }
+    .halo { position: absolute; top: -260px; right: -240px; width: 650px; height: 650px; border-radius: 50%; border: 1px solid rgba(118,103,246,.22); box-shadow: 0 0 0 90px rgba(118,103,246,.045), 0 0 0 180px rgba(255,92,53,.025); }
+    .content { position: relative; z-index: 2; height: 100%; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 15px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 17px; font-weight: 850; letter-spacing: .15em; }
+    .brand-mark { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 13px; background: #181714; }
+    .brand-mark img { width: 34px; height: 34px; object-fit: contain; }
+    .series { color: #6f6a61; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; letter-spacing: .12em; }
+    .hero { margin-top: 72px; }
+    .eyebrow { color: #ff5c35; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 17px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    h1 { max-width: 880px; margin: 22px 0 0; font-size: 96px; font-weight: 760; line-height: .9; letter-spacing: -.07em; }
+    .zh { margin-top: 20px; font-size: 28px; font-weight: 700; letter-spacing: .12em; }
+    .stage { position: relative; margin-top: 48px; height: 420px; overflow: hidden; border: 1.5px solid rgba(24,23,20,.22); border-radius: 30px; background: rgba(255,255,255,.58); box-shadow: 0 28px 70px rgba(48,37,21,.08); }
+    .stage-label { position: absolute; z-index: 2; top: 25px; left: 28px; color: #706a61; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .14em; }
+    .path-svg { display: block; width: 100%; height: 100%; }
+    .transform { display: grid; grid-template-columns: 1fr 44px 1.45fr; align-items: center; gap: 12px; margin-top: 18px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; font-weight: 800; letter-spacing: .105em; }
+    .transform span:last-child { color: #ff5c35; text-align: right; }
+    .arrow { color: #7667f6; font-size: 23px; text-align: center; }
+    .thesis { display: grid; grid-template-columns: 13px 1fr; gap: 22px; margin-top: 37px; padding-top: 29px; border-top: 1.5px solid rgba(24,23,20,.22); }
+    .thesis-mark { width: 13px; height: 78px; border-radius: 9px; background: #d8ff68; }
+    .thesis p { margin: 0; font-size: 30px; font-weight: 680; line-height: 1.18; letter-spacing: -.035em; }
+    footer { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; color: #6f6a61; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+    footer b { color: #181714; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="grid"></div><div class="halo"></div>
+    <div class="content">
+      <header>
+        <div class="brand"><span class="brand-mark"><img src="../../../../../assets/aaron-logo-assets/ag-logo-v4-final.png" alt=""></span><span>AARON GUO</span></div>
+        <div class="series">WORKING VOCABULARY / 006</div>
+      </header>
+      <section class="hero">
+        <div class="eyebrow">Finance &amp; decision science</div>
+        <h1>Monte Carlo<br>Simulation</h1>
+        <div class="zh">蒙特卡洛模拟</div>
+      </section>
+      <section class="stage">
+        <div class="stage-label">2,000 SYNTHETIC PATHS · RANGE / TAIL / FAILURE</div>
+        <svg class="path-svg" viewBox="0 0 910 420" preserveAspectRatio="none" aria-hidden="true">
+          <g fill="none" stroke="#181714" stroke-opacity=".09" stroke-width="1">
+            <path d="M44 92H878M44 165H878M44 238H878M44 311H878M44 378H878" />
+          </g>
+          <g fill="none" stroke-linecap="round" stroke-width="2.3" opacity=".24">
+            <path stroke="#ff5c35" d="M44 245C170 238 230 151 355 139S594 78 878 91" />
+            <path stroke="#7667f6" d="M44 245C142 248 222 201 344 219S623 123 878 148" />
+            <path stroke="#38a3a5" d="M44 245C182 230 264 270 388 184S680 198 878 113" />
+            <path stroke="#cf4b83" d="M44 245C145 258 245 185 350 250S616 241 878 206" />
+            <path stroke="#d6942e" d="M44 245C126 240 225 310 336 266S625 299 878 242" />
+            <path stroke="#ff5c35" d="M44 245C160 260 205 326 354 309S592 337 878 302" />
+            <path stroke="#7667f6" d="M44 245C154 221 280 120 384 165S646 84 878 73" />
+            <path stroke="#38a3a5" d="M44 245C148 267 247 229 365 293S671 249 878 326" />
+            <path stroke="#cf4b83" d="M44 245C129 281 216 345 351 321S641 374 878 378" />
+            <path stroke="#d6942e" d="M44 245C134 251 236 191 362 168S655 226 878 169" />
+            <path stroke="#ff5c35" d="M44 245C163 232 239 252 356 202S640 146 878 185" />
+            <path stroke="#7667f6" d="M44 245C145 274 230 296 347 272S617 331 878 285" />
+            <path stroke="#38a3a5" d="M44 245C126 232 252 145 361 197S611 127 878 126" />
+            <path stroke="#cf4b83" d="M44 245C147 255 237 331 354 349S624 354 878 378" />
+            <path stroke="#d6942e" d="M44 245C158 218 239 117 368 122S652 97 878 109" />
+            <path stroke="#ff5c35" d="M44 245C132 272 228 247 351 289S645 315 878 352" />
+            <path stroke="#7667f6" d="M44 245C141 226 245 285 364 238S642 209 878 226" />
+            <path stroke="#38a3a5" d="M44 245C151 256 221 182 353 191S639 164 878 154" />
+            <path stroke="#cf4b83" d="M44 245C147 263 242 312 367 303S647 286 878 270" />
+            <path stroke="#d6942e" d="M44 245C162 235 226 212 356 228S648 177 878 195" />
+          </g>
+          <path d="M44 245C196 236 274 223 411 209S673 185 878 167" fill="none" stroke="#181714" stroke-width="5" stroke-linecap="round" />
+          <path d="M44 245C232 236 467 223 878 203" fill="none" stroke="#7667f6" stroke-width="3" stroke-dasharray="11 11" />
+          <path d="M44 378H878" fill="none" stroke="#e23d48" stroke-width="2" stroke-dasharray="3 7" opacity=".75" />
+          <circle cx="44" cy="245" r="9" fill="#ff5c35" />
+          <circle cx="878" cy="378" r="5" fill="#e23d48" />
+        </svg>
+      </section>
+      <div class="transform"><span>ONE FORECAST</span><span class="arrow">→</span><span>MANY CONDITIONAL FUTURES</span></div>
+      <section class="thesis"><span class="thesis-mark"></span><p>Do not bet on one future.<br>Read the distribution.</p></section>
+      <footer><span>Explore the interactive concept</span><b>aaronguo.com/learn/monte-carlo-simulation →</b></footer>
+    </div>
+  </main>
+</body>
+</html>

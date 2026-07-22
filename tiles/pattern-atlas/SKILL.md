@@ -35,12 +35,13 @@ Keep `src/brain/` local and private. Do not send private brain content to extern
 7. Prefer primary sources appropriate to the domain: standards and official documentation; regulators and audited filings; original papers and systematic reviews; archival or institutional sources. Link them in `Further reading`.
 8. Never invent a citation or claim that a source says more than it does.
 9. For finance, health, law, or other high-stakes domains, label educational explanation versus personal advice, date-sensitive fact versus durable mechanism, and evidence versus interpretation.
+10. Keep Pattern Atlas concept-first and context-neutral by default. Never name Aaron's employer, clients, internal projects, or distinctive professional context—including Mawer—in a title, example, citation, metadata field, visual label, or publication package unless Aaron explicitly asks for that organization to appear in the finished entry. When work motivates a question, generalize it to durable field-level language such as `long-term financial planning` or `company valuation`; do not preserve a combination of labels that can reconstruct an identifiable internal context.
 
 ## Workflow
 
 ### 1. Frame the concept
 
-- Identify the one question the concept answers in Aaron's life, work, or judgment.
+- Identify the one durable question the concept answers in Aaron's life or judgment, phrased without employer, client, or internal-project context unless the user explicitly requests it.
 - Write a one-sentence mental model in ordinary Chinese while retaining the English term.
 - Select 3–8 concept neighbors that expose boundaries or dependencies.
 - Decide the maturity: `seedling`, `growing`, or `evergreen`.
