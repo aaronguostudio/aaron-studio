@@ -9,6 +9,40 @@ import { promisify } from 'node:util'
 const scriptDir = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(scriptDir, '../../..')
 const execFileAsync = promisify(execFile)
+const studioConfig = JSON.parse(
+  await readFile(path.join(repoRoot, 'config', 'aaron-studio.json'), 'utf8'),
+)
+const blogRoot = path.resolve(studioConfig.blogRepo)
+const blogHeaderPath = path.join(blogRoot, 'components', 'main', 'header.vue')
+const blogHeaderSource = await readFile(blogHeaderPath, 'utf8')
+const logoBlock = blogHeaderSource.match(
+  /<!--\s*Logo\/Site Title\s*-->[\s\S]*?<img\b[^>]*\bsrc=["']([^"']+)["']/i,
+)
+if (!logoBlock || !logoBlock[1].startsWith('/')) {
+  throw new Error(`Unable to resolve the active website mark from ${blogHeaderPath}`)
+}
+const blogPublicRoot = path.join(blogRoot, 'public')
+const officialBrandMarkPath = path.resolve(blogPublicRoot, logoBlock[1].slice(1))
+if (
+  officialBrandMarkPath !== blogPublicRoot &&
+  !officialBrandMarkPath.startsWith(`${blogPublicRoot}${path.sep}`)
+) {
+  throw new Error(`Website mark resolves outside the blog public directory: ${logoBlock[1]}`)
+}
+const officialBrandMarkMime = new Map([
+  ['.avif', 'image/avif'],
+  ['.jpeg', 'image/jpeg'],
+  ['.jpg', 'image/jpeg'],
+  ['.png', 'image/png'],
+  ['.svg', 'image/svg+xml'],
+  ['.webp', 'image/webp'],
+]).get(path.extname(officialBrandMarkPath).toLowerCase())
+if (!officialBrandMarkMime) {
+  throw new Error(`Unsupported website mark format: ${officialBrandMarkPath}`)
+}
+const officialBrandMarkDataUri = `data:${officialBrandMarkMime};base64,${(
+  await readFile(officialBrandMarkPath)
+).toString('base64')}`
 
 function parseArgs(argv) {
   const options = { date: new Date().toISOString().slice(0, 10), dryRun: false }
@@ -67,10 +101,25 @@ function svgTextLines(lines, { x, y, lineHeight, className, attributes = '' }) {
     .join('')
 }
 
+function resolveCardMode(brief) {
+  const theme = brief.visual?.theme
+  if (!theme || theme === 'editorial-light' || theme === 'editorial-explainer') {
+    return 'editorial-explainer'
+  }
+  if (theme === 'sleek-dark' || theme === 'campaign-poster') {
+    return 'campaign-poster'
+  }
+  if (theme === 'editorial-metaphor') {
+    throw new Error(
+      'editorial-metaphor requires a concept-specific artwork source; do not use the generic campaign renderer',
+    )
+  }
+  throw new Error(`Unsupported visual theme: ${theme}`)
+}
+
 function buildSvgCardEditorial({ concept, brief }) {
   const visual = brief.visual || {}
   const accent = escapeHtml(visual.accent || '#6d5dfc')
-  const secondary = escapeHtml(visual.secondary || '#9adcf7')
   const signal = escapeHtml(visual.signal || '#d7ff4f')
   const seriesNumber = String(brief.seriesNumber).padStart(3, '0')
   const titleLines = wrapWords(concept.en.title, 14, 3)
@@ -109,9 +158,8 @@ function buildSvgCardEditorial({ concept, brief }) {
   <circle cx="1115" cy="25" r="402" fill="none" stroke="${accent}" stroke-opacity=".055" stroke-width="92"/>
 
   <g transform="translate(68 68)">
-    <path d="M0 32 L17 3 L34 32 Z" fill="${accent}" fill-opacity=".72"/>
-    <circle cx="29" cy="25" r="13" fill="${secondary}"/>
-    <text x="52" y="25" class="mono" font-size="18" font-weight="800" letter-spacing="2.5">AARON GUO</text>
+    <image href="${officialBrandMarkDataUri}" x="0" y="0" width="42" height="42" preserveAspectRatio="xMidYMid meet"/>
+    <text x="58" y="28" class="mono" font-size="18" font-weight="800" letter-spacing="2.5">AARON GUO</text>
     <text x="944" y="25" text-anchor="end" class="mono" font-size="15" fill="#68635b" letter-spacing="2">WORKING VOCABULARY / ${seriesNumber}</text>
   </g>
 
@@ -168,7 +216,6 @@ function buildSvgCardSleek({ concept, brief }) {
   const card = brief.card || {}
   const background = escapeHtml(visual.background || '#0b0b0f')
   const accent = escapeHtml(visual.accent || '#7c6cff')
-  const secondary = escapeHtml(visual.secondary || '#8ed9ff')
   const signal = escapeHtml(visual.signal || '#d7ff4f')
   const seriesNumber = String(brief.seriesNumber).padStart(3, '0')
   const titleLines = wrapWords(concept.en.title, 14, 3)
@@ -195,9 +242,8 @@ function buildSvgCardSleek({ concept, brief }) {
   <rect width="10" height="1350" fill="${accent}"/>
 
   <g transform="translate(68 66)">
-    <path d="M0 32 L17 3 L34 32 Z" fill="${accent}"/>
-    <circle cx="29" cy="25" r="13" fill="${secondary}"/>
-    <text x="52" y="25" class="mono" font-size="18" font-weight="800" fill="#f7f7f4" letter-spacing="2.5">AARON GUO</text>
+    <image href="${officialBrandMarkDataUri}" x="0" y="0" width="42" height="42" preserveAspectRatio="xMidYMid meet"/>
+    <text x="58" y="28" class="mono" font-size="18" font-weight="800" fill="#f7f7f4" letter-spacing="2.5">AARON GUO</text>
     <text x="944" y="25" text-anchor="end" class="mono" font-size="14" fill="#777783" letter-spacing="2">WORKING VOCABULARY / ${seriesNumber}</text>
   </g>
 
@@ -251,9 +297,9 @@ function buildSvgCardSleek({ concept, brief }) {
 </svg>`
 }
 
-function buildSvgCard({ concept, brief }) {
-  if (brief.visual?.theme === 'editorial-light') return buildSvgCardEditorial({ concept, brief })
-  return buildSvgCardSleek({ concept, brief })
+function buildSvgCard({ concept, brief, visualMode = resolveCardMode(brief) }) {
+  if (visualMode === 'campaign-poster') return buildSvgCardSleek({ concept, brief })
+  return buildSvgCardEditorial({ concept, brief })
 }
 
 async function renderPng(svgPath, pngPath) {
@@ -325,9 +371,8 @@ function buildCardEditorial({ concept, brief }) {
     .orb { position: absolute; width: 620px; height: 620px; border: 1px solid rgba(23,23,23,.16); border-radius: 50%; right: -245px; top: -285px; box-shadow: 0 0 0 92px rgba(109,93,252,.04), 0 0 0 184px rgba(109,93,252,.025); }
     .brand { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 18px; letter-spacing: .14em; }
     .brand-left { display: flex; gap: 14px; align-items: center; font-weight: 800; }
-    .mark { position: relative; width: 34px; height: 34px; }
-    .mark::before { content: ''; position: absolute; left: 0; bottom: 2px; border-left: 16px solid transparent; border-right: 16px solid transparent; border-bottom: 28px solid var(--accent); opacity: .7; }
-    .mark::after { content: ''; position: absolute; width: 24px; height: 24px; border-radius: 50%; right: -4px; bottom: 0; background: var(--secondary); }
+    .mark { display: grid; place-items: center; width: 38px; height: 38px; overflow: hidden; border-radius: 10px; }
+    .mark img { display: block; width: 100%; height: 100%; object-fit: contain; }
     .series { color: #68635b; font-size: 15px; }
     .hero { position: relative; z-index: 2; margin-top: 92px; }
     .eyebrow { display: flex; align-items: center; gap: 18px; color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 18px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -359,7 +404,7 @@ function buildCardEditorial({ concept, brief }) {
   <main class="card">
     <div class="grid"></div><div class="orb"></div>
     <header class="brand">
-      <div class="brand-left"><span class="mark"></span><span>AARON GUO</span></div>
+      <div class="brand-left"><span class="mark"><img src="${officialBrandMarkDataUri}" alt=""></span><span>AARON GUO</span></div>
       <span class="series">WORKING VOCABULARY / ${seriesNumber}</span>
     </header>
     <section class="hero">
@@ -378,8 +423,8 @@ function buildCardEditorial({ concept, brief }) {
 </html>`
 }
 
-function buildCard({ concept, brief }) {
-  if (brief.visual?.theme === 'editorial-light') return buildCardEditorial({ concept, brief })
+function buildCard({ concept, brief, visualMode = resolveCardMode(brief) }) {
+  if (visualMode === 'editorial-explainer') return buildCardEditorial({ concept, brief })
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -517,6 +562,7 @@ async function main() {
       domain: frontmatterValue(zhMarkdown, 'domain'),
     },
   }
+  const visualMode = resolveCardMode(brief)
   const campaignId = `concept-${options.slug}-v1`
   const outputDir = path.join(
     repoRoot,
@@ -524,8 +570,8 @@ async function main() {
     `${options.date}-${options.slug}`,
   )
   const files = {
-    'card-4x5.html': buildCard({ concept, brief }),
-    'card-4x5.svg': buildSvgCard({ concept, brief }),
+    'card-4x5.html': buildCard({ concept, brief, visualMode }),
+    'card-4x5.svg': buildSvgCard({ concept, brief, visualMode }),
     'campaign.md': buildCampaign({ concept, brief, campaignId, date: options.date }),
     'campaign.json': `${JSON.stringify({
       schemaVersion: 1,
@@ -533,6 +579,7 @@ async function main() {
       conceptSlug: options.slug,
       prepared: options.date,
       status: 'draft-awaiting-calibration',
+      visualMode,
       cadence: brief.cadence,
       sourceBrief: path.relative(repoRoot, path.join(conceptDir, 'social-brief.json')),
       card: 'card-4x5.png',
@@ -543,6 +590,7 @@ async function main() {
   }
 
   console.log(`${options.dryRun ? 'DRY RUN' : 'PREPARE'} ${options.slug}`)
+  console.log(`Visual mode: ${visualMode}`)
   for (const [name, content] of Object.entries(files)) {
     console.log(`${path.relative(repoRoot, path.join(outputDir, name))} (${Buffer.byteLength(content)} bytes)`)
   }

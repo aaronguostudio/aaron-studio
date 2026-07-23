@@ -63,6 +63,50 @@ Use the same slug, translation key, neighbor identities, and source URLs in both
 
 ## Social image contract
 
+### Choose the card mode
+
+Choose the mode before composing the portrait card:
+
+| Mode | Use when | Direction |
+| --- | --- | --- |
+| `editorial-explainer` | Default for Learn and ordinary blog sharing | Make the article's real thinking object—the chart, relationship, model, sequence, or comparison—the hero. The result should feel like a page saved from a thoughtful publication, not an advertisement. |
+| `editorial-metaphor` | A physical analogy materially clarifies an otherwise abstract mechanism | Use tactile paper sculpture, cut-paper objects, or another restrained editorial illustration. Let the metaphor carry a specific mechanism; do not add people, decorative scenes, or extra colors unless they are necessary to the explanation. |
+| `campaign-poster` | Aaron explicitly requests a campaign, promotion, or high-impact distribution treatment | High contrast, dark fields, neon accents, and poster-like statements are allowed. This mode is opt-in and must never become the automatic Learn card. |
+
+Prefer `editorial-explainer` when either of the first two modes could work. A
+recognizable illustration is not enough reason to choose `editorial-metaphor`;
+the object must make the concept easier to reconstruct from memory.
+
+For `social-brief.json`, use `visual.theme: "editorial-explainer"` or omit the
+theme to accept the default. Use `visual.theme: "campaign-poster"` only for an
+explicit campaign. The renderer still accepts the legacy aliases
+`editorial-light` and `sleek-dark`. `editorial-metaphor` requires a
+concept-specific artwork source and visual QA rather than the generic campaign
+renderer.
+
+Across all modes:
+
+- Treat `<blogRepo>/components/main/header.vue` as the logo source of truth.
+  Resolve the public asset referenced by the `Logo/Site Title` block before
+  every render. At present that component references
+  `<blogRepo>/public/android-chrome-192x192.png`; if the component changes, the
+  new reference wins automatically.
+- The current Aaron Studio mirror is
+  `assets/aaron-logo-assets/aaron-guo-website-logo.png`. Before using the mirror,
+  verify that its SHA-256 hash matches the public asset resolved from the blog
+  header. A filename such as `final`, a cached social card, or a previous
+  screenshot is not evidence that a mark is current.
+- Preserve the official asset's own rounded tile and background. Do not redraw
+  the mark, recolor it, crop it, or place it inside an invented black tile.
+- Run the publisher's source-image check before rendering final derivatives.
+  A brand image mismatch is a release blocker, even when the card otherwise
+  looks correct.
+- Avoid ad cues on ordinary Learn cards: CTA buttons, product claims,
+  testimonials, urgency language, performance promises, and decorative
+  spectacle that competes with the teaching object.
+- Keep stable brand anchors—mark, series label, type hierarchy, canonical URL,
+  and 4:5 geometry—while allowing the concept to determine the composition.
+
 - Use `social/og-1200x627.jpg` for Open Graph and link-preview distribution. Keep it a
   static JPEG so LinkedIn, Facebook, and other crawlers do not depend on runtime image
   generation.

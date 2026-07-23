@@ -80,6 +80,67 @@ async function validateCardMetadata(markdownPath, expectedCardPath) {
   }
 }
 
+async function resolveBlogHeaderMark(blogRoot) {
+  const headerPath = path.join(blogRoot, 'components', 'main', 'header.vue')
+  const headerSource = await readFile(headerPath, 'utf8')
+  const match = headerSource.match(
+    /<!--\s*Logo\/Site Title\s*-->[\s\S]*?<img\b[^>]*\bsrc=["']([^"']+)["']/i,
+  )
+  if (!match || !match[1].startsWith('/')) {
+    throw new Error(`Unable to resolve the active website mark from ${headerPath}.`)
+  }
+
+  const publicRoot = path.join(blogRoot, 'public')
+  const markPath = path.resolve(publicRoot, match[1].slice(1))
+  if (markPath !== publicRoot && !markPath.startsWith(`${publicRoot}${path.sep}`)) {
+    throw new Error(`Website mark resolves outside the blog public directory: ${match[1]}`)
+  }
+  return { markPath, source: match[1] }
+}
+
+function imageBytesFromReference(reference, sourcePath) {
+  const dataMatch = reference.match(
+    /^data:image\/(?:avif|jpeg|png|svg\+xml|webp);base64,(.+)$/i,
+  )
+  if (dataMatch) return Promise.resolve(Buffer.from(dataMatch[1], 'base64'))
+  if (/^[a-z]+:/i.test(reference) || reference.startsWith('//')) {
+    throw new Error(`${sourcePath} must use a local copy of the official website mark.`)
+  }
+  return readFile(path.resolve(path.dirname(sourcePath), reference))
+}
+
+async function validateSocialBrandSources(packageRoot, blogRoot) {
+  const { markPath, source: officialSource } = await resolveBlogHeaderMark(blogRoot)
+  const officialBytes = await readFile(markPath)
+  const sourceFiles = ['card-source.html', 'og-source.html']
+
+  for (const filename of sourceFiles) {
+    const sourcePath = path.join(packageRoot, 'social', filename)
+    if (!(await exists(sourcePath))) continue
+
+    const html = await readFile(sourcePath, 'utf8')
+    const imageTags = html.match(/<img\b[^>]*>/gi) || []
+    const brandTag = imageTags.find((tag) => {
+      const classMatch = tag.match(/\bclass=["']([^"']+)["']/i)
+      return classMatch && /(?:^|\s)(?:brand-mark|mark)(?:\s|$)/i.test(classMatch[1])
+    })
+    const reference = brandTag?.match(/\bsrc=["']([^"']+)["']/i)?.[1]
+
+    if (!reference) {
+      throw new Error(
+        `${sourcePath} must include an <img> with class "brand-mark" or "mark" for the active website logo.`,
+      )
+    }
+
+    const candidateBytes = await imageBytesFromReference(reference, sourcePath)
+    if (!candidateBytes.equals(officialBytes)) {
+      throw new Error(
+        `${sourcePath} uses a logo that does not match the blog header asset ${officialSource}.`,
+      )
+    }
+  }
+}
+
 const args = parseArgs(process.argv.slice(2))
 if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(args.slug)) {
   throw new Error('Pass a kebab-case concept slug with --slug <slug>.')
@@ -100,6 +161,7 @@ const manifest = JSON.parse(await readFile(manifestPath, 'utf8'))
 if (manifest.slug !== args.slug) {
   throw new Error(`Manifest slug ${manifest.slug} does not match ${args.slug}.`)
 }
+await validateSocialBrandSources(packageRoot, blogRoot)
 
 const mappings = [
   ['en.md', path.join(blogRoot, 'content', 'learn', 'en', `${args.slug}.md`)],
