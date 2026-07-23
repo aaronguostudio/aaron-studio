@@ -64,19 +64,40 @@ The answer is not a hidden “correct price.” It is a conditional sentence:
 
 That distinction is the heart of the method. A spreadsheet can calculate precisely while the assumptions remain deeply uncertain.
 
-## A machine that produces cash coupons
+## An everyday example: buying a vending machine
 
-Imagine buying a machine that produces one cash coupon every year.
+Suppose a vending machine in an office building is for sale at `$120,000`. You would not begin with snack sales. You would ask how much cash remains each year after restocking, electricity, repairs, and the location fee.
 
-A seller might say the machine will generate `$1,000` over ten years. But adding the coupons without adjustment would treat `$100` next year as equal to `$100` ten years from now.
+Start with a completely hypothetical set of assumptions:
 
-You would instead stamp each coupon with a discount for waiting and risk:
+- the machine currently leaves `$8,000` of cash per year;
+- that cash grows by `3%` annually for the next five years;
+- because you must wait and the machine could break, lose its location, or sell less than expected, you require a `10%` annual return;
+- after year five, stop guessing year by year and assume cash grows at `2%` in the long run;
+- the machine still has a `$5,000` loan attached to it.
 
-- a later coupon is worth less today;
-- a less certain coupon requires a higher return and is worth less today;
-- after discounting every coupon into the same “today” unit, you add them.
+Discounting the first five annual cash flows back to today gives about `$32,981`. That is the **present value of the explicit period**. Summarizing all cash after year five into terminal value and discounting it back gives about `$73,421`. That is the **present value of terminal value**.
 
-That is the intuition behind DCF. A real valuation adds the difficult parts: taxes, reinvestment, capital structure, a terminal period, and consistent definitions.
+```text
+Present value of years 1–5   ≈  $32,981
+Present value after year 5   ≈  $73,421
+Operating asset value        ≈ $106,403
+Less: remaining loan         =   $5,000
+Buyer-equity value           ≈ $101,403
+```
+
+Under these assumptions, `$101,403` is a conditional answer—not the machine’s “correct price.” If the seller still wants `$120,000`, DCF helps you ask what must explain the gap: more future cash, less risk, or another source of value.
+
+The `10%` required return is an everyday stand-in for the intuition of a discount rate. A formal Weighted Average Cost of Capital (WACC) for a company combines the required returns of debt and equity; it is not simply a number chosen by feel.
+
+## Four terms in plain language
+
+- **Free Cash Flow to the Firm (FCFF)**: cash the operating business can provide to lenders and shareholders together. Think of it as cash the business has produced before deciding which capital provider receives it.
+- **Weighted Average Cost of Capital (WACC)**: the combined annual return required by lenders and shareholders. In this model it is the discount rate used to translate future cash into today’s units; a higher WACC makes the same future cash worth less today.
+- **Present value of the explicit period**: the sum of the next 5 or 10 years of cash flows after each year has been discounted back to today. “Explicit” only means those years are forecast one by one.
+- **Present value of terminal value**: the model cannot forecast every year forever, so it summarizes all cash flows after the explicit period into one value at the forecast horizon, then discounts that value back to today.
+
+Add the two present values to estimate Enterprise Value. Subtract Net Debt in this simplified model to estimate Equity Value.
 
 ## First choose whose cash flow you are valuing
 

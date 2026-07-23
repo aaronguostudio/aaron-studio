@@ -387,6 +387,134 @@
     .analogy h3 { margin: 0 0 8px; }
     .analogy p { margin: 0; color: var(--muted); font-size: 14px; }
 
+    .life-case {
+      overflow: hidden;
+      margin-top: 18px;
+      border: 1.5px solid var(--ink);
+      border-radius: 24px;
+      background: rgba(255,255,255,.42);
+      box-shadow: var(--shadow);
+    }
+
+    .life-case-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: end;
+      padding: clamp(24px, 4vw, 38px);
+      background:
+        radial-gradient(circle at 92% 0, rgba(217,255,102,.62), transparent 36%),
+        rgba(255,255,255,.38);
+    }
+
+    .life-case-head span {
+      color: var(--orange);
+      font: 750 10px ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .life-case-head h3 {
+      max-width: 650px;
+      margin: 12px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 4vw, 45px);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1.05;
+    }
+
+    .life-case-head p {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .life-asking {
+      min-width: 150px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--paper);
+    }
+
+    .life-asking small {
+      display: block;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .life-asking strong {
+      display: block;
+      margin-top: 5px;
+      font: 750 25px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .life-case-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border-top: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .life-case-grid article {
+      min-width: 0;
+      padding: 20px;
+      background: var(--paper);
+    }
+
+    .life-case-grid b {
+      color: var(--orange);
+      font: 750 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .life-case-grid h4 {
+      margin: 14px 0 5px;
+      font-size: 14px;
+    }
+
+    .life-case-grid strong {
+      display: block;
+      font-size: 17px;
+    }
+
+    .life-case-grid p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .life-case-math {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      overflow-x: auto;
+      padding: 18px clamp(20px, 4vw, 38px);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      background: var(--paper-2);
+      font: 650 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: nowrap;
+    }
+
+    .life-case-math b { color: var(--orange); }
+    .life-case-math strong { color: var(--ink); }
+
+    .life-case-note {
+      margin: 0;
+      padding: 22px clamp(20px, 4vw, 38px);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .life-case-note strong { color: var(--ink); }
+
     .lab {
       overflow: clip;
       border: 1.5px solid var(--ink);
@@ -1188,6 +1316,7 @@
     @media (max-width: 1060px) {
       .layout { grid-template-columns: 150px minmax(0, 1fr); gap: 38px; }
       .lab-grid { grid-template-columns: 300px minmax(0, 1fr); }
+      .life-case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .mechanism { grid-template-columns: repeat(3, 1fr); }
       .mechanism article:nth-child(4), .mechanism article:nth-child(5) { min-height: 210px; }
     }
@@ -1214,6 +1343,9 @@
       .hero { padding-bottom: 44px; }
       .section { padding-bottom: 68px; }
       .two-up, .failure-grid, .map, .quiz-grid { grid-template-columns: 1fr; }
+      .life-case-head { grid-template-columns: 1fr; }
+      .life-case-grid { grid-template-columns: 1fr; }
+      .life-asking { min-width: 0; }
       .distinction { grid-column: auto; }
       .control-list { grid-template-columns: 1fr; }
       .result-metrics { grid-template-columns: 1fr 1fr; }
@@ -1287,8 +1419,8 @@
           <div class="two-up">
             <article class="analogy">
               <b>01</b>
-              <h3>现金券机器</h3>
-              <p>把企业想成一台每年吐出现金券的机器。越晚、越不确定的现金券，今天越不值钱；折完以后，才可以相加。</p>
+              <h3>一台真实的自动售货机</h3>
+              <p>先看扣除补货、电费、维修和场地费后真正留下的现金，再问这些未来现金今天值多少。</p>
             </article>
             <article class="analogy">
               <b>02</b>
@@ -1296,6 +1428,57 @@
               <p>DCF 把“增长、利润率、再投资和风险”的故事翻译成价值。它不会独立验证故事是真的，也不会消除模型风险。</p>
             </article>
           </div>
+
+          <section class="life-case" aria-labelledby="life-case-title">
+            <header class="life-case-head">
+              <div>
+                <span>Everyday worked example</span>
+                <h3 id="life-case-title">如果卖家开价 $120,000，你最高愿意为这台机器付多少？</h3>
+                <p>下面只用假设数字演示机制：它目前每年净留下 $8,000，未来五年每年增长 3%，你要求 10% 年回报，第五年以后长期增长 2%，并且还要承担 $5,000 贷款。</p>
+              </div>
+              <div class="life-asking">
+                <small>卖家开价</small>
+                <strong>$120,000</strong>
+              </div>
+            </header>
+
+            <div class="life-case-grid">
+              <article>
+                <b>A</b>
+                <h4>真正留下的现金</h4>
+                <strong>$8,000 / 年</strong>
+                <p>支付经营成本后能拿走的现金，是自由现金流最直观的起点。</p>
+              </article>
+              <article>
+                <b>B</b>
+                <h4>逐年写出五年</h4>
+                <strong>每年增长 3%</strong>
+                <p>这五笔逐年预测的现金构成显性期。</p>
+              </article>
+              <article>
+                <b>C</b>
+                <h4>给等待与风险定价</h4>
+                <strong>要求 10% 年回报</strong>
+                <p>越晚、越不确定的现金，折回今天以后越少。</p>
+              </article>
+              <article>
+                <b>D</b>
+                <h4>不必预测到永远</h4>
+                <strong>长期增长 2%</strong>
+                <p>第五年以后的现金由终值概括，再折回今天。</p>
+              </article>
+            </div>
+
+            <div class="life-case-math">
+              <span>显性期现值 $32,981</span><b>+</b>
+              <span>终值现值 $73,421</span><b>=</b>
+              <span>经营资产 $106,403</span><b>−</b>
+              <span>贷款 $5,000</span><b>=</b>
+              <strong>买方股权价值 $101,403</strong>
+            </div>
+
+            <p class="life-case-note"><strong>正确读法：</strong>在这些假设下，简化价值约为 $101,400，而不是“机器的正确价格”。如果卖家仍要 $120,000，就需要更多未来现金、更低风险或其他价值来解释差距。这里的 10% 只是帮助理解折现率的类比，不是严格计算出来的 WACC。</p>
+          </section>
         </section>
 
         <section class="section" id="lab">
@@ -1325,7 +1508,7 @@
                 <div class="control-list">
                   <label class="control" for="base-fcf">
                     <span class="control-top">
-                      <span class="control-label">Current FCFF<small>当前企业自由现金流 · `$m`</small></span>
+                      <span class="control-label">Current FCFF<small>企业经营后，可供债权人与股东共同分配的现金 · `$m`</small></span>
                       <output class="control-value" id="base-fcf-output" for="base-fcf">$100m</output>
                     </span>
                     <input id="base-fcf" type="range" min="30" max="250" step="5" value="100">
@@ -1333,7 +1516,7 @@
 
                   <label class="control" for="growth">
                     <span class="control-top">
-                      <span class="control-label">Explicit growth<small>显性预测期年增长率</small></span>
+                      <span class="control-label">Explicit growth<small>逐年预测的 5 年或 10 年中，现金每年增长多少</small></span>
                       <output class="control-value" id="growth-output" for="growth">7.0%</output>
                     </span>
                     <input id="growth" type="range" min="-5" max="20" step=".5" value="7">
@@ -1341,7 +1524,7 @@
 
                   <label class="control" for="wacc">
                     <span class="control-top">
-                      <span class="control-label">WACC<small>加权平均资本成本</small></span>
+                      <span class="control-label">WACC<small>债权人与股东合计要求的年回报；本模型的折现率</small></span>
                       <output class="control-value" id="wacc-output" for="wacc">9.0%</output>
                     </span>
                     <input id="wacc" type="range" min="5" max="16" step=".25" value="9">
@@ -1349,7 +1532,7 @@
 
                   <label class="control" for="terminal-growth">
                     <span class="control-top">
-                      <span class="control-label">Stable growth<small>终值稳定增长率；必须低于 WACC</small></span>
+                      <span class="control-label">Stable growth<small>逐年预测结束后的长期年增长；必须低于 WACC</small></span>
                       <output class="control-value" id="terminal-growth-output" for="terminal-growth">3.0%</output>
                     </span>
                     <input id="terminal-growth" type="range" min="0" max="5.5" step=".25" value="3">
@@ -1357,7 +1540,7 @@
 
                   <label class="control" for="net-debt">
                     <span class="control-top">
-                      <span class="control-label">Net debt<small>企业价值 → 股权价值</small></span>
+                      <span class="control-label">Net debt<small>有息债务减现金；从企业价值扣除后得到股权价值</small></span>
                       <output class="control-value" id="net-debt-output" for="net-debt">$250m</output>
                     </span>
                     <input id="net-debt" type="range" min="-200" max="800" step="25" value="250">
@@ -1365,7 +1548,7 @@
 
                   <div class="control">
                     <span class="control-top">
-                      <span class="control-label">Explicit period<small>显性预测期</small></span>
+                      <span class="control-label">Explicit period<small>逐年写出现金流的年数；更远年份由终值概括</small></span>
                       <output class="control-value" id="years-output">5y</output>
                     </span>
                     <div class="year-toggle" aria-label="显性预测期">
@@ -1379,15 +1562,15 @@
               <div class="results">
                 <div class="result-metrics">
                   <div class="result-card">
-                    <span>Present value (PV) of explicit FCFF<br>显性期现金流现值</span>
+                    <span>显性期现值<br>逐年预测的现金折回今天后相加</span>
                     <strong id="explicit-pv">$473m</strong>
                   </div>
                   <div class="result-card">
-                    <span>PV of terminal value<br>终值现值</span>
+                    <span>终值现值<br>逐年预测结束后的所有现金，概括后再折回今天</span>
                     <strong id="terminal-pv">$1,565m</strong>
                   </div>
                   <div class="result-card">
-                    <span>Terminal share<br>终值占企业价值</span>
+                    <span>终值占比<br>企业价值中有多少依赖远期现金</span>
                     <strong id="terminal-share">76.8%</strong>
                   </div>
                 </div>

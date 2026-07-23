@@ -27,8 +27,31 @@ interface Copy {
   reset: string
   changed: string
   assumptions: string
+  lifeExample: {
+    eyebrow: string
+    title: string
+    intro: string
+    asking: string
+    askingValue: string
+    steps: Array<{ index: string; title: string; value: string; body: string }>
+    explicit: string
+    terminal: string
+    enterprise: string
+    debt: string
+    equity: string
+    verdict: string
+    caveat: string
+  }
   labels: Record<keyof Settings, string>
+  labelHelp: Record<keyof Settings, string>
   metrics: {
+    explicit: string
+    terminal: string
+    enterprise: string
+    equity: string
+    terminalShare: string
+  }
+  metricHelp: {
     explicit: string
     terminal: string
     enterprise: string
@@ -77,13 +100,70 @@ const COPY: Record<Locale, Copy> = {
     reset: 'Restore example',
     changed: 'changed',
     assumptions: 'Visible assumptions',
+    lifeExample: {
+      eyebrow: '00 · Everyday example',
+      title: 'You are considering buying one vending machine.',
+      intro:
+        'The seller asks $120,000. You begin with the cash the machine can actually leave after snacks, electricity, repairs, and location fees—not with its sales.',
+      asking: 'Seller asks',
+      askingValue: '$120,000',
+      steps: [
+        {
+          index: 'A',
+          title: 'Cash it leaves',
+          value: '$8,000 / year',
+          body: 'This is the spendable cash left after operating costs—the everyday intuition behind free cash flow.',
+        },
+        {
+          index: 'B',
+          title: 'Write out five years',
+          value: '3% annual growth',
+          body: 'Forecast the next five annual cash flows one by one. This is the explicit forecast period.',
+        },
+        {
+          index: 'C',
+          title: 'Price waiting and risk',
+          value: '10% required return',
+          body: 'Later, uncertain cash is worth less today, so every future amount receives a discount.',
+        },
+        {
+          index: 'D',
+          title: 'Do not forecast forever',
+          value: '2% stable growth',
+          body: 'All cash after year five is summarized in terminal value, then discounted back to today.',
+        },
+      ],
+      explicit: 'Five-year cash today · $32,981',
+      terminal: 'Later cash today · $73,421',
+      enterprise: 'Operating asset · $106,403',
+      debt: 'Remaining loan · $5,000',
+      equity: 'Buyer-equity value · $101,403',
+      verdict:
+        'Under these visible assumptions, the simplified value after the remaining loan is about $101,400—not the $120,000 asking price.',
+      caveat:
+        'This does not prove the seller is wrong. It identifies the gap that stronger cash flow, lower risk, or another reason must justify. The 10% personal required return is an intuition aid for the discount rate, not a formal WACC calculation.',
+    },
     labels: {
       baseCashFlow: 'Current FCFF',
-      growth: 'Explicit FCFF growth',
-      discountRate: 'WACC',
+      growth: 'Explicit-period FCFF growth',
+      discountRate: 'Discount rate (WACC)',
       terminalGrowth: 'Stable growth',
       netDebt: 'Net debt',
       years: 'Forecast horizon',
+    },
+    labelHelp: {
+      baseCashFlow:
+        'Free Cash Flow to the Firm: cash the operating business can provide to lenders and shareholders together.',
+      growth:
+        'How quickly that cash grows during the years forecast one by one.',
+      discountRate:
+        'Weighted Average Cost of Capital: the combined annual return required by lenders and shareholders. A higher rate makes future cash worth less today.',
+      terminalGrowth:
+        'The long-run annual growth assumed after the year-by-year forecast ends. It must remain below WACC.',
+      netDebt:
+        'Interest-bearing debt minus cash. It is subtracted from enterprise value to estimate equity value.',
+      years:
+        'The number of years forecast separately before all later years are summarized in terminal value.',
     },
     metrics: {
       explicit: 'Explicit-period PV',
@@ -91,6 +171,18 @@ const COPY: Record<Locale, Copy> = {
       enterprise: 'Enterprise value',
       equity: 'Equity value',
       terminalShare: 'Terminal share',
+    },
+    metricHelp: {
+      explicit:
+        'The year-by-year forecast cash flows, each discounted back to today, then added together.',
+      terminal:
+        'All cash flows after the detailed forecast, summarized at the horizon and then discounted back to today.',
+      enterprise:
+        'The estimated value of the operating business for lenders and shareholders together.',
+      equity:
+        'What remains for shareholders after subtracting net debt in this simplified model.',
+      terminalShare:
+        'The percentage of enterprise value that depends on cash flows after the detailed forecast.',
     },
     chart: {
       title: 'Future cash translated into present value',
@@ -108,10 +200,10 @@ const COPY: Record<Locale, Copy> = {
       equity: 'Equity value',
     },
     sensitivity: {
-      title: 'WACC × stable-growth sensitivity',
+      title: 'How discount rate and long-run growth change the answer',
       description:
-        'The same cash-flow forecast can support a wide range of values. The outlined cell is the current model.',
-      discountRate: 'WACC',
+        'Rows change the discount rate (WACC); columns change stable growth. The outlined cell is the current model.',
+      discountRate: 'discount rate (WACC)',
       terminalGrowth: 'stable growth',
     },
     reading: {
@@ -130,7 +222,7 @@ const COPY: Record<Locale, Copy> = {
       {
         index: 'A',
         title: 'Match the claim',
-        body: 'This lab discounts Free Cash Flow to the Firm at WACC, then subtracts net debt to reach equity value.',
+        body: 'This lab discounts Free Cash Flow to the Firm (FCFF) at the Weighted Average Cost of Capital (WACC), then subtracts net debt to reach equity value.',
       },
       {
         index: 'B',
@@ -154,13 +246,70 @@ const COPY: Record<Locale, Copy> = {
     reset: '恢复示例',
     changed: '已改变',
     assumptions: '可见假设',
+    lifeExample: {
+      eyebrow: '00 · 先从生活出发',
+      title: '假设你正在考虑买一台自动售货机。',
+      intro:
+        '卖家开价 $120,000。你先不看销售额，而是看扣除零食补货、电费、维修和场地费后，这台机器每年真正能留下多少现金。',
+      asking: '卖家开价',
+      askingValue: '$120,000',
+      steps: [
+        {
+          index: 'A',
+          title: '它真正留下的现金',
+          value: '每年 $8,000',
+          body: '这是支付经营成本后可以拿走的现金，也是理解自由现金流最直观的起点。',
+        },
+        {
+          index: 'B',
+          title: '先逐年写出五年',
+          value: '每年增长 3%',
+          body: '把未来五年的现金逐年估出来。这五年就是显性预测期。',
+        },
+        {
+          index: 'C',
+          title: '给等待和风险定价',
+          value: '要求 10% 年回报',
+          body: '越晚、越不确定的现金，今天越不值钱，所以每一笔未来现金都要打折。',
+        },
+        {
+          index: 'D',
+          title: '不必逐年预测到永远',
+          value: '长期增长 2%',
+          body: '第五年以后的所有现金由终值概括，再把终值折回今天。',
+        },
+      ],
+      explicit: '前五年现金的现值 · $32,981',
+      terminal: '第五年以后现金的现值 · $73,421',
+      enterprise: '经营资产价值 · $106,403',
+      debt: '剩余贷款 · $5,000',
+      equity: '买方股权价值 · $101,403',
+      verdict:
+        '在这些可见假设下，扣除剩余贷款后的简化价值大约是 $101,400，而不是卖家的 $120,000 开价。',
+      caveat:
+        '这并不能证明卖家一定错了。它只是把差距变成一个可以追问的问题：现金是否会更多、风险是否更低，或是否还有别的理由？这里的 10% 是帮助理解折现率的类比，不是严格计算出来的 WACC。',
+    },
     labels: {
-      baseCashFlow: '当前 FCFF',
-      growth: '显性期 FCFF 增长',
-      discountRate: 'WACC',
+      baseCashFlow: '当前企业自由现金流（FCFF）',
+      growth: '逐年预测期的现金增长',
+      discountRate: '折现率（WACC）',
       terminalGrowth: '稳定增长',
       netDebt: '净债务',
       years: '预测期',
+    },
+    labelHelp: {
+      baseCashFlow:
+        'Free Cash Flow to the Firm：公司经营后，可供债权人与股东共同分配的现金。',
+      growth:
+        '在未来几年逐年预测中，这笔现金每年增长多少。',
+      discountRate:
+        'Weighted Average Cost of Capital，加权平均资本成本：债权人与股东合计要求的年回报。比例越高，未来现金折回今天越少。',
+      terminalGrowth:
+        '逐年预测结束后，现金长期每年增长多少；必须低于 WACC。',
+      netDebt:
+        '有息债务减去现金；从企业价值扣除后，得到简化的股权价值。',
+      years:
+        '你逐年写出现金流的年数；更远的年份由终值概括。',
     },
     metrics: {
       explicit: '显性期现值',
@@ -168,6 +317,18 @@ const COPY: Record<Locale, Copy> = {
       enterprise: '企业价值',
       equity: '股权价值',
       terminalShare: '终值占比',
+    },
+    metricHelp: {
+      explicit:
+        '把未来 5 年或 10 年逐年预测的现金，分别折回今天后再相加。',
+      terminal:
+        '把逐年预测结束后的所有现金先合成一个期末价值，再折回今天。',
+      enterprise:
+        '经营业务对债权人与股东合计的估计价值。',
+      equity:
+        '在这个简化模型中，企业价值扣除净债务后，归股东的估计价值。',
+      terminalShare:
+        '企业价值中，有多少比例依赖逐年预测结束后的远期现金。',
     },
     chart: {
       title: '把未来现金翻译成今天的现值',
@@ -184,9 +345,10 @@ const COPY: Record<Locale, Copy> = {
       equity: '股权价值',
     },
     sensitivity: {
-      title: 'WACC × 稳定增长敏感度',
-      description: '同一条现金流预测可能支持很宽的价值范围。描边格是当前模型。',
-      discountRate: 'WACC',
+      title: '折现率与长期增长怎样改变答案',
+      description:
+        '每一行改变折现率（WACC），每一列改变稳定增长率。描边格是当前模型。',
+      discountRate: '折现率（WACC）',
       terminalGrowth: '稳定增长',
     },
     reading: {
@@ -201,7 +363,7 @@ const COPY: Record<Locale, Copy> = {
       {
         index: 'A',
         title: '匹配资本请求权',
-        body: '本实验用 WACC 折现企业自由现金流，再扣除净债务得到股权价值。',
+        body: '本实验用 WACC（Weighted Average Cost of Capital，加权平均资本成本）折现 FCFF（Free Cash Flow to the Firm，企业自由现金流），再扣除净债务得到股权价值。',
       },
       {
         index: 'B',
@@ -230,6 +392,7 @@ const DEFAULTS: Settings = {
 const settings = reactive<Settings>({ ...DEFAULTS })
 const copy = computed(() => COPY[props.locale])
 const labRoot = ref<HTMLElement | null>(null)
+const workspaceRoot = ref<HTMLElement | null>(null)
 const isSummaryPinned = ref(false)
 const summaryLeft = ref('1rem')
 const summaryWidth = ref('calc(100vw - 2rem)')
@@ -345,13 +508,14 @@ function restoreExample() {
 }
 
 function updateSummaryPin() {
-  if (!labRoot.value || window.innerWidth >= 980) {
+  if (!labRoot.value || !workspaceRoot.value || window.innerWidth >= 980) {
     isSummaryPinned.value = false
     return
   }
 
   const bounds = labRoot.value.getBoundingClientRect()
-  isSummaryPinned.value = bounds.top < 72 && bounds.bottom > 150
+  const workspaceBounds = workspaceRoot.value.getBoundingClientRect()
+  isSummaryPinned.value = workspaceBounds.top < 72 && bounds.bottom > 150
   summaryLeft.value = `${Math.max(16, bounds.left)}px`
   summaryWidth.value = `${Math.min(bounds.width, window.innerWidth - 32)}px`
 }
@@ -389,6 +553,44 @@ function formatControl(control: Control) {
 
 <template>
   <section ref="labRoot" class="dcf-lab" aria-labelledby="dcf-lab-title">
+    <section class="life-example" aria-labelledby="dcf-life-example-title">
+      <header class="life-header">
+        <div>
+          <p class="eyebrow">{{ copy.lifeExample.eyebrow }}</p>
+          <h2 id="dcf-life-example-title">{{ copy.lifeExample.title }}</h2>
+          <p>{{ copy.lifeExample.intro }}</p>
+        </div>
+        <div class="asking-price">
+          <span>{{ copy.lifeExample.asking }}</span>
+          <strong>{{ copy.lifeExample.askingValue }}</strong>
+        </div>
+      </header>
+
+      <div class="life-steps">
+        <article v-for="step in copy.lifeExample.steps" :key="step.index">
+          <span>{{ step.index }}</span>
+          <h3>{{ step.title }}</h3>
+          <strong>{{ step.value }}</strong>
+          <p>{{ step.body }}</p>
+        </article>
+      </div>
+
+      <div class="life-calculation">
+        <span>{{ copy.lifeExample.explicit }}</span>
+        <b>+</b>
+        <span>{{ copy.lifeExample.terminal }}</span>
+        <b>=</b>
+        <span>{{ copy.lifeExample.enterprise }}</span>
+        <b>−</b>
+        <span>{{ copy.lifeExample.debt }}</span>
+        <b>=</b>
+        <strong>{{ copy.lifeExample.equity }}</strong>
+      </div>
+
+      <p class="life-verdict">{{ copy.lifeExample.verdict }}</p>
+      <p class="life-caveat">{{ copy.lifeExample.caveat }}</p>
+    </section>
+
     <header class="lab-header">
       <div>
         <p class="eyebrow">{{ copy.eyebrow }}</p>
@@ -426,7 +628,7 @@ function formatControl(control: Control) {
       </div>
     </div>
 
-    <div class="workspace">
+    <div ref="workspaceRoot" class="workspace">
       <aside class="control-panel" aria-labelledby="dcf-assumptions-title">
         <div class="control-heading">
           <h3 id="dcf-assumptions-title">{{ copy.assumptions }}</h3>
@@ -441,7 +643,10 @@ function formatControl(control: Control) {
             :class="{ 'is-changed': isChanged(control.key) }"
           >
             <span class="control-top">
-              <span>{{ copy.labels[control.key] }}</span>
+              <span class="control-copy">
+                <span>{{ copy.labels[control.key] }}</span>
+                <small>{{ copy.labelHelp[control.key] }}</small>
+              </span>
               <output>{{ formatControl(control) }}</output>
             </span>
             <input
@@ -450,7 +655,7 @@ function formatControl(control: Control) {
               :min="control.min"
               :max="control.max"
               :step="control.step"
-              :aria-label="copy.labels[control.key]"
+              :aria-label="`${copy.labels[control.key]}. ${copy.labelHelp[control.key]}`"
             />
           </label>
         </div>
@@ -459,19 +664,31 @@ function formatControl(control: Control) {
       <div class="result-panel">
         <div v-if="result" class="metric-grid" aria-live="polite">
           <article>
-            <span>{{ copy.metrics.explicit }}</span>
+            <div class="metric-copy">
+              <span>{{ copy.metrics.explicit }}</span>
+              <small>{{ copy.metricHelp.explicit }}</small>
+            </div>
             <strong>{{ formatMoney(result.explicitValue) }}</strong>
           </article>
           <article class="metric-terminal">
-            <span>{{ copy.metrics.terminal }}</span>
+            <div class="metric-copy">
+              <span>{{ copy.metrics.terminal }}</span>
+              <small>{{ copy.metricHelp.terminal }}</small>
+            </div>
             <strong>{{ formatMoney(result.terminalValue) }}</strong>
           </article>
           <article>
-            <span>{{ copy.metrics.enterprise }}</span>
+            <div class="metric-copy">
+              <span>{{ copy.metrics.enterprise }}</span>
+              <small>{{ copy.metricHelp.enterprise }}</small>
+            </div>
             <strong>{{ formatMoney(result.enterpriseValue) }}</strong>
           </article>
           <article class="metric-equity">
-            <span>{{ copy.metrics.equity }}</span>
+            <div class="metric-copy">
+              <span>{{ copy.metrics.equity }}</span>
+              <small>{{ copy.metricHelp.equity }}</small>
+            </div>
             <strong>{{ formatMoney(result.equityValue) }}</strong>
           </article>
         </div>
@@ -593,6 +810,164 @@ function formatControl(control: Control) {
   --teal: #35a7a0;
   margin: 2.5rem 0 0;
   color: var(--foreground);
+}
+
+.life-example {
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--line-card);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--lime) 18%, var(--card)),
+      var(--card) 52%
+    );
+}
+
+.life-header {
+  display: grid;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 4vw, 2.75rem);
+  border-bottom: 1px solid var(--line-card);
+}
+
+.life-header h2 {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--foreground);
+  font-size: clamp(2rem, 5vw, 4.25rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.life-header > div > p:last-child {
+  max-width: 46rem;
+  margin: 1rem 0 0;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.asking-price {
+  align-self: end;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--line-control);
+  border-radius: 1rem;
+  background: var(--card);
+}
+
+.asking-price span {
+  display: block;
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+}
+
+.asking-price strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--foreground);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.04em;
+}
+
+.life-steps {
+  display: grid;
+  gap: 1px;
+  background: var(--line-card);
+}
+
+.life-steps article {
+  min-width: 0;
+  padding: 1.25rem;
+  background: color-mix(in srgb, var(--card) 96%, var(--foreground) 1%);
+}
+
+.life-steps article > span {
+  color: var(--orange);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.life-steps h3 {
+  margin: 0.9rem 0 0;
+  color: var(--foreground);
+  font-size: 1rem;
+}
+
+.life-steps strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--foreground);
+  font-size: 1.15rem;
+}
+
+.life-steps p {
+  margin: 0.7rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.life-calculation {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 1.1rem clamp(1.25rem, 4vw, 2.75rem);
+  border-top: 1px solid var(--line-card);
+  border-bottom: 1px solid var(--line-card);
+  color: var(--muted-foreground);
+  background: var(--secondary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
+
+.life-calculation b {
+  color: var(--orange);
+}
+
+.life-calculation strong {
+  color: var(--foreground);
+}
+
+.life-verdict,
+.life-caveat {
+  margin: 0;
+  padding-inline: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.life-verdict {
+  padding-top: 1.25rem;
+  color: var(--foreground);
+  font-weight: 720;
+  line-height: 1.6;
+}
+
+.life-caveat {
+  padding-top: 0.6rem;
+  padding-bottom: 1.5rem;
+  color: var(--muted-foreground);
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 760px) {
+  .life-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .life-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .life-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .lab-header {
@@ -781,11 +1156,31 @@ function formatControl(control: Control) {
 }
 
 .control-top {
-  align-items: baseline;
-  min-height: 2.15rem;
+  align-items: flex-start;
+  min-height: 4.9rem;
   color: var(--muted-foreground);
   font-size: 0.73rem;
   line-height: 1.35;
+}
+
+.control-copy {
+  min-width: 0;
+}
+
+.control-copy > span {
+  display: block;
+  color: var(--foreground);
+  font-weight: 720;
+}
+
+.control-copy small {
+  display: block;
+  max-width: 18rem;
+  margin-top: 0.28rem;
+  color: var(--muted-foreground);
+  font-size: 0.61rem;
+  font-weight: 450;
+  line-height: 1.45;
 }
 
 .control-top output {
@@ -834,17 +1229,30 @@ function formatControl(control: Control) {
   background: var(--violet);
 }
 
-.metric-grid span {
+.metric-copy > span {
   display: block;
   color: var(--muted-foreground);
   font-size: 0.66rem;
+  font-weight: 720;
 }
 
-.metric-terminal span {
+.metric-copy small {
+  display: block;
+  min-height: 3.3rem;
+  margin-top: 0.28rem;
+  color: var(--muted-foreground);
+  font-size: 0.58rem;
+  font-weight: 450;
+  line-height: 1.4;
+}
+
+.metric-terminal .metric-copy > span,
+.metric-terminal .metric-copy small {
   color: rgba(23, 23, 19, 0.68);
 }
 
-.metric-equity span {
+.metric-equity .metric-copy > span,
+.metric-equity .metric-copy small {
   color: rgba(255, 255, 255, 0.74);
 }
 
