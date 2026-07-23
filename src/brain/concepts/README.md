@@ -26,6 +26,8 @@ status: active
 - [打开 Paired Randomization Test 互动解释页](pages/paired-randomization-test.html)
 - [Monte Carlo Simulation · 蒙特卡洛模拟](monte-carlo-simulation.md)
 - [打开 Monte Carlo Simulation 互动解释页](pages/monte-carlo-simulation.html)
+- [Discounted Cash Flow · 折现现金流估值](discounted-cash-flow.md)
+- [打开 Discounted Cash Flow 互动解释页](pages/discounted-cash-flow.html)
 
 ### Design
 
@@ -45,6 +47,7 @@ status: active
 | [Idempotency](idempotency.md) | 幂等性 | 软件系统 / 分布式系统 | 同一个意图可以被重复送达，但只产生一次业务效果 | growing |
 | [Paired Randomization Test](paired-randomization-test.md) | 配对随机化检验 | 统计推断 / 模型评估 | 分数上涨只是观察；逐案配对并翻转符号，才知道它是否像稳定改进 | growing |
 | [Monte Carlo Simulation](monte-carlo-simulation.md) | 蒙特卡洛模拟 | 金融 / 统计 / 决策科学 | 不押注一条未来，而是反复抽样许多可能路径，看范围、尾部与失败 | growing |
+| [Discounted Cash Flow](discounted-cash-flow.md) | 折现现金流估值 | 金融 / 估值 / 决策科学 | 把未来现金流、时间与风险翻译成今天的条件式价值 | growing |
 
 ### Design
 

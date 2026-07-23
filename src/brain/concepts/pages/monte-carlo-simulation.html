@@ -896,6 +896,8 @@
       padding: 22px;
       border: 1px solid var(--line);
       border-radius: 20px;
+      color: inherit;
+      text-decoration: none;
       background: rgba(255,255,255,.43);
     }
 
@@ -1313,7 +1315,7 @@
             <article class="node"><h3>Stress Testing <small>COMPLEMENTARY EVIDENCE</small></h3><span class="full-name">压力测试</span><p>强迫模型进入指定坏世界。它覆盖模拟分布可能几乎从不生成的危机与制度切换。</p></article>
             <article class="node"><h3>Sensitivity Analysis <small>DIAGNOSTIC METHOD</small></h3><span class="full-name">敏感度分析</span><p>解释哪个输入最推动结果；Monte Carlo 负责传播联合不确定性，两者常一起使用。</p></article>
             <article class="node"><h3>Bootstrap <small>SAMPLING MECHANISM</small></h3><span class="full-name">自助抽样</span><p>从经验数据重复抽样；它可以成为 Monte Carlo 的输入生成方法，区块抽样还能保留部分时间依赖。</p></article>
-            <article class="node"><h3>DCF <small>VALUATION MODEL</small></h3><span class="full-name">Discounted Cash Flow · 贴现现金流</span><p>DCF 是计算价值的 f(·)；Monte Carlo 反复给它不同输入，输出内在价值分布。</p></article>
+            <a class="node" href="discounted-cash-flow.html"><h3>DCF <small>VALUATION MODEL</small></h3><span class="full-name">Discounted Cash Flow · 折现现金流估值</span><p>DCF 是计算价值的 f(·)；Monte Carlo 反复给它不同输入，输出条件式价值分布。</p></a>
             <article class="node"><h3>VaR <small>OUTPUT METRIC</small></h3><span class="full-name">Value at Risk · 在险价值</span><p>可以从模拟结果读取的损失分位数；它不是模拟方法，也不告诉你超过阈值以后会有多糟。</p></article>
             <article class="node"><h3>Sequence Risk <small>APPLICATION RISK</small></h3><span class="full-name">Sequence-of-Returns Risk · 收益顺序风险</span><p>提款或现金流让年度回报顺序改变结局；它是路径模拟在长期资金规划中最直观的应用之一。</p></article>
             <article class="node"><h3>Model Risk <small>PARENT RISK</small></h3><span class="full-name">模型风险</span><p>模型结构、数据、参数和使用方式本身造成的风险。Monte Carlo 能展示模型内不确定性，不能消除模型风险。</p></article>

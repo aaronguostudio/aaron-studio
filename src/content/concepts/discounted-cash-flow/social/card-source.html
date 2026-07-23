@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <title>Discounted Cash Flow · Share card</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 1080px; height: 1350px; margin: 0; overflow: hidden; }
+    body {
+      color: #181714;
+      background: #f4f0e7;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    }
+    .card { position: relative; width: 100%; height: 100%; padding: 78px 84px 64px; overflow: hidden; }
+    .grid {
+      position: absolute; inset: 0; opacity: .48;
+      background-image:
+        linear-gradient(rgba(24,23,20,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24,23,20,.055) 1px, transparent 1px);
+      background-size: 54px 54px;
+    }
+    .orb {
+      position: absolute; top: -210px; right: -190px; width: 590px; height: 590px;
+      border-radius: 50%; border: 1px solid rgba(117,103,246,.2);
+      box-shadow: 0 0 0 92px rgba(117,103,246,.04), 0 0 0 184px rgba(255,105,72,.022);
+    }
+    .content { position: relative; z-index: 2; height: 100%; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .brand {
+      display: flex; align-items: center; gap: 15px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 17px; font-weight: 850; letter-spacing: .15em;
+    }
+    .brand-mark {
+      display: block; width: 46px; height: 46px; padding: 7px;
+      border-radius: 13px; background: #0b0b0f; object-fit: contain;
+    }
+    .series {
+      color: #6f6a61; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px; letter-spacing: .12em;
+    }
+    .hero { margin-top: 70px; }
+    .eyebrow {
+      color: #ff6948; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 17px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase;
+    }
+    h1 {
+      max-width: 900px; margin: 22px 0 0; font-size: 94px; font-weight: 760;
+      line-height: .9; letter-spacing: -.07em;
+    }
+    .stage {
+      position: relative; margin-top: 46px; height: 424px; overflow: hidden;
+      border: 1.5px solid rgba(24,23,20,.22); border-radius: 30px;
+      background: rgba(255,255,255,.6); box-shadow: 0 28px 70px rgba(48,37,21,.08);
+    }
+    .stage-label {
+      position: absolute; top: 24px; left: 28px; color: #706a61;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px; letter-spacing: .14em;
+    }
+    .scale {
+      position: absolute; top: 64px; bottom: 72px; left: 72px; right: 56px;
+      border-bottom: 1.5px solid rgba(24,23,20,.22);
+    }
+    .bars {
+      position: absolute; inset: 0; display: flex; align-items: end; justify-content: space-between;
+      padding: 0 72px 73px;
+    }
+    .year { position: relative; width: 105px; height: 245px; }
+    .future {
+      position: absolute; right: 17px; bottom: 0; left: 17px; height: var(--future);
+      border: 2px solid rgba(117,103,246,.5); border-radius: 18px 18px 5px 5px;
+      background: rgba(117,103,246,.11);
+    }
+    .present {
+      position: absolute; right: 17px; bottom: 0; left: 17px; height: var(--present);
+      border-radius: 16px 16px 4px 4px; background: #ff6948;
+    }
+    .year b {
+      position: absolute; right: 0; bottom: -36px; left: 0; text-align: center;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px; letter-spacing: .1em;
+    }
+    .arrow {
+      position: absolute; right: 38px; bottom: 22px; color: #7567f6;
+      font-size: 26px; font-weight: 900;
+    }
+    .legend {
+      position: absolute; left: 28px; bottom: 22px; display: flex; gap: 20px;
+      color: #6f6a61; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px; letter-spacing: .08em;
+    }
+    .legend span { display: flex; align-items: center; gap: 7px; }
+    .legend i { width: 20px; height: 8px; border-radius: 99px; }
+    .legend .future-key { border: 1.5px solid rgba(117,103,246,.55); background: rgba(117,103,246,.1); }
+    .legend .present-key { background: #ff6948; }
+    .equation {
+      display: grid; grid-template-columns: 1.1fr 28px .75fr 28px .75fr 40px 1.05fr;
+      align-items: center; gap: 8px; margin-top: 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px; font-weight: 850; letter-spacing: .09em;
+    }
+    .equation span:nth-child(even) { color: #7567f6; font-size: 21px; text-align: center; }
+    .equation span:last-child { color: #ff6948; text-align: right; }
+    .thesis {
+      display: grid; grid-template-columns: 13px 1fr; gap: 22px;
+      margin-top: 35px; padding-top: 28px; border-top: 1.5px solid rgba(24,23,20,.22);
+    }
+    .thesis-mark { width: 13px; height: 78px; border-radius: 9px; background: #d8ff68; }
+    .thesis p {
+      margin: 0; font-size: 30px; font-weight: 680; line-height: 1.18; letter-spacing: -.035em;
+    }
+    footer {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      color: #6f6a61; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;
+    }
+    footer b { color: #181714; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="grid"></div>
+    <div class="orb"></div>
+    <div class="content">
+      <header>
+        <div class="brand">
+          <img class="brand-mark" src="../../../../../assets/aaron-logo-assets/ag-logo-v4-final.png" alt="">
+          <span>AARON GUO</span>
+        </div>
+        <div class="series">WORKING VOCABULARY / 007</div>
+      </header>
+
+      <section class="hero">
+        <div class="eyebrow">Finance &amp; valuation</div>
+        <h1>Discounted<br>Cash Flow</h1>
+      </section>
+
+      <section class="stage">
+        <div class="stage-label">FUTURE CASH → PRESENT VALUE</div>
+        <div class="scale"></div>
+        <div class="bars">
+          <div class="year" style="--future: 132px; --present: 122px;"><div class="future"></div><div class="present"></div><b>Y1</b></div>
+          <div class="year" style="--future: 151px; --present: 128px;"><div class="future"></div><div class="present"></div><b>Y2</b></div>
+          <div class="year" style="--future: 172px; --present: 133px;"><div class="future"></div><div class="present"></div><b>Y3</b></div>
+          <div class="year" style="--future: 198px; --present: 138px;"><div class="future"></div><div class="present"></div><b>Y4</b></div>
+          <div class="year" style="--future: 228px; --present: 142px;"><div class="future"></div><div class="present"></div><b>Y5</b></div>
+        </div>
+        <div class="legend">
+          <span><i class="future-key"></i>FUTURE CASH</span>
+          <span><i class="present-key"></i>PRESENT VALUE</span>
+        </div>
+        <div class="arrow">TODAY ←</div>
+      </section>
+
+      <div class="equation">
+        <span>FUTURE CASH</span><span>+</span><span>TIME</span><span>+</span><span>RISK</span><span>→</span><span>VALUE TODAY</span>
+      </div>
+
+      <section class="thesis">
+        <span class="thesis-mark"></span>
+        <p>A valuation is a conditional sentence,<br>not a discovered fact.</p>
+      </section>
+
+      <footer>
+        <span>Explore the interactive concept</span>
+        <b>aaronguo.com/learn/discounted-cash-flow →</b>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

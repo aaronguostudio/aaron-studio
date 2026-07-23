@@ -342,6 +342,19 @@
     .card.monte-carlo .orb { width: 270px; height: 270px; opacity: .18; background: var(--violet, #b7a5ff); }
     .card.monte-carlo .status-dot { background: var(--lime); box-shadow: 0 0 0 5px rgba(216,255,103,.15); }
 
+    .card.dcf {
+      grid-column: 1 / -1;
+      min-height: 360px;
+      color: var(--ink);
+      background:
+        linear-gradient(120deg, rgba(217,255,102,.8), rgba(244,239,229,.68) 48%, rgba(183,165,255,.56));
+    }
+
+    .card.dcf a { position: relative; z-index: 1; }
+    .card.dcf p { color: rgba(23,23,18,.68); }
+    .card.dcf .orb { width: 280px; height: 280px; opacity: .34; background: var(--blue); }
+    .card.dcf .status-dot { background: var(--orange); box-shadow: 0 0 0 5px rgba(255,121,95,.15); }
+
     .neighbors {
       grid-column: 1 / -1;
       display: flex;
@@ -380,6 +393,7 @@
       border-radius: 999px;
       color: var(--muted);
       font-size: 13px;
+      text-decoration: none;
       background: rgba(255,255,255,.48);
     }
 
@@ -491,7 +505,7 @@
     <section aria-labelledby="concepts-heading">
       <div class="section-head">
         <h2 id="concepts-heading">Systems &amp; Evidence</h2>
-        <span>05 concepts · 31 neighbors</span>
+        <span>06 concepts · 38 neighbors</span>
       </div>
 
       <div class="cards">
@@ -565,6 +579,20 @@
           </a>
         </article>
 
+        <article class="card dcf">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/discounted-cash-flow.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>06 / Finance &amp; valuation</span>
+            </div>
+            <div>
+              <h3>Discounted<br>Cash Flow</h3>
+              <p>把未来现金流、时间与风险翻译成今天的条件式价值。调增长、企业自由现金流、WACC、稳定增长与净债务，同时看见逐年折现、终值占比和股权价值怎样变化。</p>
+            </div>
+          </a>
+        </article>
+
         <aside class="neighbors" aria-label="Related concepts">
           <div>
             <h3>Concept neighbors</h3>
@@ -598,7 +626,14 @@
             <span class="pill">Sensitivity Analysis</span>
             <span class="pill">Historical Simulation</span>
             <span class="pill">Bootstrap</span>
-            <span class="pill" aria-label="DCF, Discounted Cash Flow">DCF</span>
+            <a class="pill" href="pages/discounted-cash-flow.html" aria-label="DCF, Discounted Cash Flow">DCF</a>
+            <span class="pill" aria-label="TVM, Time Value of Money">TVM</span>
+            <span class="pill" aria-label="FCF, Free Cash Flow">FCF</span>
+            <span class="pill" aria-label="WACC, Weighted Average Cost of Capital">WACC</span>
+            <span class="pill">Terminal Value</span>
+            <span class="pill" aria-label="NPV, Net Present Value">NPV</span>
+            <span class="pill">Relative Valuation</span>
+            <span class="pill">Margin of Safety</span>
             <span class="pill" aria-label="VaR, Value at Risk">VaR</span>
             <span class="pill">Sequence-of-Returns Risk</span>
             <span class="pill">Model Risk</span>

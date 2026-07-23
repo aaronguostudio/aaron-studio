@@ -1,0 +1,21 @@
+{
+  "slug": "discounted-cash-flow",
+  "source": "src/brain/concepts/discounted-cash-flow.md",
+  "status": "public-ready",
+  "updated": "2026-07-23",
+  "files": [
+    "en.md",
+    "zh.md",
+    "visual.vue",
+    "social/og-1200x627.jpg",
+    "social/card-4x5.jpg"
+  ],
+  "social": {
+    "status": "manual-ready",
+    "ogSource": "social/og-source.html",
+    "ogImage": "social/og-1200x627.jpg",
+    "cardSource": "social/card-source.html",
+    "cardImage": "social/card-4x5.jpg",
+    "linkedInDraft": "social/linkedin-manual.md"
+  }
+}
