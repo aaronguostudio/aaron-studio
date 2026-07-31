@@ -177,6 +177,15 @@ if (await exists(visualSource)) {
   ])
 }
 
+const threeRuntimeFilename = `${args.slug}-three.runtime.js`
+const threeRuntimeSource = path.join(packageRoot, threeRuntimeFilename)
+if (await exists(threeRuntimeSource)) {
+  mappings.push([
+    threeRuntimeFilename,
+    path.join(blogRoot, 'components', 'learn', 'concepts', threeRuntimeFilename),
+  ])
+}
+
 const socialAssets = ['og-1200x627.jpg', 'card-4x5.jpg']
 for (const filename of socialAssets) {
   const relativeSource = path.join('social', filename)

@@ -355,6 +355,19 @@
     .card.dcf .orb { width: 280px; height: 280px; opacity: .34; background: var(--blue); }
     .card.dcf .status-dot { background: var(--orange); box-shadow: 0 0 0 5px rgba(255,121,95,.15); }
 
+    .card.harness {
+      grid-column: 1 / -1;
+      min-height: 390px;
+      background:
+        radial-gradient(circle at 84% 44%, rgba(216,255,103,.18), transparent 115px),
+        radial-gradient(circle at 84% 44%, transparent 0 132px, rgba(132,216,255,.15) 133px 134px, transparent 135px 180px, rgba(183,165,255,.18) 181px 183px, transparent 184px),
+        linear-gradient(135deg, #181917, #25242b);
+    }
+
+    .card.harness a { position: relative; z-index: 1; }
+    .card.harness .orb { width: 285px; height: 285px; opacity: .22; background: var(--lime); }
+    .card.harness .status-dot { background: var(--blue); box-shadow: 0 0 0 5px rgba(132,216,255,.15); }
+
     .neighbors {
       grid-column: 1 / -1;
       display: flex;
@@ -505,7 +518,7 @@
     <section aria-labelledby="concepts-heading">
       <div class="section-head">
         <h2 id="concepts-heading">Systems &amp; Evidence</h2>
-        <span>06 concepts · 38 neighbors</span>
+        <span>07 concepts · 46 neighbors</span>
       </div>
 
       <div class="cards">
@@ -593,6 +606,20 @@
           </a>
         </article>
 
+        <article class="card harness">
+          <span class="orb" aria-hidden="true"></span>
+          <a href="pages/harness-engineering.html">
+            <div class="card-label">
+              <span><span class="status-dot"></span>Growing</span>
+              <span>07 / Artificial intelligence systems</span>
+            </div>
+            <div>
+              <h3>Harness<br>Engineering</h3>
+              <p>模型提供能力；Harness 把任务契约、上下文、工具、状态、验证、权限与恢复组织成可靠工作。逐层组装运行系统，再注入一次沙箱崩溃，看任务能否带证据恢复。</p>
+            </div>
+          </a>
+        </article>
+
         <aside class="neighbors" aria-label="Related concepts">
           <div>
             <h3>Concept neighbors</h3>
@@ -637,6 +664,14 @@
             <span class="pill" aria-label="VaR, Value at Risk">VaR</span>
             <span class="pill">Sequence-of-Returns Risk</span>
             <span class="pill">Model Risk</span>
+            <span class="pill">Prompt Engineering</span>
+            <span class="pill">Context Engineering</span>
+            <a class="pill" href="pages/harness-engineering.html">Agent Harness</a>
+            <span class="pill">Agent Framework</span>
+            <span class="pill" aria-label="MCP, Model Context Protocol">MCP</span>
+            <span class="pill">Evaluation Harness</span>
+            <span class="pill">Durable Execution</span>
+            <span class="pill">Capability Security</span>
           </div>
         </aside>
       </div>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1080, initial-scale=1">
+  <title>Harness Engineering · Share card</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 1080px; height: 1350px; margin: 0; overflow: hidden; }
+    body {
+      color: #181713;
+      background: #f4efe5;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+    }
+    .card {
+      position: relative; width: 100%; height: 100%; overflow: hidden;
+      padding: 78px 84px 62px;
+    }
+    .grid {
+      position: absolute; inset: 0; opacity: .5;
+      background-image:
+        linear-gradient(rgba(24,23,19,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24,23,19,.05) 1px, transparent 1px);
+      background-size: 54px 54px;
+    }
+    .halo {
+      position: absolute; top: -250px; right: -260px; width: 680px; height: 680px;
+      border: 1px solid rgba(117,103,246,.23); border-radius: 50%;
+      box-shadow: 0 0 0 90px rgba(117,103,246,.04), 0 0 0 180px rgba(132,216,255,.025);
+    }
+    .content { position: relative; z-index: 3; height: 100%; }
+    header { display: flex; align-items: center; justify-content: space-between; }
+    .brand {
+      display: flex; align-items: center; gap: 15px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 17px; font-weight: 850; letter-spacing: .15em;
+    }
+    .brand-mark {
+      display: block; width: 46px; height: 46px;
+      border-radius: 13px; object-fit: contain;
+    }
+    .series {
+      color: #6f695f; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px; letter-spacing: .12em;
+    }
+    .hero { margin-top: 66px; }
+    .eyebrow {
+      color: #ff6948; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 17px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase;
+    }
+    h1 {
+      max-width: 900px; margin: 22px 0 0;
+      font-size: 96px; font-weight: 760; line-height: .88; letter-spacing: -.072em;
+    }
+    .stage {
+      position: relative; height: 535px; margin-top: 40px; overflow: hidden;
+      border: 1.5px solid rgba(24,23,19,.23); border-radius: 30px;
+      background: rgba(255,253,248,.72); box-shadow: 0 28px 70px rgba(65,49,27,.09);
+    }
+    .stage-label {
+      position: absolute; top: 25px; left: 28px;
+      color: #6f695f; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px; letter-spacing: .14em;
+    }
+    .intent, .work {
+      position: absolute; top: 250px; z-index: 4;
+      padding: 12px 14px; border: 1.5px solid #181713; border-radius: 11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px; font-weight: 900; letter-spacing: .1em;
+    }
+    .intent { left: 28px; background: #fffdf8; }
+    .work { right: 28px; background: #d8ff68; }
+    .connector {
+      position: absolute; top: 270px; right: 118px; left: 104px;
+      height: 2px; background: rgba(24,23,19,.22);
+    }
+    .core {
+      position: absolute; z-index: 6; top: 278px; left: 50%;
+      display: grid; place-items: center; width: 148px; height: 148px;
+      transform: translate(-50%, -50%); border-radius: 50%;
+      color: #fffdf8; background: #181713; text-align: center;
+      box-shadow: 0 20px 45px rgba(24,23,19,.18);
+    }
+    .core b {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 19px; letter-spacing: .14em;
+    }
+    .core small { width: 100%; color: rgba(255,255,255,.62); font-size: 9px; letter-spacing: .05em; }
+    .ring {
+      position: absolute; z-index: 3; top: 278px; left: 50%;
+      width: var(--size); height: var(--size); transform: translate(-50%, -50%);
+      border: 2px solid rgba(117,103,246,var(--opacity)); border-radius: 50%;
+    }
+    .ring span {
+      position: absolute; right: -12px; top: 50%; padding: 5px 8px;
+      transform: translateY(-50%); border: 1px solid rgba(24,23,19,.2);
+      border-radius: 6px; color: #181713; background: #fffdf8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px; font-weight: 850; letter-spacing: .06em;
+    }
+    .r1 { --size: 190px; --opacity: .85; }
+    .r2 { --size: 242px; --opacity: .7; }
+    .r3 { --size: 294px; --opacity: .6; }
+    .r4 { --size: 346px; --opacity: .5; }
+    .r5 { --size: 398px; --opacity: .4; }
+    .r6 { --size: 450px; --opacity: .3; }
+    .r1 span { top: -4px; right: 45px; }
+    .r2 span { top: 14%; right: -2px; }
+    .r3 span { top: 31%; right: -11px; }
+    .r4 span { top: 50%; right: -18px; }
+    .r5 span { top: 69%; right: -9px; }
+    .r6 span { top: 84%; right: 17px; }
+    .formula {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      gap: 7px; margin-top: 18px;
+    }
+    .formula span {
+      display: grid; place-items: center; min-height: 48px; padding: 7px;
+      border: 1px solid rgba(24,23,19,.2); border-radius: 10px;
+      background: rgba(255,253,248,.72);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px; font-weight: 850; text-align: center; letter-spacing: .04em;
+    }
+    .formula span:last-child { background: #d8ff68; }
+    .thesis {
+      display: grid; grid-template-columns: 13px 1fr; gap: 22px;
+      margin-top: 31px; padding-top: 27px; border-top: 1.5px solid rgba(24,23,19,.22);
+    }
+    .thesis-mark { width: 13px; height: 77px; border-radius: 9px; background: #7567f6; }
+    .thesis p {
+      margin: 0; font-size: 31px; font-weight: 680; line-height: 1.17; letter-spacing: -.038em;
+    }
+    footer {
+      position: absolute; right: 0; bottom: 0; left: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      color: #6f695f; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;
+    }
+    footer b { color: #181713; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="grid"></div>
+    <div class="halo"></div>
+    <div class="content">
+      <header>
+        <div class="brand">
+          <img class="brand-mark" src="../../../../../assets/aaron-logo-assets/aaron-guo-website-logo.png" alt="">
+          <span>AARON GUO</span>
+        </div>
+        <div class="series">WORKING VOCABULARY / 008</div>
+      </header>
+
+      <section class="hero">
+      <div class="eyebrow">Artificial intelligence systems</div>
+        <h1>Harness<br>Engineering</h1>
+      </section>
+
+      <section class="stage">
+        <div class="stage-label">MODEL × HARNESS × ENVIRONMENT</div>
+        <div class="connector"></div>
+        <div class="intent">INTENT</div>
+        <div class="work">VERIFIABLE WORK</div>
+        <div class="ring r6"><span>RECOVERY</span></div>
+        <div class="ring r5"><span>PERMISSIONS</span></div>
+        <div class="ring r4"><span>VERIFICATION</span></div>
+        <div class="ring r3"><span>STATE</span></div>
+        <div class="ring r2"><span>TOOLS</span></div>
+        <div class="ring r1"><span>CONTEXT</span></div>
+        <div class="core"><b>MODEL</b><small>CAPABILITY CORE</small></div>
+      </section>
+
+      <div class="formula" aria-hidden="true">
+        <span>CONTRACT</span><span>CONTEXT</span><span>TOOLS</span><span>STATE</span><span>VERIFY</span><span>AUTHORITY</span><span>RECOVERY</span>
+      </div>
+
+      <section class="thesis">
+        <span class="thesis-mark"></span>
+        <p>The model supplies capability.<br>The harness turns it into dependable work.</p>
+      </section>
+
+      <footer>
+        <span>Explore the interactive concept</span>
+        <b>aaronguo.com/learn/harness-engineering →</b>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

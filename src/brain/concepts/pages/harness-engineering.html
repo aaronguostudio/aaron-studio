@@ -1,0 +1,2951 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="交互理解 Harness Engineering：任务契约、上下文、工具、状态、验证、权限与恢复如何把模型能力变成可靠工作。">
+  <title>Harness Engineering · Pattern Atlas</title>
+  <style>
+    :root {
+      --paper: #f4efe5;
+      --paper-2: #ebe3d5;
+      --ink: #181713;
+      --muted: #716b62;
+      --line: rgba(24, 23, 19, .2);
+      --white: #fffdf8;
+      --violet: #7567f6;
+      --violet-soft: rgba(117, 103, 246, .14);
+      --orange: #ff6948;
+      --orange-soft: rgba(255, 105, 72, .13);
+      --lime: #d8ff68;
+      --blue: #84d8ff;
+      --shadow: 0 28px 70px rgba(67, 50, 27, .09);
+      --motion-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --motion-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --motion-fast: 180ms;
+      --motion-step: 240ms;
+      --motion-travel: 480ms;
+      --motion-stagger: 60ms;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(117, 103, 246, .16), transparent 34rem),
+        linear-gradient(rgba(24, 23, 19, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24, 23, 19, .035) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 42px 42px, 42px 42px, auto;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button { font: inherit; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .shell {
+      width: min(1180px, calc(100% - 30px));
+      margin: 0 auto;
+      padding: 24px 0 86px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 4px 2px 30px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .topbar a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand { display: flex; align-items: center; gap: 10px; }
+
+    .brand-mark {
+      width: 22px;
+      height: 22px;
+      border: 7px solid var(--ink);
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 2px var(--paper);
+    }
+
+    .hero {
+      display: grid;
+      gap: 30px;
+      padding: clamp(30px, 7vw, 76px);
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 34px;
+      background: rgba(255, 253, 248, .72);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow,
+    .section-index,
+    .mono-label {
+      margin: 0;
+      color: var(--orange);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 940px;
+      margin: 18px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(54px, 11vw, 124px);
+      font-weight: 500;
+      line-height: .84;
+      letter-spacing: -.075em;
+    }
+
+    h1 em { color: var(--violet); font-weight: 500; }
+
+    .hero-copy {
+      display: grid;
+      gap: 22px;
+      align-items: end;
+    }
+
+    .thesis {
+      max-width: 740px;
+      margin: 0;
+      padding-left: 20px;
+      border-left: 10px solid var(--lime);
+      font-size: clamp(20px, 3vw, 34px);
+      font-weight: 720;
+      line-height: 1.25;
+      letter-spacing: -.035em;
+    }
+
+    .term-note {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .problem {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      margin-top: 24px;
+      border: 1.5px solid var(--ink);
+      border-radius: 28px;
+      background: var(--ink);
+    }
+
+    .problem article {
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .problem article:first-child {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .problem h2,
+    .problem h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .problem h2 { font-size: clamp(32px, 5vw, 58px); }
+    .problem h3 { font-size: 27px; }
+
+    .problem p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      line-height: 1.68;
+    }
+
+    .problem article:first-child p { color: rgba(255, 255, 255, .68); }
+
+    .lab {
+      margin-top: 24px;
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 30px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .lab-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .lab-head h2,
+    .explain h2,
+    .neighbors h2 {
+      margin: 8px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(31px, 5vw, 54px);
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .lab-head p {
+      max-width: 700px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .task-chip {
+      flex: 0 0 min(330px, 38%);
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: rgba(216, 255, 104, .34);
+      font-size: 13px;
+      font-weight: 720;
+      line-height: 1.45;
+    }
+
+    .task-chip span {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--orange);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+    }
+
+    .presets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+    }
+
+    .presets button {
+      min-height: 86px;
+      padding: 17px;
+      border: 0;
+      color: var(--ink);
+      background: var(--white);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .presets button:hover,
+    .presets button:focus-visible,
+    .presets button.active {
+      outline: none;
+      background: var(--violet-soft);
+    }
+
+    .presets button.active { box-shadow: inset 0 -5px 0 var(--violet); }
+    .presets strong, .presets small { display: block; }
+    .presets strong { font-size: 14px; }
+    .presets small { margin-top: 7px; color: var(--muted); line-height: 1.45; }
+
+    .builder {
+      display: grid;
+      grid-template-columns: 270px minmax(360px, 1fr) 270px;
+      gap: 16px;
+      padding: 20px;
+      background: var(--paper-2);
+    }
+
+    .controls { display: grid; gap: 7px; align-content: start; }
+
+    .layer-button {
+      display: grid;
+      grid-template-columns: 26px minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--white);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .layer-button:hover,
+    .layer-button:focus-visible,
+    .layer-button.selected {
+      outline: none;
+      border-color: var(--violet);
+    }
+
+    .layer-button.enabled { background: rgba(216, 255, 104, .42); }
+
+    .layer-index {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+    }
+
+    .layer-button strong,
+    .layer-button small { display: block; }
+    .layer-button strong { font-size: 12px; }
+    .layer-button small {
+      margin-top: 3px;
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      letter-spacing: .08em;
+    }
+
+    .state {
+      padding: 5px 7px;
+      border-radius: 99px;
+      color: var(--muted);
+      background: var(--paper-2);
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .enabled .state { color: var(--ink); background: var(--lime); }
+
+    .system-map {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        var(--white);
+      background-size: 36px 36px;
+    }
+
+    .system-map::after {
+      position: absolute;
+      inset: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 17px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .core {
+      position: absolute;
+      z-index: 9;
+      top: 50%;
+      left: 50%;
+      display: grid;
+      place-items: center;
+      width: 126px;
+      height: 126px;
+      padding: 15px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--ink);
+      box-shadow: 0 20px 50px rgba(24, 23, 19, .2);
+      text-align: center;
+    }
+
+    .core strong {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 18px;
+      letter-spacing: .12em;
+    }
+
+    .core small { opacity: .65; font-size: 9px; line-height: 1.4; }
+
+    .ring {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      left: 50%;
+      width: calc(148px + var(--add));
+      height: calc(148px + var(--add));
+      transform: translate(-50%, -50%);
+      border: 1px dashed var(--line);
+      border-radius: 50%;
+      opacity: .48;
+      cursor: pointer;
+    }
+
+    .ring:nth-child(1) { --add: 32px; }
+    .ring:nth-child(2) { --add: 82px; }
+    .ring:nth-child(3) { --add: 132px; }
+    .ring:nth-child(4) { --add: 182px; }
+    .ring:nth-child(5) { --add: 232px; }
+    .ring:nth-child(6) { --add: 282px; }
+    .ring:nth-child(7) { --add: 332px; }
+
+    .ring.active {
+      border-style: solid;
+      border-color: rgba(117, 103, 246, .72);
+      background: rgba(117, 103, 246, .022);
+      opacity: 1;
+    }
+
+    .ring.selected { border: 2px solid var(--orange); }
+
+    .ring span {
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      padding: 4px 6px;
+      transform: translateY(-50%);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      color: var(--muted);
+      background: var(--white);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      font-weight: 850;
+      letter-spacing: .05em;
+    }
+
+    .ring.active span { color: var(--ink); }
+
+    .outcome {
+      position: absolute;
+      z-index: 10;
+      right: 22px;
+      bottom: 22px;
+      min-width: 128px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--white);
+    }
+
+    .outcome.verified { background: var(--lime); }
+    .outcome span, .outcome strong { display: block; }
+    .outcome span {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      letter-spacing: .09em;
+    }
+    .outcome strong { margin-top: 4px; font-size: 13px; }
+
+    .detail {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+    }
+
+    .detail h3 {
+      margin: -8px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .detail section {
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail section strong { font-size: 12px; }
+    .detail p { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .detail .success { padding: 10px; border-radius: 10px; color: var(--ink); background: rgba(216,255,104,.34); }
+    .detail .failure { padding-left: 10px; border-left: 4px solid var(--orange); color: var(--ink); }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border-top: 1px solid var(--line);
+    }
+
+    .metrics article { padding: 17px 22px; background: var(--white); }
+    .metrics span, .metrics strong { display: block; }
+    .metrics span { color: var(--muted); font-size: 10px; }
+    .metrics strong { margin-top: 5px; font-size: 18px; }
+
+    .comparison {
+      margin-top: 24px;
+      overflow: hidden;
+      border: 1.5px solid var(--ink);
+      border-radius: 30px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 24px;
+      padding: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .comparison-head h2 {
+      margin: 8px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(31px, 5vw, 54px);
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .comparison-head p:not(.section-index) {
+      max-width: 720px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.62;
+    }
+
+    .comparison-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .comparison-control {
+      min-height: 44px;
+      padding: 10px 13px;
+      border: 1px solid var(--ink);
+      border-radius: 11px;
+      color: var(--ink);
+      background: var(--white);
+      font-size: 11px;
+      font-weight: 850;
+      cursor: pointer;
+      transition:
+        transform var(--motion-fast) var(--motion-ease-out),
+        background-color var(--motion-fast) ease,
+        border-color var(--motion-fast) ease;
+    }
+
+    .comparison-control.primary {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .comparison-control:hover,
+    .comparison-control:focus-visible {
+      outline: 3px solid var(--orange-soft);
+      outline-offset: 2px;
+      border-color: var(--orange);
+    }
+
+    .comparison-control:active { transform: scale(.97); }
+    .comparison-control:disabled { opacity: .42; cursor: not-allowed; }
+
+    .mission-stage-nav {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      padding: 18px 28px 12px;
+    }
+
+    .mission-stage-button {
+      min-width: 0;
+      min-height: 52px;
+      padding: 8px 7px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--muted);
+      background: var(--white);
+      cursor: pointer;
+      transition:
+        transform var(--motion-fast) var(--motion-ease-out),
+        color var(--motion-fast) var(--motion-ease-out),
+        background-color var(--motion-fast) var(--motion-ease-out),
+        border-color var(--motion-fast) var(--motion-ease-out);
+    }
+
+    .mission-stage-button span,
+    .mission-stage-button strong {
+      display: block;
+    }
+
+    .mission-stage-button span {
+      margin-bottom: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .mission-stage-button strong {
+      overflow: hidden;
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mission-stage-button.reached {
+      color: var(--ink);
+      border-color: rgba(117, 103, 246, .48);
+    }
+
+    .mission-stage-button[aria-current="step"] {
+      color: var(--white);
+      border-color: var(--violet);
+      background: var(--violet);
+    }
+
+    .mission-stage-button:hover,
+    .mission-stage-button:focus-visible {
+      outline: 3px solid var(--orange-soft);
+      outline-offset: 2px;
+      border-color: var(--orange);
+    }
+
+    .mission-stage-button:active { transform: scale(.98); }
+
+    .mission-progress {
+      height: 3px;
+      margin: 0 28px 16px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: var(--paper-2);
+    }
+
+    .mission-progress > span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--violet), var(--blue), var(--lime));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--motion-step) var(--motion-ease-out);
+    }
+
+    .mission-stage {
+      padding: 0 28px 18px;
+    }
+
+    .mission-viewport {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      min-height: 620px;
+      overflow: hidden;
+      border: 1px solid rgba(132, 216, 255, .24);
+      border-radius: 22px;
+      isolation: isolate;
+      color: #e9edf2;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(100, 124, 255, .14), transparent 44%),
+        #080b13;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, .03),
+        0 24px 54px rgba(8, 11, 19, .22);
+    }
+
+    .mission-canvas {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .mission-viewport.runtime-ready:not(.is-reduced) .mission-canvas {
+      opacity: 1;
+    }
+
+    .mission-bay-labels {
+      position: absolute;
+      z-index: 3;
+      top: 16px;
+      right: 16px;
+      left: 16px;
+      display: none;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+      pointer-events: none;
+    }
+
+    .mission-viewport.runtime-ready:not(.is-reduced) .mission-bay-labels {
+      display: grid;
+    }
+
+    .mission-bay-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      min-width: 0;
+      padding: 9px 11px;
+      border: 1px solid rgba(255, 255, 255, .13);
+      border-radius: 10px;
+      background: rgba(8, 11, 19, .74);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, .18);
+      backdrop-filter: blur(10px);
+    }
+
+    .mission-bay-label strong {
+      font-size: 11px;
+      letter-spacing: .02em;
+    }
+
+    .mission-bay-label span {
+      flex: 0 1 auto;
+      overflow: hidden;
+      color: #ff8b65;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .05em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mission-bay-label.with-harness span { color: #c9ff64; }
+
+    .mission-fallback {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      gap: 10px;
+      padding: 16px;
+      background:
+        radial-gradient(circle at 50% 28%, rgba(100, 124, 255, .12), transparent 45%),
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px),
+        #080b13;
+      background-size: auto, 32px 32px, 32px 32px, auto;
+    }
+
+    .mission-viewport.runtime-ready:not(.is-reduced) .mission-fallback {
+      display: none;
+    }
+
+    .mission-fallback-panel {
+      min-height: 0;
+    }
+
+    .mission-fallback-panel[hidden] { display: none; }
+
+    .fallback-pair {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      height: 100%;
+    }
+
+    .fallback-bay {
+      display: grid;
+      grid-template-rows: auto minmax(220px, 1fr) auto auto;
+      gap: 8px;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid rgba(255, 107, 53, .38);
+      border-radius: 16px;
+      background: rgba(255, 107, 53, .045);
+    }
+
+    .fallback-bay.with-harness {
+      border-color: rgba(100, 124, 255, .48);
+      background: rgba(100, 124, 255, .055);
+    }
+
+    .fallback-bay > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .fallback-bay > header strong {
+      font-size: 12px;
+    }
+
+    .fallback-bay > header span {
+      color: rgba(233, 237, 242, .5);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+
+    .fallback-bay > p {
+      margin: 0;
+      color: rgba(233, 237, 242, .64);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .fallback-outcome {
+      padding: 7px 9px;
+      border: 1px solid currentColor;
+      border-radius: 99px;
+      color: #ff8b65;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .07em;
+      text-align: center;
+    }
+
+    .with-harness .fallback-outcome { color: #c9ff64; }
+
+    .fallback-visual {
+      position: relative;
+      min-height: 220px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: 13px;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .045), transparent 48%),
+        rgba(0, 0, 0, .14);
+    }
+
+    .fallback-visual span,
+    .fallback-visual i {
+      position: absolute;
+      display: block;
+    }
+
+    .fallback-craft {
+      z-index: 4;
+      width: 34px;
+      height: 20px;
+      border: 2px solid #e9edf2;
+      border-radius: 50% 50% 38% 38%;
+      background: #30384b;
+      box-shadow: 0 0 14px rgba(233, 237, 242, .2);
+    }
+
+    .fallback-craft::before,
+    .fallback-craft::after {
+      position: absolute;
+      top: 5px;
+      width: 13px;
+      height: 7px;
+      border: 1px solid #e9edf2;
+      background: #1c2230;
+      content: "";
+    }
+
+    .fallback-craft::before { right: 30px; }
+    .fallback-craft::after { left: 30px; }
+
+    .visual-coordinates .fallback-craft { left: 11%; bottom: 18%; }
+    .visual-coordinates .satellite {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #8992a8;
+      border-radius: 50%;
+      background: #30384b;
+    }
+
+    .visual-coordinates .satellite::before,
+    .visual-coordinates .satellite::after {
+      position: absolute;
+      top: 7px;
+      width: 13px;
+      height: 6px;
+      border: 1px solid #8992a8;
+      background: #1c2230;
+      content: "";
+    }
+
+    .visual-coordinates .satellite::before { right: 20px; }
+    .visual-coordinates .satellite::after { left: 20px; }
+    .visual-coordinates .sat-a { top: 14%; left: 58%; }
+    .visual-coordinates .sat-b { top: 44%; left: 73%; }
+    .visual-coordinates .sat-c { top: 71%; left: 55%; }
+
+    .fallback-route {
+      z-index: 1;
+      left: 22%;
+      bottom: 27%;
+      width: 48%;
+      height: 1px;
+      border-top: 2px dashed currentColor;
+      color: #ff6b35;
+      transform: rotate(-18deg);
+      transform-origin: left center;
+    }
+
+    .coordinate-locked .fallback-route {
+      width: 43%;
+      color: #647cff;
+      transform: rotate(-43deg);
+    }
+
+    .fallback-mark {
+      z-index: 5;
+      top: 39%;
+      left: 70%;
+      color: #ff4f64;
+      font-size: 28px;
+      font-weight: 850;
+    }
+
+    .coordinate-locked .fallback-mark {
+      top: 7%;
+      left: 53%;
+      width: 33px;
+      height: 33px;
+      border: 2px solid #c9ff64;
+      border-radius: 50%;
+      color: transparent;
+      box-shadow: 0 0 18px rgba(201, 255, 100, .32);
+    }
+
+    .visual-permission {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: end;
+      gap: 8px;
+      padding: 38px 12px 18px;
+    }
+
+    .permission-door {
+      position: relative !important;
+      inset: auto !important;
+      display: grid !important;
+      place-items: center;
+      height: 76%;
+      min-height: 112px;
+      border: 2px solid #8992a8;
+      border-radius: 7px 7px 2px 2px;
+      color: #8992a8;
+      background: #1c2230;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 7px;
+      font-style: normal;
+      font-weight: 850;
+    }
+
+    .permission-door.open {
+      border-color: #ff8b65;
+      background: rgba(255, 107, 53, .2);
+      box-shadow: inset 0 -26px 0 rgba(8, 11, 19, .8);
+    }
+
+    .with-harness .permission-door.open {
+      border-color: #647cff;
+      background: rgba(100, 124, 255, .22);
+    }
+
+    .permission-door.core {
+      border-color: #ff4f64;
+      color: #ff7180;
+    }
+
+    .permission-token {
+      z-index: 5;
+      top: 16px;
+      left: 20%;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #c9ff64;
+      transform: rotate(30deg);
+      background: rgba(201, 255, 100, .18);
+    }
+
+    .visual-handshake .fallback-craft { top: 46%; left: 10%; }
+    .protocol-port {
+      top: 39%;
+      right: 13%;
+      width: 46px;
+      height: 46px;
+      border: 5px double #8992a8;
+      border-radius: 50%;
+    }
+
+    .protocol-gap {
+      top: 50%;
+      right: 24%;
+      left: 29%;
+      border-top: 2px dashed #ff8b65;
+    }
+
+    .handshake-closed .protocol-port { border-color: #647cff; }
+    .handshake-closed .protocol-gap { border-color: #647cff; }
+
+    .request-pulse,
+    .ack-pulse {
+      top: calc(50% - 5px);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .request-pulse {
+      left: 58%;
+      background: #84d8ff;
+      box-shadow: 0 0 12px #84d8ff;
+    }
+
+    .ack-pulse {
+      left: 37%;
+      background: #c9ff64;
+      box-shadow: 0 0 12px #c9ff64;
+    }
+
+    .handshake-open .ack-pulse { display: none; }
+    .handshake-open .protocol-port { transform: rotate(24deg); }
+
+    .visual-recovery .mission-origin {
+      bottom: 20%;
+      left: 12%;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #8992a8;
+      border-radius: 50%;
+    }
+
+    .visual-recovery .fallback-route {
+      left: 18%;
+      bottom: 24%;
+      width: 61%;
+      transform: rotate(-21deg);
+    }
+
+    .visual-recovery .fallback-craft {
+      left: 11%;
+      bottom: 18%;
+    }
+
+    .recovery-checkpoint .fallback-craft {
+      left: 68%;
+      bottom: 43%;
+    }
+
+    .checkpoint-beacon {
+      right: 22%;
+      bottom: 30%;
+      width: 22px;
+      height: 22px;
+      border: 2px solid #647cff;
+      border-radius: 50%;
+      box-shadow: 0 0 17px rgba(100, 124, 255, .5);
+    }
+
+    .checkpoint-beacon::after {
+      position: absolute;
+      inset: -8px;
+      border: 1px dashed rgba(132, 216, 255, .55);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .recovery-reset .checkpoint-beacon {
+      opacity: .2;
+      border-color: #ff4f64;
+      box-shadow: none;
+    }
+
+    .storm-scar {
+      top: -14%;
+      left: 48%;
+      width: 2px;
+      height: 128%;
+      transform: rotate(24deg);
+      background: linear-gradient(transparent, #ff4f64, transparent);
+      box-shadow: 0 0 18px rgba(255, 79, 100, .45);
+    }
+
+    .visual-verification .fallback-craft { top: 18%; left: 13%; }
+    .energy-socket {
+      right: 15%;
+      bottom: 22%;
+      width: 62px;
+      height: 62px;
+      border: 6px double #8992a8;
+      border-radius: 50%;
+      background: rgba(132, 216, 255, .08);
+    }
+
+    .loose-latch {
+      right: 12%;
+      bottom: 18%;
+      width: 24px;
+      height: 8px;
+      border: 2px solid #ff4f64;
+      transform: rotate(18deg);
+      background: #080b13;
+    }
+
+    .self-check {
+      top: 22%;
+      left: 45%;
+      color: #c9ff64;
+      font-size: 26px;
+      font-weight: 900;
+    }
+
+    .inspector-drone {
+      top: 20%;
+      right: 13%;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #647cff;
+      border-radius: 50%;
+      box-shadow: 0 0 16px rgba(100, 124, 255, .4);
+    }
+
+    .verified-pass .loose-latch {
+      border-color: #c9ff64;
+      transform: rotate(0);
+    }
+
+    .verified-pass .energy-socket {
+      border-color: #c9ff64;
+      box-shadow: 0 0 22px rgba(201, 255, 100, .35);
+    }
+
+    .verification-feedback {
+      top: 48%;
+      right: 30%;
+      left: 34%;
+      border-top: 2px dashed #ff4f64;
+    }
+
+    .verified-pass .verification-feedback { border-color: #c9ff64; }
+
+    .fallback-mission {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .fallback-mission b,
+    .fallback-mission i,
+    .fallback-mission span {
+      position: absolute;
+      display: block;
+      box-sizing: border-box;
+      font-style: normal;
+    }
+
+    .static-rocket {
+      z-index: 5;
+      width: 22px;
+      height: 104px;
+      border: 1px solid rgba(255, 255, 255, .72);
+      border-radius: 55% 55% 18% 18% / 17% 17% 9% 9%;
+      background:
+        linear-gradient(90deg, #677181 0 18%, #d9dde1 42%, #838d9a 70%, #4b5360);
+      box-shadow:
+        inset -4px 0 rgba(8, 11, 19, .22),
+        0 0 18px rgba(217, 221, 225, .12);
+    }
+
+    .static-rocket::before {
+      position: absolute;
+      top: 42%;
+      right: -5px;
+      left: -5px;
+      height: 4px;
+      border-top: 1px solid #080b13;
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      content: "";
+    }
+
+    .static-rocket::after {
+      position: absolute;
+      right: 3px;
+      bottom: -11px;
+      left: 3px;
+      height: 12px;
+      clip-path: polygon(0 0, 100% 0, 72% 100%, 28% 100%);
+      background: linear-gradient(#84d8ff, rgba(100, 124, 255, .08));
+      content: "";
+    }
+
+    .static-earth {
+      right: -18%;
+      bottom: -66%;
+      width: 136%;
+      aspect-ratio: 1;
+      border: 2px solid rgba(132, 216, 255, .34);
+      border-radius: 50%;
+      background: radial-gradient(circle at 45% 38%, #1b3150, #0c1627 58%, #080b13 59%);
+      box-shadow: 0 -12px 28px rgba(132, 216, 255, .08);
+    }
+
+    .static-orbit {
+      z-index: 2;
+      right: 10%;
+      width: 66%;
+      height: 38%;
+      border: 1px dashed rgba(233, 237, 242, .28);
+      border-radius: 50%;
+      transform: rotate(-10deg);
+    }
+
+    .orbit-near { top: 21%; }
+    .orbit-target { top: 7%; }
+
+    .mission-goal .static-rocket {
+      bottom: 12%;
+      left: 13%;
+      height: 78px;
+      transform: rotate(22deg);
+    }
+
+    .mission-goal .static-route {
+      z-index: 3;
+      top: 46%;
+      left: 23%;
+      width: 55%;
+      height: 1px;
+      border-top: 2px dotted #ff8b65;
+      transform: rotate(-16deg);
+      transform-origin: left;
+    }
+
+    .mission-goal.locked-route .static-route {
+      top: 49%;
+      width: 62%;
+      border-color: #84d8ff;
+      transform: rotate(-35deg);
+      box-shadow: 0 0 10px rgba(132, 216, 255, .2);
+    }
+
+    .mission-goal.vague-route .orbit-near {
+      border-color: #ff8b65;
+      box-shadow: 0 0 12px rgba(255, 139, 101, .14);
+    }
+
+    .mission-goal.locked-route .orbit-target {
+      border-style: solid;
+      border-color: #c9ff64;
+      box-shadow: 0 0 14px rgba(201, 255, 100, .14);
+    }
+
+    .static-command {
+      top: 10px;
+      left: 10px;
+      padding: 4px 6px;
+      border: 1px solid rgba(255, 139, 101, .48);
+      border-radius: 5px;
+      color: #ffad92;
+      background: rgba(8, 11, 19, .82);
+      font-size: 7px;
+      letter-spacing: .05em;
+    }
+
+    .static-symbol {
+      z-index: 6;
+      top: 31%;
+      right: 24%;
+      color: #ff8b65;
+      font-size: 24px;
+    }
+
+    .static-spec {
+      z-index: 6;
+      padding: 3px 4px;
+      border: 1px solid rgba(132, 216, 255, .42);
+      border-radius: 4px;
+      color: #b9e9ff;
+      background: rgba(8, 11, 19, .82);
+      font-size: 6px;
+      letter-spacing: .04em;
+    }
+
+    .spec-orbit { top: 8%; right: 8%; }
+    .spec-window { top: 23%; left: 7%; }
+    .spec-payload { top: 39%; right: 3%; }
+    .spec-return { right: 21%; bottom: 8%; }
+
+    .static-lock {
+      z-index: 6;
+      top: 11%;
+      right: 18%;
+      width: 34px;
+      height: 20px;
+      border: 2px solid #c9ff64;
+      border-radius: 50%;
+      box-shadow: 0 0 14px rgba(201, 255, 100, .25);
+    }
+
+    .static-pad {
+      right: 11%;
+      bottom: 11%;
+      left: 11%;
+      height: 5px;
+      background: rgba(233, 237, 242, .34);
+    }
+
+    .static-tower {
+      right: 20%;
+      bottom: 13%;
+      width: 14px;
+      height: 66%;
+      border: 1px solid rgba(233, 237, 242, .38);
+      background:
+        repeating-linear-gradient(135deg, transparent 0 8px, rgba(233, 237, 242, .18) 9px 10px);
+    }
+
+    .mission-authority .on-pad {
+      bottom: 13%;
+      left: calc(50% - 11px);
+      height: 92px;
+    }
+
+    .static-control {
+      z-index: 7;
+      display: grid !important;
+      width: 40px;
+      height: 18px;
+      place-items: center;
+      border: 1px solid rgba(233, 237, 242, .3);
+      border-radius: 4px;
+      color: rgba(233, 237, 242, .62);
+      background: rgba(8, 11, 19, .88);
+      font-size: 6px;
+      font-weight: 850;
+    }
+
+    .control-propellant { top: 9%; left: 5%; }
+    .control-ignition { top: 9%; left: calc(50% - 20px); }
+    .control-clamps { top: 9%; right: 5%; }
+    .control-payload { top: 32%; right: 5%; }
+
+    .wildcard-authority .static-control {
+      border-color: #ff8b65;
+      color: #ffad92;
+      box-shadow: inset 0 -3px rgba(255, 139, 101, .18);
+    }
+
+    .wildcard-token {
+      z-index: 8;
+      top: 28%;
+      left: 12%;
+      display: grid !important;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border: 1px solid #ff8b65;
+      border-radius: 50%;
+      color: #ff8b65;
+      background: rgba(255, 139, 101, .12);
+      font-size: 18px;
+    }
+
+    .scoped-authority .static-control:not(.control-payload) {
+      border-color: #c9ff64;
+      color: #c9ff64;
+      box-shadow: inset 0 -3px rgba(201, 255, 100, .14);
+    }
+
+    .scoped-authority .control-payload {
+      opacity: .42;
+    }
+
+    .scope-token {
+      z-index: 8;
+      top: 28%;
+      display: grid !important;
+      width: 18px;
+      height: 18px;
+      place-items: center;
+      border: 1px solid #84d8ff;
+      border-radius: 50%;
+      color: #84d8ff;
+      background: rgba(132, 216, 255, .1);
+      font-size: 7px;
+    }
+
+    .token-a { left: 12%; }
+    .token-b { left: calc(50% - 9px); }
+    .token-c { right: 12%; }
+
+    .mission-handshake .ascent-stack {
+      top: 19%;
+      left: calc(50% - 11px);
+      height: 116px;
+    }
+
+    .static-interstage {
+      z-index: 7;
+      top: 47%;
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 6px;
+      border: 1px solid #84d8ff;
+      border-radius: 50%;
+      background: #080b13;
+    }
+
+    .controller-node {
+      z-index: 7;
+      bottom: 14%;
+      left: 8%;
+      padding: 5px 7px;
+      border: 1px solid rgba(233, 237, 242, .32);
+      border-radius: 5px;
+      color: rgba(233, 237, 242, .66);
+      background: rgba(8, 11, 19, .86);
+      font-size: 7px;
+    }
+
+    .signal-arrow {
+      z-index: 8;
+      height: 16px;
+      padding: 3px 5px;
+      border-radius: 99px;
+      font-size: 6px;
+      font-weight: 850;
+      line-height: 9px;
+    }
+
+    .signal-arrow::after {
+      position: absolute;
+      top: 4px;
+      border: 4px solid transparent;
+      content: "";
+    }
+
+    .command-out {
+      top: 37%;
+      left: 13%;
+      color: #b9e9ff;
+      background: rgba(132, 216, 255, .16);
+    }
+
+    .command-out::after {
+      right: -8px;
+      border-left-color: #84d8ff;
+    }
+
+    .repeat-out {
+      top: 58%;
+      left: 17%;
+      color: #ffad92;
+      background: rgba(255, 139, 101, .12);
+      opacity: .72;
+    }
+
+    .repeat-out::after {
+      right: -8px;
+      border-left-color: #ff8b65;
+    }
+
+    .ack-ready,
+    .ack-separation {
+      right: 10%;
+      color: #c9ff64;
+      background: rgba(201, 255, 100, .12);
+    }
+
+    .ack-ready { top: 55%; }
+    .ack-separation { top: 69%; }
+
+    .ack-ready::after,
+    .ack-separation::after {
+      left: -8px;
+      border-right-color: #c9ff64;
+    }
+
+    .catch-tower {
+      right: 15%;
+      bottom: 12%;
+      height: 72%;
+    }
+
+    .tower-health {
+      z-index: 8;
+      top: 10%;
+      right: 6%;
+      padding: 4px 6px;
+      border: 1px solid #ff4f64;
+      border-radius: 4px;
+      color: #ff7180;
+      background: rgba(255, 79, 100, .1);
+      font-size: 7px;
+      font-weight: 850;
+    }
+
+    .mission-recovery .returning {
+      top: 33%;
+      left: 25%;
+      height: 86px;
+      transform: rotate(19deg);
+    }
+
+    .return-route,
+    .divert-route {
+      z-index: 3;
+      top: 61%;
+      left: 17%;
+      width: 61%;
+      border-top: 2px dashed #ff8b65;
+      transform: rotate(-23deg);
+      transform-origin: left;
+    }
+
+    .safe-divert .return-route {
+      width: 32%;
+      opacity: .28;
+    }
+
+    .safe-divert .divert-route {
+      top: 66%;
+      width: 58%;
+      border-color: #84d8ff;
+      transform: rotate(18deg);
+    }
+
+    .rough-landing {
+      right: 11%;
+      bottom: 10%;
+      color: #ff8b65;
+      font-size: 24px;
+    }
+
+    .stale-state,
+    .retained-state {
+      z-index: 8;
+      bottom: 9%;
+      left: 6%;
+      padding: 4px 6px;
+      border: 1px solid currentColor;
+      border-radius: 4px;
+      font-size: 6px;
+    }
+
+    .stale-state { color: #ff8b65; }
+    .retained-state { color: #c9ff64; }
+
+    .offshore-zone {
+      z-index: 6;
+      right: 7%;
+      bottom: 8%;
+      display: grid !important;
+      width: 62px;
+      height: 28px;
+      place-items: center;
+      border: 1px dashed #84d8ff;
+      border-radius: 50%;
+      color: #b9e9ff;
+      background: rgba(132, 216, 255, .08);
+      font-size: 6px;
+      font-weight: 850;
+    }
+
+    .mission-verification .review-rocket {
+      top: 16%;
+      left: 12%;
+      height: 80px;
+    }
+
+    .done-badge {
+      z-index: 8;
+      top: 13%;
+      right: 9%;
+      padding: 5px 7px;
+      border: 1px solid #c9ff64;
+      border-radius: 5px;
+      color: #c9ff64;
+      background: rgba(201, 255, 100, .1);
+      font-size: 8px;
+    }
+
+    .evidence-row {
+      z-index: 7;
+      right: 7%;
+      left: 35%;
+      height: 20px;
+      padding: 4px 6px;
+      border: 1px solid rgba(233, 237, 242, .18);
+      border-radius: 4px;
+      color: rgba(233, 237, 242, .38);
+      background: rgba(8, 11, 19, .72);
+      font-size: 6px;
+      font-weight: 850;
+    }
+
+    .row-orbit { top: 34%; }
+    .row-payload { top: 48%; }
+    .row-catch { top: 62%; }
+    .row-divert { top: 76%; }
+
+    .evidence-backed .evidence-row {
+      border-color: rgba(201, 255, 100, .38);
+      color: #c9ff64;
+    }
+
+    .evidence-backed .row-catch {
+      border-color: rgba(255, 139, 101, .42);
+      color: #ffad92;
+    }
+
+    .observer-satellite {
+      z-index: 8;
+      width: 13px;
+      height: 13px;
+      border: 1px solid #84d8ff;
+      border-radius: 50%;
+      background: rgba(132, 216, 255, .16);
+      box-shadow: 0 0 9px rgba(132, 216, 255, .28);
+    }
+
+    .observer-satellite::before,
+    .observer-satellite::after {
+      position: absolute;
+      top: 3px;
+      width: 8px;
+      height: 5px;
+      border: 1px solid rgba(132, 216, 255, .55);
+      content: "";
+    }
+
+    .observer-satellite::before { right: 12px; }
+    .observer-satellite::after { left: 12px; }
+    .observer-a { top: 10%; left: 42%; }
+    .observer-b { top: 19%; right: 12%; }
+
+    .radar-sweep {
+      z-index: 3;
+      bottom: -21px;
+      left: -21px;
+      width: 96px;
+      height: 96px;
+      border: 1px solid rgba(132, 216, 255, .46);
+      border-radius: 50%;
+      background: conic-gradient(from 270deg, rgba(132, 216, 255, .2), transparent 24%);
+    }
+
+    .mission-fallback-note {
+      margin: 0;
+      color: rgba(233, 237, 242, .5);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      font-weight: 760;
+      letter-spacing: .04em;
+      text-align: center;
+    }
+
+    .mission-conclusion {
+      display: grid;
+      gap: 5px;
+      margin: 14px 0 0;
+      padding: 13px 16px;
+      border-radius: 12px;
+      color: var(--ink);
+      background: var(--lime);
+      font-size: clamp(14px, 2.1vw, 19px);
+      font-weight: 820;
+      line-height: 1.35;
+      text-align: center;
+    }
+
+    .mission-conclusion strong,
+    .mission-conclusion span { display: block; }
+
+    .mission-conclusion span {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .62em;
+      letter-spacing: .06em;
+    }
+
+    .mission-conclusion[hidden] { display: none; }
+
+    .relay-inspector {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      margin: 0 28px 10px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--relay-blue);
+      background: var(--paper);
+    }
+
+    .relay-live {
+      min-width: 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .relay-live strong {
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 8px;
+      letter-spacing: .06em;
+    }
+
+    .relay-sources {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 5px;
+    }
+
+    .relay-sources a {
+      padding: 5px 7px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--ink);
+      background: var(--white);
+      font-size: 8px;
+      font-weight: 760;
+      text-decoration: none;
+    }
+
+    .relay-clarification {
+      margin: 0 28px 20px;
+      color: var(--muted);
+      font-size: 9px;
+      line-height: 1.5;
+    }
+
+    .explain {
+      display: grid;
+      gap: 24px;
+      margin-top: 24px;
+      padding: clamp(28px, 6vw, 64px);
+      border: 1.5px solid var(--ink);
+      border-radius: 30px;
+      background: rgba(255, 253, 248, .78);
+    }
+
+    .analogy {
+      display: grid;
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--line);
+    }
+
+    .analogy article { padding: 22px; background: var(--white); }
+    .analogy h3 { margin: 0; font-size: 18px; }
+    .analogy p { margin: 10px 0 0; color: var(--muted); line-height: 1.65; }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .flow span {
+      padding: 18px 10px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--white);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 10px;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .flow span:last-child { background: var(--lime); }
+
+    .neighbors {
+      margin-top: 24px;
+      padding: clamp(28px, 6vw, 64px);
+      border: 1.5px solid var(--ink);
+      border-radius: 30px;
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .neighbors .section-index { color: var(--blue); }
+
+    .neighbor-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .neighbor {
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 15px;
+      background: rgba(255,255,255,.055);
+    }
+
+    .neighbor span {
+      color: var(--lime);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 9px;
+      font-weight: 850;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .neighbor h3 { margin: 8px 0 0; font-size: 17px; }
+    .neighbor p { margin: 8px 0 0; color: rgba(255,255,255,.64); font-size: 12px; line-height: 1.55; }
+
+    .takeaway {
+      margin-top: 24px;
+      padding: clamp(28px, 6vw, 64px);
+      border-radius: 30px;
+      background: var(--lime);
+    }
+
+    .takeaway h2 {
+      max-width: 820px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 7vw, 76px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .takeaway ul { margin: 28px 0 0; padding-left: 20px; }
+    .takeaway li { margin: 10px 0; line-height: 1.55; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 30px 4px 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @media (min-width: 760px) {
+      .hero-copy { grid-template-columns: 1.45fr .8fr; }
+      .problem { grid-template-columns: 1.05fr 1fr 1fr; }
+      .analogy { grid-template-columns: repeat(2, 1fr); }
+      .neighbor-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    @media (max-width: 980px) {
+      .builder { grid-template-columns: 1fr 1.4fr; }
+      .detail { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 18px, 1180px); padding-top: 10px; }
+      .topbar { padding: 10px 3px 18px; font-size: 9px; }
+      .hero, .comparison, .lab, .explain, .neighbors, .takeaway { border-radius: 22px; }
+      .comparison-head { grid-template-columns: 1fr; padding: 20px; }
+      .comparison-controls { justify-content: flex-start; }
+      .mission-stage-nav {
+        gap: 4px;
+        padding: 14px 12px 10px;
+      }
+      .mission-stage-button {
+        min-height: 52px;
+        padding: 6px 2px;
+        border-radius: 8px;
+      }
+      .mission-stage-button span { margin-bottom: 3px; font-size: 6px; }
+      .mission-stage-button strong { font-size: 9px; }
+      .mission-progress { margin: 0 12px 12px; }
+      .mission-stage { padding: 0 12px 14px; }
+      .mission-viewport {
+        aspect-ratio: auto;
+        min-height: 600px;
+        border-radius: 16px;
+      }
+      .mission-bay-labels {
+        top: 11px;
+        right: 10px;
+        left: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 0;
+        height: calc(100% - 22px);
+      }
+      .mission-bay-label {
+        align-self: start;
+        padding: 7px 9px;
+      }
+      .mission-bay-label:nth-child(2) { align-self: center; }
+      .mission-bay-label strong { font-size: 9px; }
+      .mission-bay-label span { font-size: 7px; }
+      .mission-fallback { padding: 10px; }
+      .fallback-pair {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .fallback-bay {
+        grid-template-rows: auto minmax(145px, 1fr) auto;
+        gap: 6px;
+        padding: 9px;
+        border-radius: 12px;
+      }
+      .fallback-bay > header span,
+      .fallback-bay > p { display: none; }
+      .fallback-bay > header strong { font-size: 10px; }
+      .fallback-visual { min-height: 145px; }
+      .fallback-outcome { padding: 5px 7px; font-size: 8px; }
+      .permission-door { min-height: 82px; }
+      .mission-conclusion { margin-top: 10px; padding: 11px; }
+      .relay-inspector {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin: 0 12px 9px;
+        padding: 10px 11px;
+      }
+      .relay-sources { justify-content: flex-start; }
+      .relay-clarification { margin: 0 12px 16px; }
+      .presets { grid-template-columns: 1fr; }
+      .builder { grid-template-columns: 1fr; padding: 12px; }
+      .system-map { min-height: 450px; }
+      .ring:nth-child(6), .ring:nth-child(7) { display: none; }
+      .lab-head { align-items: flex-start; flex-direction: column; padding: 20px; }
+      .task-chip { width: 100%; flex-basis: auto; }
+      .metrics { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .mission-stage-button,
+      .mission-canvas {
+        transition:
+          opacity var(--motion-fast) var(--motion-ease-out),
+          color var(--motion-fast) var(--motion-ease-out),
+          background-color var(--motion-fast) var(--motion-ease-out),
+          border-color var(--motion-fast) var(--motion-ease-out) !important;
+        transform: none !important;
+      }
+      .mission-progress > span { transition: none !important; }
+      .mission-canvas { display: none !important; }
+      .mission-fallback { display: grid !important; }
+    }
+  </style>
+  <script defer src="../../../content/concepts/harness-engineering/harness-engineering-three.runtime.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <nav class="topbar" aria-label="页面导航">
+      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true"></span>Pattern Atlas</a>
+      <span>07 / Artificial intelligence systems</span>
+    </nav>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Working vocabulary · emerging practice</p>
+        <h1 id="page-title">Harness<br><em>Engineering</em></h1>
+      </div>
+      <div class="hero-copy">
+        <p class="thesis">模型提供能力；Harness 把任务契约、上下文、工具、状态、验证、权限与恢复组织成可靠工作。</p>
+        <p class="term-note">这是一个正在成形、尚未完全标准化的工程术语。本页把它定义为：围绕可替换模型，设计使智能体可靠完成真实任务的运行系统。</p>
+      </div>
+    </section>
+
+    <section class="problem" aria-label="Harness Engineering 解决的问题">
+      <article>
+        <p class="section-index">The durable question</p>
+        <h2>为什么同一个模型，换一个环境，就像换了一个产品？</h2>
+        <p>可靠性经常不只来自模型，而来自模型周围能否观察、行动、验证、限制权限并从失败中恢复的系统。</p>
+      </article>
+      <article>
+        <p class="section-index">Model only</p>
+        <h3>补丁存在</h3>
+        <p>智能体找到一个看似相关的文件，修改代码，然后用流畅总结宣布完成。真实故障路径、回归与副作用仍然未知。</p>
+      </article>
+      <article>
+        <p class="section-index">Model + harness</p>
+        <h3>结果有证据</h3>
+        <p>任务契约定义完成；环境让工作可观察；验证器检查真实结果；权限与恢复把失败控制在边界内。</p>
+      </article>
+    </section>
+
+    <section
+      class="comparison mission-comparison"
+      id="comparison"
+      data-stage="coordinates"
+      data-playback="idle"
+      aria-labelledby="comparison-title"
+    >
+      <header class="comparison-head">
+        <div>
+          <p class="section-index">01 · One vehicle, two mission systems</p>
+          <h2 id="comparison-title" aria-label="如果人工智能，也就是 AI，来执行一场星舰级任务">如果 AI 来执行一场星舰级任务</h2>
+          <p>任务：将载荷送入指定轨道；若回收条件不满足，进入安全预案，并留下可独立验收的证据。</p>
+        </div>
+        <div class="comparison-controls" aria-label="3D 任务动画控制">
+          <button
+            class="comparison-control primary"
+            id="comparison-play"
+            type="button"
+            aria-pressed="false"
+            disabled
+          >准备 3D 场景…</button>
+        </div>
+      </header>
+
+      <nav class="mission-stage-nav" id="comparison-progress" aria-label="五个任务阶段">
+        <button class="mission-stage-button reached" type="button" data-comparison-stage="coordinates" aria-current="step">
+          <span>01</span><strong>目标</strong>
+        </button>
+        <button class="mission-stage-button" type="button" data-comparison-stage="permission">
+          <span>02</span><strong>权限</strong>
+        </button>
+        <button class="mission-stage-button" type="button" data-comparison-stage="handshake">
+          <span>03</span><strong>握手</strong>
+        </button>
+        <button class="mission-stage-button" type="button" data-comparison-stage="recovery">
+          <span>04</span><strong>恢复</strong>
+        </button>
+        <button class="mission-stage-button" type="button" data-comparison-stage="verification">
+          <span>05</span><strong>验收</strong>
+        </button>
+      </nav>
+
+      <div
+        class="mission-progress"
+        id="mission-progress-track"
+        role="progressbar"
+        aria-label="完整任务进度"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      ><span id="mission-progress-fill"></span></div>
+
+      <div class="mission-stage">
+        <div
+          class="mission-viewport"
+          id="mission-viewport"
+          data-runtime="pending"
+          data-stage="coordinates"
+        >
+          <canvas
+            class="mission-canvas"
+            id="mission-canvas"
+            aria-hidden="true"
+          ></canvas>
+
+          <div class="mission-bay-labels" aria-hidden="true">
+            <div class="mission-bay-label">
+              <strong>只有模型</strong>
+              <span id="mission-left-outcome">目标模糊</span>
+            </div>
+            <div class="mission-bay-label with-harness">
+              <strong>模型 + Harness</strong>
+              <span id="mission-right-outcome">目标可判定</span>
+            </div>
+          </div>
+
+          <div class="mission-fallback" id="mission-fallback">
+            <section class="mission-fallback-panel" data-fallback-stage="coordinates" aria-label="目标与飞行走廊静态对照">
+              <div class="fallback-pair">
+                <article class="fallback-bay">
+                  <header><strong>只有模型</strong><span>TARGET</span></header>
+                  <div class="fallback-visual fallback-mission mission-goal vague-route" aria-hidden="true">
+                    <i class="static-earth"></i>
+                    <i class="static-orbit orbit-near"></i>
+                    <i class="static-orbit orbit-target"></i>
+                    <i class="static-route"></i>
+                    <span class="static-rocket"></span>
+                    <b class="static-command">PAYLOAD → SPACE</b>
+                    <b class="static-symbol">?</b>
+                  </div>
+                  <p>一句“把载荷送上去”选出合理路线，却落在邻近轨道。</p>
+                  <strong class="fallback-outcome">目标模糊</strong>
+                </article>
+                <article class="fallback-bay with-harness">
+                  <header><strong>模型 + Harness</strong><span>TARGET</span></header>
+                  <div class="fallback-visual fallback-mission mission-goal locked-route" aria-hidden="true">
+                    <i class="static-earth"></i>
+                    <i class="static-orbit orbit-near"></i>
+                    <i class="static-orbit orbit-target"></i>
+                    <i class="static-route"></i>
+                    <span class="static-rocket"></span>
+                    <b class="static-spec spec-orbit">ORBIT</b>
+                    <b class="static-spec spec-window">WINDOW</b>
+                    <b class="static-spec spec-payload">PAYLOAD</b>
+                    <b class="static-spec spec-return">RETURN</b>
+                    <i class="static-lock"></i>
+                  </div>
+                  <p>轨道、时间窗、载荷和返回区锁定后，走廊才打开。</p>
+                  <strong class="fallback-outcome">目标可判定</strong>
+                </article>
+              </div>
+            </section>
+
+            <section class="mission-fallback-panel" data-fallback-stage="permission" aria-label="分阶段授权静态对照" hidden>
+              <div class="fallback-pair">
+                <article class="fallback-bay">
+                  <header><strong>只有模型</strong><span>AUTHORITY</span></header>
+                  <div class="fallback-visual fallback-mission mission-authority wildcard-authority" aria-hidden="true">
+                    <i class="static-pad"></i>
+                    <i class="static-tower"></i>
+                    <span class="static-rocket on-pad"></span>
+                    <i class="static-control control-propellant">PROP</i>
+                    <i class="static-control control-ignition">IGN</i>
+                    <i class="static-control control-clamps">CLAMP</i>
+                    <i class="static-control control-payload">PAYLOAD</i>
+                    <b class="wildcard-token">*</b>
+                  </div>
+                  <p>一个通配授权同时解锁推进剂、点火、夹臂和载荷舱。</p>
+                  <strong class="fallback-outcome">权限过宽</strong>
+                </article>
+                <article class="fallback-bay with-harness">
+                  <header><strong>模型 + Harness</strong><span>AUTHORITY</span></header>
+                  <div class="fallback-visual fallback-mission mission-authority scoped-authority" aria-hidden="true">
+                    <i class="static-pad"></i>
+                    <i class="static-tower"></i>
+                    <span class="static-rocket on-pad"></span>
+                    <i class="static-control control-propellant">PROP</i>
+                    <i class="static-control control-ignition">IGN</i>
+                    <i class="static-control control-clamps">CLAMP</i>
+                    <i class="static-control control-payload">PAYLOAD</i>
+                    <b class="scope-token token-a">1</b>
+                    <b class="scope-token token-b">2</b>
+                    <b class="scope-token token-c">3</b>
+                  </div>
+                  <p>三个作用域令牌依次授权当前阶段；载荷舱继续锁定。</p>
+                  <strong class="fallback-outcome">权限有边界</strong>
+                </article>
+              </div>
+            </section>
+
+            <section class="mission-fallback-panel" data-fallback-stage="handshake" aria-label="热分级握手静态对照" hidden>
+              <div class="fallback-pair">
+                <article class="fallback-bay">
+                  <header><strong>只有模型</strong><span>INTEGRATION</span></header>
+                  <div class="fallback-visual fallback-mission mission-handshake assumed-executed" aria-hidden="true">
+                    <span class="static-rocket ascent-stack"></span>
+                    <i class="static-interstage"></i>
+                    <i class="signal-arrow command-out">SEP</i>
+                    <i class="signal-arrow repeat-out">SEP</i>
+                    <b class="controller-node">CTRL</b>
+                  </div>
+                  <p>分离动作已经发生，但没有回执返回；控制器过早默认成功并重复发送。</p>
+                  <strong class="fallback-outcome">默认已执行</strong>
+                </article>
+                <article class="fallback-bay with-harness">
+                  <header><strong>模型 + Harness</strong><span>INTEGRATION</span></header>
+                  <div class="fallback-visual fallback-mission mission-handshake protocol-closed" aria-hidden="true">
+                    <span class="static-rocket ascent-stack"></span>
+                    <i class="static-interstage"></i>
+                    <i class="signal-arrow command-out">SEP</i>
+                    <i class="signal-arrow ack-ready">READY</i>
+                    <i class="signal-arrow ack-separation">ACK</i>
+                    <b class="controller-node">CTRL</b>
+                  </div>
+                  <p>发动机就绪与分离确认沿反方向返回，任务才继续。</p>
+                  <strong class="fallback-outcome">工具会回话</strong>
+                </article>
+              </div>
+            </section>
+
+            <section class="mission-fallback-panel" data-fallback-stage="recovery" aria-label="NO-GO 与安全改道静态对照" hidden>
+              <div class="fallback-pair">
+                <article class="fallback-bay">
+                  <header><strong>只有模型</strong><span>RECOVERY</span></header>
+                  <div class="fallback-visual fallback-mission mission-recovery stale-plan" aria-hidden="true">
+                    <i class="static-tower catch-tower"></i>
+                    <i class="tower-health">NO-GO</i>
+                    <i class="return-route"></i>
+                    <span class="static-rocket returning"></span>
+                    <i class="rough-landing">~</i>
+                    <b class="stale-state">STALE: GO</b>
+                  </div>
+                  <p>控制器仍按过期的绿色状态进入关闭的捕获包线。</p>
+                  <strong class="fallback-outcome">继续旧计划</strong>
+                </article>
+                <article class="fallback-bay with-harness">
+                  <header><strong>模型 + Harness</strong><span>RECOVERY</span></header>
+                  <div class="fallback-visual fallback-mission mission-recovery safe-divert" aria-hidden="true">
+                    <i class="static-tower catch-tower"></i>
+                    <i class="tower-health">NO-GO</i>
+                    <i class="return-route"></i>
+                    <i class="divert-route"></i>
+                    <span class="static-rocket returning"></span>
+                    <i class="offshore-zone">DIVERT</i>
+                    <b class="retained-state">STATE</b>
+                  </div>
+                  <p>NO-GO 保留当前状态，并打开预授权的海上改道。</p>
+                  <strong class="fallback-outcome">失败可收敛</strong>
+                </article>
+              </div>
+            </section>
+
+            <section class="mission-fallback-panel" data-fallback-stage="verification" aria-label="外部证据验收静态对照" hidden>
+              <div class="fallback-pair">
+                <article class="fallback-bay">
+                  <header><strong>只有模型</strong><span>VERIFICATION</span></header>
+                  <div class="fallback-visual fallback-mission mission-verification self-reported" aria-hidden="true">
+                    <span class="static-rocket review-rocket"></span>
+                    <b class="done-badge">DONE ✓</b>
+                    <i class="evidence-row row-orbit">ORBIT / TRAJECTORY —</i>
+                    <i class="evidence-row row-payload">PAYLOAD —</i>
+                    <i class="evidence-row row-catch">CATCH —</i>
+                    <i class="evidence-row row-divert">DIVERT —</i>
+                  </div>
+                  <p>飞船自己点亮 DONE，外部轨迹、载荷和改道证据仍缺失。</p>
+                  <strong class="fallback-outcome">自报成功</strong>
+                </article>
+                <article class="fallback-bay with-harness">
+                  <header><strong>模型 + Harness</strong><span>VERIFICATION</span></header>
+                  <div class="fallback-visual fallback-mission mission-verification evidence-backed" aria-hidden="true">
+                    <span class="static-rocket review-rocket"></span>
+                    <i class="observer-satellite observer-a"></i>
+                    <i class="observer-satellite observer-b"></i>
+                    <i class="radar-sweep"></i>
+                    <i class="evidence-row row-orbit">ORBIT / TRAJECTORY · PASS</i>
+                    <i class="evidence-row row-payload">PAYLOAD · PASS</i>
+                    <i class="evidence-row row-catch">CATCH · NO-GO</i>
+                    <i class="evidence-row row-divert">DIVERT · PASS</i>
+                  </div>
+                  <p>独立相机卫星与雷达把第一幕任务契约变成逐项证据。</p>
+                  <strong class="fallback-outcome">完成有证据</strong>
+                </article>
+              </div>
+            </section>
+
+            <p class="mission-fallback-note" id="mission-fallback-note">正在准备 3D 任务控制；静态任务图可直接阅读。</p>
+          </div>
+        </div>
+
+        <div class="mission-conclusion" id="mission-conclusion" hidden>
+          <strong>好的 Harness 不保证飞船一定成功。它让错误被看见、权限被限制、失败可收敛、结果有证据。</strong>
+          <span>同一枚飞船。差别不是能力，而是任务系统。</span>
+        </div>
+      </div>
+
+      <aside class="relay-inspector">
+        <div class="relay-live" id="comparison-live" aria-live="polite" aria-atomic="true">
+          <strong>01 / 05 · 目标</strong>　只有模型：目标模糊；模型 + Harness：目标可判定。一句“把载荷送上去”可以产生合理路线；任务契约把轨道、时间窗、载荷与安全边界变成可判定目标。
+        </div>
+        <div class="relay-sources" id="comparison-sources"></div>
+      </aside>
+      <p class="relay-clarification">概念演示：借用公开的 Starship 试飞与航天任务控制作为隐喻，并非 SpaceX 实际软件架构或产品复刻。Flight 13 仅作为其官方页面所列 planned objectives / timeline 的参考；画面中的两颗观察卫星抽象代表页面所列六颗配备相机组件的 V3 卫星，不表示这些目标已经完成。两侧飞船的能力、几何与性能完全相同。</p>
+    </section>
+
+    <section class="lab" aria-labelledby="lab-title">
+      <header class="lab-head">
+        <div>
+          <p class="section-index">02 · Explore the difference</p>
+          <h2 id="lab-title">拆开刚才的差异</h2>
+          <p>打开或关闭每一层，理解它怎样让输出从“看起来合理”变成“可以验证”。点击圆环或左侧按钮，可以读取这一层的贡献与缺失故障。</p>
+        </div>
+        <div class="task-chip"><span>RUNNING EXAMPLE</span>修复负数结账总额，补回归测试，并创建一个 Pull Request。</div>
+      </header>
+
+      <nav class="presets" aria-label="Harness 预设">
+        <button type="button" data-preset="model">
+          <strong>只有模型</strong>
+          <small>有能力，但周围没有持久运行系统。</small>
+        </button>
+        <button type="button" class="active" data-preset="prototype">
+          <strong>原型 Harness</strong>
+          <small>足以在低风险开发循环中行动和测试。</small>
+        </button>
+        <button type="button" data-preset="production">
+          <strong>生产 Harness</strong>
+          <small>完整的证据、权限与恢复闭环。</small>
+        </button>
+      </nav>
+
+      <div class="builder">
+        <div class="controls" id="controls" aria-label="Harness 层"></div>
+
+        <div class="system-map">
+          <div class="core"><strong>MODEL</strong><small>推理 · 决策 · 生成</small></div>
+          <div id="rings" aria-label="Harness 结构"></div>
+          <div class="outcome" id="outcome"><span>WORK</span><strong>看似合理</strong></div>
+        </div>
+
+        <aside class="detail" id="detail" aria-live="polite"></aside>
+      </div>
+
+      <div class="metrics" aria-live="polite">
+        <article><span>Harness 覆盖</span><strong id="coverage">4 / 7</strong></article>
+        <article><span>运行风险</span><strong id="risk">高</strong></article>
+        <article><span>完成证据</span><strong id="evidence">部分</strong></article>
+      </div>
+    </section>
+
+    <section class="explain" aria-labelledby="explain-title">
+      <div>
+        <p class="section-index">03 · Mental model</p>
+        <h2 id="explain-title">机床提供能力，工装保证结果</h2>
+      </div>
+      <div class="analogy">
+        <article>
+          <h3>高性能数控机床</h3>
+          <p>像模型：可以根据输入推理、选择策略并产生复杂动作。更强的机床能加工更多形状，但不会自己定义“合格”。</p>
+        </article>
+        <article>
+          <h3>图纸、夹具、量规与防护</h3>
+          <p>像 Harness：图纸是任务契约，夹具是上下文与环境，量规是验证，防护是权限，批次记录与复位程序是状态和恢复。</p>
+        </article>
+      </div>
+      <div class="flow" aria-label="Harness 闭环">
+        <span>SPECIFY<br>定义</span>
+        <span>OBSERVE<br>观察</span>
+        <span>ACT<br>行动</span>
+        <span>VERIFY<br>验证</span>
+        <span>RECOVER<br>恢复</span>
+      </div>
+    </section>
+
+    <section class="neighbors" aria-labelledby="neighbors-title">
+      <p class="section-index">04 · Concept neighbors</p>
+      <h2 id="neighbors-title">不是所有 Agent 基础设施都是一回事</h2>
+      <div class="neighbor-grid">
+        <article class="neighbor"><span>Instruction technique</span><h3>Prompt Engineering</h3><p>改善当次运行怎样表达意图；不负责完整任务生命周期。</p></article>
+        <article class="neighbor"><span>Subsystem practice</span><h3>Context Engineering</h3><p>管理模型看见什么；是 Harness 的核心层，但不是全部。</p></article>
+        <article class="neighbor"><span>Runtime artifact</span><h3>Agent Harness</h3><p>实际调用模型、路由工具并维护循环的系统；Engineering 是构建它的实践。</p></article>
+        <article class="neighbor"><span>Toolkit</span><h3>Agent Framework</h3><p>提供通用零件；不等于已经拥有任务契约、证据、权限和恢复。</p></article>
+        <article class="neighbor"><span>Integration protocol</span><h3>Model Context Protocol</h3><p>连接工具与上下文；不决定何时完成、谁有权限或怎样恢复。</p></article>
+        <article class="neighbor"><span>Measurement</span><h3>Evaluation Harness</h3><p>运行并评分受控任务；生产 Agent Harness 负责真实工作。</p></article>
+        <article class="neighbor"><span>Runtime guarantee</span><h3>Durable Execution</h3><p>为检查点、重试和恢复提供底层保证。</p></article>
+        <article class="neighbor"><span>Permission model</span><h3>Capability Security</h3><p>只授予任务所需的最小能力，限制错误影响范围。</p></article>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>Framework 给你零件。Harness 是运行产物。Harness Engineering 是设计保证的实践。</h2>
+      <ul>
+        <li>Prompt 表达意图；Contract 定义可以验证的结果。</li>
+        <li>Session 是持久事件史；Context 是此刻选择的工作集。</li>
+        <li>工具扩大行动力；验证与权限让行动力变得可靠。</li>
+        <li>“调用成功”不等于“业务结果成功”。</li>
+        <li>恢复必须理解副作用，而不能只盲目重跑。</li>
+        <li>Harness 也会腐烂：需要版本化、评估和删掉过时假设。</li>
+      </ul>
+    </section>
+
+    <footer>
+      <span>Pattern Atlas · Aaron Studio</span>
+      <span>Sources: OpenAI · Anthropic · Zhong & Zhu · Ahn & Kim · 2025–2026</span>
+    </footer>
+  </main>
+
+  <script>
+    const layerOrder = ["contract", "context", "tools", "state", "evals", "permissions", "recovery"];
+    const layers = {
+      contract: {
+        name: "任务契约", short: "CONTRACT",
+        role: "定义可观察结果、限制与宣布完成前必须出现的证据。",
+        success: "系统知道要优化什么，也知道怎样判断完成。",
+        failure: "流畅补丁可能满足字面任务，却错过真实业务结果。"
+      },
+      context: {
+        name: "上下文地图", short: "CONTEXT",
+        role: "选择相关知识，并指向版本化的权威来源。",
+        success: "不用淹没上下文，也能找到当前架构、规则与运行命令。",
+        failure: "智能体从陈旧或邻近信息中猜测，甚至从未发现权威规则。"
+      },
+      tools: {
+        name: "工具与沙箱", short: "TOOLS",
+        role: "把意图转化为可读、隔离环境中的受限行动。",
+        success: "智能体可以复现、编辑、运行、观察并归因失败。",
+        failure: "它只能建议工作，或通过影响范围不明的宽泛工具行动。"
+      },
+      state: {
+        name: "持久状态", short: "STATE",
+        role: "把事件、进度、决定、产物与副作用保存到单次上下文之外。",
+        success: "后续运行从事实继续，而不是重建记忆。",
+        failure: "上下文压缩或进程丢失会抹去已完成与计划工作的边界。"
+      },
+      evals: {
+        name: "验证与评估", short: "VERIFY",
+        role: "用确定性检查、校准评审与人类判断评价环境结果。",
+        success: "“完成”由可复现证据支持。",
+        failure: "生成者成为自己宽松的裁判，把自信误认为正确。"
+      },
+      permissions: {
+        name: "权限", short: "AUTHORITY",
+        role: "只授予必要能力，并为后果重大的动作设置闸门。",
+        success: "智能体拥有足够但有限的权力，影响范围受控，过程可审计。",
+        failure: "它要么无法完成，要么权限过大；不可信内容能重定向广泛权力。"
+      },
+      recovery: {
+        name: "恢复与轨迹", short: "RECOVERY",
+        role: "解释失败、重建可丢弃环境，并在不复制副作用时继续。",
+        success: "失败成为另一个状态转移，而不是一个丢失的任务。",
+        failure: "“再试一次”可能重跑数小时工作，或复制外部动作。"
+      }
+    };
+
+    const comparisonSources = {
+      "openai-harness": {
+        organization: "OpenAI",
+        label: "仓库地图 + 评审",
+        title: "Harness engineering: leveraging Codex in an agent-first world",
+        url: "https://openai.com/index/harness-engineering/"
+      },
+      "openai-safety": {
+        organization: "OpenAI",
+        label: "沙箱 + 审批",
+        title: "Running Codex safely at OpenAI",
+        url: "https://openai.com/index/running-codex-safely/"
+      },
+      "openai-durable": {
+        organization: "OpenAI",
+        label: "外部持久状态",
+        title: "The next evolution of the Agents SDK",
+        url: "https://openai.com/index/the-next-evolution-of-the-agents-sdk/"
+      },
+      "anthropic-long": {
+        organization: "Anthropic",
+        label: "进度产物",
+        title: "Effective harnesses for long-running agents",
+        url: "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+      },
+      "anthropic-evaluator": {
+        organization: "Anthropic",
+        label: "Sprint 契约 + 独立评审",
+        title: "Harness design for long-running application development",
+        url: "https://www.anthropic.com/engineering/harness-design-long-running-apps"
+      },
+      "anthropic-managed": {
+        organization: "Anthropic",
+        label: "持久 Session 轨迹",
+        title: "Scaling Managed Agents: Decoupling the brain from the hands",
+        url: "https://www.anthropic.com/engineering/managed-agents"
+      },
+      "anthropic-sandbox": {
+        organization: "Anthropic",
+        label: "沙箱外凭证",
+        title: "Beyond permission prompts: Claude Code sandboxing",
+        url: "https://www.anthropic.com/engineering/claude-code-sandboxing"
+      },
+      "anthropic-evals": {
+        organization: "Anthropic",
+        label: "结果评估",
+        title: "Demystifying evals for AI agents",
+        url: "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+      },
+      "spacex-flight-13": {
+        organization: "SpaceX",
+        label: "Flight 13 计划目标",
+        title: "Starship's Thirteenth Flight Test",
+        url: "https://www.spacex.com/launches/starship-flight-13"
+      },
+      "spacex-flight-6": {
+        organization: "SpaceX",
+        label: "健康检查 → 放弃捕获 → 改道",
+        title: "Starship's Sixth Flight Test",
+        url: "https://www.spacex.com/launches/starship-flight-6"
+      },
+      "spacex-flight-5": {
+        organization: "SpaceX",
+        label: "数千项捕获条件",
+        title: "Starship's Fifth Flight Test",
+        url: "https://www.spacex.com/launches/starship-flight-5"
+      },
+      "nasa-mission-control": {
+        organization: "NASA",
+        label: "任务控制职责",
+        title: "National Aeronautics and Space Administration (NASA) · Johnson Space Center Spaceflight Operations",
+        url: "https://www.nasa.gov/reference/jsc-spaceflight-operations/"
+      },
+      "faa-starship": {
+        organization: "FAA",
+        label: "外部发射许可",
+        title: "Federal Aviation Administration (FAA) · SpaceX Starship/Super Heavy License Review Process",
+        url: "https://www.faa.gov/space/stakeholder_engagement/spacex_starship/license_review_process"
+      }
+    };
+
+    const comparisonStages = [
+      {
+        key: "coordinates",
+        label: "目标",
+        noOutcome: "目标模糊",
+        yesOutcome: "目标可判定",
+        narration: "一句“把载荷送上去”可以产生合理路线；任务契约把轨道、时间窗、载荷与安全边界变成可判定目标。",
+        sources: ["openai-harness", "anthropic-long", "spacex-flight-13", "nasa-mission-control"]
+      },
+      {
+        key: "permission",
+        label: "权限",
+        noOutcome: "权限过宽",
+        yesOutcome: "权限有边界",
+        narration: "能点火不等于能同时操作所有系统；Harness 只授权当前阶段、当前对象和当前时间窗。",
+        sources: ["openai-safety", "anthropic-sandbox", "spacex-flight-5", "faa-starship"]
+      },
+      {
+        key: "handshake",
+        label: "握手",
+        noOutcome: "默认已执行",
+        yesOutcome: "工具会回话",
+        narration: "命令发出去只完成了一半；点火状态、分离确认与下一阶段必须沿协议返回执行循环。",
+        sources: ["openai-harness", "anthropic-evaluator", "spacex-flight-13", "nasa-mission-control"]
+      },
+      {
+        key: "recovery",
+        label: "恢复",
+        noOutcome: "继续旧计划",
+        yesOutcome: "失败可收敛",
+        narration: "恢复不是让物理世界回滚；它是保留当前状态、拒绝过期计划，并进入预先定义的安全路径。",
+        sources: ["openai-durable", "anthropic-managed", "spacex-flight-6", "nasa-mission-control"]
+      },
+      {
+        key: "verification",
+        label: "验收",
+        noOutcome: "自报成功",
+        yesOutcome: "完成有证据",
+        narration: "Harness 不保证每次任务完美；独立观察者把第一幕契约逐项验收为 ORBIT / TRAJECTORY、PAYLOAD、CATCH NO-GO 与 DIVERT PASS。",
+        sources: ["anthropic-evaluator", "anthropic-evals", "spacex-flight-13", "faa-starship"]
+      }
+    ];
+
+    const enabled = { contract: true, context: true, tools: true, state: false, evals: true, permissions: false, recovery: false };
+    let selected = "contract";
+    let comparisonController = null;
+    let comparisonStageKey = "coordinates";
+    let comparisonPlayback = "idle";
+    let comparisonCompleted = false;
+    let comparisonRuntimeReady = false;
+    let comparisonUnsupported = false;
+    let comparisonProgressValue = 0;
+    let missionInitPromise = null;
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const controls = document.querySelector("#controls");
+    const rings = document.querySelector("#rings");
+    const detail = document.querySelector("#detail");
+    const outcome = document.querySelector("#outcome");
+    const coverage = document.querySelector("#coverage");
+    const risk = document.querySelector("#risk");
+    const evidence = document.querySelector("#evidence");
+    const comparison = document.querySelector("#comparison");
+    const comparisonProgress = document.querySelector("#comparison-progress");
+    const comparisonLive = document.querySelector("#comparison-live");
+    const comparisonPlay = document.querySelector("#comparison-play");
+    const comparisonSourceLinks = document.querySelector("#comparison-sources");
+    const missionViewport = document.querySelector("#mission-viewport");
+    const missionCanvas = document.querySelector("#mission-canvas");
+    const missionFallbackNote = document.querySelector("#mission-fallback-note");
+    const missionProgressTrack = document.querySelector("#mission-progress-track");
+    const missionProgressFill = document.querySelector("#mission-progress-fill");
+    const missionLeftOutcome = document.querySelector("#mission-left-outcome");
+    const missionRightOutcome = document.querySelector("#mission-right-outcome");
+    const missionConclusion = document.querySelector("#mission-conclusion");
+
+    function renderBuilder() {
+      controls.innerHTML = layerOrder.map((key, index) => `
+        <button type="button" class="layer-button ${enabled[key] ? "enabled" : ""} ${selected === key ? "selected" : ""}" data-layer="${key}" aria-pressed="${enabled[key]}">
+          <span class="layer-index">${String(index + 1).padStart(2, "0")}</span>
+          <span><strong>${layers[key].name}</strong><small>${layers[key].short}</small></span>
+          <span class="state">${enabled[key] ? "已加入" : "缺失"}</span>
+        </button>
+      `).join("");
+
+      rings.innerHTML = layerOrder.map(key => `
+        <div class="ring ${enabled[key] ? "active" : ""} ${selected === key ? "selected" : ""}" data-ring="${key}" role="button" tabindex="0" aria-label="${layers[key].name}，${enabled[key] ? "已加入" : "缺失"}">
+          <span>${layers[key].short}</span>
+        </div>
+      `).join("");
+
+      const layer = layers[selected];
+      detail.innerHTML = `
+        <p class="mono-label">Selected layer</p>
+        <h3>${layer.name}</h3>
+        <section><strong>它带来什么</strong><p>${layer.role}</p><p class="success">${layer.success}</p></section>
+        <section><strong>缺失时怎样失败</strong><p class="failure">${layer.failure}</p></section>
+      `;
+
+      const count = layerOrder.filter(key => enabled[key]).length;
+      const verifiable = enabled.contract && enabled.tools && enabled.evals && enabled.permissions;
+      const evidenceCount = ["contract", "state", "evals", "recovery"].filter(key => enabled[key]).length;
+      coverage.textContent = `${count} / 7`;
+      risk.textContent = !enabled.tools || !enabled.permissions ? "高" : (!enabled.state || !enabled.evals || !enabled.recovery ? "中" : "低");
+      evidence.textContent = evidenceCount === 4 ? "强" : (evidenceCount >= 2 ? "部分" : "弱");
+      outcome.classList.toggle("verified", verifiable);
+      outcome.querySelector("strong").textContent = verifiable ? "可验证" : "看似合理";
+    }
+
+    function stageByKey(key) {
+      return comparisonStages.find(stage => stage.key === key) || comparisonStages[0];
+    }
+
+    function stageIndex(key) {
+      return Math.max(0, comparisonStages.findIndex(stage => stage.key === key));
+    }
+
+    function renderMissionSources(stage) {
+      comparisonSourceLinks.innerHTML = stage.sources.map(key => {
+        const source = comparisonSources[key];
+        return `<a href="${source.url}" target="_blank" rel="noreferrer" title="${source.title}">${source.organization} · ${source.label}<span class="sr-only"> — ${source.title}</span></a>`;
+      }).join("");
+    }
+
+    function renderMissionState(next = {}) {
+      const key = comparisonStages.some(stage => stage.key === next.stage)
+        ? next.stage
+        : comparisonStageKey;
+      const stage = stageByKey(key);
+      const index = stageIndex(key);
+      comparisonStageKey = key;
+      comparisonPlayback = next.playback || comparisonPlayback;
+      comparisonCompleted = typeof next.completed === "boolean"
+        ? next.completed
+        : comparisonCompleted;
+
+      if (Number.isFinite(next.progress)) {
+        comparisonProgressValue = Math.max(0, Math.min(1, next.progress));
+      } else if (next.reason === "pointer" || next.reason === "keyboard" || next.reason === "fallback") {
+        comparisonProgressValue = index / (comparisonStages.length - 1);
+      }
+
+      comparison.dataset.stage = key;
+      comparison.dataset.playback = comparisonPlayback;
+      comparison.dataset.stageSettled = String(Boolean(next.stageSettled));
+      missionViewport.dataset.stage = key;
+      missionViewport.dataset.playback = comparisonPlayback;
+
+      comparisonProgress.querySelectorAll("[data-comparison-stage]").forEach((button, buttonIndex) => {
+        const active = button.dataset.comparisonStage === key;
+        button.classList.toggle("reached", buttonIndex <= index);
+        if (active) {
+          button.setAttribute("aria-current", "step");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      document.querySelectorAll("[data-fallback-stage]").forEach(panel => {
+        panel.hidden = panel.dataset.fallbackStage !== key;
+      });
+
+      missionLeftOutcome.textContent = stage.noOutcome;
+      missionRightOutcome.textContent = stage.yesOutcome;
+      comparisonLive.innerHTML = `<strong>${String(index + 1).padStart(2, "0")} / 05 · ${stage.label}</strong>　只有模型：${stage.noOutcome}；模型 + Harness：${stage.yesOutcome}。${stage.narration}`;
+      renderMissionSources(stage);
+
+      const progressPercent = Math.round(comparisonProgressValue * 100);
+      missionProgressFill.style.transform = `scaleX(${comparisonProgressValue})`;
+      missionProgressTrack.setAttribute("aria-valuenow", String(progressPercent));
+      missionConclusion.hidden = !comparisonCompleted;
+
+      const staticMode = reducedMotionQuery.matches || comparisonUnsupported;
+      comparisonPlay.disabled = !comparisonController || !comparisonRuntimeReady || staticMode;
+      comparisonPlay.textContent = staticMode
+        ? "静态浏览"
+        : comparisonPlayback === "playing"
+          ? "暂停"
+          : comparisonPlayback === "paused"
+            ? "继续"
+            : comparisonCompleted
+              ? "重播"
+              : "播放完整任务";
+      comparisonPlay.setAttribute("aria-pressed", String(comparisonPlayback === "playing"));
+    }
+
+    function setMissionFallbackStatus(kind, error) {
+      comparisonUnsupported = kind === "unsupported";
+      missionViewport.dataset.runtime = kind;
+      missionViewport.classList.toggle("runtime-ready", kind === "ready");
+      missionViewport.classList.toggle("is-reduced", kind === "reduced");
+
+      if (kind === "ready") {
+        missionFallbackNote.textContent = "3D 任务控制已就绪。";
+      } else if (kind === "reduced") {
+        missionFallbackNote.textContent = "已按系统偏好关闭空间运动；可逐阶段阅读。";
+      } else if (kind === "unsupported") {
+        missionFallbackNote.textContent = "3D 场景暂不可用；已保留完整的静态任务图。";
+        if (error) {
+          console.warn("Harness mission 3D fallback:", error);
+        }
+      } else {
+        missionFallbackNote.textContent = "正在准备 3D 任务控制；静态任务图可直接阅读。";
+      }
+
+      renderMissionState();
+    }
+
+    function handleMissionState(state = {}) {
+      renderMissionState({
+        stage: state.stage,
+        playback: state.playback,
+        progress: state.progress,
+        stageSettled: state.stageSettled,
+        completed: state.completed,
+        reason: state.reason
+      });
+    }
+
+    function handleMissionUnsupported(error) {
+      comparisonRuntimeReady = false;
+      setMissionFallbackStatus("unsupported", error);
+    }
+
+    function attachMissionController(controller) {
+      if (!controller || typeof controller.select !== "function") {
+        handleMissionUnsupported(new Error("HarnessMission3D did not return a controller."));
+        return;
+      }
+
+      comparisonController = controller;
+      const state = typeof controller.getState === "function"
+        ? controller.getState()
+        : null;
+      if (state) handleMissionState(state);
+
+      if (comparisonRuntimeReady) {
+        setMissionFallbackStatus("ready");
+      }
+    }
+
+    function initializeMissionRuntime() {
+      if (missionInitPromise || comparisonController || comparisonUnsupported) return missionInitPromise;
+      if (reducedMotionQuery.matches) {
+        setMissionFallbackStatus("reduced");
+        return null;
+      }
+
+      setMissionFallbackStatus("pending");
+      const api = globalThis.HarnessMission3D;
+      if (!api || typeof api.create !== "function") {
+        handleMissionUnsupported(new Error("HarnessMission3D runtime is unavailable."));
+        return null;
+      }
+
+      try {
+        const created = api.create({
+          canvas: missionCanvas,
+          host: missionViewport,
+          initialStage: comparisonStageKey,
+          reducedMotion: false,
+          locale: "zh",
+          onReady() {
+            comparisonRuntimeReady = true;
+            setMissionFallbackStatus("ready");
+          },
+          onStateChange: handleMissionState,
+          onUnsupported: handleMissionUnsupported
+        });
+
+        missionInitPromise = Promise.resolve(created)
+          .then(controller => {
+            attachMissionController(controller);
+            return controller;
+          })
+          .catch(error => {
+            handleMissionUnsupported(error);
+            return null;
+          })
+          .finally(() => {
+            missionInitPromise = null;
+          });
+      } catch (error) {
+        handleMissionUnsupported(error);
+      }
+
+      return missionInitPromise;
+    }
+
+    function selectMissionStage(key, { animate, reason }) {
+      if (!comparisonStages.some(stage => stage.key === key)) return;
+      comparisonCompleted = false;
+      comparisonPlayback = "idle";
+
+      if (
+        comparisonController &&
+        comparisonRuntimeReady &&
+        !reducedMotionQuery.matches &&
+        !comparisonUnsupported
+      ) {
+        comparisonController.select(key, {
+          animate,
+          autoplay: false,
+          reason
+        });
+        return;
+      }
+
+      renderMissionState({
+        stage: key,
+        playback: "idle",
+        stageSettled: true,
+        completed: false,
+        reason
+      });
+    }
+
+    function toggleMissionPlayback() {
+      if (
+        !comparisonController ||
+        !comparisonRuntimeReady ||
+        reducedMotionQuery.matches ||
+        comparisonUnsupported
+      ) return;
+
+      const state = typeof comparisonController.getState === "function"
+        ? comparisonController.getState()
+        : { playback: comparisonPlayback, completed: comparisonCompleted };
+
+      if (state.playback === "playing") {
+        comparisonController.pause();
+      } else if (state.playback === "paused") {
+        comparisonController.resume();
+      } else {
+        comparisonCompleted = false;
+        comparisonProgressValue = 0;
+        comparisonController.play({ from: "coordinates" });
+      }
+    }
+
+    function moveMissionFocus(event) {
+      const buttons = [...comparisonProgress.querySelectorAll("[data-comparison-stage]")];
+      const currentIndex = buttons.indexOf(document.activeElement);
+      if (currentIndex === -1) return;
+      let nextIndex = currentIndex;
+
+      if (event.key === "ArrowLeft") nextIndex = Math.max(0, currentIndex - 1);
+      else if (event.key === "ArrowRight") nextIndex = Math.min(buttons.length - 1, currentIndex + 1);
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = buttons.length - 1;
+      else return;
+
+      event.preventDefault();
+      buttons[nextIndex].focus();
+      selectMissionStage(buttons[nextIndex].dataset.comparisonStage, {
+        animate: false,
+        reason: "keyboard"
+      });
+    }
+
+    function handleReducedMotionChange() {
+      missionViewport.classList.toggle("is-reduced", reducedMotionQuery.matches);
+
+      if (reducedMotionQuery.matches) {
+        if (comparisonController) {
+          comparisonController.pause();
+          comparisonController.setReducedMotion(true);
+        }
+        comparisonPlayback = "idle";
+        setMissionFallbackStatus("reduced");
+        renderMissionState({
+          stage: comparisonStageKey,
+          playback: "idle",
+          stageSettled: true,
+          completed: false,
+          reason: "reduced-motion"
+        });
+        return;
+      }
+
+      if (comparisonController) {
+        comparisonController.setReducedMotion(false);
+        comparisonRuntimeReady = true;
+        setMissionFallbackStatus("ready");
+        comparisonController.select(comparisonStageKey, {
+          animate: false,
+          autoplay: false,
+          reason: "reduced-motion"
+        });
+      } else {
+        comparisonUnsupported = false;
+        initializeMissionRuntime();
+      }
+    }
+
+    function destroyMissionRuntime() {
+      if (comparisonController && typeof comparisonController.destroy === "function") {
+        comparisonController.destroy();
+      }
+      comparisonController = null;
+      comparisonRuntimeReady = false;
+    }
+
+    function setPreset(name) {
+      const sets = {
+        model: [],
+        prototype: ["contract", "context", "tools", "evals"],
+        production: [...layerOrder]
+      };
+      layerOrder.forEach(key => { enabled[key] = sets[name].includes(key); });
+      document.querySelectorAll("[data-preset]").forEach(button => button.classList.toggle("active", button.dataset.preset === name));
+      renderBuilder();
+    }
+
+    controls.addEventListener("click", event => {
+      const button = event.target.closest("[data-layer]");
+      if (!button) return;
+      const key = button.dataset.layer;
+      enabled[key] = !enabled[key];
+      selected = key;
+      document.querySelectorAll("[data-preset]").forEach(item => item.classList.remove("active"));
+      renderBuilder();
+    });
+
+    rings.addEventListener("click", event => {
+      const ring = event.target.closest("[data-ring]");
+      if (!ring) return;
+      selected = ring.dataset.ring;
+      renderBuilder();
+    });
+
+    rings.addEventListener("keydown", event => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      const ring = event.target.closest("[data-ring]");
+      if (!ring) return;
+      event.preventDefault();
+      selected = ring.dataset.ring;
+      renderBuilder();
+    });
+
+    document.querySelector(".presets").addEventListener("click", event => {
+      const button = event.target.closest("[data-preset]");
+      if (button) setPreset(button.dataset.preset);
+    });
+
+    comparisonPlay.addEventListener("click", toggleMissionPlayback);
+    comparisonProgress.addEventListener("click", event => {
+      const button = event.target.closest("[data-comparison-stage]");
+      if (!button) return;
+      selectMissionStage(button.dataset.comparisonStage, {
+        animate: event.detail !== 0,
+        reason: event.detail === 0 ? "keyboard" : "pointer"
+      });
+    });
+    comparisonProgress.addEventListener("keydown", moveMissionFocus);
+    window.addEventListener("pagehide", destroyMissionRuntime);
+    reducedMotionQuery.addEventListener("change", handleReducedMotionChange);
+
+    renderBuilder();
+    renderMissionState({
+      stage: "coordinates",
+      playback: "idle",
+      progress: 0,
+      stageSettled: true,
+      completed: false,
+      reason: "initial"
+    });
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initializeMissionRuntime, { once: true });
+    } else {
+      initializeMissionRuntime();
+    }
+  </script>
+</body>
+</html>

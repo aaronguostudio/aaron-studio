@@ -10,20 +10,36 @@ An editorial diagram shows five future cash-flow bars becoming smaller present-v
 
 ## Post copy
 
-A Discounted Cash Flow model is not a machine for discovering the “correct” price.
+How much would you pay for a vending machine that leaves $8,000 in cash each year?
 
-It is a translator:
+Suppose the seller wants $120,000.
 
-future cash flow + time + risk → value today.
+You make a few assumptions:
 
-The useful question is not “What number did the spreadsheet produce?” It is “Which operating, reinvestment, and risk assumptions produced that number—and what happens when they change?”
+- cash grows 3% annually for the next five years;
+- you require a 10% annual return for waiting and risk;
+- cash grows 2% in the long run;
+- the machine still has a $5,000 loan.
 
-I built an interactive guide where you can adjust free cash flow, growth, the discount rate, stable growth, net debt, and the forecast horizon. Enterprise value, equity value, cash-flow bars, and terminal-value dependence all update together.
+Under those assumptions:
 
-The result should always be read as a conditional sentence, not a fact.
+- the first five years of cash are worth about $32,981 today;
+- all later cash is worth about $73,421 today;
+- after the remaining loan, the simplified buyer-equity value is about $101,403.
 
-Explore the interactive guide:
+DCF does not prove that the seller’s $120,000 price is wrong.
+
+It makes the gap visible—and tells you what must be true to justify it: more future cash, less risk, or another source of value.
+
+That is how I think about Discounted Cash Flow:
+
+future cash + time + risk → value today.
+
+I turned the example into an interactive guide. You can change the assumptions and watch the cash flows, present values, and terminal-value dependence update together:
+
 https://www.aaronguo.com/learn/discounted-cash-flow?utm_source=linkedin&utm_medium=organic_social&utm_campaign=pattern_series&utm_content=discounted_cash_flow_card
+
+Educational and hypothetical only—not investment advice.
 
 ## Manual checklist
 
