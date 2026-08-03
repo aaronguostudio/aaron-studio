@@ -15,9 +15,9 @@ featured: false
 translationKey: "document-visual-language"
 interaction: "document-visual-language"
 socialImage: "/learn-img/document-visual-language/og-1200x627.jpg"
-socialImageAlt: "横版现代编辑图，标题为 Document Design System，展示主题怎样进入 Token、组件与最终文档。"
+socialImageAlt: "横版 Working Vocabulary 封面，标题为 Document Visual Language，用相同项目简报对比温暖编辑式与冷静现代主义两种呈现，并以字体、间距和颜色 Token 连接。"
 cardImage: "/learn-img/document-visual-language/card-4x5.jpg"
-cardImageAlt: "竖版现代编辑图，标题为 Document Design System，展示主题怎样进入 Token、组件与最终文档。"
+cardImageAlt: "竖版 Working Vocabulary 封面，标题为 Document Visual Language，用相同项目简报对比温暖编辑式与冷静现代主义两种呈现，并以字体、间距和颜色 Token 连接。"
 neighbors:
   - name: "Document Purpose"
     fullName: "Document Purpose / Information Type · 文档目的 / 信息类型"

@@ -15,9 +15,9 @@ featured: false
 translationKey: "document-visual-language"
 interaction: "document-visual-language"
 socialImage: "/learn-img/document-visual-language/og-1200x627.jpg"
-socialImageAlt: "A wide modern editorial diagram titled Document Design System, showing a theme flowing into tokens, components, and a resolved document."
+socialImageAlt: "A wide Working Vocabulary cover titled Document Visual Language, comparing the same project brief in warm editorial and cool modernist treatments through shared type, spacing, and color tokens."
 cardImage: "/learn-img/document-visual-language/card-4x5.jpg"
-cardImageAlt: "A portrait modern editorial diagram titled Document Design System, showing a theme flowing into tokens, components, and a resolved document."
+cardImageAlt: "A portrait Working Vocabulary cover titled Document Visual Language, comparing the same project brief in warm editorial and cool modernist treatments through shared type, spacing, and color tokens."
 neighbors:
   - name: "Document Purpose"
     fullName: "Document Purpose / Information Type"
