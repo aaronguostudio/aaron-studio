@@ -2,8 +2,8 @@
 title: "Document Visual Language"
 fullName: "Document Visual Language"
 shortName: "Document Visual Language"
-description: "Translate how a document should feel, read, and guide action into repeatable rules for layout, typography, color, density, and components."
-mentalModel: "A theme name helps people choose; a visual language helps a team reproduce and review the choice."
+description: "A working model for translating document intent into themes, design tokens, components, patterns, and accessibility criteria."
+mentalModel: "Working model: themes assign values to shared tokens; components and patterns apply those decisions consistently."
 date: "2026-07-18"
 updated: "2026-08-03"
 domain: "Document design"
@@ -15,37 +15,43 @@ featured: false
 translationKey: "document-visual-language"
 interaction: "document-visual-language"
 socialImage: "/learn-img/document-visual-language/og-1200x627.jpg"
-socialImageAlt: "A wide editorial graphic titled Document Visual Language, showing four visual axes and a document preview that changes as the design rules move."
+socialImageAlt: "A wide modern editorial diagram titled Document Design System, showing a theme flowing into tokens, components, and a resolved document."
 cardImage: "/learn-img/document-visual-language/card-4x5.jpg"
-cardImageAlt: "A portrait editorial card titled Document Visual Language, connecting a named theme and four visual axes to a repeatable document system."
+cardImageAlt: "A portrait modern editorial diagram titled Document Design System, showing a theme flowing into tokens, components, and a resolved document."
 neighbors:
-  - name: "Document Genre"
-    fullName: "Document Genre"
-    category: "functional contract"
-    summary: "Defines the reading job; visual language decides how the design supports that job."
-  - name: "Design Lineage"
-    fullName: "Design Lineage"
-    category: "historical grammar"
-    summary: "Provides traceable traditions such as Swiss Style or New Typography without acting as a ready-made theme."
-  - name: "Style Archetype"
-    fullName: "Style Archetype"
-    category: "working vocabulary"
-    summary: "Names a practical cluster of visual relationships without pretending it is a universal standard."
-  - name: "Design Theme"
+  - name: "Document Purpose"
+    fullName: "Document Purpose / Information Type"
+    category: "content intent"
+    summary: "Describes the reader outcome. DITA concept, task, and reference are standardized information types; the simulator uses broader practical examples."
+  - name: "Design Tradition"
+    fullName: "Historical Design Tradition"
+    category: "historical source"
+    summary: "Names a documented movement or typographic tradition such as the International Typographic Style or New Typography."
+  - name: "Design Practice"
+    fullName: "Design Practice"
+    category: "professional field"
+    summary: "Uses established fields such as editorial design, information design, and technical communication."
+  - name: "Theme"
     fullName: "Design Theme"
-    category: "named instance"
-    summary: "Packages one implementation under a memorable product-local name such as Alder or Granite."
+    category: "named implementation"
+    summary: "Assigns a coordinated set of values to shared design roles for a product or context."
   - name: "Design Tokens"
     fullName: "Design Tokens"
     category: "implementation data"
     summary: "Store exact colors, sizes, type roles, and spacing values; they do not decide the document strategy."
-  - name: "Template"
-    fullName: "Template"
-    category: "content skeleton"
-    summary: "Preserves repeatable page structures; one template may accept several themes and one theme may cover several templates."
+  - name: "Components and Patterns"
+    fullName: "Components and Patterns"
+    category: "reusable behavior"
+    summary: "Components package reusable interface parts; patterns explain how to combine them for recurring user needs."
 sources:
   - title: "Design Tokens Community Group · Design Tokens Format Module 2025.10"
     url: "https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/"
+  - title: "GOV.UK Design System · Styles, components and patterns"
+    url: "https://design-system.service.gov.uk/"
+  - title: "Material Web · Theming"
+    url: "https://material-web.dev/theming/material-theming/"
+  - title: "OASIS DITA 1.3 · Information typing"
+    url: "https://docs.oasis-open.org/dita/dita/v1.3/os/part1-base/archSpec/base/information-typing.html"
   - title: "Cooper Hewitt · A Harmony of Contrasts"
     url: "https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/"
   - title: "Museum of Modern Art · The New Typography"
@@ -70,7 +76,9 @@ Artificial Intelligence (AI) can generate Portable Document Format (PDF) reports
 
 These reactions contain judgment, but not instructions. A designer, developer, or model still has to guess which typography, grid, density, color, or component should change.
 
-**Document Visual Language translates how a document should feel, read, and guide action into repeatable rules for layout, typography, color, density, and components.**
+> **Terminology note:** “Document Visual Language” is a working umbrella term used in this article, not a formal standard. The model below uses established design-system concepts—theme, design token, style, component, pattern, and accessibility criteria—and labels every local teaching device as such. The Design Tokens Community Group’s 2025.10 format is stable and intended for implementation, but its own status section says it is not a W3C Standard.
+
+This article asks a practical question: how can a team translate document intent into repeatable themes, tokens, components, patterns, and review criteria?
 
 ## A room name is not a construction drawing
 
@@ -82,56 +90,56 @@ A construction team still needs plans, dimensions, materials, lighting temperatu
 
 Document themes work the same way:
 
-| Layer           | Room analogy              | Document equivalent                                |
-| --------------- | ------------------------- | -------------------------------------------------- |
-| Theme name      | Memorable room name       | Alder or Granite                                   |
-| Style archetype | Shared interior direction | Organic Humanist or Institutional Modern           |
-| Layout system   | Floor plan                | Grid, margins, columns, and page regions           |
-| Design tokens   | Material schedule         | Colors, sizes, type roles, and spacing             |
-| Component rules | Installation details      | Tables, quotations, warnings, headers, and footers |
+| Layer                 | Room analogy            | Document equivalent                                |
+| --------------------- | ----------------------- | -------------------------------------------------- |
+| Theme                 | Memorable room name     | Alder or Granite                                   |
+| Design tradition      | Historical reference    | International Typographic Style or New Typography  |
+| Design practice       | Professional discipline | Editorial design or information design             |
+| Design tokens         | Material schedule       | Named colors, dimensions, type roles, and spacing  |
+| Components + patterns | Installation details    | Tables, quotations, warnings, headers, and footers |
 
 Poetic naming creates an image. System definition makes the image reproducible.
 
-## The five-layer visual-language stack
+## A five-step teaching sequence
 
-### 1. Document Genre: what job is the reader doing?
+This sequence is a local teaching model, not a formal taxonomy.
+
+### 1. Document purpose: what outcome does the reader need?
 
 A long essay supports continuous reading. An analytical report supports scanning, comparison, and evidence retrieval. An operating manual supports accurate action under pressure. A proposal supports a decision.
 
-Genre comes first because visual taste cannot overrule the document's job.
+Purpose comes first because visual taste cannot overrule the document's job. OASIS DITA formalizes information types such as concept, task, and reference for technical content. Report, proposal, manual, and essay are broader practical examples in this simulator, not DITA categories.
 
-### 2. Design Lineage: which established grammar are we borrowing?
+### 2. Historical design tradition: which documented source are we borrowing from?
 
-A lineage names a traceable historical tradition:
+A historical design tradition names a traceable source:
 
 - Swiss Style or International Typographic Style uses disciplined grids, sans-serif typography, asymmetry, and photography.
 - New Typography treats the page as a field of asymmetric type and image relationships.
 - Classical book typography organizes proportion, margins, and quiet text color around sustained reading.
 
-A lineage provides tested relationships. It is not a template button.
+A tradition provides references and relationships. It is not a template button, and the simulator’s rendering is not an authoritative reconstruction.
 
-### 3. Style Archetype: what contemporary character should it have?
+### 3. Design practice: which established field guides the work?
 
-A style archetype is a declared working category such as Organic Humanist, Institutional Modern, Technical Functional, or Luxury Editorial.
+Editorial design, information design, technical communication, book design, and minimalist graphic design are recognizable fields or practices. They are broader than a theme and do not form one universal classification system.
 
-These labels are useful because a team can define their boundaries. They should not impersonate documented historical movements.
-
-### 4. Theme Preset: what memorable name identifies this implementation?
+### 4. Theme: what memorable name identifies this implementation?
 
 A theme preset packages one implementation:
 
-| Preset  | Declared mapping                      |
-| ------- | ------------------------------------- |
-| Alder   | Organic Humanist + Warm Editorial     |
-| Granite | Institutional Modern + Cool Technical |
+| Theme   | Declared mapping                                     |
+| ------- | ---------------------------------------------------- |
+| Alder   | Classical book typography + editorial design         |
+| Granite | International Typographic Style + information design |
 
 This mapping is a working interpretation, not an industry standard. Another product can use the same name differently.
 
-### 5. Tokens and Component Rules: how does it remain itself on every page?
+### 5. Design tokens, components, and patterns: how does it remain consistent?
 
 Design tokens store exact values such as primary ink, paper color, heading family, body size, section spacing, or rule thickness.
 
-Component rules preserve relationships:
+Components package reusable parts; patterns explain how parts work together for recurring needs. Local component rules preserve document-specific relationships:
 
 - When may a table use a filled cell?
 - How do quotations and warnings differ?
@@ -139,9 +147,11 @@ Component rules preserve relationships:
 - May data pages be denser than narrative pages?
 - Where do sources, page numbers, headers, and footers live?
 
-Tokens preserve values. Component rules preserve behavior. A visual language needs both.
+Tokens preserve named values. Components and patterns preserve repeatable behavior. A working document system needs both.
 
 ## Four axes make taste discussable
+
+Temperature, geometry, density, and expression are this article’s review controls. They are not standardized design-system axes, and the 0–100 values are not measurements. Their purpose is to make a direction and relative intensity explicit.
 
 Adjectives become more useful when a direction and intensity are attached:
 
@@ -158,25 +168,22 @@ Instead of “make it more premium,” a review can say:
 
 Taste remains involved, but the next iteration now has a direction.
 
-## A practical style vocabulary
+## A source-aware vocabulary
 
-| Archetype             | Identity                                         | Strong fit                                                     | Typical failure                            |
-| --------------------- | ------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------ |
-| Classical Bookish     | Typographic convention                           | Essays, history, policy, literature                            | Tiny type and fake antique decoration      |
-| Swiss / International | Historical movement                              | Information reports, institutions, multilingual material       | Helvetica without grid discipline          |
-| New Typography        | Historical movement                              | Posters, covers, exhibitions, manifestos                       | Every page becomes dramatic                |
-| Bauhaus Typography    | Institutional design legacy, not one fixed style | Exhibitions, cultural publishing, geometric information design | Primary colors and circles used as costume |
-| Art Deco              | Historical movement with many sources            | Hospitality, architecture, premium covers, event material      | Ornament overwhelms hierarchy              |
-| Art Nouveau           | Historical international style                   | Cultural, botanical, craft, and heritage narratives            | Decorative curves reduce readability       |
-| Editorial             | Working method and genre language                | Magazines, annual reports, brand narratives                    | Random layouts mistaken for rhythm         |
-| Technical Functional  | Working archetype                                | Specifications, audits, manuals, research records              | Density mistaken for professionalism       |
-| Organic Humanist      | Working archetype                                | Education, health, sustainability, personal narratives         | Low contrast and decorative leaves         |
-| Institutional Modern  | Working archetype                                | Finance, governance, consulting, legal reports                 | Correct but entirely forgettable           |
-| Luxury Editorial      | Working archetype                                | Fashion, hospitality, architecture, portfolios                 | Pale small text presented as premium       |
-| Minimal Contemporary  | Working archetype                                | Product briefs, portfolios, focused reports                    | Emptiness mistaken for hierarchy           |
-| Brutalist / Raw       | Borrowed analogy label                           | Cultural and experimental publishing                           | Reading difficulty mistaken for attitude   |
+| Name                            | Evidence label        | Useful context                                           | Typical failure                            |
+| ------------------------------- | --------------------- | -------------------------------------------------------- | ------------------------------------------ |
+| International Typographic Style | Historical tradition  | Information reports, institutions, multilingual material | Helvetica without grid discipline          |
+| New Typography                  | Historical tradition  | Posters, covers, exhibitions, manifestos                 | Every page becomes dramatic                |
+| Bauhaus typography              | Institutional legacy  | Exhibitions, cultural publishing, geometric information  | Primary colors and circles used as costume |
+| Art Deco                        | Historical movement   | Hospitality, architecture, covers, event material        | Ornament overwhelms hierarchy              |
+| Art Nouveau                     | International style   | Cultural, botanical, craft, and heritage narratives      | Decorative curves reduce readability       |
+| Classical book typography       | Typographic tradition | Essays, history, policy, literature                      | Tiny type and fake antique decoration      |
+| Editorial design                | Professional practice | Magazines, annual reports, brand narratives              | Random layouts mistaken for rhythm         |
+| Information design              | Professional practice | Reports, public information, complex comparisons         | Correct but entirely forgettable           |
+| Technical communication         | Professional field    | Specifications, audits, manuals, research records        | Density mistaken for professionalism       |
+| Minimalist graphic design       | Professional practice | Product briefs, portfolios, focused reports              | Emptiness mistaken for hierarchy           |
 
-The identity column matters. A historical movement, a working archetype, and a product theme are not peers.
+These labels still do different jobs. Historical traditions provide sources; professional practices describe fields of work; Alder and Granite remain product-local theme names.
 
 ## Compile Granite into a real brief
 
@@ -187,14 +194,14 @@ Suppose the task is a 24-page quarterly operating report.
 - Reader feeling: stable, credible, reviewed.
 - Reader action: read the executive summary, scan the metrics, then retrieve evidence.
 
-### Stack
+### Design context
 
-| Layer     | Decision                                    |
-| --------- | ------------------------------------------- |
-| Genre     | Analytical report                           |
-| Lineage   | Swiss-inspired information design           |
-| Archetype | Institutional Modern + Technical Functional |
-| Theme     | Granite                                     |
+| Layer     | Decision                        |
+| --------- | ------------------------------- |
+| Purpose   | Analytical report               |
+| Tradition | International Typographic Style |
+| Practice  | Information design              |
+| Theme     | Granite                         |
 
 ### Coordinates
 
@@ -251,27 +258,27 @@ Visual style cannot replace semantic structure. Accessible PDF also depends on h
 
 ## Know the neighbors
 
-- **Document Genre is a functional contract.** It describes what the reader is trying to do.
-- **Design Lineage is a historical grammar.** It supplies traceable principles and relationships.
-- **Style Archetype is a working vocabulary.** It names a declared practical cluster.
-- **Design Theme is a named instance.** It packages the implementation under a memorable local label.
-- **Design Tokens are implementation data.** They store values but do not choose the strategy.
-- **Template is a content skeleton.** It stores reusable structures and can accept more than one theme.
+- **Document purpose describes the reader outcome.** Formal information types exist in specific systems such as DITA; the simulator’s four purposes are examples.
+- **Historical design tradition identifies a source.** It supplies traceable references without becoming a ready-made theme.
+- **Design practice describes a professional field.** Editorial design, information design, and technical communication belong here.
+- **Theme is a named implementation.** It coordinates token values for a product or context.
+- **Design tokens are named implementation data.** They express design decisions in a platform-agnostic format but do not choose the strategy.
+- **Components and patterns carry decisions into use.** Components package reusable parts; patterns describe recurring solutions and contexts.
 
 ## Remember these six things
 
-1. A theme name helps people choose; a visual language helps a team reproduce and review the choice.
-2. Start with the document genre, then choose lineage and archetype, then name the theme.
-3. Use four axes to state the direction and intensity of visual character.
-4. Tokens store values; component rules store relationships.
-5. Historical movements, working archetypes, and product themes must identify what they are.
+1. “Document Visual Language” is this article’s working umbrella term, not a formal standard.
+2. Start with document purpose, then identify a historical tradition or design practice before naming a local theme.
+3. Treat the four axes as local review controls, not standardized measurements.
+4. Themes assign coordinated values; design tokens name and exchange those decisions.
+5. Components and patterns apply decisions consistently across recurring document needs.
 6. Style never substitutes for content structure, evidence, semantics, or accessibility.
 
 ## Self-test
 
 1. Is the reader continuously reading, scanning evidence, following steps, or making a decision?
-2. Is the current label a documented lineage, a working archetype, or a product-local theme?
-3. If the theme name disappears, can the team rebuild it from the coordinates and rules?
+2. Is the current label a documented tradition, an established practice, or a product-local theme?
+3. If the theme name disappears, can the team rebuild it from tokens, components, patterns, and rules?
 4. Which axis and components should move when someone asks for “more professional”?
 5. Which rules stay stable across a cover, a narrative page, and a data page?
 6. Does the design survive printing, long reading, low-quality screens, and assistive technology?
@@ -279,6 +286,9 @@ Visual style cannot replace semantic structure. Accessible PDF also depends on h
 ## Further reading
 
 - [Design Tokens Community Group · Design Tokens Format Module 2025.10](https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/)
+- [GOV.UK Design System · Styles, components and patterns](https://design-system.service.gov.uk/)
+- [Material Web · Theming](https://material-web.dev/theming/material-theming/)
+- [OASIS DITA 1.3 · Information typing](https://docs.oasis-open.org/dita/dita/v1.3/os/part1-base/archSpec/base/information-typing.html)
 - [Cooper Hewitt · A Harmony of Contrasts](https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/)
 - [Museum of Modern Art · The New Typography](https://www.moma.org/calendar/exhibitions/1013)
 - [Bauhaus-Archiv · Bauhaus Typography](https://www.bauhaus.de/en/research/publications/bauhaus-typography/)

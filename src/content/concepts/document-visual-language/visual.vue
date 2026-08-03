@@ -4,7 +4,7 @@ import { computed, reactive, ref } from "vue";
 type Locale = "en" | "zh";
 type AxisKey = "temperature" | "geometry" | "density" | "expression";
 type GenreKey = "report" | "proposal" | "manual" | "essay";
-type PresetFamily = "theme" | "lineage" | "archetype";
+type PresetFamily = "theme" | "tradition" | "practice";
 type FamilyFilter = "all" | PresetFamily;
 type PresetKey =
   | "alder"
@@ -30,8 +30,9 @@ interface Palette {
 
 interface PresetSpec {
   family: PresetFamily;
-  lineage: string;
-  archetype: string;
+  tradition: string;
+  practice: string;
+  layout: string;
   temperature: number;
   geometry: number;
   density: number;
@@ -63,12 +64,18 @@ interface Copy {
   eyebrow: string;
   title: string;
   description: string;
+  modelLabel: string;
+  modelText: string;
   libraryLabel: string;
   libraryHint: string;
   filters: Record<FamilyFilter, string>;
   familyNames: Record<PresetFamily, string>;
   genreLabel: string;
   genreHint: string;
+  previewLabel: string;
+  quickSelect: string;
+  axesLabel: string;
+  axesHint: string;
   genres: Record<GenreKey, { label: string; job: string; rule: string }>;
   axes: Record<AxisKey, { label: string; left: string; right: string }>;
   presets: Record<PresetKey, PresetCopy>;
@@ -128,8 +135,9 @@ const props = defineProps<{ locale: Locale }>();
 const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
   alder: {
     family: "theme",
-    lineage: "Classical editorial + humanist modernism",
-    archetype: "Organic Humanist",
+    tradition: "Classical book typography",
+    practice: "Editorial design",
+    layout: "editorial",
     temperature: 22,
     geometry: 28,
     density: 35,
@@ -146,8 +154,9 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
   },
   granite: {
     family: "theme",
-    lineage: "Swiss-inspired information design",
-    archetype: "Institutional Modern + Technical Functional",
+    tradition: "International Typographic Style",
+    practice: "Information design",
+    layout: "institutional",
     temperature: 82,
     geometry: 76,
     density: 66,
@@ -163,9 +172,10 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   swiss: {
-    family: "lineage",
-    lineage: "Swiss / International Typographic Style",
-    archetype: "Institutional Modern",
+    family: "tradition",
+    tradition: "International Typographic Style",
+    practice: "Information design",
+    layout: "swiss",
     temperature: 68,
     geometry: 92,
     density: 62,
@@ -181,9 +191,10 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   bauhaus: {
-    family: "lineage",
-    lineage: "Bauhaus typography",
-    archetype: "Geometric Functional",
+    family: "tradition",
+    tradition: "Bauhaus typography",
+    practice: "Graphic design",
+    layout: "bauhaus",
     temperature: 46,
     geometry: 88,
     density: 58,
@@ -199,9 +210,10 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   deco: {
-    family: "lineage",
-    lineage: "Art Deco",
-    archetype: "Luxury Editorial",
+    family: "tradition",
+    tradition: "Art Deco",
+    practice: "Graphic design",
+    layout: "deco",
     temperature: 34,
     geometry: 82,
     density: 40,
@@ -217,9 +229,10 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   nouveau: {
-    family: "lineage",
-    lineage: "Art Nouveau",
-    archetype: "Organic Editorial",
+    family: "tradition",
+    tradition: "Art Nouveau",
+    practice: "Graphic design",
+    layout: "nouveau",
     temperature: 18,
     geometry: 18,
     density: 34,
@@ -235,9 +248,10 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   editorial: {
-    family: "archetype",
-    lineage: "Modern editorial practice",
-    archetype: "Modern Editorial",
+    family: "practice",
+    tradition: "Contemporary editorial design",
+    practice: "Editorial design",
+    layout: "editorial",
     temperature: 42,
     geometry: 38,
     density: 48,
@@ -253,27 +267,29 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   luxury: {
-    family: "archetype",
-    lineage: "High-contrast editorial typography",
-    archetype: "Luxury Editorial",
-    temperature: 30,
-    geometry: 56,
-    density: 20,
-    expression: 64,
-    titleFont: "display",
+    family: "tradition",
+    tradition: "Classical book typography",
+    practice: "Book design",
+    layout: "book",
+    temperature: 28,
+    geometry: 42,
+    density: 24,
+    expression: 36,
+    titleFont: "book",
     bodyFont: "book",
     palette: {
-      paper: "151411",
-      ink: "f2eadc",
-      muted: "bcb3a4",
-      accent: "b89455",
-      soft: "28251f",
+      paper: "f5f1e8",
+      ink: "201d19",
+      muted: "6f675b",
+      accent: "8a6d43",
+      soft: "e7dfd1",
     },
   },
   institutional: {
-    family: "archetype",
-    lineage: "Swiss-inspired information design",
-    archetype: "Institutional Modern",
+    family: "practice",
+    tradition: "Modernist information design",
+    practice: "Information design",
+    layout: "institutional",
     temperature: 74,
     geometry: 70,
     density: 58,
@@ -289,9 +305,10 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   technical: {
-    family: "archetype",
-    lineage: "Technical publishing + modernist grid",
-    archetype: "Technical Functional",
+    family: "practice",
+    tradition: "Technical publishing",
+    practice: "Technical communication",
+    layout: "technical",
     temperature: 70,
     geometry: 84,
     density: 78,
@@ -307,27 +324,29 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
     },
   },
   organic: {
-    family: "archetype",
-    lineage: "Humanist modernism + book typography",
-    archetype: "Organic Humanist",
-    temperature: 12,
-    geometry: 16,
-    density: 28,
-    expression: 44,
-    titleFont: "humanist",
-    bodyFont: "book",
+    family: "tradition",
+    tradition: "New Typography",
+    practice: "Graphic design",
+    layout: "new-typography",
+    temperature: 55,
+    geometry: 88,
+    density: 52,
+    expression: 76,
+    titleFont: "neutral",
+    bodyFont: "neutral",
     palette: {
-      paper: "f2ead9",
-      ink: "2e392f",
-      muted: "656854",
-      accent: "8b6e45",
-      soft: "dfd4bc",
+      paper: "f7f6f1",
+      ink: "171717",
+      muted: "60605c",
+      accent: "d4392f",
+      soft: "e8e6de",
     },
   },
   minimal: {
-    family: "archetype",
-    lineage: "Modernist reduction",
-    archetype: "Minimal Contemporary",
+    family: "practice",
+    tradition: "Modernist reduction",
+    practice: "Minimalist graphic design",
+    layout: "minimal",
     temperature: 58,
     geometry: 64,
     density: 16,
@@ -346,27 +365,35 @@ const PRESET_SPECS: Record<PresetKey, PresetSpec> = {
 
 const COPY: Record<Locale, Copy> = {
   en: {
-    eyebrow: "01 · Visual-language simulator",
-    title: "Change the grammar. Feel the document change.",
+    eyebrow: "01 · Working document-design model",
+    title: "Switch a theme. Inspect the same document.",
     description:
-      "Explore twelve declared interpretations across named themes, historical lineages, and working archetypes. Each preset changes the palette, typography, spacing, geometry, and component behavior—not just the label.",
+      "This simulator separates local themes, documented design traditions, and established design practices. Every visual mapping remains this site’s interpretation.",
+    modelLabel: "Working model · not a formal standard",
+    modelText:
+      "“Document Visual Language” and the four axes are local teaching terms. Theme, design token, component, pattern, and WCAG criteria are established terms.",
     libraryLabel: "Preset library · 12 starting points",
     libraryHint:
-      "Filter by identity, then tune any preset with the four continuous axes.",
+      "Choose a sourced tradition, an established practice, or a clearly labeled local theme.",
     filters: {
       all: "All 12",
-      theme: "Named themes",
-      lineage: "Lineages",
-      archetype: "Archetypes",
+      theme: "Local themes",
+      tradition: "Traditions",
+      practice: "Practices",
     },
     familyNames: {
-      theme: "Named theme",
-      lineage: "Historical lineage",
-      archetype: "Working archetype",
+      theme: "Local theme",
+      tradition: "Historical tradition",
+      practice: "Design practice",
     },
-    genreLabel: "Start with the reading job",
+    genreLabel: "Document purpose · examples",
     genreHint:
-      "The same visual language should adapt to the document’s function, not force every document into one layout.",
+      "Report, proposal, manual, and essay are practical examples for this simulator—not a universal document taxonomy.",
+    previewLabel: "Live document preview",
+    quickSelect: "Change starting point",
+    axesLabel: "Local tuning controls",
+    axesHint:
+      "These four axes make review feedback more specific; they are not a published standard.",
     genres: {
       report: {
         label: "Analytical report",
@@ -413,63 +440,63 @@ const COPY: Record<Locale, Copy> = {
         signature: ["cool paper", "neutral sans", "firm grid"],
       },
       swiss: {
-        label: "Swiss International",
+        label: "International Typographic Style",
         descriptor: "Objective grid",
-        note: "A lineage translated into an asymmetric grid, sans-serif hierarchy, and disciplined contrast.",
+        note: "A contemporary teaching interpretation of a documented design tradition.",
         signature: ["asymmetric grid", "sans serif", "red accent"],
       },
       bauhaus: {
-        label: "Bauhaus",
+        label: "Bauhaus typography",
         descriptor: "Geometric clarity",
-        note: "A lineage translated into clear blocks, strong scale, and primary geometric contrast.",
+        note: "A contemporary interpretation of Bauhaus typography, not a canonical house style.",
         signature: ["geometric type", "primary color", "strong scale"],
       },
       deco: {
         label: "Art Deco",
         descriptor: "Geometric glamour",
-        note: "A lineage translated into symmetry, dark lacquer, fine rules, and restrained gold.",
+        note: "A contemporary interpretation of a documented historical movement.",
         signature: ["symmetry", "high contrast", "gold detail"],
       },
       nouveau: {
         label: "Art Nouveau",
         descriptor: "Organic ornament",
-        note: "A lineage translated into flowing geometry, crafted type, and botanical warmth.",
+        note: "A contemporary interpretation of a documented international style.",
         signature: ["curved frame", "organic rhythm", "crafted serif"],
       },
       editorial: {
-        label: "Modern Editorial",
+        label: "Editorial design",
         descriptor: "Narrative rhythm",
-        note: "A working archetype for annual reports, magazines, and image-led stories.",
+        note: "An established design practice for publications, reports, and image-led stories.",
         signature: ["serif contrast", "large title", "rhythmic modules"],
       },
       luxury: {
-        label: "Luxury Editorial",
-        descriptor: "Quiet prestige",
-        note: "A working archetype built from space, high-contrast type, and very limited color.",
-        signature: ["wide space", "display serif", "quiet gold"],
+        label: "Classical book typography",
+        descriptor: "Sustained reading",
+        note: "A teaching interpretation of established book-typography conventions.",
+        signature: ["balanced margins", "book serif", "quiet hierarchy"],
       },
       institutional: {
-        label: "Institutional Modern",
-        descriptor: "Sober authority",
-        note: "A working archetype for governance, finance, consulting, and policy.",
+        label: "Information design",
+        descriptor: "Clear retrieval",
+        note: "An established practice for making complex information easier to find and compare.",
         signature: ["stable hierarchy", "cool blue", "repeatable grid"],
       },
       technical: {
-        label: "Technical Functional",
-        descriptor: "Dense precision",
-        note: "A working archetype for specifications, audits, manuals, and research records.",
+        label: "Technical communication",
+        descriptor: "Procedural precision",
+        note: "An established field for communicating technical and task-oriented information.",
         signature: ["monospace", "hard rules", "dense modules"],
       },
       organic: {
-        label: "Organic Humanist",
-        descriptor: "Warm clarity",
-        note: "A working archetype for education, health, sustainability, and personal narratives.",
-        signature: ["earth palette", "soft geometry", "humane rhythm"],
+        label: "New Typography",
+        descriptor: "Asymmetric communication",
+        note: "A contemporary teaching interpretation of the documented New Typography tradition.",
+        signature: ["asymmetry", "sans serif", "functional contrast"],
       },
       minimal: {
-        label: "Minimal Contemporary",
-        descriptor: "Radical restraint",
-        note: "A working archetype that relies on hierarchy, whitespace, and almost no decoration.",
+        label: "Minimalist graphic design",
+        descriptor: "Deliberate restraint",
+        note: "An established design practice that reduces form while preserving hierarchy and function.",
         signature: ["monochrome", "wide space", "single emphasis"],
       },
     },
@@ -490,10 +517,10 @@ const COPY: Record<Locale, Copy> = {
     signatureLabel: "Visible rules",
     accessibilityLabel: "Contrast guard",
     accessibilityPass: "Text colors are held above 4.5:1 on their surfaces",
-    exportTitle: "Take the system with you",
+    exportTitle: "Export the design-system decisions",
     exportHint:
-      "The current choices compile into a readable brief and a machine-readable token manifest.",
-    previewBrief: "Visual Language Brief",
+      "The current choices compile into a readable document-design brief and a machine-readable token manifest.",
+    previewBrief: "Document design brief",
     copyBrief: "Copy brief",
     downloadJson: "Download JSON",
     copied: "Brief copied",
@@ -590,68 +617,79 @@ const COPY: Record<Locale, Copy> = {
         source: "Field observation · illustrative",
       },
     },
-    stackEyebrow: "02 · Five-layer stack",
-    stackTitle: "A preset is still only one layer.",
+    stackEyebrow: "02 · Teaching sequence",
+    stackTitle: "A theme sits inside a larger system.",
     stackDescription:
-      "A durable visual language starts with the reading job and ends with executable rules. The simulator exposes the middle layers without confusing their identities.",
+      "This five-step sequence is a teaching model, not a standard taxonomy. It keeps purpose, sources, implementation, and reusable behavior distinct.",
     stack: [
-      { index: "01", name: "Document Genre", role: "reading job" },
-      { index: "02", name: "Design Lineage", role: "historical grammar" },
-      { index: "03", name: "Style Archetype", role: "working character" },
-      { index: "04", name: "Theme Preset", role: "memorable instance" },
-      { index: "05", name: "Tokens + Rules", role: "executable behavior" },
+      { index: "01", name: "Document purpose", role: "reader task" },
+      { index: "02", name: "Design tradition", role: "historical source" },
+      { index: "03", name: "Design practice", role: "professional method" },
+      { index: "04", name: "Theme", role: "named implementation" },
+      {
+        index: "05",
+        name: "Tokens + components + patterns",
+        role: "reusable behavior",
+      },
     ],
-    compareEyebrow: "03 · Read the taxonomy",
-    compareTitle: "Three identities share one simulator.",
+    compareEyebrow: "03 · Evidence labels",
+    compareTitle: "Every name should state what kind of claim it makes.",
     compareDescription:
-      "The groups tell you what kind of claim each name makes. They are deliberately not presented as peers or universal standards.",
+      "The library separates product-local names, documented historical traditions, and established fields of practice.",
     families: [
       {
         key: "theme",
         count: "2 presets",
-        title: "Named themes",
+        title: "Local themes",
         summary:
-          "Local names for a declared implementation. Alder and Granite belong here.",
+          "Product-specific names for declared token and component decisions. Alder and Granite belong here.",
       },
       {
-        key: "lineage",
-        count: "4 presets",
-        title: "Historical lineages",
-        summary:
-          "Documented traditions translated into a teaching model, never copied as a costume.",
-      },
-      {
-        key: "archetype",
+        key: "tradition",
         count: "6 presets",
-        title: "Working archetypes",
+        title: "Historical traditions",
         summary:
-          "Practical clusters for recurring communication jobs and review conversations.",
+          "Documented movements or typographic traditions, shown through contemporary interpretations.",
+      },
+      {
+        key: "practice",
+        count: "4 presets",
+        title: "Design practices",
+        summary:
+          "Established professional fields such as editorial design, information design, and technical communication.",
       },
     ],
     notStandard:
-      "The historical names have documented roots; every simulator mapping is still a contemporary, declared interpretation. The working archetypes and named themes are useful vocabulary, not an industry registry.",
+      "This simulator is a local teaching model. DTCG 2025.10 is a stable W3C Community Group Final Report, not a W3C Standard, and every historical mapping shown here is a contemporary interpretation.",
   },
   zh: {
-    eyebrow: "01 · 视觉语言模拟器",
-    title: "切换设计语法，感受文档怎样变化。",
+    eyebrow: "01 · 文档设计工作模型",
+    title: "切换主题，在同一份文档里查看变化。",
     description:
-      "探索十二种声明过边界的解释：产品主题、历史谱系和工作型原型。每次切换都会改变配色、字体、留白、几何与组件行为，而不只是换一个名字。",
+      "本模拟器把产品内主题、可追溯的历史传统与已有设计实践分开标注；每一种视觉映射仍是本站的解释。",
+    modelLabel: "工作模型 · 不是正式标准",
+    modelText:
+      "“文档视觉语言”和四条坐标轴是本文的教学用语；主题、设计 Token、组件、模式与 WCAG 准则才是已有术语。",
     libraryLabel: "预设库 · 12 个起点",
-    libraryHint: "先按身份筛选，再用四条连续轴微调任意预设。",
+    libraryHint: "选择有来源的传统、已有的设计实践，或明确标注的产品内主题。",
     filters: {
       all: "全部 12",
       theme: "产品主题",
-      lineage: "历史谱系",
-      archetype: "工作原型",
+      tradition: "历史传统",
+      practice: "设计实践",
     },
     familyNames: {
       theme: "产品内主题",
-      lineage: "历史设计谱系",
-      archetype: "工作型原型",
+      tradition: "历史设计传统",
+      practice: "设计实践",
     },
-    genreLabel: "先选择阅读任务",
+    genreLabel: "文档目的 · 示例",
     genreHint:
-      "同一套视觉语言应该适应文档功能，而不是把所有文档强塞进同一种版式。",
+      "报告、提案、手册与长文只是本模拟器里的实用示例，并非通用文档分类标准。",
+    previewLabel: "实时文档预览",
+    quickSelect: "切换起点",
+    axesLabel: "本站微调控制",
+    axesHint: "四条轴用于把评审意见说得更具体，并不是已发布的行业标准。",
     genres: {
       report: {
         label: "分析报告",
@@ -698,63 +736,63 @@ const COPY: Record<Locale, Copy> = {
         signature: ["冷纸色", "中性无衬线", "稳定网格"],
       },
       swiss: {
-        label: "Swiss International",
+        label: "International Typographic Style",
         descriptor: "客观网格",
-        note: "把历史谱系转译为非对称网格、无衬线层级与有纪律的对比。",
+        note: "对有文献记录的设计传统所做的当代教学解释。",
         signature: ["非对称网格", "无衬线", "红色强调"],
       },
       bauhaus: {
-        label: "Bauhaus",
+        label: "Bauhaus typography",
         descriptor: "几何清晰",
-        note: "把历史谱系转译为清楚文字块、强字号跨度与原色几何对比。",
+        note: "对包豪斯字体排印的当代解释，并非所谓唯一正统样式。",
         signature: ["几何字体", "原色", "强字号跨度"],
       },
       deco: {
         label: "Art Deco",
         descriptor: "几何华丽",
-        note: "把历史谱系转译为对称、深色漆面、细线与克制金色。",
+        note: "对有文献记录的历史运动所做的当代解释。",
         signature: ["对称", "高反差", "金色细节"],
       },
       nouveau: {
         label: "Art Nouveau",
         descriptor: "有机装饰",
-        note: "把历史谱系转译为流动几何、手工字体感与植物式温暖。",
+        note: "对有文献记录的国际历史风格所做的当代解释。",
         signature: ["曲线边框", "有机节奏", "手工衬线"],
       },
       editorial: {
-        label: "Modern Editorial",
+        label: "Editorial design",
         descriptor: "叙事节奏",
-        note: "适合年报、杂志与图像主导故事的工作型原型。",
+        note: "面向出版物、报告和图像叙事的已有设计实践。",
         signature: ["衬线对比", "大标题", "节奏模块"],
       },
       luxury: {
-        label: "Luxury Editorial",
-        descriptor: "安静高级",
-        note: "由留白、高反差字体与极少颜色构成的工作型原型。",
-        signature: ["大量留白", "展示衬线", "克制金色"],
+        label: "Classical book typography",
+        descriptor: "持续阅读",
+        note: "对传统书籍字体排印惯例所做的教学解释。",
+        signature: ["平衡页边距", "书籍衬线", "安静层级"],
       },
       institutional: {
-        label: "Institutional Modern",
-        descriptor: "稳重权威",
-        note: "适合治理、金融、咨询与政策文档的工作型原型。",
+        label: "Information design",
+        descriptor: "清晰检索",
+        note: "帮助复杂信息更容易被查找、理解与比较的已有实践。",
         signature: ["稳定层级", "冷蓝色", "重复网格"],
       },
       technical: {
-        label: "Technical Functional",
-        descriptor: "高密精确",
-        note: "适合规范、审计、手册与研究记录的工作型原型。",
+        label: "Technical communication",
+        descriptor: "程序性精确",
+        note: "用于技术信息与任务型信息沟通的成熟专业领域。",
         signature: ["等宽字体", "硬边界", "高密模块"],
       },
       organic: {
-        label: "Organic Humanist",
-        descriptor: "温暖清晰",
-        note: "适合教育、健康、可持续与个人叙事的工作型原型。",
-        signature: ["土地配色", "柔和几何", "人文节奏"],
+        label: "New Typography",
+        descriptor: "非对称沟通",
+        note: "对有文献记录的新字体排印传统所做的当代教学解释。",
+        signature: ["非对称", "无衬线", "功能性对比"],
       },
       minimal: {
-        label: "Minimal Contemporary",
-        descriptor: "极度克制",
-        note: "依靠层级、留白与几乎没有装饰成立的工作型原型。",
+        label: "Minimalist graphic design",
+        descriptor: "有意克制",
+        note: "在保留层级与功能的前提下减少形式的已有设计实践。",
         signature: ["单色", "大量留白", "单一强调"],
       },
     },
@@ -774,10 +812,10 @@ const COPY: Record<Locale, Copy> = {
     signatureLabel: "可见规则",
     accessibilityLabel: "对比度保护",
     accessibilityPass: "文字与所在表面的对比度保持在 4.5:1 以上",
-    exportTitle: "把这套系统带走",
+    exportTitle: "导出设计系统决策",
     exportHint:
-      "当前选择会被编译成一份可读说明，以及一份机器可读的 token 清单。",
-    previewBrief: "视觉语言说明",
+      "当前选择会被编译成一份可读的文档设计说明，以及一份机器可读的 Token 清单。",
+    previewBrief: "文档设计说明",
     copyBrief: "复制说明",
     downloadJson: "下载 JSON",
     copied: "说明已复制",
@@ -871,43 +909,49 @@ const COPY: Record<Locale, Copy> = {
         source: "工作观察 · 示意",
       },
     },
-    stackEyebrow: "02 · 五层视觉语言栈",
-    stackTitle: "预设仍然只是其中一层。",
+    stackEyebrow: "02 · 教学顺序",
+    stackTitle: "主题只是更大系统中的一层。",
     stackDescription:
-      "稳定的视觉语言从阅读任务开始，以可执行规则结束。模拟器让中间层变得可感知，同时不混淆它们的身份。",
+      "这五步是本文的教学模型，并非正式分类标准；它把目的、来源、实现与可复用行为分开。",
     stack: [
-      { index: "01", name: "Document Genre", role: "阅读任务" },
-      { index: "02", name: "Design Lineage", role: "历史语法" },
-      { index: "03", name: "Style Archetype", role: "工作性格" },
-      { index: "04", name: "Theme Preset", role: "记忆实例" },
-      { index: "05", name: "Tokens + Rules", role: "可执行行为" },
+      { index: "01", name: "文档目的", role: "读者任务" },
+      { index: "02", name: "设计传统", role: "历史来源" },
+      { index: "03", name: "设计实践", role: "专业方法" },
+      { index: "04", name: "主题", role: "命名实现" },
+      {
+        index: "05",
+        name: "Token + 组件 + 模式",
+        role: "可复用行为",
+      },
     ],
-    compareEyebrow: "03 · 读懂分类",
-    compareTitle: "三种身份，共用一个模拟器。",
+    compareEyebrow: "03 · 证据标签",
+    compareTitle: "每个名字都应该说明自己在做哪一种声明。",
     compareDescription:
-      "分类说明每个名字究竟在做什么性质的声明；它们不是同一级别，也不是一套行业标准。",
+      "预设库把产品内名称、有记录的历史传统与已有专业实践分开。",
     families: [
       {
         key: "theme",
         count: "2 个预设",
         title: "产品内主题",
-        summary: "给一次具体实现起的本地名字。Alder 和 Granite 属于这一层。",
+        summary:
+          "给一组已声明的 Token 与组件决策起的产品内名称。Alder 和 Granite 属于这一层。",
       },
       {
-        key: "lineage",
-        count: "4 个预设",
-        title: "历史设计谱系",
-        summary: "把有记录的传统转译为教学模型，而不是把历史当成外观服装。",
-      },
-      {
-        key: "archetype",
+        key: "tradition",
         count: "6 个预设",
-        title: "工作型原型",
-        summary: "服务于反复出现的沟通任务，也帮助团队讨论与评审。",
+        title: "历史传统",
+        summary: "有文献记录的运动或字体排印传统，这里展示的是当代解释。",
+      },
+      {
+        key: "practice",
+        count: "4 个预设",
+        title: "设计实践",
+        summary:
+          "Editorial design、Information design、Technical communication 等已有专业领域。",
       },
     ],
     notStandard:
-      "历史名称拥有可追溯来源，但模拟器里的映射仍是当代、声明过边界的解释。工作型原型和产品主题是实用词汇，不是行业注册表。",
+      "本模拟器是本站教学模型。DTCG 2025.10 是稳定的 W3C Community Group Final Report，并非 W3C Standard；所有历史映射也都是当代解释。",
   },
 };
 
@@ -920,7 +964,7 @@ const axisKeys: AxisKey[] = [
 ];
 const genreKeys: GenreKey[] = ["report", "proposal", "manual", "essay"];
 const presetKeys = Object.keys(PRESET_SPECS) as PresetKey[];
-const familyFilters: FamilyFilter[] = ["all", "theme", "lineage", "archetype"];
+const familyFilters: FamilyFilter[] = ["all", "theme", "tradition", "practice"];
 const activeGenre = ref<GenreKey>("report");
 const activeFamily = ref<FamilyFilter>("all");
 const activePreset = ref<PresetKey | null>("alder");
@@ -1046,6 +1090,10 @@ function applyPreset(key: PresetKey) {
   });
   basePreset.value = key;
   activePreset.value = key;
+}
+
+function handlePresetSelect(event: Event) {
+  applyPreset((event.target as HTMLSelectElement).value as PresetKey);
 }
 
 function markCustom() {
@@ -1227,8 +1275,9 @@ const tokenManifest = computed(() => ({
   taxonomy: {
     startingPoint: copy.value.presets[basePreset.value].label,
     kind: currentSpec.value.family,
-    lineage: currentSpec.value.lineage,
-    archetype: currentSpec.value.archetype,
+    tradition: currentSpec.value.tradition,
+    practice: currentSpec.value.practice,
+    modelStatus: "local-teaching-model",
   },
   axes: { ...values },
   tokens: compiledTokens.value,
@@ -1250,10 +1299,10 @@ const visualLanguageBrief = computed(() => {
   const manifest = tokenManifest.value;
   const palette = manifest.tokens.palette;
   if (props.locale === "zh") {
-    return `# 视觉语言说明\n\n## 阅读任务\n${manifest.genre.label} — ${manifest.genre.readerJob}\n\n## 视觉栈\n- 设计谱系：${manifest.taxonomy.lineage}\n- 风格原型：${manifest.taxonomy.archetype}\n- 当前主题：${manifest.name}\n\n## 四条坐标轴\n- 温度：${values.temperature}/100（${temperatureWord.value}）\n- 几何：${values.geometry}/100（${geometryWord.value}）\n- 密度：${values.density}/100（${densityWord.value}）\n- 表现力：${values.expression}/100（${expressionWord.value}）\n\n## 核心 Token\n- 纸张：${palette.paper}\n- 正文：${palette.ink}\n- 次要文字：${palette.muted}\n- 强调色：${palette.accent}\n- 圆角：${manifest.tokens.radius}\n- 间距：${manifest.tokens.gap}\n\n## 组件规则\n${manifest.componentRules.map((rule) => `- ${rule}`).join("\n")}\n`;
+    return `# 文档设计说明\n\n> 本文工作模型，不是正式标准。\n\n## 文档目的\n${manifest.genre.label} — ${manifest.genre.readerJob}\n\n## 设计上下文\n- 历史设计传统：${manifest.taxonomy.tradition}\n- 设计实践：${manifest.taxonomy.practice}\n- 当前主题或起点：${manifest.name}\n\n## 本站四条微调轴\n- 温度：${values.temperature}/100（${temperatureWord.value}）\n- 几何：${values.geometry}/100（${geometryWord.value}）\n- 密度：${values.density}/100（${densityWord.value}）\n- 表现力：${values.expression}/100（${expressionWord.value}）\n\n## 核心 Token\n- 纸张：${palette.paper}\n- 正文：${palette.ink}\n- 次要文字：${palette.muted}\n- 强调色：${palette.accent}\n- 圆角：${manifest.tokens.radius}\n- 间距：${manifest.tokens.gap}\n\n## 组件规则\n${manifest.componentRules.map((rule) => `- ${rule}`).join("\n")}\n`;
   }
 
-  return `# Visual Language Brief\n\n## Reader job\n${manifest.genre.label} — ${manifest.genre.readerJob}\n\n## Visual stack\n- Design lineage: ${manifest.taxonomy.lineage}\n- Style archetype: ${manifest.taxonomy.archetype}\n- Current theme: ${manifest.name}\n\n## Four axes\n- Temperature: ${values.temperature}/100 (${temperatureWord.value})\n- Geometry: ${values.geometry}/100 (${geometryWord.value})\n- Density: ${values.density}/100 (${densityWord.value})\n- Expression: ${values.expression}/100 (${expressionWord.value})\n\n## Core tokens\n- Paper: ${palette.paper}\n- Ink: ${palette.ink}\n- Muted text: ${palette.muted}\n- Accent: ${palette.accent}\n- Radius: ${manifest.tokens.radius}\n- Spacing: ${manifest.tokens.gap}\n\n## Component rules\n${manifest.componentRules.map((rule) => `- ${rule}`).join("\n")}\n`;
+  return `# Document Design Brief\n\n> Working model, not a formal standard.\n\n## Document purpose\n${manifest.genre.label} — ${manifest.genre.readerJob}\n\n## Design context\n- Historical design tradition: ${manifest.taxonomy.tradition}\n- Design practice: ${manifest.taxonomy.practice}\n- Current theme or starting point: ${manifest.name}\n\n## Local tuning axes\n- Temperature: ${values.temperature}/100 (${temperatureWord.value})\n- Geometry: ${values.geometry}/100 (${geometryWord.value})\n- Density: ${values.density}/100 (${densityWord.value})\n- Expression: ${values.expression}/100 (${expressionWord.value})\n\n## Core tokens\n- Paper: ${palette.paper}\n- Ink: ${palette.ink}\n- Muted text: ${palette.muted}\n- Accent: ${palette.accent}\n- Radius: ${manifest.tokens.radius}\n- Spacing: ${manifest.tokens.gap}\n\n## Component rules\n${manifest.componentRules.map((rule) => `- ${rule}`).join("\n")}\n`;
 });
 
 function fallbackCopy(text: string) {
@@ -1302,6 +1351,27 @@ function downloadManifest() {
       <p>{{ copy.description }}</p>
     </section>
 
+    <aside class="model-status">
+      <div>
+        <strong>{{ copy.modelLabel }}</strong>
+        <p>{{ copy.modelText }}</p>
+      </div>
+      <nav class="model-source-links" aria-label="Primary references">
+        <a
+          href="https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/"
+          target="_blank"
+          rel="noreferrer"
+          >DTCG 2025.10</a
+        >
+        <a
+          href="https://design-system.service.gov.uk/"
+          target="_blank"
+          rel="noreferrer"
+          >GOV.UK Design System</a
+        >
+      </nav>
+    </aside>
+
     <section class="theme-lab">
       <div class="genre-selector">
         <div class="genre-heading">
@@ -1324,53 +1394,125 @@ function downloadManifest() {
         </div>
       </div>
 
-      <div class="preset-library">
-        <div class="library-heading">
-          <div>
-            <p class="panel-label">{{ copy.libraryLabel }}</p>
-            <p>{{ copy.libraryHint }}</p>
+      <div class="lab-workspace">
+        <div class="preset-library">
+          <div class="library-heading">
+            <div>
+              <p class="panel-label">{{ copy.libraryLabel }}</p>
+              <p>{{ copy.libraryHint }}</p>
+            </div>
+            <div
+              class="family-filters"
+              role="group"
+              :aria-label="copy.libraryLabel"
+              aria-controls="dvl-preset-grid"
+            >
+              <button
+                v-for="family in familyFilters"
+                :key="family"
+                type="button"
+                class="filter-button"
+                :class="{ active: activeFamily === family }"
+                :aria-pressed="activeFamily === family"
+                @click="activeFamily = family"
+              >
+                {{ copy.filters[family] }}
+              </button>
+            </div>
           </div>
+
           <div
-            class="family-filters"
+            id="dvl-preset-grid"
+            class="preset-grid"
             role="group"
             :aria-label="copy.libraryLabel"
           >
             <button
-              v-for="family in familyFilters"
-              :key="family"
+              v-for="key in visiblePresetKeys"
+              :key="key"
               type="button"
-              class="filter-button"
-              :class="{ active: activeFamily === family }"
-              :aria-pressed="activeFamily === family"
-              @click="activeFamily = family"
+              class="preset-button"
+              :class="{
+                active: basePreset === key,
+                customized: basePreset === key && activePreset === null,
+              }"
+              :aria-pressed="basePreset === key"
+              aria-controls="dvl-live-preview"
+              @click="applyPreset(key)"
             >
-              {{ copy.filters[family] }}
+              <span class="preset-swatches" :style="presetSwatchStyle(key)"
+                ><i></i><i></i><i></i
+              ></span>
+              <small>{{ copy.familyNames[PRESET_SPECS[key].family] }}</small>
+              <strong>{{ copy.presets[key].label }}</strong>
+              <span>{{ copy.presets[key].descriptor }}</span>
             </button>
           </div>
         </div>
 
-        <div class="preset-grid" role="group" :aria-label="copy.libraryLabel">
-          <button
-            v-for="key in visiblePresetKeys"
-            :key="key"
-            type="button"
-            class="preset-button"
-            :class="{ active: activePreset === key }"
-            :aria-pressed="activePreset === key"
-            @click="applyPreset(key)"
-          >
-            <span class="preset-swatches" :style="presetSwatchStyle(key)"
-              ><i></i><i></i><i></i
-            ></span>
-            <small>{{ copy.familyNames[PRESET_SPECS[key].family] }}</small>
-            <strong>{{ copy.presets[key].label }}</strong>
-            <span>{{ copy.presets[key].descriptor }}</span>
-          </button>
-        </div>
-      </div>
+        <div class="preview-column">
+          <div class="preview-toolbar">
+            <div role="status" aria-live="polite" aria-atomic="true">
+              <span>{{ copy.previewLabel }}</span>
+              <strong>{{ currentName }} · {{ currentDescriptor }}</strong>
+            </div>
+            <label class="quick-select">
+              <span>{{ copy.quickSelect }}</span>
+              <select :value="basePreset" @change="handlePresetSelect">
+                <option v-for="key in presetKeys" :key="key" :value="key">
+                  {{ copy.presets[key].label }} ·
+                  {{ copy.familyNames[PRESET_SPECS[key].family] }}
+                </option>
+              </select>
+            </label>
+          </div>
 
-      <div class="lab-workspace">
+          <div id="dvl-live-preview" class="preview-stage">
+            <article
+              class="document-preview"
+              :class="'layout-' + currentSpec.layout"
+              :style="previewStyle"
+            >
+              <div class="document-meta">
+                <span>{{ currentDocument.type }}</span
+                ><span>{{ currentDocument.period }}</span>
+              </div>
+              <div class="document-kicker">
+                {{ currentName }} · {{ currentDescriptor }}
+              </div>
+              <h3>{{ currentDocument.title }}</h3>
+              <p class="document-deck">{{ currentDocument.deck }}</p>
+              <div class="metric-grid">
+                <div
+                  v-for="metric in currentDocument.metrics"
+                  :key="metric.label"
+                  class="metric-card"
+                >
+                  <span>{{ metric.label }}</span
+                  ><strong>{{ metric.value }}</strong>
+                </div>
+              </div>
+              <blockquote>{{ currentDocument.quote }}</blockquote>
+              <table class="document-table">
+                <tbody>
+                  <tr v-for="row in currentDocument.rows" :key="row.label">
+                    <th scope="row">{{ row.label }}</th>
+                    <td>
+                      <strong>{{ row.value }}</strong>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <footer>{{ currentDocument.source }}</footer>
+            </article>
+          </div>
+        </div>
+
         <div class="control-panel">
+          <div class="axis-intro">
+            <p class="panel-label">{{ copy.axesLabel }}</p>
+            <p>{{ copy.axesHint }}</p>
+          </div>
           <div class="axis-list">
             <label v-for="axis in axisKeys" :key="axis" class="axis-control">
               <span class="axis-heading"
@@ -1416,46 +1558,6 @@ function downloadManifest() {
             </div>
             <p class="sr-only">{{ liveSummary }}</p>
           </div>
-        </div>
-
-        <div class="preview-stage">
-          <article
-            class="document-preview"
-            :class="'layout-' + basePreset"
-            :style="previewStyle"
-          >
-            <div class="document-meta">
-              <span>{{ currentDocument.type }}</span
-              ><span>{{ currentDocument.period }}</span>
-            </div>
-            <div class="document-kicker">
-              {{ currentName }} · {{ currentDescriptor }}
-            </div>
-            <h3>{{ currentDocument.title }}</h3>
-            <p class="document-deck">{{ currentDocument.deck }}</p>
-            <div class="metric-grid">
-              <div
-                v-for="metric in currentDocument.metrics"
-                :key="metric.label"
-                class="metric-card"
-              >
-                <span>{{ metric.label }}</span
-                ><strong>{{ metric.value }}</strong>
-              </div>
-            </div>
-            <blockquote>{{ currentDocument.quote }}</blockquote>
-            <table class="document-table">
-              <tbody>
-                <tr v-for="row in currentDocument.rows" :key="row.label">
-                  <th scope="row">{{ row.label }}</th>
-                  <td>
-                    <strong>{{ row.value }}</strong>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <footer>{{ currentDocument.source }}</footer>
-          </article>
         </div>
       </div>
 
@@ -1586,6 +1688,46 @@ function downloadManifest() {
   font-size: clamp(1.8rem, 4vw, 3.25rem);
 }
 
+.model-status {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: calc(clamp(2.4rem, 7vw, 5rem) * -0.58);
+  padding: 1rem 1.15rem;
+  border: 1px solid color-mix(in srgb, var(--dvl-blue) 52%, var(--dvl-border));
+  border-left-width: 0.35rem;
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--dvl-blue) 8%, var(--dvl-card));
+}
+.model-status strong {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.model-status p {
+  margin: 0.35rem 0 0;
+  color: var(--dvl-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+.model-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+.model-source-links a {
+  padding: 0.48rem 0.68rem;
+  border: 1px solid var(--dvl-border);
+  border-radius: 99px;
+  color: var(--dvl-ink);
+  background: var(--dvl-card);
+  font-size: 0.68rem;
+  font-weight: 720;
+  text-decoration: none;
+}
+
 .theme-lab,
 .genre-selector,
 .preset-library,
@@ -1660,9 +1802,9 @@ function downloadManifest() {
   line-height: 1.35;
 }
 .genre-button.active {
-  border-color: var(--dvl-blue);
-  background: color-mix(in srgb, var(--dvl-blue) 12%, var(--dvl-card));
-  box-shadow: inset 0 0 0 1px var(--dvl-blue);
+  border-color: color-mix(in srgb, var(--dvl-blue) 92%, var(--dvl-ink));
+  background: color-mix(in srgb, var(--dvl-blue) 17%, var(--dvl-card));
+  box-shadow: inset 0.32rem 0 var(--dvl-blue);
 }
 .preset-library,
 .control-panel {
@@ -1673,8 +1815,8 @@ function downloadManifest() {
 }
 .library-heading {
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
   gap: 1rem;
   margin-bottom: 1rem;
 }
@@ -1690,7 +1832,7 @@ function downloadManifest() {
 .family-filters {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.38rem;
 }
 .filter-button {
@@ -1710,13 +1852,13 @@ function downloadManifest() {
 }
 .preset-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.58rem;
 }
 .preset-button {
   min-width: 0;
-  min-height: 7.4rem;
-  padding: 0.82rem;
+  min-height: 6.25rem;
+  padding: 0.72rem;
   border: 1px solid var(--dvl-border);
   border-radius: 1rem;
   color: var(--dvl-ink);
@@ -1737,6 +1879,9 @@ function downloadManifest() {
   box-shadow: inset 0 0 0 1px
     color-mix(in srgb, var(--dvl-blue) 32%, transparent);
 }
+.preset-button.customized {
+  border-style: dashed;
+}
 .preset-button strong,
 .preset-button > span:last-child,
 .preset-button small {
@@ -1753,7 +1898,7 @@ function downloadManifest() {
 .preset-button strong {
   margin-top: 0.28rem;
   overflow-wrap: anywhere;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   line-height: 1.15;
 }
 .preset-button > span:last-child {
@@ -1781,12 +1926,82 @@ function downloadManifest() {
 
 .lab-workspace {
   display: grid;
-  grid-template-columns: minmax(18rem, 0.72fr) minmax(0, 1.28fr);
+  grid-template-areas:
+    "presets preview"
+    "controls preview";
+  grid-template-columns: minmax(22rem, 0.82fr) minmax(0, 1.35fr);
+  align-items: start;
   gap: clamp(1rem, 3vw, 1.8rem);
+}
+.preset-library {
+  grid-area: presets;
+}
+.control-panel {
+  grid-area: controls;
+}
+.preview-column {
+  position: sticky;
+  top: 5.25rem;
+  display: grid;
+  grid-area: preview;
+  min-width: 0;
+  gap: 0.7rem;
+}
+.preview-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(11rem, 0.72fr);
+  align-items: end;
+  gap: 1rem;
+  padding: 0.82rem 0.95rem;
+  border: 1px solid var(--dvl-border);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--dvl-card) 94%, transparent);
+}
+.preview-toolbar > div > span,
+.quick-select > span {
+  display: block;
+  color: var(--dvl-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.preview-toolbar > div > strong {
+  display: block;
+  margin-top: 0.28rem;
+  font-size: 0.82rem;
+}
+.quick-select {
+  display: grid;
+  gap: 0.32rem;
+}
+.quick-select select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.48rem 2rem 0.48rem 0.62rem;
+  border: 1px solid color-mix(in srgb, var(--dvl-blue) 72%, var(--dvl-border));
+  border-radius: 0.7rem;
+  color: var(--dvl-ink);
+  background: var(--dvl-card);
+  font-size: 0.72rem;
+  font-weight: 680;
+}
+.axis-intro {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--dvl-border);
+}
+.axis-intro p {
+  margin: 0;
+}
+.axis-intro > p:last-child {
+  color: var(--dvl-muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
 }
 .axis-list {
   display: grid;
   gap: 1.18rem;
+  margin-top: 1rem;
 }
 .axis-control {
   display: grid;
@@ -2217,25 +2432,52 @@ function downloadManifest() {
   margin-left: auto;
   font-size: 1.05rem;
 }
-.layout-luxury .document-meta,
-.layout-luxury .document-kicker,
-.layout-luxury h3,
-.layout-luxury .document-deck {
+.layout-book .document-meta,
+.layout-book .document-kicker,
+.layout-book h3,
+.layout-book .document-deck {
   text-align: center;
 }
-.layout-luxury h3,
-.layout-luxury .document-deck {
+.layout-book h3,
+.layout-book .document-deck {
   margin-left: auto;
   margin-right: auto;
 }
-.layout-luxury h3 {
+.layout-book h3 {
   max-width: 16ch;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
+  letter-spacing: -0.025em;
 }
-.layout-luxury .metric-card {
+.layout-book .metric-card {
   border: 0;
   background: transparent;
+}
+.layout-book blockquote {
+  border-left: 0;
+  border-top: 1px solid var(--preview-accent);
+  border-bottom: 1px solid var(--preview-accent);
+  text-align: center;
+}
+.layout-new-typography {
+  border-radius: 0;
+  border-left: 0.55rem solid var(--preview-accent);
+}
+.layout-new-typography .document-meta {
+  justify-content: flex-start;
+}
+.layout-new-typography .document-meta span:last-child {
+  margin-left: auto;
+}
+.layout-new-typography h3 {
+  max-width: 10ch;
+  margin-left: 12%;
+  text-transform: lowercase;
+}
+.layout-new-typography .document-deck {
+  margin-left: 12%;
+}
+.layout-new-typography blockquote {
+  margin-left: 28%;
+  border-left-width: 1px;
 }
 .layout-institutional {
   box-shadow:
@@ -2373,10 +2615,10 @@ function downloadManifest() {
 .family-theme {
   box-shadow: inset 0 3px var(--dvl-amber);
 }
-.family-lineage {
+.family-tradition {
   box-shadow: inset 0 3px var(--dvl-blue);
 }
-.family-archetype {
+.family-practice {
   box-shadow: inset 0 3px var(--dvl-olive);
 }
 .standard-note {
@@ -2398,17 +2640,47 @@ function downloadManifest() {
   border: 0;
 }
 button:focus-visible,
-input:focus-visible {
-  outline: 3px solid var(--dvl-blue);
+input:focus-visible,
+select:focus-visible,
+a:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #ffdc58;
   outline-offset: 3px;
+  box-shadow: 0 0 0 6px #111827;
 }
 
 @media (max-width: 1000px) {
+  .model-status {
+    grid-template-columns: 1fr;
+  }
+  .model-source-links {
+    justify-content: flex-start;
+  }
   .preset-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    gap: 0.58rem;
+    overflow-x: auto;
+    margin: 0;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+  }
+  .preset-button {
+    flex: 0 0 min(58vw, 15rem);
+    scroll-snap-align: start;
   }
   .lab-workspace {
+    grid-template-areas:
+      "presets"
+      "preview"
+      "controls";
     grid-template-columns: 1fr;
+  }
+  .preview-column {
+    position: static;
   }
 }
 
@@ -2471,21 +2743,11 @@ input:focus-visible {
   .filter-button {
     flex: 0 0 auto;
   }
-  .preset-grid {
-    display: flex;
-    width: 100%;
-    max-width: 100%;
-    gap: 0.58rem;
-    overflow-x: auto;
-    margin: 0;
-    padding-right: 1rem;
-    padding-bottom: 0.5rem;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-  }
   .preset-button {
     flex: 0 0 min(72vw, 14rem);
-    scroll-snap-align: start;
+  }
+  .preview-toolbar {
+    grid-template-columns: 1fr;
   }
   .export-actions {
     display: grid;
@@ -2495,7 +2757,7 @@ input:focus-visible {
     width: 100%;
   }
   .document-preview {
-    padding: var(--preview-padding-mobile) !important;
+    padding: var(--preview-padding-mobile);
   }
   .document-meta {
     align-items: flex-start;

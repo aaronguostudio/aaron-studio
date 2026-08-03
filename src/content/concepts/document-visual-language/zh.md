@@ -2,8 +2,8 @@
 title: "文档视觉语言"
 fullName: "Document Visual Language · 文档视觉语言"
 shortName: "文档视觉语言"
-description: "把“希望读者怎样感受、怎样阅读、怎样行动”翻译成可重复的版式、字体、颜色、密度与组件规则。"
-mentalModel: "主题名帮助人选择；视觉语言帮助团队复现并评审这个选择。"
+description: "一套把文档意图翻译成主题、设计 Token、组件、模式与无障碍准则的工作模型。"
+mentalModel: "工作模型：主题为共享 Token 指定值；组件与模式把这些设计决策一致地应用出来。"
 date: "2026-07-18"
 updated: "2026-08-03"
 domain: "文档设计"
@@ -15,37 +15,43 @@ featured: false
 translationKey: "document-visual-language"
 interaction: "document-visual-language"
 socialImage: "/learn-img/document-visual-language/og-1200x627.jpg"
-socialImageAlt: "横版编辑图，标题为 Document Visual Language，展示四条视觉坐标轴，以及随设计规则变化的文档预览。"
+socialImageAlt: "横版现代编辑图，标题为 Document Design System，展示主题怎样进入 Token、组件与最终文档。"
 cardImage: "/learn-img/document-visual-language/card-4x5.jpg"
-cardImageAlt: "竖版编辑卡，标题为 Document Visual Language，把主题名称与四条视觉坐标轴连接到一套可复现的文档系统。"
+cardImageAlt: "竖版现代编辑图，标题为 Document Design System，展示主题怎样进入 Token、组件与最终文档。"
 neighbors:
-  - name: "Document Genre"
-    fullName: "Document Genre · 文档类型"
-    category: "功能契约"
-    summary: "定义读者要完成什么阅读任务；视觉语言决定设计怎样帮助这项任务。"
-  - name: "Design Lineage"
-    fullName: "Design Lineage · 设计谱系"
-    category: "历史语法"
-    summary: "提供 Swiss Style 或 New Typography 等可追溯传统，但不等于一键套用的主题。"
-  - name: "Style Archetype"
-    fullName: "Style Archetype · 风格原型"
-    category: "工作词汇"
-    summary: "给一组实用视觉关系命名，但不冒充行业通用标准。"
-  - name: "Design Theme"
+  - name: "Document Purpose"
+    fullName: "Document Purpose / Information Type · 文档目的 / 信息类型"
+    category: "内容意图"
+    summary: "描述读者要得到的结果。DITA 的 concept、task、reference 是正式信息类型；模拟器使用的是更宽泛的实用示例。"
+  - name: "Design Tradition"
+    fullName: "Historical Design Tradition · 历史设计传统"
+    category: "历史来源"
+    summary: "指向 International Typographic Style、New Typography 等有文献记录的运动或字体排印传统。"
+  - name: "Design Practice"
+    fullName: "Design Practice · 设计实践"
+    category: "专业领域"
+    summary: "使用 Editorial design、Information design、Technical communication 等已有专业领域。"
+  - name: "Theme"
     fullName: "Design Theme · 设计主题"
-    category: "命名实例"
-    summary: "把一次具体实现包装成 Alder、Granite 这样的产品内部名称。"
+    category: "命名实现"
+    summary: "为某个产品或情境中的共享设计角色指定一组协调数值。"
   - name: "Design Tokens"
     fullName: "Design Tokens · 设计令牌"
     category: "实现数据"
     summary: "保存精确颜色、尺寸、字体角色和间距，但不会替团队决定文档策略。"
-  - name: "Template"
-    fullName: "Template · 模板"
-    category: "内容骨架"
-    summary: "保存可重复页面结构；一个模板可以接受多个主题，一个主题也可以覆盖多个模板。"
+  - name: "Components and Patterns"
+    fullName: "Components and Patterns · 组件与模式"
+    category: "可复用行为"
+    summary: "组件封装可复用部分；模式说明怎样为反复出现的用户需要组合组件。"
 sources:
   - title: "Design Tokens Community Group · Design Tokens Format Module 2025.10"
     url: "https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/"
+  - title: "GOV.UK Design System · Styles, components and patterns"
+    url: "https://design-system.service.gov.uk/"
+  - title: "Material Web · Theming"
+    url: "https://material-web.dev/theming/material-theming/"
+  - title: "OASIS DITA 1.3 · Information typing"
+    url: "https://docs.oasis-open.org/dita/dita/v1.3/os/part1-base/archSpec/base/information-typing.html"
   - title: "Cooper Hewitt · A Harmony of Contrasts"
     url: "https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/"
   - title: "Museum of Modern Art · The New Typography"
@@ -70,7 +76,9 @@ Artificial Intelligence（AI，人工智能）已经可以在几秒内生成 Por
 
 这些反馈包含判断，却没有包含指令。设计师、开发者或模型仍然要猜：到底应该改字体、网格、密度、颜色，还是某个组件？
 
-**Document Visual Language（文档视觉语言）把“希望读者怎样感受、怎样阅读、怎样行动”翻译成可重复的版式、字体、颜色、密度与组件规则。**
+> **术语说明：** “Document Visual Language（文档视觉语言）”是本文使用的工作性总称，并非正式标准。下面的模型采用设计系统中已有的概念——主题、设计 Token、样式、组件、模式与无障碍准则——并明确标注所有本站教学工具。Design Tokens Community Group 的 2025.10 格式已经稳定并面向实现，但其状态页明确说明它不是 W3C Standard。
+
+这篇文章真正要回答的是：怎样把文档意图翻译成可重复的主题、Token、组件、模式与评审准则？
 
 ## 房间名字不是施工图
 
@@ -82,56 +90,56 @@ Alder 让人想到木材、自然光、柔软材料和温暖；Granite 让人想
 
 文档主题也是一样：
 
-| 层级                        | 房间类比           | 文档对应物                               |
-| --------------------------- | ------------------ | ---------------------------------------- |
-| Theme name（主题名）        | 容易记住的房间名字 | Alder 或 Granite                         |
-| Style archetype（风格原型） | 共同认可的室内方向 | Organic Humanist 或 Institutional Modern |
-| Layout system（版式系统）   | 平面图             | 网格、页边距、分栏和页面区域             |
-| Design tokens（设计令牌）   | 材料清单           | 颜色、尺寸、字体角色和间距               |
-| Component rules（组件规则） | 安装细节           | 表格、引用、警告、页眉和页脚             |
+| 层级                                | 房间类比           | 文档对应物                                        |
+| ----------------------------------- | ------------------ | ------------------------------------------------- |
+| Theme（主题）                       | 容易记住的房间名字 | Alder 或 Granite                                  |
+| Design tradition（设计传统）        | 历史参考           | International Typographic Style 或 New Typography |
+| Design practice（设计实践）         | 专业领域           | Editorial design 或 Information design            |
+| Design tokens（设计 Token）         | 材料清单           | 命名过的颜色、尺寸、字体角色和间距                |
+| Components + patterns（组件与模式） | 安装细节           | 表格、引用、警告、页眉和页脚                      |
 
 诗意命名负责形成意象；系统定义负责让意象稳定落地。
 
-## 五层视觉语言栈
+## 一套五步教学顺序
 
-### 1. Document Genre · 文档类型：读者正在完成什么任务？
+这套顺序是本文的工作模型，并非正式分类标准。
+
+### 1. Document purpose · 文档目的：读者需要得到什么结果？
 
 长篇文章支持连续阅读；分析报告支持扫描、比较和回查证据；操作手册支持在压力下准确行动；提案支持做出决定。
 
-Genre（类型）必须先确定，因为审美偏好不能压过文档真正要完成的工作。
+目的必须先确定，因为审美偏好不能压过文档真正要完成的工作。OASIS DITA 为技术内容定义了 concept、task、reference 等信息类型；报告、提案、手册与长文只是本模拟器更宽泛的实用示例，并不是 DITA 分类。
 
-### 2. Design Lineage · 设计谱系：我们借用哪种成熟语法？
+### 2. Historical design tradition · 历史设计传统：我们借用哪个有记录的来源？
 
-设计谱系指可以追溯的历史传统：
+历史设计传统指可以追溯的来源：
 
 - Swiss Style / International Typographic Style（瑞士风格 / 国际字体排印风格）使用严格网格、无衬线字体、非对称布局与摄影；
 - New Typography（新字体排印）把页面视为非对称文字与图像关系组成的场；
 - Classical Book Typography（古典书籍排版）围绕连续阅读安排比例、页边距和安静的文字颜色。
 
-谱系提供经过检验的关系，但不是模板按钮。
+传统提供参考与关系，但不是模板按钮；模拟器里的结果也不是权威历史复刻。
 
-### 3. Style Archetype · 风格原型：今天希望它呈现什么性格？
+### 3. Design practice · 设计实践：由哪个已有专业领域指导工作？
 
-Style Archetype 是团队声明的工作分类，例如 Organic Humanist（有机人文式）、Institutional Modern（机构现代式）、Technical Functional（技术功能式）或 Luxury Editorial（奢华编辑式）。
+Editorial design（编辑设计）、Information design（信息设计）、Technical communication（技术传播）、Book design（书籍设计）与 Minimalist graphic design（极简平面设计）都是可以识别的领域或实践。它们比主题更宽泛，也不构成一套全球统一分类法。
 
-这些词很实用，因为团队可以明确它们的边界；但它们不能冒充拥有历史出处的设计运动。
-
-### 4. Theme Preset · 主题预设：用什么名字识别这次实现？
+### 4. Theme · 主题：用什么名字识别这次实现？
 
 主题预设把一次具体实现包装起来：
 
-| 预设    | 这套系统里的明确映射                  |
-| ------- | ------------------------------------- |
-| Alder   | Organic Humanist + Warm Editorial     |
-| Granite | Institutional Modern + Cool Technical |
+| 主题    | 这套系统里的明确映射                                 |
+| ------- | ---------------------------------------------------- |
+| Alder   | Classical book typography + Editorial design         |
+| Granite | International Typographic Style + Information design |
 
 这个映射是工作解释，不是行业标准。另一个产品完全可以用同样的名字得到不同结果。
 
-### 5. Tokens + Component Rules · 参数与组件：怎样保证每一页仍然属于它？
+### 5. Design tokens、components 与 patterns：怎样保持一致？
 
 Design Token 保存精确数值，例如主文字颜色、纸张色、标题字体、正文字号、章节间距或分隔线粗细。
 
-Component Rule 保存关系：
+组件封装可复用部分；模式说明怎样为反复出现的需要组合这些部分。本站的组件规则保存文档特有的关系：
 
 - 表格什么时候允许使用底色？
 - 引用和警告怎样区分？
@@ -139,9 +147,11 @@ Component Rule 保存关系：
 - 数据页是否允许比叙事页更密？
 - 来源、页码、页眉和页脚放在哪里？
 
-Token 保存数值，组件规则保存行为。完整视觉语言两者都需要。
+Token 保存命名过的数值，组件与模式保存可重复行为。一套工作中的文档系统两者都需要。
 
 ## 四条坐标轴让审美可以讨论
+
+Temperature、Geometry、Density、Expression 是本文的评审控制，并不是标准化的设计系统坐标轴；0–100 也不是测量值。它们只用于明确方向与相对强度。
 
 形容词加上方向和强度以后，才更容易执行：
 
@@ -158,25 +168,22 @@ Token 保存数值，组件规则保存行为。完整视觉语言两者都需�
 
 审美判断仍然存在，但下一版已经有了方向。
 
-## 一套实用风格词汇
+## 一套标明证据身份的词汇
 
-| 风格原型                             | 身份                           | 适合                           | 常见失败                     |
-| ------------------------------------ | ------------------------------ | ------------------------------ | ---------------------------- |
-| Classical Bookish · 古典书籍式       | 排版惯例                       | 长文、历史、政策、文学         | 小字和假古董装饰             |
-| Swiss / International · 瑞士国际主义 | 历史运动                       | 信息报告、机构、多语言材料     | 只换 Helvetica，没有网格纪律 |
-| New Typography · 新字体排印          | 历史运动                       | 海报、封面、展览、宣言         | 每一页都很戏剧化             |
-| Bauhaus Typography · 包豪斯字体排印  | 机构设计遗产，不是单一固定风格 | 展览、文化出版、几何信息设计   | 把原色和圆形当成外观服装     |
-| Art Deco · 装饰艺术                  | 多源历史运动                   | 酒店、建筑、高端封面、活动材料 | 装饰压过信息层级             |
-| Art Nouveau · 新艺术                 | 国际历史风格                   | 文化、植物、手工艺与遗产叙事   | 装饰曲线损害可读性           |
-| Editorial · 编辑式                   | 工作方法与文档语言             | 杂志、年报、品牌叙事           | 把随机版式当成节奏           |
-| Technical Functional · 技术功能式    | 工作型原型                     | 规范、审计、手册、研究记录     | 把高密度当成专业             |
-| Organic Humanist · 有机人文式        | 工作型原型                     | 教育、健康、可持续、个人叙事   | 低对比和叶片装饰             |
-| Institutional Modern · 机构现代式    | 工作型原型                     | 金融、治理、咨询、法律报告     | 全部正确，却毫无记忆点       |
-| Luxury Editorial · 奢华编辑式        | 工作型原型                     | 时尚、酒店、建筑、作品集       | 用浅灰小字冒充高级           |
-| Minimal Contemporary · 当代极简式    | 工作型原型                     | 产品 brief、作品集、聚焦型报告 | 把空白误认为层级             |
-| Brutalist / Raw · 粗野 / 原始式      | 借来的类比标签                 | 文化与实验出版                 | 把阅读困难当成态度           |
+| 名称                            | 证据标签     | 常见语境                       | 常见失败                     |
+| ------------------------------- | ------------ | ------------------------------ | ---------------------------- |
+| International Typographic Style | 历史传统     | 信息报告、机构、多语言材料     | 只换 Helvetica，没有网格纪律 |
+| New Typography                  | 历史传统     | 海报、封面、展览、宣言         | 每一页都很戏剧化             |
+| Bauhaus typography              | 机构设计遗产 | 展览、文化出版、几何信息设计   | 把原色和圆形当成外观服装     |
+| Art Deco                        | 历史运动     | 酒店、建筑、封面、活动材料     | 装饰压过信息层级             |
+| Art Nouveau                     | 国际历史风格 | 文化、植物、手工艺与遗产叙事   | 装饰曲线损害可读性           |
+| Classical book typography       | 字体排印传统 | 长文、历史、政策、文学         | 小字和假古董装饰             |
+| Editorial design                | 专业实践     | 杂志、年报、品牌叙事           | 把随机版式当成节奏           |
+| Information design              | 专业实践     | 报告、公共信息、复杂比较       | 全部正确，却毫无记忆点       |
+| Technical communication         | 专业领域     | 规范、审计、手册、研究记录     | 把高密度当成专业             |
+| Minimalist graphic design       | 专业实践     | 产品 brief、作品集、聚焦型报告 | 把空白误认为层级             |
 
-“身份”这一列很重要。历史运动、工作型原型与产品主题并不是同一级别的词。
+这些词仍然在做不同的事情：历史传统提供来源，专业实践描述工作领域，Alder 与 Granite 则始终是产品内部主题名。
 
 ## 把 Granite 编译成真正的设计 brief
 
@@ -187,14 +194,14 @@ Token 保存数值，组件规则保存行为。完整视觉语言两者都需�
 - 读者感受：稳定、可信、已经过审查；
 - 读者动作：先读执行摘要，再扫描指标，最后回查证据。
 
-### 视觉语言栈
+### 设计上下文
 
-| 层级      | 决定                                        |
-| --------- | ------------------------------------------- |
-| Genre     | Analytical report（分析报告）               |
-| Lineage   | Swiss-inspired information design           |
-| Archetype | Institutional Modern + Technical Functional |
-| Theme     | Granite                                     |
+| 层级      | 决定                            |
+| --------- | ------------------------------- |
+| Purpose   | Analytical report（分析报告）   |
+| Tradition | International Typographic Style |
+| Practice  | Information design              |
+| Theme     | Granite                         |
 
 ### 风格坐标
 
@@ -251,27 +258,27 @@ Granite 现在已经可以测试。名字仍然容易记，却不再独自承担
 
 ## 看清概念邻居
 
-- **Document Genre 是功能契约。** 它说明读者正在完成什么工作。
-- **Design Lineage 是历史语法。** 它提供可追溯的原则与关系。
-- **Style Archetype 是工作词汇。** 它给一组声明过边界的实用关系命名。
-- **Design Theme 是命名实例。** 它用容易记住的内部名称包装实现。
-- **Design Tokens 是实现数据。** 它保存数值，却不决定策略。
-- **Template 是内容骨架。** 它保存可复用结构，并且可以接受多个主题。
+- **Document purpose 描述读者需要的结果。** 特定系统中存在正式信息类型；模拟器里的四种目的只是示例。
+- **Historical design tradition 指向历史来源。** 它提供可追溯参考，却不是可以直接套用的主题。
+- **Design practice 描述专业领域。** Editorial design、Information design 与 Technical communication 属于这一层。
+- **Theme 是命名实现。** 它为某个产品或情境协调 Token 数值。
+- **Design token 是命名过的实现数据。** 它用跨平台格式表达设计决策，却不会替团队选择策略。
+- **Components 与 patterns 把决策带入使用。** 组件封装可复用部分，模式描述反复出现的解决方案与情境。
 
 ## 记住这六件事
 
-1. 主题名帮助人选择；视觉语言帮助团队复现并评审这个选择。
-2. 先确定文档类型，再选择谱系与原型，最后命名主题。
-3. 用四条轴说明视觉性格的方向和强度。
-4. Token 保存数值，组件规则保存关系。
-5. 历史运动、工作型原型和产品主题必须说明自己的身份。
+1. “文档视觉语言”是本文的工作性总称，并非正式标准。
+2. 先确定文档目的，再识别历史传统或设计实践，最后命名产品内主题。
+3. 把四条轴当作本站评审控制，不要当作标准化测量。
+4. 主题协调数值；设计 Token 命名并交换这些决策。
+5. 组件与模式让设计决策在反复出现的文档需要中保持一致。
 6. 风格永远不能代替内容结构、证据、语义与无障碍。
 
 ## 自测
 
 1. 读者是在连续阅读、扫描证据、执行步骤，还是做决定？
-2. 当前标签是有出处的谱系、工作型原型，还是产品内部主题？
-3. 删除主题名以后，团队能否只凭坐标和规则重建它？
+2. 当前标签是有出处的传统、已有设计实践，还是产品内部主题？
+3. 删除主题名以后，团队能否只凭 Token、组件、模式与规则重建它？
 4. 当有人说“更专业”时，具体应该移动哪条轴、改变哪些组件？
 5. 封面、叙事页和数据页之间，哪些规则必须稳定？
 6. 设计在打印、长时间阅读、低质量屏幕和辅助技术中是否仍然成立？
@@ -279,6 +286,9 @@ Granite 现在已经可以测试。名字仍然容易记，却不再独自承担
 ## 延伸阅读
 
 - [Design Tokens Community Group · Design Tokens Format Module 2025.10](https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/)
+- [GOV.UK Design System · Styles, components and patterns](https://design-system.service.gov.uk/)
+- [Material Web · Theming](https://material-web.dev/theming/material-theming/)
+- [OASIS DITA 1.3 · Information typing](https://docs.oasis-open.org/dita/dita/v1.3/os/part1-base/archSpec/base/information-typing.html)
 - [Cooper Hewitt · A Harmony of Contrasts](https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/)
 - [Museum of Modern Art · The New Typography](https://www.moma.org/calendar/exhibitions/1013)
 - [Bauhaus-Archiv · Bauhaus Typography](https://www.bauhaus.de/en/research/publications/bauhaus-typography/)
