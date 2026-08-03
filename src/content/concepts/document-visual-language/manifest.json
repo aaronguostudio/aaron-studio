@@ -2,6 +2,12 @@
   "slug": "document-visual-language",
   "source": "src/brain/concepts/document-visual-language.md",
   "status": "public-ready",
-  "updated": "2026-07-18",
-  "files": ["en.md", "zh.md", "visual.vue"]
+  "updated": "2026-08-03",
+  "files": [
+    "en.md",
+    "zh.md",
+    "visual.vue",
+    "social/card-4x5.jpg",
+    "social/og-1200x627.jpg"
+  ]
 }

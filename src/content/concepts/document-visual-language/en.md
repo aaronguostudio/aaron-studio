@@ -1,64 +1,66 @@
 ---
-title: 'Document Visual Language'
-fullName: 'Document Visual Language'
-shortName: 'Document Visual Language'
-description: 'Translate how a document should feel, read, and guide action into repeatable rules for layout, typography, color, density, and components.'
-mentalModel: 'A theme name helps people choose; a visual language helps a team reproduce and review the choice.'
-date: '2026-07-18'
-updated: '2026-07-18'
-domain: 'Document design'
-domainKey: 'document-design'
-tags: ['Document design', 'Typography', 'Design systems', 'Design tokens']
-maturity: 'growing'
+title: "Document Visual Language"
+fullName: "Document Visual Language"
+shortName: "Document Visual Language"
+description: "Translate how a document should feel, read, and guide action into repeatable rules for layout, typography, color, density, and components."
+mentalModel: "A theme name helps people choose; a visual language helps a team reproduce and review the choice."
+date: "2026-07-18"
+updated: "2026-08-03"
+domain: "Document design"
+domainKey: "document-design"
+tags: ["Document design", "Typography", "Design systems", "Design tokens"]
+maturity: "growing"
 published: true
 featured: false
-translationKey: 'document-visual-language'
-interaction: 'document-visual-language'
+translationKey: "document-visual-language"
+interaction: "document-visual-language"
+socialImage: "/learn-img/document-visual-language/og-1200x627.jpg"
+socialImageAlt: "A wide editorial graphic titled Document Visual Language, showing four visual axes and a document preview that changes as the design rules move."
+cardImage: "/learn-img/document-visual-language/card-4x5.jpg"
+cardImageAlt: "A portrait editorial card titled Document Visual Language, connecting a named theme and four visual axes to a repeatable document system."
 neighbors:
-  - name: 'Document Genre'
-    fullName: 'Document Genre'
-    category: 'functional contract'
-    summary: 'Defines the reading job; visual language decides how the design supports that job.'
-  - name: 'Design Lineage'
-    fullName: 'Design Lineage'
-    category: 'historical grammar'
-    summary: 'Provides traceable traditions such as Swiss Style or New Typography without acting as a ready-made theme.'
-  - name: 'Style Archetype'
-    fullName: 'Style Archetype'
-    category: 'working vocabulary'
-    summary: 'Names a practical cluster of visual relationships without pretending it is a universal standard.'
-  - name: 'Design Theme'
-    fullName: 'Design Theme'
-    category: 'named instance'
-    summary: 'Packages one implementation under a memorable product-local name such as Alder or Granite.'
-  - name: 'Design Tokens'
-    fullName: 'Design Tokens'
-    category: 'implementation data'
-    summary: 'Store exact colors, sizes, type roles, and spacing values; they do not decide the document strategy.'
-  - name: 'Template'
-    fullName: 'Template'
-    category: 'content skeleton'
-    summary: 'Preserves repeatable page structures; one template may accept several themes and one theme may cover several templates.'
+  - name: "Document Genre"
+    fullName: "Document Genre"
+    category: "functional contract"
+    summary: "Defines the reading job; visual language decides how the design supports that job."
+  - name: "Design Lineage"
+    fullName: "Design Lineage"
+    category: "historical grammar"
+    summary: "Provides traceable traditions such as Swiss Style or New Typography without acting as a ready-made theme."
+  - name: "Style Archetype"
+    fullName: "Style Archetype"
+    category: "working vocabulary"
+    summary: "Names a practical cluster of visual relationships without pretending it is a universal standard."
+  - name: "Design Theme"
+    fullName: "Design Theme"
+    category: "named instance"
+    summary: "Packages one implementation under a memorable product-local name such as Alder or Granite."
+  - name: "Design Tokens"
+    fullName: "Design Tokens"
+    category: "implementation data"
+    summary: "Store exact colors, sizes, type roles, and spacing values; they do not decide the document strategy."
+  - name: "Template"
+    fullName: "Template"
+    category: "content skeleton"
+    summary: "Preserves repeatable page structures; one template may accept several themes and one theme may cover several templates."
 sources:
-  - title: 'Design Tokens Community Group · Design Tokens Format Module 2025.10'
-    url: 'https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/'
-  - title: 'Cooper Hewitt · A Harmony of Contrasts'
-    url: 'https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/'
-  - title: 'Museum of Modern Art · The New Typography'
-    url: 'https://www.moma.org/calendar/exhibitions/1013'
-  - title: 'Bauhaus-Archiv · Bauhaus Typography'
-    url: 'https://www.bauhaus.de/en/research/publications/bauhaus-typography/'
-  - title: 'Victoria and Albert Museum · An introduction to Art Deco'
-    url: 'https://www.vam.ac.uk/articles/an-introduction-to-art-deco'
-  - title: 'Victoria and Albert Museum · Art Nouveau — an international style'
-    url: 'https://www.vam.ac.uk/articles/art-nouveau-an-international-style'
-  - title: 'World Wide Web Consortium · Web Content Accessibility Guidelines 2.2'
-    url: 'https://www.w3.org/TR/WCAG22/'
-  - title: 'PDF Association · ISO 14289-1 / PDF/UA-1'
-    url: 'https://pdfa.org/resource/iso-14289-pdfua/'
+  - title: "Design Tokens Community Group · Design Tokens Format Module 2025.10"
+    url: "https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/"
+  - title: "Cooper Hewitt · A Harmony of Contrasts"
+    url: "https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/"
+  - title: "Museum of Modern Art · The New Typography"
+    url: "https://www.moma.org/calendar/exhibitions/1013"
+  - title: "Bauhaus-Archiv · Bauhaus Typography"
+    url: "https://www.bauhaus.de/en/research/publications/bauhaus-typography/"
+  - title: "Victoria and Albert Museum · An introduction to Art Deco"
+    url: "https://www.vam.ac.uk/articles/an-introduction-to-art-deco"
+  - title: "Victoria and Albert Museum · Art Nouveau — an international style"
+    url: "https://www.vam.ac.uk/articles/art-nouveau-an-international-style"
+  - title: "World Wide Web Consortium · Web Content Accessibility Guidelines 2.2"
+    url: "https://www.w3.org/TR/WCAG22/"
+  - title: "PDF Association · ISO 14289-1 / PDF/UA-1"
+    url: "https://pdfa.org/resource/iso-14289-pdfua/"
 ---
-
-# Document Visual Language
 
 Artificial Intelligence (AI) can generate Portable Document Format (PDF) reports, proposals, manuals, and learning materials in seconds. The difficult part often begins after generation:
 
@@ -80,13 +82,13 @@ A construction team still needs plans, dimensions, materials, lighting temperatu
 
 Document themes work the same way:
 
-| Layer | Room analogy | Document equivalent |
-| --- | --- | --- |
-| Theme name | Memorable room name | Alder or Granite |
-| Style archetype | Shared interior direction | Organic Humanist or Institutional Modern |
-| Layout system | Floor plan | Grid, margins, columns, and page regions |
-| Design tokens | Material schedule | Colors, sizes, type roles, and spacing |
-| Component rules | Installation details | Tables, quotations, warnings, headers, and footers |
+| Layer           | Room analogy              | Document equivalent                                |
+| --------------- | ------------------------- | -------------------------------------------------- |
+| Theme name      | Memorable room name       | Alder or Granite                                   |
+| Style archetype | Shared interior direction | Organic Humanist or Institutional Modern           |
+| Layout system   | Floor plan                | Grid, margins, columns, and page regions           |
+| Design tokens   | Material schedule         | Colors, sizes, type roles, and spacing             |
+| Component rules | Installation details      | Tables, quotations, warnings, headers, and footers |
 
 Poetic naming creates an image. System definition makes the image reproducible.
 
@@ -118,9 +120,9 @@ These labels are useful because a team can define their boundaries. They should 
 
 A theme preset packages one implementation:
 
-| Preset | Declared mapping |
-| --- | --- |
-| Alder | Organic Humanist + Warm Editorial |
+| Preset  | Declared mapping                      |
+| ------- | ------------------------------------- |
+| Alder   | Organic Humanist + Warm Editorial     |
 | Granite | Institutional Modern + Cool Technical |
 
 This mapping is a working interpretation, not an industry standard. Another product can use the same name differently.
@@ -143,12 +145,12 @@ Tokens preserve values. Component rules preserve behavior. A visual language nee
 
 Adjectives become more useful when a direction and intensity are attached:
 
-| Axis | Left | Right | Common controls |
-| --- | --- | --- | --- |
-| Temperature | Warm | Cool | Paper tone, palette, type character, image light |
-| Geometry | Soft | Hard | Corners, rules, weight, shapes, boundaries |
-| Density | Sparse | Dense | Type size, line length, whitespace, columns, table rhythm |
-| Expression | Restrained | Expressive | Scale contrast, color count, image ratio, composition change |
+| Axis        | Left       | Right      | Common controls                                              |
+| ----------- | ---------- | ---------- | ------------------------------------------------------------ |
+| Temperature | Warm       | Cool       | Paper tone, palette, type character, image light             |
+| Geometry    | Soft       | Hard       | Corners, rules, weight, shapes, boundaries                   |
+| Density     | Sparse     | Dense      | Type size, line length, whitespace, columns, table rhythm    |
+| Expression  | Restrained | Expressive | Scale contrast, color count, image ratio, composition change |
 
 Instead of “make it more premium,” a review can say:
 
@@ -158,21 +160,21 @@ Taste remains involved, but the next iteration now has a direction.
 
 ## A practical style vocabulary
 
-| Archetype | Identity | Strong fit | Typical failure |
-| --- | --- | --- | --- |
-| Classical Bookish | Typographic convention | Essays, history, policy, literature | Tiny type and fake antique decoration |
-| Swiss / International | Historical movement | Information reports, institutions, multilingual material | Helvetica without grid discipline |
-| New Typography | Historical movement | Posters, covers, exhibitions, manifestos | Every page becomes dramatic |
-| Bauhaus Typography | Institutional design legacy, not one fixed style | Exhibitions, cultural publishing, geometric information design | Primary colors and circles used as costume |
-| Art Deco | Historical movement with many sources | Hospitality, architecture, premium covers, event material | Ornament overwhelms hierarchy |
-| Art Nouveau | Historical international style | Cultural, botanical, craft, and heritage narratives | Decorative curves reduce readability |
-| Editorial | Working method and genre language | Magazines, annual reports, brand narratives | Random layouts mistaken for rhythm |
-| Technical Functional | Working archetype | Specifications, audits, manuals, research records | Density mistaken for professionalism |
-| Organic Humanist | Working archetype | Education, health, sustainability, personal narratives | Low contrast and decorative leaves |
-| Institutional Modern | Working archetype | Finance, governance, consulting, legal reports | Correct but entirely forgettable |
-| Luxury Editorial | Working archetype | Fashion, hospitality, architecture, portfolios | Pale small text presented as premium |
-| Minimal Contemporary | Working archetype | Product briefs, portfolios, focused reports | Emptiness mistaken for hierarchy |
-| Brutalist / Raw | Borrowed analogy label | Cultural and experimental publishing | Reading difficulty mistaken for attitude |
+| Archetype             | Identity                                         | Strong fit                                                     | Typical failure                            |
+| --------------------- | ------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------ |
+| Classical Bookish     | Typographic convention                           | Essays, history, policy, literature                            | Tiny type and fake antique decoration      |
+| Swiss / International | Historical movement                              | Information reports, institutions, multilingual material       | Helvetica without grid discipline          |
+| New Typography        | Historical movement                              | Posters, covers, exhibitions, manifestos                       | Every page becomes dramatic                |
+| Bauhaus Typography    | Institutional design legacy, not one fixed style | Exhibitions, cultural publishing, geometric information design | Primary colors and circles used as costume |
+| Art Deco              | Historical movement with many sources            | Hospitality, architecture, premium covers, event material      | Ornament overwhelms hierarchy              |
+| Art Nouveau           | Historical international style                   | Cultural, botanical, craft, and heritage narratives            | Decorative curves reduce readability       |
+| Editorial             | Working method and genre language                | Magazines, annual reports, brand narratives                    | Random layouts mistaken for rhythm         |
+| Technical Functional  | Working archetype                                | Specifications, audits, manuals, research records              | Density mistaken for professionalism       |
+| Organic Humanist      | Working archetype                                | Education, health, sustainability, personal narratives         | Low contrast and decorative leaves         |
+| Institutional Modern  | Working archetype                                | Finance, governance, consulting, legal reports                 | Correct but entirely forgettable           |
+| Luxury Editorial      | Working archetype                                | Fashion, hospitality, architecture, portfolios                 | Pale small text presented as premium       |
+| Minimal Contemporary  | Working archetype                                | Product briefs, portfolios, focused reports                    | Emptiness mistaken for hierarchy           |
+| Brutalist / Raw       | Borrowed analogy label                           | Cultural and experimental publishing                           | Reading difficulty mistaken for attitude   |
 
 The identity column matters. A historical movement, a working archetype, and a product theme are not peers.
 
@@ -187,12 +189,12 @@ Suppose the task is a 24-page quarterly operating report.
 
 ### Stack
 
-| Layer | Decision |
-| --- | --- |
-| Genre | Analytical report |
-| Lineage | Swiss-inspired information design |
+| Layer     | Decision                                    |
+| --------- | ------------------------------------------- |
+| Genre     | Analytical report                           |
+| Lineage   | Swiss-inspired information design           |
 | Archetype | Institutional Modern + Technical Functional |
-| Theme | Granite |
+| Theme     | Granite                                     |
 
 ### Coordinates
 

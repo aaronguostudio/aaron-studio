@@ -1,64 +1,66 @@
 ---
-title: '文档视觉语言'
-fullName: 'Document Visual Language · 文档视觉语言'
-shortName: '文档视觉语言'
-description: '把“希望读者怎样感受、怎样阅读、怎样行动”翻译成可重复的版式、字体、颜色、密度与组件规则。'
-mentalModel: '主题名帮助人选择；视觉语言帮助团队复现并评审这个选择。'
-date: '2026-07-18'
-updated: '2026-07-18'
-domain: '文档设计'
-domainKey: 'document-design'
-tags: ['文档设计', '字体排印', '设计系统', '设计令牌']
-maturity: 'growing'
+title: "文档视觉语言"
+fullName: "Document Visual Language · 文档视觉语言"
+shortName: "文档视觉语言"
+description: "把“希望读者怎样感受、怎样阅读、怎样行动”翻译成可重复的版式、字体、颜色、密度与组件规则。"
+mentalModel: "主题名帮助人选择；视觉语言帮助团队复现并评审这个选择。"
+date: "2026-07-18"
+updated: "2026-08-03"
+domain: "文档设计"
+domainKey: "document-design"
+tags: ["文档设计", "字体排印", "设计系统", "设计令牌"]
+maturity: "growing"
 published: true
 featured: false
-translationKey: 'document-visual-language'
-interaction: 'document-visual-language'
+translationKey: "document-visual-language"
+interaction: "document-visual-language"
+socialImage: "/learn-img/document-visual-language/og-1200x627.jpg"
+socialImageAlt: "横版编辑图，标题为 Document Visual Language，展示四条视觉坐标轴，以及随设计规则变化的文档预览。"
+cardImage: "/learn-img/document-visual-language/card-4x5.jpg"
+cardImageAlt: "竖版编辑卡，标题为 Document Visual Language，把主题名称与四条视觉坐标轴连接到一套可复现的文档系统。"
 neighbors:
-  - name: 'Document Genre'
-    fullName: 'Document Genre · 文档类型'
-    category: '功能契约'
-    summary: '定义读者要完成什么阅读任务；视觉语言决定设计怎样帮助这项任务。'
-  - name: 'Design Lineage'
-    fullName: 'Design Lineage · 设计谱系'
-    category: '历史语法'
-    summary: '提供 Swiss Style 或 New Typography 等可追溯传统，但不等于一键套用的主题。'
-  - name: 'Style Archetype'
-    fullName: 'Style Archetype · 风格原型'
-    category: '工作词汇'
-    summary: '给一组实用视觉关系命名，但不冒充行业通用标准。'
-  - name: 'Design Theme'
-    fullName: 'Design Theme · 设计主题'
-    category: '命名实例'
-    summary: '把一次具体实现包装成 Alder、Granite 这样的产品内部名称。'
-  - name: 'Design Tokens'
-    fullName: 'Design Tokens · 设计令牌'
-    category: '实现数据'
-    summary: '保存精确颜色、尺寸、字体角色和间距，但不会替团队决定文档策略。'
-  - name: 'Template'
-    fullName: 'Template · 模板'
-    category: '内容骨架'
-    summary: '保存可重复页面结构；一个模板可以接受多个主题，一个主题也可以覆盖多个模板。'
+  - name: "Document Genre"
+    fullName: "Document Genre · 文档类型"
+    category: "功能契约"
+    summary: "定义读者要完成什么阅读任务；视觉语言决定设计怎样帮助这项任务。"
+  - name: "Design Lineage"
+    fullName: "Design Lineage · 设计谱系"
+    category: "历史语法"
+    summary: "提供 Swiss Style 或 New Typography 等可追溯传统，但不等于一键套用的主题。"
+  - name: "Style Archetype"
+    fullName: "Style Archetype · 风格原型"
+    category: "工作词汇"
+    summary: "给一组实用视觉关系命名，但不冒充行业通用标准。"
+  - name: "Design Theme"
+    fullName: "Design Theme · 设计主题"
+    category: "命名实例"
+    summary: "把一次具体实现包装成 Alder、Granite 这样的产品内部名称。"
+  - name: "Design Tokens"
+    fullName: "Design Tokens · 设计令牌"
+    category: "实现数据"
+    summary: "保存精确颜色、尺寸、字体角色和间距，但不会替团队决定文档策略。"
+  - name: "Template"
+    fullName: "Template · 模板"
+    category: "内容骨架"
+    summary: "保存可重复页面结构；一个模板可以接受多个主题，一个主题也可以覆盖多个模板。"
 sources:
-  - title: 'Design Tokens Community Group · Design Tokens Format Module 2025.10'
-    url: 'https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/'
-  - title: 'Cooper Hewitt · A Harmony of Contrasts'
-    url: 'https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/'
-  - title: 'Museum of Modern Art · The New Typography'
-    url: 'https://www.moma.org/calendar/exhibitions/1013'
-  - title: 'Bauhaus-Archiv · Bauhaus Typography'
-    url: 'https://www.bauhaus.de/en/research/publications/bauhaus-typography/'
-  - title: 'Victoria and Albert Museum · An introduction to Art Deco'
-    url: 'https://www.vam.ac.uk/articles/an-introduction-to-art-deco'
-  - title: 'Victoria and Albert Museum · Art Nouveau — an international style'
-    url: 'https://www.vam.ac.uk/articles/art-nouveau-an-international-style'
-  - title: 'World Wide Web Consortium · Web Content Accessibility Guidelines 2.2'
-    url: 'https://www.w3.org/TR/WCAG22/'
-  - title: 'PDF Association · ISO 14289-1 / PDF/UA-1'
-    url: 'https://pdfa.org/resource/iso-14289-pdfua/'
+  - title: "Design Tokens Community Group · Design Tokens Format Module 2025.10"
+    url: "https://www.w3.org/community/reports/design-tokens/CG-FINAL-format-20251028/"
+  - title: "Cooper Hewitt · A Harmony of Contrasts"
+    url: "https://www.cooperhewitt.org/2018/08/05/aharmonyofcontrasts/"
+  - title: "Museum of Modern Art · The New Typography"
+    url: "https://www.moma.org/calendar/exhibitions/1013"
+  - title: "Bauhaus-Archiv · Bauhaus Typography"
+    url: "https://www.bauhaus.de/en/research/publications/bauhaus-typography/"
+  - title: "Victoria and Albert Museum · An introduction to Art Deco"
+    url: "https://www.vam.ac.uk/articles/an-introduction-to-art-deco"
+  - title: "Victoria and Albert Museum · Art Nouveau — an international style"
+    url: "https://www.vam.ac.uk/articles/art-nouveau-an-international-style"
+  - title: "World Wide Web Consortium · Web Content Accessibility Guidelines 2.2"
+    url: "https://www.w3.org/TR/WCAG22/"
+  - title: "PDF Association · ISO 14289-1 / PDF/UA-1"
+    url: "https://pdfa.org/resource/iso-14289-pdfua/"
 ---
-
-# 文档视觉语言
 
 Artificial Intelligence（AI，人工智能）已经可以在几秒内生成 Portable Document Format（PDF，便携式文档格式）报告、提案、手册和学习材料。真正困难的部分经常在生成之后才出现：
 
@@ -80,13 +82,13 @@ Alder 让人想到木材、自然光、柔软材料和温暖；Granite 让人想
 
 文档主题也是一样：
 
-| 层级 | 房间类比 | 文档对应物 |
-| --- | --- | --- |
-| Theme name（主题名） | 容易记住的房间名字 | Alder 或 Granite |
+| 层级                        | 房间类比           | 文档对应物                               |
+| --------------------------- | ------------------ | ---------------------------------------- |
+| Theme name（主题名）        | 容易记住的房间名字 | Alder 或 Granite                         |
 | Style archetype（风格原型） | 共同认可的室内方向 | Organic Humanist 或 Institutional Modern |
-| Layout system（版式系统） | 平面图 | 网格、页边距、分栏和页面区域 |
-| Design tokens（设计令牌） | 材料清单 | 颜色、尺寸、字体角色和间距 |
-| Component rules（组件规则） | 安装细节 | 表格、引用、警告、页眉和页脚 |
+| Layout system（版式系统）   | 平面图             | 网格、页边距、分栏和页面区域             |
+| Design tokens（设计令牌）   | 材料清单           | 颜色、尺寸、字体角色和间距               |
+| Component rules（组件规则） | 安装细节           | 表格、引用、警告、页眉和页脚             |
 
 诗意命名负责形成意象；系统定义负责让意象稳定落地。
 
@@ -118,9 +120,9 @@ Style Archetype 是团队声明的工作分类，例如 Organic Humanist（有�
 
 主题预设把一次具体实现包装起来：
 
-| 预设 | 这套系统里的明确映射 |
-| --- | --- |
-| Alder | Organic Humanist + Warm Editorial |
+| 预设    | 这套系统里的明确映射                  |
+| ------- | ------------------------------------- |
+| Alder   | Organic Humanist + Warm Editorial     |
 | Granite | Institutional Modern + Cool Technical |
 
 这个映射是工作解释，不是行业标准。另一个产品完全可以用同样的名字得到不同结果。
@@ -143,11 +145,11 @@ Token 保存数值，组件规则保存行为。完整视觉语言两者都需�
 
 形容词加上方向和强度以后，才更容易执行：
 
-| 坐标轴 | 左侧 | 右侧 | 常见控制项 |
-| --- | --- | --- | --- |
-| Temperature（温度） | Warm 温暖 | Cool 冷静 | 纸张色、配色、字体性格、图像光线 |
-| Geometry（几何） | Soft 柔和 | Hard 硬朗 | 圆角、线条、字重、形状、边界 |
-| Density（密度） | Sparse 疏朗 | Dense 紧凑 | 字号、行长、留白、分栏、表格节奏 |
+| 坐标轴               | 左侧            | 右侧              | 常见控制项                             |
+| -------------------- | --------------- | ----------------- | -------------------------------------- |
+| Temperature（温度）  | Warm 温暖       | Cool 冷静         | 纸张色、配色、字体性格、图像光线       |
+| Geometry（几何）     | Soft 柔和       | Hard 硬朗         | 圆角、线条、字重、形状、边界           |
+| Density（密度）      | Sparse 疏朗     | Dense 紧凑        | 字号、行长、留白、分栏、表格节奏       |
 | Expression（表现力） | Restrained 克制 | Expressive 强表达 | 字号跨度、颜色数量、图片比例、构图变化 |
 
 与其说“做得更高级”，不如说：
@@ -158,21 +160,21 @@ Token 保存数值，组件规则保存行为。完整视觉语言两者都需�
 
 ## 一套实用风格词汇
 
-| 风格原型 | 身份 | 适合 | 常见失败 |
-| --- | --- | --- | --- |
-| Classical Bookish · 古典书籍式 | 排版惯例 | 长文、历史、政策、文学 | 小字和假古董装饰 |
-| Swiss / International · 瑞士国际主义 | 历史运动 | 信息报告、机构、多语言材料 | 只换 Helvetica，没有网格纪律 |
-| New Typography · 新字体排印 | 历史运动 | 海报、封面、展览、宣言 | 每一页都很戏剧化 |
-| Bauhaus Typography · 包豪斯字体排印 | 机构设计遗产，不是单一固定风格 | 展览、文化出版、几何信息设计 | 把原色和圆形当成外观服装 |
-| Art Deco · 装饰艺术 | 多源历史运动 | 酒店、建筑、高端封面、活动材料 | 装饰压过信息层级 |
-| Art Nouveau · 新艺术 | 国际历史风格 | 文化、植物、手工艺与遗产叙事 | 装饰曲线损害可读性 |
-| Editorial · 编辑式 | 工作方法与文档语言 | 杂志、年报、品牌叙事 | 把随机版式当成节奏 |
-| Technical Functional · 技术功能式 | 工作型原型 | 规范、审计、手册、研究记录 | 把高密度当成专业 |
-| Organic Humanist · 有机人文式 | 工作型原型 | 教育、健康、可持续、个人叙事 | 低对比和叶片装饰 |
-| Institutional Modern · 机构现代式 | 工作型原型 | 金融、治理、咨询、法律报告 | 全部正确，却毫无记忆点 |
-| Luxury Editorial · 奢华编辑式 | 工作型原型 | 时尚、酒店、建筑、作品集 | 用浅灰小字冒充高级 |
-| Minimal Contemporary · 当代极简式 | 工作型原型 | 产品 brief、作品集、聚焦型报告 | 把空白误认为层级 |
-| Brutalist / Raw · 粗野 / 原始式 | 借来的类比标签 | 文化与实验出版 | 把阅读困难当成态度 |
+| 风格原型                             | 身份                           | 适合                           | 常见失败                     |
+| ------------------------------------ | ------------------------------ | ------------------------------ | ---------------------------- |
+| Classical Bookish · 古典书籍式       | 排版惯例                       | 长文、历史、政策、文学         | 小字和假古董装饰             |
+| Swiss / International · 瑞士国际主义 | 历史运动                       | 信息报告、机构、多语言材料     | 只换 Helvetica，没有网格纪律 |
+| New Typography · 新字体排印          | 历史运动                       | 海报、封面、展览、宣言         | 每一页都很戏剧化             |
+| Bauhaus Typography · 包豪斯字体排印  | 机构设计遗产，不是单一固定风格 | 展览、文化出版、几何信息设计   | 把原色和圆形当成外观服装     |
+| Art Deco · 装饰艺术                  | 多源历史运动                   | 酒店、建筑、高端封面、活动材料 | 装饰压过信息层级             |
+| Art Nouveau · 新艺术                 | 国际历史风格                   | 文化、植物、手工艺与遗产叙事   | 装饰曲线损害可读性           |
+| Editorial · 编辑式                   | 工作方法与文档语言             | 杂志、年报、品牌叙事           | 把随机版式当成节奏           |
+| Technical Functional · 技术功能式    | 工作型原型                     | 规范、审计、手册、研究记录     | 把高密度当成专业             |
+| Organic Humanist · 有机人文式        | 工作型原型                     | 教育、健康、可持续、个人叙事   | 低对比和叶片装饰             |
+| Institutional Modern · 机构现代式    | 工作型原型                     | 金融、治理、咨询、法律报告     | 全部正确，却毫无记忆点       |
+| Luxury Editorial · 奢华编辑式        | 工作型原型                     | 时尚、酒店、建筑、作品集       | 用浅灰小字冒充高级           |
+| Minimal Contemporary · 当代极简式    | 工作型原型                     | 产品 brief、作品集、聚焦型报告 | 把空白误认为层级             |
+| Brutalist / Raw · 粗野 / 原始式      | 借来的类比标签                 | 文化与实验出版                 | 把阅读困难当成态度           |
 
 “身份”这一列很重要。历史运动、工作型原型与产品主题并不是同一级别的词。
 
@@ -187,12 +189,12 @@ Token 保存数值，组件规则保存行为。完整视觉语言两者都需�
 
 ### 视觉语言栈
 
-| 层级 | 决定 |
-| --- | --- |
-| Genre | Analytical report（分析报告） |
-| Lineage | Swiss-inspired information design |
+| 层级      | 决定                                        |
+| --------- | ------------------------------------------- |
+| Genre     | Analytical report（分析报告）               |
+| Lineage   | Swiss-inspired information design           |
 | Archetype | Institutional Modern + Technical Functional |
-| Theme | Granite |
+| Theme     | Granite                                     |
 
 ### 风格坐标
 
