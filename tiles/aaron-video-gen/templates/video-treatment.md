@@ -56,7 +56,18 @@
 
 - Primary recipes:
 - Experimental recipe, if any:
+- Continuity anchors:
+- Deliberately rejected motion candidates:
 - Effects explicitly excluded:
+
+## Semantic Accents
+
+- Budget: 0 by default / explicitly approved 1
+- Accepted candidate and narrative job:
+- Negative-space location:
+- Style family:
+- Rejected candidates and why:
+- Removal fallback:
 
 ## Music And Sound
 

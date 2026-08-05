@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "topic": "A technically valid AI-made video that failed human review",
+  "thesis": "Machine QA can verify delivery properties, but human taste and trust remain release criteria.",
+  "sources": [
+    {
+      "id": "source-owned-production",
+      "url": "https://github.com/aaronguostudio/aaron-studio",
+      "publisher": "Aaron Studio",
+      "published_at": "2026-08-04",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Primary local evidence: src/content/shorts/codex-research-first-en/codex-research-first-en.mp4 (SHA-256 dffda12d3f90e2432c0d451cf2df0574bd2f571b0fcce54387c0b573bccc734c), its QA report (SHA-256 768d3183bfa6a5d2ef05443a5b2f17a025f6051779aada85f86cd0ce3c53fba3), and the approved pilot treatment. The repository URL identifies the owning project; the exact local paths and hashes are the verification record."
+    },
+    {
+      "id": "source-reference-post",
+      "url": "https://x.com/BTCqzy1/status/2084268294115316141",
+      "publisher": "BTCqzy1 on X",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Direction reference only. No frames or audio from this post are reused in the pilot."
+    },
+    {
+      "id": "source-eleven-music-terms",
+      "url": "https://elevenlabs.io/eleven-music-model-specific-terms",
+      "publisher": "ElevenLabs",
+      "published_at": "2026-05-26",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Current model-specific terms cover Music v1 and v2. The applicable plan must permit the intended media use; generation through the paid API is recorded in the music manifest."
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-technical-pass",
+      "claim": "The source video is 1920×1080 at 60 fps, its encoded mix measured about -16.2 LUFS, and a full decode test completed without errors.",
+      "source_ids": ["source-owned-production"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "These measurements describe this exact encoded file, not creative quality."
+    },
+    {
+      "id": "fact-human-feedback",
+      "claim": "Aaron's immediate feedback was that the music was bad and the recreated demo visibly looked fake.",
+      "source_ids": ["source-owned-production"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "The English on-screen lines are approved translations of Chinese feedback, not verbatim English quotations."
+    },
+    {
+      "id": "fact-release-rule",
+      "claim": "Technical delivery checks do not measure taste or viewer trust, so this workflow now treats human review as a release gate.",
+      "source_ids": ["source-owned-production"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "This is Aaron Studio's operating rule, not a universal empirical claim."
+    }
+  ]
+}
+

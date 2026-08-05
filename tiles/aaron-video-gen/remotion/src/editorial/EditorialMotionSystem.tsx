@@ -1,4 +1,5 @@
 import React from "react";
+import { Easing } from "remotion";
 
 // remotion-static-primitives: parent scenes supply all frame-driven values.
 
@@ -60,8 +61,54 @@ export const editorialMotionBounds = {
   protectedZoneGapPx: 64,
 } as const;
 
+export const editorialMotion = {
+  easing: {
+    enter: Easing.bezier(0.16, 1, 0.3, 1),
+    moveMorph: Easing.bezier(0.45, 0, 0.55, 1),
+    exit: Easing.bezier(0.45, 0, 0.55, 1),
+    continuous: Easing.linear,
+  },
+  referenceFramesAt30Fps: {
+    micro: [6, 10],
+    semanticSettle: [9, 15],
+    bridge: [14, 24],
+    stagger: [1, 3],
+  },
+  semanticSettle: {
+    durationSec: [0.3, 0.5],
+    defaultDurationSec: 0.4,
+    defaultExitDurationSec: 0.3,
+    defaultTranslatePx: 10,
+    minTranslatePx: 8,
+    maxTranslatePx: 12,
+    maxRotationDeg: 0,
+    loop: false,
+  },
+} as const;
+
 const clampUnit = (value: number): number =>
   Math.min(1, Math.max(0, value));
+
+export const semanticSettle = (
+  progressValue: number,
+  translatePx: number = editorialMotion.semanticSettle.defaultTranslatePx,
+): { opacity: number; translateY: number; rotationDeg: 0 } => {
+  const progress = editorialMotion.easing.enter(clampUnit(progressValue));
+  const boundedTranslate = Math.min(
+    editorialMotion.semanticSettle.maxTranslatePx,
+    Math.max(
+      editorialMotion.semanticSettle.minTranslatePx,
+      Number.isFinite(translatePx)
+        ? translatePx
+        : editorialMotion.semanticSettle.defaultTranslatePx,
+    ),
+  );
+  return {
+    opacity: progress,
+    translateY: (1 - progress) * boundedTranslate,
+    rotationDeg: 0,
+  };
+};
 
 export const informationalPlaneTurn = (
   progressValue: number,

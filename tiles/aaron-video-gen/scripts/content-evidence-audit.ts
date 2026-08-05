@@ -51,6 +51,8 @@ export type AssetType =
   | "none";
 export type AssetStatus = "planned" | "ready" | "rejected";
 export type EditorialApproval = "not-required" | "pending" | "approved" | "rejected";
+export type AssetUsageRole = "primary" | "semantic-accent";
+export type AlphaQaStatus = "pending" | "pass" | "fail";
 
 export interface AssetBeat {
   id: string;
@@ -62,7 +64,15 @@ export interface AssetBeat {
   fact_ids: string[];
   source_ids: string[];
   asset_path?: string;
+  render_asset_path?: string;
+  composition_id?: string;
+  asset_id?: string;
   library_asset_id?: string;
+  usage_role?: AssetUsageRole;
+  semantic_job?: string;
+  style_family_id?: string;
+  manifest_path?: string;
+  alpha_qa_status?: AlphaQaStatus;
   status: AssetStatus;
   provenance: string;
   rights: SourceRights;
@@ -80,6 +90,7 @@ export interface AssetPlan {
   title: string;
   duration_sec: number;
   aspect_ratio: "9:16" | "16:9" | "1:1";
+  visual_spine_id?: string;
   asset_library?: {
     queries: string[];
     selected_asset_ids: string[];
@@ -106,6 +117,8 @@ const assetTypes: AssetType[] = [
   "none",
 ];
 const statuses: AssetStatus[] = ["planned", "ready", "rejected"];
+const usageRoles: AssetUsageRole[] = ["primary", "semantic-accent"];
+const alphaQaStatuses: AlphaQaStatus[] = ["pending", "pass", "fail"];
 const rightsValues: SourceRights[] = [
   "public-source",
   "licensed",
@@ -216,6 +229,8 @@ export function auditContentEvidence(
   }
 
   const beatIds = new Set<string>();
+  const semanticAccentPaths = new Set<string>();
+  const semanticAccentAssetIds = new Set<string>();
   beats.forEach((beat, index) => {
     const label = beat?.id || `beat-${index + 1}`;
     if (!hasText(beat?.id)) failures.push(`asset beat ${index + 1} is missing id`);
@@ -235,6 +250,9 @@ export function auditContentEvidence(
     if (!visualRoles.includes(beat?.visual_role)) failures.push(`${label} has invalid visual_role`);
     if (!assetTypes.includes(beat?.asset_type)) failures.push(`${label} has invalid asset_type`);
     if (!statuses.includes(beat?.status)) failures.push(`${label} has invalid status`);
+    if (beat?.usage_role && !usageRoles.includes(beat.usage_role)) {
+      failures.push(`${label} has invalid usage_role`);
+    }
     if (!hasText(beat?.provenance)) failures.push(`${label} is missing provenance`);
     if (!rightsValues.includes(beat?.rights)) failures.push(`${label} has invalid rights`);
     if (!hasText(beat?.fallback)) failures.push(`${label} is missing fallback`);
@@ -243,6 +261,63 @@ export function auditContentEvidence(
     }
     if (beat?.library_asset_id && selectedLibraryIds.size > 0 && !selectedLibraryIds.has(beat.library_asset_id)) {
       warnings.push(`${label} library_asset_id is not listed in asset_library.selected_asset_ids`);
+    }
+
+    if (beat?.usage_role === "semantic-accent") {
+      if (beat.visual_role === "evidence") {
+        failures.push(`${label} cannot use a semantic accent as evidence`);
+      }
+      if (beat.asset_type !== "generated-still") {
+        failures.push(`${label} semantic accent must use generated-still asset_type`);
+      }
+      for (const field of [
+        "asset_id",
+        "asset_path",
+        "render_asset_path",
+        "composition_id",
+        "manifest_path",
+        "semantic_job",
+        "style_family_id",
+      ] as const) {
+        if (!hasText(beat[field])) {
+          failures.push(`${label} semantic accent is missing ${field}`);
+        }
+      }
+      if (hasText(beat.asset_id)) {
+        if (semanticAccentAssetIds.has(beat.asset_id)) {
+          failures.push(`${label} reuses semantic accent asset_id ${beat.asset_id}`);
+        } else {
+          semanticAccentAssetIds.add(beat.asset_id);
+        }
+      }
+      if (!hasText(assetPlan.visual_spine_id)) {
+        failures.push(`${label} semantic accent requires asset plan visual_spine_id`);
+      } else if (
+        hasText(beat.style_family_id) &&
+        beat.style_family_id !== assetPlan.visual_spine_id
+      ) {
+        failures.push(`${label} semantic accent style_family_id does not match visual_spine_id`);
+      }
+      if (!alphaQaStatuses.includes(beat.alpha_qa_status as AlphaQaStatus)) {
+        failures.push(`${label} semantic accent has invalid alpha_qa_status`);
+      }
+      if (hasText(beat.asset_path)) {
+        if (semanticAccentPaths.has(beat.asset_path)) {
+          failures.push(`${label} reuses semantic accent asset_path ${beat.asset_path}`);
+        } else {
+          semanticAccentPaths.add(beat.asset_path);
+        }
+      }
+      if (production && beat.alpha_qa_status !== "pass") {
+        failures.push(`${label} semantic accent alpha QA has not passed`);
+      }
+      if (
+        production &&
+        hasText(beat.manifest_path) &&
+        !existsSync(resolve(baseDir, beat.manifest_path))
+      ) {
+        failures.push(`${label} semantic accent manifest does not exist: ${beat.manifest_path}`);
+      }
     }
 
     if (beat?.rights === "licensed") {

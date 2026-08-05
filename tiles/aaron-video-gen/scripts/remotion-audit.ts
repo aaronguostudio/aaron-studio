@@ -33,6 +33,12 @@ export function auditRemotionSourceText(
       `${file} appears to use per-character opacity for text animation`,
     );
   }
+  if (/\b(?:Date\.now|performance\.now|setTimeout|setInterval|requestAnimationFrame)\b/.test(text)) {
+    failures.push(`${file} uses a wall-clock or autonomous browser timer`);
+  }
+  if (/\bMath\.random\s*\(/.test(text)) {
+    failures.push(`${file} uses unseeded Math.random instead of deterministic frame data`);
+  }
 
   return { failures, warnings };
 }

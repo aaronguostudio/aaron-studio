@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "title": "QA Factory — Trapdoor Test",
+  "duration_sec": 8,
+  "aspect_ratio": "9:16",
+  "visual_spine_id": "qa-factory-paper-slapstick-v0.1",
+  "asset_library": {
+    "queries": [
+      "reuse selected Human Review Required 001 Dry Acoustic Deadpan Eleven Music cue"
+    ],
+    "selected_asset_ids": []
+  },
+  "assets": [
+    {
+      "id": "source-codex-demo",
+      "asset_type": "source-video",
+      "asset_path": "../../codex-research-first-en/codex-research-first-en.mp4",
+      "sha256": "dffda12d3f90e2432c0d451cf2df0574bd2f571b0fcce54387c0b573bccc734c",
+      "status": "ready",
+      "rights": "owned",
+      "narrative_job": "The real product being inspected and rejected; the only factual screen evidence."
+    },
+    {
+      "id": "factory-background",
+      "asset_type": "generated-still",
+      "asset_path": "assets/factory-background.png",
+      "sha256": "371272f0386a2ce075d5c680aa71351029a171d607ee2250861f7083862e3048",
+      "dimensions": "1080x1920",
+      "status": "ready",
+      "rights": "owned",
+      "usage_role": "atmosphere",
+      "evidence": false,
+      "fallback": "Deterministic CSS/vector cardboard machines, center belt, review bay, trapdoor, and lamps."
+    },
+    {
+      "id": "paper-human-hand",
+      "asset_type": "generated-still",
+      "asset_path": "assets/human-hand.png",
+      "sha256": "705bfad22a1b857b041b3375911383d0a16e38973a8c7d3414ead51fb9e6a764",
+      "status": "ready",
+      "rights": "owned",
+      "usage_role": "actor-prop",
+      "evidence": false,
+      "processing": "Built-in image generation followed by local chroma removal to an alpha cutout.",
+      "fallback": "Simple CSS paper-cutout hand with three articulated finger shapes."
+    },
+    {
+      "id": "selected-score",
+      "asset_type": "music",
+      "asset_path": "../audio/music-selected.m4a",
+      "sha256": "eaebda84b33cfcd197e60a9b4cf529572aa3ae5b86cfea8a39834bf331c5c671",
+      "source_model": "music_v2",
+      "source_song_id": "SnFlUsOCkAk3pCwoo2UG",
+      "status": "ready-for-internal-prototype",
+      "rights": "prototype-only",
+      "fallback": "Synthesized factory foley and silence."
+    },
+    {
+      "id": "prototype-audio-mix",
+      "asset_type": "audio-mix",
+      "asset_path": "audio/final-mix.m4a",
+      "sha256": "3716366637671610cffadf4fd6c9602190b806e72b39d61dae58b093a8aace5a",
+      "duration_sec": 8,
+      "status": "ready",
+      "rights": "prototype-only",
+      "narration": false,
+      "music_hard_stop_sec": 4.6
+    }
+  ],
+  "beats": [
+    {
+      "id": "f01-machine-celebrates",
+      "start_sec": 0,
+      "end_sec": 4.5,
+      "copy": "QA · 1080P · 60 FPS · 0 ERRORS · PASSED",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": ["fact-technical-pass"],
+      "source_ids": ["source-owned-production"],
+      "asset_path": "../../codex-research-first-en/codex-research-first-en.mp4",
+      "supporting_asset_ids": ["factory-background"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Owned source video SHA-256 dffda12d3f90e2432c0d451cf2df0574bd2f571b0fcce54387c0b573bccc734c plays muted inside a physical product tile. The surrounding image-generated factory is atmosphere only.",
+      "rights": "owned",
+      "fallback": "Extracted source still inside a deterministic CSS/vector factory frame."
+    },
+    {
+      "id": "f02-human-pause",
+      "start_sec": 4.5,
+      "end_sec": 6,
+      "copy": "HUMAN REVIEW",
+      "visual_role": "emphasis",
+      "asset_type": "generated-still",
+      "fact_ids": ["fact-human-review-failed"],
+      "source_ids": ["source-owned-production"],
+      "asset_path": "assets/human-hand.png",
+      "supporting_asset_ids": ["factory-background", "source-codex-demo"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Built-in image-generation paper hand with local alpha extraction, SHA-256 705bfad22a1b857b041b3375911383d0a16e38973a8c7d3414ead51fb9e6a764. It is a stylized actor prop, not Aaron's likeness and not evidence.",
+      "rights": "owned",
+      "fallback": "CSS paper-cutout hand touches the same deterministic red review control."
+    },
+    {
+      "id": "f03-nope-drop",
+      "start_sec": 6,
+      "end_sec": 8,
+      "copy": "NOPE",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-human-review-failed"],
+      "source_ids": ["source-owned-production"],
+      "supporting_asset_ids": ["factory-background", "paper-human-hand", "source-codex-demo"],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Deterministic Remotion trapdoor, falling product tile, and physical NOPE stencil in the authored paper-factory world; a stylized reenactment, not recorded evidence.",
+      "rights": "owned",
+      "fallback": "Two held image-sequence states show the open trapdoor and the final empty NOPE chute."
+    }
+  ]
+}
+

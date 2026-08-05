@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-18T17:35:18.652Z",
+  "generated_at": "2026-08-04T03:36:15.054Z",
   "asset_count": 128,
   "by_type": {
     "music": 113,
@@ -17,5 +17,8 @@
   },
   "total_source_files": 207,
   "duplicate_source_files": 19,
+  "scanned_audio_files": 132,
+  "unique_audio_files": 113,
+  "spectrum_presets": 15,
   "warnings": []
 }

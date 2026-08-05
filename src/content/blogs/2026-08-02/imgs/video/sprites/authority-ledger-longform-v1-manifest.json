@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "asset_id": "generated:authority-ledger-longform-v1",
+  "title": "Authority Ledger Long-Form Editorial Sprite",
+  "created_for": "Should You Read AI-Generated Code? — Long-Form Final",
+  "narrative_job": "Make system of record concrete for one bounded beat.",
+  "selection_rationale": "The system-of-record definition has protected negative space and benefits from one recognizable object. Portraits and the read-versus-verify still are scene media, not semantic sprites; this ledger is the film's only semantic accent.",
+  "style_family_id": "clean-indigo-editorial-v2",
+  "generation": {
+    "provider": "Codex built-in image generation",
+    "model": "not exposed by the tool",
+    "prompt": "One mature clothbound ledger representing a system of record, shown closed in a slight three-quarter view, with visible layered paper edges, a narrow binding band, and one small plain seal clasp; refined indigo editorial illustration; no text, logo, watermark, extra object, shadow, glow, border, hand, person, or scenery; generated on a removable flat chroma-key background.",
+    "source_path": "imgs/video/sprites/source/authority-ledger-chroma-v1.png",
+    "source_sha256": "37fe7c2fcc6e7ba821c7ddec9638fa87a478f1292ee42ca1178efe4353dc4ef9"
+  },
+  "postprocess": {
+    "method": "Previously approved chroma-key alpha extraction, followed by a non-destructive transparent crop for long-form on-screen scale.",
+    "parent_path": "imgs/video/sprites/authority-ledger-v1.png",
+    "parent_sha256": "5b642f943c86e93f954e501d4f153bd84191552bc975f719caa48494dcba1295",
+    "output_path": "imgs/video/sprites/authority-ledger-longform-v1.png",
+    "output_sha256": "b0ed04130bcc40a509b727145430eba4f6870f1e951cabaf01196c25f2c3c881",
+    "dimensions": [1050, 880],
+    "mode": "RGBA"
+  },
+  "alpha_qa": {
+    "transparent_pixels": 411333,
+    "partially_transparent_pixels": 3040,
+    "total_pixels": 924000,
+    "alpha_min": 0,
+    "alpha_average": 141.08,
+    "alpha_max": 255,
+    "top_left_alpha": 0,
+    "top_right_alpha": 0,
+    "bottom_left_alpha": 0,
+    "bottom_right_alpha": 0,
+    "status": "pass"
+  },
+  "usage": {
+    "composition": "AuthorityBoundaryLongformFinal",
+    "scene_id": "s12-aaron-boundary",
+    "fps": 30,
+    "render_path": "../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/sprites/authority-ledger-longform-v1.png",
+    "render_sha256": "b0ed04130bcc40a509b727145430eba4f6870f1e951cabaf01196c25f2c3c881",
+    "visible_from_sec": 395.551375,
+    "visible_until_sec": 408.1,
+    "motion": "semantic-settle: 12-frame entrance with a 10-pixel upward settle; 11-frame exit; no rotation, bounce, loop, or reuse",
+    "semantic_status": "Illustrative visual mnemonic, not evidence or a depiction of a real system"
+  },
+  "rights": "owned-generated",
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "reason": "Designed for this film's exact palette, metaphor, timing, and negative space."
+  }
+}

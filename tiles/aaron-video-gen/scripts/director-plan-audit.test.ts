@@ -15,6 +15,7 @@ function makePlan(): DirectorPlan {
       evidence_or_still_target_ratio: 0.25,
       max_generated_video_ratio: 0.15,
       max_generated_video_beats: 1,
+      max_semantic_sprite_beats: 0,
     },
     beats: [
       {
@@ -90,5 +91,52 @@ describe("director plan audit", () => {
       "generated video uses 2 beats, above the 1 beat budget",
     );
     expect(result.failures.some((item) => item.startsWith("generated video occupies"))).toBe(true);
+  });
+
+  test("keeps semantic sprites zero-default and accepts one explicit explanation accent", () => {
+    const plan = makePlan();
+    plan.beats[1].semantic_sprite = {
+      asset_id: "generated:ledger-v1",
+      semantic_job: "Make system of record concrete for one beat.",
+      style_family_id: "paper-indigo-editorial",
+      motion_recipe: "semantic-settle",
+      single_use: true,
+      fallback: "Remove the sprite; the structured explanation remains complete.",
+    };
+
+    const blocked = auditDirectorPlan(plan);
+    expect(blocked.failures).toContain(
+      "semantic sprites use 1 beats, above the 0 beat budget",
+    );
+
+    plan.visual_budget.max_semantic_sprite_beats = 1;
+    const approved = auditDirectorPlan(plan);
+    expect(approved.passed).toBe(true);
+  });
+
+  test("rejects semantic sprites used as evidence or reused across beats", () => {
+    const plan = makePlan();
+    plan.visual_budget.max_semantic_sprite_beats = 2;
+    const sprite = {
+      asset_id: "generated:ledger-v1",
+      semantic_job: "Make a system of record concrete.",
+      style_family_id: "paper-indigo-editorial",
+      motion_recipe: "semantic-settle" as const,
+      single_use: true as const,
+      fallback: "Remove the sprite.",
+    };
+    plan.beats[0].narrative_role = "evidence";
+    plan.beats[0].visual_mode = "hybrid";
+    plan.beats[0].semantic_sprite = sprite;
+    plan.beats[1].semantic_sprite = sprite;
+
+    const result = auditDirectorPlan(plan);
+    expect(result.failures).toContain(
+      "visual_budget.max_semantic_sprite_beats cannot exceed 1",
+    );
+    expect(result.failures).toContain("s01 cannot use a semantic sprite as evidence");
+    expect(result.failures).toContain(
+      "s02 reuses semantic sprite asset generated:ledger-v1",
+    );
   });
 });

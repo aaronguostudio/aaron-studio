@@ -141,4 +141,110 @@ describe("content evidence audit", () => {
     result = auditContentEvidence(makeFactPack(), plan);
     expect(result.warnings).toContain("s02 library_asset_id is not listed in asset_library.selected_asset_ids");
   });
+
+  test("accepts a style-matched semantic accent with explicit alpha status", () => {
+    const plan = makeAssetPlan();
+    plan.visual_spine_id = "paper-indigo-editorial";
+    plan.beats[1] = {
+      ...plan.beats[1],
+      asset_type: "generated-still",
+      asset_id: "generated:ledger-v1",
+      asset_path: "sprites/ledger.png",
+      render_asset_path: "runtime/ledger.png",
+      composition_id: "TestComposition",
+      usage_role: "semantic-accent",
+      semantic_job: "Make system of record concrete for one beat.",
+      style_family_id: "paper-indigo-editorial",
+      manifest_path: "sprites/ledger-manifest.json",
+      alpha_qa_status: "pass",
+      rights: "generated",
+    };
+
+    const result = auditContentEvidence(makeFactPack(), plan);
+    expect(result.passed).toBe(true);
+
+    delete plan.beats[1].composition_id;
+    expect(auditContentEvidence(makeFactPack(), plan).failures).toContain(
+      "s02 semantic accent is missing composition_id",
+    );
+  });
+
+  test("rejects semantic accents used as evidence, style drift, and reuse", () => {
+    const plan = makeAssetPlan();
+    plan.visual_spine_id = "paper-indigo-editorial";
+    const accent = {
+      ...plan.beats[1],
+      asset_type: "generated-still" as const,
+      asset_id: "generated:ledger-v1",
+      asset_path: "sprites/ledger.png",
+      render_asset_path: "runtime/ledger.png",
+      composition_id: "TestComposition",
+      usage_role: "semantic-accent" as const,
+      semantic_job: "Make system of record concrete.",
+      style_family_id: "unrelated-sticker-style",
+      manifest_path: "sprites/ledger-manifest.json",
+      alpha_qa_status: "pending" as const,
+      rights: "generated" as const,
+    };
+    plan.beats[0] = {
+      ...accent,
+      id: "s01",
+      start_sec: 0,
+      end_sec: 5,
+      visual_role: "evidence",
+    };
+    plan.beats[1] = { ...accent, id: "s02", start_sec: 5, end_sec: 10 };
+
+    const result = auditContentEvidence(makeFactPack(), plan, { production: true });
+    expect(result.failures).toContain("s01 cannot use a semantic accent as evidence");
+    expect(result.failures).toContain(
+      "s01 semantic accent style_family_id does not match visual_spine_id",
+    );
+    expect(result.failures).toContain(
+      "s02 reuses semantic accent asset_path sprites/ledger.png",
+    );
+    expect(result.failures).toContain("s01 semantic accent alpha QA has not passed");
+  });
+
+  test("rejects duplicate semantic asset IDs even when their file paths differ", () => {
+    const plan = makeAssetPlan();
+    plan.visual_spine_id = "paper-indigo-editorial";
+    const accent = {
+      ...plan.beats[1],
+      asset_type: "generated-still" as const,
+      usage_role: "semantic-accent" as const,
+      semantic_job: "Make system of record concrete.",
+      style_family_id: "paper-indigo-editorial",
+      render_asset_path: "runtime/ledger.png",
+      composition_id: "TestComposition",
+      alpha_qa_status: "pass" as const,
+      rights: "generated" as const,
+    };
+    plan.beats[0] = {
+      ...accent,
+      id: "s01",
+      start_sec: 0,
+      end_sec: 5,
+      asset_id: "generated:ledger-v1",
+      asset_path: "sprites/ledger-a.png",
+      manifest_path: "sprites/ledger-a-manifest.json",
+    };
+    plan.beats[1] = {
+      ...accent,
+      id: "s02",
+      start_sec: 5,
+      end_sec: 10,
+      asset_id: "generated:ledger-v1",
+      asset_path: "sprites/ledger-b.png",
+      manifest_path: "sprites/ledger-b-manifest.json",
+    };
+
+    const result = auditContentEvidence(makeFactPack(), plan);
+    expect(result.failures).toContain(
+      "s02 reuses semantic accent asset_id generated:ledger-v1",
+    );
+    expect(
+      result.failures.some((failure) => failure.includes("reuses semantic accent asset_path")),
+    ).toBe(false);
+  });
 });

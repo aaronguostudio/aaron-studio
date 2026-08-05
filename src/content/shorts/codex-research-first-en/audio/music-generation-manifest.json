@@ -1,0 +1,26 @@
+{
+  "title": "Original UI Pulse",
+  "duration_sec": 18.5,
+  "sample_rate_hz": 48000,
+  "channels": 2,
+  "generator": "generate-original-ui-pulse.mjs",
+  "method": "Deterministic additive synthesis and seeded noise percussion",
+  "seed": "0x5a17c0de",
+  "tempo_bpm": 120,
+  "rights": {
+    "status": "owned",
+    "owner": "Aaron Studio",
+    "third_party_samples": false,
+    "reference_audio_reused": false
+  },
+  "qa": {
+    "integrated_lufs": -16.2,
+    "true_peak_dbtp": -1.5,
+    "sha256": "293d531280a78e0c7c50de142d01b019754376cc008dd2c42577e4679e334637"
+  },
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "kind": "music"
+  }
+}

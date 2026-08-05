@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-04T06:09:16.738Z",
+  "provider": "ElevenLabs",
+  "profile_id": "aaron-pvc-identity-v1",
+  "voice_id": "R2DWp7zZuWmGxk3r8GIA",
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_192",
+  "settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.5,
+    "use_speaker_boost": true,
+    "speed": 1
+  },
+  "narration": "Every QA check passed. 1080p. Clean encode. Perfect loudness. Then Aaron watched it: “The music sucks. It obviously looks fake.” New rule: if only the machine likes it, it doesn't ship.",
+  "narration_sha256": "4ab42f55ff4e4d80b3417281938bda93472822c0ac3160299e422b42c988cf62",
+  "raw_audio_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/shorts/human-review-required-001/audio/narration-raw.mp3",
+  "raw_audio_sha256": "c3ef9415389f8c186002156328b563d08395515c00f8629e91aa6a05c9f0abee",
+  "timings_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/shorts/human-review-required-001/audio/timings.json",
+  "measured_last_word_end_sec": 19.505
+}

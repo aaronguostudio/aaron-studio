@@ -1,0 +1,38 @@
+{
+  "analyzedAt": "2026-08-04T06:08:13Z",
+  "source": {
+    "file": "music.mp3",
+    "sha256": "8e1c42214766004bbee06c0fcd3fc3a9af1525d4f0f7c474b7a3579a7b1f6398",
+    "durationSec": 24.024,
+    "codec": "mp3",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "bitRate": 192000,
+    "integratedLufs": -20.3,
+    "loudnessRangeLu": 6.6,
+    "truePeakDbtp": -7.1,
+    "leadingSilenceSec": 0.225333,
+    "trailingSilenceSec": 0.832187,
+    "midTrackSilence": {"startSec": 7.732, "endSec": 11.831062, "durationSec": 4.099062}
+  },
+  "sections": [
+    {"label": "intro", "startSec": 0, "endSec": 3.8, "meanDbfs": -21.4, "peakDbfs": -8.5},
+    {"label": "feedback", "startSec": 3.8, "endSec": 7.2, "meanDbfs": -32.6, "peakDbfs": -17.2},
+    {"label": "forensic", "startSec": 7.2, "endSec": 15.8, "meanDbfs": -24.5, "peakDbfs": -7.1},
+    {"label": "clarification", "startSec": 15.8, "endSec": 20.8, "meanDbfs": -22.2, "peakDbfs": -8.5},
+    {"label": "ending", "startSec": 20.8, "endSec": 24, "meanDbfs": -21.9, "peakDbfs": -7.3}
+  ],
+  "audition": {
+    "file": "audition-normalized.m4a",
+    "sha256": "61ebec6d766d75e3b207c285f761ee374c09b1fc5c1e5b0e9f3fa6daa74cc031",
+    "durationSec": 24,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "targetIntegratedLufs": -21,
+    "measuredIntegratedLufs": -21.1,
+    "measuredTruePeakDbtp": -7.8,
+    "gainDb": -0.7
+  },
+  "silenceDetection": {"thresholdDbfs": -50, "minimumDurationSec": 0.02}
+}

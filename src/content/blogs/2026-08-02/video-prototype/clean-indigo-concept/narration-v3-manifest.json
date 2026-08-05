@@ -1,0 +1,663 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-03T20:35:30.601Z",
+  "source": {
+    "script": "youtube-script-concept-v2.md",
+    "script_sha256": "d38146194f2f8500736a9cf2e68e87797e63b512f644ec02171b9ba9482c08e4",
+    "transcript": "video-prototype/clean-indigo-concept/narration-v3-transcript.md",
+    "transcript_sha256": "1a139ec243ec260c7a56c31e2baf01c6034c97d14f885f7bb4a0d3efe0009eb9"
+  },
+  "tts": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "voice_profile_selection": {
+    "id": "aaron-pvc-identity-v1",
+    "selected_sample": "B",
+    "selected_at": "2026-07-11",
+    "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate."
+  },
+  "outputs": {
+    "final": "video-prototype/clean-indigo-concept/narration-v3.mp3",
+    "raw": "video-prototype/clean-indigo-concept/narration-v3-raw.mp3",
+    "sample_60s": "video-prototype/clean-indigo-concept/narration-v3-sample-60s.mp3",
+    "sample_middle_60s": "video-prototype/clean-indigo-concept/narration-v3-sample-middle-60s.mp3",
+    "sample_late_60s": "video-prototype/clean-indigo-concept/narration-v3-sample-late-60s.mp3"
+  },
+  "qa": {
+    "durationSeconds": 55.635011,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192206,
+    "integratedLufs": -16.59,
+    "truePeakDb": -1.71,
+    "loudnessRange": 2.9,
+    "longSilenceCount": 0
+  },
+  "sample_windows": {
+    "openingStartSeconds": 0,
+    "middleStartSeconds": 0,
+    "lateStartSeconds": 0
+  },
+  "timeline": {
+    "duration": 55.635012,
+    "segments": [
+      {
+        "id": "hook",
+        "title": "Hook",
+        "start": 0,
+        "end": 13.421134,
+        "duration": 13.421134
+      },
+      {
+        "id": "slide-01",
+        "title": "Move Fast Where Failure Is Cheap",
+        "start": 13.421134,
+        "end": 17.925805,
+        "duration": 4.504671
+      },
+      {
+        "id": "slide-02",
+        "title": "Authority Changes the Decision",
+        "start": 17.925805,
+        "end": 44.675193,
+        "duration": 26.749388
+      },
+      {
+        "id": "slide-03",
+        "title": "AI Cannot Own the Consequence",
+        "start": 44.675193,
+        "end": 55.635012,
+        "duration": 10.959819
+      }
+    ],
+    "wordTimings": [
+      {
+        "word": "The",
+        "start": 0,
+        "end": 0.163
+      },
+      {
+        "word": "debate",
+        "start": 0.232,
+        "end": 0.639
+      },
+      {
+        "word": "over",
+        "start": 0.697,
+        "end": 0.917
+      },
+      {
+        "word": "reading",
+        "start": 0.998,
+        "end": 1.382
+      },
+      {
+        "word": "AI-generated",
+        "start": 1.533,
+        "end": 2.403
+      },
+      {
+        "word": "code",
+        "start": 2.496,
+        "end": 2.961
+      },
+      {
+        "word": "starts",
+        "start": 3.019,
+        "end": 3.529
+      },
+      {
+        "word": "with",
+        "start": 3.646,
+        "end": 3.866
+      },
+      {
+        "word": "the",
+        "start": 3.913,
+        "end": 3.982
+      },
+      {
+        "word": "wrong",
+        "start": 4.052,
+        "end": 4.354
+      },
+      {
+        "word": "question.",
+        "start": 4.435,
+        "end": 5.201
+      },
+      {
+        "word": "Writing",
+        "start": 6.502,
+        "end": 6.908
+      },
+      {
+        "word": "code",
+        "start": 6.966,
+        "end": 7.256
+      },
+      {
+        "word": "does",
+        "start": 7.291,
+        "end": 7.454
+      },
+      {
+        "word": "not",
+        "start": 7.546,
+        "end": 7.767
+      },
+      {
+        "word": "grant",
+        "start": 7.883,
+        "end": 8.313
+      },
+      {
+        "word": "authority",
+        "start": 8.406,
+        "end": 9.137
+      },
+      {
+        "word": "over",
+        "start": 9.578,
+        "end": 9.88
+      },
+      {
+        "word": "what",
+        "start": 9.95,
+        "end": 10.194
+      },
+      {
+        "word": "a",
+        "start": 10.286,
+        "end": 10.379
+      },
+      {
+        "word": "business",
+        "start": 10.472,
+        "end": 10.902
+      },
+      {
+        "word": "treats",
+        "start": 10.96,
+        "end": 11.32
+      },
+      {
+        "word": "as",
+        "start": 11.389,
+        "end": 11.564
+      },
+      {
+        "word": "true.",
+        "start": 11.645,
+        "end": 13.421
+      },
+      {
+        "word": "For",
+        "start": 13.421134,
+        "end": 13.653134
+      },
+      {
+        "word": "disposable",
+        "start": 13.723134,
+        "end": 14.501134
+      },
+      {
+        "word": "work,",
+        "start": 14.536134,
+        "end": 14.837134
+      },
+      {
+        "word": "I",
+        "start": 14.872134,
+        "end": 14.919134
+      },
+      {
+        "word": "may",
+        "start": 15.035134000000001,
+        "end": 15.174134
+      },
+      {
+        "word": "judge",
+        "start": 15.244134,
+        "end": 15.569134
+      },
+      {
+        "word": "the",
+        "start": 15.604134,
+        "end": 15.697134
+      },
+      {
+        "word": "result",
+        "start": 15.766134000000001,
+        "end": 16.231134
+      },
+      {
+        "word": "and",
+        "start": 16.300134,
+        "end": 16.474134
+      },
+      {
+        "word": "move",
+        "start": 16.625134,
+        "end": 16.927134
+      },
+      {
+        "word": "on.",
+        "start": 16.997134,
+        "end": 17.926134
+      },
+      {
+        "word": "But",
+        "start": 17.925805,
+        "end": 18.111805
+      },
+      {
+        "word": "when",
+        "start": 18.146805,
+        "end": 18.343805
+      },
+      {
+        "word": "an",
+        "start": 18.389805,
+        "end": 18.471805
+      },
+      {
+        "word": "agent",
+        "start": 18.540805,
+        "end": 18.831805
+      },
+      {
+        "word": "touches",
+        "start": 18.865805,
+        "end": 19.179805
+      },
+      {
+        "word": "a",
+        "start": 19.237805,
+        "end": 19.260805
+      },
+      {
+        "word": "critical",
+        "start": 19.330805,
+        "end": 19.725805
+      },
+      {
+        "word": "system",
+        "start": 19.794805,
+        "end": 20.224805
+      },
+      {
+        "word": "or",
+        "start": 20.375805,
+        "end": 20.572805
+      },
+      {
+        "word": "a",
+        "start": 20.630805000000002,
+        "end": 20.665805
+      },
+      {
+        "word": "system",
+        "start": 20.735805,
+        "end": 21.164805
+      },
+      {
+        "word": "of",
+        "start": 21.269805,
+        "end": 21.431805
+      },
+      {
+        "word": "record,",
+        "start": 21.582805,
+        "end": 22.232805
+      },
+      {
+        "word": "the",
+        "start": 22.685805000000002,
+        "end": 22.790805
+      },
+      {
+        "word": "decision",
+        "start": 22.859805,
+        "end": 23.289805
+      },
+      {
+        "word": "changes.",
+        "start": 23.347805,
+        "end": 24.067805
+      },
+      {
+        "word": "The",
+        "start": 24.903805,
+        "end": 25.019805
+      },
+      {
+        "word": "question",
+        "start": 25.077805,
+        "end": 25.495805
+      },
+      {
+        "word": "is",
+        "start": 25.541805,
+        "end": 25.634805
+      },
+      {
+        "word": "not",
+        "start": 25.704805,
+        "end": 25.889805000000003
+      },
+      {
+        "word": "who",
+        "start": 25.947805000000002,
+        "end": 26.145805000000003
+      },
+      {
+        "word": "wrote",
+        "start": 26.180805,
+        "end": 26.458804999999998
+      },
+      {
+        "word": "it.",
+        "start": 26.493805000000002,
+        "end": 26.818805
+      },
+      {
+        "word": "It",
+        "start": 27.526805000000003,
+        "end": 27.666805
+      },
+      {
+        "word": "is",
+        "start": 27.712805000000003,
+        "end": 27.828805000000003
+      },
+      {
+        "word": "what",
+        "start": 27.910805,
+        "end": 28.107805
+      },
+      {
+        "word": "the",
+        "start": 28.165805,
+        "end": 28.269804999999998
+      },
+      {
+        "word": "code",
+        "start": 28.339805,
+        "end": 28.664805
+      },
+      {
+        "word": "is",
+        "start": 28.711805,
+        "end": 28.815805
+      },
+      {
+        "word": "allowed",
+        "start": 28.885805,
+        "end": 29.175805
+      },
+      {
+        "word": "to",
+        "start": 29.210805,
+        "end": 29.280805
+      },
+      {
+        "word": "change.",
+        "start": 29.349805,
+        "end": 29.930805
+      },
+      {
+        "word": "My",
+        "start": 30.650805,
+        "end": 30.800805
+      },
+      {
+        "word": "rule:",
+        "start": 30.859805,
+        "end": 31.230805
+      },
+      {
+        "word": "review",
+        "start": 31.381805,
+        "end": 31.683805
+      },
+      {
+        "word": "depth",
+        "start": 31.764805000000003,
+        "end": 32.089805
+      },
+      {
+        "word": "follows",
+        "start": 32.193805,
+        "end": 32.588805
+      },
+      {
+        "word": "authority.",
+        "start": 32.669805,
+        "end": 33.459805
+      },
+      {
+        "word": "Low-risk",
+        "start": 34.074805,
+        "end": 34.632805000000005
+      },
+      {
+        "word": "work",
+        "start": 34.690805,
+        "end": 34.899805
+      },
+      {
+        "word": "can",
+        "start": 34.945805,
+        "end": 35.119805
+      },
+      {
+        "word": "move",
+        "start": 35.189805,
+        "end": 35.409805000000006
+      },
+      {
+        "word": "fast.",
+        "start": 35.456805,
+        "end": 36.141805000000005
+      },
+      {
+        "word": "Critical",
+        "start": 36.745805000000004,
+        "end": 37.267804999999996
+      },
+      {
+        "word": "changes",
+        "start": 37.325805,
+        "end": 37.778805000000006
+      },
+      {
+        "word": "need",
+        "start": 37.871805,
+        "end": 38.115805
+      },
+      {
+        "word": "a",
+        "start": 38.196805,
+        "end": 38.231805
+      },
+      {
+        "word": "named",
+        "start": 38.347805,
+        "end": 38.649805
+      },
+      {
+        "word": "human",
+        "start": 38.800805,
+        "end": 39.334805
+      },
+      {
+        "word": "who",
+        "start": 39.450805,
+        "end": 39.635805000000005
+      },
+      {
+        "word": "understands",
+        "start": 39.752805,
+        "end": 40.437805
+      },
+      {
+        "word": "the",
+        "start": 40.506805,
+        "end": 40.611805000000004
+      },
+      {
+        "word": "intent,",
+        "start": 40.680805,
+        "end": 41.447805
+      },
+      {
+        "word": "risk,",
+        "start": 41.772805000000005,
+        "end": 42.341805
+      },
+      {
+        "word": "and",
+        "start": 42.492805000000004,
+        "end": 42.666805
+      },
+      {
+        "word": "recovery",
+        "start": 42.817805,
+        "end": 43.339805
+      },
+      {
+        "word": "plan.",
+        "start": 43.409805000000006,
+        "end": 44.674805
+      },
+      {
+        "word": "AI",
+        "start": 44.675193,
+        "end": 45.023193
+      },
+      {
+        "word": "can",
+        "start": 45.081193,
+        "end": 45.244193
+      },
+      {
+        "word": "propose",
+        "start": 45.325193,
+        "end": 45.824193
+      },
+      {
+        "word": "the",
+        "start": 45.871193,
+        "end": 45.952193
+      },
+      {
+        "word": "change.",
+        "start": 46.033193,
+        "end": 46.707193000000004
+      },
+      {
+        "word": "It",
+        "start": 47.148193,
+        "end": 47.287193
+      },
+      {
+        "word": "cannot",
+        "start": 47.322193,
+        "end": 47.728193
+      },
+      {
+        "word": "own",
+        "start": 47.856193,
+        "end": 48.088193
+      },
+      {
+        "word": "the",
+        "start": 48.146193,
+        "end": 48.251193
+      },
+      {
+        "word": "consequence.",
+        "start": 48.332193000000004,
+        "end": 49.261193
+      },
+      {
+        "word": "Before",
+        "start": 50.213193000000004,
+        "end": 50.573193
+      },
+      {
+        "word": "you",
+        "start": 50.619193,
+        "end": 50.724193
+      },
+      {
+        "word": "ship,",
+        "start": 50.840193,
+        "end": 51.211193
+      },
+      {
+        "word": "ask:",
+        "start": 51.235193,
+        "end": 51.850193
+      },
+      {
+        "word": "what",
+        "start": 52.024193,
+        "end": 52.221193
+      },
+      {
+        "word": "can",
+        "start": 52.268193,
+        "end": 52.407193
+      },
+      {
+        "word": "this",
+        "start": 52.454193000000004,
+        "end": 52.605193
+      },
+      {
+        "word": "code",
+        "start": 52.697193,
+        "end": 53.023193
+      },
+      {
+        "word": "change—and",
+        "start": 53.069193,
+        "end": 53.998193
+      },
+      {
+        "word": "who",
+        "start": 54.079193000000004,
+        "end": 54.230193
+      },
+      {
+        "word": "owns",
+        "start": 54.346193,
+        "end": 54.567193
+      },
+      {
+        "word": "the",
+        "start": 54.613193,
+        "end": 54.694193
+      },
+      {
+        "word": "result?",
+        "start": 54.776193,
+        "end": 55.635193
+      }
+    ]
+  }
+}

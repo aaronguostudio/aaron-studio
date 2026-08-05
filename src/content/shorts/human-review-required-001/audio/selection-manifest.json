@@ -1,0 +1,97 @@
+{
+  "createdAt": "2026-08-04T06:11:53Z",
+  "project": "human-review-required-001",
+  "role": "background-music",
+  "selection": {
+    "candidate": "B — Dry Acoustic Deadpan",
+    "sourceFile": "../music-candidates/b/music.mp3",
+    "sourceGenerationManifest": "../music-candidates/b/generation-manifest.json",
+    "sourceModel": "music_v2",
+    "sourceSongId": "SnFlUsOCkAk3pCwoo2UG",
+    "sourceSha256": "8e1c42214766004bbee06c0fcd3fc3a9af1525d4f0f7c474b7a3579a7b1f6398",
+    "sourceDurationSec": 24.024
+  },
+  "output": {
+    "file": "music-selected.m4a",
+    "sha256": "eaebda84b33cfcd197e60a9b4cf529572aa3ae5b86cfea8a39834bf331c5c671",
+    "durationSec": 23,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "channelLayout": "stereo",
+    "requestedBitRate": 192000,
+    "measuredBitRate": 134163
+  },
+  "narrativeBeats": [
+    {"startSec": 0, "endSec": 7.303, "label": "QA and metrics"},
+    {"startSec": 8.603, "endSec": 10.043, "label": "Then Aaron watched it"},
+    {"startSec": 11.157, "endSec": 14.431, "label": "Negative human feedback"},
+    {"startSec": 15.732, "endSec": 19.505, "label": "Release rule"},
+    {"startSec": 23, "endSec": 23, "label": "Clean end"}
+  ],
+  "edit": {
+    "timeline": [
+      {
+        "outputStartSec": 0,
+        "outputEndSec": 7.732,
+        "sourceStartSec": 0,
+        "sourceEndSec": 7.732,
+        "processing": ["fade-in 0.12s", "fade-out 7.05–7.732s"]
+      },
+      {
+        "outputStartSec": 7.732,
+        "outputEndSec": 14.431,
+        "source": "inserted stereo silence",
+        "processing": ["holds music clear of watched-it and feedback lines"]
+      },
+      {
+        "outputStartSec": 14.431,
+        "outputEndSec": 22.75,
+        "sourceStartSec": 11.699,
+        "sourceEndSec": 20.018,
+        "processing": ["fade-in 0.70s", "fade-out 21.30–22.75s"]
+      },
+      {
+        "outputStartSec": 22.75,
+        "outputEndSec": 23,
+        "source": "inserted stereo silence",
+        "processing": ["clean delivery tail"]
+      }
+    ],
+    "globalGainDb": -2.6,
+    "intent": "Confident acoustic bed for the QA setup; a decisive withdrawal before and throughout the human feedback; a restrained return whose first strong pulse lands at the 15.732s release-rule beat; a tapered final pulse and clean tail."
+  },
+  "qa": {
+    "decode": "pass",
+    "measuredDurationSec": 23,
+    "integratedLufs": -24.0,
+    "loudnessRangeLu": 13.1,
+    "truePeakDbtp": -11.1,
+    "silenceDetection": {
+      "thresholdDbfs": -50,
+      "minimumDurationSec": 0.02,
+      "leadingSilenceSec": 0.226062,
+      "feedbackSilence": {"startSec": 7.170542, "endSec": 14.572104, "durationSec": 7.401562},
+      "trailingSilence": {"startSec": 22.683812, "endSec": 23.018667, "durationSec": 0.334854}
+    },
+    "sections": [
+      {"label": "QA and metrics", "startSec": 0, "endSec": 7.303, "meanDbfs": -26.5, "peakDbfs": -11.2},
+      {"label": "transition down", "startSec": 7.303, "endSec": 8.603, "meanDbfs": -70.9, "peakDbfs": -52.8},
+      {"label": "Then Aaron watched it", "startSec": 8.603, "endSec": 10.043, "meanDbfs": -91.0, "peakDbfs": -91.0},
+      {"label": "negative feedback", "startSec": 11.157, "endSec": 14.431, "meanDbfs": -91.0, "peakDbfs": -90.3},
+      {"label": "release lead-in", "startSec": 14.431, "endSec": 15.732, "meanDbfs": -26.6, "peakDbfs": -13.5},
+      {"label": "release rule", "startSec": 15.732, "endSec": 19.505, "meanDbfs": -23.8, "peakDbfs": -11.1},
+      {"label": "ending", "startSec": 19.505, "endSec": 23, "meanDbfs": -27.8, "peakDbfs": -12.3}
+    ],
+    "artifacts": ["music-selected-waveform.png", "music-selected-spectrogram.png"]
+  },
+  "rights": {
+    "provenance": "Project-owned generation derived only from the selected Eleven Music candidate.",
+    "publicationGate": "Reconfirm the active ElevenLabs paid-plan and Music terms before commercial publication."
+  },
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "kind": "music"
+  }
+}

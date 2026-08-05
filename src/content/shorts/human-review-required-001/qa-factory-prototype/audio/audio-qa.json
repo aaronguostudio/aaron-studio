@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-08-04T06:34:15Z",
+  "status": "pass",
+  "master": {
+    "path": "final-mix.wav",
+    "sha256": "ef05ca933326c2f348234c866c96585811fb4d287fac54ba7c87e6631565623d",
+    "durationSec": 8,
+    "codec": "pcm_s24le",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "integratedLufs": -16.05,
+    "loudnessRangeLu": 5,
+    "truePeakDbtp": -3.73,
+    "decodeErrors": 0
+  },
+  "deliveryCopy": {
+    "path": "final-mix.m4a",
+    "sha256": "3716366637671610cffadf4fd6c9602190b806e72b39d61dae58b093a8aace5a",
+    "durationSec": 8,
+    "codec": "aac",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "integratedLufs": -16.05,
+    "loudnessRangeLu": 5,
+    "truePeakDbtp": -3.75,
+    "decodeErrors": 0
+  },
+  "sections": [
+    {
+      "label": "music and QA machine",
+      "startSec": 0,
+      "endSec": 4.6,
+      "meanDbfs": -16.7,
+      "peakDbfs": -3.7
+    },
+    {
+      "label": "trap-door clunk tail",
+      "startSec": 4.6,
+      "endSec": 4.925,
+      "meanDbfs": -27,
+      "peakDbfs": -11.2
+    },
+    {
+      "label": "deadpan hold",
+      "startSec": 4.925,
+      "endSec": 8,
+      "meanDbfs": -91,
+      "peakDbfs": -91
+    }
+  ],
+  "silenceDetection": {
+    "thresholdDbfs": -80,
+    "minimumDurationSec": 0.05,
+    "startSec": 4.924583,
+    "endSec": 8,
+    "durationSec": 3.075417
+  },
+  "checks": [
+    {
+      "name": "exact duration",
+      "result": "pass",
+      "evidence": "Both WAV and M4A report 8.000000s."
+    },
+    {
+      "name": "peak headroom",
+      "result": "pass",
+      "evidence": "True peak remains below the -1.5 dBTP ceiling."
+    },
+    {
+      "name": "hard-stop and silence",
+      "result": "pass",
+      "evidence": "Music ends at 4.600s; the 320 ms clunk decays to digital silence by 4.925s."
+    },
+    {
+      "name": "full decode",
+      "result": "pass",
+      "evidence": "ffmpeg decoded both delivery files from start to end with zero reported errors."
+    },
+    {
+      "name": "external sample provenance",
+      "result": "pass",
+      "evidence": "All three Foley elements are deterministic local synthesis; no external sample library was used."
+    }
+  ],
+  "humanGate": "Technical QA passed. A human listen remains required for comedic timing and taste."
+}

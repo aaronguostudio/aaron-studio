@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-08-04T00:41:43.815Z",
+  "title": "Authority in the Loop — Resolution",
+  "theme": "soft-slate",
+  "visualStyle": "paper-resonance",
+  "prompt": "Instrumental only. Compose the seamless final continuation of an original restrained editorial technology documentary score. Begin as though the music is already playing: no intro, no reset, no new downbeat announcement. Preserve exactly one coherent palette of sustained low cello and warm bass harmonics, sparse felt-piano notes, an extremely quiet soft analog pulse, and blue-grey room texture. Low energy, intelligent, precise, and spacious for continuous narration. The first 6 seconds must be harmonically neutral and thin enough for an equal-power crossfade from the preceding movement. Then hold a calm clearer cello-piano-pulse pattern while a proportional code-review rule is stated and challenged. Around 85 seconds, gradually remove the pulse and simplify as four practical questions appear. Around 127 seconds, resolve into one warm confident held cello-and-piano chord with room tone, then fade completely by the end at 132.872 seconds. No vocals, no spoken words, no choir, no drums, no busy percussion, no hi-hats, no trailer impacts, no corporate uplift, no sentimental swell, no bright lead, no dramatic climax, no abrupt drop, no recognizable melody, and no imitation of any artist or existing composition. Keep dynamics low and every transition gradual.",
+  "compositionPlan": null,
+  "requestedDurationSec": 132.872,
+  "actualAudioDurationSec": 132.912,
+  "model": "music_v2",
+  "songId": "zAlC4tAKsPw2vhAOaHP2",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v1/continuation/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v1/continuation/unused-visualizer.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": null,
+  "audioAnalysisVersion": null,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "topic": "Whether and how engineers should review AI-generated code",
+  "thesis": "The public disagreement is not accountability versus speed; it is where human understanding should live. Review depth should follow a change's authority, consequences, and recovery difficulty.",
+  "sources": [
+    {
+      "id": "source-debate-video",
+      "url": "https://www.youtube.com/watch?v=Hh3AmV46epI",
+      "publisher": "Best Partners TV",
+      "published_at": "2026-07-31",
+      "source_type": "secondary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Establishes the public framing only. Quotations and positions return to original sources."
+    },
+    {
+      "id": "source-mitchell-workflow",
+      "url": "https://x.com/mitchellh/status/2072715852944957531",
+      "publisher": "Mitchell Hashimoto",
+      "published_at": "2026-07-02",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Supports the multi-model planning, implementation, and judging workflow."
+    },
+    {
+      "id": "source-mitchell-read",
+      "url": "https://x.com/mitchellh/status/2072738025344565262",
+      "publisher": "Mitchell Hashimoto",
+      "published_at": "2026-07-02",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Supports the four-word quotation 'I read the code.' It is not a universal policy statement."
+    },
+    {
+      "id": "source-mitchell-human-boundary",
+      "url": "https://x.com/mitchellh/status/2067970516951150721",
+      "publisher": "Mitchell Hashimoto",
+      "published_at": "2026-06-19",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Supports the distinction between private work and work handed to other maintainers."
+    },
+    {
+      "id": "source-uncle-bob-thread",
+      "url": "https://x.com/unclebobmartin/status/2080257779395154409",
+      "publisher": "Robert C. Martin",
+      "published_at": "2026-07-23",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Supports his no-implementation-reading statement, assurance gauntlet, and accountability quotation."
+    },
+    {
+      "id": "source-openai-harness",
+      "url": "https://openai.com/index/harness-engineering/",
+      "publisher": "OpenAI",
+      "published_at": "2026-02-11",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Company-reported greenfield experiment. Do not generalize to mature or regulated systems."
+    },
+    {
+      "id": "source-cloudflare-review",
+      "url": "https://blog.cloudflare.com/ai-code-review/",
+      "publisher": "Cloudflare",
+      "published_at": "2026-04-20",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Company report about specialized AI reviewers and risk-tiered depth."
+    },
+    {
+      "id": "source-godot-policy",
+      "url": "https://godotengine.org/article/contribution-policy-2026/",
+      "publisher": "Godot Foundation",
+      "published_at": "2026-06-30",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Open-source governance response; not a universal enterprise policy."
+    },
+    {
+      "id": "source-sonar-survey",
+      "url": "https://www.sonarsource.com/blog/state-of-code-developer-survey-report-the-current-reality-of-ai-coding/",
+      "publisher": "Sonar",
+      "published_at": "2026-01-08",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Vendor survey of more than 1,100 professional developers. Attribute every statistic and retain survey caveat."
+    },
+    {
+      "id": "source-ccrab",
+      "url": "https://arxiv.org/abs/2603.23448",
+      "publisher": "arXiv preprint",
+      "published_at": "2026-03-24",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Benchmark coverage, not a universal bug-detection rate."
+    },
+    {
+      "id": "source-human-ai-review",
+      "url": "https://arxiv.org/abs/2603.15911",
+      "publisher": "arXiv preprint",
+      "published_at": "2026-03-16",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Observational study; supports differences in review feedback, not causal superiority."
+    },
+    {
+      "id": "source-community-complex-codebases",
+      "url": "https://news.ycombinator.com/item?id=45347532",
+      "publisher": "Hacker News discussion",
+      "published_at": "2025-09-21",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Used only to identify recurring community concerns, not to estimate prevalence."
+    },
+    {
+      "id": "source-community-imposter",
+      "url": "https://news.ycombinator.com/item?id=44798189",
+      "publisher": "Hacker News discussion",
+      "published_at": "2025-08-02",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Used only to identify recurring community concerns about assistance, technical debt, and verification."
+    },
+    {
+      "id": "source-aaron-article",
+      "url": "https://www.aaronguo.com/blogs/what-ai-code-can-change",
+      "publisher": "Aaron Guo",
+      "published_at": "2026-08-02",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Owns the authority framework, critical-system and system-of-record distinction, and personal operating boundary."
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-mitchell-multi-model",
+      "claim": "Mitchell Hashimoto described a workflow in which different models planned, implemented, and judged a change.",
+      "source_ids": ["source-mitchell-workflow"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not generalize one workflow into a policy for every project."
+    },
+    {
+      "id": "fact-mitchell-read",
+      "claim": "Asked how he knew that workflow's result was good, Mitchell Hashimoto answered, 'I read the code.'",
+      "source_ids": ["source-mitchell-read", "source-mitchell-workflow"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Use the short quotation only; do not claim mandatory line-by-line review at every risk level."
+    },
+    {
+      "id": "fact-mitchell-human-boundary",
+      "claim": "Mitchell distinguished private AI-assisted work from submitting work that other people must review and maintain.",
+      "source_ids": ["source-mitchell-human-boundary"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Frame as an open-source responsibility boundary."
+    },
+    {
+      "id": "fact-uncle-bob-method",
+      "claim": "Robert C. Martin said he does not read agent implementation and instead uses specifications, unit tests, Gherkin, mutation testing, QA, metrics, and final verification.",
+      "source_ids": ["source-uncle-bob-thread"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Attribute the method to him; do not present it as proven universal best practice."
+    },
+    {
+      "id": "fact-uncle-bob-accountability",
+      "claim": "Robert C. Martin wrote, 'I am the engineer because I am accountable.'",
+      "source_ids": ["source-uncle-bob-thread"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Keep the quotation brief and visibly attributed."
+    },
+    {
+      "id": "fact-review-multiple-functions",
+      "claim": "Code review can find defects, build a reviewer mental model, synchronize team language, and make responsibility explicit.",
+      "source_ids": ["source-human-ai-review", "source-community-complex-codebases", "source-aaron-article"],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Present as a synthesis, not a measured four-part taxonomy."
+    },
+    {
+      "id": "fact-community-split",
+      "claim": "Community discussions repeatedly divide around maintainability and system understanding, verification throughput, cost externalization, and learning.",
+      "source_ids": ["source-community-complex-codebases", "source-community-imposter", "source-godot-policy"],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Do not claim the threads are representative surveys or attach percentages."
+    },
+    {
+      "id": "fact-openai-harness",
+      "claim": "OpenAI reported an internal greenfield product with roughly one million lines, about 1,500 merged pull requests, and no manually written implementation code after five months.",
+      "source_ids": ["source-openai-harness"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Call it a company-reported greenfield experiment and avoid universal conclusions."
+    },
+    {
+      "id": "fact-openai-human-role",
+      "claim": "In that experiment, human work shifted toward specifying intent, building environments, and creating feedback loops; human pull-request review was optional.",
+      "source_ids": ["source-openai-harness"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not imply that humans did no engineering work."
+    },
+    {
+      "id": "fact-cloudflare-reviewers",
+      "claim": "Cloudflare reported using up to seven specialized AI reviewers coordinated into one review and selecting review depth by risk tier.",
+      "source_ids": ["source-cloudflare-review"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Company report, not independent comparative proof."
+    },
+    {
+      "id": "fact-cloudflare-migrations",
+      "claim": "Cloudflare explicitly exempts database migrations from its generated-file review shortcut because generated schema changes still require review.",
+      "source_ids": ["source-cloudflare-review"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Use as an implementation detail of Cloudflare's system, not an industry standard."
+    },
+    {
+      "id": "fact-godot-bottleneck",
+      "claim": "Godot said AI lowered the effort required to create pull requests while reviewer capacity remained constrained.",
+      "source_ids": ["source-godot-policy"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Open-source governance context."
+    },
+    {
+      "id": "fact-godot-human-owner",
+      "claim": "Godot requires human approval and emphasizes contributors who can take responsibility for and fix their work.",
+      "source_ids": ["source-godot-policy"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not call it a complete AI ban."
+    },
+    {
+      "id": "fact-sonar-verification",
+      "claim": "In Sonar's survey of more than 1,100 professionals, 38% reported that reviewing AI code required more effort than reviewing colleagues' code.",
+      "source_ids": ["source-sonar-survey"],
+      "confidence": "medium",
+      "usable_in_script": false,
+      "sensitivity": "Vendor survey and self-report; reserved for metadata or supporting notes unless narration needs one bounded statistic."
+    },
+    {
+      "id": "fact-ccrab-coverage",
+      "claim": "The c-CRAB preprint reported that evaluated review agents taken together solved around 40% of its human-review-derived benchmark tasks.",
+      "source_ids": ["source-ccrab"],
+      "confidence": "medium",
+      "usable_in_script": false,
+      "sensitivity": "Do not translate benchmark coverage into a universal bug-detection rate."
+    },
+    {
+      "id": "fact-human-review-feedback",
+      "claim": "An observational study of 278,790 review conversations across 300 projects found that human reviewers contributed additional understanding, testing, and knowledge-transfer feedback.",
+      "source_ids": ["source-human-ai-review"],
+      "confidence": "medium",
+      "usable_in_script": false,
+      "sensitivity": "Observational result; do not make causal claims."
+    },
+    {
+      "id": "fact-authority-framework",
+      "claim": "Aaron's operating judgment is that review depth should rise with a change's authority, consequences, and recovery difficulty.",
+      "source_ids": ["source-aaron-article"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Authorial framework, not an industry standard."
+    },
+    {
+      "id": "fact-critical-system-definition",
+      "claim": "Aaron defines a critical system by failure consequence and a system of record by authoritative truth; the categories often overlap but are not identical.",
+      "source_ids": ["source-aaron-article"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Authorial terminology for this operating model."
+    },
+    {
+      "id": "fact-rollback-recovery",
+      "claim": "Reverting code may stop future bad writes without restoring records, messages, access, or decisions already affected.",
+      "source_ids": ["source-aaron-article"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Use may or can language because recovery behavior varies by system."
+    },
+    {
+      "id": "fact-learning-axis",
+      "claim": "Shipping risk and learning value are separate axes: a low-risk change may still deserve deep reading when the goal is to develop engineering judgment.",
+      "source_ids": ["source-community-complex-codebases", "source-aaron-article"],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Normative synthesis, not an empirical learning-effect estimate."
+    }
+  ]
+}

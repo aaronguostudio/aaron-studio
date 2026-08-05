@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-08-04T04:07:23.123Z",
+  "title": "Authority Boundary — Quiet Resolution",
+  "theme": "paper-moon",
+  "visualStyle": "ink-current",
+  "prompt": "Instrumental only. An original warm editorial resolution cue for felt piano, low cello, and a restrained small string ensemble. Begin as if thought has continued through silence, with no restart and no announcement. Shape one continuous 94-second arc: 0–20 seconds a sparse low cello and occasional felt-piano note; 20–52 seconds a simple unhurried piano idea with supportive long strings; 52–78 seconds gently widen the harmony and upper strings as the final questions become clear; 78–94 seconds settle into a quiet confident cadence with a natural room tail. Reflective, lucid, humane, and quietly hopeful without becoming sentimental. Low-to-medium dynamics under narration. No vocals, no percussion, no pulse, no tension ostinato, no bright arpeggios, no trailer swell, no heroic climax, no dramatic key change, no pop melody, no abrupt ending, no recognizable tune, and no imitation of a specific composer or song.",
+  "compositionPlan": null,
+  "requestedDurationSec": 94,
+  "actualAudioDurationSec": 94.032,
+  "model": "music_v2",
+  "songId": "bR919ZWs8Ku91IjT07pY",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v2/resolution-strings/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v2/resolution-strings/preview.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": null,
+  "audioAnalysisVersion": null,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

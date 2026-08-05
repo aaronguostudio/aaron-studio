@@ -29,3 +29,17 @@ test("allows explicitly static primitive modules", () => {
 
   expect(result.warnings).toEqual([]);
 });
+
+test("flags wall-clock timers and unseeded randomness", () => {
+  const result = auditRemotionSourceText(
+    "Unstable.tsx",
+    "const started = Date.now(); const n = Math.random(); setTimeout(render, 20);",
+  );
+
+  expect(result.failures).toContain(
+    "Unstable.tsx uses a wall-clock or autonomous browser timer",
+  );
+  expect(result.failures).toContain(
+    "Unstable.tsx uses unseeded Math.random instead of deterministic frame data",
+  );
+});

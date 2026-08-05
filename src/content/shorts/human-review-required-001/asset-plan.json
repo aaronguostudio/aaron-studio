@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "title": "AI Passed QA. Human Hated It.",
+  "duration_sec": 23,
+  "aspect_ratio": "9:16",
+  "visual_spine_id": "human-review-forensic-v1",
+  "asset_library": {
+    "queries": [
+      "24 second deadpan forensic tech comedy low cello felt piano muted pizzicato reversal payoff"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "s01-machine-pass",
+      "start_sec": 0,
+      "end_sec": 7.8,
+      "copy": "PASSED QA — 1080p / 60 fps · -16.2 LUFS · 0 decode errors",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": ["fact-technical-pass"],
+      "source_ids": ["source-owned-production"],
+      "asset_path": "../codex-research-first-en/codex-research-first-en.mp4",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Owned source master SHA-256 dffda12d3f90e2432c0d451cf2df0574bd2f571b0fcce54387c0b573bccc734c; copied unchanged into the Remotion public project folder for deterministic rendering.",
+      "rights": "owned",
+      "fallback": "Extracted source still with identical QA receipts."
+    },
+    {
+      "id": "s02-human-feedback",
+      "start_sec": 7.8,
+      "end_sec": 10.7,
+      "copy": "THEN THE HUMAN WATCHED IT",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-technical-pass"],
+      "source_ids": ["source-owned-production"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Deterministic Remotion typography synchronized to the approved narration; no private conversation UI is reproduced.",
+      "rights": "owned",
+      "fallback": "Static type cards with clean cuts."
+    },
+    {
+      "id": "s03-forensic-evidence",
+      "start_sec": 10.7,
+      "end_sec": 14.8,
+      "copy": "“The music sucks.” “It obviously looks fake.”",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-human-feedback"],
+      "source_ids": ["source-owned-production"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Approved English translation typeset as an editorial statement; no private conversation UI is reproduced.",
+      "rights": "owned",
+      "fallback": "Static type cards with clean cuts."
+    },
+    {
+      "id": "s04-verdict",
+      "start_sec": 14.8,
+      "end_sec": 16.5,
+      "copy": "QA: PASSED · SHIP: BLOCKED — HUMANLY WRONG",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-release-rule"],
+      "source_ids": ["source-owned-production"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Deterministic Remotion editorial statement using the selected semantic color roles.",
+      "rights": "owned",
+      "fallback": "Two static statement frames."
+    },
+    {
+      "id": "s05-missing-gates",
+      "start_sec": 16.5,
+      "end_sec": 20.6,
+      "copy": "TASTE · TRUST · TRUTH",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-release-rule"],
+      "source_ids": ["source-owned-production"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Deterministic Remotion typography with equal geometry for all three release criteria.",
+      "rights": "owned",
+      "fallback": "Static three-word statement."
+    },
+    {
+      "id": "s06-release-rule",
+      "start_sec": 20.6,
+      "end_sec": 23,
+      "copy": "If only the machine likes it, it doesn't ship.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-release-rule"],
+      "source_ids": ["source-owned-production"],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Aaron Studio authored series end card.",
+      "rights": "owned",
+      "fallback": "Static end card."
+    }
+  ]
+}

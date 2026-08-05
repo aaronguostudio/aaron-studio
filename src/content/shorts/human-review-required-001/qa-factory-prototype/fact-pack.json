@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "topic": "A technically valid AI-made video physically rejected by a human-review gate",
+  "thesis": "Technical QA and human acceptance are different release gates; the prototype expresses that difference as a miniature factory gag.",
+  "sources": [
+    {
+      "id": "source-owned-production",
+      "url": "https://github.com/aaronguostudio/aaron-studio",
+      "publisher": "Aaron Studio",
+      "published_at": "2026-08-04",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Exact local evidence: src/content/shorts/codex-research-first-en/codex-research-first-en.mp4, SHA-256 dffda12d3f90e2432c0d451cf2df0574bd2f571b0fcce54387c0b573bccc734c; its video-qa-report.md, SHA-256 768d3183bfa6a5d2ef05443a5b2f17a025f6051779aada85f86cd0ce3c53fba3; and Aaron's approved feedback in the current task. The factory action is a stylized reenactment, not footage of a literal review machine."
+    },
+    {
+      "id": "source-eleven-music-terms",
+      "url": "https://elevenlabs.io/eleven-music-model-specific-terms",
+      "publisher": "ElevenLabs",
+      "published_at": "2026-05-26",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Official model-specific terms for Music v1 and v2. This internal prototype reuses the already selected music_v2 candidate; the applicable paid-plan rights must be reconfirmed before commercial publication."
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact-technical-pass",
+      "claim": "The exact source video is 1920×1080 at 60 fps, its encoded mix measured about -16.2 LUFS, and a full decode test completed without errors.",
+      "source_ids": ["source-owned-production"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "These checks describe delivery properties of one encoded file; they do not establish taste, authenticity, or viewer trust."
+    },
+    {
+      "id": "fact-human-review-failed",
+      "claim": "Aaron rejected the technically passing result because the music felt bad and the recreated demo visibly looked fake.",
+      "source_ids": ["source-owned-production"],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "The trapdoor and NOPE chute are a comic reenactment of the review outcome, not a literal recorded event or quotation."
+    },
+    {
+      "id": "fact-selected-score",
+      "claim": "The prototype reuses the selected Eleven Music music_v2 candidate B, song ID SnFlUsOCkAk3pCwoo2UG, through the retained Aaron Studio selection manifest.",
+      "source_ids": ["source-owned-production", "source-eleven-music-terms"],
+      "confidence": "high",
+      "usable_in_script": false,
+      "sensitivity": "Internal prototype provenance is resolved; commercial publication still requires an active-plan rights recheck."
+    }
+  ]
+}
+

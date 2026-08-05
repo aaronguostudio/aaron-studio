@@ -5,6 +5,8 @@
 - Use Remotion frame primitives: `useCurrentFrame`, `interpolate`, `Sequence`, `Series`, `TransitionSeries`.
 - Do not use CSS transitions, CSS animations, or Tailwind animation classes inside Remotion compositions.
 - Prefer `Easing.bezier(0.16, 1, 0.3, 1)` for crisp UI entrance and balanced `Easing.bezier(0.45, 0, 0.55, 1)` for editorial fades.
+- Use shared motion tokens by semantic role. Entrances, movement/morphs,
+  exits, and continuous processes do not share one arbitrary curve.
 - Use `TransitionSeries` for between-scene transitions and subtract transition overlaps from duration calculations.
 - Keep captions phrase-level and stable unless a short-form format explicitly needs word highlighting.
 - Check text overflow for title cards, captions, chapter indicators, and thumbnail-like frames.
@@ -12,6 +14,8 @@
 - Do not add an unregistered production scene or motion recipe.
 - Port Motion or React Bits behavior to frame-driven Remotion values; do not import autonomous browser timing, hover, cursor, scroll, or wall-clock animation.
 - Use deterministic seeds for canvas, particles, shaders, and procedural layouts.
+- Do not use wall-clock timers, `Date.now()`, `performance.now()`,
+  `requestAnimationFrame()`, or unseeded `Math.random()` in compositions.
 - Give every structured scene a meaningful entry state, visible scaffold, or bridge from the prior scene.
 - Derive destination nodes and arrowheads from late parent-path progress. Do not
   show an endpoint before the relationship that supports it is visually complete.
@@ -24,6 +28,10 @@
 - For information-bearing 3D planes, declare a transform envelope. Default to a
   maximum `36deg` Y rotation, at least `80%` projected width, and `64px` clearance
   from protected text or result zones. Verify 0/25/50/75/100% progress states.
+- Reveal text-bearing panels with a mask or clip. Do not scale a parent that
+  compresses text, evidence, or other geometry-bearing children.
+- Use `SemanticSprite` for an approved transparent mnemonic. The component is
+  single-use by planning contract and supports only opacity plus a small settle.
 
 ## Scene Development
 
@@ -48,6 +56,10 @@ the worst sampled state, not the resting state.
 For encoded-master threshold checks, decode a short frame range sequentially.
 Do not diagnose a path or 3D animation from one frame extracted with input-side
 fast seek; inter-frame decoding can return an inexact or misleading partial image.
+
+For every nontrivial motion interval, inspect start, 25%, 50%, 75%, and end
+frames. Review masks, nested transforms, shared elements, and semantic accents
+as sequential frame strips at reduced speed.
 
 ## Renderer Audit
 

@@ -1,0 +1,12 @@
+{
+  "title": "Authority in the Loop",
+  "artist": "Aaron Studio",
+  "trackLabel": "editorial documentary score",
+  "durationSec": 457.512,
+  "theme": "soft-slate",
+  "visualStyle": "paper-resonance",
+  "seed": 1729,
+  "volume": 0.92,
+  "prompt": "Instrumental only. Compose an original restrained editorial technology documentary score for a 9 minute 44 second spoken essay about AI-generated code, human judgment, and system authority. Use one coherent palette: sustained low cello and warm bass harmonics for consequence and authority, sparse felt-piano notes for human judgment, a very quiet soft analog pulse for AI workflow, and occasional blue-grey room texture. Keep generous spectral and rhythmic space for continuous narration. Low energy, intelligent, precise, slightly tense at first, gradually resolving; authored rather than generic ambient stock. Structural arc: 0:00-0:22 a sparse two-sided tension with two separated cello and piano gestures; 0:22-1:54 establish a nearly invisible pulse while the two engineering positions are examined; 1:54-4:15 soften into reflective piano and held strings for common ground and community disagreement; 4:15-6:00 add a restrained analytical pulse and one subtle harmonic opening for industry experiments; 6:00-7:24 deepen the low cello and reduce the pulse as critical systems and systems of record enter; 7:24-8:57 bring back piano and pulse in a calm, clearer pattern as the proportional review rule is stated and challenged; 8:57-9:39 gradually simplify toward a confident cadence for the four questions and ownership conclusion; 9:39-9:44 leave one warm held chord and room tone for the end card, then fade cleanly. No vocals, no spoken words, no choir, no drums, no busy percussion, no hi-hats, no trailer impacts, no corporate uplift, no sentimental swell, no bright lead, no dramatic climax, no abrupt drop, no recognizable melody, and no imitation of any artist or existing composition. Keep dynamics low and transitions gradual.",
+  "audioFile": "music.mp3"
+}

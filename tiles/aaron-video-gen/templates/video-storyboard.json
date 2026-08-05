@@ -2,8 +2,10 @@
   "schema_version": 1,
   "title": "[Video title]",
   "duration_sec": 40,
+  "fps": 30,
   "direction": {
     "name": "[Selected treatment]",
+    "style_family_id": "[Must match asset-plan.visual_spine_id for semantic sprites]",
     "visual_spine": "[Typography, grid, color, texture, and image logic]",
     "motion_density": "balanced",
     "music_strategy": "bookended",
@@ -50,10 +52,26 @@
       "entry_visual": "Prior evidence remains while the number scaffold appears.",
       "first_change_sec": 0.6,
       "motion_recipes": ["count-up", "stagger"],
+      "semantic_sprite_ids": [],
       "content": ["primary number", "time range", "supporting entities"],
       "beats": [
         { "at_sec": 0, "visual": "evidence bridge", "action": "hold" },
-        { "at_sec": 4, "visual": "primary number", "action": "count" },
+        {
+          "at_sec": 4,
+          "visual": "primary number",
+          "action": "count",
+          "motion": {
+            "recipe": "count-up",
+            "purpose": "emphasize",
+            "continuity_anchor": "The number remains in the registered data-hero slot.",
+            "why_not_static": "The progression is part of how the viewer understands magnitude.",
+            "duration_sec": 1.2,
+            "easing": "ease-out",
+            "loop": false,
+            "translate_px": 0,
+            "rotation_deg": 0
+          }
+        },
         { "at_sec": 11, "visual": "supporting entities", "action": "stagger" },
         { "at_sec": 18, "visual": "complete scale signal", "action": "resolve" }
       ],

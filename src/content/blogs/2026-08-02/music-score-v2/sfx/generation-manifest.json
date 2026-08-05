@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-04T04:07:07.849Z",
+  "provider": "ElevenLabs",
+  "model_id": "eleven_text_to_sound_v2",
+  "jobs": [
+    {
+      "id": "soft-node-settle",
+      "duration_seconds": 1.1,
+      "prompt_influence": 0.62,
+      "text": "One isolated refined editorial motion accent: a single soft felt-covered wooden mallet tap with a faint warm airy harmonic tail. Light, tactile, restrained, and acoustic. No bell melody, no sparkle shower, no UI beep, no sharp click, no bass impact, no whoosh, and no background ambience.",
+      "output_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v2/sfx/soft-node-settle.mp3",
+      "character_cost": "12",
+      "request_id": null
+    },
+    {
+      "id": "muted-pizz-confirm",
+      "duration_seconds": 1.2,
+      "prompt_influence": 0.62,
+      "text": "One isolated restrained warm pizzicato confirmation: a muted viola and low cello pluck together, soft rounded attack, elegant editorial feel, and a short natural room tail. No melody, no cartoon boing, no bright high string, no bass impact, no percussion, and no background ambience.",
+      "output_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v2/sfx/muted-pizz-confirm.mp3",
+      "character_cost": "13",
+      "request_id": null
+    },
+    {
+      "id": "air-thread-transition",
+      "duration_seconds": 2.6,
+      "prompt_influence": 0.58,
+      "text": "One very subtle isolated airy bowed-harmonic transition: breath-like viola harmonics gently open upward and dissolve into a soft paper-texture tail. Light, calm, refined, and almost weightless. No whoosh, no riser, no impact, no suspense sting, no melody, no sparkle, and no background ambience.",
+      "output_path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-08-02/music-score-v2/sfx/air-thread-transition.mp3",
+      "character_cost": "29",
+      "request_id": null
+    }
+  ]
+}

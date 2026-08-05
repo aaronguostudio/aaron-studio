@@ -23,9 +23,11 @@ narration, evidence, motion scenes, music, and reusable Remotion templates.
 Read these references when the corresponding stage begins:
 
 - `references/editorial-motion-system.md` for direction, pacing, music, and reference deconstruction;
+- `references/motion-craft-gate.md` before accepting or reviewing any new motion behavior;
 - `references/aaron-editorial-visual-system.md` for palette roles, grid, canonical layouts, and animation dependencies;
 - `references/director-pass.md` before selecting images, generated video, or signature motion;
 - `references/scene-catalog.md` before selecting or implementing scene templates;
+- `references/semantic-sprite-accents.md` before using a transparent semantic accent;
 - `references/video-qa.md` before prototype review or a full render;
 - `references/aaron-voice-profile.md` before changing narration voice or settings.
 
@@ -99,9 +101,31 @@ Treat the following as production constraints, not as optional style notes:
   deterministic fallback. For a long Remotion render, pre-extract a generated
   clip into a bounded image sequence when live video decoding compromises
   repeatability or throughput.
+- For a 5–10 minute editorial essay, explicitly audit two to four possible
+  image-rich moments: a real person, a tangible object, a source artifact, or
+  a conceptual reset. This is an opportunity range, not a quota. Keep the film
+  typography-led when no candidate adds meaning, but do not let “restrained”
+  become “image-free by default.” If the visual mode stays typography or
+  diagram only for roughly 60–90 seconds, the director must at least consider
+  whether one selected still would improve recognition, texture, or pacing.
+- Treat a portrait, object study, or editorial still as scene media. It can own
+  a `people-hero`, image, or hybrid beat and does not consume the semantic
+  sprite budget. The one-sprite hard cap still applies to small mnemonic
+  accents. Generated portraits must remain visibly illustrative, carry
+  provenance, never impersonate evidence, and retain a text-only fallback.
+- A serious long-form upload needs a deliberately authored YouTube cover, not
+  merely a custom thumbnail file or a slide-like opening frame. Review both
+  candidates at 320 × 180 and at YouTube Studio list scale beside Aaron's
+  recent uploads. Reject any candidate whose focal subject, contrast, or
+  three-to-five-word promise disappears at that size.
 - Audio is a timed contract: retain the voice request, chapter audio, exact
   word timings, and final retime report together. Re-encode chapter joins;
   do not stream-copy MP3 segments with encoder padding into a long-form master.
+- Before locking `music_strategy: none` for a 5–10 minute essay, audition at
+  least one 30–60 second scored prototype when an earlier approved film has
+  established a useful score language. Silence must be an editorial choice,
+  not the automatic result of an unresolved asset search or rights question.
+  Rights uncertainty blocks publication, not internal scored prototyping.
 - A voice-setting experiment remains a candidate until Aaron has heard it in
   a representative opening, middle, and late section. Do not silently replace
   the selected production voice profile.
@@ -129,6 +153,8 @@ Before implementation:
    available fallback.
 9. For any rotation, perspective, scale, or translation that changes projected
    bounds, record a transform envelope and protected zones in the storyboard.
+10. Start every treatment with `max_semantic_sprite_beats: 0`. Raise it only
+    after one candidate passes the semantic-sprite opportunity gate.
 
 Run the planning audit:
 
@@ -149,6 +175,16 @@ bun ${SKILL_DIR}/scripts/content-evidence-audit.ts \
 
 Before the full render, rerun with `--production`. Production mode must contain
 only capabilities marked `available` in the registry.
+
+Use the aggregate preflight before a prototype and again before a full render:
+
+```bash
+bun ${SKILL_DIR}/scripts/production-preflight.ts \
+  --video-dir <video-dir> \
+  --output <video-dir>/production-preflight-report.md
+```
+
+Add `--production` for the final-render gate.
 
 For a new or changed voice, use the audio-only gate before rendering:
 
@@ -528,6 +564,8 @@ For every scene, record:
 - a template and intensity from `config/scene-registry.json`;
 - the meaningful entry visual and first change time;
 - semantic visual beats and motion recipes;
+- a structured beat-level motion contract for any new behavior, including
+  purpose, cue, curve, duration, movement envelope, and continuity anchor;
 - content items, assets, music cue, and purpose;
 - `prototype_required` and an available fallback for any non-available capability.
 
@@ -583,6 +621,18 @@ illustrations, logos, diagrams, textures, music, sound effects, and 3D models.
 There is no image quota. Inspect every
 generated or captured asset in its final crop.
 
+Transparent semantic sprites are zero-default. Read
+`references/semantic-sprite-accents.md`; only approve one when it makes a single
+abstract phrase easier to remember, fits real negative space, matches the
+visual spine, and can be removed without weakening the argument. Record rejected
+candidates. Use the `semantic-settle` recipe, keep the appearance single-use,
+record the exact renderer-loaded asset path and storyboard FPS, add an explicit
+asset-targeted exit beat, register the composition/FPS/static-file/hash in the
+shared runtime registry together with the visibility and motion values, and run
+`sprite-asset-audit.ts` before rendering. Preflight must bind
+the renderer copy hash to the canonical asset and both visibility endpoints to
+the storyboard within one frame.
+
 For a reused library item, preserve its `library_asset_id` and canonical path in
 the asset plan. After the final selection, record the reuse event:
 
@@ -626,21 +676,16 @@ frame, but the video cold open does not have to remain on it.
 
 ### Step 6: Run the pipeline
 
-Run the production storyboard audit first. It must pass without planned or
-experimental capabilities. If renderer code changed, run the Remotion validator
-before rendering.
+Run the aggregate production preflight first. It must pass the director,
+evidence, asset, sprite, and storyboard gates without planned or experimental
+capabilities. If renderer code changed, run the Remotion validator before
+rendering.
 
 ```bash
-bun ${SKILL_DIR}/scripts/storyboard-audit.ts \
-  --storyboard <blog-dir>/video-storyboard.json \
+bun ${SKILL_DIR}/scripts/production-preflight.ts \
+  --video-dir <blog-dir> \
   --production \
-  --output <blog-dir>/video-storyboard-audit.md
-
-bun ${SKILL_DIR}/scripts/content-evidence-audit.ts \
-  --fact-pack <blog-dir>/fact-pack.json \
-  --asset-plan <blog-dir>/asset-plan.json \
-  --production \
-  --output <blog-dir>/content-evidence-audit.md
+  --output <blog-dir>/production-preflight-report.md
 
 cd ${SKILL_DIR}/remotion && npm run validate
 ```
@@ -663,6 +708,9 @@ npx -y bun ${SKILL_DIR}/scripts/main.ts \
 Use `references/video-qa.md` and create `video-qa-report.md`.
 
 - Review entry, peak, and exit stills for every structured or signature scene.
+- Review every motion interval at start, 25%, 50%, 75%, and end; use a
+  sequential encoded-frame strip for masks, nested transforms, paths, and
+  semantic-sprite entrance/exit ranges.
 - Confirm no scene begins mostly blank or waits on narration before showing useful content.
 - Check text fit, captions, safe areas, 3D/canvas pixels, and final crops.
 - Check dynamic projected bounds against declared transform envelopes and
@@ -696,6 +744,8 @@ Rules:
   place.
 - Avoid generic atmosphere, repeated metaphors, fake UI text, and image walls.
 - Inspect every asset before rendering.
+- Treat transparent semantic sprites as `generated-still` assets with
+  `usage_role: semantic-accent`; never use them as evidence or to fill space.
 - A visual beat may be created through layout or motion; it does not require a
   new bitmap.
 

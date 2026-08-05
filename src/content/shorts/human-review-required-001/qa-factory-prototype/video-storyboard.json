@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "title": "QA Factory — Trapdoor Test",
+  "duration_sec": 8,
+  "fps": 30,
+  "aspect_ratio": "9:16",
+  "direction": {
+    "name": "Miniature Factory Slapstick",
+    "style_family_id": "qa-factory-paper-slapstick-v0.1",
+    "visual_spine": "One locked top-down cardboard factory, one center conveyor, the real old video as a physical product tile, paper prop labels, green machine confidence, and one red human rejection state.",
+    "motion_density": "expressive",
+    "music_strategy": "continuous",
+    "text_contract": "All words are attached to physical factory props; no overlay titles, captions, quote cards, or simulated UI.",
+    "references": [
+      {
+        "id": "reference-x-codex",
+        "url": "https://x.com/BTCqzy1/status/2084268294115316141",
+        "borrow": "Immediate artifact, stable spatial stage, compressed object-led changes, and a decisive audio turn.",
+        "avoid": "Copied UI or audio, unsupported claims, and presenting any recreation as a live capture."
+      },
+      {
+        "id": "reference-owned-artifact",
+        "url": "https://github.com/aaronguostudio/aaron-studio",
+        "borrow": "Traceable source evidence and visible self-critique.",
+        "avoid": "Using generated atmosphere or actor props as factual proof."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "qa-factory-prototype",
+      "title": "The factory approves; the human drops it",
+      "start_sec": 0,
+      "end_sec": 8,
+      "role": "explanation",
+      "template": "custom-signature",
+      "capability_status": "experimental",
+      "intensity": "signature",
+      "purpose": "Express the gap between measurable QA and human acceptance as one readable physical cause-and-effect gag.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The full miniature factory and the actual old video playing inside a paper product tile are visible at frame zero.",
+      "first_change_sec": 0.3,
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "motion_recipes": ["three-d-flip"],
+      "semantic_sprite_ids": [],
+      "content": [
+        "real video product tile",
+        "QA checkpoint signs",
+        "three green lamps",
+        "PASSED stamp",
+        "paper human hand",
+        "red reject control",
+        "trapdoor",
+        "NOPE chute"
+      ],
+      "assets": [
+        {
+          "id": "source-codex-demo",
+          "path": "../../codex-research-first-en/codex-research-first-en.mp4",
+          "role": "evidence",
+          "rights": "owned"
+        },
+        {
+          "id": "factory-background",
+          "path": "assets/factory-background.png",
+          "role": "atmosphere-only",
+          "rights": "owned",
+          "fallback": "deterministic CSS/vector factory world"
+        },
+        {
+          "id": "paper-human-hand",
+          "path": "assets/human-hand.png",
+          "role": "actor-prop-only",
+          "rights": "owned",
+          "fallback": "CSS paper-cutout hand"
+        },
+        {
+          "id": "prototype-audio",
+          "path": "audio/final-mix.m4a",
+          "role": "music-and-foley",
+          "rights": "prototype-only"
+        }
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Complete factory; real source video already plays inside a product tile at the bottom of the center conveyor.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Product tile starts traveling up the fixed center belt.",
+          "action": "conveyor-start"
+        },
+        {
+          "at_sec": 0.7,
+          "visual": "The 1080P checkpoint flashes green as the scan sound lands.",
+          "action": "scan"
+        },
+        {
+          "at_sec": 1.45,
+          "visual": "The 60 FPS checkpoint turns green while the tile continues on the same axis.",
+          "action": "approve"
+        },
+        {
+          "at_sec": 2.2,
+          "visual": "The 0 ERRORS checkpoint turns green.",
+          "action": "approve"
+        },
+        {
+          "at_sec": 3.15,
+          "visual": "A heavy physical PASSED stamp lands on the product tile.",
+          "action": "stamp"
+        },
+        {
+          "at_sec": 3.45,
+          "visual": "Three small paper scraps pop from the machine and settle; the product keeps moving.",
+          "action": "tiny-celebration"
+        },
+        {
+          "at_sec": 4.5,
+          "visual": "The same product tile reaches the HUMAN REVIEW bay and the paper hand enters from above.",
+          "action": "human-enters"
+        },
+        {
+          "at_sec": 4.6,
+          "visual": "The hand touches the red control; the trapdoor latch releases while the music stops sample-hard.",
+          "action": "reject-and-hold"
+        },
+        {
+          "at_sec": 6,
+          "visual": "The trapdoor rotates open beneath the still-approved product tile.",
+          "action": "hinge-open",
+          "motion": {
+            "recipe": "three-d-flip",
+            "purpose": "emphasize",
+            "continuity_anchor": "The product tile stays centered on the same conveyor axis while the trapdoor opens underneath it.",
+            "why_not_static": "The punchline depends on seeing the human action cause an immediate physical consequence.",
+            "duration_sec": 0.33,
+            "easing": "Easing.bezier(0.45, 0, 0.55, 1)",
+            "loop": false,
+            "translate_px": 0,
+            "rotation_deg": 82,
+            "movement_envelope": "Trapdoor plane rotates on its upper X hinge from 0deg to 82deg inside x=232..848 and y=780..1240; no text is carried on the rotating face.",
+            "protected_zones": [
+              "top prop-label zone y=96..300",
+              "bottom delivery-safe zone y=1740..1920",
+              "NOPE result stencil x=290..790 y=1030..1240"
+            ]
+          }
+        },
+        {
+          "at_sec": 6.18,
+          "visual": "The video product tile falls into the center opening; PASSED remains visible during the first half of the fall.",
+          "action": "product-falls"
+        },
+        {
+          "at_sec": 6.75,
+          "visual": "The product is gone and the red physical NOPE stencil is fully readable inside the chute.",
+          "action": "result-hold"
+        },
+        {
+          "at_sec": 7.2,
+          "visual": "Factory, open chute, still hand, and NOPE remain motionless in silence.",
+          "action": "final-hold"
+        }
+      ],
+      "custom_motion_contracts": [
+        {
+          "id": "product-conveyor-travel",
+          "status": "experimental-within-custom-signature",
+          "purpose": "orient and explain",
+          "cue_sec": 0.3,
+          "duration_sec": 4.05,
+          "curve": "linear",
+          "movement_envelope": "Product tile center travels only on x=540, from y=1540 to y=850; its 560x315 bounds stay within x=260..820 and outside the bottom 180px delivery-safe zone after frame 9.",
+          "continuity_anchor": "center conveyor axis",
+          "why_not_static": "Continuous travel makes the three approvals read as one factory process rather than three slides."
+        },
+        {
+          "id": "paper-hand-entry",
+          "status": "experimental-within-custom-signature",
+          "purpose": "bridge",
+          "cue_sec": 4.5,
+          "duration_sec": 0.36,
+          "curve": "Easing.bezier(0.16, 1, 0.3, 1)",
+          "movement_envelope": "Alpha hand translates 300px downward within x=585..1035 and y=-340..850; it never overlaps the QA labels or the NOPE stencil.",
+          "continuity_anchor": "product tile at the review bay",
+          "why_not_static": "The entrance identifies a new actor without cutting away from the factory."
+        },
+        {
+          "id": "product-fall",
+          "status": "experimental-within-custom-signature",
+          "purpose": "emphasize",
+          "cue_sec": 6.18,
+          "duration_sec": 0.57,
+          "curve": "ease-in",
+          "movement_envelope": "Product tile stays between x=300..780, translates 230px downward, scales from 1.0 to 0.22, and disappears behind the chute mask before touching the NOPE stencil.",
+          "continuity_anchor": "open trapdoor center",
+          "why_not_static": "The visible fall is the comic consequence and cannot be replaced by an unexplained before/after inside the preferred signature scene."
+        }
+      ],
+      "transform_envelope_review_frames": [0, 9, 21, 44, 66, 95, 104, 135, 138, 180, 182, 185, 191, 203, 216, 239],
+      "fallback_contract": {
+        "template": "image-sequence",
+        "motion_recipe": "none",
+        "states": [
+          {"at_sec": 0, "visual": "real product tile enters complete factory"},
+          {"at_sec": 3.15, "visual": "three green checks and PASSED stamp"},
+          {"at_sec": 4.8, "visual": "paper hand touches review control"},
+          {"at_sec": 6.2, "visual": "trapdoor open and product falling"},
+          {"at_sec": 6.75, "visual": "empty chute with NOPE"}
+        ],
+        "audio": "audio/final-mix.m4a",
+        "story_preserved": "real artifact, machine approval, human interruption, physical rejection, and final NOPE"
+      },
+      "music_cue": "Reuse the selected Dry Acoustic Deadpan cue through audio/final-mix.m4a; scan at 0.700s, stamp at 3.150s, then sample-hard stop plus latch clunk at 4.600s and silence to 8.000s."
+    }
+  ]
+}

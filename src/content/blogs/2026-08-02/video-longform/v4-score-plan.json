@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "music_strategy": "chaptered",
+  "cover_duration_sec": 2.8,
+  "source": {
+    "path": "src/content/blogs/2026-07-06/video-full/music-full-v1.mp3",
+    "public_renderer_path": "fde-full-film/music-full-v1.mp3",
+    "provenance": "Eleven Music generated score from Aaron's approved and published FDE film",
+    "selection_reason": "Aaron explicitly preferred its quiet low strings, restrained piano, and gradual arc over the current continuous score."
+  },
+  "cues": [
+    {
+      "id": "opening-disagreement",
+      "content_start_sec": 0,
+      "content_end_sec": 70,
+      "source_start_sec": 0,
+      "base_volume": 0.12,
+      "opening_volume": 0.55,
+      "fade_in_sec": 0.25,
+      "fade_out_sec": 3
+    },
+    {
+      "id": "common-ground-community",
+      "content_start_sec": 113.890496,
+      "content_end_sec": 231.41,
+      "source_start_sec": 95,
+      "base_volume": 0.1,
+      "fade_in_sec": 2,
+      "fade_out_sec": 3
+    },
+    {
+      "id": "industry-to-critical-systems",
+      "content_start_sec": 254.788279,
+      "content_end_sec": 444.245074,
+      "source_start_sec": 190,
+      "base_volume": 0.095,
+      "fade_in_sec": 2.5,
+      "fade_out_sec": 3.5
+    },
+    {
+      "id": "questions-ownership-ending",
+      "content_start_sec": 500.06314,
+      "content_end_sec": 584.342517,
+      "source_start_sec": 363.8,
+      "base_volume": 0.11,
+      "post_narration_volume": 0.2,
+      "fade_in_sec": 2.5,
+      "fade_out_sec": 2
+    }
+  ],
+  "intentional_silence": [
+    {"content_start_sec": 70, "content_end_sec": 113.890496},
+    {"content_start_sec": 231.41, "content_end_sec": 254.788279},
+    {"content_start_sec": 444.245074, "content_end_sec": 500.06314}
+  ]
+}

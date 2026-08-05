@@ -1,0 +1,75 @@
+{
+  "title": "Codex Research First — English",
+  "fps": 60,
+  "duration_sec": 18.5,
+  "resolution": "1920x1080",
+  "max_semantic_sprite_beats": 0,
+  "scenes": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 1.5,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "motion_recipe": "none",
+      "entry_visual": "Full hook and Aaron identity readable at frame zero",
+      "first_change_sec": 0,
+      "copy": "STOP ASKING CODEX TO CODE FIRST."
+    },
+    {
+      "id": "connector",
+      "start_sec": 1.5,
+      "end_sec": 3.2,
+      "role": "evidence",
+      "template": "image-sequence",
+      "motion_recipe": "focus-shift",
+      "entry_visual": "GitHub connector page with Connected state",
+      "first_change_sec": 1.7,
+      "copy": "GitHub — Connected"
+    },
+    {
+      "id": "prompt",
+      "start_sec": 3.2,
+      "end_sec": 5.6,
+      "role": "evidence",
+      "template": "image-sequence",
+      "motion_recipe": "focus-shift",
+      "entry_visual": "Complete research-first prompt already present in composer",
+      "first_change_sec": 3.55,
+      "copy": "Find 5 strong open-source projects similar to this one. Compare their architecture and tradeoffs, then recommend an approach. Don’t write code yet."
+    },
+    {
+      "id": "research",
+      "start_sec": 5.6,
+      "end_sec": 12.6,
+      "role": "evidence",
+      "template": "image-sequence",
+      "motion_recipe": "card-build",
+      "entry_visual": "Prompt remains visible while the first search state begins",
+      "first_change_sec": 5.75,
+      "sources": ["dify", "flowise", "langflow", "n8n", "langfuse"]
+    },
+    {
+      "id": "recommendation",
+      "start_sec": 12.6,
+      "end_sec": 16.2,
+      "role": "explanation",
+      "template": "image-sequence",
+      "motion_recipe": "card-build",
+      "entry_visual": "Research Complete header and full recommendation scaffold",
+      "first_change_sec": 12.75,
+      "copy": "Start with a visual graph, versioned runs, and observability. Add collaboration after the execution model is stable. No files changed."
+    },
+    {
+      "id": "end",
+      "start_sec": 16.2,
+      "end_sec": 18.5,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "motion_recipe": "bridge-reveal",
+      "entry_visual": "Research-first principle and Aaron identity",
+      "first_change_sec": 16.2,
+      "copy": "RESEARCH FIRST. CODE SECOND."
+    }
+  ]
+}

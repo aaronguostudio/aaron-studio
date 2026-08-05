@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "asset_id": "generated:replace-me-v1",
+  "title": "[Short asset title]",
+  "created_for": "[Film and treatment]",
+  "narrative_job": "[One abstract phrase this object makes concrete.]",
+  "selection_rationale": "[Why this beat, object, and negative-space location earned an accent; include why other candidates were rejected.]",
+  "style_family_id": "[Must match asset-plan.visual_spine_id.]",
+  "generation": {
+    "provider": "[Provider]",
+    "model": "[Model or not exposed]",
+    "prompt": "[Exact prompt]",
+    "source_path": "[Relative path to untouched source]",
+    "source_sha256": "[SHA-256]"
+  },
+  "postprocess": {
+    "method": "[How transparency and final crop were produced]",
+    "output_path": "[Relative path to final transparent PNG/WebP]",
+    "output_sha256": "[SHA-256]",
+    "dimensions": [0, 0],
+    "mode": "RGBA"
+  },
+  "alpha_qa": {
+    "transparent_pixels": 0,
+    "partially_transparent_pixels": 0,
+    "total_pixels": 0,
+    "alpha_min": 0,
+    "alpha_average": 0,
+    "alpha_max": 255,
+    "top_left_alpha": 0,
+    "top_right_alpha": 0,
+    "bottom_left_alpha": 0,
+    "bottom_right_alpha": 0,
+    "status": "pending"
+  },
+  "usage": {
+    "composition": "[Remotion composition]",
+    "scene_id": "[Storyboard scene ID]",
+    "fps": 30,
+    "render_path": "[Relative path to the exact renderer-loaded PNG/WebP]",
+    "render_sha256": "[SHA-256; must match postprocess.output_sha256]",
+    "visible_from_sec": 0,
+    "visible_until_sec": 0,
+    "motion": "semantic-settle: 0.3-0.5s ease-out entrance, shorter exit, 8-12px, opacity, no rotation, bounce, loop, or reuse",
+    "semantic_status": "Illustrative visual mnemonic, not evidence"
+  },
+  "rights": "[owned-generated / owned / licensed]",
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "reason": "[Why this should or should not enter the reusable library]"
+  }
+}

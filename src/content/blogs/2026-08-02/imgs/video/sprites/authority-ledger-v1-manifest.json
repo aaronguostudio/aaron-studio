@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "asset_id": "generated:authority-ledger-v1",
+  "title": "Authority Ledger Editorial Sprite",
+  "created_for": "What Is This Code Allowed to Change? — Final Video",
+  "narrative_job": "Give ‘system of record’ one brief concrete mnemonic without depicting a real system or implementation.",
+  "selection_rationale": "The authority-continuum scene has one clear area of negative space and one abstract phrase that benefits from a restrained visual mnemonic. No other scene earned an additional sprite.",
+  "style_family_id": "clean-indigo-editorial-v2",
+  "generation": {
+    "provider": "Codex built-in image generation",
+    "model": "not exposed by the tool",
+    "prompt": "Use case: stylized-concept\nAsset type: transparent editorial sprite for a restrained 1920x1080 essay video\nPrimary request: one mature clothbound ledger representing a system of record, shown closed in a slight three-quarter view, with visible layered paper edges, a narrow binding band, and one very small plain seal clasp; no text.\nStyle/medium: refined 2D editorial illustration, crisp confident silhouette, flat vector-like shapes with subtle internal gouache shading; sophisticated and minimal, not children's art, not a glossy 3D toy, not clip art.\nComposition/framing: exactly one centered ledger, full object visible, generous empty padding on all sides, readable at small size.\nColor palette: deep indigo #0a2346, muted slate #6e7783, porcelain #f4f3ef, charcoal #182334 only. Do not use green anywhere in the ledger.\nScene/backdrop: perfectly flat solid #00ff00 chroma-key background for background removal.\nConstraints: background must be one uniform #00ff00 color with no shadows, gradients, texture, floor plane, reflections, or lighting variation. No white sticker outline. No cast shadow, contact shadow, glow, border, readable text, fake writing, symbols, logo, watermark, signature, extra object, hand, person, scenery, or decorative particles. Keep edges crisp and fully separated from the background.",
+    "source_path": "imgs/video/sprites/source/authority-ledger-chroma-v1.png",
+    "source_sha256": "37fe7c2fcc6e7ba821c7ddec9638fa87a478f1292ee42ca1178efe4353dc4ef9"
+  },
+  "postprocess": {
+    "method": "Chroma-key removal with the imagegen skill helper remove_chroma_key.py",
+    "detected_key_rgb": [3, 249, 3],
+    "output_path": "imgs/video/sprites/authority-ledger-v1.png",
+    "output_sha256": "5b642f943c86e93f954e501d4f153bd84191552bc975f719caa48494dcba1295",
+    "dimensions": [1672, 941],
+    "mode": "RGBA"
+  },
+  "alpha_qa": {
+    "transparent_pixels": 1060685,
+    "partially_transparent_pixels": 3040,
+    "total_pixels": 1573352,
+    "alpha_min": 0,
+    "alpha_average": 82.85,
+    "alpha_max": 255,
+    "top_left_alpha": 0,
+    "top_right_alpha": 0,
+    "bottom_left_alpha": 0,
+    "bottom_right_alpha": 0,
+    "status": "pass"
+  },
+  "usage": {
+    "composition": "AuthorityBoundaryFinalVideo",
+    "scene_id": "c03-authority-boundary",
+    "fps": 30,
+    "render_path": "../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/sprites/authority-ledger-v1.png",
+    "render_sha256": "5b642f943c86e93f954e501d4f153bd84191552bc975f719caa48494dcba1295",
+    "visible_from_sec": 20.7,
+    "visible_until_sec": 23.9,
+    "motion": "semantic-settle: 12-frame fade with a 10-pixel upward settle; no rotation, bounce, loop, or reuse",
+    "semantic_status": "Illustrative visual mnemonic, not evidence or a depiction of a real system"
+  },
+  "rights": "owned-generated",
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "reason": "Designed for this film's exact palette, metaphor, timing, and negative space; not yet approved as a reusable library asset."
+  }
+}

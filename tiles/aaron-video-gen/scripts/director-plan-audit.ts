@@ -21,6 +21,15 @@ export type DirectorVisualMode =
 export type DirectorIntensity = "calm" | "structured" | "signature";
 export type DirectorEntryMode = "meaningful" | "bridge";
 
+export interface SemanticSpriteDecision {
+  asset_id: string;
+  semantic_job: string;
+  style_family_id: string;
+  motion_recipe: "semantic-settle";
+  single_use: true;
+  fallback: string;
+}
+
 export interface DirectorBeat {
   id: string;
   start_sec: number;
@@ -39,6 +48,7 @@ export interface DirectorBeat {
   sound_cue: string;
   transition_out: string;
   fallback: string;
+  semantic_sprite?: SemanticSpriteDecision;
 }
 
 export interface DirectorPlan {
@@ -51,6 +61,7 @@ export interface DirectorPlan {
     evidence_or_still_target_ratio: number;
     max_generated_video_ratio: number;
     max_generated_video_beats: number;
+    max_semantic_sprite_beats?: number;
   };
   beats: DirectorBeat[];
 }
@@ -129,12 +140,21 @@ export function auditDirectorPlan(plan: DirectorPlan): DirectorPlanAuditResult {
     if (!(budget.max_generated_video_beats >= 0 && Number.isInteger(budget.max_generated_video_beats))) {
       failures.push("visual_budget.max_generated_video_beats must be a non-negative integer");
     }
+    const semanticSpriteBudget = budget.max_semantic_sprite_beats ?? 0;
+    if (!(semanticSpriteBudget >= 0 && Number.isInteger(semanticSpriteBudget))) {
+      failures.push("visual_budget.max_semantic_sprite_beats must be a non-negative integer");
+    }
+    if (semanticSpriteBudget > 1) {
+      failures.push("visual_budget.max_semantic_sprite_beats cannot exceed 1");
+    }
   }
   if (beats.length === 0) failures.push("director plan has no beats");
 
   let generatedVideoDuration = 0;
   let generatedVideoBeats = 0;
   let signatureDuration = 0;
+  let semanticSpriteBeats = 0;
+  const semanticSpriteAssetIds = new Set<string>();
 
   beats.forEach((beat, index) => {
     const label = labelFor(beat, index);
@@ -217,6 +237,39 @@ export function auditDirectorPlan(plan: DirectorPlan): DirectorPlanAuditResult {
     if (beat.narrative_role === "evidence" && /generated/i.test(beat.asset_provenance)) {
       failures.push(`${label} cannot use generated media as factual evidence`);
     }
+    if (beat.semantic_sprite) {
+      semanticSpriteBeats += 1;
+      const sprite = beat.semantic_sprite;
+      for (const field of [
+        "asset_id",
+        "semantic_job",
+        "style_family_id",
+        "fallback",
+      ] as const) {
+        if (!hasText(sprite[field])) {
+          failures.push(`${label} semantic sprite is missing ${field}`);
+        }
+      }
+      if (sprite.motion_recipe !== "semantic-settle") {
+        failures.push(`${label} semantic sprite must use semantic-settle`);
+      }
+      if (sprite.single_use !== true) {
+        failures.push(`${label} semantic sprite must declare single_use true`);
+      }
+      if (hasText(sprite.asset_id)) {
+        if (semanticSpriteAssetIds.has(sprite.asset_id)) {
+          failures.push(`${label} reuses semantic sprite asset ${sprite.asset_id}`);
+        } else {
+          semanticSpriteAssetIds.add(sprite.asset_id);
+        }
+      }
+      if (beat.narrative_role === "evidence") {
+        failures.push(`${label} cannot use a semantic sprite as evidence`);
+      }
+      if (!(beat.visual_mode === "hybrid" || beat.visual_mode === "generated-still")) {
+        failures.push(`${label} semantic sprite requires hybrid or generated-still visual_mode`);
+      }
+    }
     if (beat.intensity === "signature") signatureDuration += duration;
     if (
       index > 0 &&
@@ -243,6 +296,12 @@ export function auditDirectorPlan(plan: DirectorPlan): DirectorPlanAuditResult {
         `generated video uses ${generatedVideoBeats} beats, above the ${plan.visual_budget.max_generated_video_beats} beat budget`,
       );
     }
+    const semanticSpriteBudget = plan.visual_budget.max_semantic_sprite_beats ?? 0;
+    if (semanticSpriteBeats > semanticSpriteBudget) {
+      failures.push(
+        `semantic sprites use ${semanticSpriteBeats} beats, above the ${semanticSpriteBudget} beat budget`,
+      );
+    }
     if (signatureDuration / plan.duration_sec > 0.2) {
       warnings.push("signature beats occupy more than 20% of the video");
     }
@@ -259,6 +318,7 @@ export function auditDirectorPlan(plan: DirectorPlan): DirectorPlanAuditResult {
       `Status: ${passed ? "PASS" : "FAIL"}`,
       `Beats: ${beats.length}`,
       `Generated video: ${generatedVideoDuration.toFixed(1)}s across ${generatedVideoBeats} beat(s)`,
+      `Semantic sprites: ${semanticSpriteBeats} beat(s)`,
       "",
       "## Failures",
       failures.length ? failures.map((item) => `- ${item}`).join("\n") : "- none",

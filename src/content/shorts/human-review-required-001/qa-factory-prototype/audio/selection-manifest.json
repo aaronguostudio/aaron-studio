@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-04T06:34:15Z",
+  "project": "qa-factory-prototype",
+  "creativeIntent": "A confident QA-machine cue abruptly loses authority when the human rejects the work. Music carries the setup; three dry mechanical events carry the joke; there is no narration.",
+  "durationSec": 8,
+  "timeline": [
+    {
+      "outputStartSec": 0,
+      "outputEndSec": 4.6,
+      "source": "../../audio/music-selected.m4a",
+      "sourceStartSec": 15,
+      "sourceEndSec": 19.6,
+      "processing": [
+        "+3 dB before premaster",
+        "sample-level hard cut at 4.600s",
+        "no fade-out"
+      ]
+    },
+    {
+      "outputStartSec": 0.7,
+      "outputEndSec": 0.855,
+      "source": "foley-scan.wav",
+      "role": "inspection scan"
+    },
+    {
+      "outputStartSec": 3.15,
+      "outputEndSec": 3.33,
+      "source": "foley-stamp.wav",
+      "role": "PASSED stamp"
+    },
+    {
+      "outputStartSec": 4.6,
+      "outputEndSec": 4.92,
+      "source": "foley-clunk.wav",
+      "role": "human-triggered trap-door clunk"
+    },
+    {
+      "outputStartSec": 4.924583,
+      "outputEndSec": 8,
+      "source": "digital silence",
+      "role": "deadpan hold"
+    }
+  ],
+  "mastering": {
+    "method": "fixed linear gain with a safety limiter",
+    "finalGainDb": 4.4,
+    "limiterCeilingLinear": 0.841395,
+    "limiterEquivalentCeilingDbfs": -1.5,
+    "adaptiveCompression": false
+  },
+  "outputs": [
+    {
+      "path": "final-mix.wav",
+      "role": "render master",
+      "sha256": "ef05ca933326c2f348234c866c96585811fb4d287fac54ba7c87e6631565623d",
+      "codec": "pcm_s24le",
+      "sampleRateHz": 48000,
+      "channels": 2,
+      "durationSec": 8
+    },
+    {
+      "path": "final-mix.m4a",
+      "role": "audition and lightweight render source",
+      "sha256": "3716366637671610cffadf4fd6c9602190b806e72b39d61dae58b093a8aace5a",
+      "codec": "aac",
+      "sampleRateHz": 48000,
+      "channels": 2,
+      "durationSec": 8
+    }
+  ]
+}

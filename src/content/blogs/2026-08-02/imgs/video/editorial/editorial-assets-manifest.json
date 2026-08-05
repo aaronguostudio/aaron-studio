@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "created_for": "Should You Read AI-Generated Code? — editorial enhancement pass",
+  "provider": "Codex built-in image generation",
+  "model": "not exposed by the built-in tool",
+  "transparency_method": "Flat #00ff00 chroma-key generation followed by remove_chroma_key.py with border auto-key, soft matte, threshold 12/220, and despill.",
+  "style_family_id": "clean-indigo-editorial-v2",
+  "rights": "owned-generated",
+  "assets": [
+    {
+      "id": "generated:mitchell-editorial-portrait-v1",
+      "narrative_job": "Humanize the opening disagreement while the verified quotation remains the evidence.",
+      "prompt": "A recognizable, tasteful editorial bust portrait of programmer Mitchell Hashimoto, facing frame-right, rendered as refined hand-painted cut-paper relief with subtle ink engraving. Deep indigo, blue-grey, charcoal, and warm ivory only; mature magazine illustration; one complete isolated silhouette; no text, logo, watermark, props, shadow, sticker border, or green subject color; perfectly flat #00ff00 background for removal.",
+      "source_path": "mitchell-portrait-v1-source.png",
+      "source_sha256": "71370f7685a93284ff7d060cce494604fd6da3537c8967483cb69bbbf327e9d2",
+      "output_path": "mitchell-portrait-v1.png",
+      "output_sha256": "43f8bbf39bdc83e356061b1cea38525557c7b89dad53a0482740e1fea5d1cbab",
+      "render_path": "../../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/editorial/mitchell-portrait-v1.png",
+      "render_sha256": "981550ff3dae94e5f34dfe9be0a784f669a4a6b16d0466d636ae1e917bb73f7e",
+      "alpha_qa": {"status": "pass", "transparent_corners": true, "green_fringe_pixels": 0}
+    },
+    {
+      "id": "generated:uncle-bob-editorial-portrait-v1",
+      "narrative_job": "Humanize the opening disagreement while the verified quotation remains the evidence.",
+      "prompt": "A recognizable, tasteful editorial bust portrait of Robert C. Martin, known as Uncle Bob, facing frame-left, with his older age, bald head, white beard, mustache, and glasses shown without caricature. Refined hand-painted cut-paper relief with subtle ink engraving; deep indigo, blue-grey, charcoal, and warm ivory only; no text, logo, watermark, props, shadow, sticker border, or green subject color; perfectly flat #00ff00 background for removal.",
+      "source_path": "uncle-bob-portrait-v1-source.png",
+      "source_sha256": "ef5e05589be4b3129d2edd5488f18c00d58aee9163f8afe6d35c004940eef509",
+      "output_path": "uncle-bob-portrait-v1.png",
+      "output_sha256": "44ed572adb037e6de11971e6d4bef296323a1b7caab4ae85498e97eaafbe4c9f",
+      "render_path": "../../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/editorial/uncle-bob-portrait-v1.png",
+      "render_sha256": "97665c4d6167ff18a3ddcbef12cd35ac9aa81593819dc13d3be70d8d90244362",
+      "alpha_qa": {"status": "pass", "transparent_corners": true, "green_fringe_pixels": 0}
+    },
+    {
+      "id": "generated:read-verify-instruments-v1",
+      "narrative_job": "Make the two legitimate community costs tangible without replacing the explanatory comparison.",
+      "prompt": "One balanced two-object editorial composition: an open indigo code folio and magnifying lens on the left, a compact indigo verification instrument with brass calibration dials and ivory test slips on the right, joined by one thin brass bridge. Mature tactile editorial still life; deep indigo, blue-grey, charcoal, muted brass, and warm ivory; no readable text, logos, people, hands, shadows, glow, or sticker border; perfectly flat #00ff00 background for removal.",
+      "source_path": "read-verify-instruments-v1-source.png",
+      "source_sha256": "f314756375e46cf867125ca1116148ff0006fec721ab3fd36a5308ead4b7a9ad",
+      "output_path": "read-verify-instruments-v1.png",
+      "output_sha256": "ceaf56b51f7fc62a428a88f132e6548bdf021c90da39f7f034e1c2d274f4d4fa",
+      "render_path": "../../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/editorial/read-verify-instruments-v1.png",
+      "render_sha256": "ceaf56b51f7fc62a428a88f132e6548bdf021c90da39f7f034e1c2d274f4d4fa",
+      "alpha_qa": {"status": "pass", "transparent_corners": true, "green_fringe_pixels": 0}
+    }
+  ]
+}

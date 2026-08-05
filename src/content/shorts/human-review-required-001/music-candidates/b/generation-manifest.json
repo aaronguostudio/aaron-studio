@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-08-04T06:05:11.162Z",
+  "title": "Human Review Required 001 — Candidate B — Dry Acoustic Deadpan",
+  "theme": "paper-moon",
+  "visualStyle": "ink-current",
+  "prompt": "Instrumental only. Original 24-second dry acoustic deadpan cue for a self-critical AI build postmortem. The emotional arc is dry confidence, abrupt embarrassment, evidence review, then a lucid human rule. Use a close dry upright bass played mostly arco, sparse prepared upright-piano notes with soft felted attacks, one low bass-clarinet breath tone, and a very small natural room. The humor must come from timing and withheld notes, never from novelty instruments. Leave generous space for English voiceover. Structure: 0.0–3.8 seconds, poised mock-serious confidence from one low bowed bass line and two plain piano notes; 3.8–7.2 seconds, stop almost completely, leaving a single faint bass-clarinet breath and uncomfortable room air; 7.2–15.8 seconds, resume with sparse dry acoustic questioning, using only two short upright-bass pizzicato notes as punctuation; 15.8–20.8 seconds, introduce one warm but unresolved piano interval; 20.8–24.0 seconds, one final dry low upright-bass pluck followed by obvious silence. No vocals, no spoken words, no choir, no jaunty rhythm, no swing, no jazz solo, no comedy bass walk, no ukulele, no marimba, no cartoon pluck, no corporate music, no UI sound, no lo-fi beat, no electronic pulse, no trailer swell, no impact, no bright melody, no recognizable tune, and no imitation of any artist or existing score.",
+  "compositionPlan": null,
+  "requestedDurationSec": 24,
+  "actualAudioDurationSec": 24.024,
+  "model": "music_v2",
+  "songId": "SnFlUsOCkAk3pCwoo2UG",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/shorts/human-review-required-001/music-candidates/b/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/shorts/human-review-required-001/music-candidates/b/preview.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": null,
+  "audioAnalysisVersion": null,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication.",
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "kind": "music"
+  }
+}

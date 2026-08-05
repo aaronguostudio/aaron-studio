@@ -91,6 +91,48 @@ import {
   GUIZANG_HYBRID_FULL_FPS,
   guizangHybridFullDurationFrames,
 } from "./FdeGuizangHybridFullFilm";
+import {
+  AuthorityBoundaryContractPrototype,
+  AuthorityBoundaryCorePrototype,
+  AuthorityBoundaryFullFilm,
+  AUTHORITY_BOUNDARY_FPS,
+  authorityBoundaryContractDurationFrames,
+  authorityBoundaryCoreDurationFrames,
+  authorityBoundaryFullDurationFrames,
+} from "./AuthorityBoundaryVideo";
+import {
+  AuthorityBoundaryIndigoPrototype,
+  AUTHORITY_BOUNDARY_INDIGO_FPS,
+  authorityBoundaryIndigoDurationFrames,
+} from "./AuthorityBoundaryIndigoPrototype";
+import {
+  AuthorityBoundaryConceptPrototype,
+  AUTHORITY_BOUNDARY_CONCEPT_FPS,
+  authorityBoundaryConceptDurationFrames,
+} from "./AuthorityBoundaryConceptPrototype";
+import {
+  AuthorityBoundaryFinalVideo,
+  AUTHORITY_BOUNDARY_FINAL_FPS,
+  authorityBoundaryFinalDurationFrames,
+} from "./AuthorityBoundaryFinalVideo";
+import {
+  AuthorityBoundaryLongformVideo,
+  AuthorityBoundaryLongformVideoV4,
+  AuthorityBoundaryLongformVideoV5,
+  AUTHORITY_BOUNDARY_LONGFORM_FPS,
+  authorityBoundaryLongformDurationFrames,
+  authorityBoundaryLongformV4DurationFrames,
+} from "./AuthorityBoundaryLongformVideo";
+import {
+  AuthorityBoundaryThumbnailA,
+  AuthorityBoundaryThumbnailB,
+  AuthorityBoundaryThumbnailC,
+  AuthorityBoundaryThumbnailD,
+} from "./AuthorityBoundaryLongformThumbnails";
+import {
+  AUTHORITY_BOUNDARY_CONCEPT_RUNTIME,
+  AUTHORITY_BOUNDARY_FINAL_RUNTIME,
+} from "./editorial/SemanticSpriteRuntimeRegistry";
 import { getIntroHookDuration } from "./components/IntroHook";
 import { getContentHookDuration } from "./components/ContentHook";
 import { getCoverCardDuration } from "./components/CoverCard";
@@ -108,6 +150,133 @@ const defaultProps: VideoInputProps = {
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="AuthorityBoundaryThumbnailA"
+        component={AuthorityBoundaryThumbnailA}
+        durationInFrames={1}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryThumbnailB"
+        component={AuthorityBoundaryThumbnailB}
+        durationInFrames={1}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryThumbnailC"
+        component={AuthorityBoundaryThumbnailC}
+        durationInFrames={1}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryThumbnailD"
+        component={AuthorityBoundaryThumbnailD}
+        durationInFrames={1}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryLongformFinal"
+        component={AuthorityBoundaryLongformVideo}
+        durationInFrames={authorityBoundaryLongformDurationFrames()}
+        fps={AUTHORITY_BOUNDARY_LONGFORM_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryLongformV4"
+        component={AuthorityBoundaryLongformVideoV4}
+        durationInFrames={authorityBoundaryLongformV4DurationFrames()}
+        fps={AUTHORITY_BOUNDARY_LONGFORM_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryLongformV5"
+        component={AuthorityBoundaryLongformVideoV5}
+        durationInFrames={authorityBoundaryLongformV4DurationFrames()}
+        fps={AUTHORITY_BOUNDARY_LONGFORM_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id={AUTHORITY_BOUNDARY_FINAL_RUNTIME.compositionId}
+        component={AuthorityBoundaryFinalVideo}
+        durationInFrames={authorityBoundaryFinalDurationFrames()}
+        fps={AUTHORITY_BOUNDARY_FINAL_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id={AUTHORITY_BOUNDARY_CONCEPT_RUNTIME.compositionId}
+        component={AuthorityBoundaryConceptPrototype}
+        durationInFrames={authorityBoundaryConceptDurationFrames(
+          AUTHORITY_BOUNDARY_CONCEPT_FPS,
+        )}
+        fps={AUTHORITY_BOUNDARY_CONCEPT_RUNTIME.fps}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryIndigoPrototype"
+        component={AuthorityBoundaryIndigoPrototype}
+        durationInFrames={authorityBoundaryIndigoDurationFrames(
+          AUTHORITY_BOUNDARY_INDIGO_FPS,
+        )}
+        fps={AUTHORITY_BOUNDARY_INDIGO_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryCorePrototype"
+        component={AuthorityBoundaryCorePrototype}
+        durationInFrames={authorityBoundaryCoreDurationFrames(
+          AUTHORITY_BOUNDARY_FPS,
+        )}
+        fps={AUTHORITY_BOUNDARY_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryContractPrototype"
+        component={AuthorityBoundaryContractPrototype}
+        durationInFrames={authorityBoundaryContractDurationFrames(
+          AUTHORITY_BOUNDARY_FPS,
+        )}
+        fps={AUTHORITY_BOUNDARY_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="AuthorityBoundaryFullFilm"
+        component={AuthorityBoundaryFullFilm}
+        durationInFrames={authorityBoundaryFullDurationFrames(
+          AUTHORITY_BOUNDARY_FPS,
+        )}
+        fps={AUTHORITY_BOUNDARY_FPS}
+        width={1920}
+        height={1080}
+      />
+
       <Composition
         id="SignalWorkflowBriefSample"
         component={SignalWorkflowBriefSample}

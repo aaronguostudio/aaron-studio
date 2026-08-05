@@ -1,0 +1,44 @@
+title: "Should You Read AI-Generated Code?"
+description: |
+  Mitchell Hashimoto reads the code produced by his AI agents. Robert C. Martin says he does not read the implementation at all. The disagreement sounds fundamental—but both positions still depend on human judgment.
+
+  This video examines what the two arguments actually say, why the software community split around them, what current industry experiments reveal, and why critical systems and systems of record require a stricter boundary.
+
+  My conclusion: review depth should follow authority. The more consequential a change is, the stronger the evidence—and the clearer the human ownership—must be.
+
+  Read the article:
+  https://www.aaronguo.com/blogs/what-ai-code-can-change?utm_source=youtube&utm_medium=video&utm_campaign=what-ai-code-can-change&utm_content=description
+
+  Sources discussed:
+  Mitchell Hashimoto: https://x.com/mitchellh/status/2072715852944957531
+  Robert C. Martin: https://x.com/unclebobmartin/status/2080257779395154409
+  OpenAI, Harness Engineering: https://openai.com/index/harness-engineering/
+  Cloudflare, AI code review: https://blog.cloudflare.com/ai-code-review/
+  Godot, 2026 contribution policy: https://godotengine.org/article/contribution-policy-2026/
+
+  Chapters:
+  00:00 Two opposite answers
+  00:44 Mitchell vs. Uncle Bob
+  01:54 What they agree on
+  02:33 Why the community split
+  04:15 Industry experiments
+  06:00 My critical-system boundary
+  07:24 Review depth follows authority
+  08:20 The strongest objection
+  08:57 Four better questions
+  09:28 Ownership is the invariant
+tags:
+  - "AI generated code"
+  - "AI coding"
+  - "code review"
+  - "Mitchell Hashimoto"
+  - "Uncle Bob"
+  - "Robert C Martin"
+  - "software engineering"
+  - "critical systems"
+  - "system of record"
+  - "engineering accountability"
+  - "AI agents"
+category: "28"
+language: "en"
+privacy: "unlisted"

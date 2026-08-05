@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "strategy": "authored-arc-with-selective-accents",
+  "music": [
+    {
+      "id": "opening-ground",
+      "global_start_sec": 0,
+      "global_end_sec": 72.8,
+      "asset": "fde-full-film/music-full-v1.mp3",
+      "source_start_sec": 0,
+      "fade_in_sec": 0.25,
+      "fade_out_sec": 7,
+      "purpose": "Establish seriousness, then leave before the detailed quality gates."
+    },
+    {
+      "id": "common-ground-breath",
+      "global_start_sec": 108,
+      "global_end_sec": 154.032,
+      "asset": "authority-boundary-v5/calm-chamber.mp3",
+      "source_start_sec": 0,
+      "fade_in_sec": 8,
+      "fade_out_sec": 8,
+      "purpose": "Enter ahead of the common-ground turn and keep the chapter reflective rather than tense."
+    },
+    {
+      "id": "industry-pressure",
+      "global_start_sec": 260,
+      "global_end_sec": 370,
+      "asset": "authority-boundary-v5/industry-strings.mp3",
+      "source_start_sec": 0,
+      "fade_in_sec": 10,
+      "fade_out_sec": 10,
+      "purpose": "Grow across OpenAI, Cloudflare, and Godot evidence, then release before Aaron's personal boundary."
+    },
+    {
+      "id": "questions-resolution",
+      "global_start_sec": 496,
+      "global_end_sec": 587.142517,
+      "asset": "authority-boundary-v5/resolution-strings.mp3",
+      "source_start_sec": 0,
+      "fade_in_sec": 10,
+      "fade_out_sec": 3,
+      "purpose": "Begin beneath the objection, open through the release questions, and resolve the end card."
+    }
+  ],
+  "effects": []
+}

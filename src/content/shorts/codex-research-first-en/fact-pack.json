@@ -1,0 +1,45 @@
+{
+  "facts": [
+    {
+      "id": "dify",
+      "claim": "Dify combines visual AI workflows, RAG, agents, model management, and observability in an application platform.",
+      "source": "https://github.com/langgenius/dify",
+      "confidence": "high",
+      "script_use": "repo comparison row"
+    },
+    {
+      "id": "flowise",
+      "claim": "Flowise is a visual platform for building AI agents.",
+      "source": "https://github.com/FlowiseAI/Flowise",
+      "confidence": "high",
+      "script_use": "repo comparison row"
+    },
+    {
+      "id": "langflow",
+      "claim": "Langflow builds and deploys AI-powered agents and workflows.",
+      "source": "https://github.com/langflow-ai/langflow",
+      "confidence": "high",
+      "script_use": "repo comparison row"
+    },
+    {
+      "id": "n8n",
+      "claim": "n8n is a visual workflow automation platform with native AI capabilities and extensive integrations.",
+      "source": "https://github.com/n8n-io/n8n",
+      "confidence": "high",
+      "script_use": "repo comparison row"
+    },
+    {
+      "id": "langfuse",
+      "claim": "Langfuse provides open-source LLM observability, evaluation, metrics, prompt management, and datasets.",
+      "source": "https://github.com/langfuse/langfuse",
+      "confidence": "high",
+      "script_use": "repo comparison row"
+    }
+  ],
+  "excluded_claims": [
+    {
+      "claim": "This technique saves 90% of tokens.",
+      "reason": "No measurement or source was supplied in the reference post."
+    }
+  ]
+}

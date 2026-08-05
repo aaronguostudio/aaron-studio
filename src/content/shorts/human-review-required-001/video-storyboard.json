@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "title": "AI Passed QA. Human Hated It.",
+  "duration_sec": 23,
+  "fps": 30,
+  "direction": {
+    "name": "Forensic Deadpan",
+    "style_family_id": "human-review-forensic-v1",
+    "visual_spine": "Actual source footage, dark editorial canvas, paper-white type, green machine-pass signal, coral human-review tension, fixed reading axes, no simulated UI.",
+    "motion_density": "balanced",
+    "music_strategy": "continuous",
+    "references": [
+      {
+        "id": "reference-x-codex",
+        "url": "https://x.com/BTCqzy1/status/2084268294115316141",
+        "borrow": "Immediate artifact, compressed state changes, and decisive editorial pacing.",
+        "avoid": "Copied UI or audio, unsupported claims, and presenting any recreation as a live capture."
+      },
+      {
+        "id": "reference-youtube-authenticity",
+        "url": "https://blog.youtube/creator-and-artist-stories/five-tips-to-master-shorts/",
+        "borrow": "A specific lived story and a recognizable human point of view.",
+        "avoid": "Manufactured creator persona and generic trend imitation."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01-machine-pass",
+      "title": "The machine passes its own work",
+      "start_sec": 0,
+      "end_sec": 7.8,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "structured",
+      "purpose": "Establish the real artifact and verified delivery checks before human judgment enters.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Actual source video plus PASSED QA and Aaron identity visible at frame zero.",
+      "first_change_sec": 0.7,
+      "motion_recipes": ["crossfade"],
+      "content": ["source video", "PASSED QA", "1080p / 60 fps", "-16.2 LUFS", "0 decode errors"],
+      "beats": [
+        { "at_sec": 0, "visual": "source video and PASSED QA", "action": "hold" },
+        { "at_sec": 0.7, "visual": "1080p / 60 fps", "action": "crossfade" },
+        { "at_sec": 1.8, "visual": "-16.2 LUFS", "action": "crossfade" },
+        { "at_sec": 2.9, "visual": "0 decode errors", "action": "crossfade" }
+      ],
+      "music_cue": "Confident restrained documentary opening under narration."
+    },
+    {
+      "id": "s02-human-feedback",
+      "title": "The human watches",
+      "start_sec": 7.8,
+      "end_sec": 10.7,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Give the human-review pivot room to land before revealing the verdict.",
+      "entry_mode": "meaningful",
+      "entry_visual": "THEN THE HUMAN WATCHED IT already owns the frame.",
+      "first_change_sec": 1.1,
+      "motion_recipes": ["focus-shift"],
+      "content": ["THEN THE HUMAN WATCHED IT"],
+      "beats": [
+        { "at_sec": 0, "visual": "THEN THE HUMAN WATCHED IT", "action": "hold" },
+        { "at_sec": 1.1, "visual": "HUMAN / WATCHED", "action": "focus" }
+      ],
+      "music_cue": "Near-silence and one awkward low harmonic."
+    },
+    {
+      "id": "s03-forensic-evidence",
+      "title": "The human verdict",
+      "start_sec": 10.7,
+      "end_sec": 14.8,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Present the approved feedback as the evidence the checklist could not measure.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The complete first feedback line is already readable at the spoken quote.",
+      "first_change_sec": 2,
+      "motion_recipes": ["focus-shift"],
+      "content": ["The music sucks.", "It obviously looks fake."],
+      "beats": [
+        { "at_sec": 0, "visual": "The music sucks.", "action": "hold" },
+        { "at_sec": 2, "visual": "It obviously looks fake.", "action": "focus" }
+      ],
+      "music_cue": "Near-silence with one dry tonal detail after the second line."
+    },
+    {
+      "id": "s04-verdict",
+      "title": "The verdict changes",
+      "start_sec": 14.8,
+      "end_sec": 16.5,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Compress the complete argument into one semantic contrast.",
+      "entry_mode": "meaningful",
+      "entry_visual": "QA: PASSED · SHIP: BLOCKED is readable on a quiet stage.",
+      "first_change_sec": 0.65,
+      "motion_recipes": ["focus-shift"],
+      "content": ["QA: PASSED · SHIP: BLOCKED", "HUMANLY WRONG"],
+      "beats": [
+        { "at_sec": 0, "visual": "QA: PASSED · SHIP: BLOCKED", "action": "hold" },
+        { "at_sec": 0.65, "visual": "HUMANLY WRONG", "action": "focus" }
+      ],
+      "music_cue": "Dry muted pluck lands on HUMANLY WRONG."
+    },
+    {
+      "id": "s05-missing-gates",
+      "title": "The missing release gates",
+      "start_sec": 16.5,
+      "end_sec": 20.6,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Convert the joke into a repeatable operating model.",
+      "entry_mode": "meaningful",
+      "entry_visual": "TASTE, TRUST, and TRUTH are visible as an equal muted scaffold.",
+      "first_change_sec": 0.6,
+      "motion_recipes": ["focus-shift"],
+      "content": ["TASTE", "TRUST", "TRUTH"],
+      "beats": [
+        { "at_sec": 0, "visual": "full muted scaffold", "action": "hold" },
+        { "at_sec": 0.6, "visual": "TASTE", "action": "focus" },
+        { "at_sec": 1.7, "visual": "TRUST", "action": "focus" },
+        { "at_sec": 2.8, "visual": "TRUTH", "action": "focus" }
+      ],
+      "music_cue": "Small warm harmonic clarification."
+    },
+    {
+      "id": "s06-release-rule",
+      "title": "Human review required",
+      "start_sec": 20.6,
+      "end_sec": 23,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Close with one quotable release rule and the series identity.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The complete rule and HUMAN REVIEW REQUIRED mark are readable immediately.",
+      "first_change_sec": 0.5,
+      "motion_recipes": ["crossfade"],
+      "content": ["If only the machine likes it, it doesn't ship.", "HUMAN REVIEW REQUIRED", "Aaron Guo"],
+      "beats": [
+        { "at_sec": 0, "visual": "complete release rule", "action": "hold" },
+        { "at_sec": 0.5, "visual": "series mark", "action": "crossfade" }
+      ],
+      "music_cue": "One dry low pluck and final silence."
+    }
+  ]
+}

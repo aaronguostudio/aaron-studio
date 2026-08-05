@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "title": "QA Factory — Trapdoor Test",
+  "duration_sec": 8,
+  "product_promise": "A real technically valid video is celebrated by a miniature QA factory, then silently rejected by one human hand and one trapdoor.",
+  "visual_budget": {
+    "remotion_motion_target_ratio": 0.72,
+    "evidence_or_still_target_ratio": 0.28,
+    "max_generated_video_ratio": 0,
+    "max_generated_video_beats": 0,
+    "max_semantic_sprite_beats": 0
+  },
+  "beats": [
+    {
+      "id": "f01-machine-celebrates",
+      "start_sec": 0,
+      "end_sec": 4.5,
+      "narrative_role": "evidence",
+      "visual_mode": "source-evidence",
+      "intensity": "signature",
+      "entry_mode": "meaningful",
+      "entry_visual": "The complete cardboard factory and the actual old video playing inside a physical product tile are visible at frame zero.",
+      "first_visual_change_sec": 0.3,
+      "visual_reason": "The real artifact must precede the joke so the rejection feels like honest self-critique rather than a hypothetical skit.",
+      "camera_or_motion": "A locked top-down camera holds one world while the product tile travels up the center conveyor; three physical QA lamps turn green, a paper PASSED stamp lands, and a few paper scraps celebrate.",
+      "asset_id": "source-codex-demo",
+      "asset_provenance": "Owned Aaron Studio source master SHA-256 dffda12d3f90e2432c0d451cf2df0574bd2f571b0fcce54387c0b573bccc734c, embedded as the screen texture of a clearly theatrical paper product tile.",
+      "generated_video_sec": 0,
+      "sound_cue": "Selected Dry Acoustic Deadpan music begins immediately; synthesized scan lands at 0.700s and synthesized stamp at 3.150s.",
+      "transition_out": "No cut: the same product tile enters the human-review station on the same conveyor axis.",
+      "fallback": "Image-sequence states at 0.00s and 3.15s preserve the real video tile, three green checks, PASSED stamp, and continuous factory geography."
+    },
+    {
+      "id": "f02-human-pause",
+      "start_sec": 4.5,
+      "end_sec": 6,
+      "narrative_role": "challenge",
+      "visual_mode": "hybrid",
+      "intensity": "structured",
+      "entry_mode": "bridge",
+      "entry_visual": "The product tile remains in the same review bay as the paper human hand enters from above.",
+      "first_visual_change_sec": 0.1,
+      "visual_reason": "A silent human action replaces verbal judgment and creates the awkward pause that makes the trapdoor funny.",
+      "camera_or_motion": "The paper hand enters on one short ease-out, stops over the product, touches the red reject control, and then holds completely still.",
+      "asset_id": "paper-human-hand",
+      "asset_provenance": "Built-in image-generation paper-hand asset with local alpha extraction, SHA-256 705bfad22a1b857b041b3375911383d0a16e38973a8c7d3414ead51fb9e6a764; actor prop only, not Aaron's likeness and not evidence.",
+      "generated_video_sec": 0,
+      "sound_cue": "At 4.600s the music stops at the sample boundary and the synthesized latch clunks; no voice or reaction sound follows.",
+      "transition_out": "The hand and product hold in the same frame; the unlocked trapdoor becomes the next action without a scene cut.",
+      "fallback": "A 4.80s still keeps the hand, product tile, red control, and HUMAN REVIEW prop label in the same geography."
+    },
+    {
+      "id": "f03-nope-drop",
+      "start_sec": 6,
+      "end_sec": 8,
+      "narrative_role": "resolve",
+      "visual_mode": "motion",
+      "intensity": "signature",
+      "entry_mode": "bridge",
+      "entry_visual": "The product tile is still centered over the now-unlocked trapdoor while the human hand remains visible.",
+      "first_visual_change_sec": 0.05,
+      "visual_reason": "The physical consequence is the punchline; the viewer should see cause, fall, and result without reading an explanation.",
+      "camera_or_motion": "The trapdoor rotates 82 degrees on its X hinge using the experimental three-d-flip recipe; the product tile falls on the protected center axis and reveals the physical red NOPE stencil beneath it.",
+      "asset_id": "factory-trapdoor-stage",
+      "asset_provenance": "Deterministic Remotion geometry over the authored factory background; no generated video, simulated UI, or factual claim is introduced.",
+      "generated_video_sec": 0,
+      "sound_cue": "Digital silence from the opening hinge through the final NOPE hold.",
+      "transition_out": "Hold the open chute and NOPE stencil through frame 239; no end card or black tail.",
+      "fallback": "Image-sequence states at 6.20s and 6.75s show the opening door, falling product, and final NOPE state."
+    }
+  ]
+}
+

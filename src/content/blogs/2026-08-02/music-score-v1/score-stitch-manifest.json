@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "title": "Authority in the Loop",
+  "created_for": "Should You Read AI-Generated Code?",
+  "provider": "Eleven Music API",
+  "model": "music_v2",
+  "strategy": "continuous score with chapter-authored musical changes and broad Remotion volume curves",
+  "movements": [
+    {
+      "path": "music.mp3",
+      "duration_sec": 457.512,
+      "sha256": "abf56a1d5bedc71bedc5f3869c91c6b7ac68d398264efbba74c79c7bff4e32f3",
+      "generation_manifest": "generation-manifest.json"
+    },
+    {
+      "path": "continuation/music.mp3",
+      "duration_sec": 132.912,
+      "sha256": "246e6e52cdbd90d5f358a40e8b128bc66a53087b0d4017b9021df6022e828666",
+      "generation_manifest": "continuation/generation-manifest.json"
+    }
+  ],
+  "stitch": {
+    "crossfade_sec": 6,
+    "crossfade_curve": "qsin equal-power",
+    "trim_sec": 584.384,
+    "final_fade_start_sec": 581.384,
+    "final_fade_duration_sec": 3
+  },
+  "output": {
+    "path": "authority-in-the-loop-score-v1.m4a",
+    "render_path": "../../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/authority-in-the-loop-score-v1.m4a",
+    "duration_sec": 584.384,
+    "codec": "AAC",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "sha256": "1b2652b03a0d697ffee722b6f49fe60e1a9fdbee0f59f34a0a37728570c474e1"
+  },
+  "source_qa": {
+    "integrated_lufs": -16.6,
+    "loudness_range_lu": 5.7,
+    "true_peak_dbtp": -0.5,
+    "leading_silence": "none detected above the 0.8-second gate",
+    "ending": "3-second authored fade; final 1.38 seconds below -45 dB"
+  },
+  "rights": {
+    "status": "needs-verification",
+    "note": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+  },
+  "asset_library": {
+    "policy": "ignore",
+    "scope": "project-specific",
+    "kind": "music"
+  }
+}

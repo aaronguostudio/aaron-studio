@@ -18,12 +18,12 @@ blank-stage rules, fallback coverage, and production readiness.
 | `licensed-footage-insert` | Short real-world B-roll with visible source and warm editorial overlay | prototype |
 | `actor-framework` | ACTOR framework build | available |
 | `brand-end-card` | Author identity, website, and a quiet closing lockup | available |
-| `editorial-statement` | Claim, question, title, payoff | prototype |
+| `editorial-statement` | Claim, question, title, payoff | available |
 | `data-hero` | One dominant number with supporting evidence | prototype |
 | `split-comparison` | Two ideas, states, or operating models | prototype |
 | `progressive-cards` | A small set that accumulates into a system | prototype |
 | `process-flow` | Stages, handoffs, and work progression | prototype |
-| `system-map` | Connected systems, actors, data, or decisions | prototype |
+| `system-map` | Connected systems, actors, data, or decisions | available |
 | `timeline` | Chronology, convergence, before and after | prototype |
 | `quote-source` | Quotation with visible provenance | prototype |
 | `custom-signature` | Rare 3D, shader, camera, or pixel peak | experimental |
@@ -103,6 +103,7 @@ recipe and at most two supporting recipes.
 | `camera-orbit` | Reveal structure through controlled 3D camera movement |
 | `shader-field` | Establish a rare generative visual world |
 | `ambient-cycle` | Sustain a periodic visual state without a visible loop seam |
+| `semantic-settle` | Introduce one transparent visual mnemonic with opacity and an 8–12px settle; no rotation, bounce, loop, or reuse |
 
 ## React Bits And Motion Mapping
 
@@ -120,6 +121,12 @@ Use React Bits and Motion as reference implementations only.
 Reject cursor, hover, scroll, draggable, and infinite-loop components for
 rendered video unless they are rewritten around frame time.
 
+Read `motion-craft-gate.md` before adding a recipe and
+`semantic-sprite-accents.md` before using `semantic-settle`. The recipe is
+available only with an asset manifest, alpha QA, encoded entrance/exit review,
+and the single-use planning contract; it is not permission to add an accent by
+default.
+
 ## Prototype Contract
 
 Before promoting a template to `available`:
@@ -134,3 +141,9 @@ Before promoting a template to `available`:
 8. Render frames immediately before and after every connector, endpoint, and
    stage-transition dependency.
 9. Change its registry status only after the prototype passes.
+
+`editorial-statement`, `system-map`, and `focus-shift` were promoted after the
+55-second Clean Indigo Editorial prototype passed the full contract: realistic
+copy density, entry/peak/exit stills, boundary strips, caption-safe review,
+encoded slow-motion inspection, static fallbacks, automated audits, and Aaron's
+visual approval on 2026-08-03.

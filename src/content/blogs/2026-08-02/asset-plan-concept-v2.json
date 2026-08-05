@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "title": "What Is This Code Allowed to Change? — Final Video",
+  "duration_sec": 60.666667,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "clean-indigo-editorial-v2",
+  "asset_library": {
+    "queries": [
+      "transparent ledger notebook record book indigo sprite"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "c01-question",
+      "start_sec": 0,
+      "end_sec": 13.421,
+      "copy": "The debate over reading AI-generated code starts with the wrong question. Writing code does not grant authority over what a business treats as true.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-authority-framework"],
+      "source_ids": ["source-aaron-article"],
+      "status": "ready",
+      "provenance": "Owned frame-driven porcelain-and-indigo typography in AuthorityBoundaryConceptPrototype.tsx; no external image, clip, or generated media is used.",
+      "rights": "owned",
+      "fallback": "Deterministic static image-sequence plate using the same bounded copy and visual tokens."
+    },
+    {
+      "id": "c02-low-risk",
+      "start_sec": 13.421,
+      "end_sec": 17.926,
+      "copy": "For disposable work, I may judge the result and move on.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-authority-framework"],
+      "source_ids": ["source-aaron-article"],
+      "status": "ready",
+      "provenance": "Owned frame-driven statement and shared authority axis in AuthorityBoundaryConceptPrototype.tsx.",
+      "rights": "owned",
+      "fallback": "Static porcelain plate with the low-risk statement and disposable end of the authority axis."
+    },
+    {
+      "id": "c03-authority-boundary",
+      "start_sec": 17.926,
+      "end_sec": 30.651,
+      "copy": "When an agent touches a critical system or system of record, ask what the code is allowed to change—not who wrote it.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "asset_id": "generated:authority-ledger-v1",
+      "asset_path": "imgs/video/sprites/authority-ledger-v1.png",
+      "render_asset_path": "../../../../tiles/aaron-video-gen/remotion/public/authority-boundary/sprites/authority-ledger-v1.png",
+      "composition_id": "AuthorityBoundaryFinalVideo",
+      "usage_role": "semantic-accent",
+      "semantic_job": "Give ‘system of record’ one brief concrete mnemonic without depicting a real system or implementation.",
+      "style_family_id": "clean-indigo-editorial-v2",
+      "manifest_path": "imgs/video/sprites/authority-ledger-v1-manifest.json",
+      "alpha_qa_status": "pass",
+      "fact_ids": ["fact-authority-framework", "fact-personal-boundary"],
+      "source_ids": ["source-aaron-article"],
+      "status": "ready",
+      "provenance": "Hybrid owned composition: the deterministic authority axis is implemented in AuthorityBoundaryConceptPrototype.tsx and assembled into AuthorityBoundaryFinalVideo.tsx; the one-time ledger sprite was generated with Codex built-in image generation then chroma-keyed locally. Exact prompt, hashes, alpha QA, and usage are recorded in imgs/video/sprites/authority-ledger-v1-manifest.json. The ledger is illustrative, not evidence or a depiction of a real system.",
+      "rights": "generated",
+      "fallback": "Static authority-continuum plate with disposable, critical-system, and system-of-record labels; the scene remains complete with the optional ledger sprite removed."
+    },
+    {
+      "id": "c04-review-rule",
+      "start_sec": 30.651,
+      "end_sec": 44.675,
+      "copy": "Review depth follows authority. Low-risk work can move fast; critical changes need a named human who understands intent, risk, and recovery.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-authority-framework", "fact-personal-boundary"],
+      "source_ids": ["source-aaron-article"],
+      "status": "ready",
+      "provenance": "Owned deterministic editorial typography in AuthorityBoundaryConceptPrototype.tsx, using only the concise operating rule locked in youtube-script-concept-v2.md.",
+      "rights": "owned",
+      "fallback": "Static rule plate with ‘Review depth follows authority’ and the three human responsibilities."
+    },
+    {
+      "id": "c05-ownership",
+      "start_sec": 44.675,
+      "end_sec": 55.666667,
+      "copy": "AI can propose the change. It cannot own the consequence. Before you ship, ask what this code can change and who owns the result.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": ["fact-authority-framework", "fact-personal-boundary"],
+      "source_ids": ["source-aaron-article"],
+      "status": "ready",
+      "provenance": "Owned deterministic split-field and final-question layout in AuthorityBoundaryConceptPrototype.tsx; no generated or external media is used as evidence.",
+      "rights": "owned",
+      "fallback": "Static split porcelain-and-indigo ownership statement followed by a static final-question plate."
+    },
+    {
+      "id": "c06-brand-end-card",
+      "start_sec": 55.666667,
+      "end_sec": 60.666667,
+      "copy": "Aaron Guo · AI-native builder · Human-first thinker · aaronguo.com",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "asset_path": "../../../../assets/aaron-logo-assets/ag-logo.png",
+      "fact_ids": [],
+      "source_ids": [],
+      "status": "ready",
+      "provenance": "Owned Aaron Studio logo and deterministic porcelain-and-indigo brand lockup in AuthorityBoundaryFinalVideo.tsx. The renderer copy is byte-identical to assets/aaron-logo-assets/ag-logo.png (SHA-256 c456573e83d6a49e5d93ea71f8635687c3b90b8044851f97c1e0dc38193a4491).",
+      "rights": "owned",
+      "fallback": "Text-only Aaron Guo lockup on the same warm porcelain field."
+    }
+  ]
+}

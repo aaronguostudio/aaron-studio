@@ -55,6 +55,29 @@ more physical. It must never impersonate factual evidence, contain essential
 text, or carry a claim that needs a source. Record it as generated and retain a
 still or Remotion fallback.
 
+### Medium Mix: Editorial Image Resets
+
+For a 5–10 minute serious essay, audit two to four moments where selected scene
+media could add information or recognition: a person under discussion, a
+tangible object, a source artifact, or a conceptual reset. This is not a quota.
+Reject every candidate that merely fills space, but require an explicit image
+decision when typography and diagrams have carried the film for roughly 60–90
+seconds without a change of medium.
+
+Portraits, object studies, and larger editorial stills are **scene media**, not
+semantic sprites. They may own a `people-hero`, image, or hybrid composition and
+may be reused only when continuity gives the reuse a clear job. A generated
+portrait must be visibly illustrative, recorded as generated, subordinate to
+verified attribution, and removable through a text-only fallback. Generated
+scene media cannot serve as source evidence.
+
+Semantic sprite accents have a separate zero-default budget. Begin with
+`max_semantic_sprite_beats: 0`; raise it to `1` only when one unambiguous object
+makes an abstract phrase easier to retain, matches real negative space and the
+selected visual spine, and can disappear without changing the argument. Record
+why the accepted candidate earned the beat and why alternatives were rejected.
+Never use a semantic accent as evidence.
+
 ## Layout Rule
 
 Do not ask a model to invent page geometry on every scene. Choose a registered

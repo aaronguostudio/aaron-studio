@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-04T06:34:15Z",
+  "project": "qa-factory-prototype",
+  "sources": [
+    {
+      "id": "music-selected",
+      "kind": "music",
+      "path": "../../audio/music-selected.m4a",
+      "sha256": "eaebda84b33cfcd197e60a9b4cf529572aa3ae5b86cfea8a39834bf331c5c671",
+      "durationSec": 23,
+      "codec": "aac",
+      "sampleRateHz": 48000,
+      "channels": 2,
+      "provenance": {
+        "selection": "Candidate B — Dry Acoustic Deadpan",
+        "provider": "Eleven Music",
+        "model": "music_v2",
+        "songId": "SnFlUsOCkAk3pCwoo2UG",
+        "originalGenerationManifest": "../../music-candidates/b/generation-manifest.json",
+        "parentSelectionManifest": "../../audio/selection-manifest.json"
+      },
+      "rightsGate": "Inherited from the parent selection manifest; reconfirm the active ElevenLabs paid-plan and Music terms before commercial publication."
+    },
+    {
+      "id": "foley-scan",
+      "kind": "programmatic-foley",
+      "path": "foley-scan.wav",
+      "sha256": "c01f192a8eca470716fb10df8d6e8c0d0da2bf3d6d8e84e12b6d3694c2a82ac9",
+      "durationSec": 0.155,
+      "recipe": "Two decaying sine pulses at 1040 Hz and 1480 Hz, with the second delayed 90 ms.",
+      "externalSamples": false
+    },
+    {
+      "id": "foley-stamp",
+      "kind": "programmatic-foley",
+      "path": "foley-stamp.wav",
+      "sha256": "4f04f737ccd495ca538267cdb244b089daa0024822271efb6fedc505ea6df713",
+      "durationSec": 0.18,
+      "recipe": "Seeded brown noise (2104), band-limited to 70–1500 Hz, mixed with a decaying 105 Hz oscillator.",
+      "externalSamples": false
+    },
+    {
+      "id": "foley-clunk",
+      "kind": "programmatic-foley",
+      "path": "foley-clunk.wav",
+      "sha256": "ddf24f6f907143b55b08d4eab26f6cf6eafa62ec70104b00c5e29e6fbadb6b6b",
+      "durationSec": 0.32,
+      "recipe": "Seeded brown noise (4610), band-limited to 45–900 Hz, mixed with decaying 68 Hz and 215 Hz oscillators.",
+      "externalSamples": false
+    }
+  ],
+  "reproducibility": {
+    "buildScript": "build-audio.sh",
+    "buildScriptSha256": "47553a8afc5f661ad6507ed76a71af0e283d94457aa3f43c831efa8e2f2fef64",
+    "ffmpegVersion": "8.1.1",
+    "networkRequired": false
+  }
+}

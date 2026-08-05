@@ -30,6 +30,10 @@ The target is not maximum motion. The target is authored attention:
 Remotion remains the deterministic render engine. The editorial system decides
 what the engine should render.
 
+Before accepting any new behavior, use `motion-craft-gate.md`. It adapts Emil
+Kowalski's purposeful animation discipline to a narration-led, deterministic
+video timeline and explicitly excludes interaction-only UI rules.
+
 ## Director Model
 
 Assign every scene one primary visual role.
@@ -62,6 +66,8 @@ Use one visual spine across the whole video:
 - one accent color at a time;
 - one texture and image-treatment family;
 - a small set of motion timings and easings.
+- semantic accents default to zero; when one is approved, it appears once and
+  belongs to the same style family as the film.
 
 Color must have a semantic job. Do not distribute unrelated accent colors
 across companies, framework letters, cards, or system layers merely to create
@@ -137,9 +143,13 @@ Rules:
 
 - narration always wins the mix;
 - duck music during speech and restore it only for intentional transitions;
+- prefer broad chapter-level gain curves over phrase-by-phrase pumping;
 - use sound effects to clarify a visual event, not decorate every movement;
 - record cue purpose, entry, exit, and source in `video-treatment.md`;
 - use only music with known usage rights and retain license or attribution data;
+- if rights are not yet confirmed, keep the scored version internal and mark it
+  as publication-blocked instead of treating the uncertainty as a creative vote
+  for silence;
 - public-domain composition does not imply that a particular recording is free
   to use;
 - review the final mix on headphones and a phone speaker.
@@ -238,6 +248,8 @@ experimental scene is involved.
 - Generating 20 images because an image quota says so.
 - Using a different visual style for every scene.
 - Applying the same fade-up recipe to every layout.
+- Adding a sprite or transition because a frame feels empty.
+- Scaling a text-bearing container so the letterforms distort during reveal.
 - Making every scene a card grid.
 - Hiding the whole layout until a late narration cue.
 - Importing a web animation that depends on hover or real time.

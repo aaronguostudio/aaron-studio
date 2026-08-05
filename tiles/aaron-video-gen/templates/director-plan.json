@@ -7,7 +7,8 @@
     "remotion_motion_target_ratio": 0.7,
     "evidence_or_still_target_ratio": 0.25,
     "max_generated_video_ratio": 0.1,
-    "max_generated_video_beats": 2
+    "max_generated_video_beats": 2,
+    "max_semantic_sprite_beats": 0
   },
   "beats": [
     {

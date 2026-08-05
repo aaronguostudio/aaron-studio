@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "title": "What Is This Code Allowed to Change? — Final Video",
+  "duration_sec": 60.666667,
+  "fps": 30,
+  "direction": {
+    "name": "Clean Indigo Editorial — Authority Continuum",
+    "style_family_id": "clean-indigo-editorial-v2",
+    "visual_spine": "Pure warm porcelain field, deep indigo as the sole accent, Georgia claims, mono metadata, quiet sans captions, one dominant reading axis, and a shared authority line that carries continuity without report chrome.",
+    "motion_density": "restrained",
+    "music_strategy": "none",
+    "references": [
+      {
+        "id": "concept-boundary",
+        "url": "video-concept-v2.md",
+        "borrow": "Five-beat argument, pure porcelain field, concise operating rule, and the center-divider-to-authority-axis transition contract.",
+        "avoid": "No status example, ruled background, field-journal chrome, dashboard surfaces, card walls, or dense crossfades."
+      },
+      {
+        "id": "rendered-composition",
+        "url": "tiles/aaron-video-gen/remotion/src/AuthorityBoundaryFinalVideo.tsx",
+        "borrow": "Exact narration alignment, frame-driven shared-axis motion, static camera, brief indigo ownership inversion, and registered quiet brand end card.",
+        "avoid": "Do not introduce camera decoration, external footage, or a second information hierarchy over an outgoing dense layout."
+      },
+      {
+        "id": "locked-spoken-argument",
+        "url": "youtube-script-concept-v2.md",
+        "borrow": "The narrow authority argument and its concise spoken progression from wrong question to accountable owner.",
+        "avoid": "Do not expand back into debate history, review taxonomy, implementation walkthroughs, or incident-like consequences."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "c01-question",
+      "title": "The Wrong Question",
+      "start_sec": 0,
+      "end_sec": 13.421,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Establish the familiar code-reading debate, then replace it with the missing distinction between writing code and business authority.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The full opening question is readable on porcelain at frame zero.",
+      "first_change_sec": 1.25,
+      "motion_recipes": ["focus-shift"],
+      "content": [
+        "Should we read AI-generated code?",
+        "Read the source · Trust the evidence",
+        "Writing code ≠ Authority"
+      ],
+      "beats": [
+        {"at_sec": 0, "visual": "opening question", "action": "hold"},
+        {"at_sec": 1.25, "visual": "two legitimate debate positions", "action": "focus"},
+        {"at_sec": 3.35, "visual": "opening question", "action": "strike"},
+        {"at_sec": 5.85, "visual": "writing-code-versus-authority statement", "action": "replace"},
+        {"at_sec": 9.15, "visual": "business truth qualifier", "action": "focus"},
+        {"at_sec": 12.48, "visual": "authority axis retained beneath clearing type", "action": "bridge"}
+      ],
+      "fallback_template": "image-sequence",
+      "music_cue": "Approved narration only; no music or sound effects."
+    },
+    {
+      "id": "c02-low-risk",
+      "title": "Failure Is Cheap",
+      "start_sec": 13.421,
+      "end_sec": 17.926,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Preserve the legitimate fast lane before the film introduces authoritative work.",
+      "entry_mode": "bridge",
+      "entry_visual": "The inherited axis and disposable marker remain visible beneath the complete low-risk statement.",
+      "first_change_sec": 0,
+      "motion_recipes": ["focus-shift"],
+      "content": [
+        "Move fast where failure is cheap",
+        "DISPOSABLE"
+      ],
+      "beats": [
+        {"at_sec": 0, "visual": "low-risk statement on the inherited authority axis", "action": "bridge"},
+        {"at_sec": 4, "visual": "disposable marker prepared to travel", "action": "resolve"}
+      ],
+      "fallback_template": "image-sequence",
+      "music_cue": "Approved narration only; no music or sound effects."
+    },
+    {
+      "id": "c03-authority-boundary",
+      "title": "Authority Changes the Decision",
+      "start_sec": 17.926,
+      "end_sec": 30.651,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make authority the variable that moves the review decision from disposable work to critical systems and systems of record.",
+      "entry_mode": "bridge",
+      "entry_visual": "The prior axis persists while its marker begins moving away from DISPOSABLE.",
+      "first_change_sec": 0.15,
+      "motion_recipes": ["connector-draw", "focus-shift", "semantic-settle"],
+      "semantic_sprite_ids": ["generated:authority-ledger-v1"],
+      "content": [
+        "DISPOSABLE",
+        "CRITICAL SYSTEM",
+        "SYSTEM OF RECORD",
+        "One bound system-of-record ledger sprite",
+        "Who wrote it?",
+        "What is this code allowed to change?"
+      ],
+      "beats": [
+        {"at_sec": 0, "visual": "shared authority axis", "action": "bridge"},
+        {"at_sec": 0.15, "visual": "authority marker", "action": "travel"},
+        {"at_sec": 1.074, "visual": "critical-system and system-of-record labels", "action": "reveal"},
+        {
+          "at_sec": 2.774,
+          "visual": "one small bound ledger in the right-side negative space",
+          "action": "reveal",
+          "target_asset_id": "generated:authority-ledger-v1",
+          "motion": {
+            "recipe": "semantic-settle",
+            "purpose": "explain",
+            "continuity_anchor": "The shared authority axis and right-side negative space remain fixed.",
+            "why_not_static": "The abstract phrase ‘system of record’ benefits from one brief concrete mnemonic at its narration cue.",
+            "duration_sec": 0.4,
+            "exit_duration_sec": 0.367,
+            "easing": "ease-out",
+            "loop": false,
+            "translate_px": 10,
+            "rotation_deg": 0
+          }
+        },
+        {"at_sec": 5.624, "visual": "bound ledger", "action": "clear", "target_asset_id": "generated:authority-ledger-v1"},
+        {"at_sec": 6.594, "visual": "Who wrote it?", "action": "de-emphasize"},
+        {"at_sec": 9.324, "visual": "What is this code allowed to change?", "action": "focus"},
+        {"at_sec": 11.954, "visual": "completed authority continuum", "action": "resolve"}
+      ],
+      "fallback_template": "image-sequence",
+      "music_cue": "Approved narration only; no music or sound effects."
+    },
+    {
+      "id": "c04-review-rule",
+      "title": "Review Depth Follows Authority",
+      "start_sec": 30.651,
+      "end_sec": 44.675,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Turn the authority boundary into one concise operating rule and three human responsibilities.",
+      "entry_mode": "bridge",
+      "entry_visual": "The rule is already entering while the inherited continuum recedes.",
+      "first_change_sec": 0,
+      "motion_recipes": ["focus-shift"],
+      "content": [
+        "Review depth follows authority",
+        "Low risk → move fast",
+        "Named human: intent · risk · recovery"
+      ],
+      "beats": [
+        {"at_sec": 0, "visual": "review-depth rule", "action": "bridge"},
+        {"at_sec": 3.249, "visual": "low-risk fast lane", "action": "focus"},
+        {"at_sec": 5.929, "visual": "named human", "action": "reveal"},
+        {"at_sec": 8.629, "visual": "INTENT", "action": "focus"},
+        {"at_sec": 10.469, "visual": "RISK", "action": "focus"},
+        {"at_sec": 12.049, "visual": "RECOVERY", "action": "focus"},
+        {"at_sec": 13.829, "visual": "complete operating rule", "action": "resolve"}
+      ],
+      "fallback_template": "image-sequence",
+      "music_cue": "Approved narration only; no music or sound effects."
+    },
+    {
+      "id": "c05-ownership",
+      "title": "Capability Is Not Ownership",
+      "start_sec": 44.675,
+      "end_sec": 55.666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Separate AI capability from consequence ownership and end on two release questions.",
+      "entry_mode": "bridge",
+      "entry_visual": "‘AI can propose the change’ is already visible as the prior rule clears.",
+      "first_change_sec": 0,
+      "motion_recipes": ["focus-shift"],
+      "content": [
+        "AI can propose the change",
+        "It cannot own the consequence",
+        "What can this code change? · Who owns the result?"
+      ],
+      "beats": [
+        {"at_sec": 0, "visual": "AI can propose the change", "action": "bridge"},
+        {"at_sec": 2.125, "visual": "indigo ownership field", "action": "reveal"},
+        {"at_sec": 2.425, "visual": "Cannot own the consequence", "action": "focus"},
+        {"at_sec": 4.475, "visual": "proposal statement", "action": "clear"},
+        {"at_sec": 4.975, "visual": "ownership field becomes center divider", "action": "reset"},
+        {"at_sec": 5.605, "visual": "two final release questions", "action": "resolve"},
+        {"at_sec": 10, "visual": "final ownership question", "action": "hold"}
+      ],
+      "fallback_template": "image-sequence",
+      "music_cue": "Approved narration only; no music or sound effects."
+    },
+    {
+      "id": "c06-brand-end-card",
+      "title": "Author Lockup",
+      "start_sec": 55.666667,
+      "end_sec": 60.666667,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Give the resolved argument a quiet author identity and destination without restarting the narrative.",
+      "entry_mode": "bridge",
+      "entry_visual": "The warm porcelain field persists as the prior questions finish washing away.",
+      "first_change_sec": 0,
+      "motion_recipes": ["crossfade"],
+      "content": [
+        "Aaron Guo",
+        "AI-native builder",
+        "Human-first thinker",
+        "aaronguo.com"
+      ],
+      "beats": [
+        {"at_sec": 0, "visual": "Aaron Guo logo and name", "action": "crossfade"},
+        {"at_sec": 0.8, "visual": "author identity", "action": "settle"},
+        {"at_sec": 1.4, "visual": "center rule and aaronguo.com", "action": "resolve"},
+        {"at_sec": 4.5, "visual": "complete author lockup", "action": "clear"}
+      ],
+      "music_cue": "Silence after narration; no music or sound effects."
+    }
+  ]
+}

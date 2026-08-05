@@ -20,6 +20,14 @@ export interface SceneTemplateDefinition {
 export interface MotionRecipeDefinition {
   id: string;
   status: CapabilityStatus;
+  loop?: boolean;
+  allowed_easings?: string[];
+  duration_sec?: [number, number];
+  reference_frames_at_30_fps?: [number, number];
+  exit_must_be_shorter_than_enter?: boolean;
+  min_translate_px?: number;
+  max_translate_px?: number;
+  max_rotation_deg?: number;
 }
 
 export interface SceneRegistry {
@@ -41,6 +49,19 @@ export interface StoryboardBeat {
   at_sec: number;
   visual: string;
   action: string;
+  target_asset_id?: string;
+  motion?: {
+    recipe: string;
+    purpose: "orient" | "explain" | "emphasize" | "bridge" | "delight";
+    continuity_anchor: string;
+    why_not_static: string;
+    duration_sec: number;
+    exit_duration_sec?: number;
+    easing: string;
+    loop: boolean;
+    translate_px: number;
+    rotation_deg: number;
+  };
 }
 
 export interface StoryboardScene {
@@ -58,6 +79,7 @@ export interface StoryboardScene {
   motion_recipes: string[];
   content: string[];
   beats: StoryboardBeat[];
+  semantic_sprite_ids?: string[];
   prototype_required?: boolean;
   fallback_template?: string;
   music_cue?: string;
@@ -67,8 +89,10 @@ export interface VideoStoryboard {
   schema_version: number;
   title: string;
   duration_sec: number;
+  fps?: number;
   direction: {
     name: string;
+    style_family_id?: string;
     visual_spine: string;
     motion_density: "restrained" | "balanced" | "expressive";
     music_strategy: "none" | "bookended" | "chaptered" | "continuous";
@@ -117,12 +141,20 @@ export function auditVideoStoryboard(
   );
   const scenes = Array.isArray(storyboard?.scenes) ? storyboard.scenes : [];
   const seenSceneIds = new Set<string>();
+  const seenSemanticSpriteIds = new Set<string>();
   const allowedMotionDensities = ["restrained", "balanced", "expressive"];
   const allowedMusicStrategies = [
     "none",
     "bookended",
     "chaptered",
     "continuous",
+  ];
+  const allowedMotionPurposes = [
+    "orient",
+    "explain",
+    "emphasize",
+    "bridge",
+    "delight",
   ];
 
   if (storyboard?.schema_version !== registry.schema_version) {
@@ -133,6 +165,18 @@ export function auditVideoStoryboard(
   if (!storyboard?.title?.trim()) failures.push("storyboard title is missing");
   if (!(storyboard?.duration_sec > 0)) {
     failures.push("storyboard duration_sec must be positive");
+  }
+  if (
+    storyboard?.fps !== undefined &&
+    (!(storyboard.fps > 0) || !Number.isFinite(storyboard.fps))
+  ) {
+    failures.push("storyboard fps must be a positive number");
+  }
+  if (
+    scenes.some((scene) => (scene.semantic_sprite_ids?.length ?? 0) > 0) &&
+    (!(storyboard?.fps && storyboard.fps > 0) || !Number.isFinite(storyboard.fps))
+  ) {
+    failures.push("storyboard fps is required when semantic sprites are present");
   }
   if (!storyboard?.direction?.name?.trim()) {
     failures.push("storyboard direction.name is missing");
@@ -274,6 +318,9 @@ export function auditVideoStoryboard(
     const sceneRecipes = Array.isArray(scene.motion_recipes)
       ? scene.motion_recipes
       : [];
+    if (sceneRecipes.length > 3) {
+      failures.push(`${label} uses more than three motion recipes`);
+    }
     for (const recipeId of sceneRecipes) {
       const recipe = recipes.get(recipeId);
       if (!recipe) {
@@ -294,6 +341,28 @@ export function auditVideoStoryboard(
         } else if (!scene.prototype_required) {
           failures.push(`${label} must prototype motion recipe ${recipeId}`);
         }
+      }
+    }
+
+    if (
+      scene.semantic_sprite_ids !== undefined &&
+      !Array.isArray(scene.semantic_sprite_ids)
+    ) {
+      failures.push(`${label} semantic_sprite_ids must be an array`);
+    }
+    const semanticSpriteIds = Array.isArray(scene.semantic_sprite_ids)
+      ? scene.semantic_sprite_ids
+      : [];
+    if (semanticSpriteIds.length > 1) {
+      failures.push(`${label} uses more than one semantic sprite`);
+    }
+    for (const spriteId of semanticSpriteIds) {
+      if (!spriteId?.trim()) {
+        failures.push(`${label} has an empty semantic sprite id`);
+      } else if (seenSemanticSpriteIds.has(spriteId)) {
+        failures.push(`${label} reuses semantic sprite ${spriteId}`);
+      } else {
+        seenSemanticSpriteIds.add(spriteId);
       }
     }
 
@@ -318,12 +387,155 @@ export function auditVideoStoryboard(
         if (!beat.visual?.trim() || !beat.action?.trim()) {
           failures.push(`${label} has an incomplete visual beat`);
         }
+        if (
+          beat.target_asset_id !== undefined &&
+          !beat.target_asset_id.trim()
+        ) {
+          failures.push(`${label} beat has an empty target_asset_id`);
+        } else if (
+          beat.target_asset_id &&
+          !semanticSpriteIds.includes(beat.target_asset_id)
+        ) {
+          failures.push(`${label} beat targets an undeclared semantic sprite ${beat.target_asset_id}`);
+        }
+        if (beat.motion) {
+          const motion = beat.motion;
+          const motionRecipe = recipes.get(motion.recipe);
+          if (!motion.recipe?.trim()) {
+            failures.push(`${label} beat motion is missing recipe`);
+          }
+          if (!allowedMotionPurposes.includes(motion.purpose)) {
+            failures.push(`${label} beat motion has invalid purpose`);
+          }
+          if (!motion.continuity_anchor?.trim()) {
+            failures.push(`${label} beat motion is missing continuity_anchor`);
+          }
+          if (!motion.why_not_static?.trim()) {
+            failures.push(`${label} beat motion is missing why_not_static`);
+          }
+          if (!motion.easing?.trim()) {
+            failures.push(`${label} beat motion is missing easing`);
+          }
+          if (typeof motion.loop !== "boolean") {
+            failures.push(`${label} beat motion has invalid loop setting`);
+          }
+          if (!Number.isFinite(motion.translate_px)) {
+            failures.push(`${label} beat motion has invalid translate_px`);
+          }
+          if (!Number.isFinite(motion.rotation_deg)) {
+            failures.push(`${label} beat motion has invalid rotation_deg`);
+          }
+          if (!motionRecipe) {
+            failures.push(`${label} beat uses unknown motion recipe ${motion.recipe}`);
+          } else {
+            if (!sceneRecipes.includes(motion.recipe)) {
+              failures.push(`${label} beat motion ${motion.recipe} is not declared by the scene`);
+            }
+            if (!(motion.duration_sec > 0)) {
+              failures.push(`${label} beat motion has invalid duration_sec`);
+            }
+            if (
+              motionRecipe.duration_sec &&
+              (motion.duration_sec < motionRecipe.duration_sec[0] ||
+                motion.duration_sec > motionRecipe.duration_sec[1])
+            ) {
+              failures.push(
+                `${label} beat motion ${motion.recipe} duration is outside ${motionRecipe.duration_sec[0]}-${motionRecipe.duration_sec[1]}s`,
+              );
+            }
+            if (motionRecipe.exit_must_be_shorter_than_enter) {
+              const exitDurationSec = motion.exit_duration_sec;
+              if (
+                typeof exitDurationSec !== "number" ||
+                !Number.isFinite(exitDurationSec) ||
+                exitDurationSec <= 0
+              ) {
+                failures.push(
+                  `${label} beat motion ${motion.recipe} has invalid exit_duration_sec`,
+                );
+              } else if (exitDurationSec >= motion.duration_sec) {
+                failures.push(
+                  `${label} beat motion ${motion.recipe} exit duration must be shorter than entrance duration`,
+                );
+              }
+            }
+            if (
+              motionRecipe.allowed_easings &&
+              !motionRecipe.allowed_easings.includes(motion.easing)
+            ) {
+              failures.push(`${label} beat motion ${motion.recipe} uses invalid easing ${motion.easing}`);
+            }
+            if (motionRecipe.loop !== undefined && motion.loop !== motionRecipe.loop) {
+              failures.push(`${label} beat motion ${motion.recipe} has invalid loop setting`);
+            }
+            if (
+              motionRecipe.min_translate_px !== undefined &&
+              motion.translate_px < motionRecipe.min_translate_px
+            ) {
+              failures.push(
+                `${label} beat motion ${motion.recipe} is below translation minimum`,
+              );
+            }
+            if (
+              motionRecipe.max_translate_px !== undefined &&
+              Math.abs(motion.translate_px) > motionRecipe.max_translate_px
+            ) {
+              failures.push(`${label} beat motion ${motion.recipe} exceeds translation limit`);
+            }
+            if (
+              motionRecipe.max_rotation_deg !== undefined &&
+              Math.abs(motion.rotation_deg) > motionRecipe.max_rotation_deg
+            ) {
+              failures.push(`${label} beat motion ${motion.recipe} exceeds rotation limit`);
+            }
+          }
+        }
         priorBeat = beat.at_sec;
       }
       const tailGap = duration - priorBeat;
       if (tailGap > maxBeatGap) {
         warnings.push(
           `${label} ends with ${tailGap.toFixed(1)}s without a meaningful visual beat`,
+        );
+      }
+    }
+
+    const sceneBeats = Array.isArray(scene.beats) ? scene.beats : [];
+    const semanticMotionBeats = sceneBeats.filter(
+      (beat) => beat.motion?.recipe === "semantic-settle",
+    );
+    const semanticMotionCount = semanticMotionBeats.length;
+    if (semanticSpriteIds.length > 0 && semanticMotionCount !== 1) {
+      failures.push(`${label} semantic sprite requires exactly one semantic-settle beat`);
+    }
+    if (semanticMotionCount > 0 && semanticSpriteIds.length !== 1) {
+      failures.push(`${label} semantic-settle beat requires exactly one semantic sprite id`);
+    }
+    for (const motionBeat of semanticMotionBeats) {
+      if (!motionBeat.target_asset_id?.trim()) {
+        failures.push(`${label} semantic-settle beat is missing target_asset_id`);
+      }
+    }
+    for (const spriteId of semanticSpriteIds) {
+      const targetedCues = semanticMotionBeats.filter(
+        (beat) => beat.target_asset_id === spriteId,
+      );
+      if (targetedCues.length !== 1) {
+        failures.push(
+          `${label} semantic sprite ${spriteId} requires exactly one targeted semantic-settle beat`,
+        );
+        continue;
+      }
+      const cue = targetedCues[0];
+      const targetedExits = sceneBeats.filter(
+        (beat) =>
+          beat.target_asset_id === spriteId &&
+          beat.at_sec > cue.at_sec &&
+          /\b(clear|remove|exit|hide)\b/i.test(beat.action),
+      );
+      if (targetedExits.length !== 1) {
+        failures.push(
+          `${label} semantic sprite ${spriteId} requires exactly one targeted clear/remove/exit/hide beat`,
         );
       }
     }

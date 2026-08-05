@@ -13,6 +13,17 @@ Review the video through four progressively more expensive surfaces.
 
 Do not use the full render as the first visual review.
 
+Run the aggregate gate before a prototype and before the full render:
+
+```bash
+bun tiles/aaron-video-gen/scripts/production-preflight.ts \
+  --video-dir <video-dir> \
+  --output <video-dir>/production-preflight-report.md
+```
+
+Use `--production` for the full-render gate. It combines director, evidence,
+asset, semantic-sprite, and storyboard checks.
+
 ## Storyboard Gate
 
 Run:
@@ -74,6 +85,11 @@ return a misleading partial or inexact image. When a suspect frame appears,
 compare the Remotion source still and a sequential encoded-frame window before
 changing the animation.
 
+For every nontrivial motion interval, extract start, 25%, 50%, 75%, and end
+frames. Review masks, nested transforms, shared elements, and semantic sprites
+as a sequential encoded-frame strip and at 25% playback speed. Scene-boundary
+stills alone do not catch internal geometry distortion.
+
 Reject when:
 
 - the entry state is mostly blank;
@@ -114,6 +130,24 @@ Reject when:
   storyboard explicitly proves that the overlap remains legible.
 - Rotation, perspective, scale, and translation stay inside a declared transform
   envelope. Sample projected bounds at 0, 25, 50, 75, and 100 percent progress.
+- Text-bearing panels reveal through masks or clips; their ancestors never
+  scale the text geometry.
+- Accepted motion has a named purpose and continuity anchor. Deliberately
+  rejected candidates remain recorded; stillness is a valid decision.
+
+## Semantic Sprite Gate
+
+- The director budget began at zero and the one approved beat passed the
+  opportunity gate in `semantic-sprite-accents.md`.
+- The sprite explains or emphasizes; it is never evidence.
+- The same asset appears once, follows one narration cue, and leaves before the
+  next information hierarchy takes over.
+- The style family matches the film and the removal fallback preserves the
+  complete argument.
+- `sprite-asset-audit.ts` passes, and both light and dark composites show clean
+  alpha edges without green, black, or white matte fringe.
+- Full-speed and 25%-speed review confirm that the accent does not compete with
+  titles, captions, evidence, or comprehension.
 
 ## Layout Gate
 
