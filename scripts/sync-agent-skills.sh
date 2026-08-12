@@ -9,6 +9,7 @@ cd "$ROOT"
 SURFACES=(".agents" ".codex" ".claude" ".cursor" ".gemini")
 
 MAPPINGS=(
+  "ai-video-lab:tiles/ai-video-lab"
   "aaron-video-gen:tiles/aaron-video-gen"
   "asset-library:tiles/asset-library"
   "blog-brainstorm:tiles/blog-brainstorm"

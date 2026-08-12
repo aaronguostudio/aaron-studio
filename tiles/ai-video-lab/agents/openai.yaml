@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Video Lab"
+  short_description: "Explore high-impact Seedance video workflows"
+  default_prompt: "Use $ai-video-lab to create a visually striking AI video experiment with a first-frame or storyboard workflow."

@@ -42,3 +42,5 @@ credentials/
 
 # Rebuildable local asset search index
 .cache/asset-library/
+# Python
+__pycache__/
