@@ -1,0 +1,1468 @@
+{
+  "schema_version": "1.0.0",
+  "bible_version": "2.0.0",
+  "bible_id": "greek-mythology-entities",
+  "series_id": "greek-mythology",
+  "supported_locales": ["en", "zh"],
+  "naming_policy": {
+    "preferred_names_are_locale_specific": true,
+    "ancient_greek_is_reference_only": true,
+    "stable_ids_are_never_translated": true,
+    "transliteration_system": "conventional-English-names; no scholarly transliteration required in public copy"
+  },
+  "entities": [
+    {
+      "entity_id": "deity-athena",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Athena", "aliases": ["Athene"] },
+        "zh": { "preferred": "雅典娜", "aliases": [] },
+        "grc": { "preferred": "Ἀθηνᾶ", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-02-athena-birth-east-pediment",
+        "greek-mythology-athens-03-erechtheion-many-memories",
+        "greek-mythology-athens-04-athena-parthenos-lost-statue",
+        "greek-mythology-athens-05-parthenon-frieze-procession",
+        "greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"
+      ],
+      "source_ids": [
+        "acropolis-museum-west-pediment-athena",
+        "pausanias-1.24.5",
+        "pseudo-apollodorus-3.14.1",
+        "acropolis-museum-erechtheion",
+        "hesiod-theogony-886-900-924-929",
+        "homeric-hymn-28-athena",
+        "pindar-olympian-7.35-39",
+        "acropolis-museum-athena-polias",
+        "homer-iliad-2.546-551",
+        "pseudo-apollodorus-3.14.6",
+        "pausanias-1.24.7",
+        "acropolis-museum-parthenon-frieze",
+        "plato-euthyphro-6c",
+        "aeschylus-eumenides-674-710"
+      ],
+      "visual_continuity": {
+        "documented_features": [
+          {
+            "feature": "The catalogue records surviving parts of the head and neck, right shoulder, aegis, right calf, and part of the left foot.",
+            "reconstruction_status": "artifact-documented",
+            "source_ids": ["acropolis-museum-west-pediment-athena"]
+          }
+        ],
+        "reconstructed_features": [
+          {
+            "feature": "An Attic-type helmet, aegis, motion toward the viewer's right, and possible spear-and-shield equipment may guide the Chapter 1 silhouette.",
+            "reconstruction_status": "scholarly-reconstruction",
+            "source_ids": ["acropolis-museum-west-pediment-athena"]
+          }
+        ],
+        "open_choices": [
+          "exact face and expression",
+          "skin, hair, garment, shield, and helmet colors",
+          "complete pose and anatomy",
+          "lighting, weather, and background atmosphere"
+        ]
+      }
+    },
+    {
+      "entity_id": "deity-poseidon",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Poseidon", "aliases": [] },
+        "zh": { "preferred": "波塞冬", "aliases": [] },
+        "grc": { "preferred": "Ποσειδῶν", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": [
+        "acropolis-museum-west-pediment-poseidon",
+        "pausanias-1.24.5",
+        "pausanias-1.26.5",
+        "pseudo-apollodorus-3.14.1",
+        "acropolis-museum-erechtheion",
+        "pseudo-apollodorus-3.15.1",
+        "oxford-classical-dictionary-erechtheus-2018"
+      ],
+      "visual_continuity": {
+        "documented_features": [
+          {
+            "feature": "The catalogue attributes an upper torso and right-calf fragment to Poseidon and notes another probable forearm fragment.",
+            "reconstruction_status": "artifact-documented",
+            "source_ids": ["acropolis-museum-west-pediment-poseidon"]
+          }
+        ],
+        "reconstructed_features": [
+          {
+            "feature": "A broad backward-leaning stance, raised right arm, orientation toward Athena, and possible trident action may guide the Chapter 1 silhouette.",
+            "reconstruction_status": "scholarly-reconstruction",
+            "source_ids": ["acropolis-museum-west-pediment-poseidon"]
+          }
+        ],
+        "open_choices": [
+          "exact face, age cues, hair, and expression",
+          "skin and cloth colors",
+          "complete pose and anatomy",
+          "exact trident design and action",
+          "lighting, water effects, and background atmosphere"
+        ]
+      }
+    },
+    {
+      "entity_id": "deity-zeus",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Zeus", "aliases": [] },
+        "zh": { "preferred": "宙斯", "aliases": [] },
+        "grc": { "preferred": "Ζεύς", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-02-athena-birth-east-pediment"
+      ],
+      "source_ids": [
+        "pseudo-apollodorus-3.14.1",
+        "hesiod-theogony-886-900-924-929",
+        "homeric-hymn-28-athena",
+        "pindar-olympian-7.35-39"
+      ]
+    },
+    {
+      "entity_id": "king-cecrops",
+      "entity_type": "mythic-king",
+      "names": {
+        "en": { "preferred": "Cecrops", "aliases": ["Kekrops"] },
+        "zh": { "preferred": "刻克洛普斯", "aliases": [] },
+        "grc": { "preferred": "Κέκροψ", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": ["pseudo-apollodorus-3.14.1", "acropolis-museum-erechtheion-kore-a"]
+    },
+    {
+      "entity_id": "city-athens",
+      "entity_type": "city",
+      "names": {
+        "en": { "preferred": "Athens", "aliases": [] },
+        "zh": { "preferred": "雅典", "aliases": [] },
+        "grc": { "preferred": "Ἀθῆναι", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories",
+        "greek-mythology-athens-05-parthenon-frieze-procession",
+        "greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"
+      ],
+      "source_ids": [
+        "herodotus-8.55",
+        "homer-iliad-2.546-551",
+        "plato-euthyphro-6c",
+        "aeschylus-eumenides-674-710"
+      ]
+    },
+    {
+      "entity_id": "region-attica",
+      "entity_type": "region",
+      "names": {
+        "en": { "preferred": "Attica", "aliases": [] },
+        "zh": { "preferred": "阿提卡", "aliases": [] },
+        "grc": { "preferred": "Ἀττική", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"
+      ],
+      "source_ids": [
+        "pausanias-1.24.5",
+        "pausanias-1.26.5",
+        "pseudo-apollodorus-3.14.1",
+        "homer-iliad-2.546-551",
+        "aeschylus-eumenides-674-710"
+      ]
+    },
+    {
+      "entity_id": "monument-parthenon",
+      "entity_type": "monument",
+      "names": {
+        "en": { "preferred": "Parthenon", "aliases": [] },
+        "zh": { "preferred": "帕特农神庙", "aliases": [] },
+        "grc": { "preferred": "Παρθενών", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-02-athena-birth-east-pediment",
+        "greek-mythology-athens-04-athena-parthenos-lost-statue",
+        "greek-mythology-athens-05-parthenon-frieze-procession"
+      ],
+      "source_ids": [
+        "acropolis-museum-parthenon-pediments",
+        "pausanias-1.24.5",
+        "acropolis-museum-athena-parthenos-accounts-em-637",
+        "acropolis-museum-parthenon-frieze"
+      ]
+    },
+    {
+      "entity_id": "artwork-parthenon-west-pediment",
+      "entity_type": "sculptural-program",
+      "names": {
+        "en": { "preferred": "Parthenon west pediment", "aliases": ["west pediment"] },
+        "zh": { "preferred": "帕特农神庙西山墙", "aliases": ["西山墙"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-01-athena-poseidon-contest"],
+      "source_ids": [
+        "acropolis-museum-parthenon-pediments",
+        "pausanias-1.24.5",
+        "meyer-2018-west-pediment"
+      ]
+    },
+    {
+      "entity_id": "monument-erechtheion",
+      "entity_type": "monument",
+      "names": {
+        "en": { "preferred": "Erechtheion", "aliases": ["Erechtheum"] },
+        "zh": { "preferred": "厄瑞克忒翁", "aliases": [] },
+        "grc": { "preferred": "Ἐρέχθειον", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": [
+        "acropolis-museum-erechtheion",
+        "ysma-erechtheion",
+        "pausanias-1.26.5",
+        "attic-inscriptions-ig-i3-474",
+        "acropolis-museum-erechtheion-kore-a"
+      ]
+    },
+    {
+      "entity_id": "token-olive-tree",
+      "entity_type": "mythic-token",
+      "names": {
+        "en": { "preferred": "olive tree", "aliases": [] },
+        "zh": { "preferred": "橄榄树", "aliases": [] },
+        "grc": { "preferred": "ἐλαίη", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": [
+        "herodotus-8.55",
+        "pseudo-apollodorus-3.14.1",
+        "acropolis-museum-erechtheion",
+        "pausanias-1.27.1-3",
+        "attic-inscriptions-ig-i3-474"
+      ]
+    },
+    {
+      "entity_id": "token-salt-water",
+      "entity_type": "mythic-token",
+      "names": {
+        "en": { "preferred": "salt water", "aliases": ["sea water"] },
+        "zh": { "preferred": "盐水", "aliases": ["海水"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": [
+        "herodotus-8.55",
+        "pausanias-1.26.5",
+        "pseudo-apollodorus-3.14.1",
+        "acropolis-museum-erechtheion"
+      ]
+    },
+    {
+      "entity_id": "token-trident-mark",
+      "entity_type": "mythic-token",
+      "names": {
+        "en": { "preferred": "trident mark", "aliases": ["trident outline"] },
+        "zh": { "preferred": "三叉戟痕", "aliases": ["三叉戟轮廓"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": ["pausanias-1.26.5", "acropolis-museum-erechtheion"]
+    },
+    {
+      "entity_id": "artwork-parthenon-east-pediment",
+      "entity_type": "sculptural-program",
+      "names": {
+        "en": { "preferred": "Parthenon east pediment", "aliases": ["east pediment"] },
+        "zh": { "preferred": "帕特农神庙东山墙", "aliases": ["东山墙"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": [
+        "acropolis-museum-parthenon-pediments",
+        "acropolis-museum-east-pediment-helios-hand",
+        "acropolis-museum-east-pediment-selene",
+        "acropolis-museum-east-pediment-hera",
+        "pausanias-1.24.5"
+      ]
+    },
+    {
+      "entity_id": "deity-helios",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Helios", "aliases": ["Sun"] },
+        "zh": { "preferred": "赫利俄斯", "aliases": ["太阳神"] },
+        "grc": { "preferred": "Ἥλιος", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": ["acropolis-museum-east-pediment-helios-hand", "homeric-hymn-28-athena"]
+    },
+    {
+      "entity_id": "deity-selene",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Selene", "aliases": ["Moon"] },
+        "zh": { "preferred": "塞勒涅", "aliases": ["月亮女神"] },
+        "grc": { "preferred": "Σελήνη", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": ["acropolis-museum-east-pediment-selene"]
+    },
+    {
+      "entity_id": "deity-metis",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Metis", "aliases": [] },
+        "zh": { "preferred": "墨提斯", "aliases": [] },
+        "grc": { "preferred": "Μῆτις", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": ["hesiod-theogony-886-900-924-929"]
+    },
+    {
+      "entity_id": "deity-hephaestus",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Hephaestus", "aliases": ["Hephaistos"] },
+        "zh": { "preferred": "赫淮斯托斯", "aliases": [] },
+        "grc": { "preferred": "Ἥφαιστος", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-02-athena-birth-east-pediment",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ],
+      "source_ids": ["pindar-olympian-7.35-39", "pausanias-1.26.5"]
+    },
+    {
+      "entity_id": "deity-hera",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Hera", "aliases": [] },
+        "zh": { "preferred": "赫拉", "aliases": [] },
+        "grc": { "preferred": "Ἥρα", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": ["acropolis-museum-east-pediment-hera"]
+    },
+    {
+      "entity_id": "deity-eileithyia",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Eileithyia", "aliases": ["Ilithyia"] },
+        "zh": { "preferred": "厄勒梯亚", "aliases": ["分娩女神"] },
+        "grc": { "preferred": "Εἰλείθυια", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": ["acropolis-museum-east-pediment-hera"]
+    },
+    {
+      "entity_id": "artwork-east-pediment-near-central-female",
+      "entity_type": "sculptural-fragment",
+      "names": {
+        "en": { "preferred": "east-pediment near-central female figure", "aliases": ["large female figure"] },
+        "zh": { "preferred": "东山墙近中央女性人物", "aliases": ["大型女性人物"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-02-athena-birth-east-pediment"],
+      "source_ids": ["acropolis-museum-east-pediment-hera"],
+      "identity_boundary": {
+        "en": "The Acropolis Museum presents Hera and Eileithyia as competing identifications; neither is fixed here.",
+        "zh": "卫城博物馆将赫拉与厄勒梯亚列为相互竞争的身份解释；本实体不锁定其中任何一个。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "cult-aspect-athena-polias",
+      "entity_type": "cult-aspect",
+      "names": {
+        "en": { "preferred": "Athena Polias", "aliases": ["Athena of the City"] },
+        "zh": { "preferred": "雅典娜·波利阿斯", "aliases": ["城邦守护者雅典娜"] },
+        "grc": { "preferred": "Ἀθηνᾶ Πολιάς", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["acropolis-museum-athena-polias", "attic-inscriptions-ig-i3-474"],
+      "identity_boundary": {
+        "en": "This is Athena's civic cult aspect and lost wooden cult image context, not Athena Parthenos.",
+        "zh": "这是雅典娜的城邦祭祀面向及其失落木质祭祀像语境，不是雅典娜·帕耳忒诺斯。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "cult-title-poseidon-erechtheus",
+      "entity_type": "cult-title",
+      "names": {
+        "en": { "preferred": "Poseidon-Erechtheus", "aliases": [] },
+        "zh": { "preferred": "波塞冬—厄瑞克忒斯", "aliases": [] },
+        "grc": { "preferred": "Ποσειδῶν Ἐρεχθεύς", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": [
+        "pausanias-1.26.5",
+        "pseudo-apollodorus-3.15.1",
+        "oxford-classical-dictionary-erechtheus-2018"
+      ],
+      "identity_boundary": {
+        "en": "The compound cult title records a linkage; it does not settle whether Poseidon and Erechtheus were understood as identical in every period or tradition.",
+        "zh": "这一复合祭祀称号记录二者的联系；它不能解决波塞冬与厄瑞克忒斯是否在各时期、各传统中被视为同一者。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "mythic-king-erechtheus",
+      "entity_type": "mythic-king",
+      "names": {
+        "en": { "preferred": "Erechtheus", "aliases": [] },
+        "zh": { "preferred": "厄瑞克忒斯", "aliases": [] },
+        "grc": { "preferred": "Ἐρεχθεύς", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-03-erechtheion-many-memories",
+        "greek-mythology-athens-05-parthenon-frieze-procession"
+      ],
+      "source_ids": [
+        "homer-iliad-2.546-551",
+        "pseudo-apollodorus-3.14.8",
+        "pseudo-apollodorus-3.15.1",
+        "oxford-classical-dictionary-erechtheus-2018",
+        "connelly-1996-parthenon-parthenoi"
+      ],
+      "identity_boundary": {
+        "en": "Later genealogies distinguish Erechtheus from Erichthonius, but earlier traditions and cult history do not preserve one fully stable relationship between the names.",
+        "zh": "较晚家谱区分厄瑞克忒斯与厄里克托尼俄斯，但较早传统与祭祀史没有保存一套完全稳定的两者关系。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "mythic-king-erichthonius",
+      "entity_type": "mythic-king",
+      "names": {
+        "en": { "preferred": "Erichthonius", "aliases": [] },
+        "zh": { "preferred": "厄里克托尼俄斯", "aliases": [] },
+        "grc": { "preferred": "Ἐριχθόνιος", "aliases": [] }
+      },
+      "chapter_ids": [
+        "greek-mythology-athens-03-erechtheion-many-memories",
+        "greek-mythology-athens-04-athena-parthenos-lost-statue"
+      ],
+      "source_ids": [
+        "pseudo-apollodorus-3.14.6",
+        "pseudo-apollodorus-3.14.8",
+        "oxford-classical-dictionary-erechtheus-2018",
+        "pausanias-1.24.7"
+      ],
+      "identity_boundary": {
+        "en": "This stable ID preserves the later genealogy's Erichthonius without retroactively forcing Homer's Erechtheus into that scheme.",
+        "zh": "此稳定 ID 保存较晚家谱中的厄里克托尼俄斯，但不把荷马的厄瑞克忒斯反向强塞进该体系。",
+        "reconstruction_status": "text-attested"
+      }
+    },
+    {
+      "entity_id": "mythic-figure-boutes",
+      "entity_type": "mythic-priest",
+      "names": {
+        "en": { "preferred": "Boutes", "aliases": ["Butes"] },
+        "zh": { "preferred": "布忒斯", "aliases": [] },
+        "grc": { "preferred": "Βούτης", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["pausanias-1.26.5", "pseudo-apollodorus-3.14.8", "pseudo-apollodorus-3.15.1"]
+    },
+    {
+      "entity_id": "mythic-figure-pandrosus",
+      "entity_type": "mythic-figure",
+      "names": {
+        "en": { "preferred": "Pandrosus", "aliases": ["Pandrosos"] },
+        "zh": { "preferred": "潘德洛索斯", "aliases": [] },
+        "grc": { "preferred": "Πάνδροσος", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["pseudo-apollodorus-3.14.6", "pausanias-1.27.1-3"]
+    },
+    {
+      "entity_id": "sanctuary-pandroseion",
+      "entity_type": "sanctuary",
+      "names": {
+        "en": { "preferred": "Pandroseion", "aliases": ["sanctuary of Pandrosus"] },
+        "zh": { "preferred": "潘德洛西翁", "aliases": ["潘德洛索斯圣所"] },
+        "grc": { "preferred": "Πανδρόσειον", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["pausanias-1.27.1-3", "attic-inscriptions-ig-i3-474"]
+    },
+    {
+      "entity_id": "sanctuary-kekropion",
+      "entity_type": "sacred-site",
+      "names": {
+        "en": { "preferred": "Kekropion", "aliases": ["Cecropion"] },
+        "zh": { "preferred": "刻克洛庇翁", "aliases": ["刻克洛普斯圣域"] },
+        "grc": { "preferred": "Κεκρόπιον", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["attic-inscriptions-ig-i3-474", "acropolis-museum-erechtheion-kore-a"]
+    },
+    {
+      "entity_id": "artwork-erechtheion-korai",
+      "entity_type": "architectural-sculpture-group",
+      "names": {
+        "en": { "preferred": "Erechtheion Korai", "aliases": ["Porch of the Maidens figures", "Caryatids"] },
+        "zh": { "preferred": "厄瑞克忒翁少女柱像", "aliases": ["少女门廊女像柱", "卡里亚蒂德女像柱"] },
+        "grc": { "preferred": "κόραι", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": [
+        "acropolis-museum-erechtheion-kore-a",
+        "attic-inscriptions-ig-i3-474",
+        "ysma-erechtheion",
+        "jutte-2022-contested-caryatids"
+      ],
+      "identity_boundary": {
+        "en": "Korai is the building-account term. Libation bearers, dancers, captive women, and named mythic daughters remain interpretations; the protective copies on the monument are not the originals.",
+        "zh": "Korai 是建筑账目中的称呼。奠酒者、舞者、被俘女子或具名神话女儿都仍是解释；现场保护性复制品不是原件。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "inscription-erechtheion-building-account-ig-i3-474",
+      "entity_type": "inscription",
+      "names": {
+        "en": { "preferred": "Erechtheion building account IG I³ 474", "aliases": ["IG I³ 474"] },
+        "zh": { "preferred": "厄瑞克忒翁建筑账目 IG I³ 474", "aliases": ["IG I³ 474"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["attic-inscriptions-ig-i3-474"]
+    },
+    {
+      "entity_id": "ritual-poseidon-erechtheus-shared-sacrifice",
+      "entity_type": "ritual",
+      "names": {
+        "en": { "preferred": "sacrifice for Erechtheus at Poseidon's altar", "aliases": [] },
+        "zh": { "preferred": "在波塞冬祭坛向厄瑞克忒斯献祭", "aliases": [] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-03-erechtheion-many-memories"],
+      "source_ids": ["pausanias-1.26.5"]
+    },
+    {
+      "entity_id": "artwork-athena-parthenos",
+      "entity_type": "lost-cult-statue",
+      "names": {
+        "en": { "preferred": "Athena Parthenos", "aliases": [] },
+        "zh": { "preferred": "雅典娜·帕耳忒诺斯", "aliases": [] },
+        "grc": { "preferred": "Ἀθηνᾶ Παρθένος", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": [
+        "pausanias-1.24.5",
+        "pausanias-1.24.7",
+        "acropolis-museum-athena-parthenos-accounts-em-637",
+        "thucydides-2.13.5",
+        "gaifman-2006-statue-cult-reproduction"
+      ],
+      "identity_boundary": {
+        "en": "The colossal gold-and-ivory statue is lost. Its major attributes can be triangulated, but its exact appearance and final fate remain unknown.",
+        "zh": "这尊巨型黄金象牙神像已经失落。其主要属性可由多类证据互证，但精确外观与最终命运仍未知。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "person-pheidias",
+      "entity_type": "historical-person",
+      "names": {
+        "en": { "preferred": "Pheidias", "aliases": ["Phidias"] },
+        "zh": { "preferred": "菲狄亚斯", "aliases": [] },
+        "grc": { "preferred": "Φειδίας", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": ["acropolis-museum-athena-parthenos-accounts-em-637", "pausanias-1.24.7"]
+    },
+    {
+      "entity_id": "person-pericles",
+      "entity_type": "historical-person",
+      "names": {
+        "en": { "preferred": "Pericles", "aliases": [] },
+        "zh": { "preferred": "伯里克利", "aliases": [] },
+        "grc": { "preferred": "Περικλῆς", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": ["thucydides-2.13.5"]
+    },
+    {
+      "entity_id": "inscription-athena-parthenos-accounts-em-637",
+      "entity_type": "inscription",
+      "names": {
+        "en": { "preferred": "Athena Parthenos accounts EM 637", "aliases": ["EM 637"] },
+        "zh": { "preferred": "雅典娜·帕耳忒诺斯账目 EM 637", "aliases": ["EM 637"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": ["acropolis-museum-athena-parthenos-accounts-em-637"]
+    },
+    {
+      "entity_id": "artwork-varvakeion-athena-nm-129",
+      "entity_type": "statue-copy",
+      "names": {
+        "en": { "preferred": "Varvakeion Athena", "aliases": ["NM 129"] },
+        "zh": { "preferred": "瓦尔瓦基翁雅典娜像", "aliases": ["NM 129"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": ["nam-varvakeion-athena-nm-129", "nam-varvakeion-athena-brochure"],
+      "identity_boundary": {
+        "en": "A later reduced copy that preserves selected attributes, not an exact scale model of the lost original.",
+        "zh": "这是后世缩小复制品，保存了部分属性，但不是失落原作的精确比例模型。",
+        "reconstruction_status": "artifact-documented"
+      }
+    },
+    {
+      "entity_id": "artwork-athena-parthenos-copy-acr-1362",
+      "entity_type": "statue-copy",
+      "names": {
+        "en": { "preferred": "Athena Parthenos copy Acr. 1362", "aliases": ["Acr. 1362"] },
+        "zh": { "preferred": "雅典娜·帕耳忒诺斯复制像 Acr. 1362", "aliases": ["Acr. 1362"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": ["acropolis-museum-athena-parthenos-acr-1362"]
+    },
+    {
+      "entity_id": "artwork-strangford-shield",
+      "entity_type": "relief-copy",
+      "names": {
+        "en": { "preferred": "Strangford Shield", "aliases": [] },
+        "zh": { "preferred": "斯特兰福德盾牌", "aliases": [] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-04-athena-parthenos-lost-statue"],
+      "source_ids": ["british-museum-strangford-shield"],
+      "identity_boundary": {
+        "en": "Its connection to the Athena Parthenos shield is institutional attribution; proposed portraits of Pheidias and Pericles are not fixed identities.",
+        "zh": "它与雅典娜·帕耳忒诺斯盾牌的联系属于机构归属；所谓菲狄亚斯与伯里克利肖像不被锁定为确定身份。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "artwork-parthenon-frieze",
+      "entity_type": "sculptural-program",
+      "names": {
+        "en": { "preferred": "Parthenon frieze", "aliases": [] },
+        "zh": { "preferred": "帕特农神庙浮雕带", "aliases": [] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-05-parthenon-frieze-procession"],
+      "source_ids": [
+        "acropolis-museum-parthenon-frieze",
+        "parthenon-frieze-digital-tour",
+        "mackin-roberts-2025-divinespace-mortalspace"
+      ],
+      "identity_boundary": {
+        "en": "The Greater Panathenaia is the leading interpretation of the program, not a surviving ancient caption.",
+        "zh": "大泛雅典娜节是对整套图像的主流解释，不是现存古代题名。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "festival-greater-panathenaia",
+      "entity_type": "festival",
+      "names": {
+        "en": { "preferred": "Greater Panathenaia", "aliases": ["Great Panathenaia"] },
+        "zh": { "preferred": "大泛雅典娜节", "aliases": [] },
+        "grc": { "preferred": "Παναθήναια τὰ μεγάλα", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-05-parthenon-frieze-procession"],
+      "source_ids": ["plato-euthyphro-6c", "acropolis-museum-parthenon-frieze"]
+    },
+    {
+      "entity_id": "ritual-panathenaic-peplos",
+      "entity_type": "ritual",
+      "names": {
+        "en": { "preferred": "Panathenaic peplos procession", "aliases": ["robe procession"] },
+        "zh": { "preferred": "泛雅典娜节佩普洛斯衣袍行进仪式", "aliases": ["圣衣行进仪式"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-05-parthenon-frieze-procession"],
+      "source_ids": ["plato-euthyphro-6c"],
+      "identity_boundary": {
+        "en": "Plato attests a robe carried to the Acropolis; he does not identify the east-center textile on the frieze.",
+        "zh": "柏拉图证明有衣袍被送上卫城；他并未指认浮雕东侧中央的织物。",
+        "reconstruction_status": "text-attested"
+      }
+    },
+    {
+      "entity_id": "scene-parthenon-frieze-central-cloth",
+      "entity_type": "sculptural-scene",
+      "names": {
+        "en": { "preferred": "Parthenon frieze central cloth scene", "aliases": ["peplos scene"] },
+        "zh": { "preferred": "帕特农浮雕中央织物场景", "aliases": ["佩普洛斯场景"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-05-parthenon-frieze-procession"],
+      "source_ids": ["parthenon-frieze-peplos-scene", "connelly-1996-parthenon-parthenoi"],
+      "identity_boundary": {
+        "en": "The figures, action direction, and ritual moment are disputed; 'peplos scene' is a conventional interpretive label.",
+        "zh": "人物身份、动作方向与仪式时点均有争议；“佩普洛斯场景”是约定俗成的解释标签。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "interpretation-erechtheid-sacrifice",
+      "entity_type": "scholarly-interpretation",
+      "names": {
+        "en": { "preferred": "Erechtheid sacrifice interpretation", "aliases": ["Connelly proposal"] },
+        "zh": { "preferred": "厄瑞克忒斯家族牺牲解释", "aliases": ["康奈利假说"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-05-parthenon-frieze-procession"],
+      "source_ids": ["connelly-1996-parthenon-parthenoi"],
+      "identity_boundary": {
+        "en": "A named scholarly alternative, not a recovered title and not equivalent in consensus weight to the Panathenaic reading.",
+        "zh": "这是具名学术替代解释，不是恢复出的古代题名，也不与泛雅典娜节解释具有同等共识权重。",
+        "reconstruction_status": "scholarly-reconstruction"
+      }
+    },
+    {
+      "entity_id": "deity-dionysus",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Dionysus", "aliases": ["Dionysos"] },
+        "zh": { "preferred": "狄俄尼索斯", "aliases": ["酒神"] },
+        "grc": { "preferred": "Διόνυσος", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["acropolis-museum-sanctuary-theatre-dionysos", "aio-igii34-446-city-dionysia"]
+    },
+    {
+      "entity_id": "monument-theatre-of-dionysus",
+      "entity_type": "monument",
+      "names": {
+        "en": { "preferred": "Theatre of Dionysus", "aliases": ["Theatre of Dionysus Eleuthereus"] },
+        "zh": { "preferred": "狄俄尼索斯剧场", "aliases": ["狄俄尼索斯·厄琉忒瑞俄斯剧场"] },
+        "grc": { "preferred": "Θέατρον τοῦ Διονύσου", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["greece-ministry-theatre-dionysus", "acropolis-museum-sanctuary-theatre-dionysos"],
+      "identity_boundary": {
+        "en": "The visible monument contains later stone, Hellenistic, Roman, and late-antique phases; it is not a frozen picture of the 458 BCE venue.",
+        "zh": "可见遗址叠加了后期石质、希腊化、罗马与晚古代阶段；它不是公元前458年演出场所的冻结画面。",
+        "reconstruction_status": "artifact-documented"
+      }
+    },
+    {
+      "entity_id": "sanctuary-dionysus-eleuthereus",
+      "entity_type": "sanctuary",
+      "names": {
+        "en": { "preferred": "Sanctuary of Dionysus Eleuthereus", "aliases": [] },
+        "zh": { "preferred": "狄俄尼索斯·厄琉忒瑞俄斯圣所", "aliases": [] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["greece-ministry-theatre-dionysus", "acropolis-museum-sanctuary-theatre-dionysos"]
+    },
+    {
+      "entity_id": "festival-city-dionysia",
+      "entity_type": "festival",
+      "names": {
+        "en": { "preferred": "City Dionysia", "aliases": ["Great Dionysia"] },
+        "zh": { "preferred": "城市狄俄尼西亚", "aliases": ["大狄俄尼西亚"] },
+        "grc": { "preferred": "Διονύσια τὰ ἐν ἄστει", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": [
+        "acropolis-museum-sanctuary-theatre-dionysos",
+        "aio-igii34-446-city-dionysia",
+        "ucl-eumenides-city-dionysia-458"
+      ]
+    },
+    {
+      "entity_id": "performance-dithyrambic-competition",
+      "entity_type": "ritual-performance",
+      "names": {
+        "en": { "preferred": "men's dithyrambic competition", "aliases": ["dithyramb contest"] },
+        "zh": { "preferred": "男子酒神颂歌竞赛", "aliases": ["酒神颂歌竞演"] },
+        "grc": { "preferred": "διθύραμβος", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["aio-igii34-446-city-dionysia", "aristotle-poetics-1449a"],
+      "identity_boundary": {
+        "en": "The fourth-century victory dedication attests this competition but is not a fifth-century tragedy program; Aristotle's origin account is later testimony.",
+        "zh": "四世纪胜利奉献铭文证明这一竞赛，却不是五世纪悲剧节目单；亚里士多德的起源说属于较晚见证。",
+        "reconstruction_status": "text-attested"
+      }
+    },
+    {
+      "entity_id": "person-aeschylus",
+      "entity_type": "historical-person",
+      "names": {
+        "en": { "preferred": "Aeschylus", "aliases": [] },
+        "zh": { "preferred": "埃斯库罗斯", "aliases": [] },
+        "grc": { "preferred": "Αἰσχύλος", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458", "aristotle-poetics-1449a"]
+    },
+    {
+      "entity_id": "play-oresteia",
+      "entity_type": "dramatic-work",
+      "names": {
+        "en": { "preferred": "Oresteia", "aliases": [] },
+        "zh": { "preferred": "《俄瑞斯忒亚》", "aliases": [] },
+        "grc": { "preferred": "Ὀρέστεια", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "entity_id": "play-eumenides",
+      "entity_type": "dramatic-work",
+      "names": {
+        "en": { "preferred": "Eumenides", "aliases": ["The Eumenides"] },
+        "zh": { "preferred": "《欧墨尼得斯》", "aliases": [] },
+        "grc": { "preferred": "Εὐμενίδες", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458", "aeschylus-eumenides-674-710"]
+    },
+    {
+      "entity_id": "mythic-hero-orestes",
+      "entity_type": "mythic-hero",
+      "names": {
+        "en": { "preferred": "Orestes", "aliases": [] },
+        "zh": { "preferred": "俄瑞斯忒斯", "aliases": [] },
+        "grc": { "preferred": "Ὀρέστης", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458", "aeschylus-eumenides-674-710"]
+    },
+    {
+      "entity_id": "deity-apollo",
+      "entity_type": "deity",
+      "names": {
+        "en": { "preferred": "Apollo", "aliases": [] },
+        "zh": { "preferred": "阿波罗", "aliases": [] },
+        "grc": { "preferred": "Ἀπόλλων", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458", "aeschylus-eumenides-674-710"]
+    },
+    {
+      "entity_id": "deity-group-erinyes",
+      "entity_type": "deity-group",
+      "names": {
+        "en": { "preferred": "Erinyes", "aliases": ["Furies", "Eumenides"] },
+        "zh": { "preferred": "厄里倪厄斯", "aliases": ["复仇女神", "欧墨尼得斯"] },
+        "grc": { "preferred": "Ἐρινύες", "aliases": ["Εὐμενίδες"] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458", "aeschylus-eumenides-674-710"]
+    },
+    {
+      "entity_id": "mythic-queen-clytemnestra",
+      "entity_type": "mythic-queen",
+      "names": {
+        "en": { "preferred": "Clytemnestra", "aliases": [] },
+        "zh": { "preferred": "克吕泰涅斯特拉", "aliases": [] },
+        "grc": { "preferred": "Κλυταιμνήστρα", "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "entity_id": "scene-eumenides-jury-trial",
+      "entity_type": "dramatic-scene",
+      "names": {
+        "en": { "preferred": "jury trial in Eumenides", "aliases": ["Athena's jury scene"] },
+        "zh": { "preferred": "《欧墨尼得斯》陪审审判场景", "aliases": ["雅典娜陪审场景"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["aeschylus-eumenides-674-710"],
+      "identity_boundary": {
+        "en": "The play stages a court for Attica; this does not prove that a historical court was founded by Athena or that spectators became jurors.",
+        "zh": "剧中为阿提卡设置法庭；这不能证明历史法庭由雅典娜创建，也不意味着观众成为陪审员。",
+        "reconstruction_status": "text-attested"
+      }
+    },
+    {
+      "entity_id": "artifact-actor-statuette-met-13-225-22",
+      "entity_type": "artifact",
+      "names": {
+        "en": { "preferred": "Greek actor statuette, Met 13.225.22", "aliases": ["Met 13.225.22"] },
+        "zh": { "preferred": "希腊演员小像，Met 13.225.22", "aliases": ["Met 13.225.22"] },
+        "grc": { "preferred": null, "aliases": [] }
+      },
+      "chapter_ids": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"],
+      "source_ids": ["met-actor-statuette-13.225.22"],
+      "identity_boundary": {
+        "en": "Evidence for broader performance culture, not a portrait or costume record from the 458 BCE Eumenides production.",
+        "zh": "它是更广泛表演文化的证据，不是公元前458年《欧墨尼得斯》演出的演员肖像或服装记录。",
+        "reconstruction_status": "artifact-documented"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "relationship_id": "west-pediment-part-of-parthenon",
+      "subject_id": "artwork-parthenon-west-pediment",
+      "predicate": "part-of",
+      "object_ids": ["monument-parthenon"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-parthenon-pediments"]
+    },
+    {
+      "relationship_id": "west-pediment-depicts-athena-poseidon-dispute",
+      "subject_id": "artwork-parthenon-west-pediment",
+      "predicate": "depicts-dispute-between",
+      "object_ids": ["deity-athena", "deity-poseidon"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.24.5", "acropolis-museum-parthenon-pediments"]
+    },
+    {
+      "relationship_id": "athena-associated-with-olive-token",
+      "subject_id": "deity-athena",
+      "predicate": "associated-with-token",
+      "object_ids": ["token-olive-tree"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.1", "pausanias-1.27.1-3"]
+    },
+    {
+      "relationship_id": "poseidon-associated-with-salt-water-token",
+      "subject_id": "deity-poseidon",
+      "predicate": "associated-with-token",
+      "object_ids": ["token-salt-water"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.26.5", "pseudo-apollodorus-3.14.1"]
+    },
+    {
+      "relationship_id": "erechtheion-houses-athena-poseidon-cults",
+      "subject_id": "monument-erechtheion",
+      "predicate": "houses-cults-associated-with",
+      "object_ids": ["cult-aspect-athena-polias", "cult-title-poseidon-erechtheus"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-erechtheion", "ysma-erechtheion"]
+    },
+    {
+      "relationship_id": "erechtheion-incorporates-contest-tokens",
+      "subject_id": "monument-erechtheion",
+      "predicate": "incorporates-tokens",
+      "object_ids": ["token-olive-tree", "token-salt-water", "token-trident-mark"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": [
+        "acropolis-museum-erechtheion",
+        "ysma-erechtheion",
+        "pausanias-1.26.5"
+      ]
+    },
+    {
+      "relationship_id": "erechtheion-altars-of-boutes-hephaestus-pausanias",
+      "subject_id": "monument-erechtheion",
+      "predicate": "contains-altars-of-in-pausanias-description",
+      "object_ids": ["mythic-figure-boutes", "deity-hephaestus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.26.5"]
+    },
+    {
+      "relationship_id": "attica-awarded-to-athena-pseudo-apollodorus-version",
+      "subject_id": "region-attica",
+      "predicate": "awarded-to-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.1"]
+    },
+    {
+      "relationship_id": "zeus-appoints-arbiters-pseudo-apollodorus-version",
+      "subject_id": "deity-zeus",
+      "predicate": "appoints-arbiters-in-version",
+      "object_ids": ["deity-athena", "deity-poseidon"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.1"]
+    },
+    {
+      "relationship_id": "cecrops-witnesses-athena-claim-pseudo-apollodorus-version",
+      "subject_id": "king-cecrops",
+      "predicate": "witnesses-claim-of-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.1"]
+    },
+    {
+      "relationship_id": "east-pediment-part-of-parthenon",
+      "subject_id": "artwork-parthenon-east-pediment",
+      "predicate": "part-of",
+      "object_ids": ["monument-parthenon"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-parthenon-pediments"]
+    },
+    {
+      "relationship_id": "east-pediment-depicts-athena-birth-from-zeus",
+      "subject_id": "artwork-parthenon-east-pediment",
+      "predicate": "depicts-birth-of-from",
+      "object_ids": ["deity-athena", "deity-zeus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.24.5", "acropolis-museum-parthenon-pediments"]
+    },
+    {
+      "relationship_id": "east-pediment-framed-by-helios-selene-in-reconstruction",
+      "subject_id": "artwork-parthenon-east-pediment",
+      "predicate": "framed-by-as-dawn-in-reconstruction",
+      "object_ids": ["deity-helios", "deity-selene"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-east-pediment-helios-hand", "acropolis-museum-east-pediment-selene"]
+    },
+    {
+      "relationship_id": "east-pediment-near-central-female-candidate-identities",
+      "subject_id": "artwork-east-pediment-near-central-female",
+      "predicate": "identified-as-one-of-in-reconstruction",
+      "object_ids": ["deity-hera", "deity-eileithyia"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-east-pediment-hera"],
+      "evidence_boundary": {
+        "en": "The relationship records alternatives, not a choice between them.",
+        "zh": "此关系记录的是候选项，而不是在二者之间作出决定。"
+      }
+    },
+    {
+      "relationship_id": "zeus-swallows-metis-hesiod-version",
+      "subject_id": "deity-zeus",
+      "predicate": "swallows-pregnant-in-version",
+      "object_ids": ["deity-metis"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["hesiod-theogony-886-900-924-929"]
+    },
+    {
+      "relationship_id": "zeus-gives-head-birth-to-athena-hesiod-version",
+      "subject_id": "deity-zeus",
+      "predicate": "gives-birth-from-head-to-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["hesiod-theogony-886-900-924-929"]
+    },
+    {
+      "relationship_id": "hephaestus-assists-athena-birth-pindar-version",
+      "subject_id": "deity-hephaestus",
+      "predicate": "assists-head-birth-with-axe-in-version",
+      "object_ids": ["deity-athena", "deity-zeus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pindar-olympian-7.35-39"]
+    },
+    {
+      "relationship_id": "helios-halts-horses-at-athena-birth-hymn-version",
+      "subject_id": "deity-helios",
+      "predicate": "halts-horses-at-birth-of-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["homeric-hymn-28-athena"]
+    },
+    {
+      "relationship_id": "athena-polias-cult-aspect-of-athena",
+      "subject_id": "cult-aspect-athena-polias",
+      "predicate": "cult-aspect-of",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-athena-polias"]
+    },
+    {
+      "relationship_id": "athena-polias-associated-with-erechtheion-cult-space",
+      "subject_id": "cult-aspect-athena-polias",
+      "predicate": "associated-with-cult-space-in-reconstruction",
+      "object_ids": ["monument-erechtheion"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-athena-polias", "acropolis-museum-erechtheion", "attic-inscriptions-ig-i3-474"]
+    },
+    {
+      "relationship_id": "poseidon-erechtheus-title-links-poseidon-erechtheus",
+      "subject_id": "cult-title-poseidon-erechtheus",
+      "predicate": "links-names-of-in-cult-title",
+      "object_ids": ["deity-poseidon", "mythic-king-erechtheus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.15.1", "pausanias-1.26.5"],
+      "evidence_boundary": {
+        "en": "A linked cult title is not registered as an equation of two beings.",
+        "zh": "复合祭祀称号不会被登记为两个存在者完全等同。"
+      }
+    },
+    {
+      "relationship_id": "poseidon-altar-sacrifice-also-offered-to-erechtheus-pausanias",
+      "subject_id": "ritual-poseidon-erechtheus-shared-sacrifice",
+      "predicate": "offers-sacrifice-at-poseidon-altar-to-in-version",
+      "object_ids": ["deity-poseidon", "mythic-king-erechtheus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.26.5"]
+    },
+    {
+      "relationship_id": "erechtheus-fostered-by-athena-homer-version",
+      "subject_id": "mythic-king-erechtheus",
+      "predicate": "fostered-by-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["homer-iliad-2.546-551"]
+    },
+    {
+      "relationship_id": "erichthonius-fostered-by-athena-pseudo-apollodorus-version",
+      "subject_id": "mythic-king-erichthonius",
+      "predicate": "fostered-by-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.6"]
+    },
+    {
+      "relationship_id": "erichthonius-entrusted-to-pandrosus-pseudo-apollodorus-version",
+      "subject_id": "mythic-king-erichthonius",
+      "predicate": "entrusted-to-in-version",
+      "object_ids": ["mythic-figure-pandrosus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.6"]
+    },
+    {
+      "relationship_id": "erechtheus-distinguished-from-erichthonius-later-genealogy",
+      "subject_id": "mythic-king-erechtheus",
+      "predicate": "distinguished-from-in-pseudo-apollodorus-genealogy",
+      "object_ids": ["mythic-king-erichthonius"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.14.8"],
+      "evidence_boundary": {
+        "en": "This distinction belongs to the cited transmitted genealogy and is not projected into every earlier tradition.",
+        "zh": "这一区分只属于所引流传家谱，不被投射到所有更早传统。"
+      }
+    },
+    {
+      "relationship_id": "boutes-receives-priesthood-pseudo-apollodorus-version",
+      "subject_id": "mythic-figure-boutes",
+      "predicate": "receives-priesthood-of-in-version",
+      "object_ids": ["deity-athena", "cult-title-poseidon-erechtheus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pseudo-apollodorus-3.15.1"]
+    },
+    {
+      "relationship_id": "pandroseion-associated-with-pandrosus",
+      "subject_id": "sanctuary-pandroseion",
+      "predicate": "sanctuary-of",
+      "object_ids": ["mythic-figure-pandrosus"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.27.1-3"]
+    },
+    {
+      "relationship_id": "pandroseion-described-beside-athena-sanctuary",
+      "subject_id": "sanctuary-pandroseion",
+      "predicate": "described-beside-sanctuary-of-in-version",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.27.1-3"]
+    },
+    {
+      "relationship_id": "erechtheion-building-account-records-work-on-monument",
+      "subject_id": "inscription-erechtheion-building-account-ig-i3-474",
+      "predicate": "records-work-on-building-identified-as",
+      "object_ids": ["monument-erechtheion"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["attic-inscriptions-ig-i3-474"]
+    },
+    {
+      "relationship_id": "erechtheion-korai-part-of-monument",
+      "subject_id": "artwork-erechtheion-korai",
+      "predicate": "architectural-support-group-of",
+      "object_ids": ["monument-erechtheion"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-erechtheion-kore-a", "ysma-erechtheion"]
+    },
+    {
+      "relationship_id": "athena-parthenos-image-of-athena",
+      "subject_id": "artwork-athena-parthenos",
+      "predicate": "image-of",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.24.5", "pausanias-1.24.7"]
+    },
+    {
+      "relationship_id": "athena-parthenos-installed-in-parthenon",
+      "subject_id": "artwork-athena-parthenos",
+      "predicate": "installed-in",
+      "object_ids": ["monument-parthenon"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.24.5", "pausanias-1.24.7"]
+    },
+    {
+      "relationship_id": "athena-parthenos-made-by-pheidias",
+      "subject_id": "artwork-athena-parthenos",
+      "predicate": "made-by",
+      "object_ids": ["person-pheidias"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-athena-parthenos-accounts-em-637"]
+    },
+    {
+      "relationship_id": "athena-parthenos-accounts-record-statue-work",
+      "subject_id": "inscription-athena-parthenos-accounts-em-637",
+      "predicate": "accounts-for-work-on",
+      "object_ids": ["artwork-athena-parthenos"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-athena-parthenos-accounts-em-637"]
+    },
+    {
+      "relationship_id": "pericles-reports-removable-gold-thucydides-version",
+      "subject_id": "person-pericles",
+      "predicate": "describes-removable-and-repayable-gold-of-in-thucydides",
+      "object_ids": ["artwork-athena-parthenos"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["thucydides-2.13.5"],
+      "evidence_boundary": {
+        "en": "The report does not prove that the gold was actually removed, and its forty talents are not converted into modern value here.",
+        "zh": "该报告不能证明黄金确被拆下；这里也不把四十塔兰同换算为现代价值。"
+      }
+    },
+    {
+      "relationship_id": "varvakeion-athena-later-reduction-of-parthenos",
+      "subject_id": "artwork-varvakeion-athena-nm-129",
+      "predicate": "later-reduced-copy-of",
+      "object_ids": ["artwork-athena-parthenos"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["nam-varvakeion-athena-nm-129", "nam-varvakeion-athena-brochure"]
+    },
+    {
+      "relationship_id": "acropolis-1362-later-reduction-of-parthenos",
+      "subject_id": "artwork-athena-parthenos-copy-acr-1362",
+      "predicate": "later-reduced-copy-of",
+      "object_ids": ["artwork-athena-parthenos"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-athena-parthenos-acr-1362"]
+    },
+    {
+      "relationship_id": "strangford-shield-copy-of-parthenos-component",
+      "subject_id": "artwork-strangford-shield",
+      "predicate": "later-copy-of-component-of",
+      "object_ids": ["artwork-athena-parthenos"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["british-museum-strangford-shield"]
+    },
+    {
+      "relationship_id": "pausanias-identifies-parthenos-serpent-as-erichthonius",
+      "subject_id": "artwork-athena-parthenos",
+      "predicate": "includes-serpent-identified-as-in-pausanias",
+      "object_ids": ["mythic-king-erichthonius"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["pausanias-1.24.7"],
+      "evidence_boundary": {
+        "en": "This is Pausanias' later identification, not a surviving inscription on the lost statue.",
+        "zh": "这是保萨尼亚斯较晚的身份指认，不是失落神像上的现存铭文。"
+      }
+    },
+    {
+      "relationship_id": "parthenon-frieze-part-of-parthenon",
+      "subject_id": "artwork-parthenon-frieze",
+      "predicate": "part-of",
+      "object_ids": ["monument-parthenon"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["acropolis-museum-parthenon-frieze"]
+    },
+    {
+      "relationship_id": "parthenon-frieze-interpreted-as-greater-panathenaia",
+      "subject_id": "artwork-parthenon-frieze",
+      "predicate": "interpreted-as-evoking",
+      "object_ids": ["festival-greater-panathenaia"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-parthenon-frieze", "mackin-roberts-2025-divinespace-mortalspace"],
+      "evidence_boundary": {
+        "en": "This is the broad consensus interpretation, not an ancient caption and not certainty about every figure or moment.",
+        "zh": "这是广泛共识解释，而非古代题名，也不代表每个人物与时点均已确定。"
+      }
+    },
+    {
+      "relationship_id": "greater-panathenaia-honors-athena",
+      "subject_id": "festival-greater-panathenaia",
+      "predicate": "festival-for",
+      "object_ids": ["deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["plato-euthyphro-6c"]
+    },
+    {
+      "relationship_id": "panathenaic-peplos-ritual-part-of-festival",
+      "subject_id": "ritual-panathenaic-peplos",
+      "predicate": "part-of",
+      "object_ids": ["festival-greater-panathenaia"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["plato-euthyphro-6c"]
+    },
+    {
+      "relationship_id": "central-cloth-scene-part-of-parthenon-frieze",
+      "subject_id": "scene-parthenon-frieze-central-cloth",
+      "predicate": "part-of",
+      "object_ids": ["artwork-parthenon-frieze"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["parthenon-frieze-peplos-scene"]
+    },
+    {
+      "relationship_id": "central-cloth-scene-linked-to-peplos-leading-reading",
+      "subject_id": "scene-parthenon-frieze-central-cloth",
+      "predicate": "linked-to-in-leading-interpretation",
+      "object_ids": ["ritual-panathenaic-peplos"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["parthenon-frieze-peplos-scene", "acropolis-museum-parthenon-frieze"]
+    },
+    {
+      "relationship_id": "erechtheid-sacrifice-alternative-reads-central-scene",
+      "subject_id": "interpretation-erechtheid-sacrifice",
+      "predicate": "offers-alternative-reading-of",
+      "object_ids": ["scene-parthenon-frieze-central-cloth", "mythic-king-erechtheus"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["connelly-1996-parthenon-parthenoi"],
+      "evidence_boundary": {
+        "en": "The relation registers Connelly's proposal without elevating it to a recovered ancient identification.",
+        "zh": "此关系只登记康奈利假说，不把它提升为恢复出的古代身份指认。"
+      }
+    },
+    {
+      "relationship_id": "theatre-of-dionysus-part-of-sanctuary-complex",
+      "subject_id": "monument-theatre-of-dionysus",
+      "predicate": "part-of-sanctuary-complex",
+      "object_ids": ["sanctuary-dionysus-eleuthereus"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["greece-ministry-theatre-dionysus", "acropolis-museum-sanctuary-theatre-dionysos"]
+    },
+    {
+      "relationship_id": "city-dionysia-festival-for-dionysus",
+      "subject_id": "festival-city-dionysia",
+      "predicate": "festival-for",
+      "object_ids": ["deity-dionysus"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-sanctuary-theatre-dionysos"]
+    },
+    {
+      "relationship_id": "city-dionysia-uses-theatre-sanctuary-complex",
+      "subject_id": "festival-city-dionysia",
+      "predicate": "competitive-performances-associated-with",
+      "object_ids": ["monument-theatre-of-dionysus", "sanctuary-dionysus-eleuthereus"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["acropolis-museum-sanctuary-theatre-dionysos"]
+    },
+    {
+      "relationship_id": "dithyrambic-competition-part-of-city-dionysia",
+      "subject_id": "performance-dithyrambic-competition",
+      "predicate": "part-of",
+      "object_ids": ["festival-city-dionysia"],
+      "reconstruction_status": "artifact-documented",
+      "source_ids": ["aio-igii34-446-city-dionysia"]
+    },
+    {
+      "relationship_id": "oresteia-work-by-aeschylus",
+      "subject_id": "play-oresteia",
+      "predicate": "work-by",
+      "object_ids": ["person-aeschylus"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "relationship_id": "eumenides-part-of-oresteia",
+      "subject_id": "play-eumenides",
+      "predicate": "part-of",
+      "object_ids": ["play-oresteia"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "relationship_id": "oresteia-produced-at-city-dionysia-458",
+      "subject_id": "play-oresteia",
+      "predicate": "produced-at-in-458-bce",
+      "object_ids": ["festival-city-dionysia"],
+      "reconstruction_status": "scholarly-reconstruction",
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "relationship_id": "eumenides-jury-scene-part-of-play",
+      "subject_id": "scene-eumenides-jury-trial",
+      "predicate": "part-of",
+      "object_ids": ["play-eumenides"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["aeschylus-eumenides-674-710"]
+    },
+    {
+      "relationship_id": "eumenides-trial-stages-competing-claims",
+      "subject_id": "scene-eumenides-jury-trial",
+      "predicate": "stages-competing-claims-among",
+      "object_ids": ["mythic-hero-orestes", "deity-group-erinyes", "deity-apollo", "deity-athena"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["aeschylus-eumenides-674-710", "ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "relationship_id": "orestes-pursued-by-erinyes-eumenides",
+      "subject_id": "mythic-hero-orestes",
+      "predicate": "pursued-by-in-play",
+      "object_ids": ["deity-group-erinyes"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "relationship_id": "apollo-defends-orestes-eumenides",
+      "subject_id": "deity-apollo",
+      "predicate": "defends-in-play",
+      "object_ids": ["mythic-hero-orestes"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    },
+    {
+      "relationship_id": "athena-calls-jurors-eumenides",
+      "subject_id": "deity-athena",
+      "predicate": "calls-jurors-in-play-scene",
+      "object_ids": ["scene-eumenides-jury-trial"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["aeschylus-eumenides-674-710"]
+    },
+    {
+      "relationship_id": "orestes-kills-clytemnestra-in-cycle",
+      "subject_id": "mythic-hero-orestes",
+      "predicate": "kills-mother-in-inherited-cycle",
+      "object_ids": ["mythic-queen-clytemnestra"],
+      "reconstruction_status": "text-attested",
+      "source_ids": ["ucl-eumenides-city-dionysia-458"]
+    }
+  ],
+  "revision_history": [
+    {
+      "version": "2.0.0",
+      "date": "2026-08-12",
+      "summary": "Registered the Season 1 entities and source-backed relationships required by Chapters 2–6, separated cult titles and scholarly proposals from fixed identities, and added explicit boundaries for copies, lost works, mixed textual traditions, and later architectural phases."
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-08-12",
+      "summary": "Added Zeus, Cecrops, the trident-mark token, Poseidon-Erechtheus naming, and the YSMA-supported chronology while aligning token relationships with the registered ancient sources."
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-08-12",
+      "summary": "Added the Erechtheion, the variant-specific Athena verdict, and source-linked relationships that support Chapter 1's article thesis without implying equal cult status."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-08-12",
+      "summary": "Updated Chapter 1 continuity references to the Athens: Gods in Stone stable chapter ID."
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-08-12",
+      "summary": "Created the Chapter 1 entity set, bilingual names, source-linked relationships, and visual continuity boundaries."
+    }
+  ]
+}

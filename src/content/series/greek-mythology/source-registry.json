@@ -1,0 +1,1869 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "1.5.0",
+  "registry_id": "greek-mythology-sources",
+  "series_id": "greek-mythology",
+  "verified_on": "2026-08-12",
+  "sources": [
+    {
+      "source_id": "acropolis-museum-parthenon-pediments",
+      "source_type": "institutional-catalogue",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "The Parthenon Pediments",
+        "zh": "卫城博物馆：帕特农神庙山墙"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/sculptural-decoration/pediments",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "west-pediment-program-overview",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Institutional overview of the Parthenon pediments and surviving sculptural program.",
+            "zh": "帕特农神庙山墙及现存雕塑群的机构性概述。"
+          }
+        },
+        {
+          "evidence_id": "east-pediment-birth-material-and-surface-overview",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Identifies the east/front pediment with Athena's birth from Zeus's head and records the Pentelic-marble sculptural program with original colour and metal additions.",
+            "zh": "将东面／正面山墙题材指认为雅典娜由宙斯头颅诞生，并记录彭特利库斯大理石雕塑群原有彩绘与金属附件。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "An institutional synthesis; individual fragments should use their object records.",
+        "zh": "这是机构综合说明；具体残片应引用各自馆藏记录。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-02-athena-birth-east-pediment"
+      ]
+    },
+    {
+      "source_id": "acropolis-museum-west-pediment-athena",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Parthenon. West Pediment. Athena",
+        "zh": "卫城博物馆：帕特农神庙西山墙·雅典娜"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/parthenon-west-pediment-athena",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 6655",
+      "supports": [
+        {
+          "evidence_id": "athena-surviving-fragments",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Catalogue record for preserved parts attributed to the west-pediment Athena.",
+            "zh": "归属于西山墙雅典娜像的现存部分馆藏记录。"
+          }
+        },
+        {
+          "evidence_id": "athena-pose-scholarly-reading",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "The museum's cautious reconstruction of movement, helmet, spear, shield, and orientation toward Poseidon.",
+            "zh": "博物馆对动作、头盔、长矛、盾牌及面向波塞冬方向的谨慎复原。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Reconstructed equipment and pose are not wholly surviving features; preserve the museum's uncertainty language.",
+        "zh": "复原的器物与姿态并非完整存留；必须保留博物馆原有的不确定措辞。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-01-athena-poseidon-contest"]
+    },
+    {
+      "source_id": "acropolis-museum-west-pediment-poseidon",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Parthenon. West Pediment. Poseidon",
+        "zh": "卫城博物馆：帕特农神庙西山墙·波塞冬"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/parthenon-west-pediment-poseidon",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 885",
+      "supports": [
+        {
+          "evidence_id": "poseidon-surviving-fragments",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Catalogue record for preserved parts attributed to the west-pediment Poseidon.",
+            "zh": "归属于西山墙波塞冬像的现存部分馆藏记录。"
+          }
+        },
+        {
+          "evidence_id": "poseidon-pose-scholarly-reading",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "The museum's cautious reconstruction of Poseidon's orientation, raised arm, and possible trident action.",
+            "zh": "博物馆对波塞冬朝向、抬臂及可能三叉戟动作的谨慎复原。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Some fragment attribution and the exact action remain probabilistic.",
+        "zh": "部分残片归属及确切动作仍属推定。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-01-athena-poseidon-contest"]
+    },
+    {
+      "source_id": "pausanias-1.24.5",
+      "source_type": "ancient-text",
+      "authority": "Pausanias",
+      "titles": {
+        "en": "Description of Greece 1.24.5",
+        "zh": "保萨尼亚斯《希腊志》1.24.5"
+      },
+      "work_period": "2nd century CE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Paus.+1.24.5&fromdoc=Perseus%3Atext%3A1999.01.0160",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "west-pediment-contest-theme",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Identifies the rear pediment's subject as Poseidon's dispute with Athena over the land.",
+            "zh": "将神庙后方山墙的题材指认为波塞冬与雅典娜对土地的争夺。"
+          }
+        },
+        {
+          "evidence_id": "east-pediment-athena-birth-theme",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Identifies the sculptures on the Parthenon's front pediment with the birth of Athena.",
+            "zh": "将帕特农神庙正面山墙雕塑的题材指认为雅典娜诞生。"
+          }
+        },
+        {
+          "evidence_id": "athena-parthenos-gold-ivory-and-helmet-ornaments",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Describes Athena Parthenos as made of ivory and gold, with a Sphinx at the center of the helmet and griffins on either side.",
+            "zh": "记述雅典娜·帕耳忒诺斯由象牙与黄金制成，头盔中央有斯芬克斯，两侧有狮鹫。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A later ancient description of the monument, not an eyewitness account of the sculptures' creation.",
+        "zh": "这是较晚的古代 monument 描述，并非雕塑创作时的目击记录。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-02-athena-birth-east-pediment",
+        "greek-mythology-athens-04-athena-parthenos-lost-statue"
+      ]
+    },
+    {
+      "source_id": "pausanias-1.26.5",
+      "source_type": "ancient-text",
+      "authority": "Pausanias",
+      "titles": {
+        "en": "Description of Greece 1.26.5",
+        "zh": "保萨尼亚斯《希腊志》1.26.5"
+      },
+      "work_period": "2nd century CE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Paus.+1.26.5&fromdoc=Perseus%3Atext%3A1999.01.0160",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "poseidon-salt-water-trident-testimony",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Describes an altar of Poseidon, sea water, and a trident outline; the latter two were shown as evidence supporting Poseidon's claim to the land.",
+            "zh": "记述波塞冬祭坛、海水与三叉戟痕迹；后两者被展示为支持波塞冬土地权利主张的迹证。"
+          }
+        },
+        {
+          "evidence_id": "poseidon-erechtheus-shared-altar",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Records that sacrifice was also offered to Erechtheus at Poseidon's altar and names separate altars of Boutes and Hephaistos.",
+            "zh": "记述波塞冬祭坛也依神谕接受献给厄瑞克忒斯的祭祀，并另列布忒斯与赫淮斯托斯祭坛。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "This passage concerns features in the Erechtheum; it does not itself describe the west-pediment composition.",
+        "zh": "该段描述厄瑞克忒翁神庙内的迹证，并不直接描述西山墙构图。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ]
+    },
+    {
+      "source_id": "herodotus-8.55",
+      "source_type": "ancient-text",
+      "authority": "Herodotus",
+      "titles": {
+        "en": "Histories 8.55",
+        "zh": "希罗多德《历史》8.55"
+      },
+      "work_period": "5th century BCE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0126%3Abook%3D8%3Achapter%3D55",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "olive-and-salt-water-testimonies",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Reports an Athenian tradition in which an olive tree and a ‘sea’ on the Acropolis jointly served as testimonies associated with the dispute.",
+            "zh": "记录一个雅典传统：卫城上的橄榄树与一处“海”共同作为这场争夺的迹证。"
+          }
+        },
+        {
+          "evidence_id": "olive-resprouting-after-persian-fire",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Reports the Athenian observation that a new shoot rose from the burned olive trunk after the Persian destruction.",
+            "zh": "记录雅典人的说法：波斯人焚毁卫城后，烧焦的橄榄树干很快发出新芽。"
+          }
+        },
+        {
+          "evidence_id": "earlier-erechtheus-sanctuary-context",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Places the olive and sea testimonies in an earlier Acropolis sanctuary called the temple of Erechtheus, before the extant late-fifth-century Erechtheion.",
+            "zh": "将橄榄与“海”的迹证置于一处更早、被称为厄瑞克忒斯神庙的卫城圣所中，其年代早于现存晚五世纪厄瑞克忒翁。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The passage lists the two tokens jointly and does not by itself assign each token to one deity. It reports an Athenian tradition, not proof of a supernatural event or a complete contest narrative.",
+        "zh": "该段将两件迹证并列，并未在这一句中分别明确指向两位神。它记录的是雅典传统，并不证明超自然事件，也不是完整争夺故事。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ]
+    },
+    {
+      "source_id": "pseudo-apollodorus-3.14.1",
+      "source_type": "ancient-text",
+      "authority": "Pseudo-Apollodorus",
+      "titles": {
+        "en": "Library 3.14.1",
+        "zh": "伪阿波罗多洛斯《书库》3.14.1"
+      },
+      "work_period": "uncertain; commonly placed in the early Roman imperial period",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0022%3Atext%3DLibrary%3Abook%3D3%3Achapter%3D14",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "contest-gifts-and-verdict-version",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "In this version, Poseidon produces a sea, Athena plants an olive, Zeus appoints the twelve gods as arbiters, Cecrops testifies, and Attica is awarded to Athena.",
+            "zh": "在这一版本中，波塞冬造出海水，雅典娜种下橄榄；宙斯任命十二神裁决，刻克洛普斯作证，阿提卡最终判给雅典娜。"
+          }
+        },
+        {
+          "evidence_id": "contest-judge-variants",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "The passage explicitly notes other traditions naming Cecrops and Cranaus, or Erysichthon, as arbiters.",
+            "zh": "同一段明确提到另有传统把刻克洛普斯与克拉瑙斯，或厄律西克同，视为裁决者。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A later mythographic account and one transmitted version, not a contemporary Classical Athenian record or a universal canon.",
+        "zh": "这是较晚的神话汇编与众多流传版本之一，并非古典雅典的同期记录，也不是唯一正典。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-01-athena-poseidon-contest"]
+    },
+    {
+      "source_id": "acropolis-museum-erechtheion",
+      "source_type": "institutional-site-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "The Erechtheion",
+        "zh": "卫城博物馆：厄瑞克忒翁"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/node/16472",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "erechtheion-cult-spaces",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Describes the eastern room dedicated to Athena and the lower western room containing shrines including Poseidon-Erechtheus.",
+            "zh": "记述东室供奉雅典娜，较低的西室容纳包括波塞冬—厄瑞克忒斯在内的神龛。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-contest-tokens",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Provides an institutional reconstruction in which the complex incorporated the olive, trident marks, and salt-water spring associated with the contest.",
+            "zh": "提供机构性复原：建筑复合体将与争夺相关的橄榄树、三叉戟痕与盐水泉纳入其中。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-construction-chronology",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Places the extant Erechtheion in the late fifth century BCE.",
+            "zh": "将现存厄瑞克忒翁定年于公元前五世纪后期。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-terrain-and-multiple-cults",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Explains the monument's irregular form as accommodating uneven terrain together with multiple cult requirements.",
+            "zh": "将建筑的不规则形制解释为同时适应复杂地势与多重祭祀需求。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Interior knowledge and the original arrangement are partly reconstructed because the monument is damaged. The record does not prove a modern political program of reconciliation or equal status between the deities.",
+        "zh": "由于建筑受损，对内部格局与原始布置的认识部分依赖复原。该资料不能证明现代意义的政治和解，也不能断言两位神地位完全相等。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ]
+    },
+    {
+      "source_id": "ysma-erechtheion",
+      "source_type": "institutional-site-record",
+      "authority": "Acropolis Restoration Service (YSMA)",
+      "titles": {
+        "en": "Erechtheion",
+        "zh": "雅典卫城修复服务处：厄瑞克忒翁"
+      },
+      "canonical_url": "https://www.ysma.gr/en/monuments/erechtheion/",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "erechtheion-construction-chronology",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Dates the extant Erechtheion to 421–406 BCE.",
+            "zh": "将现存厄瑞克忒翁定年于公元前421至406年。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-cult-spaces",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Provides a conservation-service synthesis of the monument's complex cult functions associated with Athena and Poseidon.",
+            "zh": "提供修复机构对该建筑复合祭祀功能及其与雅典娜、波塞冬关系的综合说明。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-preservation-and-conversion-history",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Documents fires, later conversion, damage, and modern restoration that leave the ancient interior only partly recoverable.",
+            "zh": "记录火灾、后世改建、破坏与现代修复，说明古代内部格局只能部分恢复。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-korai-originals-and-copies",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Distinguishes the protective copies now standing on the monument from the original Korai removed for preservation.",
+            "zh": "区分今日立于建筑上的保护性复制品与为保存而移走的 Korai 原件。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The surviving interior is heavily damaged; exact original arrangements remain partly reconstructed.",
+        "zh": "建筑内部保存不完整，对原始布置的认识部分依赖复原。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-03-erechtheion-many-memories"
+      ]
+    },
+    {
+      "source_id": "meyer-2018-west-pediment",
+      "source_type": "peer-reviewed-scholarship",
+      "authority": "Marion Meyer; Electra, University of Patras",
+      "titles": {
+        "en": "To Cheat or Not to Cheat: Poseidon's Eris with Athena in the West Pediment of the Parthenon",
+        "zh": "Meyer 2018：帕特农神庙西山墙中波塞冬与雅典娜的争夺"
+      },
+      "canonical_url": "https://pasithee.library.upatras.gr/electra/article/view/2932",
+      "doi": "10.26220/ele.2932",
+      "language": "en",
+      "publication_date": "2018",
+      "supports": [
+        {
+          "evidence_id": "west-pediment-1674-drawing",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Analyzes the 1674 drawing, surviving sculptures, and the modern scholarly reconstruction of the composition.",
+            "zh": "分析1674年绘图、现存雕塑及现代学界对构图的复原。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Supports composition-level scholarly reconstruction, not the exact styling of this series' generated scene. The traditional attribution of the drawing to Jacques Carrey is disputed.",
+        "zh": "它支持构图层面的学术复原，不支持本系列生成场景的全部造型；将1674年绘图归于 Jacques Carrey 的传统说法存在争议。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-01-athena-poseidon-contest"]
+    },
+    {
+      "source_id": "acropolis-museum-athena-polias",
+      "source_type": "institutional-glossary",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Athena Polias",
+        "zh": "卫城博物馆：雅典娜·波利阿斯"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/node/1049",
+      "language": "en",
+      "publication_date": "2024",
+      "supports": [
+        {
+          "evidence_id": "athena-polias-civic-cult-aspect",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Explains Polias as Athena's role as protector of Athens and the Acropolis and places her cult in the northern Acropolis sanctuary tradition.",
+            "zh": "将 Polias 解释为雅典娜作为雅典城与卫城保护者的角色，并把其祭祀置于卫城北部圣所传统中。"
+          }
+        },
+        {
+          "evidence_id": "athena-polias-ancient-wooden-image",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Describes the ancient cult image of Athena Polias as a wooden image, distinct in setting and cult context from Athena Parthenos.",
+            "zh": "将雅典娜·波利阿斯的古老祭祀神像描述为木像，其场所与祭祀语境不同于雅典娜·帕耳忒诺斯。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The belief that the image descended from heaven is a tradition, not an artifact fact. Do not conflate this lost wooden image with Athena Parthenos or reconstruct its full appearance.",
+        "zh": "神像从天而降属于传统说法，不是文物事实；不可把这尊已失木像与雅典娜·帕耳忒诺斯混同，也不可复原其完整外观。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "pausanias-1.27.1-3",
+      "source_type": "ancient-text",
+      "authority": "Pausanias",
+      "titles": {
+        "en": "Description of Greece 1.27.1–3",
+        "zh": "保萨尼亚斯《希腊志》1.27.1–3"
+      },
+      "work_period": "2nd century CE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Paus.+1.27.1&fromdoc=Perseus%3Atext%3A1999.01.0160",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "pandroseion-adjacency-and-olive-testimony",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Places the sanctuary of Pandrosus beside Athena's and records the olive as testimony associated with Athena's claim to the land.",
+            "zh": "将潘德洛索斯圣所置于雅典娜神庙旁，并记述橄榄作为雅典娜争地权利的迹证。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The textual sequence is not a complete site plan. The Arrhephoroi in the passage must not be identified automatically with the porch Korai.",
+        "zh": "文本顺序不是完整场地平面图；段落中的 Arrhephoroi 不可自动等同于门廊 Korai。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "homer-iliad-2.546-551",
+      "source_type": "ancient-text",
+      "authority": "Homeric tradition",
+      "titles": {
+        "en": "Iliad 2.546–551",
+        "zh": "《伊利亚特》2.546–551"
+      },
+      "work_period": "usually dated to the 8th–7th century BCE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0217%3Abook%3D2",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "earthborn-erechtheus-fostered-by-athena",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Calls Erechtheus earth-born, says Athena fostered him and placed him in her Athenian sanctuary, and records annual Athenian sacrifice.",
+            "zh": "称厄瑞克忒斯由大地所生、由雅典娜抚养并安置于她的雅典神域，并记述雅典人每年向他献祭。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "This earlier tradition does not contain the later Pseudo-Apollodoran two-person genealogy; do not rewrite Homer through that later distinction.",
+        "zh": "这一较早传统没有后来伪阿波罗多洛斯式的双人物家谱；不可用后来的区分反向改写荷马。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "pseudo-apollodorus-3.14.6",
+      "source_type": "ancient-text",
+      "authority": "Pseudo-Apollodorus",
+      "titles": {
+        "en": "Library 3.14.6",
+        "zh": "伪阿波罗多洛斯《书库》3.14.6"
+      },
+      "work_period": "uncertain; commonly placed in the early Roman imperial period",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0022%3Atext%3DLibrary%3Abook%3D3%3Achapter%3D14%3Asection%3D6",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "erichthonius-birth-and-athena-fostering-version",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "In this version, the earth-born child raised by Athena is Erichthonius; Athena entrusts him to Pandrosus and her sisters, and he later becomes king.",
+            "zh": "在这一版本中，由大地而生、被雅典娜抚养的孩子是厄里克托尼俄斯；女神将他托付给潘德洛索斯姐妹，他后来成为国王。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The text preserves variants and material involving sexual violence; summarize carefully for general readers and do not present it as the single correction to Homer.",
+        "zh": "文本保存多个变体并涉及性暴力；面向普通读者须谨慎概述，也不可把它写成对荷马传统的唯一更正。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "pseudo-apollodorus-3.14.8",
+      "source_type": "ancient-text",
+      "authority": "Pseudo-Apollodorus",
+      "titles": {
+        "en": "Library 3.14.8",
+        "zh": "伪阿波罗多洛斯《书库》3.14.8"
+      },
+      "work_period": "uncertain; commonly placed in the early Roman imperial period",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0022%3Atext%3DLibrary%3Abook%3D3%3Achapter%3D14%3Asection%3D8",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "later-genealogy-distinguishes-erechtheus",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "In this later genealogy, Erechtheus and Boutes are sons of Pandion, distinguishing this Erechtheus from the preceding Erichthonius.",
+            "zh": "在这套较晚家谱中，厄瑞克忒斯与布忒斯是潘狄翁之子，从而把这位厄瑞克忒斯与前一节的厄里克托尼俄斯分开。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Supports only that this transmitted version distinguishes the figures, not that every ancient tradition did so.",
+        "zh": "只支持这一流传版本作出区分，不支持所有古代传统都如此区分。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "pseudo-apollodorus-3.15.1",
+      "source_type": "ancient-text",
+      "authority": "Pseudo-Apollodorus",
+      "titles": {
+        "en": "Library 3.15.1",
+        "zh": "伪阿波罗多洛斯《书库》3.15.1"
+      },
+      "work_period": "uncertain; commonly placed in the early Roman imperial period",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0022%3Atext%3DLibrary%3Abook%3D3%3Achapter%3D15",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "erechtheus-boutes-and-poseidon-erechtheus-priesthood",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "In this genealogy Erechtheus inherits kingship while Boutes receives the priesthood of Athena and Poseidon-Erechtheus.",
+            "zh": "在这套家谱中，厄瑞克忒斯继承王权，布忒斯则获得雅典娜与波塞冬—厄瑞克忒斯的祭司职。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The compound cult title does not by itself settle the ontological relationship between Poseidon and Erechtheus; modern editorial notes must remain distinct from the ancient text.",
+        "zh": "复合祭祀称号本身不能解决波塞冬与厄瑞克忒斯的本体关系；现代编辑脚注须与古代正文区分。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "oxford-classical-dictionary-erechtheus-2018",
+      "source_type": "reference-scholarship",
+      "authority": "Emily Kearns; Oxford Classical Dictionary",
+      "titles": {
+        "en": "Erechtheus",
+        "zh": "《牛津古典辞典》：厄瑞克忒斯"
+      },
+      "canonical_url": "https://doi.org/10.1093/acrefore/9780199381135.013.2480",
+      "doi": "10.1093/acrefore/9780199381135.013.2480",
+      "language": "en",
+      "publication_date": "2015; revised 2018",
+      "supports": [
+        {
+          "evidence_id": "erechtheus-cult-relations-and-unresolved-origins",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Synthesizes Erechtheus as king and tribal hero, his cult links with Athena and Poseidon, and the unresolved early relationship between Erechtheus and Erichthonius.",
+            "zh": "综合厄瑞克忒斯作为国王与部族英雄的传统、他与雅典娜及波塞冬的祭祀联系，以及厄瑞克忒斯和厄里克托尼俄斯早期关系尚无定论的研究。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A reference synthesis, not a substitute for specific ancient passages. Use it to preserve uncertainty rather than select one origin theory.",
+        "zh": "这是参考性综合，不能替代具体古代段落；应用它保留不确定性，而非挑选一个起源理论。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "acropolis-museum-erechtheion-kore-a",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Erechtheion. Caryatid Kore A",
+        "zh": "卫城博物馆：厄瑞克忒翁女像柱 Kore A"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/erechtheion-karyatid-kore",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 15000",
+      "object_period": "420–415 BCE",
+      "supports": [
+        {
+          "evidence_id": "erechtheion-six-korai-and-display-locations",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Documents six female architectural supports, the building accounts' name Korai, and the preservation of five originals in Athens and one in London while copies stand on the monument.",
+            "zh": "记录六位女性建筑支柱、建筑账目所用 Korai 称呼，以及五尊原件藏于雅典、一尊藏于伦敦而现场立复制品的保存现状。"
+          }
+        },
+        {
+          "evidence_id": "erechtheion-korai-identity-interpretations",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Surveys competing identities for the figures and presents libation bearers associated with the Kekropion as the museum's preferred interpretation.",
+            "zh": "概述女像的多种身份解释，并将与 Kekropion 有关的奠酒者列为博物馆偏好的解释。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Vitruvius' punishment story and later dancer traditions are interpretive clues, not settled identification; the museum's preferred libation-bearer reading also remains an interpretation. Display locations can change.",
+        "zh": "维特鲁威受罚女子故事及后来的舞者传统只是解释线索，并非确定身份；博物馆偏好的奠酒者说同样仍属解释。展陈位置可能变化。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "attic-inscriptions-ig-i3-474",
+      "source_type": "digital-scholarly-inscription-edition",
+      "authority": "Attic Inscriptions Online",
+      "titles": {
+        "en": "Erechtheion Building Account, IG I³ 474 (Caskey Fragment 2)",
+        "zh": "厄瑞克忒翁工程账目：IG I³ 474（Caskey 残片 2）"
+      },
+      "work_period": "409/8 BCE",
+      "canonical_url": "https://www.atticinscriptions.com/inscription/Caskey/fr-2",
+      "language": "grc-with-en-translation",
+      "publication_date": "2016; updated 2019",
+      "supports": [
+        {
+          "evidence_id": "erechtheion-account-ancient-image-and-maidens",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "The fragmentary building account describes work on the Acropolis temple containing the ancient image and refers to the roof above the maidens and work facing the Kekropion and Pandroseion.",
+            "zh": "残缺工程账目记述安置古老神像的卫城神庙工程，并提到“少女上方屋顶”及朝向 Kekropion、Pandroseion 的施工。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The inscription is fragmentary, and modern mappings of its terms to surviving architectural parts remain scholarly interpretation. Its word 'maidens' does not identify whom the Korai represented.",
+        "zh": "碑文残缺，对词语与现存建筑部位的现代对应仍属学术解释；其中“少女”一词不能说明 Korai 代表谁。"
+      },
+      "rights": {
+        "page_reuse": "link-and-paraphrase-or-short-quotation-after-license-review",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "jutte-2022-contested-caryatids",
+      "source_type": "peer-reviewed-scholarship",
+      "authority": "Daniel Jütte; Central European History",
+      "titles": {
+        "en": "Contested Caryatids: Architecture, Modernity, and Race around 1900",
+        "zh": "《有争议的女像柱：约1900年前后的建筑、现代性与种族》"
+      },
+      "canonical_url": "https://doi.org/10.1017/S0008938922000966",
+      "doi": "10.1017/S0008938922000966",
+      "language": "en",
+      "publication_date": "2022 online; 2023 in Central European History 56.1",
+      "supports": [
+        {
+          "evidence_id": "vitruvian-caryatid-punishment-story-disputed",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Reviews philological and archaeological objections to Vitruvius' punishment origin story and traces the later remaking of Caryatid meanings around burden and servitude.",
+            "zh": "回顾语文学与考古学对维特鲁威受罚起源故事的质疑，并追踪女像柱在后世围绕负重与奴役意义的再造。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The paper focuses on modern reception rather than providing a definitive original iconography for the Erechtheion figures; use it only to reject the punishment story as settled fact.",
+        "zh": "论文重点是近现代接受史，并不为厄瑞克忒翁女像提供确定的原始图像学结论；只应用来否定“受罚女子说已成定论”。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-03-erechtheion-many-memories"]
+    },
+    {
+      "source_id": "acropolis-museum-parthenon-frieze",
+      "source_type": "institutional-site-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "The Parthenon Frieze",
+        "zh": "卫城博物馆：帕特农神庙浮雕带"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/sculptural-decoration/frieze",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "parthenon-frieze-scale-date-and-sequence",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Describes an original sequence of 115 blocks, about 160 metres long, carved around 443–438 BCE around the upper exterior of the cella, with two processional streams converging on the east.",
+            "zh": "记述浮雕带原有115块、总长约160米，约公元前443至438年雕于内殿外墙上部，两股行列在东侧汇合。"
+          }
+        },
+        {
+          "evidence_id": "greater-panathenaia-subject-institutional-reading",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Presents the Greater Panathenaic procession as the subject believed to organize the frieze rather than as an inscriptionally proven caption.",
+            "zh": "将大泛雅典娜节行列作为馆方相信能够统摄浮雕的题材，而不是铭文已经证明的题名。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Counts and overall attribution are institutional synthesis; contested individual identities remain interpretations, and workshop attribution is not block-by-block authorship evidence.",
+        "zh": "数量与总体归属属于机构综合；有争议的个体身份仍是解释，工坊归属也不是逐块作者鉴定。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-05-parthenon-frieze-procession"]
+    },
+    {
+      "source_id": "parthenon-frieze-digital-tour",
+      "source_type": "institutional-digital-archive",
+      "authority": "Hellenic Ministry of Culture; Acropolis Museum; Acropolis Restoration Service (YSMA); National Documentation Centre (EKT)",
+      "titles": {
+        "en": "About the Parthenon Frieze",
+        "zh": "帕特农浮雕带数字项目：浮雕带概览"
+      },
+      "canonical_url": "https://parthenonfrieze.gr/en/about-the-frieze/",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "distributed-frieze-digital-sequence",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Reconnects blocks and fragments now divided among Athens, London, Paris, and other collections in one documented sequence and records the provenance of early drawings used for lost sections.",
+            "zh": "把今日分藏于雅典、伦敦、巴黎等地的石块与残片接回同一有据序列，并记录用于恢复缺失部分的早期绘图来源。"
+          }
+        },
+        {
+          "evidence_id": "parthenon-frieze-groups-and-east-convergence",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Organizes the surviving sequence into preparations, riders, chariots, offerings, sacrificial animals, gods, and the east-center group.",
+            "zh": "将现存序列组织为准备、骑手、战车、供物、祭牲、神祇与东侧中央人物群。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The project uses a Panathenaic framework, while many figure and object identifications remain qualified; lost south-side passages partly depend on drawings from 1674 and 1751.",
+        "zh": "项目采用泛雅典娜节框架，但许多人物与器物身份仍带限定；南侧缺失部分有些依赖1674年与1751年绘图。"
+      },
+      "rights": {
+        "page_reuse": "link-and-original-summary-only",
+        "image_reuse": "written-permission-required"
+      },
+      "used_by": ["greek-mythology-athens-05-parthenon-frieze-procession"]
+    },
+    {
+      "source_id": "parthenon-frieze-peplos-scene",
+      "source_type": "institutional-digital-feature",
+      "authority": "Hellenic Ministry of Culture; Acropolis Museum; Acropolis Restoration Service (YSMA); National Documentation Centre (EKT)",
+      "titles": {
+        "en": "The Peplos Scene",
+        "zh": "帕特农浮雕带数字项目：佩普洛斯场景"
+      },
+      "canonical_url": "https://parthenonfrieze.gr/en/thematic-tours/the-peplos-scene/",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "east-center-five-figures-cloth-and-objects",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Documents five figures at the east center, two younger figures carrying head-borne objects, and an adult and child handling a folded textile.",
+            "zh": "记录东侧中央的五个人物、两位年轻人物头顶的器物，以及一名成人与孩子共同处理的折叠织物。"
+          }
+        },
+        {
+          "evidence_id": "peplos-scene-identities-and-action-disputed",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Records the longstanding dispute over who gives or receives the textile and how the participants and head-borne objects should be identified.",
+            "zh": "记录谁交出或接收织物、参与者与头顶器物应如何识别的长期争论。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The child's sex, the adult's office, the ritual moment represented by the textile, and the direction of the action are not visually certain facts.",
+        "zh": "孩子的性别、成人的职务、织物所处的仪式时点与动作方向都不是肉眼可确定的事实。"
+      },
+      "rights": {
+        "page_reuse": "link-and-original-summary-only",
+        "image_reuse": "written-permission-required"
+      },
+      "used_by": ["greek-mythology-athens-05-parthenon-frieze-procession"]
+    },
+    {
+      "source_id": "plato-euthyphro-6c",
+      "source_type": "ancient-text",
+      "authority": "Plato",
+      "titles": {
+        "en": "Euthyphro 6c",
+        "zh": "柏拉图《欧绪弗洛》6c"
+      },
+      "work_period": "4th century BCE",
+      "canonical_url": "https://atlas.perseus.tufts.edu/library/passage/urn%3Acts%3AgreekLit%3Atlg0059.tlg001.perseus-eng2%3A2-6/",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "panathenaic-robe-and-gods-battle",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Refers to a robe carried to the Acropolis at the Greater Panathenaia and decorated with the gods' battle.",
+            "zh": "提到大泛雅典娜节时被送上卫城、装饰有诸神战斗图像的衣袍。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The passage does not mention the Parthenon frieze or identify the textile in its east-center scene.",
+        "zh": "该段没有提到帕特农浮雕带，也没有指认东侧中央场景中的织物。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-05-parthenon-frieze-procession"]
+    },
+    {
+      "source_id": "connelly-1996-parthenon-parthenoi",
+      "source_type": "peer-reviewed-scholarship",
+      "authority": "Joan Breton Connelly; American Journal of Archaeology",
+      "titles": {
+        "en": "Parthenon and Parthenoi: A Mythological Interpretation of the Parthenon Frieze",
+        "zh": "《帕特农与少女：帕特农浮雕带的神话解释》"
+      },
+      "canonical_url": "https://www.journals.uchicago.edu/doi/10.2307/506297",
+      "doi": "10.2307/506297",
+      "language": "en",
+      "publication_date": "1996",
+      "journal_reference": "American Journal of Archaeology 100.1 (1996), 53–80",
+      "supports": [
+        {
+          "evidence_id": "erechtheid-sacrifice-frieze-proposal",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Proposes that the east-center group represents Erechtheus' family preparing a daughter for sacrifice and that the wider procession belongs to a mythic commemoration.",
+            "zh": "提出东侧中央人物群是厄瑞克忒斯一家为女儿牺牲作准备，外围行列则属于神话性的纪念。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "This is a named scholarly proposal, not a recovered ancient title or a consensus equivalent to the Panathenaic interpretation; present both its reasoning and its added assumptions.",
+        "zh": "这是具名的学术假说，不是重新发现的古代题名，也不与泛雅典娜节解释拥有同等共识；须同时呈现其理由与新增假设。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-05-parthenon-frieze-procession"]
+    },
+    {
+      "source_id": "mackin-roberts-2025-divinespace-mortalspace",
+      "source_type": "peer-reviewed-scholarship",
+      "authority": "Ellie Mackin Roberts; The Classical Quarterly",
+      "titles": {
+        "en": "(Re)appraising the Parthenon Frieze: ‘Divinespace’ and ‘Mortalspace’",
+        "zh": "《重新审视帕特农浮雕带：“神祇空间”与“凡人空间”》"
+      },
+      "canonical_url": "https://www.cambridge.org/core/journals/classical-quarterly/article/reappraising-the-parthenon-frieze-divinespace-and-mortalspace/298971C0FE6CE2A7DEADB32AA6B33AA5",
+      "doi": "10.1017/S0009838825100621",
+      "language": "en",
+      "publication_date": "2025-06-11",
+      "journal_reference": "The Classical Quarterly 75.1 (2025), 118–140",
+      "supports": [
+        {
+          "evidence_id": "frieze-no-extant-ancient-commentary-and-broad-consensus",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Notes that no ancient commentary on the frieze survives and summarizes broad agreement that it reflects some form of the Greater Panathenaic procession while leaving its exact temporal and narrative mode open.",
+            "zh": "指出没有现存古代浮雕评论，并概述学界广泛同意它反映某种大泛雅典娜节行列，同时保留其确切时间与叙事方式的开放性。"
+          }
+        },
+        {
+          "evidence_id": "divinespace-mortalspace-east-frieze-model",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Analyzes the east composition through a modern model separating and connecting divine and mortal space.",
+            "zh": "以区分又连接神祇空间与凡人空间的现代模型分析东侧构图。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Broad agreement does not settle every figure or action, and Divinespace/Mortalspace is the author's analytical model rather than an ancient term.",
+        "zh": "广泛共识不能解决每个人物与动作；Divinespace/Mortalspace 是作者的分析模型，不是古代术语。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-05-parthenon-frieze-procession"]
+    },
+    {
+      "source_id": "greece-ministry-theatre-dionysus",
+      "source_type": "official-site-record",
+      "authority": "Hellenic Ministry of Culture",
+      "titles": {
+        "en": "Theatre of Dionysus",
+        "zh": "希腊文化部：狄俄尼索斯剧场"
+      },
+      "canonical_url": "https://odysseus.culture.gr/h/2/eh251.jsp?obj_id=10341",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "theatre-dionysus-early-earth-timber-and-skene-phases",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Synthesizes the south-slope sanctuary's early earthen orchestra and timber seating evidence, including postholes, and a later fifth-century skene with surviving stone foundations.",
+            "zh": "综合南坡圣所早期土质 orchestra、木座席及柱洞证据，并记述晚五世纪有石质基础的 skene。"
+          }
+        },
+        {
+          "evidence_id": "theatre-dionysus-later-stone-and-roman-phases",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Dates most visible stone remains to the rebuilding of roughly 350–320 BCE and documents subsequent Hellenistic, Roman, and late-antique changes.",
+            "zh": "将今日大部分可见石质遗迹定年于约公元前350至320年的改建，并记录后续希腊化、罗马与晚古代变化。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "An institutional synthesis of long excavation and restoration research. Early plans and superstructures remain partly reconstructed; do not project later marble seating, Roman stage fronts, or late capacity estimates into fifth-century premieres.",
+        "zh": "这是长期发掘与修复研究的机构综合；早期平面与上部结构部分依赖复原，不可把后期大理石座席、罗马舞台立面或晚期容量估计投射到五世纪首演。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "acropolis-museum-sanctuary-theatre-dionysos",
+      "source_type": "institutional-site-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "The Sanctuary and Theatre of Dionysos",
+        "zh": "卫城博物馆：狄俄尼索斯圣所与剧场"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/sanctuaries/sanctuary-and-theatre-dionysos",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "city-dionysia-drama-competition-context",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Connects the south-slope sanctuary and theatre with the City Dionysia and its competitive performances of tragedy, comedy, and satyr play.",
+            "zh": "将南坡圣所与剧场同城市狄俄尼西亚以及悲剧、喜剧和萨堤尔剧竞演相连。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Concise claims such as 'oldest theatre' or a single cult origin for drama are institutional simplifications; use the Ministry record for architectural phasing.",
+        "zh": "“最古老剧场”或戏剧源于单一祭祀的说法属于机构性简述；建筑分期应以文化部遗址记录为准。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "aio-igii34-446-city-dionysia",
+      "source_type": "digital-scholarly-inscription-edition",
+      "authority": "Attic Inscriptions Online",
+      "titles": {
+        "en": "City Dionysia Choregic Dedication, IG II³ 4, 446",
+        "zh": "城市狄俄尼西亚赞助人奉献铭文：IG II³ 4, 446"
+      },
+      "work_period": "mid-4th century BCE",
+      "canonical_url": "https://www.atticinscriptions.com/inscription/AgelidisWeihgeschenke/10",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "city-dionysia-dithyramb-victory-dedication",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "A choregic dedication commemorates a tribal victory in the City Dionysia men's dithyrambic competition and names participants attached to the organized, sponsored honor.",
+            "zh": "一件赞助人奉献铭文纪念城市狄俄尼西亚男子酒神颂歌的部落胜利，并列出与这一有组织、有赞助的荣誉相关的人物。"
+          }
+        },
+        {
+          "evidence_id": "city-dionysia-dithyramb-victory-text",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "The inscription text attests the sponsored tribal victory and the named participants attached to it.",
+            "zh": "铭文文字证明这场受赞助的部落胜利及其所列参与者。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A fourth-century dithyrambic victory monument, not a fifth-century tragedy program or evidence for the festival's entire schedule.",
+        "zh": "这是四世纪酒神颂歌竞赛胜利纪念，不是五世纪悲剧节目单，也不能证明节庆的全部日程。"
+      },
+      "rights": {
+        "page_reuse": "link-and-paraphrase-or-short-quotation-after-license-review",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "aristotle-poetics-1449a",
+      "source_type": "ancient-text",
+      "authority": "Aristotle",
+      "titles": {
+        "en": "Poetics 1449a",
+        "zh": "亚里士多德《诗学》1449a"
+      },
+      "work_period": "4th century BCE",
+      "canonical_url": "https://scaife-reader.perseus.tufts.edu/reader/urn%3Acts%3AgreekLit%3Atlg0086.tlg034.perseus-eng2%3A4/",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "aristotle-tragedy-origins-and-formal-innovations",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Reports that tragedy developed from leaders of the dithyramb and attributes a second actor to Aeschylus, a third to Sophocles, and scene painting to the later formal development.",
+            "zh": "记述悲剧由酒神颂歌领唱者发展而来，并把第二演员归于埃斯库罗斯、第三演员归于索福克勒斯，也提及场景绘画的发展。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A later ancient historical and theoretical account, not an eyewitness record of tragedy's origins; keep invention attributions framed as Aristotle's report.",
+        "zh": "这是较晚的古代历史与理论回顾，并非悲剧起源现场记录；具体发明归属必须写成亚里士多德的说法。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "scodel-2010-tragedy-origins-festival",
+      "source_type": "scholarly-book-chapter",
+      "authority": "Ruth Scodel; Cambridge University Press",
+      "titles": {
+        "en": "Origins, Festival, and Competition",
+        "zh": "《起源、节庆与竞赛》"
+      },
+      "canonical_url": "https://www.cambridge.org/core/books/abs/an-introduction-to-greek-tragedy/origins-festival-and-competition/9CB8F8731067D9F6D7F504955308A7F3",
+      "doi": "10.1017/CBO9780511781230.004",
+      "language": "en",
+      "publication_date": "2010; online 2012",
+      "book_reference": "An Introduction to Greek Tragedy",
+      "supports": [
+        {
+          "evidence_id": "tragedy-origins-evidence-sparse-and-disputed",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Synthesizes the sparse and disputed evidence for tragedy's origins and separates performance innovation, festival incorporation, and administrative organization as potentially distinct processes.",
+            "zh": "综合悲剧起源证据稀少且有争议的研究，并将表演创新、纳入节庆与行政组织视为可能不同的过程。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Offers a methodological synthesis rather than one definitive alternative origin; use it to block a simple linear ritual-to-tragedy story.",
+        "zh": "该章提供方法性综合而非唯一替代起源；应用来阻止“仪式线性演变为悲剧”的简单叙事。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "long_excerpt_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "aeschylus-eumenides-674-710",
+      "source_type": "ancient-dramatic-text",
+      "authority": "Aeschylus",
+      "titles": {
+        "en": "Eumenides 674–710",
+        "zh": "埃斯库罗斯《欧墨尼得斯》674–710"
+      },
+      "work_period": "performed 458 BCE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0006%3Acard%3D674",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "athena-jury-vote-and-attic-court-in-play",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Athena calls jurors to vote and announces an enduring court for the people of Attica, bringing the mythic vengeance conflict into an Athenian civic procedure within the play.",
+            "zh": "雅典娜召集陪审员投票，并向阿提卡人宣布一个长久存在的法庭，使神话复仇冲突在剧中进入雅典城邦程序。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The play's institutional foundation does not prove that a historical Athenian court was founded by a goddess; claims about a specific 458 BCE reform require separate scholarship.",
+        "zh": "剧中的制度创设不能证明现实雅典法庭由女神建立；关于公元前458年具体改革的判断需要另行学术论证。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-with-perseus-version-and-translator-attribution",
+        "translation_license": "CC-BY-SA-3.0",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "ucl-eumenides-city-dionysia-458",
+      "source_type": "university-teaching-resource",
+      "authority": "University College London Classics",
+      "titles": {
+        "en": "Aeschylus' Choephori and Eumenides Study Guide",
+        "zh": "伦敦大学学院：《奠酒人》与《欧墨尼得斯》学习指南"
+      },
+      "canonical_url": "https://www.ucl.ac.uk/arts-humanities/classics/events/classical-play/past-productions/aeschylus-choephoroe-eumenides-2010/aeschylus-choephori-eumenides-study-guide",
+      "language": "en",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "oresteia-city-dionysia-458-context",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Places Choephori and Eumenides in the 458 BCE City Dionysia production and summarizes Aeschylus' reworking of the inherited Orestes myth.",
+            "zh": "将《奠酒人》与《欧墨尼得斯》置于公元前458年城市狄俄尼西亚演出语境，并概述埃斯库罗斯对俄瑞斯忒斯传统的改写。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A university teaching synthesis, not an ancient premiere program; detailed festival scheduling and survival claims should be checked against current critical editions.",
+        "zh": "这是大学教学综合，不是古代首演节目单；详细节庆日程与存世状况须用最新校勘本复核。"
+      },
+      "rights": {
+        "page_reuse": "link-and-original-summary-only"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "aristotle-poetics-1451b",
+      "source_type": "ancient-text",
+      "authority": "Aristotle",
+      "titles": {
+        "en": "Poetics 1451b",
+        "zh": "亚里士多德《诗学》1451b"
+      },
+      "work_period": "4th century BCE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0056%3Asection%3D1451b",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "tragedy-not-confined-to-traditional-stories",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Says tragedy need not adhere to traditional stories and cites Agathon's lost Antheus as a play with invented incidents and names.",
+            "zh": "说明悲剧不必坚持传统故事，并以阿伽通已失传的《安透斯》为事件与人物名皆属创作的例子。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Antheus is lost, and the passage cannot quantify how common invented plots were in festival performance.",
+        "zh": "《安透斯》已经失传；该段不能量化原创情节在节庆演出中有多常见。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "taplin-1977-stage-instructions",
+      "source_type": "peer-reviewed-scholarship",
+      "authority": "Oliver Taplin; Proceedings of the Cambridge Philological Society",
+      "titles": {
+        "en": "Did Greek Dramatists Write Stage Instructions?",
+        "zh": "《希腊剧作家会写舞台指示吗？》"
+      },
+      "canonical_url": "https://www.cambridge.org/core/journals/cambridge-classical-journal/article/did-greek-dramatists-write-stage-instructions/0CB51984F7DC08ED25CB7BE24E6D7F01",
+      "doi": "10.1017/S0068673500003953",
+      "language": "en",
+      "publication_date": "1977",
+      "journal_reference": "Proceedings of the Cambridge Philological Society 23 (1977), 121–132",
+      "supports": [
+        {
+          "evidence_id": "transmitted-dramas-few-possible-stage-directions",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Finds only a few possible stage directions in the transmitted dramatic texts and reviews the unresolved question of whether performance copies originally contained more.",
+            "zh": "指出流传下来的戏剧文本中只有极少可能的舞台指示，并讨论演出本原是否曾包含更多指示这一未决问题。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The absence of modern-style stage directions does not mean ancient authors lacked performance concepts or that every action is unknowable; dialogue supports inference, still as inference.",
+        "zh": "缺少现代式舞台指示不等于古代作者没有演出构想，也不等于所有动作都不可知；台词可支持推断，但仍是推断。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "met-actor-statuette-13.225.22",
+      "source_type": "institutional-object-record",
+      "authority": "The Metropolitan Museum of Art",
+      "titles": {
+        "en": "Terracotta Statuette of an Actor",
+        "zh": "大都会艺术博物馆：陶制演员小像"
+      },
+      "canonical_url": "https://www.metmuseum.org/art/collection/search/248772",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "13.225.22",
+      "object_period": "late 5th–early 4th century BCE",
+      "supports": [
+        {
+          "evidence_id": "early-actor-statuette-mask-role-type-and-paint",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records an early Greek actor statuette with traces of paint and relates it to the emergence of masks and recognizable role types in performance culture.",
+            "zh": "记录一件带彩绘痕迹的早期希腊演员小像，并将其与表演文化中面具和可识别角色类型的形成相连。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The bearded basket carrier is not an Eumenides actor or a premiere record and is more closely connected to comic role traditions.",
+        "zh": "这位有胡须的携篮男子不是《欧墨尼得斯》演员或首演记录，更接近喜剧角色传统。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "image_reuse": "public-domain-with-source-object-and-license-record"
+      },
+      "used_by": ["greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"]
+    },
+    {
+      "source_id": "acropolis-museum-east-pediment-helios-hand",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Parthenon. East Pediment. Hand of Helios (Sun)",
+        "zh": "卫城博物馆：帕特农神庙东山墙·赫利俄斯之手"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/parthenon-east-pediment-hand-helios-sun",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 1215",
+      "object_period": "437–432 BCE",
+      "supports": [
+        {
+          "evidence_id": "helios-hand-fragment-and-date",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records a preserved left-hand fragment from an east-pediment sculpture and dates the object to 437–432 BCE.",
+            "zh": "记录一件来自东山墙雕像的现存左手残片，并将其定年为公元前437—432年。"
+          }
+        },
+        {
+          "evidence_id": "helios-sunrise-dawn-and-central-pair-reconstruction",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "The museum places Helios rising from the sea in a chariot at one corner, reads his opposition to descending Selene as dawn, and places Zeus and Athena at the lost center.",
+            "zh": "馆方把驾车出海升起的赫利俄斯置于一角，以他与沉落的塞勒涅相对解释黎明，并把宙斯与雅典娜置于已经失落的中央。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The hand and date are object facts; Helios's chariot, the dawn reading, and the complete central action are institutional reconstructions rather than surviving inscriptions or intact sculpture.",
+        "zh": "手部与年代是对象事实；赫利俄斯的战车、黎明解释与完整中央动作属于机构复原，并非现存铭文或完整雕塑直接说明。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-02-athena-birth-east-pediment"]
+    },
+    {
+      "source_id": "acropolis-museum-east-pediment-selene",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Parthenon. East Pediment. Selene",
+        "zh": "卫城博物馆：帕特农神庙东山墙·塞勒涅"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/parthenon-east-pediment-selene",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 881",
+      "object_period": "437–432 BCE",
+      "supports": [
+        {
+          "evidence_id": "selene-statue-date-condition-and-find-context",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records the surviving headless body, garment and metal-attachment evidence, dates the statue to 437–432 BCE, and notes its 1840 discovery east of the Parthenon.",
+            "zh": "记录现存无头像体、衣饰与金属附件孔，将雕像定年为公元前437—432年，并注明其于1840年在帕特农神庙东侧发现。"
+          }
+        },
+        {
+          "evidence_id": "selene-moonset-dawn-frame-reconstruction",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "The museum places Selene sinking at the west side and reads her movement with rising Helios as a dawn frame for the birth scene.",
+            "zh": "馆方把沉落的塞勒涅置于西侧，并以她和升起的赫利俄斯共同构成诞生场景的黎明框架。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Moonset and the dawn meaning are institutional reconstructions. The page treats the statue's fall in 1687 as probable, not certain.",
+        "zh": "月落与黎明意义属于机构复原；馆藏页将雕像于1687年坠落写作很可能发生，而非确定过程。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-02-athena-birth-east-pediment"]
+    },
+    {
+      "source_id": "acropolis-museum-east-pediment-hera",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Parthenon. East Pediment. Hera",
+        "zh": "卫城博物馆：帕特农神庙东山墙·可能的赫拉"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/parthenon-east-pediment-hera",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 6711",
+      "supports": [
+        {
+          "evidence_id": "large-female-fragments-near-lost-center",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records two nonjoining fragments from a large female figure considered in relation to the east pediment's central area.",
+            "zh": "记录两块不相接的大型女性雕像残片，并将其置于东山墙中央区域问题中讨论。"
+          }
+        },
+        {
+          "evidence_id": "hera-or-eileithyia-uncertain-identification",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Identifies the figure cautiously as Hera or Eileithyia and leaves her exact original position uncertain.",
+            "zh": "谨慎地将人物识别为赫拉或厄勒梯亚，并保留其原始确切位置的不确定性。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "Neither identity nor precise placement is secure; do not label the figure simply as Hera. Any account of central removal during church conversion must retain the museum's qualification about possible motive.",
+        "zh": "身份与确切位置都不确定；不能直接把人物标为赫拉。若提及改作教堂时移除中央雕像，必须保留馆方对可能原因的限定。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-02-athena-birth-east-pediment"]
+    },
+    {
+      "source_id": "hesiod-theogony-886-900-924-929",
+      "source_type": "ancient-text",
+      "authority": "Hesiod",
+      "titles": {
+        "en": "Theogony 886–900, 924–929",
+        "zh": "赫西俄德《神谱》886—900、924—929"
+      },
+      "work_period": "archaic Greek poem; exact date not asserted",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Hes.+Th.+886",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "metis-succession-prophecy-swallowing-and-head-birth",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Calls Metis exceptionally wise, recounts a succession prophecy and Zeus swallowing her while pregnant, and later says Zeus brought Athena forth from his own head.",
+            "zh": "称墨提斯极有智慧，记述继承预言与宙斯吞下怀孕的她，并在后文写宙斯从自己的头颅生下雅典娜。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The passages do not place Metis on the east pediment and the core account used here does not name Hephaestus or an axe.",
+        "zh": "这些段落不能证明墨提斯出现在东山墙上；本章使用的核心叙述也没有提到赫淮斯托斯或斧。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-02-athena-birth-east-pediment"]
+    },
+    {
+      "source_id": "homeric-hymn-28-athena",
+      "source_type": "ancient-text",
+      "authority": "Anonymous Homeric Hymn",
+      "titles": {
+        "en": "Homeric Hymn 28 to Athena",
+        "zh": "《荷马颂歌》第二十八首《致雅典娜》"
+      },
+      "work_period": "ancient hymn; exact date not asserted",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0138%3Ahymn%3D28",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "armed-head-birth-cosmic-reaction-and-helios-halt",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Presents Athena emerging armed from Zeus's head before the watching gods as Olympus, earth, sea and Helios's horses respond.",
+            "zh": "写雅典娜全副武装地从宙斯头颅出现，众神观看，奥林匹斯、土地、海洋与赫利俄斯的马匹都作出反应。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The hymn does not prove that the east pediment directly illustrated this poem or every action in it; its exact date and authorship are not asserted here.",
+        "zh": "颂歌不能证明东山墙直接图解这首诗或其中每个动作；此处也不对其确切年代与作者作断言。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-02-athena-birth-east-pediment"]
+    },
+    {
+      "source_id": "pindar-olympian-7.35-39",
+      "source_type": "ancient-text",
+      "authority": "Pindar",
+      "titles": {
+        "en": "Olympian 7.35–39",
+        "zh": "品达《奥林匹亚颂》第七首35—39"
+      },
+      "work_period": "464 BCE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Pind.+O.+7&lang=original",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "hephaestus-axe-athena-leap-and-cosmic-shudder",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Says Hephaestus used a bronze-forged axe, Athena leapt from Zeus's head with a great cry, and heaven and earth shuddered.",
+            "zh": "记述赫淮斯托斯使用铜制斧具，雅典娜高喊着从宙斯头颅跃出，天空与大地震动。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "This establishes an ancient axe version, not its certain depiction on the east pediment or direct influence on the sculptors.",
+        "zh": "这证明斧具版本存在于古代传统中，并不证明东山墙一定表现斧击，也不证明诗歌直接影响雕塑家。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-02-athena-birth-east-pediment"]
+    },
+    {
+      "source_id": "pausanias-1.24.7",
+      "source_type": "ancient-text",
+      "authority": "Pausanias",
+      "titles": {
+        "en": "Description of Greece 1.24.7",
+        "zh": "保萨尼亚斯《希腊志》1.24.7"
+      },
+      "work_period": "2nd century CE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Paus.+1.24.7&fromdoc=Perseus%3Atext%3A1999.01.0160",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "athena-parthenos-pose-attributes-and-base",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Describes the standing robe, ivory Medusa, four-cubit Nike, spear, shield, serpent and Pandora-birth base of Athena Parthenos, identifying the serpent as Erichthonius.",
+            "zh": "记述雅典娜·帕耳忒诺斯的垂地长衣、象牙美杜莎、四肘高胜利女神、矛、盾、蛇与潘多拉诞生基座，并将蛇识别为厄里克托尼俄斯。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A second-century CE witness rather than a fifth-century BCE workshop record; the serpent's identification as Erichthonius is Pausanias's statement.",
+        "zh": "这是公元二世纪的见证，而非公元前五世纪工作室记录；蛇是厄里克托尼俄斯属于保萨尼亚斯的识别。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "thucydides-2.13.5",
+      "source_type": "ancient-text",
+      "authority": "Thucydides",
+      "titles": {
+        "en": "History of the Peloponnesian War 2.13.5",
+        "zh": "修昔底德《伯罗奔尼撒战争史》2.13.5"
+      },
+      "work_period": "late 5th century BCE",
+      "canonical_url": "https://www.perseus.tufts.edu/hopper/text?doc=Thuc.+2.13.5&fromdoc=Perseus%3Atext%3A1999.01.0200",
+      "language": "grc-with-en-translation",
+      "publication_date": null,
+      "supports": [
+        {
+          "evidence_id": "forty-talents-removable-gold-and-repayment",
+          "reconstruction_status": "text-attested",
+          "summary": {
+            "en": "Reports Pericles saying that the goddess carried forty talents of refined gold, all removable in an emergency and required to be replaced after use.",
+            "zh": "记述伯里克利说女神像拥有四十塔兰同精炼黄金，紧急情况下全部可以拆卸使用，使用后必须归还。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The passage does not say an emergency removal occurred, does not reduce the statue to a treasury, and does not support a kilogram or present-value conversion without separate research.",
+        "zh": "该段并未说紧急拆金实际发生，也不能把神像简化为金库；若无独立研究，不支持换算成公斤或现代价值。"
+      },
+      "rights": {
+        "page_reuse": "link-and-short-quotation-after-translation-license-review",
+        "image_reuse": "not-applicable"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "acropolis-museum-athena-parthenos-accounts-em-637",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Financial Accounts for the Construction of the Gold-and-Ivory Statue",
+        "zh": "卫城博物馆：黄金象牙神像修建财政账目"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/financial-accounts-construction-gold-and-ivory-statue",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "EM 637",
+      "object_period": "439/8 BCE",
+      "supports": [
+        {
+          "evidence_id": "athena-parthenos-state-oversight-annual-accounts-and-gold-cost",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records an inscription fragment from 439/8 BCE documenting state-appointed oversight, annual income and expenditure, and gold costs for Pheidias's large gold-and-ivory statue.",
+            "zh": "记录一块公元前439／8年的铭文残片，涉及国家委任监督、年度收支，以及菲狄亚斯大型黄金象牙神像的黄金成本。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The fragment is neither a complete budget nor a technical manual. Its possible display in the Parthenon and the public-property implications are institutional interpretations to be framed cautiously.",
+        "zh": "铭文残片既不是完整预算，也不是制作手册；它可能陈列于帕特农神庙及其公共财产含义属于机构解释，须谨慎表述。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "acropolis-museum-athena-parthenos-acr-1362",
+      "source_type": "institutional-object-record",
+      "authority": "Acropolis Museum",
+      "titles": {
+        "en": "Statue of Athena Parthenos",
+        "zh": "卫城博物馆：雅典娜·帕耳忒诺斯像"
+      },
+      "canonical_url": "https://www.theacropolismuseum.gr/en/statue-athena-parthenos",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "Ακρ. 1362",
+      "object_period": "150–200 CE",
+      "supports": [
+        {
+          "evidence_id": "headless-roman-reduction-scale-pose-and-dress",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records a 1.57-metre, headless and fragmentary Roman reduction dated 150–200 CE that preserves selected stance and dress features, including the weight-bearing right leg, bent left leg, belted peplos and scaled aegis.",
+            "zh": "记录一尊公元150—200年、高1.57米、无头且残缺的罗马缩小复制品，保存右腿承重、左腿弯曲、束腰佩普洛斯与鳞片状神盾等姿态和服饰特征。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "A later, incomplete reduction, not the original; it does not establish Pheidias's exact face, proportions, surface, colours or complete accessories.",
+        "zh": "这是较晚且残缺的缩小复制品，不是原作；不能据此确定菲狄亚斯原作的确切面容、比例、表面、色彩或完整附件。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "nam-varvakeion-athena-nm-129",
+      "source_type": "institutional-catalogue",
+      "authority": "National Archaeological Museum, Athens",
+      "titles": {
+        "en": "Collection of Sculpture: Varvakeion Athena (NM 129)",
+        "zh": "雅典国家考古博物馆雕塑收藏：Varvakeion Athena（NM 129）"
+      },
+      "canonical_url": "https://www.namuseum.gr/en/permanent_exhibition/syllogi-glypton/",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "NM 129",
+      "object_period": "Roman-period small version",
+      "supports": [
+        {
+          "evidence_id": "lost-original-about-twelve-metres-and-small-roman-version",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Presents Pheidias's lost original as approximately twelve metres high and NM 129 as a small Roman version that gives an idea of it.",
+            "zh": "将菲狄亚斯已经失落的原作描述为约十二米高，并把NM 129视为让人得以了解原作的小型罗马版本。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The museum's phrase means the copy gives an idea of the lost original, not that it is exact; do not add unverified precise dating, findspot or proportional claims.",
+        "zh": "馆方措辞是复制品让人得以了解失落原作，并不表示精确复制；不得添加未经对象页核实的具体年代、发现地点或比例。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "nam-varvakeion-athena-brochure",
+      "source_type": "institutional-catalogue",
+      "authority": "National Archaeological Museum, Athens",
+      "titles": {
+        "en": "National Archaeological Museum English Guide",
+        "zh": "雅典国家考古博物馆英文导览"
+      },
+      "canonical_url": "https://www.namuseum.gr/wp-content/uploads/2022/03/nam-brochure-%CE%95%CE%9D-low.pdf",
+      "language": "en",
+      "publication_date": "2022",
+      "supports": [
+        {
+          "evidence_id": "varvakeion-gives-idea-of-lost-original",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "States that the Varvakeion Athena gives an idea of Pheidias's lost original.",
+            "zh": "说明Varvakeion Athena使人得以了解菲狄亚斯已经失落的原作。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "An auxiliary museum guide, not a claim of exact reproduction or evidence for the original statue's later fate.",
+        "zh": "这是辅助性博物馆导览，并非精确复制的声明，也不能证明原作后来的具体命运。"
+      },
+      "rights": {
+        "page_reuse": "link-and-original-summary-only",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "british-museum-strangford-shield",
+      "source_type": "institutional-object-record",
+      "authority": "The British Museum",
+      "titles": {
+        "en": "The Strangford Shield",
+        "zh": "大英博物馆：Strangford Shield"
+      },
+      "canonical_url": "https://www.britishmuseum.org/collection/object/G_1864-0220-18",
+      "language": "en",
+      "publication_date": null,
+      "object_id": "1864,0220.18",
+      "object_period": "200–300 CE",
+      "supports": [
+        {
+          "evidence_id": "roman-marble-shield-copy-amazonomachy-and-paint",
+          "reconstruction_status": "artifact-documented",
+          "summary": {
+            "en": "Records a Roman marble model or copy dated 200–300 CE of the Athena Parthenos shield, with a Greek-Amazon battle relief and surviving traces of paint.",
+            "zh": "记录一件公元200—300年的罗马大理石盾牌模型或复制品，对应雅典娜·帕耳忒诺斯之盾，浮雕表现希腊人与亚马逊人的战斗，并保留颜料痕迹。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The object is not a fragment of the original shield. Proposed identifications of Pheidias and Pericles among the figures must not be presented as certain history.",
+        "zh": "该对象不是原盾牌残片；把其中人物识别为菲狄亚斯与伯里克利的说法不能写成确定史实。"
+      },
+      "rights": {
+        "page_reuse": "link-only-unless-permission-confirmed",
+        "image_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    },
+    {
+      "source_id": "gaifman-2006-statue-cult-reproduction",
+      "source_type": "peer-reviewed-scholarship",
+      "authority": "Milette Gaifman; Art History",
+      "titles": {
+        "en": "Statue, Cult and Reproduction",
+        "zh": "《雕像、崇拜与复制》"
+      },
+      "canonical_url": "https://academic.oup.com/arthistory/article-abstract/29/2/258/7278891",
+      "doi": "10.1111/j.1467-8365.2006.00501.x",
+      "language": "en",
+      "publication_date": "2006",
+      "supports": [
+        {
+          "evidence_id": "athena-parthenos-reproduction-circulation-and-new-contexts",
+          "reconstruction_status": "scholarly-reconstruction",
+          "summary": {
+            "en": "Interprets reproductions of Athena Parthenos as helping the image circulate beyond its original cult setting while giving it new religious and political contexts.",
+            "zh": "将雅典娜·帕耳忒诺斯的复制品理解为使其图像超出原有崇拜场所流通，并进入新的宗教与政治语境。"
+          }
+        }
+      ],
+      "limitations": {
+        "en": "The argument concerns reproduction and reception; it does not guarantee that any surviving copy is exactly faithful to the original.",
+        "zh": "论文讨论复制与接受史，并不能保证任何现存复制品都精确忠于原作。"
+      },
+      "rights": {
+        "page_reuse": "link-and-citation",
+        "figure_reuse": "requires-separate-review"
+      },
+      "used_by": ["greek-mythology-athens-04-athena-parthenos-lost-statue"]
+    }
+  ],
+  "revision_history": [
+    {
+      "version": "1.5.0",
+      "date": "2026-08-12",
+      "summary": "Registered the minimal source sets actually cited by Chapters 2 and 4 and expanded the shared Parthenon pediment and Pausanias 1.24.5 records for their new uses."
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-08-12",
+      "summary": "Registered the minimal source sets actually cited by Chapters 3, 5, and 6 and extended shared Erechtheion sources for Chapter 3."
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-08-12",
+      "summary": "Aligned Herodotus token language with the passage, corrected the Pseudo-Apollodorus arbiter variant, registered YSMA chronology, and separated institutional reconstruction from ancient textual attestation."
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-08-12",
+      "summary": "Added the variant-aware Pseudo-Apollodorus narrative and Erechtheion cult-space record; expanded the Herodotus and Pausanias evidence boundaries for the Chapter 1 article."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-08-12",
+      "summary": "Updated Chapter 1 usage references to the Athens: Gods in Stone stable chapter ID."
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-08-12",
+      "summary": "Registered the direct institutional, ancient-text, and scholarly sources needed for Chapter 1 and separated Pausanias 1.24.5 from 1.26.5."
+    }
+  ]
+}

@@ -1,0 +1,437 @@
+{
+  "schema_version": "1.0.0",
+  "manifest_version": "2.0.0",
+  "series_id": "greek-mythology",
+  "slug": "greek-mythology",
+  "status": "available",
+  "titles": {
+    "en": "Greek Mythology",
+    "zh": "希腊神话"
+  },
+  "default_locale": "en",
+  "supported_locales": ["en", "zh"],
+  "editorial_mode": "narrative-knowledge",
+  "series_root": "src/content/series/greek-mythology",
+  "registries": {
+    "canon": "series-canon.md",
+    "sources": "source-registry.json",
+    "entities": "entity-bible.json",
+    "visual_world": "visual-world-bible.md",
+    "asset_generation": "asset-generation-manifest.md",
+    "postmortem": "series-postmortem.md"
+  },
+  "reconstruction_status": {
+    "enum": [
+      "artifact-documented",
+      "text-attested",
+      "scholarly-reconstruction",
+      "artistic-interpretation"
+    ],
+    "definitions": {
+      "artifact-documented": {
+        "en": "Anchored in a surviving object, site, or institutional catalogue record.",
+        "zh": "以现存文物、遗址或机构馆藏记录为依据。"
+      },
+      "text-attested": {
+        "en": "Attested in an identified ancient text; this labels a tradition, not a verified historical event.",
+        "zh": "见于可定位的古代文本；它标记的是流传版本，而不是已经证实的历史事件。"
+      },
+      "scholarly-reconstruction": {
+        "en": "Reconstructed from published archaeological or art-historical analysis; uncertainty must remain visible.",
+        "zh": "依据已发表的考古或艺术史研究复原；必须保留不确定性。"
+      },
+      "artistic-interpretation": {
+        "en": "A creative choice used to complete the experience; it carries no evidentiary claim.",
+        "zh": "为完成叙事体验而作的创作选择；不构成证据主张。"
+      }
+    }
+  },
+  "seasons": [
+    {
+      "season_id": "greek-mythology-athens",
+      "slug": "athens-gods-in-stone",
+      "number": 1,
+      "status": "available",
+      "titles": {
+        "en": "Athens: Gods in Stone",
+        "zh": "雅典：石中众神"
+      },
+      "editorial_promise": {
+        "en": "Enter myth through surviving places, objects, and named ancient traditions, then see exactly where reconstruction begins.",
+        "zh": "从仍然存在的地点、文物与有出处的古代传统进入神话，并清楚看见复原从哪里开始。"
+      },
+      "chapter_order": [
+        "greek-mythology-athens-01-athena-poseidon-contest",
+        "greek-mythology-athens-02-athena-birth-east-pediment",
+        "greek-mythology-athens-03-erechtheion-many-memories",
+        "greek-mythology-athens-04-athena-parthenos-lost-statue",
+        "greek-mythology-athens-05-parthenon-frieze-procession",
+        "greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage"
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "chapter_id": "greek-mythology-athens-01-athena-poseidon-contest",
+      "season_id": "greek-mythology-athens",
+      "episode": 1,
+      "slug": "athena-poseidon-contest",
+      "translation_key": "athena-poseidon-contest",
+      "status": "available",
+      "delivery_stage": "package-qa-passed",
+      "research_status": "variant-aware-article-sources-registered",
+      "titles": {
+        "en": "Athena and Poseidon: Who Should Guard Athens?",
+        "zh": "雅典娜与波塞冬：谁应守护雅典？"
+      },
+      "prototype_routes": {
+        "en": "/myth/athena-poseidon",
+        "zh": "/zh/myth/athena-poseidon"
+      },
+      "content_package_path": "chapters/athena-poseidon-contest",
+      "interaction_ids": ["athena-poseidon-evidence-reveal"],
+      "entity_ids": [
+        "deity-athena",
+        "deity-poseidon",
+        "deity-zeus",
+        "king-cecrops",
+        "city-athens",
+        "region-attica",
+        "monument-parthenon",
+        "monument-erechtheion",
+        "artwork-parthenon-west-pediment",
+        "token-olive-tree",
+        "token-salt-water",
+        "token-trident-mark"
+      ],
+      "source_ids": [
+        "acropolis-museum-parthenon-pediments",
+        "acropolis-museum-west-pediment-athena",
+        "acropolis-museum-west-pediment-poseidon",
+        "pausanias-1.24.5",
+        "pausanias-1.26.5",
+        "herodotus-8.55",
+        "pseudo-apollodorus-3.14.1",
+        "acropolis-museum-erechtheion",
+        "ysma-erechtheion",
+        "meyer-2018-west-pediment"
+      ],
+      "reconstruction_status_used": [
+        "artifact-documented",
+        "text-attested",
+        "scholarly-reconstruction",
+        "artistic-interpretation"
+      ],
+      "asset_manifest_path": "asset-generation-manifest.md"
+    },
+    {
+      "chapter_id": "greek-mythology-athens-02-athena-birth-east-pediment",
+      "season_id": "greek-mythology-athens",
+      "episode": 2,
+      "slug": "athena-birth-east-pediment",
+      "translation_key": "athena-birth-east-pediment",
+      "status": "available",
+      "delivery_stage": "package-qa-passed",
+      "research_status": "variant-aware-article-sources-registered",
+      "titles": {
+        "en": "Born at Dawn: Athena and the Missing Center",
+        "zh": "生于黎明：雅典娜与失落的中心"
+      },
+      "prototype_routes": {
+        "en": "/myth/athena-birth-east-pediment",
+        "zh": "/zh/myth/athena-birth-east-pediment"
+      },
+      "content_package_path": "chapters/athena-birth-east-pediment",
+      "interaction_ids": ["athena-birth-dawn-witness-map"],
+      "entity_ids": [
+        "deity-athena",
+        "deity-zeus",
+        "monument-parthenon",
+        "artwork-parthenon-east-pediment",
+        "deity-helios",
+        "deity-selene",
+        "deity-metis",
+        "deity-hephaestus",
+        "deity-hera",
+        "deity-eileithyia",
+        "artwork-east-pediment-near-central-female"
+      ],
+      "source_ids": [
+        "acropolis-museum-parthenon-pediments",
+        "pausanias-1.24.5",
+        "acropolis-museum-east-pediment-helios-hand",
+        "acropolis-museum-east-pediment-selene",
+        "acropolis-museum-east-pediment-hera",
+        "hesiod-theogony-886-900-924-929",
+        "homeric-hymn-28-athena",
+        "pindar-olympian-7.35-39"
+      ],
+      "reconstruction_status_used": [
+        "artifact-documented",
+        "text-attested",
+        "scholarly-reconstruction",
+        "artistic-interpretation"
+      ],
+      "asset_manifest_path": "asset-generation-manifest.md"
+    },
+    {
+      "chapter_id": "greek-mythology-athens-03-erechtheion-many-memories",
+      "season_id": "greek-mythology-athens",
+      "episode": 3,
+      "slug": "erechtheion-many-memories",
+      "translation_key": "erechtheion-many-memories",
+      "status": "available",
+      "delivery_stage": "package-qa-passed",
+      "research_status": "variant-aware-article-sources-registered",
+      "titles": {
+        "en": "The Erechtheion: One Building, Many Memories",
+        "zh": "厄瑞克忒翁：一座神殿，多重记忆"
+      },
+      "prototype_routes": {
+        "en": "/myth/erechtheion-many-memories",
+        "zh": "/zh/myth/erechtheion-many-memories"
+      },
+      "content_package_path": "chapters/erechtheion-many-memories",
+      "interaction_ids": ["erechtheion-sacred-memory-map"],
+      "entity_ids": [
+        "deity-athena",
+        "deity-poseidon",
+        "king-cecrops",
+        "city-athens",
+        "monument-erechtheion",
+        "token-olive-tree",
+        "token-salt-water",
+        "token-trident-mark",
+        "cult-aspect-athena-polias",
+        "cult-title-poseidon-erechtheus",
+        "mythic-king-erechtheus",
+        "mythic-king-erichthonius",
+        "mythic-figure-boutes",
+        "deity-hephaestus",
+        "mythic-figure-pandrosus",
+        "sanctuary-pandroseion",
+        "sanctuary-kekropion",
+        "artwork-erechtheion-korai",
+        "inscription-erechtheion-building-account-ig-i3-474",
+        "ritual-poseidon-erechtheus-shared-sacrifice"
+      ],
+      "source_ids": [
+        "acropolis-museum-athena-polias",
+        "acropolis-museum-erechtheion",
+        "acropolis-museum-erechtheion-kore-a",
+        "attic-inscriptions-ig-i3-474",
+        "herodotus-8.55",
+        "homer-iliad-2.546-551",
+        "jutte-2022-contested-caryatids",
+        "oxford-classical-dictionary-erechtheus-2018",
+        "pausanias-1.26.5",
+        "pausanias-1.27.1-3",
+        "pseudo-apollodorus-3.14.6",
+        "pseudo-apollodorus-3.14.8",
+        "pseudo-apollodorus-3.15.1",
+        "ysma-erechtheion"
+      ],
+      "reconstruction_status_used": [
+        "artifact-documented",
+        "text-attested",
+        "scholarly-reconstruction",
+        "artistic-interpretation"
+      ],
+      "asset_manifest_path": "asset-generation-manifest.md"
+    },
+    {
+      "chapter_id": "greek-mythology-athens-04-athena-parthenos-lost-statue",
+      "season_id": "greek-mythology-athens",
+      "episode": 4,
+      "slug": "athena-parthenos-lost-statue",
+      "translation_key": "athena-parthenos-lost-statue",
+      "status": "available",
+      "delivery_stage": "package-qa-passed",
+      "research_status": "variant-aware-article-sources-registered",
+      "titles": {
+        "en": "Athena Parthenos: Reconstructing a Lost Goddess",
+        "zh": "雅典娜·帕耳忒诺斯：重建一位失落的女神"
+      },
+      "prototype_routes": {
+        "en": "/myth/athena-parthenos-lost-statue",
+        "zh": "/zh/myth/athena-parthenos-lost-statue"
+      },
+      "content_package_path": "chapters/athena-parthenos-lost-statue",
+      "interaction_ids": ["athena-parthenos-evidence-assembly"],
+      "entity_ids": [
+        "deity-athena",
+        "monument-parthenon",
+        "mythic-king-erichthonius",
+        "artwork-athena-parthenos",
+        "person-pheidias",
+        "person-pericles",
+        "inscription-athena-parthenos-accounts-em-637",
+        "artwork-varvakeion-athena-nm-129",
+        "artwork-athena-parthenos-copy-acr-1362",
+        "artwork-strangford-shield"
+      ],
+      "source_ids": [
+        "nam-varvakeion-athena-nm-129",
+        "nam-varvakeion-athena-brochure",
+        "pausanias-1.24.5",
+        "pausanias-1.24.7",
+        "acropolis-museum-athena-parthenos-accounts-em-637",
+        "thucydides-2.13.5",
+        "acropolis-museum-athena-parthenos-acr-1362",
+        "british-museum-strangford-shield",
+        "gaifman-2006-statue-cult-reproduction"
+      ],
+      "reconstruction_status_used": [
+        "artifact-documented",
+        "text-attested",
+        "scholarly-reconstruction",
+        "artistic-interpretation"
+      ],
+      "asset_manifest_path": "asset-generation-manifest.md"
+    },
+    {
+      "chapter_id": "greek-mythology-athens-05-parthenon-frieze-procession",
+      "season_id": "greek-mythology-athens",
+      "episode": 5,
+      "slug": "parthenon-frieze-procession",
+      "translation_key": "parthenon-frieze-procession",
+      "status": "available",
+      "delivery_stage": "package-qa-passed",
+      "research_status": "variant-aware-article-sources-registered",
+      "titles": {
+        "en": "The Parthenon Frieze: A Procession Without a Caption",
+        "zh": "帕特农浮雕：一场没有题名的行列"
+      },
+      "prototype_routes": {
+        "en": "/myth/parthenon-frieze-procession",
+        "zh": "/zh/myth/parthenon-frieze-procession"
+      },
+      "content_package_path": "chapters/parthenon-frieze-procession",
+      "interaction_ids": ["parthenon-frieze-reading-layers"],
+      "entity_ids": [
+        "deity-athena",
+        "city-athens",
+        "monument-parthenon",
+        "artwork-parthenon-frieze",
+        "festival-greater-panathenaia",
+        "ritual-panathenaic-peplos",
+        "scene-parthenon-frieze-central-cloth",
+        "interpretation-erechtheid-sacrifice",
+        "mythic-king-erechtheus"
+      ],
+      "source_ids": [
+        "acropolis-museum-parthenon-frieze",
+        "parthenon-frieze-digital-tour",
+        "parthenon-frieze-peplos-scene",
+        "plato-euthyphro-6c",
+        "mackin-roberts-2025-divinespace-mortalspace",
+        "connelly-1996-parthenon-parthenoi"
+      ],
+      "reconstruction_status_used": [
+        "artifact-documented",
+        "text-attested",
+        "scholarly-reconstruction",
+        "artistic-interpretation"
+      ],
+      "asset_manifest_path": "asset-generation-manifest.md"
+    },
+    {
+      "chapter_id": "greek-mythology-athens-06-theatre-of-dionysus-myth-on-stage",
+      "season_id": "greek-mythology-athens",
+      "episode": 6,
+      "slug": "theatre-of-dionysus-myth-on-stage",
+      "translation_key": "theatre-of-dionysus-myth-on-stage",
+      "status": "available",
+      "delivery_stage": "package-qa-passed",
+      "research_status": "variant-aware-article-sources-registered",
+      "titles": {
+        "en": "The Theatre of Dionysus: When Myth Became a Public Argument",
+        "zh": "狄俄尼索斯剧场：当神话成为公共争论"
+      },
+      "prototype_routes": {
+        "en": "/myth/theatre-of-dionysus-myth-on-stage",
+        "zh": "/zh/myth/theatre-of-dionysus-myth-on-stage"
+      },
+      "content_package_path": "chapters/theatre-of-dionysus-myth-on-stage",
+      "interaction_ids": ["theatre-of-dionysus-time-layers"],
+      "entity_ids": [
+        "deity-athena",
+        "city-athens",
+        "region-attica",
+        "deity-dionysus",
+        "monument-theatre-of-dionysus",
+        "sanctuary-dionysus-eleuthereus",
+        "festival-city-dionysia",
+        "performance-dithyrambic-competition",
+        "person-aeschylus",
+        "play-oresteia",
+        "play-eumenides",
+        "mythic-hero-orestes",
+        "deity-apollo",
+        "deity-group-erinyes",
+        "mythic-queen-clytemnestra",
+        "scene-eumenides-jury-trial",
+        "artifact-actor-statuette-met-13-225-22"
+      ],
+      "source_ids": [
+        "greece-ministry-theatre-dionysus",
+        "acropolis-museum-sanctuary-theatre-dionysos",
+        "aio-igii34-446-city-dionysia",
+        "aristotle-poetics-1449a",
+        "scodel-2010-tragedy-origins-festival",
+        "taplin-1977-stage-instructions",
+        "ucl-eumenides-city-dionysia-458",
+        "aeschylus-eumenides-674-710",
+        "aristotle-poetics-1451b",
+        "met-actor-statuette-13.225.22"
+      ],
+      "reconstruction_status_used": [
+        "artifact-documented",
+        "text-attested",
+        "scholarly-reconstruction",
+        "artistic-interpretation"
+      ],
+      "asset_manifest_path": "asset-generation-manifest.md"
+    }
+  ],
+  "portability_contract": {
+    "stable_ids_are_immutable": true,
+    "locale_strings_use_language_maps": true,
+    "registry_paths_are_series_root_relative": true,
+    "presentation_routes_are_replaceable": true,
+    "planned_chapters_do_not_imply_verified_claims": true,
+    "platform_specific_components_live_outside_this_manifest": true
+  },
+  "revision_history": [
+    {
+      "version": "2.0.0",
+      "date": "2026-08-12",
+      "summary": "Advanced all six Athens-season chapters to available, package-QA-passed status and registered their final bilingual titles, routes, content packages, interactions, exact article source sets, and core entity sets."
+    },
+    {
+      "version": "1.4.0",
+      "date": "2026-08-12",
+      "summary": "Completed the local bilingual story and interactive prototype package with stable source IDs, successful build and targeted tests, and local browser QA; Chapter 1 remains unpublished pending an explicit publication decision."
+    },
+    {
+      "version": "1.3.0",
+      "date": "2026-08-12",
+      "summary": "Aligned Chapter 1 with stable source IDs, registered Erechtheion chronology and public narrative entities, and tightened the article's evidence-versus-inference boundary."
+    },
+    {
+      "version": "1.2.0",
+      "date": "2026-08-12",
+      "summary": "Connected Chapter 1 to its full bilingual content package, registered the variant-aware narrative and Erechtheion evidence, and advanced delivery from UI prototype to integrated article."
+    },
+    {
+      "version": "1.1.0",
+      "date": "2026-08-12",
+      "summary": "Aligned Season 1 with the six-chapter Athens: Gods in Stone hub route and connected Chapter 1 to its asset-generation manifest."
+    },
+    {
+      "version": "1.0.0",
+      "date": "2026-08-12",
+      "summary": "Created the portable Athens-season foundation and registered the first UI prototype; later chapters remain plans without claims."
+    }
+  ]
+}
