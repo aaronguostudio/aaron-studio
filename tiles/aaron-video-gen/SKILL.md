@@ -31,6 +31,8 @@ Read these references when the corresponding stage begins:
 - `references/video-qa.md` before prototype review or a full render;
 - `references/aaron-voice-profile.md` before changing narration voice or settings.
 
+Before any visual direction or render, read `src/content/strategy/video-style-baseline.md`. Watch or inspect the current baseline's rendered video and QA report, then record the inherited system, the legacy grammar being rejected, and any deliberate deviation in `director-plan.json` under `style_reference`. Do not silently fall back to the legacy slide-deck renderer because a new plan has not named a style.
+
 ## Recommended Workflow
 
 For Aaron's YouTube channel, the standard command is:
@@ -405,6 +407,9 @@ Read these before judging or rendering:
 - `references/director-pass.md`;
 - `references/scene-catalog.md`;
 - `config/scene-registry.json`.
+- `src/content/strategy/video-style-baseline.md`, then the baseline's canonical rendered master and `video-qa-report.md`.
+
+The baseline review is mandatory. The `director-plan.json` must record a `style_reference` with the exact baseline package, video, QA report, inherited visual system, legacy pattern being rejected, and any deliberate deviation. The director-plan audit blocks visual production when this record is absent. A new direction is allowed only when Aaron has explicitly selected it; record that choice as the deliberate deviation and promote it to the baseline only after final QA.
 
 Expect `video-brief.md`, `fact-pack.json`, `video-treatment.md`,
 `video-storyboard.json`, `director-plan.json`, `director-memo.md`,
@@ -722,6 +727,7 @@ Use `references/video-qa.md` and create `video-qa-report.md`.
 - Verify music rights, cue timing, narration clarity, ducking, and ending resolution.
 - Confirm the first 20 seconds deliver the title and thumbnail promise.
 - Record reusable failures as registry, template, audit, or engineering changes.
+- If a later render supersedes the default `video.mp4`, update the blog package's `package-state.json` so `artifacts.video.canonical` points to the approved master, with its SHA-256. Do not leave a known-bad baseline as the implicit final video.
 
 ### Step 8: Generate YouTube metadata
 

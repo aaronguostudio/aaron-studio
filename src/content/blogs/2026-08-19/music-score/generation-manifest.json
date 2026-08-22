@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-08-15T22:03:44.661Z",
+  "model": "music_v2",
+  "strategy": "continuous original score",
+  "segments": [
+    {
+      "file": "score-a.audio",
+      "ms": 302000,
+      "songId": "w3Rcux0KGiX0qWsoevkP",
+      "type": "audio/mpeg",
+      "arc": "0-301.6s"
+    },
+    {
+      "file": "score-b.audio",
+      "ms": 305000,
+      "songId": "5Z1HU8frbahiIPEuYmlA",
+      "type": "audio/mpeg",
+      "arc": "301.6-605.7s"
+    }
+  ]
+}

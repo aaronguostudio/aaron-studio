@@ -56,6 +56,7 @@ export interface PackageQualityOptions {
   serious?: boolean;
   requireImages?: boolean;
   requireDistribution?: boolean;
+  requireRelease?: boolean;
 }
 
 export interface PackageQualityReport {
@@ -74,6 +75,24 @@ export interface PackageQualityReport {
 
 interface Frontmatter {
   [key: string]: string;
+}
+
+interface PackageState {
+  schema_version: number;
+  slug: string;
+  phase: "draft" | "article-locked" | "package-locked" | "published" | "postmortem-pending" | "complete";
+  artifacts?: {
+    video?: {
+      canonical: string;
+      status?: "draft" | "approved" | "published";
+      sha256?: string;
+    };
+  };
+  release?: {
+    blog?: { status: "draft" | "published"; url?: string; production_commit?: string; branch?: string };
+    youtube?: { status: "draft" | "unlisted" | "published"; url?: string };
+  };
+  postmortem?: { status: "pending" | "24h-recorded" | "7d-recorded" | "complete" };
 }
 
 export interface ImageDimensions {
@@ -306,6 +325,57 @@ function checkDistributionPackage(blogDir: string, errors: string[]): void {
   }
 }
 
+function readPackageState(blogDir: string, errors: string[]): PackageState | null {
+  const path = join(blogDir, "package-state.json");
+  if (!existsSync(path)) return null;
+  try {
+    return JSON.parse(readFileSync(path, "utf-8")) as PackageState;
+  } catch {
+    errors.push("package-state.json is not valid JSON.");
+    return null;
+  }
+}
+
+function checkPackageState(
+  blogDir: string,
+  slug: string,
+  errors: string[]
+): { canonicalVideoPath: string | null } {
+  const state = readPackageState(blogDir, errors);
+  if (!state) {
+    errors.push("Missing package-state.json. Create it before Package Lock or release.");
+    return { canonicalVideoPath: null };
+  }
+  if (state.schema_version !== 1) errors.push("package-state.json must use schema_version 1.");
+  if (state.slug !== slug) errors.push(`package-state.json slug '${state.slug}' does not match '${slug}'.`);
+  if (!state.phase) errors.push("package-state.json is missing phase.");
+
+  const video = state.artifacts?.video;
+  if (!video?.canonical) {
+    errors.push("package-state.json must declare artifacts.video.canonical when a video package exists.");
+    return { canonicalVideoPath: null };
+  }
+
+  const canonicalVideoPath = join(blogDir, video.canonical);
+  if (!existsSync(canonicalVideoPath)) {
+    errors.push(`Canonical video '${video.canonical}' declared in package-state.json does not exist.`);
+    return { canonicalVideoPath: null };
+  }
+  if (video.sha256) {
+    const actual = createHash("sha256").update(readFileSync(canonicalVideoPath)).digest("hex");
+    if (actual !== video.sha256) errors.push(`Canonical video '${video.canonical}' does not match its recorded sha256.`);
+  }
+
+  if (state.phase === "published" || state.phase === "postmortem-pending" || state.phase === "complete") {
+    const blog = state.release?.blog;
+    if (blog?.status !== "published" || !blog.url || !blog.production_commit || blog.branch !== "main") {
+      errors.push("Published package state requires release.blog with a URL, production commit, and branch 'main'.");
+    }
+  }
+
+  return { canonicalVideoPath };
+}
+
 export function assessBlogPackage(options: PackageQualityOptions): PackageQualityReport {
   const blogDir = resolve(options.blogDir);
   const errors: string[] = [];
@@ -441,10 +511,16 @@ export function assessBlogPackage(options: PackageQualityOptions): PackageQualit
   }
 
   const articleMtime = existsSync(englishPath) ? statSync(englishPath).mtimeMs : 0;
-  for (const companion of ["youtube-script.md", "video.mp4"]) {
-    const path = join(blogDir, companion);
+  const packageState = options.requireRelease
+    ? checkPackageState(blogDir, slug, errors)
+    : { canonicalVideoPath: null };
+  const companions = ["youtube-script.md"];
+  if (packageState.canonicalVideoPath) companions.push(packageState.canonicalVideoPath);
+  else if (existsSync(join(blogDir, "video.mp4"))) companions.push("video.mp4");
+  for (const companion of companions) {
+    const path = companion.startsWith(blogDir) ? companion : join(blogDir, companion);
     if (existsSync(path) && statSync(path).mtimeMs < articleMtime) {
-      warnings.push(`${companion} is older than the English article and may need regeneration.`);
+      warnings.push(`${basename(path)} is older than the English article and may need regeneration.`);
     }
   }
 
@@ -465,7 +541,7 @@ function parseArgs(argv: string[]): PackageQualityOptions & { json?: boolean } {
   };
   const blogDir = value("--dir");
   if (!blogDir) {
-    throw new Error("Usage: bun blog-package-quality.ts --dir <blog-dir> [--slug <slug>] [--serious] [--require-images] [--require-distribution] [--json]");
+    throw new Error("Usage: bun blog-package-quality.ts --dir <blog-dir> [--slug <slug>] [--serious] [--require-images] [--require-distribution] [--require-release] [--json]");
   }
   return {
     blogDir,
@@ -473,6 +549,7 @@ function parseArgs(argv: string[]): PackageQualityOptions & { json?: boolean } {
     serious: argv.includes("--serious"),
     requireImages: argv.includes("--require-images"),
     requireDistribution: argv.includes("--require-distribution"),
+    requireRelease: argv.includes("--require-release"),
     json: argv.includes("--json"),
   };
 }

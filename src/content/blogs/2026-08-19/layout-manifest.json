@@ -1,0 +1,92 @@
+{
+  "system": "ledger-editorial-v0.1",
+  "film": "deepseek-harness-teardown",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "safeArea": { "left": 112, "right": 112, "top": 96, "bottom": 154 },
+    "contentWidth": 1696,
+    "captionZone": { "height": 154, "protected": true },
+    "headerRail": { "height": 72, "content": "AARON GUO mark + mono chapter ledger marker", "protected": true }
+  },
+  "palette": {
+    "canvas": { "hex": "#f4f1e9", "role": "porcelain paper field; the default state of the film" },
+    "paper": { "hex": "#faf8f2", "role": "raised document/ledger surfaces" },
+    "ink": { "hex": "#2b2e2c", "role": "primary reading, structure, hairlines" },
+    "muted": { "hex": "#8a8f8a", "role": "secondary context, archived ledger lines" },
+    "signal": { "hex": "#4fb3bf", "role": "model-visible, delegated work, the key you hold; one dominant accent" },
+    "tension": { "hex": "#c96f5a", "role": "refusal, full price, crash; punctuation only" },
+    "inkPage": { "hex": "#232624", "role": "rare chapter punctuation frame; never default canvas" },
+    "rules": [
+      "one dominant accent per scene (signal); tension appears only at semantic refusal/cost moments",
+      "green is excluded from this film by treatment decision",
+      "no new hex inside scene components; add a token here first"
+    ]
+  },
+  "typography": {
+    "display": { "family": "Georgia, serif", "role": "claims, questions, chapter titles", "sizes": { "hero": 96, "sceneTitle": 62, "panelTitle": 46 } },
+    "body": { "family": "system sans", "role": "explanation, supporting copy, captions", "sizes": { "body": 24, "label": 19, "caption": 31 } },
+    "mono": { "family": "ui-monospace", "role": "ledger entries, seq markers, counts, paths, sources; the motif carrier", "sizes": { "entry": 26, "marker": 20 } },
+    "rules": [
+      "long headlines own a full-width reading axis; no side asides that force wraps",
+      "equal peers share size, padding, and baseline",
+      "no per-character reveal effects; word or line masks only"
+    ]
+  },
+  "layoutFamilies": {
+    "reused": [
+      { "family": "statement", "engine": "EditorialLayoutEngine", "status": "available", "use": "claims, questions, numeric heroes (count-up inside the headline slot; static-number fallback)" },
+      { "family": "cover-hero", "engine": "EditorialLayoutEngine", "status": "available", "use": "frame-zero opening: article title + subtitle + brand lockup already readable" },
+      { "family": "system-map", "engine": "EditorialLayoutEngine", "status": "available", "use": "ledger → derived context → gate → request mechanism; connector-draw with late arrowheads" },
+      { "family": "split-loop", "engine": "EditorialLayoutEngine", "status": "available-layout", "use": "moat vs funnel; two equal lanes + one full-width conclusion band" },
+      { "family": "image-evidence", "engine": "image-sequence template", "status": "available", "use": "the four paper scene-media stills; media slot with source-style margin label" },
+      { "family": "brand-end-card", "engine": "brand-end-card template", "status": "available", "use": "closing lockup; held score chord; no argument content" }
+    ],
+    "new": [
+      {
+        "family": "ledger-cascade",
+        "status": "prototype_required",
+        "use": "the signature 44/3 scene: 44 mono ledger lines accumulate as texture; exactly 3 flip to signal cyan and advance; the rest dim to muted",
+        "slots": { "rail": "full content width, 44 rows max, rows are texture not reading copy", "highlight": "3 advanced entries at reading size", "payoff": "lower statement band, enters only after cascade settles" },
+        "titleAxis": "none (mono marker only); the cascade is the content",
+        "captionSafe": true,
+        "transformEnvelope": "rows translate vertically only; no rotation; projected bounds stay 64px clear of caption zone",
+        "motionRecipes": ["stagger", "focus-shift", "semantic-settle-free variant: opacity + 8-12px settle per row"],
+        "dependencies": "payoff band derives from cascade progress >= 0.94; highlight flips derive from row-arrival fractions",
+        "keyframes": ["entry: 8 rows accumulated", "peak: 44 rows, 3 cyan advanced", "exit: rows dimmed, payoff band readable"],
+        "fallback": "static peak-state frame as image-sequence"
+      },
+      {
+        "family": "ledger-append-bridge",
+        "status": "prototype_required",
+        "use": "chapter transition grammar: the persistent rail receives one appended mono line (SEQ NN · CHAPTER TITLE); prior lines compress upward; next scene's scaffold enters beneath",
+        "slots": { "rail": "top zone below header, 3 visible lines max", "incoming": "scene scaffold area" },
+        "titleAxis": "the appended ledger line IS the chapter title",
+        "captionSafe": true,
+        "transformEnvelope": "vertical translation only; first change within 1s; no crossfade of two complete layouts",
+        "motionRecipes": ["bridge-reveal", "crossfade 0.42s for scene content only"],
+        "dependencies": "incoming scaffold enters at bridge progress >= 0.6; outgoing content exits before statement-weight copy enters",
+        "keyframes": ["entry: line appending", "peak: line seated + scaffold visible", "exit: rail compressed to marker"],
+        "fallback": "clean cut with header marker update"
+      }
+    ]
+  },
+  "motionRules": {
+    "timings": { "crossfade": 0.42, "settle": "8-12px", "sceneSeconds": "8-30" },
+    "beats": { "dense": "every 3-8s", "calm": "every 8-12s" },
+    "recipes": ["word-mask", "connector-draw", "focus-shift", "count-up", "compare-wipe", "stagger", "bridge-reveal", "crossfade"],
+    "banned": ["bounce", "overshoot", "page-flip", "per-character flicker", "camera motion outside signature", "infinite loops", "wall-clock time", "css transitions"],
+    "signatureBudget": { "scenes": 1, "scene": "ledger-cascade", "runtimeShare": "<= 5%" },
+    "dependencySafety": "connectors before destinations; arrowheads >= 0.98; payoffs after evidence settles; child reveals from late parent range (last 6-18%)"
+  },
+  "qaChecks": [
+    "static keyframe per new family approved before motion version",
+    "entry/peak/exit stills per scene at full res and 640x360",
+    "encoded-frame sampling before/after every chapter bridge and dependency threshold",
+    "caption zone collision sweep against diagram, image, and statement scenes",
+    "transform envelope sampling at 0/.25/.5/.75/1 progress",
+    "no dense layout coexisting with statement-weight copy",
+    "accent audit: cyan dominant, coral only at refusal/cost beats, zero green"
+  ]
+}

@@ -1,0 +1,3 @@
+# Prompt: 00-cover-v4-probe-i — Mediterranean Risograph
+
+Same civic still life as F2: column, open green gate, blank decision tablet on a coral plinth, terracotta amphora, and olive branch. Bright cream field, pale Aegean horizon, no wallpaper icons. Use a bright contemporary Mediterranean risograph editorial print: three to five imperfect spot inks, visible ink grain, small halftone fields, gentle ink bleed and subtle registration offset, bold flat shapes with a few engraved contours. Coral, teal, sage, saffron, and terracotta remain luminous. No people, text, dark field, or generic retro poster treatment.

@@ -1,3 +1,4 @@
+import { createHash } from "crypto";
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
@@ -106,6 +107,37 @@ describe("blog package quality", () => {
       const report = assessBlogPackage({ blogDir: dir, slug, requireDistribution: true });
       expect(report.passed).toBe(false);
       expect(report.errors.join("\n")).toContain("Missing distribution artifact: facebook-post.md");
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  test("uses the declared versioned video as the final release artifact", () => {
+    const dir = mkdtempSync(join(tmpdir(), "blog-package-"));
+    try {
+      writeFileSync(join(dir, `${slug}.md`), article("English", "A concrete article."));
+      writeFileSync(join(dir, `${slug}-zh.md`), article("中文", "自然中文。"));
+      const video = join(dir, "video-v3.mp4");
+      writeFileSync(video, "approved video bytes");
+      const sha256 = createHash("sha256").update("approved video bytes").digest("hex");
+      writeFileSync(
+        join(dir, "package-state.json"),
+        JSON.stringify({
+          schema_version: 1,
+          slug,
+          phase: "published",
+          artifacts: { video: { canonical: "video-v3.mp4", status: "published", sha256 } },
+          release: { blog: { status: "published", url: "https://example.com/blogs/test", production_commit: "abc123", branch: "main" } },
+          postmortem: { status: "pending" },
+        })
+      );
+
+      expect(assessBlogPackage({ blogDir: dir, slug, requireRelease: true }).passed).toBe(true);
+
+      rmSync(video);
+      const report = assessBlogPackage({ blogDir: dir, slug, requireRelease: true });
+      expect(report.passed).toBe(false);
+      expect(report.errors.join("\n")).toContain("Canonical video 'video-v3.mp4'");
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

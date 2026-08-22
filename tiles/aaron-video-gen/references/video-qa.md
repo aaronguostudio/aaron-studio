@@ -185,6 +185,14 @@ Reject when:
 - Section stings align with real structural turns.
 - Sound effects are sparse and synchronized to visible events.
 - The ending resolves both the argument and the score.
+- **The ending must reach true zero inside the file.** Measure the final
+  encoded master's last second (target near-silence, e.g. below `-60 dB` mean);
+  any tail track (held chord, sting) must complete its fade before the file
+  ends — a fade that the file boundary cuts mid-slope is a defect (caught on
+  the 2026-08-19 ledger film: an end-chord ran past the timeline and was
+  hard-cut). Generated scores often self-fade early; verify the end-card region
+  actually carries the intended sound rather than assuming the source track
+  does.
 - Measure the final encoded mix, not only its source tracks. Target roughly
   `-16 LUFS`, keep true peak at or below `-1.5 dBTP`, and confirm that any long
   silence is an intentional prelude or ending.
@@ -196,6 +204,10 @@ Reject when:
 
 Watch once without stopping.
 
+- **Frame zero is the approved cover card.** Every published film opens on the
+  approved article cover/thumbnail (a few seconds, then into the cold open); a
+  typographic cover-hero alone does not satisfy this. Recurring miss — treat as
+  a hard check (recaught on the 2026-08-19 ledger film).
 - Does the first 20 seconds deliver the title and thumbnail promise?
 - Can a viewer explain the main argument afterward?
 - Do visuals add information rather than duplicate narration?

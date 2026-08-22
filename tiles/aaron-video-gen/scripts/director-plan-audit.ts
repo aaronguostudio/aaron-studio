@@ -30,6 +30,17 @@ export interface SemanticSpriteDecision {
   fallback: string;
 }
 
+export interface DirectorStyleReference {
+  baseline_id: string;
+  reference_package: string;
+  reference_video: string;
+  reference_qa: string;
+  inherited_system: string;
+  rejected_legacy_pattern: string;
+  deliberate_deviation: string;
+  review_status: "reviewed";
+}
+
 export interface DirectorBeat {
   id: string;
   start_sec: number;
@@ -56,6 +67,7 @@ export interface DirectorPlan {
   title: string;
   duration_sec: number;
   product_promise: string;
+  style_reference: DirectorStyleReference;
   visual_budget: {
     remotion_motion_target_ratio: number;
     evidence_or_still_target_ratio: number;
@@ -123,6 +135,27 @@ export function auditDirectorPlan(plan: DirectorPlan): DirectorPlanAuditResult {
   }
   if (!hasText(plan?.product_promise)) {
     failures.push("director plan product_promise is missing");
+  }
+  if (!plan?.style_reference) {
+    failures.push("director plan style_reference is missing");
+  } else {
+    const reference = plan.style_reference;
+    for (const field of [
+      "baseline_id",
+      "reference_package",
+      "reference_video",
+      "reference_qa",
+      "inherited_system",
+      "rejected_legacy_pattern",
+      "deliberate_deviation",
+    ] as const) {
+      if (!hasText(reference[field])) {
+        failures.push(`director plan style_reference.${field} is missing`);
+      }
+    }
+    if (reference.review_status !== "reviewed") {
+      failures.push("director plan style_reference.review_status must be reviewed");
+    }
   }
   if (!plan?.visual_budget) {
     failures.push("director plan visual_budget is missing");
@@ -317,6 +350,7 @@ export function auditDirectorPlan(plan: DirectorPlan): DirectorPlanAuditResult {
       "",
       `Status: ${passed ? "PASS" : "FAIL"}`,
       `Beats: ${beats.length}`,
+      `Style reference: ${plan?.style_reference?.review_status === "reviewed" ? `${plan.style_reference.baseline_id} (reviewed)` : "missing"}`,
       `Generated video: ${generatedVideoDuration.toFixed(1)}s across ${generatedVideoBeats} beat(s)`,
       `Semantic sprites: ${semanticSpriteBeats} beat(s)`,
       "",

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "slug": "the-model-got-a-body",
+  "phase": "article-locked",
+  "artifacts": {
+    "article": {
+      "en": "the-model-got-a-body.md",
+      "zh": "the-model-got-a-body-zh.md",
+      "status": "approved"
+    }
+  },
+  "release": {},
+  "postmortem": {
+    "status": "pending"
+  },
+  "notes": "Text + editorial + distribution complete; images (blog-illustrate) and video (aaron-video-gen) not yet run; publish not authorized."
+}

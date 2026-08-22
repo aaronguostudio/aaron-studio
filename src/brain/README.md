@@ -13,6 +13,7 @@
 | [journal/](journal/) | 每日 journal entries | daily |
 | [reading/](reading/) | 读书/文章笔记 | event-driven |
 | [concepts/](concepts/) | 工作词典 — 术语、心智模型、边界与关联概念 | event-driven |
+| [development-philosophy/](development-philosophy/) | 开发哲学 — 造产品时反复使用的原则与质量标准 | event-driven |
 | [notes/](notes/) | 个人 cheatsheets, snippets, how-to | event-driven |
 | [life/](life/) | routine, identity, lifestyle | quarterly |
 | [logs/](logs/) | 工作时长记录 (cf, oc, etc.) | daily |
@@ -21,7 +22,7 @@
 
 ```yaml
 ---
-type: journal | review | decision | node | reading | concept | note | goal | log
+type: journal | review | decision | node | reading | concept | philosophy | note | goal | log
 date: 2026-04-13
 tags: [career, mawer, orgnext]
 status: draft | active | archived

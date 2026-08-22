@@ -228,7 +228,9 @@ export async function renderWithRemotion(
     execSync(cmd, {
       cwd: REMOTION_DIR,
       stdio: "inherit",
-      timeout: 600_000,
+      // 30 min: a ~12-minute 1080p24 video needs >10 min to render+encode at
+      // concurrency 1; the old 600_000 killed long renders at ~96%.
+      timeout: 1_800_000,
     });
   } finally {
     // 7. Cleanup temp files

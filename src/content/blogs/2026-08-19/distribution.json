@@ -1,0 +1,60 @@
+{
+  "slug": "deepseek-harness-teardown",
+  "published_at": "2026-08-16",
+  "posts": [
+    {
+      "channel": "blog",
+      "url": "https://www.aaronguo.com/blogs/deepseek-harness-teardown",
+      "title": "What I Learned From DeepSeek's Harness",
+      "language": "en",
+      "post_type": "article",
+      "cta_type": "newsletter",
+      "publish_date": "2026-08-16",
+      "notes": "Post #30; pushed to main at 519ea53; deployed via GitHub Actions."
+    },
+    {
+      "channel": "blog",
+      "url": "https://www.aaronguo.com/zh/blogs/deepseek-harness-teardown",
+      "title": "我从 DeepSeek Harness 学到的",
+      "language": "zh",
+      "post_type": "article",
+      "cta_type": "newsletter",
+      "publish_date": "2026-08-16",
+      "notes": "Post #30 zh; same deploy."
+    },
+    {
+      "channel": "youtube",
+      "url": "https://youtu.be/5vEEBhbfUWw",
+      "video_id": "5vEEBhbfUWw",
+      "title": "What I Learned From DeepSeek's Harness",
+      "language": "en",
+      "post_type": "video",
+      "cta_type": "follow",
+      "publish_date": "2026-08-16",
+      "notes": "v3 ledger-editorial film, 10:07; Aaron set it public 2026-08-16. Linked from both blog editions via the youtube: frontmatter field. Thumbnail set via direct API call after the pipeline's PNG exceeded YouTube's 2MB limit (pipeline since patched to auto-convert).",
+      "privacy": "public"
+    }
+  ],
+  "pending": [
+    {
+      "channel": "linkedin",
+      "blocker": "stored token lacks w_member_social (analytics scopes only) — needs re-auth or manual post",
+      "asset": "linkedin-brief.md (final copy)"
+    },
+    {
+      "channel": "x",
+      "blocker": "no API credentials — manual post",
+      "asset": "x-post.md (main 266 chars + reply link); x-standalone-tweet.md 2-5 days later"
+    },
+    {
+      "channel": "facebook",
+      "blocker": "no API credentials — manual post",
+      "asset": "facebook-post.md (154 words, Public)"
+    },
+    {
+      "channel": "newsletter",
+      "blocker": "no Beehiiv credentials — manual send",
+      "asset": "newsletter-teaser.md (subject/preview/body 135w)"
+    }
+  ]
+}

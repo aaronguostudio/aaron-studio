@@ -1,0 +1,53 @@
+{
+  "post": "2026-08-21/local-crossover-point",
+  "phase": "local-published-qa-passed-awaiting-aroon-approval",
+  "updated_at": "2026-08-21",
+  "production_stack": {
+    "harness": "deepseek-harness 0.1.0-rc.8",
+    "model": "hf.co/unsloth/Qwen3.8-27B-GGUF:Q8_0 (Ollama, local)",
+    "machine": "MacBook Pro, Apple M5 Max, 128GB",
+    "note": "self-referential: this package was produced by the stack the article describes"
+  },
+  "artifacts": {
+    "article_en": "local-crossover-point.md",
+    "article_zh": "local-crossover-point-zh.md",
+    "cover": "imgs/web/00-cover.webp",
+    "cover_candidates": [
+      "imgs/00-cover-a1.png",
+      "imgs/00-cover-a2.png"
+    ],
+    "red_team": "red-team-review.md",
+    "claim_ledger": "claim-ledger.md",
+    "scorecard": "editorial-scorecard.md",
+    "distribution": [
+      "distribution-plan.md",
+      "x-post.md",
+      "x-standalone-tweet.md",
+      "linkedin-brief.md",
+      "facebook-post.md",
+      "newsletter-teaser.md"
+    ]
+  },
+  "gates": {
+    "style_en": "pass 100/100 (blog-style-quality, personal-anchor + story-craft)",
+    "style_zh": "pass 100/100 (blog-style-quality, zh)",
+    "claim_ledger": "pass (2026-08-21 verification)",
+    "red_team": "pass (5 issues documented, substantive revision completed)",
+    "editorial_scorecard": "pass 93/100",
+    "package_quality": "pass (serious + images + distribution, 2026-08-21)",
+    "image_visual_review": "OPEN — human review required before publish; model could not view image (text-only GGUF), structural QA only"
+  },
+  "locks": {
+    "argument_lock": "pass",
+    "article_lock": "pass (article + cover final at 2026-08-21; no video/audio in scope)",
+    "package_lock": "pending — local build + SSR QA pass 2026-08-21; awaiting human image/page visual review, then user approval for push + socials"
+  },
+  "publish": {
+    "blog_repo_copy": "done (content/blogs/en+zh/30.local-crossover-point.md, public cover copied, link validator pass)",
+    "blog_url_pending_remote_build_qa": "route /blogs/local-crossover-point + /zh/blogs/local-crossover-point (SSR verified 200 + title/H1/cover/links on built output)",
+    "youtube": "not requested",
+    "social_posts": "drafts only (x-post, x-standalone, linkedin, facebook, newsletter) — awaiting approval",
+    "distribution_json": "pending (record real post IDs only after they exist)"
+  },
+  "postmortem_status": "prediction recorded (evaluate-content prepublish, rubric 64/100); 24h/7d pending"
+}

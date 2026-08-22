@@ -101,6 +101,15 @@ A strong Aaron post usually has:
 
 Bad revision adds adjectives. Good revision adds receipts.
 
+### 直接陈述优先于自造标签
+
+(2026-08-15，来自 DSH harness 文修订反馈)
+
+- 概括一组动作或模式时，优先用直接陈述句（「它直接采用了对手的标准」），不用文绉绉的自造标签（「格式投降」「诚实的子集」「收编对手」）。自造标签常携带事实不支持的评价色彩（投降/收编），且读者要先解码标签才能理解内容。英文同理：plain bolded statements beat coined labels ("It adopted its rival's standards" over "Format surrender").
+- 反方观点和转折段必须有可见的过渡和来源：先说这个疑问从哪来（谁说的、什么数据、什么历史），再展开回应。不要凭空放一个抽象角色（「一个聪明的怀疑者」）进正文。
+- 目标读者读不懂的方法学细节留在 claim ledger，正文的让步压成一句大白话（「Composio 自己也承认方法有局限，别当排行榜读」）。
+- 对公司或人物的定性框架要过一道公平检验：即使引语属实，转述的定语（「常年被指控抄袭的公司」）可能带着文章并不主张的指控。删掉或中性化。
+
 ## English standard
 
 Write native, crisp English. Use contractions when natural. Prefer plain words over formal synonyms: use "use", not "utilize"; "also", not "furthermore"; "important", not "pivotal" unless the sentence proves why.

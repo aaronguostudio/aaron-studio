@@ -1,0 +1,1179 @@
+{
+  "schema_version": 1,
+  "title": "What I Learned From DeepSeek's Harness",
+  "duration_sec": 605.7,
+  "fps": 30,
+  "direction": {
+    "name": "Graphite Ledger Editorial",
+    "style_family_id": "ledger-editorial-v0.1",
+    "visual_spine": "Warm porcelain paper field, ink graphite structure, raised paper ledger surfaces, serif display claims, neutral sans explanation, monospace as the motif carrier; one dominant cyan accent (model-visible / what you keep), muted coral as tension punctuation; no green, no dark default canvas (one ink punctuation page), no cards-as-UI. The film behaves like the append-only session log it describes: chapters append as mono ledger lines and nothing is erased.",
+    "layout_manifest": "layout-manifest.json",
+    "treatment": "video-treatment.md",
+    "motion_density": "restrained",
+    "music_strategy": "continuous",
+    "references": [
+      {
+        "id": "ref-shaders-gambit",
+        "url": "https://x.com/wcandillon/status/2015345960491069718",
+        "borrow": "sound establishes the world before the first claim; one earned spatial peak; product-level finish",
+        "avoid": "chess-specific visual language; sustaining peak intensity through an essay"
+      },
+      {
+        "id": "ref-guizang-editorial",
+        "url": "https://github.com/guizang-style/reference",
+        "borrow": "finite layout vocabulary chosen before animation; one visual spine; typographic hierarchy carries the argument; rhythm via materially different page states",
+        "avoid": "copying template skin or AGPL implementation; deck-recording as scenes"
+      },
+      {
+        "id": "ref-clean-indigo-film",
+        "url": "https://www.youtube.com/watch?v=S-cNWJhWaTU",
+        "borrow": "0.42s crossfade continuity; caption discipline; images as rare scene media; brand end-card with held chord",
+        "avoid": "indigo palette identity (this film's system is ledger-editorial-v0.1); reusing its scene skins"
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01-cold-open",
+      "title": "Same Model, 47 vs 67",
+      "start_sec": 0,
+      "end_sec": 21.6,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Land the numeric contradiction inside the cover identity before any explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Cover-hero at frame zero: article title, subtitle, Aaron lockup readable on porcelain; the numbers arrive as the first change.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What I Learned From DeepSeek's Harness",
+        "47% → 67%",
+        "cost ×7"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "cover-hero identity",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.8,
+          "visual": "47% counts up graphite",
+          "action": "count"
+        },
+        {
+          "at_sec": 6,
+          "visual": "67% counts up ink-heavy",
+          "action": "count"
+        },
+        {
+          "at_sec": 14,
+          "visual": "x7 cost line masks in",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Score precedes the first word: low cello + analog pulse at low intensity; ducks as narration enters."
+    },
+    {
+      "id": "s02-invisible-layer",
+      "title": "The Layer In Between",
+      "start_sec": 21.6,
+      "end_sec": 53.5,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Define the harness as the system between you and the model; debut the ledger rail.",
+      "entry_mode": "bridge",
+      "entry_visual": "The 47/67 statement compresses; a three-node line (you — harness — model) is already scaffolded in muted ink.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "connector-draw",
+        "focus-shift"
+      ],
+      "content": [
+        "you",
+        "harness",
+        "model",
+        "assembles context · runs tools · decides when to stop",
+        "SEQ 00 · THE HARNESS"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "three nodes muted",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "connectors draw left to right",
+          "action": "connect"
+        },
+        {
+          "at_sec": 12,
+          "visual": "harness node focus-shift, duties stagger beneath",
+          "action": "focus"
+        },
+        {
+          "at_sec": 18,
+          "visual": "duty line two activates under the harness node",
+          "action": "focus"
+        },
+        {
+          "at_sec": 23,
+          "visual": "duty line three activates",
+          "action": "focus"
+        },
+        {
+          "at_sec": 26,
+          "visual": "first ledger line appends: the film's rail debuts",
+          "action": "append"
+        }
+      ],
+      "music_cue": "Pulse carries; cello re-enters on 'open-sourced its harness'."
+    },
+    {
+      "id": "s03-winner-blinked",
+      "title": "The Winner Blinked",
+      "start_sec": 53.5,
+      "end_sec": 84.4,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Sourced authority: the rival's co-founder rethinking his own choices.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 01 appends; the quotation page assembles: serif quote, mono attribution THE REGISTER · 2026-08-14.",
+      "first_change_sec": 0.6,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "“…the first time something new in this space made me want to revisit our own choices”",
+        "Armin Ronacher — co-founder, Earendil (company behind Pi)",
+        "THE REGISTER · 2026-08-14"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "attribution rail seated",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.5,
+          "visual": "quotation word-masks in lines",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 8,
+          "visual": "quotation line two settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 15,
+          "visual": "quotation line three settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 22,
+          "visual": "page settles; nothing moves",
+          "action": "hold"
+        },
+        {
+          "at_sec": 27,
+          "visual": "attribution focus",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Felt piano alone; the film's first quiet page."
+    },
+    {
+      "id": "s04-i-went-inside",
+      "title": "Fourteen Passes, One Commit",
+      "start_sec": 84.4,
+      "end_sec": 106.2,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Method and promise: the week inside the repo, pinned and checked.",
+      "entry_mode": "bridge",
+      "entry_visual": "The quote page compresses; a mono method line is already visible.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "fourteen analysis passes · pinned to one commit",
+        "a few hundred claims checked file by file",
+        "four designs · one hour of work"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "method entries stagger",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 6,
+          "visual": "second method entry",
+          "action": "focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "promise line masks in",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 18,
+          "visual": "promise line focus",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Piano + a first pulse return: anticipation without lift."
+    },
+    {
+      "id": "s05-how-caching-bills",
+      "title": "The Prefix Discount",
+      "start_sec": 106.2,
+      "end_sec": 128.0,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Explain provider-side caching as a billing ledger.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 02 appends; a billing ledger scaffold (prefix rows, discount column) is visible.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "connector-draw",
+        "focus-shift"
+      ],
+      "content": [
+        "request prefix rows",
+        "discount column",
+        "1/50 — 1/120 at launch-week prices"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "ledger rows accumulate",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 5,
+          "visual": "second prefix row",
+          "action": "focus"
+        },
+        {
+          "at_sec": 10,
+          "visual": "discount column populates",
+          "action": "count"
+        },
+        {
+          "at_sec": 14,
+          "visual": "discount figures resolve",
+          "action": "focus"
+        },
+        {
+          "at_sec": 17,
+          "visual": "date-qualifier line masks in",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Piano continues, patient."
+    },
+    {
+      "id": "s06-the-lawyer",
+      "title": "The Lawyer Re-Reads",
+      "start_sec": 128.0,
+      "end_sec": 153.5,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "The article's own metaphor as the chapter's medium reset.",
+      "entry_mode": "bridge",
+      "entry_visual": "The ledger compresses to a margin; the contract still enters with a mono margin label.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "imgs/02-metaphor-contract-reread.png",
+        "GENERATED ILLUSTRATION · margin label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "still enters full-slot",
+          "action": "crossfade"
+        },
+        {
+          "at_sec": 8,
+          "visual": "focus-shift toward the coral mark",
+          "action": "focus"
+        },
+        {
+          "at_sec": 18,
+          "visual": "hold on the fanned pages",
+          "action": "hold"
+        }
+      ],
+      "music_cue": "Piano with one low cello entrance at 'full rate'."
+    },
+    {
+      "id": "s07-safe-and-key",
+      "title": "The Safe and the Key",
+      "start_sec": 153.5,
+      "end_sec": 160.5,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Six-second division-of-labor statement.",
+      "entry_mode": "bridge",
+      "entry_visual": "The still exits; the statement owns the stage immediately.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "the provider holds the safe",
+        "your harness holds the key"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "line one masks in",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 2.5,
+          "visual": "line two masks in, cyan on 'key'",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "One piano chord; then space."
+    },
+    {
+      "id": "s08-timestamp",
+      "title": "One Timestamp, Full Price",
+      "start_sec": 160.5,
+      "end_sec": 175.4,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "The commonest way to lose the key, priced.",
+      "entry_mode": "bridge",
+      "entry_visual": "A mono prompt-prefix column is scaffolded; the clock row sits at its head.",
+      "first_change_sec": 0.7,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Current time: …",
+        "prefix rows below",
+        "every request · full price · forever"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "clock row highlighted",
+          "action": "highlight"
+        },
+        {
+          "at_sec": 4,
+          "visual": "coral strike on the clock row",
+          "action": "strike"
+        },
+        {
+          "at_sec": 7,
+          "visual": "re-price cascades row by row",
+          "action": "stagger"
+        }
+      ],
+      "music_cue": "Cello under the cascade; the chapter's tension peak."
+    },
+    {
+      "id": "s09-gross-margin",
+      "title": "Their Gross Margin",
+      "start_sec": 175.4,
+      "end_sec": 193.0,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Why DeepSeek enforces this: they sell the tokens; clock out, order fixed.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 03 appends; two discipline rows are already muted in place.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "no clock in the prompt",
+        "tool order: fixed, canonical",
+        "margin, not a performance detail"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "discipline rows activate",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 5,
+          "visual": "clock row focus",
+          "action": "focus"
+        },
+        {
+          "at_sec": 10,
+          "visual": "margin line focus",
+          "action": "focus"
+        },
+        {
+          "at_sec": 14,
+          "visual": "order row focus",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Score thins toward the dry zone."
+    },
+    {
+      "id": "s10-test-refuses",
+      "title": "The Test That Refuses",
+      "start_sec": 193.0,
+      "end_sec": 219.1,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "The live assertion as a ledger of checks ending in one refusal.",
+      "entry_mode": "bridge",
+      "entry_visual": "A muted column of check entries is stacked before narration names it.",
+      "first_change_sec": 0.7,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "check entries column",
+        "one coral refusal + flag",
+        "the build goes red before the money burns",
+        "It's next."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "entries stagger downward",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 6,
+          "visual": "entries continue stacking",
+          "action": "focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "refusal entry lands coral",
+          "action": "strike"
+        },
+        {
+          "at_sec": 16,
+          "visual": "column settles before the refusal",
+          "action": "hold"
+        },
+        {
+          "at_sec": 20,
+          "visual": "tease line masks in",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Pulse only; near-dry hand-off to the signature scene."
+    },
+    {
+      "id": "s11-ledger-cascade",
+      "title": "44 Kinds. 3 Visible.",
+      "start_sec": 219.1,
+      "end_sec": 238.9,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "signature",
+      "purpose": "The film's signature: the grammar the viewer has watched becomes the subject.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Ink page (SEQ 04 alone, the film's one dark frame) for a breath; porcelain returns and rows are already accumulating.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "focus-shift",
+        "semantic-settle"
+      ],
+      "content": [
+        "44 mono ledger rows accumulate as texture",
+        "exactly 3 flip cyan and advance",
+        "the rest dim to archive"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "ink page punctuation",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2,
+          "visual": "porcelain returns; rows accumulate fast",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 10,
+          "visual": "three rows flip cyan, advance",
+          "action": "focus"
+        },
+        {
+          "at_sec": 15,
+          "visual": "the 41 dim; the 3 hold",
+          "action": "settle"
+        }
+      ],
+      "music_cue": "Nearly dry: the lowest pulse only; precision reads best unaccompanied."
+    },
+    {
+      "id": "s12-derive-refuse",
+      "title": "Derived From the Ledger",
+      "start_sec": 238.9,
+      "end_sec": 266.1,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "The mechanism: recompute from the log; refuse on mismatch.",
+      "entry_mode": "bridge",
+      "entry_visual": "The cascade compresses to a spine at left; map scaffold (spine — cards — gate — request) already visible muted.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "connector-draw",
+        "focus-shift"
+      ],
+      "content": [
+        "ledger spine",
+        "three derived cards",
+        "gate",
+        "outgoing request",
+        "mismatch → refuse (coral)"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "scaffold muted",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "connector draws spine→cards→gate; arrowhead at 0.98",
+          "action": "connect"
+        },
+        {
+          "at_sec": 8,
+          "visual": "cards resolve at gate",
+          "action": "focus"
+        },
+        {
+          "at_sec": 14,
+          "visual": "mismatch branch strikes coral before the gate",
+          "action": "strike"
+        },
+        {
+          "at_sec": 20,
+          "visual": "'why the cache test can exist' line masks under",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 24,
+          "visual": "interlock line settles",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Piano re-enters quietly on the interlock line."
+    },
+    {
+      "id": "s13-replay",
+      "title": "Replay the Log",
+      "start_sec": 266.1,
+      "end_sec": 288.8,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "The everyday superpower: scrub back, see exactly what the model saw; crash and continue.",
+      "entry_mode": "bridge",
+      "entry_visual": "The map compresses; the ledger rail expands to reading size, scrub cursor visible.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "the rail at reading size",
+        "scrub back: exact context, byte for byte",
+        "crash at step 80 → recompute → continue"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "rail expanded",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "cursor scrubs to an earlier row",
+          "action": "focus"
+        },
+        {
+          "at_sec": 9,
+          "visual": "cursor lands on the inexplicable step",
+          "action": "focus"
+        },
+        {
+          "at_sec": 14,
+          "visual": "crash row → same rows re-derive",
+          "action": "focus"
+        },
+        {
+          "at_sec": 19,
+          "visual": "continue-from-log rows re-light",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Calm piano; the chapter's breathing room."
+    },
+    {
+      "id": "s14-five-lines",
+      "title": "Five Lines",
+      "start_sec": 288.8,
+      "end_sec": 301.6,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The copyable payoff of the whole design.",
+      "entry_mode": "bridge",
+      "entry_visual": "Five graphite bars already stacked as a card.",
+      "first_change_sec": 0.6,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "five mono lines",
+        "derive · compare · refuse",
+        "copy this week"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "five bars settle",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 6,
+          "visual": "payoff line masks in",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Piano states the film's small motif once."
+    },
+    {
+      "id": "s15-one-row-machine",
+      "title": "The Whole Machine, One Thread",
+      "start_sec": 301.6,
+      "end_sec": 322.0,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Chapter reset: the hanging-machine irony.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 05 appends; the machine still enters with a mono margin label.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "imgs/s05-01-one-row-machine.png",
+        "GENERATED ILLUSTRATION · margin label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "still enters",
+          "action": "crossfade"
+        },
+        {
+          "at_sec": 8,
+          "visual": "focus toward the paper tag",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Cello alone, patient."
+    },
+    {
+      "id": "s16-disabled-true",
+      "title": "disabled: true",
+      "start_sec": 322.0,
+      "end_sec": 341.4,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The row itself; flip it and there is no agent; code mode is one appended row.",
+      "entry_mode": "bridge",
+      "entry_visual": "A mono config row card is already seated under the compressed still.",
+      "first_change_sec": 0.7,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "- id: agent-loop",
+        "disabled: true",
+        "code mode = standard + one appended row"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "row card focus",
+          "action": "focus"
+        },
+        {
+          "at_sec": 4,
+          "visual": "'disabled: true' types onto the row",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 12,
+          "visual": "appended-row comparison line",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Pulse returns lightly."
+    },
+    {
+      "id": "s17-green-hollow",
+      "title": "178 Green Tests",
+      "start_sec": 341.4,
+      "end_sec": 362.7,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "The two silent crashes; coverage that meant nothing.",
+      "entry_mode": "bridge",
+      "entry_visual": "A tally of check marks in ink is scaffolded; the story strikes through it.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "178 green · 100% coverage",
+        "died on first real connection",
+        "torn gap in the tally"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "tally rows activate",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 8,
+          "visual": "coral tear opens mid-tally",
+          "action": "strike"
+        },
+        {
+          "at_sec": 15,
+          "visual": "silence beat; nothing moves",
+          "action": "hold"
+        }
+      ],
+      "music_cue": "Cello under the crash; one intentional silent bar after 'connected.'"
+    },
+    {
+      "id": "s18-27-checks",
+      "title": "Bought Back, One Crash at a Time",
+      "start_sec": 362.7,
+      "end_sec": 379.5,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The bill: 27 pre-release checks.",
+      "entry_mode": "bridge",
+      "entry_visual": "A stamp-row scaffold is visible; the count runs up.",
+      "first_change_sec": 0.7,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "27",
+        "pre-release checks",
+        "the bill, paid one crash at a time"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "stamps stagger along a rail",
+          "action": "stagger"
+        },
+        {
+          "at_sec": 5,
+          "visual": "27 counts up in serif display",
+          "action": "count"
+        },
+        {
+          "at_sec": 11,
+          "visual": "bill line masks in",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Piano answers the cello: cost acknowledged."
+    },
+    {
+      "id": "s19-fleet",
+      "title": "Twelve Thousand Commits",
+      "start_sec": 379.5,
+      "end_sec": 404.3,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Who built this: the fleet still with the stat rail.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 06 appends; the fleet still enters, mono stat rail scaffolded beneath.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "imgs/03-metaphor-rules-table-fleet.png",
+        "12,293 · 64 days · worktree/ 210 · codex/ 209"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "still enters",
+          "action": "crossfade"
+        },
+        {
+          "at_sec": 6,
+          "visual": "stat rail counts up under the image",
+          "action": "count"
+        },
+        {
+          "at_sec": 18,
+          "visual": "hold on the gate and fleet",
+          "action": "hold"
+        }
+      ],
+      "music_cue": "Pulse forward — the fleet's own sound — kept low."
+    },
+    {
+      "id": "s20-markdown",
+      "title": "More Markdown Than TypeScript",
+      "start_sec": 404.3,
+      "end_sec": 417.7,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The tell: documents outnumber code.",
+      "entry_mode": "bridge",
+      "entry_visual": "Two mono bars (md / ts) already scaffolded at equal width.",
+      "first_change_sec": 0.6,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "more markdown than TypeScript",
+        "most of this code was not typed by humans",
+        "the operating system is the real find"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "bars fill to true lengths",
+          "action": "count"
+        },
+        {
+          "at_sec": 7,
+          "visual": "claim line masks in",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Pulse holds."
+    },
+    {
+      "id": "s21-process-os",
+      "title": "The Operating System Around It",
+      "start_sec": 417.7,
+      "end_sec": 465.2,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Day-two theory; rejected freezer; verified-red; the writer never gets tired.",
+      "entry_mode": "bridge",
+      "entry_visual": "Three ledger entries scaffolded muted; they activate as narration reaches each.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "DAY 2 · enforced checks over prose",
+        "REJECTED · kept while it still blocks a mistake",
+        "POSTMORTEM · proven to turn red",
+        "the writer never gets tired"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "entry one activates",
+          "action": "focus"
+        },
+        {
+          "at_sec": 14,
+          "visual": "entry two: freezer row, cyan band",
+          "action": "focus"
+        },
+        {
+          "at_sec": 26,
+          "visual": "entry three: red-proof row",
+          "action": "focus"
+        },
+        {
+          "at_sec": 40,
+          "visual": "payoff line masks in alone",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Piano takes the payoff line; pulse steps back."
+    },
+    {
+      "id": "s22-the-catch",
+      "title": "The Catch",
+      "start_sec": 465.2,
+      "end_sec": 492.1,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Honest limits on the film's quietest page.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 07 appends; three muted limitation rows already legible; almost nothing moves.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "reminders only, then silence · file tools: no timeout",
+        "daily experience still trails",
+        "not your first choice this week"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "rows legible, muted",
+          "action": "hold"
+        },
+        {
+          "at_sec": 8,
+          "visual": "slow focus down the rows",
+          "action": "focus"
+        },
+        {
+          "at_sec": 20,
+          "visual": "'not your first choice this week' settles",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Near-silence: one held piano note, then air."
+    },
+    {
+      "id": "s23-moat-funnel",
+      "title": "Moat, Funnel — My Read",
+      "start_sec": 492.1,
+      "end_sec": 526.4,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "The strategy comparison, explicitly labeled as Aaron's read.",
+      "entry_mode": "bridge",
+      "entry_visual": "Two lanes scaffolded with a mono MY READ label already visible above.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "connector-draw",
+        "focus-shift"
+      ],
+      "content": [
+        "MY READ · intent doesn't live in a repo",
+        "moat: closed · subscription",
+        "funnel: open · reads rivals' formats → tokens",
+        "portability cuts both ways"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "label + lanes muted",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4,
+          "visual": "moat lane resolves",
+          "action": "wipe"
+        },
+        {
+          "at_sec": 13,
+          "visual": "funnel lane resolves",
+          "action": "wipe"
+        },
+        {
+          "at_sec": 26,
+          "visual": "conclusion band enters after lanes settle",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Strings re-enter softly; the argument's last structured push."
+    },
+    {
+      "id": "s24-what-travels",
+      "title": "What Travels",
+      "start_sec": 526.4,
+      "end_sec": 552.0,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Three copyable practices as ledger slips.",
+      "entry_mode": "bridge",
+      "entry_visual": "SEQ 08 appends; three slips scaffolded muted.",
+      "first_change_sec": 0.8,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "the five-line assertion",
+        "the cache trio",
+        "a rejected/ folder"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "slip one activates",
+          "action": "focus"
+        },
+        {
+          "at_sec": 8,
+          "visual": "slip two",
+          "action": "focus"
+        },
+        {
+          "at_sec": 16,
+          "visual": "slip three",
+          "action": "focus"
+        }
+      ],
+      "music_cue": "Piano and cello begin the resolve."
+    },
+    {
+      "id": "s25-rent-churn-own",
+      "title": "Rented, Churning, Yours",
+      "start_sec": 552.0,
+      "end_sec": 577.0,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The sort: models rented; harnesses churning; the portable layer is yours.",
+      "entry_mode": "bridge",
+      "entry_visual": "Three mono lines already scaffolded.",
+      "first_change_sec": 0.7,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "models — rented",
+        "harnesses — still churning",
+        "yours — skills · files · decisions"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "line one masks",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 6,
+          "visual": "line two masks",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 13,
+          "visual": "line three masks, cyan on 'yours'",
+          "action": "reveal"
+        }
+      ],
+      "music_cue": "Resolve builds; still restrained."
+    },
+    {
+      "id": "s26-two-shelves",
+      "title": "One Hour, Two Columns",
+      "start_sec": 577.0,
+      "end_sec": 599.7,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "The closing action grounded in the shelves still; series pointer as a final ledger line.",
+      "entry_mode": "bridge",
+      "entry_visual": "The shelves still enters; the two-column statement waits for it to settle.",
+      "first_change_sec": 0.9,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "imgs/04-metaphor-two-shelves.png",
+        "two columns: take with you / locked in",
+        "SEQ 09 · THE ENTRY FEE (next in series)"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "still settles",
+          "action": "crossfade"
+        },
+        {
+          "at_sec": 8,
+          "visual": "two-column statement enters",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 18,
+          "visual": "final ledger line appends: the series pointer",
+          "action": "append"
+        }
+      ],
+      "music_cue": "The held chord begins under the final sentence."
+    },
+    {
+      "id": "s27-end-card",
+      "title": "Brand End Card",
+      "start_sec": 599.7,
+      "end_sec": 605.7,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Sign-off.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Header and captions hidden; the lockup is the only hierarchy.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Aaron mark",
+        "AARON GUO",
+        "AI-NATIVE BUILDER · HUMAN-FIRST THINKER"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "lockup enters calm",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 4.5,
+          "visual": "clean final fade",
+          "action": "fade"
+        }
+      ],
+      "music_cue": "Held chord alone, fading to silence."
+    }
+  ]
+}

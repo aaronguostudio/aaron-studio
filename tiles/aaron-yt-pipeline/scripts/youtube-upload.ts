@@ -11,6 +11,7 @@
  */
 
 import { existsSync, readFileSync, statSync, createReadStream } from "fs";
+import { execFileSync } from "child_process";
 import { resolve } from "path";
 import { loadAllEnvFiles } from "./shared/env";
 import { getAccessToken } from "./youtube-auth";
@@ -190,11 +191,31 @@ async function uploadVideoChunks(
   return data.id; // YouTube video ID
 }
 
+/**
+ * YouTube rejects thumbnails above 2 MB with a generic "invalid image content"
+ * 400 that reads like a format problem (hit 2026-08-16: a 3.56 MB 2048x1152
+ * PNG). Downscale to 1280x720 JPEG when the source is over the limit, so a
+ * legitimate cover never fails on size alone.
+ */
+const YOUTUBE_THUMBNAIL_MAX_BYTES = 2 * 1024 * 1024;
+
+function prepareThumbnail(thumbnailPath: string): string {
+  const bytes = readFileSync(thumbnailPath).length;
+  if (bytes <= YOUTUBE_THUMBNAIL_MAX_BYTES) return thumbnailPath;
+  const converted = thumbnailPath.replace(/\.[^.]+$/, "") + "-yt.jpg";
+  console.log(
+    `[upload] Thumbnail is ${(bytes / 1048576).toFixed(2)} MB (limit 2 MB); converting to 1280x720 JPEG.`
+  );
+  execFileSync("ffmpeg", ["-y", "-loglevel", "error", "-i", thumbnailPath, "-vf", "scale=1280:720", "-q:v", "3", converted]);
+  return converted;
+}
+
 async function setThumbnail(
   accessToken: string,
   videoId: string,
-  thumbnailPath: string
+  rawThumbnailPath: string
 ): Promise<void> {
+  const thumbnailPath = prepareThumbnail(rawThumbnailPath);
   const thumbnailBuffer = readFileSync(thumbnailPath);
   const contentType = thumbnailPath.endsWith(".png") ? "image/png" : "image/jpeg";
 

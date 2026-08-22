@@ -42,6 +42,7 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `red-team-review.md` | skeptical editorial review and required revisions | blog-write |
 | `prose-polish-review.md` | EN/ZH prose polish goals, edits, boundaries, validation result | blog-prose-editor |
 | `editorial-scorecard.md` | editorial contract, weighted final score, and revision delta | blog-production / blog-write |
+| `package-state.json` | machine-readable phase, canonical asset pointers, release provenance, and postmortem status | blog-production |
 | `postmortem.md` | prediction, 24h/7d outcomes, workflow lesson, next experiment | blog-production |
 | `workflow-retrospective.md` | optional deep-revision summary, durable lessons, lock failures, and next-run protocol | blog-production |
 | `canon-note.md` | canonical idea, reusable frame, claim updates, internal link map | blog-write / blog-production |
@@ -299,6 +300,20 @@ npx -y bun tiles/blog-production/scripts/blog-package-quality.ts \
 ```
 
 Fix all errors. Review warnings, especially stale video/audio assets after an article rewrite. Publishing still requires the target-blog link validator and build check.
+
+**Package state gate** — before Package Lock and after every publish, create or update `package-state.json`. It is the authoritative current-state record; `handoff.md` and historical QA reports are context, not status. The file must record the current phase, the final article/video asset pointers, lock decisions, published blog URL, production commit on `main`, and postmortem status. When versioned renders exist, `artifacts.video.canonical` must name the approved or published file; never let an old `video.mp4` silently stand in for a later `video-vN.mp4`.
+
+For a published package, enforce the state record alongside the normal package gate:
+
+```bash
+npx -y bun tiles/blog-production/scripts/blog-package-quality.ts \
+  --dir src/content/blogs/YYYY-MM-DD \
+  --slug <slug> \
+  --serious \
+  --require-images \
+  --require-distribution \
+  --require-release
+```
 
 ### 5. Recovery behavior
 

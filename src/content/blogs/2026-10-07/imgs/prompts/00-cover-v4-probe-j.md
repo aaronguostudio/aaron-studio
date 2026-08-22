@@ -1,0 +1,3 @@
+# Prompt: 00-cover-v4-probe-j — Paper and Textile Collage
+
+Same civic still life as F2: column, open green gate, blank decision tablet on a coral plinth, terracotta amphora, and olive branch. Bright cream field, pale Aegean horizon, no wallpaper icons. Use an original premium paper-and-textile editorial collage: visible cotton paper fibres, irregular cut paper edges, a restrained woven Greek stripe only on column or plinth, tiny shallow cast shadows, sparse ink hatching on the pottery and leaves. Bright coral, Aegean blue, sage, terracotta and saffron. No people, text, dark background, scrapbook clutter, or craft-store aesthetic.

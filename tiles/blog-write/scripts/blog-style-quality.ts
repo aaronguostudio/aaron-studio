@@ -38,6 +38,7 @@ export interface BlogStyleQualityReport {
   issues: BlogStyleIssue[];
   stats: {
     words: number;
+    unit: "words" | "Chinese characters";
     sentences: number;
     aiSlopMarkers: number;
   };
@@ -159,10 +160,31 @@ function wordCount(text: string): number {
   return text.trim().split(/\s+/).filter(Boolean).length;
 }
 
+function chineseCharacterCount(text: string): number {
+  return text.match(/\p{Script=Han}/gu)?.length ?? 0;
+}
+
+function contentUnitCount(text: string, language: "en" | "zh"): number {
+  if (language === "en") return wordCount(text);
+
+  // Chinese prose does not separate words with spaces. Count Han characters and
+  // retain standalone Latin terms (for example, API or Codex) as one unit each.
+  const latinTerms = text.match(/[A-Za-z0-9][A-Za-z0-9'_-]*/g)?.length ?? 0;
+  return chineseCharacterCount(text) + latinTerms;
+}
+
 function splitEnglishSentences(text: string): string[] {
   return text
     .replace(/\n+/g, " ")
     .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length > 0);
+}
+
+function splitChineseSentences(text: string): string[] {
+  return text
+    .replace(/\n+/g, " ")
+    .split(/[。！？!?]+/)
     .map((sentence) => sentence.trim())
     .filter((sentence) => sentence.length > 0);
 }
@@ -196,9 +218,12 @@ function hasLivedEvidence(text: string): boolean {
     (chineseFirstPerson && chineseOperatorSpecific && (chineseMeasured || chineseConcreteChange));
 }
 
-function sentenceStats(text: string): { sentences: string[]; lengths: number[]; stdDev: number } {
-  const sentences = splitEnglishSentences(text);
-  const lengths = sentences.map(wordCount);
+function sentenceStats(
+  text: string,
+  language: "en" | "zh" = "en"
+): { sentences: string[]; lengths: number[]; stdDev: number } {
+  const sentences = language === "zh" ? splitChineseSentences(text) : splitEnglishSentences(text);
+  const lengths = sentences.map((sentence) => contentUnitCount(sentence, language));
   return {
     sentences,
     lengths,
@@ -256,7 +281,7 @@ export function findBlogStyleIssues(
 
   const slopMatches = countPhraseRules(text, AI_SLOP_PHRASES);
   const slopCount = slopMatches.reduce((sum, rule) => sum + rule.count, 0);
-  const words = Math.max(wordCount(text), 1);
+  const words = Math.max(contentUnitCount(text, language), 1);
   const slopPer500 = (slopCount / words) * 500;
 
   if (slopCount >= 8 || slopPer500 >= 6) {
@@ -306,7 +331,7 @@ export function findBlogStyleIssues(
   }
 
   if (language === "en") {
-    const stats = sentenceStats(text);
+    const stats = sentenceStats(text, language);
     if (stats.sentences.length >= 4 && stats.stdDev < 2.4) {
       issues.push({
         kind: "low-rhythm-variation",
@@ -401,13 +426,16 @@ export function assessBlogStyleQuality(
   const hasHardFail = issues.some(
     (issue) => issue.severity === "high" && hardFailKinds.has(issue.kind)
   );
-  const stats = sentenceStats(stripFrontmatter(text));
+  const language = options.language ?? "en";
+  const body = stripFrontmatter(text);
+  const stats = sentenceStats(body, language);
   return {
     score,
     passed: score >= passScore && !hasHardFail,
     issues,
     stats: {
-      words: wordCount(stripFrontmatter(text)),
+      words: contentUnitCount(body, language),
+      unit: language === "zh" ? "Chinese characters" : "words",
       sentences: stats.sentences.length,
       aiSlopMarkers: countPhraseRules(text, AI_SLOP_PHRASES).reduce(
         (sum, rule) => sum + rule.count,
@@ -481,7 +509,7 @@ if (import.meta.main) {
   console.log(`Blog style score: ${report.score}/100`);
   console.log(`Passed: ${report.passed ? "yes" : "no"}`);
   console.log(
-    `Stats: ${report.stats.words} words, ${report.stats.sentences} sentences, ${report.stats.aiSlopMarkers} slop markers`
+    `Stats: ${report.stats.words} ${report.stats.unit}, ${report.stats.sentences} sentences, ${report.stats.aiSlopMarkers} slop markers`
   );
   console.log(formatBlogStyleIssues(report.issues));
 

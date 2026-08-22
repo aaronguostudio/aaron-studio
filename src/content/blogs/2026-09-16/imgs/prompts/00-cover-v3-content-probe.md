@@ -1,0 +1,7 @@
+# Prompt: 00-cover-v3-content-probe — Euro Horizon Ledger
+
+Create a 16:9 bright Mediterranean risograph evidence collage for Part I, “The Debt Didn't Disappear. Greece Moved It Into the Future.” No text, letters, numbers, logos, or invented data.
+
+Foreground: an open governmental ledger on a cream marble table. A coral-and-gold contract ribbon begins on its left page, passes under a translucent reporting divider, and emerges into a second, clearly separate future ledger at the far right edge. Nearby sit two different currency materials/tokens, one blue and one terracotta. Middle ground: a small blue panel bearing only a clean circle of twelve gold stars, an unlabelled clue to the shared European monetary framework. Distance: Aegean water with bright white Santorini-like cliff buildings and, on a separate quiet far headland, a tiny simplified Acropolis-like silhouette. Use the island, Acropolis, EU stars, ledger, currencies, and future book as evidence of one story, not random decoration. Predicate: the reported euro figure changes while the economic obligation travels onward.
+
+Visual language: original bright contemporary Mediterranean risograph—warm cream paper, Aegean blue, vivid teal/sage, terracotta/coral, yellow-gold, visible grain, light halftone, slight ink registration shift, and sparse engraved contours. No dark photo realism, no tourist postcard, no people, no bank branding, no charts, no dashboard.

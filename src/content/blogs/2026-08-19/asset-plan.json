@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "title": "What I Learned From DeepSeek's Harness",
+  "duration_sec": 605.7,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "ledger-editorial-v0.1",
+  "asset_library": "imgs/ + Remotion editorial layout engine",
+  "beats": [
+    {
+      "id": "hook",
+      "start_sec": 0,
+      "end_sec": 53.5,
+      "copy": "Same model, thirty tasks: 47% vs 67%, cost x7. The harness decides.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "fact-spread"
+      ],
+      "source_ids": [
+        "source-composio-test"
+      ],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Original Remotion ledger-editorial typography",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": []
+    },
+    {
+      "id": "winner",
+      "start_sec": 53.5,
+      "end_sec": 106.2,
+      "copy": "Ronacher (Earendil, company behind Pi): first time something new made me want to revisit our choices.",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "fact-ronacher",
+        "fact-release"
+      ],
+      "source_ids": [
+        "source-ronacher-register",
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Original Remotion ledger-editorial typography",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": []
+    },
+    {
+      "id": "money",
+      "start_sec": 106.2,
+      "end_sec": 175.4,
+      "copy": "Provider caches the prefix; the lawyer re-reads from the changed word; 1/50-1/120 at launch-week prices.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still-plus-layout",
+      "fact_ids": [
+        "fact-cache-margin"
+      ],
+      "source_ids": [
+        "source-dsh-pricing",
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original Remotion ledger-editorial typography; scene media imgs/02-metaphor-contract-reread.png (generated 2026-08-15, gpt-image-2, logged in imgs/generation-manifest.md, visibly illustrative)",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": [
+        "imgs/02-metaphor-contract-reread.png"
+      ]
+    },
+    {
+      "id": "test",
+      "start_sec": 175.4,
+      "end_sec": 219.1,
+      "copy": "No clock, fixed tool order, and a live test: every non-first request must hit the cache.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "fact-cache-test"
+      ],
+      "source_ids": [
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Original Remotion ledger-editorial typography",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": []
+    },
+    {
+      "id": "log",
+      "start_sec": 219.1,
+      "end_sec": 301.6,
+      "copy": "44 event types, 3 model-visible; context recomputed from the log; refuse on mismatch; five lines to copy.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "fact-44-3",
+        "fact-invariant"
+      ],
+      "source_ids": [
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Original Remotion ledger-editorial typography",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": []
+    },
+    {
+      "id": "config",
+      "start_sec": 301.6,
+      "end_sec": 379.5,
+      "copy": "The loop is one config row; two silent crashes; 27 checks bought back.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still-plus-layout",
+      "fact_ids": [
+        "fact-one-row",
+        "fact-crashes-27"
+      ],
+      "source_ids": [
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original Remotion ledger-editorial typography; scene media imgs/s05-01-one-row-machine.png (generated 2026-08-15, gpt-image-2, logged in imgs/generation-manifest.md, visibly illustrative)",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": [
+        "imgs/s05-01-one-row-machine.png"
+      ]
+    },
+    {
+      "id": "fleet",
+      "start_sec": 379.5,
+      "end_sec": 465.2,
+      "copy": "12,293 commits / 64 days; codex/ 209; more markdown than TypeScript; the process OS.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still-plus-layout",
+      "fact_ids": [
+        "fact-fleet",
+        "fact-process-os"
+      ],
+      "source_ids": [
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original Remotion ledger-editorial typography; scene media imgs/03-metaphor-rules-table-fleet.png (generated 2026-08-15, gpt-image-2, logged in imgs/generation-manifest.md, visibly illustrative)",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": [
+        "imgs/03-metaphor-rules-table-fleet.png"
+      ]
+    },
+    {
+      "id": "catch-play",
+      "start_sec": 465.2,
+      "end_sec": 526.4,
+      "copy": "Reminders then silence; file tools untimed; still trails daily. My read: moat vs funnel.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "fact-limits",
+        "fact-strategy-read"
+      ],
+      "source_ids": [
+        "source-dsh-repo",
+        "source-jy-tweet"
+      ],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Original Remotion ledger-editorial typography",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": []
+    },
+    {
+      "id": "hour",
+      "start_sec": 526.4,
+      "end_sec": 599.7,
+      "copy": "Assertion, cache trio, rejected folder; models rented, harnesses churning, the portable layer is yours.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still-plus-layout",
+      "fact_ids": [
+        "fact-rent-churn-own"
+      ],
+      "source_ids": [
+        "source-dsh-repo"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original Remotion ledger-editorial typography; scene media imgs/04-metaphor-two-shelves.png (generated 2026-08-15, gpt-image-2, logged in imgs/generation-manifest.md, visibly illustrative)",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": [
+        "imgs/04-metaphor-two-shelves.png"
+      ]
+    },
+    {
+      "id": "end-card",
+      "start_sec": 599.7,
+      "end_sec": 605.7,
+      "copy": "Brand sign-off.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "usage_role": "primary",
+      "status": "planned",
+      "provenance": "Original Remotion ledger-editorial typography",
+      "rights": "project-owned",
+      "fallback": "text-only layout per director-plan fallback",
+      "supporting_assets": []
+    }
+  ]
+}

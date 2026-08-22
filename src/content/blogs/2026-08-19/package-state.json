@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "slug": "deepseek-harness-teardown",
+  "phase": "postmortem-pending",
+  "updated_at": "2026-08-16T09:30:00+03:00",
+  "locks": {
+    "argument": "pass",
+    "article": "pass",
+    "package": "pass"
+  },
+  "artifacts": {
+    "article": {
+      "english": "deepseek-harness-teardown.md",
+      "chinese": "deepseek-harness-teardown-zh.md"
+    },
+    "video": {
+      "canonical": "video-v3.mp4",
+      "status": "published",
+      "sha256": "7454b7ebe8ecd3fcf49e8e01b0d82d44562df6b77aef34ecc2301c59618cbf84"
+    }
+  },
+  "visual_style": {
+    "baseline_id": "ledger-editorial-v1",
+    "status": "promoted"
+  },
+  "release": {
+    "blog": {
+      "status": "published",
+      "url": "https://www.aaronguo.com/blogs/deepseek-harness-teardown",
+      "production_commit": "ce5eaf7",
+      "branch": "main"
+    },
+    "youtube": {
+      "status": "published",
+      "url": "https://youtu.be/5vEEBhbfUWw"
+    }
+  },
+  "postmortem": {
+    "status": "pending"
+  }
+}

@@ -3,6 +3,16 @@
   "title": "[Film title]",
   "duration_sec": 60,
   "product_promise": "[What the viewer should understand, feel, and be able to inspect.]",
+  "style_reference": {
+    "baseline_id": "[Read src/content/strategy/video-style-baseline.md and use its current baseline ID.]",
+    "reference_package": "[Relative package directory containing the accepted baseline.]",
+    "reference_video": "[Relative path to the accepted rendered video.]",
+    "reference_qa": "[Relative path to the baseline's video QA report.]",
+    "inherited_system": "[Specific hierarchy, typography, motion, rhythm, caption, and image-use rules retained from the baseline.]",
+    "rejected_legacy_pattern": "[Name the old visual grammar this film must not fall back to.]",
+    "deliberate_deviation": "[What changes for this story and why it still belongs to the same visual family.]",
+    "review_status": "reviewed"
+  },
   "visual_budget": {
     "remotion_motion_target_ratio": 0.7,
     "evidence_or_still_target_ratio": 0.25,

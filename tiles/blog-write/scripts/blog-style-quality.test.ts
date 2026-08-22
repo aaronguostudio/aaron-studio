@@ -250,6 +250,17 @@ describe("findBlogStyleIssues", () => {
 });
 
 describe("assessBlogStyleQuality", () => {
+  test("reports Chinese character and sentence counts without relying on whitespace", () => {
+    const report = assessBlogStyleQuality(
+      "上周我把一段旧的发布流程接进了新的检查器。第一轮运行立刻暴露出一个没有记录的上下文注入。修正后，团队可以逐步重放这次失败。",
+      { language: "zh" }
+    );
+
+    expect(report.stats.unit).toBe("Chinese characters");
+    expect(report.stats.words).toBeGreaterThan(40);
+    expect(report.stats.sentences).toBe(3);
+  });
+
   test("scores clean operator writing higher than generic AI writing", () => {
     const generic = assessBlogStyleQuality(
       [

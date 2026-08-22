@@ -2,6 +2,13 @@ import React from "react";
 import { Composition } from "remotion";
 import { SlideshowVideo } from "./SlideshowVideo";
 import {
+  LedgerHarnessFilm,
+  LedgerHarnessPrototype,
+  LEDGER_HARNESS_FPS,
+  ledgerHarnessFilmDurationFrames,
+  ledgerHarnessPrototypeDurationFrames,
+} from "./LedgerHarnessFilm";
+import {
   MusicVisualizer,
   defaultMusicVisualizerProps,
 } from "./MusicVisualizer";
@@ -376,6 +383,24 @@ export const RemotionRoot: React.FC = () => {
           GUIZANG_HYBRID_FULL_FPS,
         )}
         fps={GUIZANG_HYBRID_FULL_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="LedgerHarnessFullFilm"
+        component={LedgerHarnessFilm}
+        durationInFrames={ledgerHarnessFilmDurationFrames()}
+        fps={LEDGER_HARNESS_FPS}
+        width={1920}
+        height={1080}
+      />
+
+      <Composition
+        id="LedgerHarnessPrototype"
+        component={LedgerHarnessPrototype}
+        durationInFrames={ledgerHarnessPrototypeDurationFrames()}
+        fps={LEDGER_HARNESS_FPS}
         width={1920}
         height={1080}
       />

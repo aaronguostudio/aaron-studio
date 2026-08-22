@@ -10,6 +10,16 @@ function makePlan(): DirectorPlan {
     title: "A directed editorial film",
     duration_sec: 20,
     product_promise: "Show why delivery changes the outcome.",
+    style_reference: {
+      baseline_id: "clean-indigo-editorial-v1",
+      reference_package: "src/content/blogs/2026-08-02",
+      reference_video: "video-longform/what-ai-code-can-change-youtube-v3-scored.mp4",
+      reference_qa: "video-qa-report.md",
+      inherited_system: "A finite layout vocabulary, one visual spine, restrained stills, and phrase captions.",
+      rejected_legacy_pattern: "No generic slideshow of full-screen blog images or blank title cards.",
+      deliberate_deviation: "This film uses source evidence instead of the reference film's illustrative opening portraits.",
+      review_status: "reviewed",
+    },
     visual_budget: {
       remotion_motion_target_ratio: 0.7,
       evidence_or_still_target_ratio: 0.25,
@@ -59,6 +69,15 @@ function makePlan(): DirectorPlan {
 }
 
 describe("director plan audit", () => {
+  test("requires a reviewed current-style reference before visual production", () => {
+    const plan = makePlan();
+    delete (plan as Partial<DirectorPlan>).style_reference;
+
+    const result = auditDirectorPlan(plan);
+
+    expect(result.failures).toContain("director plan style_reference is missing");
+  });
+
   test("passes a bounded plan with a meaningful opening and an asset fallback", () => {
     const result = auditDirectorPlan(makePlan());
     expect(result.passed).toBe(true);
