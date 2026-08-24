@@ -1,0 +1,12 @@
+id: capture-azure-incident
+mode: capture
+input:
+  observation: "An Azure CLI operation targeted the wrong tenant because the active account context was inherited from an earlier task."
+expected:
+  object_type: pattern
+  status: draft
+  scope: azure-cli
+  requires_confirmation_before_persist: true
+  must_not:
+    - promote_to_global_policy
+    - store_tenant_ids_or_credentials

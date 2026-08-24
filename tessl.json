@@ -66,11 +66,20 @@
       }
     },
     "aaronguo/blog-production": {
-      "version": "0.1.0",
+      "version": "0.2.0",
       "source": "file:tiles/blog-production",
       "include": {
         "skills": [
           "blog-production"
+        ]
+      }
+    },
+    "aaronguo/research-evidence": {
+      "version": "0.1.0",
+      "source": "file:tiles/research-evidence",
+      "include": {
+        "skills": [
+          "research-evidence"
         ]
       }
     },

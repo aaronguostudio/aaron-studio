@@ -1,0 +1,154 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "anders-hejlsberg-feedback-loop-2026-08-24",
+  "topic": "Anders Hejlsberg on TypeScript's native port, deterministic migration tooling, and feedback-loop speed in AI-assisted engineering",
+  "created_at": "2026-08-24T10:20:33Z",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "2026-08-24-anders-hejlsberg-feedback-loop",
+    "started_at": "2026-08-24T10:12:00Z",
+    "completed_at": "2026-08-24T10:20:33Z"
+  },
+  "sources": [
+    {
+      "id": "x:2089336448889868420",
+      "type": "x_post",
+      "canonical_url": "https://x.com/ryanlpeterman/status/2089336448889868420",
+      "title": "Ryan Peterman's episode announcement for his Anders Hejlsberg interview",
+      "author_name": "Ryan Peterman",
+      "author_handle": "ryanlpeterman",
+      "displayed_published_at": "August 17, 2026",
+      "retrieved_at": "2026-08-24T10:20:33Z",
+      "access_method": "public_api",
+      "linked_source_ids": [
+        "youtube:cywk3xyyj2o",
+        "web:peterman-anders-transcript"
+      ],
+      "limitations": [
+        "The official X oEmbed response shows only the opening of the post; its linked episode and publisher-hosted transcript supply the detailed claims.",
+        "Displayed social metrics were deliberately not recorded because they are time-bounded and do not support the editorial argument."
+      ]
+    },
+    {
+      "id": "youtube:cywk3xyyj2o",
+      "type": "youtube_video",
+      "canonical_url": "https://www.youtube.com/watch?v=cywK3XYYJ2o",
+      "title": "Creator of TypeScript: 10x Faster Typescript, Why AI Won't Replace SWEs | Anders Hejlsberg",
+      "author_name": "Ryan Peterman",
+      "retrieved_at": "2026-08-24T10:20:33Z",
+      "access_method": "public_web",
+      "transcript": {
+        "status": "missing",
+        "limitation": "Direct public retrieval was throttled in this run. The publisher-hosted companion page below provides a timecoded transcript, but no raw YouTube transcript was exported or persisted."
+      },
+      "linked_source_ids": [
+        "web:peterman-anders-transcript"
+      ],
+      "limitations": [
+        "The YouTube page was not treated as missing merely because public retrieval was throttled.",
+        "The video remains the canonical audiovisual source; this bundle relies on the publisher's transcript for textual inspection."
+      ]
+    },
+    {
+      "id": "web:peterman-anders-transcript",
+      "type": "web",
+      "canonical_url": "https://www.developing.dev/p/creator-of-typescript-10x-faster",
+      "title": "Creator of TypeScript: 10x Faster Typescript, Why AI Won't Replace SWEs | Anders Hejlsberg",
+      "author_name": "Ryan Peterman",
+      "displayed_published_at": "Aug 17, 2026",
+      "retrieved_at": "2026-08-24T10:20:33Z",
+      "access_method": "public_web",
+      "linked_source_ids": [
+        "youtube:cywk3xyyj2o"
+      ],
+      "limitations": [
+        "This is a publisher-hosted transcript of an interview, not an independent benchmark or a direct release note.",
+        "The transcript supports what Hejlsberg said at its stated timecodes; it does not establish that the same outcomes will hold for another codebase or team."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:source-episode-scope",
+      "kind": "source_fact",
+      "text": "Peterman's episode and transcript cover the TypeScript compiler's Go port, limited use of LLMs in that migration, tooling performance, and AI's effect on software engineering.",
+      "source_ids": [
+        "x:2089336448889868420",
+        "web:peterman-anders-transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "The episode page lists those subjects and timecoded sections."
+    },
+    {
+      "id": "claim:port-not-rewrite",
+      "kind": "source_fact",
+      "text": "Hejlsberg says the team chose to port rather than rewrite the compiler in order to preserve semantics, algorithms, and behavior relied on for backward compatibility; Go fit their requirements for native code, garbage collection, and shared-memory concurrency.",
+      "source_ids": [
+        "web:peterman-anders-transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Transcript 10:35-13:27. This records his account of the choice, not a universal language-selection rule."
+    },
+    {
+      "id": "claim:deterministic-migration-tool",
+      "kind": "source_fact",
+      "text": "Hejlsberg says that for a large migration, using AI to build a transformation program can be preferable to letting AI translate the whole codebase directly, because the program can then produce the same transformation on every run and presents a smaller surface to validate.",
+      "source_ids": [
+        "web:peterman-anders-transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Transcript 15:16-18:23. His statement is conditional and still assumes validation of the tool."
+    },
+    {
+      "id": "claim:feedback-loop-pressure",
+      "kind": "source_fact",
+      "text": "Hejlsberg says AI agents can create many more code-writing workers and argues that a two-minute type-check delay after each generated change is unacceptable in a large project, making faster tooling more valuable.",
+      "source_ids": [
+        "web:peterman-anders-transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Transcript 49:30-50:00. This is an expert's operating judgment and scenario, not a measured productivity study."
+    },
+    {
+      "id": "claim:loop-latency-inference",
+      "kind": "inference",
+      "text": "When AI increases the number or frequency of code-producing attempts, validation-loop latency is more likely to constrain useful throughput; teams should measure that loop before treating agent count as the main scaling lever.",
+      "source_ids": [
+        "web:peterman-anders-transcript"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Editorial inference. A bounded Aaron-owned timing check executed 2026-08-24 (personal-proof.md in this package: aaronguoblog publishing-gate build; sequential pair 86 s vs concurrent pair 56 s wall with 33% per-attempt latency degradation at 2x parallelism on a mostly idle 18-core machine) is consistent with the inference in one local case. It still does not prove a general multiplier or a prescribed target duration."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "user-provided canonical X URL",
+      "official X oEmbed public endpoint",
+      "publisher-hosted timecoded transcript",
+      "direct YouTube public retrieval attempt"
+    ],
+    "unresolved_gaps": [
+      "The direct YouTube page was throttled, so no raw platform transcript, video metadata, or live engagement observation was retained.",
+      "No controlled external benchmark in this bundle measures whether agent count multiplies validation latency or establishes a universal acceptable feedback-loop duration."
+    ],
+    "notes": [
+      "The bundle intentionally separates Hejlsberg's reported workflow and judgment from the proposed operator article's inference.",
+      "2026-08-24: a bounded Aaron-owned timing observation (personal-proof.md in this package) tested the validation-loop mechanism against the aaronguoblog publishing-gate build, resolving the earlier gap that no owned observation existed; its data and limitations live in that receipt, not in this bundle."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "All source retrieval was read-only. No browser cookies, credentials, or third-party transcript exports were persisted."
+    ]
+  }
+}

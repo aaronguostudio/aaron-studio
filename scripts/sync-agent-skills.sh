@@ -10,6 +10,7 @@ SURFACES=(".agents" ".codex" ".claude" ".cursor" ".gemini")
 
 MAPPINGS=(
   "ai-video-lab:tiles/ai-video-lab"
+  "aaron-personal-os:tiles/aaron-personal-os"
   "aaron-video-gen:tiles/aaron-video-gen"
   "asset-library:tiles/asset-library"
   "blog-brainstorm:tiles/blog-brainstorm"
@@ -31,6 +32,7 @@ MAPPINGS=(
   "music-visualizer:tiles/music-visualizer"
   "notion-task-intake:tiles/notion-task-intake"
   "publish-to-blog:tiles/publish-to-blog"
+  "research-evidence:tiles/research-evidence"
   "weekly-review:tiles/weekly-review"
   "x-growth:tiles/x-growth"
   "yt-publish:tiles/aaron-yt-pipeline/skills/yt-publish"

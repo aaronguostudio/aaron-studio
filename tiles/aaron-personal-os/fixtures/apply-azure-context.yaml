@@ -1,0 +1,19 @@
+id: apply-azure-context
+mode: apply
+input:
+  intent: azure-write-operation
+  project_context:
+    azure:
+      environment: non-production
+      tenant_alias: client-a
+      subscription_alias: sandbox
+  runtime_observation:
+    active_tenant_alias: client-a
+    active_subscription_alias: sandbox
+expected:
+  decision: allow-after-preflight
+  must_verify:
+    - active-tenant
+    - active-subscription
+  must_not:
+    - execute_the_domain_operation

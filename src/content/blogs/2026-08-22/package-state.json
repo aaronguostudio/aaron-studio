@@ -7,11 +7,16 @@
       "en": "the-model-got-a-body.md",
       "zh": "the-model-got-a-body-zh.md",
       "status": "approved"
+    },
+    "images": {
+      "count": 6,
+      "cover": "imgs/web/00-cover.webp",
+      "status": "generated-unverified"
     }
   },
   "release": {},
   "postmortem": {
     "status": "pending"
   },
-  "notes": "Text + editorial + distribution complete; images (blog-illustrate) and video (aaron-video-gen) not yet run; publish not authorized."
+  "notes": "Text + editorial + distribution + images complete. Images metadata-QA'd only (model lacks image input); visual review by Aaron required before publish. Video + publish not run."
 }

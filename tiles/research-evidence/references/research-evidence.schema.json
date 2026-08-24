@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aaron.studio/schemas/research-evidence.schema.json",
+  "title": "Aaron Studio Research Evidence Bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "bundle_id",
+    "topic",
+    "created_at",
+    "status",
+    "producer",
+    "sources",
+    "claims",
+    "coverage",
+    "privacy"
+  ],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "bundle_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._-]+$" },
+    "topic": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["complete", "partial", "blocked"] },
+    "producer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skill", "skill_version", "run_id"],
+      "properties": {
+        "skill": { "const": "research-evidence" },
+        "skill_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "run_id": { "type": "string", "minLength": 1 },
+        "started_at": { "type": "string", "format": "date-time" },
+        "completed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "claims": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/claim" }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["discovery_methods", "unresolved_gaps"],
+      "properties": {
+        "discovery_methods": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "unresolved_gaps": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["api_keys_added", "cookie_values_persisted", "account_mutations"],
+      "properties": {
+        "api_keys_added": { "const": false },
+        "cookie_values_persisted": { "const": false },
+        "account_mutations": { "const": false },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "canonical_url", "retrieved_at", "access_method"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._-]+$" },
+        "type": {
+          "enum": ["x_post", "youtube_video", "web", "paper", "reddit", "github", "hn", "operator_artifact"]
+        },
+        "canonical_url": { "type": "string", "format": "uri" },
+        "title": { "type": "string" },
+        "author_name": { "type": "string" },
+        "author_handle": { "type": "string" },
+        "displayed_published_at": { "type": "string" },
+        "published_at": { "type": "string", "format": "date-time" },
+        "retrieved_at": { "type": "string", "format": "date-time" },
+        "access_method": {
+          "enum": ["public_web", "public_api", "yt_dlp", "browser_session", "browser_transcript_export", "manual", "local_artifact"]
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "views": { "type": "integer", "minimum": 0 },
+            "replies": { "type": "integer", "minimum": 0 },
+            "reposts": { "type": "integer", "minimum": 0 },
+            "likes": { "type": "integer", "minimum": 0 },
+            "bookmarks": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "linked_source_ids": {
+          "type": "array",
+          "items": { "type": "string" },
+          "uniqueItems": true
+        },
+        "transcript": { "$ref": "#/$defs/transcript" },
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "uniqueItems": true
+        }
+      }
+    },
+    "transcript": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["available", "missing", "not_applicable"] },
+        "language": { "type": "string" },
+        "caption_kind": { "enum": ["human", "auto_generated", "translated", "unknown"] },
+        "retrieval_method": { "enum": ["public_api", "yt_dlp", "browser_export", "manual", "third_party"] },
+        "word_count": { "type": "integer", "minimum": 1 },
+        "line_count": { "type": "integer", "minimum": 1 },
+        "byte_count": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "artifact_path": { "type": ["string", "null"] },
+        "limitation": { "type": "string" }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "text", "source_ids", "verification_status", "confidence"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9:._-]+$" },
+        "kind": { "enum": ["source_fact", "inference", "operator_observation"] },
+        "text": { "type": "string", "minLength": 1 },
+        "source_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "verification_status": { "enum": ["verified", "partial", "unverified"] },
+        "confidence": { "enum": ["high", "medium", "low"] },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
+

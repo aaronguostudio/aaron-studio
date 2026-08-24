@@ -12,6 +12,7 @@
 | [decisions/](decisions/) | 重大决策的 ADR (Architecture Decision Record for life) | event-driven |
 | [journal/](journal/) | 每日 journal entries | daily |
 | [reading/](reading/) | 读书/文章笔记 | event-driven |
+| [tech-learning/](tech-learning/) | 技术领域学习 — 把更新、原理、项目影响与复习连成一条知识链 | event-driven |
 | [concepts/](concepts/) | 工作词典 — 术语、心智模型、边界与关联概念 | event-driven |
 | [development-philosophy/](development-philosophy/) | 开发哲学 — 造产品时反复使用的原则与质量标准 | event-driven |
 | [notes/](notes/) | 个人 cheatsheets, snippets, how-to | event-driven |

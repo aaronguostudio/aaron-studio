@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/aaron-personal-os",
+  "version": "0.1.2",
+  "summary": "Governs reusable, cross-runtime agent experience as patterns, policies, contexts, and skills.",
+  "private": true,
+  "skills": {
+    "aaron-personal-os": {
+      "path": "SKILL.md"
+    }
+  }
+}

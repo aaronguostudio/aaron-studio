@@ -4,7 +4,10 @@ date: 2026-08-22
 slug: the-model-got-a-body
 category: ai-native-systems
 tags: [deepseek-harness, deepseek-v4-pro, ai-agents, agent-harness]
+cover: imgs/web/00-cover.webp
 ---
+
+![An open toolbox on a desk releases a ribbon of code instead of tools](imgs/web/00-cover.webp)
 
 The first thing I noticed, running DeepSeek V4 Pro inside its harness, is that I don't have a toolbox. I have a programming language.
 
@@ -20,9 +23,15 @@ The phrase isn't poetry. It's shorthand for four structural gifts the harness gi
 
 The first gift is hands. In a chat interface, the model's "tools" are a menu — you watch it reach for one, wait, then reach for the next. Here, the tool surface is a programming language. The model doesn't call a tool and narrate; it writes a small program that orchestrates several tools, keeps intermediate results in variables, and only the program's output comes back. When I need to read fifteen files and cross-check their slugs before drafting, I don't do it in fifteen turns. I write one function that batches the reads, dedupes the results, and returns a single digest. The unit of work stops being "a message" and becomes "a small program that does the message's work."
 
+![One hand writes a line that moves four tools at once](imgs/web/01-hands.webp)
+
 The second is competence. In most tools, what makes the model good at something is the prompt you type — a phrase you have to remember, refine, and retype. Here, competence is a file. Skills arrive as a `SKILL.md` plus a base directory full of resources, and the model loads them when the task calls for it. The difference sounds academic until you feel it: "write this blog post the way I write" stops being a paragraph I paste and becomes a skill I own, version, and reuse across sessions. The catalog this session is working from runs to dozens of them. None of that lives in the model's weights. It lives in files I can take with me.
 
+![A hand slots a blank card into a reader as a green check passes through](imgs/web/02-competence.webp)
+
 The third is continuity. A chat model forgets the moment the conversation ends. A harnessed model holds state: a goal that persists across turns, a task list it updates as it works, subagents it can fork when a branch of the work needs its own context, background jobs it can leave running while it does something else. That's what makes delegation possible in the first place. You can hand a model a twelve-step job and walk away, because the job — not your memory of the job — is what's carrying forward.
+
+![An empty chair; the work keeps advancing on its own across the desk](imgs/web/03-continuity.webp)
 
 The fourth is memory, in the accounting sense. The harness writes an append-only log of the run, and the artifacts this session is maintaining — a claim ledger that separates fact from inference from judgment, a scorecard that scores the draft against an explicit contract — are the same idea pushed one level up: the work leaves a trail you can audit after the fact. When something goes wrong, you don't have to reconstruct what the model was thinking. You read the log.
 
@@ -57,6 +66,8 @@ When you hand a job to a harnessed agent, the tempting move is to keep evaluatin
 The right move is to watch the state. Three checks, in order. Is there a written plan or task list, and is it actually advancing? Is there a ledger separating fact from inference from judgment — or is everything smoothed into one confident voice? And has the agent written down what "done" and "failed" mean for this job, so you can tell the difference when it's finished?
 
 If the state is coherent, the prose usually follows. If you only check prose, the state can silently rot. I've watched this session do both — the ledger refused a date I wanted to pin because the sources disagreed on the day, and the style scanner rejected a draft ending that summarized instead of landing a rule. Neither of those looks like a "better paragraph." Both are the body doing its job, visible because I was watching the state instead of the sentences.
+
+![A hand checks a simple ledger while a stack of finished pages sits untouched](imgs/web/04-state-vs-prose.webp)
 
 ## The body is the asset
 

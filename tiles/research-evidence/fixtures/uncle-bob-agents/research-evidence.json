@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "uncle-bob-agents-2026-08-23",
+  "topic": "Uncle Bob on software fundamentals in the age of AI",
+  "created_at": "2026-08-23T15:24:42Z",
+  "status": "complete",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "2026-08-23-uncle-bob-agents",
+    "started_at": "2026-08-23T15:03:00Z",
+    "completed_at": "2026-08-23T15:24:42Z"
+  },
+  "sources": [
+    {
+      "id": "x:2091134835624751401",
+      "type": "x_post",
+      "canonical_url": "https://x.com/shao__meng/status/2091134835624751401",
+      "title": "meng shao's notes on Uncle Bob and software fundamentals in the age of AI",
+      "author_name": "meng shao",
+      "author_handle": "shao__meng",
+      "displayed_published_at": "6:06 AM, Aug 22, 2026",
+      "retrieved_at": "2026-08-23T15:08:00Z",
+      "access_method": "browser_session",
+      "metrics": {
+        "views": 17352,
+        "replies": 63,
+        "reposts": 41,
+        "likes": 228,
+        "bookmarks": 300
+      },
+      "linked_source_ids": ["youtube:zclpgc-tvgk"],
+      "limitations": [
+        "Displayed engagement metrics are a time-bounded browser observation and will change."
+      ]
+    },
+    {
+      "id": "youtube:zclpgc-tvgk",
+      "type": "youtube_video",
+      "canonical_url": "https://www.youtube.com/watch?v=zcLPGC-tvgk",
+      "title": "LIVE: Uncle Bob on Software Fundamentals in the Age of AI",
+      "retrieved_at": "2026-08-23T15:24:42Z",
+      "access_method": "browser_transcript_export",
+      "transcript": {
+        "status": "available",
+        "language": "en",
+        "caption_kind": "auto_generated",
+        "retrieval_method": "browser_export",
+        "word_count": 11584,
+        "line_count": 1458,
+        "byte_count": 64345,
+        "sha256": "21fb996dda22b214681c13495670da16bf6b161c28409fdd695541332c8c9dce",
+        "artifact_path": null,
+        "limitation": "The full auto-generated transcript is retained in a private evidence bundle rather than copied into the publishable repository."
+      },
+      "limitations": [
+        "Auto-generated captions can contain wording and speaker-attribution errors.",
+        "The interview reports a workflow and one timing comparison; it is not an independent benchmark."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim:checks-become-economical",
+      "kind": "source_fact",
+      "text": "Martin reports revisiting CRAP analysis and mutation testing because agents can perform repetitive repair work that previously made the checks impractical for him.",
+      "source_ids": ["youtube:zclpgc-tvgk"],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Transcript segment 5:45-9:50; this verifies what he said, not the universal effectiveness of either metric."
+    },
+    {
+      "id": "claim:staged-agent-pipeline",
+      "kind": "source_fact",
+      "text": "Martin describes a staged specifier, coder, cleaner, hardener, and QA workflow.",
+      "source_ids": ["youtube:zclpgc-tvgk"],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Transcript segment 20:24-22:58."
+    },
+    {
+      "id": "claim:proof-cost-shift",
+      "kind": "inference",
+      "text": "The interview is useful evidence that agents may change the cost of producing proof, but it does not establish a general productivity or quality benchmark.",
+      "source_ids": ["youtube:zclpgc-tvgk"],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Editorial inference bounded by the source's anecdotal nature."
+    },
+    {
+      "id": "claim:browser-fallback-observed",
+      "kind": "operator_observation",
+      "text": "A broad research run returned zero YouTube items even though the seed X post linked a known video; a bounded browser fallback recovered a complete 11,584-word transcript and integrity hash.",
+      "source_ids": [],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Observed in the 2026-08-23 Last30Days connectivity smoke test and private evidence bundle."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "last30days mixed-source smoke test",
+      "X local browser session",
+      "yt-dlp public discovery",
+      "Chrome page transcript export"
+    ],
+    "unresolved_gaps": [
+      "No independent benchmark reproduces the interview's reported speed comparison.",
+      "CRAP and mutation-testing targets still need tool- and project-specific evidence.",
+      "The browser fallback was verified on one known video, not as a platform-wide YouTube ingestion method."
+    ],
+    "notes": [
+      "CLI full metadata and transcript retrieval were blocked by YouTube bot confirmation; no account cookies were used."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "Browser access was read-only; credential values were not persisted into the evidence bundle."
+    ]
+  }
+}

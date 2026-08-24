@@ -58,7 +58,7 @@ require_agent_skill() {
 }
 
 printf '== Workflow tiles ==\n'
-for skill in blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog aaron-video-gen brain-ingest daily-log notion-task-intake weekly-review; do
+for skill in aaron-personal-os blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen brain-ingest daily-log notion-task-intake weekly-review; do
   require_skill "tiles/$skill"
 done
 
@@ -85,7 +85,7 @@ if (!Array.isArray(cfg.agentSkillSurfaces) || !cfg.agentSkillSurfaces.includes("
 
 printf '\n== Agent skill surfaces ==\n'
 for surface in .agents .codex .claude .cursor .gemini; do
-  for skill in blog-production blog-outline blog-write blog-brainstorm blog-illustrate muse publish-to-blog aaron-video-gen brain-ingest daily-log notion-task-intake weekly-review yt-script-writer yt-publish; do
+  for skill in aaron-personal-os blog-production blog-outline blog-write blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen brain-ingest daily-log notion-task-intake weekly-review yt-script-writer yt-publish; do
     require_agent_skill "$surface" "$skill"
   done
 done
@@ -133,6 +133,12 @@ if npx -y bun test tiles/blog-illustrate/scripts/blog-illustration-workflow.test
   pass "workflow contract tests pass"
 else
   fail "workflow contract tests fail"
+fi
+
+if node --test tiles/research-evidence/scripts/validate-research-evidence.test.mjs; then
+  pass "research evidence contract tests pass"
+else
+  fail "research evidence contract tests fail"
 fi
 
 printf '\n'

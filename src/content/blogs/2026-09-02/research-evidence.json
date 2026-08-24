@@ -1,0 +1,344 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "agent-harness-cache-comparison:2026-08-23",
+  "topic": "A bounded two-turn comparison of tool paths, session reuse, provider cache receipts, and compaction in DeepSeek Harness, Codex, Claude Code, and Grok Build.",
+  "created_at": "2026-08-23T18:00:47Z",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "harness-cache-evidence-2026-08-23",
+    "started_at": "2026-08-23T17:50:00Z",
+    "completed_at": "2026-08-23T18:14:49Z"
+  },
+  "sources": [
+    {
+      "id": "dsh-local-token-usage",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef8/docs/subsystems/llm-streaming.zh.md",
+      "title": "DeepSeek Harness TokenUsage subsystem documentation",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "local_artifact",
+      "limitations": [
+        "This verifies the checked-out local source, not a hosted release or a completed benchmark run."
+      ]
+    },
+    {
+      "id": "dsh-local-kv-contract",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/deepseek-ai/deepseek-harness/blob/141eb6fef8/docs/cookbook/adding-a-package.md",
+      "title": "DeepSeek Harness package model-experience and KV-cache contract",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "local_artifact",
+      "limitations": [
+        "This is a repository documentation contract; it does not prove provider cache availability or eviction in a live run."
+      ]
+    },
+    {
+      "id": "local-harness-preflight",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/aaronguo/aaron-studio/blob/main/src/content/blogs/2026-09-02/harness-benchmark-preflight-2026-08-23.md",
+      "title": "Four-Harness Benchmark Preflight — 2026-08-23",
+      "retrieved_at": "2026-08-23T18:14:49Z",
+      "access_method": "local_artifact",
+      "limitations": [
+        "One read-only probe per available product is calibration evidence, not a replicated benchmark or a universal token comparison.",
+        "The raw machine-readable events remain private because they contain local product context that is not publication-safe."
+      ]
+    },
+    {
+      "id": "local-real-task-field-note",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/aaronguo/aaron-studio/blob/main/src/content/blogs/2026-09-02/harness-behavior-field-note-2026-08-23.md",
+      "title": "Four Harnesses, One 11-Line Bug — Field Note",
+      "retrieved_at": "2026-08-23T19:10:00Z",
+      "access_method": "local_artifact",
+      "limitations": [
+        "One read-only execution per product on one machine, using different installed versions, models, local defaults, and product-specific permissions.",
+        "It supports a qualitative account of observed tool sequence and inspectability, not model-quality, latency, cost, or token-total rankings."
+      ]
+    },
+    {
+      "id": "local-two-turn-shipping-test",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/aaronguo/aaron-studio/blob/main/src/content/blogs/2026-09-02/harness-deep-test-2026-08-23.md",
+      "title": "Four Harnesses, Two Turns, One Shipping Incident",
+      "retrieved_at": "2026-08-23T20:30:00Z",
+      "access_method": "local_artifact",
+      "limitations": [
+        "One main run and one same-session follow-up per product, with different models, defaults, and token-accounting boundaries.",
+        "The DSH same-session SDK composition exposed a different tool surface from the headless first-turn run and is used only for the follow-up lifecycle observation."
+      ]
+    },
+    {
+      "id": "dsh-local-compaction-source",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/deepseek-ai/deepseek-harness/tree/141eb6fef834/packages/compaction/compaction-basic/src",
+      "title": "DeepSeek Harness basic compaction implementation",
+      "retrieved_at": "2026-08-23T20:30:00Z",
+      "access_method": "local_artifact",
+      "limitations": [
+        "Pinned source inspection does not establish a hosted product default or prove that every DSH profile loads this package."
+      ]
+    },
+    {
+      "id": "deepseek-context-caching",
+      "type": "web",
+      "canonical_url": "https://api-docs.deepseek.com/guides/kv_cache",
+      "title": "DeepSeek API Context Caching",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "public_web",
+      "limitations": [
+        "Provider documentation describes the API service, not the configuration or telemetry of a particular DSH session."
+      ]
+    },
+    {
+      "id": "openai-responses-reference",
+      "type": "web",
+      "canonical_url": "https://developers.openai.com/api/reference/cli/resources/responses/methods/create",
+      "title": "OpenAI Responses API create reference",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "public_web",
+      "limitations": [
+        "Responses API controls and usage fields do not prove which of them Codex CLI sets or exposes."
+      ]
+    },
+    {
+      "id": "anthropic-tool-context",
+      "type": "web",
+      "canonical_url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/manage-tool-context",
+      "title": "Anthropic Manage tool context",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "public_web",
+      "limitations": [
+        "This describes Claude API mechanisms and should not be assumed to describe every Claude Code default."
+      ]
+    },
+    {
+      "id": "anthropic-prompt-caching",
+      "type": "web",
+      "canonical_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "title": "Anthropic Prompt caching",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "public_web",
+      "limitations": [
+        "Cache lifetime, billing, and availability may depend on model, account, and API configuration."
+      ]
+    },
+    {
+      "id": "anthropic-usage-accounting",
+      "type": "web",
+      "canonical_url": "https://docs.anthropic.com/en/docs/about-claude/pricing",
+      "title": "Anthropic pricing and usage accounting",
+      "retrieved_at": "2026-08-23T18:14:49Z",
+      "access_method": "public_web",
+      "limitations": [
+        "This documents Anthropic API usage accounting, not whether a Claude Code stream event aggregates one provider request or multiple internal operations."
+      ]
+    },
+    {
+      "id": "xai-prompt-caching",
+      "type": "web",
+      "canonical_url": "https://docs.x.ai/developers/advanced-api-usage/prompt-caching",
+      "title": "xAI Prompt Caching",
+      "retrieved_at": "2026-08-23T18:00:47Z",
+      "access_method": "public_web",
+      "limitations": [
+        "The API cache contract does not prove that Grok Build uses a stable conversation ID or exposes cached-token telemetry."
+      ]
+    },
+    {
+      "id": "openai-codex-compaction",
+      "type": "web",
+      "canonical_url": "https://github.com/openai/codex/blob/main/codex-rs/app-server/README.md",
+      "title": "Codex app-server compaction operation and events",
+      "retrieved_at": "2026-08-23T20:30:00Z",
+      "access_method": "public_web",
+      "limitations": [
+        "Public controls and events do not prove which compaction route was invoked in the local two-turn test."
+      ]
+    },
+    {
+      "id": "openai-compact-reference",
+      "type": "web",
+      "canonical_url": "https://developers.openai.com/api/reference/java/resources/responses/methods/compact",
+      "title": "OpenAI Responses compact reference",
+      "retrieved_at": "2026-08-23T20:30:00Z",
+      "access_method": "public_web",
+      "limitations": [
+        "Responses API compaction semantics should not be treated as a complete description of Codex CLI internals."
+      ]
+    },
+    {
+      "id": "claude-code-context-window",
+      "type": "web",
+      "canonical_url": "https://code.claude.com/docs/en/context-window",
+      "title": "Claude Code context window and compaction",
+      "retrieved_at": "2026-08-23T20:30:00Z",
+      "access_method": "public_web",
+      "limitations": [
+        "Documented behavior may change across Claude Code versions."
+      ]
+    },
+    {
+      "id": "grok-build-commands",
+      "type": "web",
+      "canonical_url": "https://docs.x.ai/build/modes-and-commands",
+      "title": "Grok Build modes and commands",
+      "retrieved_at": "2026-08-23T20:30:00Z",
+      "access_method": "public_web",
+      "limitations": [
+        "The command reference exposes controls but not a detailed survival contract for compacted state."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "dsh-disjoint-token-accounting",
+      "kind": "source_fact",
+      "text": "The checked-out DSH documentation defines uncached input, cache reads, and cache writes as separate token counters for one model call.",
+      "source_ids": ["dsh-local-token-usage"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "dsh-kv-contract",
+      "kind": "source_fact",
+      "text": "The checked-out DSH package documentation requires model-context effects and KV-cache invalidation conditions to be documented per package.",
+      "source_ids": ["dsh-local-kv-contract"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "deepseek-prefix-cache",
+      "kind": "source_fact",
+      "text": "DeepSeek documents default context caching, prefix-unit matching, best-effort persistence, and separate cache-hit and cache-miss usage fields.",
+      "source_ids": ["deepseek-context-caching"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "openai-cache-observability",
+      "kind": "source_fact",
+      "text": "OpenAI's Responses API documents a prompt cache key, cache options, and a usage breakdown that includes cached and cache-write input tokens.",
+      "source_ids": ["openai-responses-reference"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "anthropic-context-versus-cache",
+      "kind": "source_fact",
+      "text": "Anthropic distinguishes tool search, which keeps deferred tool definitions out of initial context, from prompt caching, which lowers repeat-input cost without shrinking context.",
+      "source_ids": ["anthropic-tool-context", "anthropic-prompt-caching"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "anthropic-cache-fields-accounting",
+      "kind": "source_fact",
+      "text": "Anthropic documents total input for its 1M-context pricing calculation as the sum of input tokens, cache-creation input tokens, and cache-read input tokens when caching is used.",
+      "source_ids": ["anthropic-usage-accounting"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "xai-prefix-cache",
+      "kind": "source_fact",
+      "text": "xAI documents automatic caching for identical message prefixes and recommends a stable conversation ID or prompt cache key to improve hit rates.",
+      "source_ids": ["xai-prompt-caching"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "local-telemetry-is-not-a-common-ledger",
+      "kind": "operator_observation",
+      "text": "In one read-only local preflight per available product, Codex CLI, Claude Code, and Grok Build emitted differently named token and cache fields for the same fixed no-tool prompt; a later DSH real-task run used its own local Ollama route and is not numerically comparable to those receipts.",
+      "source_ids": ["local-harness-preflight"],
+      "verification_status": "partial",
+      "confidence": "high",
+      "notes": "This supports retaining raw fields before any normalization. It does not support a numeric ranking or claim of total first-request size."
+    },
+    {
+      "id": "same-bug-different-harness-paths",
+      "kind": "operator_observation",
+      "text": "In one bounded read-only run on the same three-file JavaScript fixture, Codex CLI, Claude Code, Grok Build, and DSH all correctly diagnosed a percentage-discount bug while taking different visible discovery and tool-use paths; DSH recorded a replayable session trace of its path.",
+      "source_ids": ["local-real-task-field-note"],
+      "verification_status": "partial",
+      "confidence": "high",
+      "notes": "This supports a qualitative article about harness defaults and inspectability. It does not support a performance comparison because model routes and local product settings differed."
+    },
+    {
+      "id": "same-session-is-not-cache-hit",
+      "kind": "operator_observation",
+      "text": "In the bounded follow-up, Codex, Claude Code, and Grok Build reused prior evidence with zero new tool calls, while Grok reported zero cache-read tokens; DSH admitted the same-session follow-up without tools but its local model ended at the output cap without final text.",
+      "source_ids": ["local-two-turn-shipping-test"],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "This supports distinguishing product session persistence from provider prompt-cache reuse. It is not a universal cache-hit-rate claim."
+    },
+    {
+      "id": "claude-partial-prefix-reuse",
+      "kind": "operator_observation",
+      "text": "The Claude Code follow-up reported both cache-read and cache-creation input, consistent with reusing an older stable prefix while writing a newer suffix.",
+      "source_ids": ["local-two-turn-shipping-test", "anthropic-prompt-caching"],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "The CLI stream may aggregate multiple internal model iterations; raw fields are retained rather than normalized."
+    },
+    {
+      "id": "dsh-compaction-is-composable",
+      "kind": "source_fact",
+      "text": "The pinned DSH basic compaction implementation combines model-specific pressure thresholds, optional tool-result pruning, retained-tail range selection, LLM summarization, bounded retries, and durable manual compaction.",
+      "source_ids": ["dsh-local-compaction-source"],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "compaction-surfaces-differ",
+      "kind": "source_fact",
+      "text": "Codex, Claude Code, Grok Build, and DSH all expose compaction-related mechanisms or controls, but differ in whether the compacted artifact and survival rules are opaque, documented at the product level, or inspectable as composable source and session events.",
+      "source_ids": ["openai-codex-compaction", "openai-compact-reference", "claude-code-context-window", "grok-build-commands", "dsh-local-compaction-source"],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "This is a mechanism comparison, not a claim that one compaction summary is more accurate."
+    },
+    {
+      "id": "state-transition-thesis",
+      "kind": "inference",
+      "text": "The useful comparison unit is the state transition between turns: what entered, was discovered, was cached, was persisted, and was compressed away.",
+      "source_ids": ["local-two-turn-shipping-test", "openai-codex-compaction", "claude-code-context-window", "grok-build-commands", "dsh-local-compaction-source"],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Editorial synthesis grounded in separate observed and documented mechanisms."
+    },
+    {
+      "id": "benchmark-boundary",
+      "kind": "inference",
+      "text": "A defensible article must compare observed product-harness behavior separately from each provider's documented API cache contract; documentation alone cannot establish what the four local coding products send or reuse.",
+      "source_ids": ["dsh-local-token-usage", "openai-responses-reference", "anthropic-tool-context", "xai-prompt-caching"],
+      "verification_status": "partial",
+      "confidence": "high",
+      "notes": "Requires local runs with recorded CLI versions, configuration, raw JSON/debug artifacts, and timestamps."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": ["local artifact inspection", "official documentation search", "official documentation retrieval"],
+    "unresolved_gaps": [
+      "Only one main run and one follow-up were made for each harness; the DSH live run used a different local model route, so it cannot serve a common numeric baseline.",
+      "The four product harnesses may not expose their rendered provider requests or every cache field.",
+      "Provider API cache behavior must not be attributed to a CLI until a recorded local run supports it.",
+      "The comparison will not establish model quality, subscription-dollar costs, or a universal token baseline."
+    ],
+    "notes": [
+      "Raw machine-readable output is preserved locally; publication should use sanitized paths, exact product-specific fields, and short attributable excerpts."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "Read-only single-turn model probes were made through the existing local product authentication for Codex CLI, Claude Code, and Grok Build. No credential value was read, persisted, copied, or exported, and no account setting was changed."
+    ]
+  }
+}

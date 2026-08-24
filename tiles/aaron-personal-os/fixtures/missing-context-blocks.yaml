@@ -1,0 +1,14 @@
+id: missing-context-blocks
+mode: apply
+input:
+  intent: azure-write-operation
+  project_context: null
+  runtime_observation:
+    active_tenant_alias: unknown
+expected:
+  decision: ask
+  reason: missing-project-context
+  must_not:
+    - guess_a_tenant
+    - switch_account
+    - execute_the_domain_operation

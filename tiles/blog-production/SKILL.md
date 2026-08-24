@@ -11,6 +11,7 @@ Run the blog workflow as the single orchestrator. This is the default entry poin
 
 ```text
 muse
+  -> research-evidence (source-led work)
   -> blog-brainstorm
   -> blog-outline
   -> blog-canon-alignment
@@ -29,6 +30,8 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | Artifact | Meaning | Producing skill |
 |----------|---------|-----------------|
 | `idea.md` | Raw idea or seed | manual / muse |
+| `research-evidence.json` | Versioned canonical sources, transcript provenance, claims, coverage gaps, and privacy state | research-evidence |
+| `source-intake.md` | Source-first greenlight: primary-source notes, distinctness test, personal experiment, and media proof map | blog-production / blog-brainstorm |
 | `memory-reflection.md` | prior-post reflection, internal link candidates, continuity thesis | blog-production / blog-brainstorm |
 | `editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, kill criteria | blog-brainstorm |
 | `research-dossier.md` | sources, cases, facts, counterarguments, open questions | blog-brainstorm |
@@ -68,6 +71,43 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `youtube-metadata.md` | YouTube title/description/tags | blog-write / aaron-video-gen |
 
 ## Workflow
+
+### 0. Source Intake And Greenlight
+
+When the seed is a specific link, video, interview, paper, launch, or a theme
+that overlaps a recent post, run a source-first greenlight before creating a
+full package or drafting. Do not mistake a good source for a good new article.
+
+Read or watch the primary source directly. For a video, record the canonical
+URL, publication date, relevant timecodes, who is speaking, and whether a
+transcript is human or auto-generated. When the source includes X, YouTube,
+an interview, a paper, or mixed web research, first load `research-evidence`
+and create a validated `research-evidence.json`. A blocked CLI or a zero-result
+discovery run is a coverage gap, not proof that the source does not exist. Use
+the bounded browser transcript fallback defined by `research-evidence` only
+for known, editorially selected videos; never persist account cookies or
+bypass platform bot checks. Then write `source-intake.md` with:
+
+- a concise source map: what the source actually says, what it does *not*
+  establish, and the facts that need a separate primary source;
+- three candidate article angles, each with a reader problem, a one-sentence
+  Aaron judgment, and the concrete opening it could earn;
+- a distinctness test against the last two related posts: name the prior
+  thesis, the belief or decision this post changes, and the sentence that
+  makes it more than "the same thesis with a different example";
+- a personal-proof plan. If the article has no proprietary data, arrange one
+  small observed check in an Aaron-owned project before drafting: baseline,
+  deterministic signal, expected result, and stop condition. Never invent a
+  personal result or turn a proposed experiment into evidence;
+- a media proof map: the 3-5 claims or source moments that could carry a
+  diagram, illustration, demo, or video beat, plus what the visual adds that
+  prose cannot.
+
+End with exactly one decision: `GO`, `HOLD FOR PERSONAL PROOF`, or `KILL`.
+`GO` requires a distinct operator contribution and an evidence path. `HOLD`
+is the normal result when a source is timely but Aaron has not yet observed
+the mechanism himself. `KILL` is a useful result: preserve the source note,
+but do not generate an article-shaped package around it.
 
 ### 0. Bootstrap Workflow 3 Artifacts
 
@@ -120,6 +160,8 @@ Use the first matching missing artifact:
 
 | Missing | Next action |
 |---------|-------------|
+| source link/video has no `research-evidence.json` | use `research-evidence` to acquire, normalize, and validate the source bundle |
+| source link/video or a recent-topic overlap has no `source-intake.md` | run Source Intake And Greenlight before creating a serious package |
 | no directory or only rough prompt | use `muse` or create `idea.md` |
 | serious essay and no `memory-reflection.md` | bootstrap Workflow 3 artifacts, then run Memory Reflection pass |
 | serious essay and no `editorial-brief.md` | use `blog-brainstorm` to create editorial brief |
@@ -166,6 +208,8 @@ For each phase:
 Run these gates before moving downstream. Do not rely on the user to discover quality issues after the fact.
 
 **Workflow 3 editorial gates** — for serious essays, do not draft until these artifacts exist and are coherent:
+- for source-led work, `research-evidence.json` passes the `research-evidence` validator and records transcript limitations, unresolved gaps, and privacy state;
+- for a source-led or recent-topic-overlap essay, `source-intake.md` records a `GO`, the distinctness test, and an honest personal-proof status;
 - `memory-reflection.md` checks at least three prior posts when relevant and records internal link candidates or explains why no useful connection exists.
 - `editorial-brief.md` names reader pain, sharp thesis, opening bottleneck, original contribution, authority boundary, evidence needed, counterargument, reusable frame, distribution hook, and kill criteria.
 - `research-dossier.md` contains source-backed evidence, cases, facts, counterarguments, and open questions.
@@ -231,6 +275,13 @@ This creates the prediction side of the feedback loop. The 24h and 7d postmortem
 
 **Image quality gate** — before accepting images, confirm `blog-illustrate` loaded Aaron's visual strategy files and recorded the image backend in `imgs/generation-manifest.md`. In Codex, prefer the built-in image generator; use the baoyu path when the built-in tool is unavailable or the user explicitly wants the reusable CLI/batch path. Compare at least three genuinely different cover concepts before committing to a style, then generate at least two candidates for the selected cover and thumbnail. Reject generic glowing-AI imagery, unreadable text, cluttered diagrams, stock-photo vibes, repeated compositions, and body images that do not add a distinct idea.
 
+For a source-led article, every candidate cover and body image must name the
+claim or source moment it serves and the visual job it performs (explain a
+mechanism, make a tradeoff memorable, show a before/after, or give the reader
+evidence to inspect). A beautiful image that only repeats the topic does not
+pass. Preserve this mapping in `imgs/outline.md`; use the media proof map as
+input, but do not treat it as formal visual approval before Argument Lock.
+
 **Reusable asset gate** — after the outline, distribution plan, video brief, or treatment is stable and before generating companion media, use `asset-library` to search existing approved or reviewable music and visualizer presets. Translate the editorial job into mood, duration, energy, and rights constraints; do not search by topic alone.
 
 ```bash
@@ -251,6 +302,13 @@ Record candidate IDs and the selected ID in `distribution-plan.md`, `video-treat
 - retention beats every 20-35 seconds;
 - no obvious repeated filler phrases such as "right", "you know", "basically", or repeated "what's interesting is";
 - an ending that lands a payoff instead of summarizing the article.
+
+When the seed is an interview or another creator's video, the companion video
+must not be a recap with new narration. Its brief must name the source's
+specific claim, Aaron's distinct test or operating judgment, and at least
+three additions that viewers cannot get by watching the source. Attribute
+clips, quotes, and screenshots precisely; do not imply the source endorses
+Aaron's conclusion.
 
 If the script fails any item, run a `blog-write` video adaptation pass before continuing.
 

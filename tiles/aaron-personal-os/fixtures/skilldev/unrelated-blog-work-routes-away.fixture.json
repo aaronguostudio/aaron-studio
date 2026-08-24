@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "0.1",
+  "fixtureId": "unrelated-blog-work-routes-away-v1",
+  "title": "Source-led blog work routes away from Personal OS",
+  "input": "Aaron has an X post and a linked YouTube interview for a new blog idea. He asks whether it is worth doing and wants the next safe workflow step. Return only execution-decision.md with headings ## Decision, ## Next action, and ## Boundary. Do not create files, publish, or capture a personal operating Pattern.",
+  "expectedArtifactPath": "execution-decision.md",
+  "passThresholdPercent": 80,
+  "rubric": [
+    { "id": "routes-blog-production", "label": "Routes the request to blog-production", "type": "includes", "values": ["blog-production"], "points": 1 },
+    { "id": "hands-off-to-domain", "label": "Hands execution to the domain workflow", "type": "includes-any", "values": ["rather than the `aaron-personal-os`", "rather than aaron-personal-os", "domain skill"], "points": 1 },
+    { "id": "no-pattern-capture", "label": "Boundary does not capture a Personal OS Pattern", "type": "section-includes-any", "section": "## Boundary", "values": ["do not capture a Pattern", "do not create a Pattern", "must not be used"], "points": 1 },
+    { "id": "no-project-execution", "label": "Boundary keeps Personal OS out of the project action", "type": "section-includes", "section": "## Boundary", "values": ["Do not capture a Pattern", "execute project work"], "points": 1 }
+  ]
+}

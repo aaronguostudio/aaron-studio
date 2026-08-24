@@ -13,6 +13,7 @@
   "agentSkillSurfaces": [".agents", ".codex", ".claude", ".cursor", ".gemini"],
   "blogWorkflow": {
     "idea": "tiles/muse",
+    "researchEvidence": "tiles/research-evidence",
     "researchPlan": "tiles/blog-brainstorm",
     "outline": "tiles/blog-outline",
     "write": "tiles/blog-write",

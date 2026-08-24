@@ -1,0 +1,11 @@
+id: unrelated-blog-work-routes-away
+mode: apply
+input:
+  intent: draft-a-source-led-blog-post
+  project_context: null
+expected:
+  decision: route-away
+  destination: blog-production
+  must_not:
+    - request_personal_os_context
+    - create_a_pattern

@@ -1,0 +1,12 @@
+{
+  "name": "aaronguo/research-evidence",
+  "version": "0.1.0",
+  "summary": "Collects and validates provenance-rich evidence bundles for X, YouTube, interviews, papers, and mixed-source research.",
+  "private": false,
+  "skills": {
+    "research-evidence": {
+      "path": "SKILL.md"
+    }
+  }
+}
+
