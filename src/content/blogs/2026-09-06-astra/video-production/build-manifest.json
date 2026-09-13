@@ -1,0 +1,71 @@
+{
+  "render_entry": "src/projects/astra-real-work/index.tsx",
+  "composition": "AstraFilm",
+  "concurrency": 6,
+  "crf": 20,
+  "git_state": "local uncommitted package; no production revision claimed",
+  "artifacts": [
+    {
+      "path": "src/content/blogs/2026-09-06-astra/youtube-script.md",
+      "sha256": "8e1d3f31d978b8f7aca1214145dfd9f41bc26bc65494611d8530467378eb5680",
+      "bytes": 6745
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/audio.mp3",
+      "sha256": "061b85ae76b527e4ec0de312cc8f6f6d1b3eaa2faf545d02ef559bd85aa29945",
+      "bytes": 11457977
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/video-production/timeline.json",
+      "sha256": "04f318f081eeb91ecd3ebb6a375735552e3db97d6cbfd656975f02c0b6553342",
+      "bytes": 38408
+    },
+    {
+      "path": "tiles/aaron-video-gen/remotion/src/projects/astra-real-work/index.tsx",
+      "sha256": "fee5373be0862c5912219c052ee3db419ea938dbb901e309fe6cdd4783f9c533",
+      "bytes": 9358
+    },
+    {
+      "path": "tiles/aaron-video-gen/remotion/src/projects/astra-real-work/data.ts",
+      "sha256": "3a9c033b3d81ee668e0c37d92766102e68f3d47d9069a20a0097af15e3399237",
+      "bytes": 38434
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/video.mp4",
+      "sha256": "edb55d0b50d76969736da261ce9a02d69bc33bbe3f68f44c2a3238833a8af4ed",
+      "bytes": 19650910
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/video-nomusic.mp4",
+      "sha256": "31d068b80b609d1089585596d47db59671c8dbcc1997858f12f4bd33c13e49e5",
+      "bytes": 19491795
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/imgs/00-cover-v2-astra-logo.png",
+      "sha256": "12c5439f8e24e6b8cc78d91a13fb14f7182eed5aa91a269c6746b20a49cce55f",
+      "bytes": 2153716
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/imgs/00-cover-thumbnail-v2-astra-logo.png",
+      "sha256": "8b3a723268d5f4959473d4504072c4a3ddb7ce051867c0595a14c78112fdcd39",
+      "bytes": 2647380
+    },
+    {
+      "path": "tiles/aaron-video-gen/remotion/public/astra-real-work/thumbnail.jpg",
+      "sha256": "c1ad7dc1748ed1b0f6b42c3e63161a8df89d2294131368ffc34c68fc74a319ff",
+      "bytes": 271793
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/imgs/00-cover-v3-launch-style.png",
+      "sha256": "fe9d6c59aad1e23cf0e8acfaaf16d027c557eebcf6b23e8535c87c67f59ccf5c",
+      "bytes": 2348368
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/imgs/00-cover-thumbnail-v3-launch-style.png",
+      "sha256": "28975088737f978b0ae42b93481a4f2474d5945ada051ca1852b2769a31f09bf",
+      "bytes": 2598990
+    }
+  ],
+  "revision": 6,
+  "edit_scope": "Re-render only frames 0\u201389 with V6 reference-styled cover; preserve approved body and all original audio."
+}

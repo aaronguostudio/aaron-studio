@@ -1,0 +1,37 @@
+{
+  "slug": "dhh-the-joy-of-building",
+  "posts": [
+    {
+      "channel": "blog",
+      "channel_post_id": "dhh-the-joy-of-building:en",
+      "channel_url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+      "title": "Why I Share DHH's Enthusiasm for AI",
+      "language": "en",
+      "post_type": "article",
+      "cta_type": "read",
+      "published_at": "2026-09-06T19:33:43.717Z"
+    },
+    {
+      "channel": "blog",
+      "channel_post_id": "dhh-the-joy-of-building:zh",
+      "channel_url": "https://www.aaronguo.com/zh/blogs/dhh-the-joy-of-building",
+      "title": "我为什么认同 DHH 对 AI 的热情",
+      "language": "zh",
+      "post_type": "article",
+      "cta_type": "read",
+      "published_at": "2026-09-06T19:33:43.717Z"
+    },
+    {
+      "channel": "youtube",
+      "channel_post_id": "KUQ5cKVK8R8",
+      "channel_url": "https://youtu.be/KUQ5cKVK8R8",
+      "title": "Why I Share DHH's Enthusiasm for AI",
+      "language": "en",
+      "post_type": "video",
+      "cta_type": "read_article",
+      "published_at": "2026-09-06T20:02:27Z",
+      "channel_id": "UC00lw_bsmcXk7Dxuk_QqBTg",
+      "duration_seconds": 512.8
+    }
+  ]
+}

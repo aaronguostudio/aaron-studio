@@ -1,0 +1,1 @@
+/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-07-code-upstream/youtube-script.md

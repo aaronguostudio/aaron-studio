@@ -1,0 +1,12 @@
+{
+  "version": "v7",
+  "duration": 512.8,
+  "files": {
+    "video-v7.mp4": "273203737a9114ff4bfbb214c602d2851e04c6970c931ed721f9b18b12f57a2b",
+    "video-v7-nomusic.mp4": "99c31f92b87d538594066b8882515b7f81b159a68185a68dc43d147f23fe8013",
+    "video-sound-preview-v7.mp4": "8793efdf85efc16e0e35bc09e86d398f043dff781698dbebed46b06fb3a273e1",
+    "video-captions-en-v7.srt": "6094b181a5242945fcf736442d3528eaefdd4c1e48a7bde6ca942f1f2c5ca3f4"
+  },
+  "source_articles_and_voice_unchanged": true,
+  "human_acceptance": "approved_by_author_for_publication_2026-09-06"
+}

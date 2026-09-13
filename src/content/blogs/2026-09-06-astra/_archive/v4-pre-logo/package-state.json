@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "slug": "gpt-6-astra-real-work",
+  "date": "2026-09-06",
+  "phase": "ready_for_author_video_review",
+  "artifacts": {
+    "article_en": "gpt-6-astra-real-work.md",
+    "article_zh": "gpt-6-astra-real-work-zh.md",
+    "research": "research-evidence.json",
+    "script": "youtube-script.md",
+    "audio": {
+      "canonical": "audio.mp3",
+      "previous": "_archive/v2-six-points/audio.mp3",
+      "revision": 3,
+      "sha256": "061b85ae76b527e4ec0de312cc8f6f6d1b3eaa2faf545d02ef559bd85aa29945",
+      "script_sha256": "8e1d3f31d978b8f7aca1214145dfd9f41bc26bc65494611d8530467378eb5680",
+      "duration_seconds": 477.355828,
+      "technical_qa": "pass",
+      "human_listening": "No separate listening claim; author instructed video production with the current supplied narration",
+      "status": "authorized_for_video_continuation"
+    },
+    "video": {
+      "canonical": "video.mp4",
+      "alternate": "video-nomusic.mp4",
+      "status": "ready_for_author_review",
+      "sha256": "2f20aed72e5d5d62cb8392817cd58ecf9d06a60980fe17437f809934b3a84654",
+      "duration_seconds": 485.366667,
+      "technical_qa": "pass",
+      "sampled_visual_qa": "pass",
+      "human_full_watch": "pending_author_review",
+      "qa_report": "video-qa-report.md"
+    },
+    "review": "review.html",
+    "draft_qa": "draft-qa.md",
+    "evidence_images": [
+      "imgs/evidence/openai-blender.png",
+      "imgs/evidence/openai-google-maps.png"
+    ],
+    "illustrations": {
+      "cover": "imgs/web/00-cover-v1.webp",
+      "thumbnail": "imgs/thumbnail-youtube.jpg",
+      "companions": [
+        "imgs/web/01-retained-notes-v1.webp",
+        "imgs/web/02-writing-flow-v1.webp",
+        "imgs/web/03-review-lamp-v1.webp"
+      ],
+      "status": "generated_inspected_compressed_and_integrated"
+    }
+  },
+  "locks": {
+    "argument": "editorial_pass",
+    "article": "author_approved",
+    "package": "pending"
+  },
+  "publication": {
+    "blog_url": null,
+    "youtube_url": null,
+    "production_main_commit": null,
+    "authorization": "not_yet_for_this_new_package"
+  },
+  "pending": [
+    "Author final video review",
+    "Publication authorization and delivery verification"
+  ],
+  "postmortem": {
+    "status": "prediction_recorded_not_published",
+    "path": "postmortem.md"
+  },
+  "review_url": "http://127.0.0.1:4327/review.html#video",
+  "revision": 4
+}

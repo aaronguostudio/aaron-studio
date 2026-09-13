@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "topic": "GPT-6 Astra in real work: six observations",
+  "thesis": "Astra can carry a larger connected stretch of real work; deployments and more natural writing make the benefit tangible.",
+  "sources": [
+    {
+      "id": "launch",
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "publisher": "OpenAI",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Vendor announcement; reported evaluations, not independently reproduced here."
+    },
+    {
+      "id": "safety",
+      "url": "https://openai.com/index/safety-overview-gpt-6-astra/",
+      "publisher": "OpenAI",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Vendor safety findings; improved alignment does not establish zero risk."
+    },
+    {
+      "id": "model",
+      "url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "publisher": "OpenAI",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Live API terms, not subscription allowances; prices can change."
+    },
+    {
+      "id": "guidance",
+      "url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "publisher": "OpenAI",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Rolling documentation; checked for Astra on retrieval date."
+    },
+    {
+      "id": "context",
+      "url": "https://learn.chatgpt.com/docs/config-file/config-reference",
+      "publisher": "OpenAI",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Experimental feature is off by default; not verified enabled in Aaron runs."
+    },
+    {
+      "id": "shumer",
+      "url": "https://somethingbig.ai/astra-review",
+      "publisher": "Matt Shumer",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "First-person reviewer report with commercial sponsorship on page; not an independent replication. Updated comparison note has unclear chronology, so do not use competitor release dates."
+    },
+    {
+      "id": "scope-feedback",
+      "url": "https://www.reddit.com/r/OpenAI/comments/1w7qxdr/astra_gpt6_high_intelligence_low_intuition/",
+      "publisher": "ZenenoDev",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Self-selected anecdote; full logs unavailable, settings and task differ."
+    },
+    {
+      "id": "limits-feedback",
+      "url": "https://www.reddit.com/r/codex/comments/1w7kvf7/gpt6_astra_wow/",
+      "publisher": "SourceNatural",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Ironic title: body reports quota exhaustion, not praise. Relative displayed dates differ from search index; omit exact event time."
+    },
+    {
+      "id": "writing-feedback",
+      "url": "https://www.reddit.com/r/ChatGPTcomplaints/comments/1w7uhyg/gpt_6_astra_is_the_new_gpt_52_in_creative_writing/",
+      "publisher": "Mattia2110",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Anecdote concerns fiction/refusal and style, not the same task as editorial nonfiction. No raw writing samples."
+    },
+    {
+      "id": "dev-worker",
+      "url": "https://github.com/Olsen-Consulting/erp-platform/pull/95",
+      "publisher": "Aaron-owned project",
+      "source_type": "operator",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Private PR read via gh; historical evidence only; no client identifiers or financial values in public copy. Authenticated private GitHub read via gh; public_api is not an accurate access label."
+    },
+    {
+      "id": "attachment",
+      "url": "https://github.com/Olsen-Consulting/erp-platform/pull/96",
+      "publisher": "Aaron-owned project",
+      "source_type": "operator",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Private PR records temporary operator-process Dev validation, not application deployment at that moment. Authenticated private GitHub read via gh; public_api is not an accurate access label."
+    },
+    {
+      "id": "production-prep",
+      "url": "https://github.com/Olsen-Consulting/erp-platform/pull/101",
+      "publisher": "Aaron-owned project",
+      "source_type": "operator",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Merged into develop; does not establish enabled production reporting. Authenticated private GitHub read via gh; public_api is not an accurate access label."
+    },
+    {
+      "id": "dhh-package",
+      "url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+      "publisher": "Aaron",
+      "source_type": "operator",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Public article and present user testimony corroborate workflow; no controlled before/after timing."
+    },
+    {
+      "id": "flight-game",
+      "url": "https://www.reddit.com/r/SideProject/comments/1w97zrd/everyone_was_sharing_stuff_made_with_gpt_6_astra/",
+      "publisher": "Taniai_",
+      "source_type": "community",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Author reports about 30 prompts, roughly three hours and 45% of a Pro weekly allowance. Not an independently reproduced benchmark."
+    },
+    {
+      "id": "dev-provision",
+      "url": "https://github.com/Olsen-Consulting/erp-platform/pull/92",
+      "publisher": "Aaron-owned project",
+      "source_type": "operator",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Private PR read using authenticated gh. Public copy omits project/client/resource identifiers. Early snapshot includes unresolved SQL trust; later Dev activation supplies success evidence."
+    },
+    {
+      "id": "network-runbook",
+      "url": "https://github.com/Olsen-Consulting/erp-platform/blob/3fc0680f1046fb25e74159e20cece210f3525cdd/docs/crystal-worker-infrastructure.md",
+      "publisher": "Aaron-owned project",
+      "source_type": "operator",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Read local docs/crystal-worker-infrastructure.md and crystal-worker-dev-status.md; existing NAT Gateway is referenced and subnet attached. Do not claim a new gateway was created."
+    }
+  ],
+  "facts": [
+    {
+      "id": "name",
+      "claim": "Official name is GPT-6 Astra; launch announcement is September 3, 2026.",
+      "source_ids": [
+        "launch",
+        "safety"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not confuse with Google Project Astra or use Astro."
+    },
+    {
+      "id": "context",
+      "claim": "Codex documents experimental context management using notes and searchable history, off by default.",
+      "source_ids": [
+        "context"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not attribute personal improvements to an unverified enabled feature."
+    },
+    {
+      "id": "guidance",
+      "claim": "Official guidance warns unclear or conflicting skill instructions can cause premature pauses.",
+      "source_ids": [
+        "guidance"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Useful operational caveat; not a universal explanation for complaints."
+    },
+    {
+      "id": "price",
+      "claim": "The model page lists standard API input/output rates of $10/$50 per million tokens, with separate cache and long-context terms.",
+      "source_ids": [
+        "model"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Not subscription-message pricing; refresh before publication."
+    },
+    {
+      "id": "worker",
+      "claim": "Historical Dev work covered Azure resources, private worker networking, existing NAT association, SQL certificate trust and real PDF/attachment checks.",
+      "source_ids": [
+        "dev-provision",
+        "network-runbook",
+        "dev-worker",
+        "attachment"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Agent-led execution within authorization is Aaron’s current testimony. Read-back of historical records, not a new runtime test. No new NAT or production success claim."
+    },
+    {
+      "id": "smooth",
+      "claim": "Aaron reports smoother project execution and more natural, fluent writing.",
+      "source_ids": [
+        "dhh-package"
+      ],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Current user feedback is the source of the subjective writing assessment; no model-only causal or percentage claim."
+    },
+    {
+      "id": "demo-exhibits",
+      "claim": "Official page exhibits a Blender house, Unreal scene, racing game and pediatrician-search Google Maps route view.",
+      "source_ids": [
+        "launch"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Browser directly inspected exhibits and captured Blender/Maps images; no claim of a complete independently watched run, speed or reproducibility."
+    },
+    {
+      "id": "browser-work",
+      "claim": "Shumer reports browser tasks across newsletters, inboxes and advertising interfaces.",
+      "source_ids": [
+        "shumer"
+      ],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Firsthand reviewer self-report; author page has commercial sponsorship."
+    },
+    {
+      "id": "game-tools-cost",
+      "claim": "Taniai_ reports Godot/Blender, multiple feedback prompts, about three hours and 45% of a weekly Pro allowance for one flight-game project.",
+      "source_ids": [
+        "flight-game"
+      ],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Verifies what the original author says, not independent measurement or an expected quota for other users."
+    },
+    {
+      "id": "skill-review-position",
+      "claim": "A stronger model is a reason to review old skills and replace unnecessary per-step approval with clear goals, scope and meaningful decision points.",
+      "source_ids": [
+        "guidance"
+      ],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Aaron’s explicit editorial position. Not blanket authorization or a claim all pauses come from skills."
+    },
+    {
+      "id": "whole-job",
+      "claim": "More complete tool handoffs and sustained context make a larger connected stretch of work practical to delegate.",
+      "source_ids": [
+        "dev-worker",
+        "context",
+        "shumer"
+      ],
+      "confidence": "medium",
+      "usable_in_script": true,
+      "sensitivity": "Article thesis and operator interpretation, not a universal guarantee."
+    }
+  ]
+}

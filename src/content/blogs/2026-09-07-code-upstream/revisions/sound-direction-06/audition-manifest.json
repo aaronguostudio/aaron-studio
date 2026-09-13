@@ -1,0 +1,264 @@
+{
+  "status": "prototype; listening pending",
+  "duration": 59.56666666666668,
+  "excerpt_source_start": 411.8,
+  "source_master": "video-v2.mp4",
+  "holds": [
+    {
+      "at": 424.2,
+      "duration": 1.0,
+      "reason": "Let the claim about real needs land."
+    },
+    {
+      "at": 452.9,
+      "duration": 0.7,
+      "reason": "A breath between the next project and optimism."
+    }
+  ],
+  "mapping": [
+    {
+      "source_start": 411.8,
+      "source_end": 424.2,
+      "output_start": 0.0,
+      "samples": 595200
+    },
+    {
+      "source_start": 424.2,
+      "source_end": 452.9,
+      "output_start": 13.4,
+      "samples": 1377600
+    },
+    {
+      "source_start": 452.9,
+      "source_end": 469.6666666666667,
+      "output_start": 42.8,
+      "samples": 804800
+    }
+  ],
+  "voice_gain": 1,
+  "voice_pcm_equal_on_all_spans": true,
+  "music_cues": [
+    {
+      "id": "reflection",
+      "start": 2.5,
+      "length": 17.5,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0.4
+        ],
+        [
+          8.6,
+          0.4
+        ],
+        [
+          10.2,
+          0.75
+        ],
+        [
+          12,
+          0.42
+        ],
+        [
+          14,
+          0.32
+        ],
+        [
+          17.5,
+          0
+        ]
+      ],
+      "role": "A question takes shape, then leaves the product-learning passage dry.",
+      "source_sha256": "a4234def3287e2796d1c2266b2532b508bf8dea0e1b5dede5cf30778254a3d81",
+      "measured_lufs": -11.9,
+      "normalization_gain": 0.24831331052955705
+    },
+    {
+      "id": "possibility",
+      "start": 29,
+      "length": 29.566666666666677,
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0.38
+        ],
+        [
+          11,
+          0.48
+        ],
+        [
+          13.1,
+          0.72
+        ],
+        [
+          14.2,
+          0.48
+        ],
+        [
+          17.6,
+          0.44
+        ],
+        [
+          20.3,
+          0.22
+        ],
+        [
+          23.3,
+          0.22
+        ],
+        [
+          26,
+          0.75
+        ],
+        [
+          29.566666666666677,
+          0
+        ]
+      ],
+      "role": "Open toward the future; make room for the last sentence; resolve after it.",
+      "source_sha256": "3738c316fe4fbae06a7e4505448db9c432cf155eca54416024113a7866d728d9",
+      "measured_lufs": -12.3,
+      "normalization_gain": 0.2600159563165272
+    }
+  ],
+  "peak_dbfs": -3.6450717449188232,
+  "final_second_peak": 0.0,
+  "dry_auditions": [
+    {
+      "source": "original-raw.wav",
+      "output": "original.wav",
+      "duration": 52.848625,
+      "normalization": {
+        "input_i": "-16.43",
+        "input_tp": "-4.72",
+        "input_lra": "5.00",
+        "input_thresh": "-27.29",
+        "output_i": "-17.86",
+        "output_tp": "-6.16",
+        "output_lra": "4.90",
+        "output_thresh": "-28.73",
+        "normalization_type": "linear",
+        "target_offset": "-0.14"
+      },
+      "loudness": {
+        "input_i": "-18.00",
+        "input_tp": "-6.08",
+        "input_lra": "4.70",
+        "input_thresh": "-28.82",
+        "output_i": "-17.98",
+        "output_tp": "-5.53",
+        "output_lra": "4.60",
+        "output_thresh": "-28.84",
+        "normalization_type": "dynamic",
+        "target_offset": "-0.02"
+      }
+    },
+    {
+      "source": "pvc-directed-raw.mp3",
+      "output": "pvc-directed.wav",
+      "duration": 52.47710416666666,
+      "normalization": {
+        "input_i": "-31.03",
+        "input_tp": "-3.52",
+        "input_lra": "5.50",
+        "input_thresh": "-41.41",
+        "output_i": "-18.36",
+        "output_tp": "-2.00",
+        "output_lra": "4.00",
+        "output_thresh": "-29.20",
+        "normalization_type": "dynamic",
+        "target_offset": "0.36"
+      },
+      "loudness": {
+        "input_i": "-18.45",
+        "input_tp": "-5.00",
+        "input_lra": "4.00",
+        "input_thresh": "-29.24",
+        "output_i": "-18.19",
+        "output_tp": "-4.70",
+        "output_lra": "3.90",
+        "output_thresh": "-29.03",
+        "normalization_type": "dynamic",
+        "target_offset": "0.19"
+      }
+    },
+    {
+      "source": "aaron-performance-transfer-raw.mp3",
+      "output": "aaron-performance-transfer.wav",
+      "duration": 43.885729166666664,
+      "normalization": {
+        "input_i": "-28.95",
+        "input_tp": "-7.82",
+        "input_lra": "3.20",
+        "input_thresh": "-39.24",
+        "output_i": "-18.18",
+        "output_tp": "-2.00",
+        "output_lra": "2.50",
+        "output_thresh": "-28.52",
+        "normalization_type": "dynamic",
+        "target_offset": "0.18"
+      },
+      "loudness": {
+        "input_i": "-18.17",
+        "input_tp": "-5.01",
+        "input_lra": "2.50",
+        "input_thresh": "-28.50",
+        "output_i": "-18.42",
+        "output_tp": "-4.82",
+        "output_lra": "2.50",
+        "output_thresh": "-28.75",
+        "normalization_type": "dynamic",
+        "target_offset": "0.42"
+      }
+    },
+    {
+      "source": "commercial-guide-raw.mp3",
+      "output": "commercial-guide.wav",
+      "duration": 43.84,
+      "normalization": {
+        "input_i": "-19.58",
+        "input_tp": "-1.65",
+        "input_lra": "2.10",
+        "input_thresh": "-29.88",
+        "output_i": "-18.05",
+        "output_tp": "-2.00",
+        "output_lra": "2.30",
+        "output_thresh": "-28.34",
+        "normalization_type": "dynamic",
+        "target_offset": "0.05"
+      },
+      "loudness": {
+        "input_i": "-18.08",
+        "input_tp": "-5.01",
+        "input_lra": "2.30",
+        "input_thresh": "-28.36",
+        "output_i": "-18.09",
+        "output_tp": "-4.94",
+        "output_lra": "2.30",
+        "output_thresh": "-28.39",
+        "normalization_type": "dynamic",
+        "target_offset": "0.09"
+      }
+    }
+  ],
+  "mixed_loudness": {
+    "input_i": "-16.63",
+    "input_tp": "-3.64",
+    "input_lra": "4.80",
+    "input_thresh": "-27.77",
+    "output_i": "-18.11",
+    "output_tp": "-5.27",
+    "output_lra": "4.80",
+    "output_thresh": "-29.06",
+    "normalization_type": "dynamic",
+    "target_offset": "0.11"
+  }
+}

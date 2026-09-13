@@ -1,0 +1,63 @@
+{
+  "kind": "youtube#video",
+  "etag": "Sfac-eWCIWVoqj-lo1orHDNScmo",
+  "id": "KUQ5cKVK8R8",
+  "snippet": {
+    "publishedAt": "2026-09-06T20:02:27Z",
+    "channelId": "UC00lw_bsmcXk7Dxuk_QqBTg",
+    "title": "Why I Share DHH's Enthusiasm for AI",
+    "description": "In my own team, some people use AI enthusiastically while others are not yet comfortable trusting it. DHH's interview with Lex Fridman made me think about how those different experiences can meet in real work.\n\nThree ideas stood out: updating a judgment when tools change, making better product decisions, and keeping the joy of creating. I connect them to my own blog workflow, then work through a proposed shared writing exercise: agree on what good looks like, show the method, inspect a claim, and decide what to keep. This is a practice I want to try, not a claim that our team has already resolved its differences.\n\nInterview: https://www.youtube.com/watch?v=NYFGCESmikA\nPublisher transcript: https://lexfridman.com/dhh-2-transcript/\nRead the article: https://www.aaronguo.com/blogs/dhh-the-joy-of-building?utm_source=youtube&utm_medium=video&utm_campaign=dhh-the-joy-of-building&utm_content=description\n\n\nChapters\n0:00 Why I share DHH’s enthusiasm\n0:32 One: update the judgment\n1:24 Two: decide what is worth building\n2:19 Three: keep the joy of creating\n3:20 What that means in my own projects\n4:13 Individual enthusiasm becomes a team question\n4:58 Try one familiar task\n5:50 Inspect the claim together\n6:48 The standard follows the consequences\n8:03 Keep the joy of creating\n\nProduction: AI-assisted illustrations and narration using my own voice, with original AI-generated instrumental music.",
+    "thumbnails": {
+      "default": {
+        "url": "https://i.ytimg.com/vi/KUQ5cKVK8R8/default.jpg",
+        "width": 120,
+        "height": 90
+      },
+      "medium": {
+        "url": "https://i.ytimg.com/vi/KUQ5cKVK8R8/mqdefault.jpg",
+        "width": 320,
+        "height": 180
+      },
+      "high": {
+        "url": "https://i.ytimg.com/vi/KUQ5cKVK8R8/hqdefault.jpg",
+        "width": 480,
+        "height": 360
+      },
+      "standard": {
+        "url": "https://i.ytimg.com/vi/KUQ5cKVK8R8/sddefault.jpg",
+        "width": 640,
+        "height": 480
+      },
+      "maxres": {
+        "url": "https://i.ytimg.com/vi/KUQ5cKVK8R8/maxresdefault.jpg",
+        "width": 1280,
+        "height": 720
+      }
+    },
+    "channelTitle": "Aaron - AI-native builder",
+    "tags": [
+      "AI",
+      "AI coding",
+      "DHH",
+      "product development",
+      "teamwork"
+    ],
+    "categoryId": "28",
+    "liveBroadcastContent": "none",
+    "defaultLanguage": "en",
+    "localized": {
+      "title": "Why I Share DHH's Enthusiasm for AI",
+      "description": "In my own team, some people use AI enthusiastically while others are not yet comfortable trusting it. DHH's interview with Lex Fridman made me think about how those different experiences can meet in real work.\n\nThree ideas stood out: updating a judgment when tools change, making better product decisions, and keeping the joy of creating. I connect them to my own blog workflow, then work through a proposed shared writing exercise: agree on what good looks like, show the method, inspect a claim, and decide what to keep. This is a practice I want to try, not a claim that our team has already resolved its differences.\n\nInterview: https://www.youtube.com/watch?v=NYFGCESmikA\nPublisher transcript: https://lexfridman.com/dhh-2-transcript/\nRead the article: https://www.aaronguo.com/blogs/dhh-the-joy-of-building?utm_source=youtube&utm_medium=video&utm_campaign=dhh-the-joy-of-building&utm_content=description\n\n\nChapters\n0:00 Why I share DHH’s enthusiasm\n0:32 One: update the judgment\n1:24 Two: decide what is worth building\n2:19 Three: keep the joy of creating\n3:20 What that means in my own projects\n4:13 Individual enthusiasm becomes a team question\n4:58 Try one familiar task\n5:50 Inspect the claim together\n6:48 The standard follows the consequences\n8:03 Keep the joy of creating\n\nProduction: AI-assisted illustrations and narration using my own voice, with original AI-generated instrumental music."
+    },
+    "defaultAudioLanguage": "en"
+  },
+  "status": {
+    "uploadStatus": "processed",
+    "privacyStatus": "public",
+    "license": "youtube",
+    "embeddable": true,
+    "publicStatsViewable": true,
+    "selfDeclaredMadeForKids": false,
+    "containsSyntheticMedia": true
+  }
+}

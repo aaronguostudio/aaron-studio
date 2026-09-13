@@ -1,0 +1,8 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-clip-preview",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-07-code-upstream/video-production/v3/inquiry.prompt.txt",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-07-code-upstream/video-production/v3/inquiry.mp3",
+  "outputMimeType": "audio/mpeg",
+  "generatedAt": "2026-09-08T04:52:38.643Z"
+}

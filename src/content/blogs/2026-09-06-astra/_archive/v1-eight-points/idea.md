@@ -1,0 +1,2 @@
+# Astra launch, through work that already happened
+Aaron wants a timely, shareable blog and YouTube package with 7–8 important takeaways from launch feedback. Personal anchors: smoother Windows-worker implementation/deployment/testing and fewer requested changes in the DHH writing workflow. Preserve these as personal impressions, without invented speedup percentages. Primary audience: builders deciding where a costly frontier model earns its place. New dated-suffix directory isolates this package from the DHH package created the same day.

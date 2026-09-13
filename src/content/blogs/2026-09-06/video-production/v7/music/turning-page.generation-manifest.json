@@ -1,0 +1,8 @@
+{
+  "provider": "Google Gemini API",
+  "model": "lyria-3-clip-preview",
+  "promptFile": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-06/video-production/v7/music/turning-page.prompt.txt",
+  "output": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-06/video-production/v7/music/turning-page.mp3",
+  "outputMimeType": "audio/mpeg",
+  "generatedAt": "2026-09-06T18:59:23.874Z"
+}

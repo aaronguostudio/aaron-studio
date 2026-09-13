@@ -1,0 +1,20 @@
+{
+  "scenes": 39,
+  "sampled_frames": 117,
+  "critical_frames": [
+    5915,
+    5916,
+    6016,
+    6017,
+    8876,
+    8877,
+    8964,
+    8965,
+    14377,
+    14378,
+    14489,
+    14490,
+    15383
+  ],
+  "method": "single sequential decode"
+}

@@ -1,0 +1,58 @@
+{
+  "deployment": {
+    "id": "dpl_2ctsjVX1KH5TcAg6zNBuKaFNYnc7",
+    "name": "aaronguoblog",
+    "url": "aaronguoblog-4ks34l2ov-aaron-guos-projects.vercel.app",
+    "type": "LAMBDAS",
+    "state": "READY",
+    "createdAt": 1788725176475,
+    "creator": {
+      "uid": "R1k1bfAW213k6NdPLIgbJiBE",
+      "username": "aaronguo"
+    },
+    "project": {
+      "id": "prj_qNERMz17B2Ke4kchUauLbNqvYVxH",
+      "name": "aaronguoblog",
+      "framework": "nuxtjs"
+    },
+    "meta": {
+      "githubCommitAuthorName": "aaronguo",
+      "githubCommitAuthorEmail": "aaronguostudio@gmail.com",
+      "githubCommitMessage": "Link published DHH companion video in both articles (#17)",
+      "githubCommitOrg": "aaronguostudio",
+      "githubCommitRef": "main",
+      "githubCommitRepo": "aaronguoblog",
+      "githubCommitSha": "71f91582911641b97a05036a331101019e85a985",
+      "githubDeployment": "1",
+      "githubOrg": "aaronguostudio",
+      "githubRepo": "aaronguoblog",
+      "githubRepoOwnerType": "User",
+      "githubCommitRepoId": "960411723",
+      "githubRepoId": "960411723",
+      "githubRepoVisibility": "public",
+      "githubHost": "github.com",
+      "githubCommitAuthorLogin": "aaronguostudio",
+      "githubCommitVerification": "verified",
+      "repoPushedAt": "1788725173000",
+      "branchAlias": "aaronguoblog-git-main-aaron-guos-projects.vercel.app",
+      "lambdaRuntimeStats": "{\"nodejs\":1}"
+    },
+    "alias": [
+      "www.aaronguo.com",
+      "aaronguostudio.com",
+      "aaronguo.com",
+      "aaronguoblog.vercel.app",
+      "aaronguoblog-aaron-guos-projects.vercel.app",
+      "aaronguoblog-git-main-aaron-guos-projects.vercel.app"
+    ],
+    "target": "production",
+    "regions": [
+      "iad1"
+    ],
+    "buildingAt": 1788725177584,
+    "ready": 1788725252334,
+    "readyState": "READY",
+    "source": "git",
+    "aliasError": null
+  }
+}

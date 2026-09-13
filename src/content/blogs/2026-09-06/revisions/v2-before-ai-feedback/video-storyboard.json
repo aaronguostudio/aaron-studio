@@ -1,0 +1,953 @@
+{
+  "schema_version": 1,
+  "title": "DHH and the Joy of Building With AI",
+  "duration_sec": 294.088,
+  "fps": 30,
+  "direction": {
+    "name": "Editorial ledger with lamp bookends",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "Ivory ground, stable hierarchy, graphite text, amber focus, source rail; captions own bottom 154px.",
+    "motion_density": "balanced",
+    "music_strategy": "bookended",
+    "references": [
+      {
+        "id": "accepted-ledger-baseline",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Ivory ground, stable hierarchy, graphite text, amber focus, source rail; captions own bottom 154px.",
+        "avoid": "Repeated full-frame blog slides with drifting text and generic titles."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "One useful idea",
+      "start_sec": 0,
+      "end_sec": 14.965,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Lamp emerging from a sketch / One useful idea",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Lamp emerging from a sketch",
+        "One useful idea"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Lamp emerging from a sketch / One useful idea",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Lamp emerging from a sketch",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "One useful idea",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 10.965,
+          "visual": "One useful idea",
+          "action": "Resolve to the complete takeaway with a single focus change."
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s02",
+      "title": "From excitement to a choice",
+      "start_sec": 14.965,
+      "end_sec": 20.434,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "What is worth keeping?",
+      "first_change_sec": 1.8230000000000004,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What is worth keeping?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What is worth keeping?",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 1.823,
+          "visual": "What is worth keeping?",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "A product makes a day better",
+      "start_sec": 20.434,
+      "end_sec": 34.227,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A sketch / First version / A lamp used to read",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "A sketch",
+        "First version",
+        "A lamp used to read"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A sketch / First version / A lamp used to read",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "A sketch",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "First version",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s04",
+      "title": "What DHH describes",
+      "start_sec": 34.227,
+      "end_sec": 48.496,
+      "role": "evidence",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Agents doing useful work / Who software serves / What it should do",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Agents doing useful work",
+        "Who software serves",
+        "What it should do"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Agents doing useful work / Who software serves / What it should do",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Agents doing useful work",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Who software serves",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 10.269,
+          "visual": "What it should do",
+          "action": "Resolve to the complete takeaway with a single focus change."
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s05",
+      "title": "My response",
+      "start_sec": 48.496,
+      "end_sec": 61.533,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A few delayed ideas may be worth trying",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A few delayed ideas may be worth trying"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A few delayed ideas may be worth trying",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "A few delayed ideas may be worth trying",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "A few delayed ideas may be worth trying",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06",
+      "title": "The writing process",
+      "start_sec": 61.533,
+      "end_sec": 78.008,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Research / Outline / Draft / Review",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Research",
+        "Outline",
+        "Draft",
+        "Review"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Research / Outline / Draft / Review",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Research",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Outline",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Draft",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s07",
+      "title": "A record I can inspect",
+      "start_sec": 78.008,
+      "end_sec": 91.208,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Owned source record / Owned claim ledger",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Owned source record",
+        "Owned claim ledger"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Owned source record / Owned claim ledger",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Owned source record",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Owned claim ledger",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s08",
+      "title": "One useful connection",
+      "start_sec": 91.208,
+      "end_sec": 109.087,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Draft sentence / Source passage",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Draft sentence",
+        "Source passage"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Draft sentence / Source passage",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Draft sentence",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Source passage",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Draft sentence",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s09",
+      "title": "Different kinds of statements",
+      "start_sec": 109.087,
+      "end_sec": 124.992,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "SOURCE FACT: Agents doing useful work / MY INTERPRETATION: More ideas worth attempting",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "SOURCE FACT: Agents doing useful work",
+        "MY INTERPRETATION: More ideas worth attempting"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "SOURCE FACT: Agents doing useful work / MY INTERPRETATION: More ideas worth attempting",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "SOURCE FACT: Agents doing useful work",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "MY INTERPRETATION: More ideas worth attempting",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 11.905,
+          "visual": "MY INTERPRETATION: More ideas worth attempting",
+          "action": "Resolve to the complete takeaway with a single focus change."
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10",
+      "title": "Where the claim goes too far",
+      "start_sec": 124.992,
+      "end_sec": 138.808,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Unsupported leap: Everyone becomes more productive",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Unsupported leap: Everyone becomes more productive"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Unsupported leap: Everyone becomes more productive",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Unsupported leap: Everyone becomes more productive",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Unsupported leap: Everyone becomes more productive",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s11",
+      "title": "Inspection still needs judgment",
+      "start_sec": 138.808,
+      "end_sec": 153.855,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Source link / Inspect boundary / Author decision",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Source link",
+        "Inspect boundary",
+        "Author decision"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Source link / Inspect boundary / Author decision",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Source link",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Inspect boundary",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 11.047,
+          "visual": "Author decision",
+          "action": "Resolve to the complete takeaway with a single focus change."
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s12",
+      "title": "A proposed first version",
+      "start_sec": 153.855,
+      "end_sec": 170.678,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Select claim / Keep source link / Label fact or interpretation / Try one draft",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Select claim",
+        "Keep source link",
+        "Label fact or interpretation",
+        "Try one draft"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Select claim / Keep source link / Label fact or interpretation / Try one draft",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Select claim",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Keep source link",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Label fact or interpretation",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13",
+      "title": "What exists and what is proposed",
+      "start_sec": 170.678,
+      "end_sec": 180.965,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Existing: documents / Proposed: extra convenience",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Existing: documents",
+        "Proposed: extra convenience"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Existing: documents / Proposed: extra convenience",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Existing: documents",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Proposed: extra convenience",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s14",
+      "title": "A document may be enough",
+      "start_sec": 180.965,
+      "end_sec": 197.323,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Document and reliable link / Accounts? / Dashboard? / Another service?",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Document and reliable link",
+        "Accounts?",
+        "Dashboard?",
+        "Another service?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Document and reliable link / Accounts? / Dashboard? / Another service?",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Document and reliable link",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Accounts?",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Dashboard?",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s15",
+      "title": "Ownership remains",
+      "start_sec": 197.323,
+      "end_sec": 204.614,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Each extra project needs care",
+      "first_change_sec": 2.430333333333332,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Each extra project needs care"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Each extra project needs care",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 2.43,
+          "visual": "Each extra project needs care",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s16",
+      "title": "QA has to keep up",
+      "start_sec": 204.614,
+      "end_sec": 221.867,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Changes arrive / Understand / Verify",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Changes arrive",
+        "Understand",
+        "Verify"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Changes arrive / Understand / Verify",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Changes arrive",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Understand",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Verify",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s17",
+      "title": "Different responsibilities",
+      "start_sec": 221.867,
+      "end_sec": 242.091,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Personal experiment: set aside / Shared system: data, failures, recovery",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Personal experiment: set aside",
+        "Shared system: data, failures, recovery"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Personal experiment: set aside / Shared system: data, failures, recovery",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Personal experiment: set aside",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Shared system: data, failures, recovery",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Personal experiment: set aside",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 16.224,
+          "visual": "Shared system: data, failures, recovery",
+          "action": "Resolve to the complete takeaway with a single focus change."
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s18",
+      "title": "Three questions before starting",
+      "start_sec": 242.091,
+      "end_sec": 254.792,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Who will use it? / Which step improves? / Can they return to the old way?",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Who will use it?",
+        "Which step improves?",
+        "Can they return to the old way?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Who will use it? / Which step improves? / Can they return to the old way?",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Who will use it?",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Which step improves?",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s19",
+      "title": "Apply the questions",
+      "start_sec": 254.792,
+      "end_sec": 272.475,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "First user: me / Improvement: source checking / Fallback: existing document",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "First user: me",
+        "Improvement: source checking",
+        "Fallback: existing document"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "First user: me / Improvement: source checking / Fallback: existing document",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "First user: me",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Improvement: source checking",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Fallback: existing document",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s20",
+      "title": "The freedom to finish or stop",
+      "start_sec": 272.475,
+      "end_sec": 281.716,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make something useful / Keep it only if it helps",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Make something useful",
+        "Keep it only if it helps"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make something useful / Keep it only if it helps",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Make something useful",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s21",
+      "title": "An ordinary working day",
+      "start_sec": 281.716,
+      "end_sec": 289.088,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Earn a place in an ordinary working day",
+      "first_change_sec": 2.457333333333338,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Earn a place in an ordinary working day"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Earn a place in an ordinary working day",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 2.457,
+          "visual": "Earn a place in an ordinary working day",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s22",
+      "title": "Aaron Guo",
+      "start_sec": 289.088,
+      "end_sec": 294.088,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Make the distinction inspectable without implying a shipped tool.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Aaron Guo / aaronguo.com",
+      "first_change_sec": 1.6666666666666667,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Aaron Guo",
+        "aaronguo.com"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Aaron Guo / aaronguo.com",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 1.667,
+          "visual": "Aaron Guo",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

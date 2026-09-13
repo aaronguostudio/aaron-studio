@@ -1,0 +1,54 @@
+{
+  "duration": 512.8,
+  "voice_gain": 1.0,
+  "voice_checks": [
+    {
+      "old_start": 188,
+      "new_start": 188,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 198,
+      "new_start": 201.2,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 284,
+      "new_start": 287.2,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 294,
+      "new_start": 300.0,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 465,
+      "new_start": 471.0,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 471,
+      "new_start": 477.0,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 476,
+      "new_start": 485.6,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 485,
+      "new_start": 494.6,
+      "exact_pcm_match": true
+    },
+    {
+      "old_start": 494,
+      "new_start": 503.6,
+      "exact_pcm_match": true
+    }
+  ],
+  "music_coverage_seconds": 150.3,
+  "peak_dbfs": -3.924598774835335,
+  "last_second_peak_dbfs": -240.0
+}

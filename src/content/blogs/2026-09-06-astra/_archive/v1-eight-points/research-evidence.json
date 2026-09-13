@@ -1,0 +1,337 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "astra-real-work-2026-09-06",
+  "topic": "GPT-6 Astra launch: eight operator takeaways",
+  "created_at": "2026-09-06T21:02:42.542720+00:00",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "astra-real-work-2026-09-06"
+  },
+  "sources": [
+    {
+      "id": "launch",
+      "type": "web",
+      "canonical_url": "https://openai.com/index/gpt-6-astra/",
+      "title": "GPT-6 Astra: A new generation of intelligence",
+      "author_name": "OpenAI",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Vendor announcement; reported evaluations, not independently reproduced here."
+      ],
+      "displayed_published_at": "2026-09-03"
+    },
+    {
+      "id": "safety",
+      "type": "web",
+      "canonical_url": "https://openai.com/index/safety-overview-gpt-6-astra/",
+      "title": "Safety overview: GPT-6 Astra",
+      "author_name": "OpenAI",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Vendor safety findings; improved alignment does not establish zero risk."
+      ],
+      "displayed_published_at": "2026-09-03"
+    },
+    {
+      "id": "model",
+      "type": "web",
+      "canonical_url": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "title": "GPT-6 Astra model",
+      "author_name": "OpenAI",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Live API terms, not subscription allowances; prices can change."
+      ]
+    },
+    {
+      "id": "guidance",
+      "type": "web",
+      "canonical_url": "https://developers.openai.com/api/docs/guides/latest-model",
+      "title": "Model guidance",
+      "author_name": "OpenAI",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Rolling documentation; checked for Astra on retrieval date."
+      ]
+    },
+    {
+      "id": "context",
+      "type": "web",
+      "canonical_url": "https://learn.chatgpt.com/docs/config-file/config-reference",
+      "title": "Configuration reference",
+      "author_name": "OpenAI",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Experimental feature is off by default; not verified enabled in Aaron runs."
+      ]
+    },
+    {
+      "id": "shumer",
+      "type": "web",
+      "canonical_url": "https://somethingbig.ai/astra-review",
+      "title": "My GPT-6 Astra Review",
+      "author_name": "Matt Shumer",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "First-person reviewer report with commercial sponsorship on page; not an independent replication. Updated comparison note has unclear chronology, so do not use competitor release dates."
+      ],
+      "displayed_published_at": "2026-09-03"
+    },
+    {
+      "id": "scope-feedback",
+      "type": "reddit",
+      "canonical_url": "https://www.reddit.com/r/OpenAI/comments/1w7qxdr/astra_gpt6_high_intelligence_low_intuition/",
+      "title": "High Intelligence, Low Intuition",
+      "author_name": "ZenenoDev",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Self-selected anecdote; full logs unavailable, settings and task differ."
+      ],
+      "displayed_published_at": "2026-09-05"
+    },
+    {
+      "id": "limits-feedback",
+      "type": "reddit",
+      "canonical_url": "https://www.reddit.com/r/codex/comments/1w7kvf7/gpt6_astra_wow/",
+      "title": "GPT-6 Astra… WOW.",
+      "author_name": "SourceNatural",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Ironic title: body reports quota exhaustion, not praise. Relative displayed dates differ from search index; omit exact event time."
+      ]
+    },
+    {
+      "id": "writing-feedback",
+      "type": "reddit",
+      "canonical_url": "https://www.reddit.com/r/ChatGPTcomplaints/comments/1w7uhyg/gpt_6_astra_is_the_new_gpt_52_in_creative_writing/",
+      "title": "Creative writing feedback",
+      "author_name": "Mattia2110",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Anecdote concerns fiction/refusal and style, not the same task as editorial nonfiction. No raw writing samples."
+      ]
+    },
+    {
+      "id": "dev-worker",
+      "type": "github",
+      "canonical_url": "https://github.com/Olsen-Consulting/erp-platform/pull/95",
+      "title": "Verified Dev worker reporting",
+      "author_name": "Aaron-owned project",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_api",
+      "limitations": [
+        "Private PR read via gh; historical evidence only; no client identifiers or financial values in public copy."
+      ],
+      "displayed_published_at": "2026-09-05"
+    },
+    {
+      "id": "attachment",
+      "type": "github",
+      "canonical_url": "https://github.com/Olsen-Consulting/erp-platform/pull/96",
+      "title": "Attachment procedure output fix",
+      "author_name": "Aaron-owned project",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_api",
+      "limitations": [
+        "Private PR records temporary operator-process Dev validation, not application deployment at that moment."
+      ],
+      "displayed_published_at": "2026-09-06"
+    },
+    {
+      "id": "production-prep",
+      "type": "github",
+      "canonical_url": "https://github.com/Olsen-Consulting/erp-platform/pull/101",
+      "title": "Production worker bootstrap preparation",
+      "author_name": "Aaron-owned project",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "public_api",
+      "limitations": [
+        "Merged into develop; does not establish enabled production reporting."
+      ],
+      "displayed_published_at": "2026-09-06"
+    },
+    {
+      "id": "dhh-package",
+      "type": "operator_artifact",
+      "canonical_url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+      "title": "DHH blog and video package",
+      "author_name": "Aaron",
+      "retrieved_at": "2026-09-06T21:02:42.542720+00:00",
+      "access_method": "local_artifact",
+      "limitations": [
+        "Public article and present user testimony corroborate workflow; no controlled before/after timing."
+      ],
+      "displayed_published_at": "2026-09-06"
+    }
+  ],
+  "claims": [
+    {
+      "id": "name",
+      "kind": "source_fact",
+      "text": "Official name is GPT-6 Astra; launch announcement is September 3, 2026.",
+      "source_ids": [
+        "launch",
+        "safety"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Do not confuse with Google Project Astra or use Astro."
+    },
+    {
+      "id": "workflow",
+      "kind": "source_fact",
+      "text": "OpenAI presents Astra as capable of multistep computer and professional work.",
+      "source_ids": [
+        "launch"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Supports product positioning, not an all-tasks guarantee."
+    },
+    {
+      "id": "context",
+      "kind": "source_fact",
+      "text": "Codex documents experimental context management using notes and searchable history, off by default.",
+      "source_ids": [
+        "context"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Do not attribute personal improvements to an unverified enabled feature."
+    },
+    {
+      "id": "guidance",
+      "kind": "source_fact",
+      "text": "Official guidance warns unclear or conflicting skill instructions can cause premature pauses.",
+      "source_ids": [
+        "guidance"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Useful operational caveat; not a universal explanation for complaints."
+    },
+    {
+      "id": "price",
+      "kind": "source_fact",
+      "text": "The model page lists standard API input/output rates of $10/$50 per million tokens, with separate cache and long-context terms.",
+      "source_ids": [
+        "model"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Not subscription-message pricing; refresh before publication."
+    },
+    {
+      "id": "positive",
+      "kind": "source_fact",
+      "text": "Shumer reports stronger engineering and easier-to-read updates, while flagging speed, coordination, token demand, and visual taste limits.",
+      "source_ids": [
+        "shumer"
+      ],
+      "verification_status": "verified",
+      "confidence": "medium",
+      "notes": "This verifies what the author reports, not measured comparative superiority."
+    },
+    {
+      "id": "negative",
+      "kind": "source_fact",
+      "text": "One developer reports over-scoping and unwanted implementation; other threads describe quota and creative-writing problems.",
+      "source_ids": [
+        "scope-feedback",
+        "limits-feedback",
+        "writing-feedback"
+      ],
+      "verification_status": "verified",
+      "confidence": "medium",
+      "notes": "Purposive sample, not representative sentiment; no majority claim."
+    },
+    {
+      "id": "safety",
+      "kind": "source_fact",
+      "text": "OpenAI reports stronger alignment and reduced monitorability in adversarial tests, and treats cyber capability as Critical.",
+      "source_ids": [
+        "safety"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Evaluation results do not guarantee a safe individual run."
+    },
+    {
+      "id": "worker",
+      "kind": "operator_observation",
+      "text": "Project records document Dev rendering and a later attachment/read-back/retry repair.",
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Read-only record check, not a new runtime test; exact customer data omitted."
+    },
+    {
+      "id": "smooth",
+      "kind": "operator_observation",
+      "text": "Aaron reports smoother project execution and fewer requested writing revisions during recent Astra use.",
+      "source_ids": [
+        "dhh-package"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Current user statement; no baseline timings, revision count, or model-by-model causal experiment."
+    },
+    {
+      "id": "attention",
+      "kind": "inference",
+      "text": "For Aaron, reduced correction and context-rebuilding effort may matter more than response speed.",
+      "source_ids": [
+        "shumer",
+        "scope-feedback",
+        "dhh-package"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Editorial thesis, not quantified productivity claim."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "official launch and documentation",
+      "public web search",
+      "Reddit original posts",
+      "first-person reviewer blog",
+      "GitHub PR read-back",
+      "local published articles",
+      "live growth context"
+    ],
+    "unresolved_gaps": [
+      "No controlled old/new-model A/B or baseline attention/time measurements.",
+      "Community sample is purposive and English-heavy; no aggregate sentiment claim.",
+      "X discovery did not yield a directly verified useful primary post; HN index results did not resolve a stable selected launch thread.",
+      "YouTube discovery yielded insufficient inspected video evidence; no third-party transcript or footage used.",
+      "No proof of experimental context feature being active during the personal examples."
+    ],
+    "notes": [
+      "Research cutoff: 2026-09-06. Publication must refresh pricing, availability and material launch claims.",
+      "Search-result titles and dates were checked against originals where used."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "Private PR evidence is internal only. Public work uses a generic reporting-system description, without tenant names, data, credentials or infrastructure identifiers."
+    ]
+  }
+}

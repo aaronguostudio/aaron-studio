@@ -1,0 +1,4 @@
+Blog style score: 100/100
+Passed: yes
+Stats: 2862 Chinese characters, 105 sentences, 0 slop markers
+- No blog style quality issues detected.

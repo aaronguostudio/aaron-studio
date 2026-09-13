@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "topic": "DHH and choosing a useful AI project",
+  "thesis": "Use the new capacity to finish one useful experiment, then decide whether to keep it.",
+  "sources": [
+    {
+      "id": "lex-dhh",
+      "url": "https://lexfridman.com/dhh-2-transcript/",
+      "publisher": "Lex Fridman",
+      "published_at": "2026-08-26",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Human transcript verified; no video/audio excerpts copied, no full transcript screenshot."
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "DHH describes agents doing useful work as a change in his practice.",
+      "source_ids": [
+        "lex-dhh"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Self-report at 00:05:54–09:39, not a benchmark."
+    },
+    {
+      "id": "f2",
+      "claim": "DHH discusses who software serves and what it should do.",
+      "source_ids": [
+        "lex-dhh"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Transcript 00:53:16; paraphrase, no endorsement."
+    }
+  ],
+  "operator_observations": [
+    {
+      "id": "f3",
+      "claim": "This article has a source record and a claim ledger.",
+      "source_ids": [
+        "aaron-artifacts"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Files verified locally; do not claim reader results.",
+      "local_evidence": "claim-ledger.md and personal-proof.md"
+    },
+    {
+      "id": "f4",
+      "claim": "The source-to-sentence helper is a proposed experiment.",
+      "source_ids": [
+        "aaron-artifacts"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Must retain prospective wording.",
+      "local_evidence": "claim-ledger.md and personal-proof.md"
+    }
+  ],
+  "local_sources": [
+    {
+      "id": "aaron-artifacts",
+      "url": "file:///Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-06/claim-ledger.md",
+      "publisher": "Aaron Guo",
+      "published_at": "2026-09-06",
+      "source_type": "owned",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Actual research/claim records. Proposed helper is explicitly not shipped."
+    }
+  ],
+  "schema_note": "The audit schema accepts web sources only. Owned local observations are preserved separately, not assigned fictitious public URLs. Related visuals are explanatory excerpts, not interview evidence."
+}

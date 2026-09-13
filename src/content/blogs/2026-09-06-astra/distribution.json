@@ -1,0 +1,37 @@
+{
+  "slug": "gpt-6-astra-real-work",
+  "posts": [
+    {
+      "channel": "blog",
+      "channel_post_id": "gpt-6-astra-real-work:en",
+      "channel_url": "https://www.aaronguo.com/blogs/gpt-6-astra-real-work",
+      "title": "I Put GPT-6 Astra to Work",
+      "language": "en",
+      "post_type": "article",
+      "cta_type": "read",
+      "published_at": "2026-09-07T02:21:42.466000+00:00"
+    },
+    {
+      "channel": "blog",
+      "channel_post_id": "gpt-6-astra-real-work:zh",
+      "channel_url": "https://www.aaronguo.com/zh/blogs/gpt-6-astra-real-work",
+      "title": "我把 GPT-6 Astra 用进了真实工作",
+      "language": "zh",
+      "post_type": "article",
+      "cta_type": "read",
+      "published_at": "2026-09-07T02:21:42.466000+00:00"
+    },
+    {
+      "channel": "youtube",
+      "channel_post_id": "_12kx0AFhCM",
+      "channel_url": "https://youtu.be/_12kx0AFhCM",
+      "title": "GPT-6 Astra in Real Work: 6 Things That Changed",
+      "language": "en",
+      "post_type": "video",
+      "cta_type": "read_article",
+      "published_at": "2026-09-07T02:22:45Z",
+      "channel_id": "UC00lw_bsmcXk7Dxuk_QqBTg",
+      "duration_seconds": 485.366667
+    }
+  ]
+}

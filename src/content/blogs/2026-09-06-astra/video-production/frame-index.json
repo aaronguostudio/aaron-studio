@@ -1,0 +1,986 @@
+[
+  {
+    "scene": "s00",
+    "role": "entry",
+    "frame": 0,
+    "seconds": 0.0,
+    "title": "ASTRA AT WORK",
+    "image": "frames/001.jpg"
+  },
+  {
+    "scene": "s00",
+    "role": "middle",
+    "frame": 45,
+    "seconds": 1.5,
+    "title": "ASTRA AT WORK",
+    "image": "frames/002.jpg"
+  },
+  {
+    "scene": "s00",
+    "role": "exit",
+    "frame": 89,
+    "seconds": 2.966666666666667,
+    "title": "ASTRA AT WORK",
+    "image": "frames/003.jpg"
+  },
+  {
+    "scene": "s01",
+    "role": "entry",
+    "frame": 90,
+    "seconds": 3.0,
+    "title": "The demos are striking.",
+    "image": "frames/004.jpg"
+  },
+  {
+    "scene": "s01",
+    "role": "middle",
+    "frame": 167,
+    "seconds": 5.566666666666666,
+    "title": "The demos are striking.",
+    "image": "frames/005.jpg"
+  },
+  {
+    "scene": "s01",
+    "role": "exit",
+    "frame": 244,
+    "seconds": 8.133333333333333,
+    "title": "The demos are striking.",
+    "image": "frames/006.jpg"
+  },
+  {
+    "scene": "s02",
+    "role": "entry",
+    "frame": 245,
+    "seconds": 8.166666666666666,
+    "title": "My job crossed systems.",
+    "image": "frames/007.jpg"
+  },
+  {
+    "scene": "s02",
+    "role": "middle",
+    "frame": 482,
+    "seconds": 16.066666666666666,
+    "title": "My job crossed systems.",
+    "image": "frames/008.jpg"
+  },
+  {
+    "scene": "s02",
+    "role": "exit",
+    "frame": 718,
+    "seconds": 23.933333333333334,
+    "title": "My job crossed systems.",
+    "image": "frames/009.jpg"
+  },
+  {
+    "scene": "s03",
+    "role": "entry",
+    "frame": 719,
+    "seconds": 23.966666666666665,
+    "title": "More of the job.",
+    "image": "frames/010.jpg"
+  },
+  {
+    "scene": "s03",
+    "role": "middle",
+    "frame": 806,
+    "seconds": 26.866666666666667,
+    "title": "More of the job.",
+    "image": "frames/011.jpg"
+  },
+  {
+    "scene": "s03",
+    "role": "exit",
+    "frame": 893,
+    "seconds": 29.766666666666666,
+    "title": "More of the job.",
+    "image": "frames/012.jpg"
+  },
+  {
+    "scene": "s04",
+    "role": "entry",
+    "frame": 894,
+    "seconds": 29.8,
+    "title": "The writing\nfeels more natural.",
+    "image": "frames/013.jpg"
+  },
+  {
+    "scene": "s04",
+    "role": "middle",
+    "frame": 1086,
+    "seconds": 36.2,
+    "title": "The writing\nfeels more natural.",
+    "image": "frames/014.jpg"
+  },
+  {
+    "scene": "s04",
+    "role": "exit",
+    "frame": 1278,
+    "seconds": 42.6,
+    "title": "The writing\nfeels more natural.",
+    "image": "frames/015.jpg"
+  },
+  {
+    "scene": "s05",
+    "role": "entry",
+    "frame": 1279,
+    "seconds": 42.63333333333333,
+    "title": "Astra with an actual job.",
+    "image": "frames/016.jpg"
+  },
+  {
+    "scene": "s05",
+    "role": "middle",
+    "frame": 1500,
+    "seconds": 50.0,
+    "title": "Astra with an actual job.",
+    "image": "frames/017.jpg"
+  },
+  {
+    "scene": "s05",
+    "role": "exit",
+    "frame": 1720,
+    "seconds": 57.333333333333336,
+    "title": "Astra with an actual job.",
+    "image": "frames/018.jpg"
+  },
+  {
+    "scene": "s06",
+    "role": "entry",
+    "frame": 1721,
+    "seconds": 57.36666666666667,
+    "title": "One job. Two environments.",
+    "image": "frames/019.jpg"
+  },
+  {
+    "scene": "s06",
+    "role": "middle",
+    "frame": 1858,
+    "seconds": 61.93333333333333,
+    "title": "One job. Two environments.",
+    "image": "frames/020.jpg"
+  },
+  {
+    "scene": "s06",
+    "role": "exit",
+    "frame": 1994,
+    "seconds": 66.46666666666667,
+    "title": "One job. Two environments.",
+    "image": "frames/021.jpg"
+  },
+  {
+    "scene": "s07",
+    "role": "entry",
+    "frame": 1995,
+    "seconds": 66.5,
+    "title": "From request to returned PDF.",
+    "image": "frames/022.jpg"
+  },
+  {
+    "scene": "s07",
+    "role": "middle",
+    "frame": 2159,
+    "seconds": 71.96666666666667,
+    "title": "From request to returned PDF.",
+    "image": "frames/023.jpg"
+  },
+  {
+    "scene": "s07",
+    "role": "exit",
+    "frame": 2323,
+    "seconds": 77.43333333333334,
+    "title": "From request to returned PDF.",
+    "image": "frames/024.jpg"
+  },
+  {
+    "scene": "s08",
+    "role": "entry",
+    "frame": 2324,
+    "seconds": 77.46666666666667,
+    "title": "Fit the existing system.",
+    "image": "frames/025.jpg"
+  },
+  {
+    "scene": "s08",
+    "role": "middle",
+    "frame": 2462,
+    "seconds": 82.06666666666666,
+    "title": "Fit the existing system.",
+    "image": "frames/026.jpg"
+  },
+  {
+    "scene": "s08",
+    "role": "exit",
+    "frame": 2600,
+    "seconds": 86.66666666666667,
+    "title": "Fit the existing system.",
+    "image": "frames/027.jpg"
+  },
+  {
+    "scene": "s09",
+    "role": "entry",
+    "frame": 2601,
+    "seconds": 86.7,
+    "title": "The work around the code.",
+    "image": "frames/028.jpg"
+  },
+  {
+    "scene": "s09",
+    "role": "middle",
+    "frame": 2799,
+    "seconds": 93.3,
+    "title": "The work around the code.",
+    "image": "frames/029.jpg"
+  },
+  {
+    "scene": "s09",
+    "role": "exit",
+    "frame": 2996,
+    "seconds": 99.86666666666666,
+    "title": "The work around the code.",
+    "image": "frames/030.jpg"
+  },
+  {
+    "scene": "s10",
+    "role": "entry",
+    "frame": 2997,
+    "seconds": 99.9,
+    "title": "Autonomy has a scope.",
+    "image": "frames/031.jpg"
+  },
+  {
+    "scene": "s10",
+    "role": "middle",
+    "frame": 3153,
+    "seconds": 105.1,
+    "title": "Autonomy has a scope.",
+    "image": "frames/032.jpg"
+  },
+  {
+    "scene": "s10",
+    "role": "exit",
+    "frame": 3309,
+    "seconds": 110.3,
+    "title": "Autonomy has a scope.",
+    "image": "frames/033.jpg"
+  },
+  {
+    "scene": "s11",
+    "role": "entry",
+    "frame": 3310,
+    "seconds": 110.33333333333333,
+    "title": "The pieces\nstay connected.",
+    "image": "frames/034.jpg"
+  },
+  {
+    "scene": "s11",
+    "role": "middle",
+    "frame": 3461,
+    "seconds": 115.36666666666666,
+    "title": "The pieces\nstay connected.",
+    "image": "frames/035.jpg"
+  },
+  {
+    "scene": "s11",
+    "role": "exit",
+    "frame": 3611,
+    "seconds": 120.36666666666666,
+    "title": "The pieces\nstay connected.",
+    "image": "frames/036.jpg"
+  },
+  {
+    "scene": "s12",
+    "role": "entry",
+    "frame": 3612,
+    "seconds": 120.4,
+    "title": "It still met real problems.",
+    "image": "frames/037.jpg"
+  },
+  {
+    "scene": "s12",
+    "role": "middle",
+    "frame": 3729,
+    "seconds": 124.3,
+    "title": "It still met real problems.",
+    "image": "frames/038.jpg"
+  },
+  {
+    "scene": "s12",
+    "role": "exit",
+    "frame": 3846,
+    "seconds": 128.2,
+    "title": "It still met real problems.",
+    "image": "frames/039.jpg"
+  },
+  {
+    "scene": "s13",
+    "role": "entry",
+    "frame": 3847,
+    "seconds": 128.23333333333332,
+    "title": "Follow the failure through.",
+    "image": "frames/040.jpg"
+  },
+  {
+    "scene": "s13",
+    "role": "middle",
+    "frame": 4035,
+    "seconds": 134.5,
+    "title": "Follow the failure through.",
+    "image": "frames/041.jpg"
+  },
+  {
+    "scene": "s13",
+    "role": "exit",
+    "frame": 4223,
+    "seconds": 140.76666666666668,
+    "title": "Follow the failure through.",
+    "image": "frames/042.jpg"
+  },
+  {
+    "scene": "s14",
+    "role": "entry",
+    "frame": 4224,
+    "seconds": 140.8,
+    "title": "Carry the pieces together.",
+    "image": "frames/043.jpg"
+  },
+  {
+    "scene": "s14",
+    "role": "middle",
+    "frame": 4413,
+    "seconds": 147.1,
+    "title": "Carry the pieces together.",
+    "image": "frames/044.jpg"
+  },
+  {
+    "scene": "s14",
+    "role": "exit",
+    "frame": 4602,
+    "seconds": 153.4,
+    "title": "Carry the pieces together.",
+    "image": "frames/045.jpg"
+  },
+  {
+    "scene": "s15",
+    "role": "entry",
+    "frame": 4603,
+    "seconds": 153.43333333333334,
+    "title": "2 / Connect the tools.",
+    "image": "frames/046.jpg"
+  },
+  {
+    "scene": "s15",
+    "role": "middle",
+    "frame": 4780,
+    "seconds": 159.33333333333334,
+    "title": "2 / Connect the tools.",
+    "image": "frames/047.jpg"
+  },
+  {
+    "scene": "s15",
+    "role": "exit",
+    "frame": 4957,
+    "seconds": 165.23333333333332,
+    "title": "2 / Connect the tools.",
+    "image": "frames/048.jpg"
+  },
+  {
+    "scene": "s16",
+    "role": "entry",
+    "frame": 4958,
+    "seconds": 165.26666666666668,
+    "title": "A result becomes an input.",
+    "image": "frames/049.jpg"
+  },
+  {
+    "scene": "s16",
+    "role": "middle",
+    "frame": 5206,
+    "seconds": 173.53333333333333,
+    "title": "A result becomes an input.",
+    "image": "frames/050.jpg"
+  },
+  {
+    "scene": "s16",
+    "role": "exit",
+    "frame": 5454,
+    "seconds": 181.8,
+    "title": "A result becomes an input.",
+    "image": "frames/051.jpg"
+  },
+  {
+    "scene": "s17",
+    "role": "entry",
+    "frame": 5455,
+    "seconds": 181.83333333333334,
+    "title": "Ordinary browser work.",
+    "image": "frames/052.jpg"
+  },
+  {
+    "scene": "s17",
+    "role": "middle",
+    "frame": 5675,
+    "seconds": 189.16666666666666,
+    "title": "Ordinary browser work.",
+    "image": "frames/053.jpg"
+  },
+  {
+    "scene": "s17",
+    "role": "exit",
+    "frame": 5894,
+    "seconds": 196.46666666666667,
+    "title": "Ordinary browser work.",
+    "image": "frames/054.jpg"
+  },
+  {
+    "scene": "s18",
+    "role": "entry",
+    "frame": 5895,
+    "seconds": 196.5,
+    "title": "Keep the handoffs moving.",
+    "image": "frames/055.jpg"
+  },
+  {
+    "scene": "s18",
+    "role": "middle",
+    "frame": 6207,
+    "seconds": 206.9,
+    "title": "Keep the handoffs moving.",
+    "image": "frames/056.jpg"
+  },
+  {
+    "scene": "s18",
+    "role": "exit",
+    "frame": 6519,
+    "seconds": 217.3,
+    "title": "Keep the handoffs moving.",
+    "image": "frames/057.jpg"
+  },
+  {
+    "scene": "s19",
+    "role": "entry",
+    "frame": 6520,
+    "seconds": 217.33333333333334,
+    "title": "3 / Keep the history.",
+    "image": "frames/058.jpg"
+  },
+  {
+    "scene": "s19",
+    "role": "middle",
+    "frame": 6815,
+    "seconds": 227.16666666666666,
+    "title": "3 / Keep the history.",
+    "image": "frames/059.jpg"
+  },
+  {
+    "scene": "s19",
+    "role": "exit",
+    "frame": 7110,
+    "seconds": 237.0,
+    "title": "3 / Keep the history.",
+    "image": "frames/060.jpg"
+  },
+  {
+    "scene": "s20",
+    "role": "entry",
+    "frame": 7111,
+    "seconds": 237.03333333333333,
+    "title": "A refactor, hours later.",
+    "image": "frames/061.jpg"
+  },
+  {
+    "scene": "s20",
+    "role": "middle",
+    "frame": 7278,
+    "seconds": 242.6,
+    "title": "A refactor, hours later.",
+    "image": "frames/062.jpg"
+  },
+  {
+    "scene": "s20",
+    "role": "exit",
+    "frame": 7445,
+    "seconds": 248.16666666666666,
+    "title": "A refactor, hours later.",
+    "image": "frames/063.jpg"
+  },
+  {
+    "scene": "s21",
+    "role": "entry",
+    "frame": 7446,
+    "seconds": 248.2,
+    "title": "Keep the reason, too.",
+    "image": "frames/064.jpg"
+  },
+  {
+    "scene": "s21",
+    "role": "middle",
+    "frame": 7699,
+    "seconds": 256.6333333333333,
+    "title": "Keep the reason, too.",
+    "image": "frames/065.jpg"
+  },
+  {
+    "scene": "s21",
+    "role": "exit",
+    "frame": 7952,
+    "seconds": 265.06666666666666,
+    "title": "Keep the reason, too.",
+    "image": "frames/066.jpg"
+  },
+  {
+    "scene": "s22",
+    "role": "entry",
+    "frame": 7953,
+    "seconds": 265.1,
+    "title": "Earlier effort\nstays useful.",
+    "image": "frames/067.jpg"
+  },
+  {
+    "scene": "s22",
+    "role": "middle",
+    "frame": 8140,
+    "seconds": 271.3333333333333,
+    "title": "Earlier effort\nstays useful.",
+    "image": "frames/068.jpg"
+  },
+  {
+    "scene": "s22",
+    "role": "exit",
+    "frame": 8327,
+    "seconds": 277.56666666666666,
+    "title": "Earlier effort\nstays useful.",
+    "image": "frames/069.jpg"
+  },
+  {
+    "scene": "s23",
+    "role": "entry",
+    "frame": 8328,
+    "seconds": 277.6,
+    "title": "4 / Initiative and direction.",
+    "image": "frames/070.jpg"
+  },
+  {
+    "scene": "s23",
+    "role": "middle",
+    "frame": 8479,
+    "seconds": 282.6333333333333,
+    "title": "4 / Initiative and direction.",
+    "image": "frames/071.jpg"
+  },
+  {
+    "scene": "s23",
+    "role": "exit",
+    "frame": 8630,
+    "seconds": 287.6666666666667,
+    "title": "4 / Initiative and direction.",
+    "image": "frames/072.jpg"
+  },
+  {
+    "scene": "s24",
+    "role": "entry",
+    "frame": 8631,
+    "seconds": 287.7,
+    "title": "\u201cKeep this in the test environment.\u201d",
+    "image": "frames/073.jpg"
+  },
+  {
+    "scene": "s24",
+    "role": "middle",
+    "frame": 8818,
+    "seconds": 293.93333333333334,
+    "title": "\u201cKeep this in the test environment.\u201d",
+    "image": "frames/074.jpg"
+  },
+  {
+    "scene": "s24",
+    "role": "exit",
+    "frame": 9004,
+    "seconds": 300.1333333333333,
+    "title": "\u201cKeep this in the test environment.\u201d",
+    "image": "frames/075.jpg"
+  },
+  {
+    "scene": "s25",
+    "role": "entry",
+    "frame": 9005,
+    "seconds": 300.1666666666667,
+    "title": "Review the old skills.",
+    "image": "frames/076.jpg"
+  },
+  {
+    "scene": "s25",
+    "role": "middle",
+    "frame": 9159,
+    "seconds": 305.3,
+    "title": "Review the old skills.",
+    "image": "frames/077.jpg"
+  },
+  {
+    "scene": "s25",
+    "role": "exit",
+    "frame": 9313,
+    "seconds": 310.43333333333334,
+    "title": "Review the old skills.",
+    "image": "frames/078.jpg"
+  },
+  {
+    "scene": "s26",
+    "role": "entry",
+    "frame": 9314,
+    "seconds": 310.46666666666664,
+    "title": "Give it a clearer working agreement.",
+    "image": "frames/079.jpg"
+  },
+  {
+    "scene": "s26",
+    "role": "middle",
+    "frame": 9448,
+    "seconds": 314.93333333333334,
+    "title": "Give it a clearer working agreement.",
+    "image": "frames/080.jpg"
+  },
+  {
+    "scene": "s26",
+    "role": "exit",
+    "frame": 9582,
+    "seconds": 319.4,
+    "title": "Give it a clearer working agreement.",
+    "image": "frames/081.jpg"
+  },
+  {
+    "scene": "s27",
+    "role": "entry",
+    "frame": 9583,
+    "seconds": 319.43333333333334,
+    "title": "Scope still matters.",
+    "image": "frames/082.jpg"
+  },
+  {
+    "scene": "s27",
+    "role": "middle",
+    "frame": 9818,
+    "seconds": 327.26666666666665,
+    "title": "Scope still matters.",
+    "image": "frames/083.jpg"
+  },
+  {
+    "scene": "s27",
+    "role": "exit",
+    "frame": 10052,
+    "seconds": 335.06666666666666,
+    "title": "Scope still matters.",
+    "image": "frames/084.jpg"
+  },
+  {
+    "scene": "s28",
+    "role": "entry",
+    "frame": 10053,
+    "seconds": 335.1,
+    "title": "5 / More natural prose.",
+    "image": "frames/085.jpg"
+  },
+  {
+    "scene": "s28",
+    "role": "middle",
+    "frame": 10200,
+    "seconds": 340.0,
+    "title": "5 / More natural prose.",
+    "image": "frames/086.jpg"
+  },
+  {
+    "scene": "s28",
+    "role": "exit",
+    "frame": 10346,
+    "seconds": 344.8666666666667,
+    "title": "5 / More natural prose.",
+    "image": "frames/087.jpg"
+  },
+  {
+    "scene": "s29",
+    "role": "entry",
+    "frame": 10347,
+    "seconds": 344.9,
+    "title": "From scattered thoughts to an article.",
+    "image": "frames/088.jpg"
+  },
+  {
+    "scene": "s29",
+    "role": "middle",
+    "frame": 10599,
+    "seconds": 353.3,
+    "title": "From scattered thoughts to an article.",
+    "image": "frames/089.jpg"
+  },
+  {
+    "scene": "s29",
+    "role": "exit",
+    "frame": 10851,
+    "seconds": 361.7,
+    "title": "From scattered thoughts to an article.",
+    "image": "frames/090.jpg"
+  },
+  {
+    "scene": "s30",
+    "role": "entry",
+    "frame": 10852,
+    "seconds": 361.73333333333335,
+    "title": "Let one thought lead to the next.",
+    "image": "frames/091.jpg"
+  },
+  {
+    "scene": "s30",
+    "role": "middle",
+    "frame": 11044,
+    "seconds": 368.1333333333333,
+    "title": "Let one thought lead to the next.",
+    "image": "frames/092.jpg"
+  },
+  {
+    "scene": "s30",
+    "role": "exit",
+    "frame": 11236,
+    "seconds": 374.53333333333336,
+    "title": "Let one thought lead to the next.",
+    "image": "frames/093.jpg"
+  },
+  {
+    "scene": "s31",
+    "role": "entry",
+    "frame": 11237,
+    "seconds": 374.56666666666666,
+    "title": "Make the expression\nfit the piece.",
+    "image": "frames/094.jpg"
+  },
+  {
+    "scene": "s31",
+    "role": "middle",
+    "frame": 11483,
+    "seconds": 382.76666666666665,
+    "title": "Make the expression\nfit the piece.",
+    "image": "frames/095.jpg"
+  },
+  {
+    "scene": "s31",
+    "role": "exit",
+    "frame": 11728,
+    "seconds": 390.93333333333334,
+    "title": "Make the expression\nfit the piece.",
+    "image": "frames/096.jpg"
+  },
+  {
+    "scene": "s32",
+    "role": "entry",
+    "frame": 11729,
+    "seconds": 390.96666666666664,
+    "title": "6 / Count the whole cost.",
+    "image": "frames/097.jpg"
+  },
+  {
+    "scene": "s32",
+    "role": "middle",
+    "frame": 11897,
+    "seconds": 396.56666666666666,
+    "title": "6 / Count the whole cost.",
+    "image": "frames/098.jpg"
+  },
+  {
+    "scene": "s32",
+    "role": "exit",
+    "frame": 12064,
+    "seconds": 402.1333333333333,
+    "title": "6 / Count the whole cost.",
+    "image": "frames/099.jpg"
+  },
+  {
+    "scene": "s33",
+    "role": "entry",
+    "frame": 12065,
+    "seconds": 402.1666666666667,
+    "title": "The allowance can run out.",
+    "image": "frames/100.jpg"
+  },
+  {
+    "scene": "s33",
+    "role": "middle",
+    "frame": 12186,
+    "seconds": 406.2,
+    "title": "The allowance can run out.",
+    "image": "frames/101.jpg"
+  },
+  {
+    "scene": "s33",
+    "role": "exit",
+    "frame": 12306,
+    "seconds": 410.2,
+    "title": "The allowance can run out.",
+    "image": "frames/102.jpg"
+  },
+  {
+    "scene": "s34",
+    "role": "entry",
+    "frame": 12307,
+    "seconds": 410.23333333333335,
+    "title": "Choose by the job.",
+    "image": "frames/103.jpg"
+  },
+  {
+    "scene": "s34",
+    "role": "middle",
+    "frame": 12485,
+    "seconds": 416.1666666666667,
+    "title": "Choose by the job.",
+    "image": "frames/104.jpg"
+  },
+  {
+    "scene": "s34",
+    "role": "exit",
+    "frame": 12663,
+    "seconds": 422.1,
+    "title": "Choose by the job.",
+    "image": "frames/105.jpg"
+  },
+  {
+    "scene": "s35",
+    "role": "entry",
+    "frame": 12664,
+    "seconds": 422.1333333333333,
+    "title": "More trust\nin a longer job.",
+    "image": "frames/106.jpg"
+  },
+  {
+    "scene": "s35",
+    "role": "middle",
+    "frame": 12864,
+    "seconds": 428.8,
+    "title": "More trust\nin a longer job.",
+    "image": "frames/107.jpg"
+  },
+  {
+    "scene": "s35",
+    "role": "exit",
+    "frame": 13063,
+    "seconds": 435.43333333333334,
+    "title": "More trust\nin a longer job.",
+    "image": "frames/108.jpg"
+  },
+  {
+    "scene": "s36",
+    "role": "entry",
+    "frame": 13064,
+    "seconds": 435.46666666666664,
+    "title": "New questions come with autonomy.",
+    "image": "frames/109.jpg"
+  },
+  {
+    "scene": "s36",
+    "role": "middle",
+    "frame": 13248,
+    "seconds": 441.6,
+    "title": "New questions come with autonomy.",
+    "image": "frames/110.jpg"
+  },
+  {
+    "scene": "s36",
+    "role": "exit",
+    "frame": 13432,
+    "seconds": 447.73333333333335,
+    "title": "New questions come with autonomy.",
+    "image": "frames/111.jpg"
+  },
+  {
+    "scene": "s37",
+    "role": "entry",
+    "frame": 13433,
+    "seconds": 447.76666666666665,
+    "title": "I\u2019m tempted to buy more room.",
+    "image": "frames/112.jpg"
+  },
+  {
+    "scene": "s37",
+    "role": "middle",
+    "frame": 13618,
+    "seconds": 453.93333333333334,
+    "title": "I\u2019m tempted to buy more room.",
+    "image": "frames/113.jpg"
+  },
+  {
+    "scene": "s37",
+    "role": "exit",
+    "frame": 13802,
+    "seconds": 460.06666666666666,
+    "title": "I\u2019m tempted to buy more room.",
+    "image": "frames/114.jpg"
+  },
+  {
+    "scene": "s38",
+    "role": "entry",
+    "frame": 13803,
+    "seconds": 460.1,
+    "title": "The excitement\nis still there.",
+    "image": "frames/115.jpg"
+  },
+  {
+    "scene": "s38",
+    "role": "middle",
+    "frame": 13963,
+    "seconds": 465.43333333333334,
+    "title": "The excitement\nis still there.",
+    "image": "frames/116.jpg"
+  },
+  {
+    "scene": "s38",
+    "role": "exit",
+    "frame": 14123,
+    "seconds": 470.76666666666665,
+    "title": "The excitement\nis still there.",
+    "image": "frames/117.jpg"
+  },
+  {
+    "scene": "s39",
+    "role": "entry",
+    "frame": 14124,
+    "seconds": 470.8,
+    "title": "AI is still surprising me.",
+    "image": "frames/118.jpg"
+  },
+  {
+    "scene": "s39",
+    "role": "middle",
+    "frame": 14267,
+    "seconds": 475.56666666666666,
+    "title": "AI is still surprising me.",
+    "image": "frames/119.jpg"
+  },
+  {
+    "scene": "s39",
+    "role": "exit",
+    "frame": 14410,
+    "seconds": 480.3333333333333,
+    "title": "AI is still surprising me.",
+    "image": "frames/120.jpg"
+  },
+  {
+    "scene": "s40",
+    "role": "entry",
+    "frame": 14411,
+    "seconds": 480.3666666666667,
+    "title": "AARON GUO",
+    "image": "frames/121.jpg"
+  },
+  {
+    "scene": "s40",
+    "role": "middle",
+    "frame": 14486,
+    "seconds": 482.8666666666667,
+    "title": "AARON GUO",
+    "image": "frames/122.jpg"
+  },
+  {
+    "scene": "s40",
+    "role": "exit",
+    "frame": 14560,
+    "seconds": 485.3333333333333,
+    "title": "AARON GUO",
+    "image": "frames/123.jpg"
+  }
+]

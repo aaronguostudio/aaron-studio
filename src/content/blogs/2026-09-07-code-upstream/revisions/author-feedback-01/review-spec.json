@@ -1,0 +1,88 @@
+{
+  "title": "代码与业务 · 作者退回后的论证复盘",
+  "limitations": [
+    "作者否定的是当前整篇文章；未评价新样段，不预填版本偏好。",
+    "方向样段仅含开头、一节和结尾，与全文不构成完整版本对比。",
+    "旧 PASS 为本次捕获的文件存档；时间是捕获时间，不是原执行时间。",
+    "保留的原稿/规则快照与新样段均真实存在；没有旧 skill 控制组或独立评审。",
+    "这是人工反馈驱动的修订记录，不是系统自动学会写作。"
+  ],
+  "cases": [
+    {
+      "id": "editorial-miss",
+      "title": "自评误判",
+      "kind": "historical-revision",
+      "question": "模型先前为何通过，而作者认为文章没有达到要求？",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/review-before.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/review-after.json",
+      "feedback": [
+        {
+          "text": "作者指出观点不鲜明、正反反复、论据未深挖，缺少未来五到十年的思考与个人热情。",
+          "source": "author-feedback",
+          "reference": "本任务 2026-09-07 用户反馈摘要；原话节选见 feedback.md。新样段尚未得到作者评价。"
+        }
+      ],
+      "checks": [],
+      "decision": null
+    },
+    {
+      "id": "stance",
+      "title": "主张与热情",
+      "kind": "historical-revision",
+      "question": "样段是否明确作者的选择？比较范围仅为开头。",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/editorial-v2/snapshot.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/probe.json",
+      "feedback": [
+        {
+          "text": "作者指出观点不鲜明、正反反复、论据未深挖，缺少未来五到十年的思考与个人热情。",
+          "source": "author-feedback",
+          "reference": "本任务 2026-09-07 用户反馈摘要；原话节选见 feedback.md。新样段尚未得到作者评价。"
+        }
+      ],
+      "checks": [],
+      "decision": null,
+      "focus": {
+        "before": "最近关于 AI 编程",
+        "after": "我对 AI 编程的判断很明确"
+      }
+    },
+    {
+      "id": "horizon",
+      "title": "完整项目与长期成长",
+      "kind": "historical-revision",
+      "question": "从经历推到长期能力，是否比原稿的通用提醒更有说服力？",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/editorial-v2/snapshot.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/probe.json",
+      "feedback": [
+        {
+          "text": "作者指出观点不鲜明、正反反复、论据未深挖，缺少未来五到十年的思考与个人热情。",
+          "source": "author-feedback",
+          "reference": "本任务 2026-09-07 用户反馈摘要；原话节选见 feedback.md。新样段尚未得到作者评价。"
+        }
+      ],
+      "checks": [],
+      "decision": null,
+      "focus": {
+        "before": "这次经历让我感到",
+        "after": "把时间拉长，这种经验"
+      }
+    },
+    {
+      "id": "rules",
+      "title": "规则怎样响应反馈",
+      "kind": "skill-change",
+      "question": "这次规则修改是否针对真实失败？效果仍待后续作品验证。",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/rules-before.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/rules-after.json",
+      "feedback": [
+        {
+          "text": "作者指出观点不鲜明、正反反复、论据未深挖，缺少未来五到十年的思考与个人热情。",
+          "source": "author-feedback",
+          "reference": "本任务 2026-09-07 用户反馈摘要；原话节选见 feedback.md。新样段尚未得到作者评价。"
+        }
+      ],
+      "checks": [],
+      "decision": null
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "method": "No TTS regeneration; exact V3 PCM plus chapter silence",
+  "sourceManifest": "audio-v3-generation-manifest.json",
+  "sourcePcm": "video-production/v3/voice-stem.wav",
+  "timeMap": "video-production/v4/time-map.json",
+  "voiceGain": 1,
+  "soundPlan": "video-production/v4/sound-plan.json"
+}

@@ -1,0 +1,704 @@
+[
+  {
+    "frame": 0,
+    "scene": "s00",
+    "phase": "entry",
+    "title": "BUILD WHAT MATTERS"
+  },
+  {
+    "frame": 45,
+    "scene": "s00",
+    "phase": "middle",
+    "title": "BUILD WHAT MATTERS"
+  },
+  {
+    "frame": 86,
+    "scene": "s00",
+    "phase": "exit",
+    "title": "BUILD WHAT MATTERS"
+  },
+  {
+    "frame": 90,
+    "scene": "s01",
+    "phase": "entry",
+    "title": "A judgment from my years at Amazon."
+  },
+  {
+    "frame": 315,
+    "scene": "s01",
+    "phase": "middle",
+    "title": "A judgment from my years at Amazon."
+  },
+  {
+    "frame": 522,
+    "scene": "s01",
+    "phase": "exit",
+    "title": "A judgment from my years at Amazon."
+  },
+  {
+    "frame": 540,
+    "scene": "s02",
+    "phase": "entry",
+    "title": "Where does the work\nbecome useful?"
+  },
+  {
+    "frame": 726,
+    "scene": "s02",
+    "phase": "middle",
+    "title": "Where does the work\nbecome useful?"
+  },
+  {
+    "frame": 896,
+    "scene": "s02",
+    "phase": "exit",
+    "title": "Where does the work\nbecome useful?"
+  },
+  {
+    "frame": 911,
+    "scene": "s03",
+    "phase": "entry",
+    "title": "An organization can create its own work."
+  },
+  {
+    "frame": 1111,
+    "scene": "s03",
+    "phase": "middle",
+    "title": "An organization can create its own work."
+  },
+  {
+    "frame": 1295,
+    "scene": "s03",
+    "phase": "exit",
+    "title": "An organization can create its own work."
+  },
+  {
+    "frame": 1311,
+    "scene": "s04",
+    "phase": "entry",
+    "title": "Hard work can be absorbed internally."
+  },
+  {
+    "frame": 1528,
+    "scene": "s04",
+    "phase": "middle",
+    "title": "Hard work can be absorbed internally."
+  },
+  {
+    "frame": 1728,
+    "scene": "s04",
+    "phase": "exit",
+    "title": "Hard work can be absorbed internally."
+  },
+  {
+    "frame": 1745,
+    "scene": "s05",
+    "phase": "entry",
+    "title": "2024 / Reduce layers."
+  },
+  {
+    "frame": 1859,
+    "scene": "s05",
+    "phase": "middle",
+    "title": "2024 / Reduce layers."
+  },
+  {
+    "frame": 1964,
+    "scene": "s05",
+    "phase": "exit",
+    "title": "2024 / Reduce layers."
+  },
+  {
+    "frame": 1973,
+    "scene": "s06",
+    "phase": "entry",
+    "title": "2025 / An AI workforce forecast."
+  },
+  {
+    "frame": 2114,
+    "scene": "s06",
+    "phase": "middle",
+    "title": "2025 / An AI workforce forecast."
+  },
+  {
+    "frame": 2244,
+    "scene": "s06",
+    "phase": "exit",
+    "title": "2025 / An AI workforce forecast."
+  },
+  {
+    "frame": 2255,
+    "scene": "s07",
+    "phase": "entry",
+    "title": "2026 / Restructuring continued."
+  },
+  {
+    "frame": 2499,
+    "scene": "s07",
+    "phase": "middle",
+    "title": "2026 / Restructuring continued."
+  },
+  {
+    "frame": 2723,
+    "scene": "s07",
+    "phase": "exit",
+    "title": "2026 / Restructuring continued."
+  },
+  {
+    "frame": 2743,
+    "scene": "s08",
+    "phase": "entry",
+    "title": "Cheaper execution changes the calculation."
+  },
+  {
+    "frame": 2844,
+    "scene": "s08",
+    "phase": "middle",
+    "title": "Cheaper execution changes the calculation."
+  },
+  {
+    "frame": 2936,
+    "scene": "s08",
+    "phase": "exit",
+    "title": "Cheaper execution changes the calculation."
+  },
+  {
+    "frame": 2944,
+    "scene": "s09",
+    "phase": "entry",
+    "title": "Invest in the work\naround the code."
+  },
+  {
+    "frame": 3210,
+    "scene": "s09",
+    "phase": "middle",
+    "title": "Invest in the work\naround the code."
+  },
+  {
+    "frame": 3454,
+    "scene": "s09",
+    "phase": "exit",
+    "title": "Invest in the work\naround the code."
+  },
+  {
+    "frame": 3475,
+    "scene": "s10",
+    "phase": "entry",
+    "title": "Two ways implementation is changing."
+  },
+  {
+    "frame": 3648,
+    "scene": "s10",
+    "phase": "middle",
+    "title": "Two ways implementation is changing."
+  },
+  {
+    "frame": 3807,
+    "scene": "s10",
+    "phase": "exit",
+    "title": "Two ways implementation is changing."
+  },
+  {
+    "frame": 3821,
+    "scene": "s11",
+    "phase": "entry",
+    "title": "What deserves the effort?"
+  },
+  {
+    "frame": 4090,
+    "scene": "s11",
+    "phase": "middle",
+    "title": "What deserves the effort?"
+  },
+  {
+    "frame": 4338,
+    "scene": "s11",
+    "phase": "exit",
+    "title": "What deserves the effort?"
+  },
+  {
+    "frame": 4360,
+    "scene": "s12",
+    "phase": "entry",
+    "title": "1 / Learn an industry deeply."
+  },
+  {
+    "frame": 4540,
+    "scene": "s12",
+    "phase": "middle",
+    "title": "1 / Learn an industry deeply."
+  },
+  {
+    "frame": 4705,
+    "scene": "s12",
+    "phase": "exit",
+    "title": "1 / Learn an industry deeply."
+  },
+  {
+    "frame": 4719,
+    "scene": "s13",
+    "phase": "entry",
+    "title": "Payroll is more than a calculation."
+  },
+  {
+    "frame": 4901,
+    "scene": "s13",
+    "phase": "middle",
+    "title": "Payroll is more than a calculation."
+  },
+  {
+    "frame": 5068,
+    "scene": "s13",
+    "phase": "exit",
+    "title": "Payroll is more than a calculation."
+  },
+  {
+    "frame": 5083,
+    "scene": "s14",
+    "phase": "entry",
+    "title": "Notice needs before they become tickets."
+  },
+  {
+    "frame": 5250,
+    "scene": "s14",
+    "phase": "middle",
+    "title": "Notice needs before they become tickets."
+  },
+  {
+    "frame": 5405,
+    "scene": "s14",
+    "phase": "exit",
+    "title": "Notice needs before they become tickets."
+  },
+  {
+    "frame": 5418,
+    "scene": "s15",
+    "phase": "entry",
+    "title": "2 / Spend time with customers."
+  },
+  {
+    "frame": 5622,
+    "scene": "s15",
+    "phase": "middle",
+    "title": "2 / Spend time with customers."
+  },
+  {
+    "frame": 5811,
+    "scene": "s15",
+    "phase": "exit",
+    "title": "2 / Spend time with customers."
+  },
+  {
+    "frame": 5827,
+    "scene": "s16",
+    "phase": "entry",
+    "title": "Watch the pause."
+  },
+  {
+    "frame": 6126,
+    "scene": "s16",
+    "phase": "middle",
+    "title": "Watch the pause."
+  },
+  {
+    "frame": 6402,
+    "scene": "s16",
+    "phase": "exit",
+    "title": "Watch the pause."
+  },
+  {
+    "frame": 6426,
+    "scene": "s17",
+    "phase": "entry",
+    "title": "Follow the exception."
+  },
+  {
+    "frame": 6603,
+    "scene": "s17",
+    "phase": "middle",
+    "title": "Follow the exception."
+  },
+  {
+    "frame": 6766,
+    "scene": "s17",
+    "phase": "exit",
+    "title": "Follow the exception."
+  },
+  {
+    "frame": 6780,
+    "scene": "s18",
+    "phase": "entry",
+    "title": "Observation changes the next feature."
+  },
+  {
+    "frame": 6969,
+    "scene": "s18",
+    "phase": "middle",
+    "title": "Observation changes the next feature."
+  },
+  {
+    "frame": 7143,
+    "scene": "s18",
+    "phase": "exit",
+    "title": "Observation changes the next feature."
+  },
+  {
+    "frame": 7158,
+    "scene": "s19",
+    "phase": "entry",
+    "title": "3 / Practice product decisions."
+  },
+  {
+    "frame": 7343,
+    "scene": "s19",
+    "phase": "middle",
+    "title": "3 / Practice product decisions."
+  },
+  {
+    "frame": 7513,
+    "scene": "s19",
+    "phase": "exit",
+    "title": "3 / Practice product decisions."
+  },
+  {
+    "frame": 7528,
+    "scene": "s20",
+    "phase": "entry",
+    "title": "Two approaches. One user task."
+  },
+  {
+    "frame": 7781,
+    "scene": "s20",
+    "phase": "middle",
+    "title": "Two approaches. One user task."
+  },
+  {
+    "frame": 8013,
+    "scene": "s20",
+    "phase": "exit",
+    "title": "Two approaches. One user task."
+  },
+  {
+    "frame": 8033,
+    "scene": "s21",
+    "phase": "entry",
+    "title": "What should this experiment answer?"
+  },
+  {
+    "frame": 8160,
+    "scene": "s21",
+    "phase": "middle",
+    "title": "What should this experiment answer?"
+  },
+  {
+    "frame": 8278,
+    "scene": "s21",
+    "phase": "exit",
+    "title": "What should this experiment answer?"
+  },
+  {
+    "frame": 8288,
+    "scene": "s22",
+    "phase": "entry",
+    "title": "A basis for choosing."
+  },
+  {
+    "frame": 8561,
+    "scene": "s22",
+    "phase": "middle",
+    "title": "A basis for choosing."
+  },
+  {
+    "frame": 8812,
+    "scene": "s22",
+    "phase": "exit",
+    "title": "A basis for choosing."
+  },
+  {
+    "frame": 8834,
+    "scene": "s23",
+    "phase": "entry",
+    "title": "4 / Test commercial value."
+  },
+  {
+    "frame": 8948,
+    "scene": "s23",
+    "phase": "middle",
+    "title": "4 / Test commercial value."
+  },
+  {
+    "frame": 9054,
+    "scene": "s23",
+    "phase": "exit",
+    "title": "4 / Test commercial value."
+  },
+  {
+    "frame": 9063,
+    "scene": "s24",
+    "phase": "entry",
+    "title": "Adoption has a cost."
+  },
+  {
+    "frame": 9164,
+    "scene": "s24",
+    "phase": "middle",
+    "title": "Adoption has a cost."
+  },
+  {
+    "frame": 9258,
+    "scene": "s24",
+    "phase": "exit",
+    "title": "Adoption has a cost."
+  },
+  {
+    "frame": 9266,
+    "scene": "s25",
+    "phase": "entry",
+    "title": "Why would\nsomeone switch?"
+  },
+  {
+    "frame": 9512,
+    "scene": "s25",
+    "phase": "middle",
+    "title": "Why would\nsomeone switch?"
+  },
+  {
+    "frame": 9737,
+    "scene": "s25",
+    "phase": "exit",
+    "title": "Why would\nsomeone switch?"
+  },
+  {
+    "frame": 9757,
+    "scene": "s26",
+    "phase": "entry",
+    "title": "Take the idea into the market."
+  },
+  {
+    "frame": 9904,
+    "scene": "s26",
+    "phase": "middle",
+    "title": "Take the idea into the market."
+  },
+  {
+    "frame": 10039,
+    "scene": "s26",
+    "phase": "exit",
+    "title": "Take the idea into the market."
+  },
+  {
+    "frame": 10051,
+    "scene": "s27",
+    "phase": "entry",
+    "title": "Revisit what was once too expensive."
+  },
+  {
+    "frame": 10310,
+    "scene": "s27",
+    "phase": "middle",
+    "title": "Revisit what was once too expensive."
+  },
+  {
+    "frame": 10549,
+    "scene": "s27",
+    "phase": "exit",
+    "title": "Revisit what was once too expensive."
+  },
+  {
+    "frame": 10570,
+    "scene": "s28",
+    "phase": "entry",
+    "title": "5 / Follow the project into use."
+  },
+  {
+    "frame": 10761,
+    "scene": "s28",
+    "phase": "middle",
+    "title": "5 / Follow the project into use."
+  },
+  {
+    "frame": 10937,
+    "scene": "s28",
+    "phase": "exit",
+    "title": "5 / Follow the project into use."
+  },
+  {
+    "frame": 10952,
+    "scene": "s29",
+    "phase": "entry",
+    "title": "Connect the work."
+  },
+  {
+    "frame": 11203,
+    "scene": "s29",
+    "phase": "middle",
+    "title": "Connect the work."
+  },
+  {
+    "frame": 11434,
+    "scene": "s29",
+    "phase": "exit",
+    "title": "Connect the work."
+  },
+  {
+    "frame": 11454,
+    "scene": "s30",
+    "phase": "entry",
+    "title": "Make completion meaningful."
+  },
+  {
+    "frame": 11619,
+    "scene": "s30",
+    "phase": "middle",
+    "title": "Make completion meaningful."
+  },
+  {
+    "frame": 11771,
+    "scene": "s30",
+    "phase": "exit",
+    "title": "Make completion meaningful."
+  },
+  {
+    "frame": 11784,
+    "scene": "s31",
+    "phase": "entry",
+    "title": "I am more willing to carry a whole task."
+  },
+  {
+    "frame": 11980,
+    "scene": "s31",
+    "phase": "middle",
+    "title": "I am more willing to carry a whole task."
+  },
+  {
+    "frame": 12160,
+    "scene": "s31",
+    "phase": "exit",
+    "title": "I am more willing to carry a whole task."
+  },
+  {
+    "frame": 12176,
+    "scene": "s32",
+    "phase": "entry",
+    "title": "Make the result trustworthy."
+  },
+  {
+    "frame": 12265,
+    "scene": "s32",
+    "phase": "middle",
+    "title": "Make the result trustworthy."
+  },
+  {
+    "frame": 12347,
+    "scene": "s32",
+    "phase": "exit",
+    "title": "Make the result trustworthy."
+  },
+  {
+    "frame": 12354,
+    "scene": "s33",
+    "phase": "entry",
+    "title": "Keep ability connected to real needs."
+  },
+  {
+    "frame": 12544,
+    "scene": "s33",
+    "phase": "middle",
+    "title": "Keep ability connected to real needs."
+  },
+  {
+    "frame": 12719,
+    "scene": "s33",
+    "phase": "exit",
+    "title": "Keep ability connected to real needs."
+  },
+  {
+    "frame": 12734,
+    "scene": "s34",
+    "phase": "entry",
+    "title": "Let each project build your judgment."
+  },
+  {
+    "frame": 12940,
+    "scene": "s34",
+    "phase": "middle",
+    "title": "Let each project build your judgment."
+  },
+  {
+    "frame": 13130,
+    "scene": "s34",
+    "phase": "exit",
+    "title": "Let each project build your judgment."
+  },
+  {
+    "frame": 13146,
+    "scene": "s35",
+    "phase": "entry",
+    "title": "What will you understand in ten years?"
+  },
+  {
+    "frame": 13285,
+    "scene": "s35",
+    "phase": "middle",
+    "title": "What will you understand in ten years?"
+  },
+  {
+    "frame": 13413,
+    "scene": "s35",
+    "phase": "exit",
+    "title": "What will you understand in ten years?"
+  },
+  {
+    "frame": 13424,
+    "scene": "s36",
+    "phase": "entry",
+    "title": "Begin with the next project."
+  },
+  {
+    "frame": 13514,
+    "scene": "s36",
+    "phase": "middle",
+    "title": "Begin with the next project."
+  },
+  {
+    "frame": 13596,
+    "scene": "s36",
+    "phase": "exit",
+    "title": "Begin with the next project."
+  },
+  {
+    "frame": 13603,
+    "scene": "s37",
+    "phase": "entry",
+    "title": "Make things you care about."
+  },
+  {
+    "frame": 13772,
+    "scene": "s37",
+    "phase": "middle",
+    "title": "Make things you care about."
+  },
+  {
+    "frame": 13927,
+    "scene": "s37",
+    "phase": "exit",
+    "title": "Make things you care about."
+  },
+  {
+    "frame": 13940,
+    "scene": "s38",
+    "phase": "entry",
+    "title": "AARON GUO"
+  },
+  {
+    "frame": 14015,
+    "scene": "s38",
+    "phase": "middle",
+    "title": "AARON GUO"
+  },
+  {
+    "frame": 14084,
+    "scene": "s38",
+    "phase": "exit",
+    "title": "AARON GUO"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "checks": {
+    "video-v2.mp4 unchanged": true,
+    "audio.mp3 unchanged": true,
+    "youtube-script.md unchanged": true,
+    "code-is-cheap-opportunity-moves-upstream.md unchanged": true,
+    "code-is-cheap-opportunity-moves-upstream-zh.md unchanged": true,
+    "approved_closing_raw_reused": true,
+    "voice_gain_one": true,
+    "last_second_silent": true,
+    "captions_in_bounds": true,
+    "captions_nonoverlapping": true,
+    "scenes_contiguous": true,
+    "quiet_hold_boundaries": true,
+    "music_cues_nonoverlapping": true,
+    "encoded_duration_matches": true,
+    "encoded_peak_headroom": true
+  },
+  "encoded_loudness": {
+    "input_i": "-16.95",
+    "input_tp": "-2.78",
+    "input_lra": "4.00",
+    "input_thresh": "-27.98",
+    "output_i": "-17.11",
+    "output_tp": "-2.90",
+    "output_lra": "4.00",
+    "output_thresh": "-28.11",
+    "normalization_type": "dynamic",
+    "target_offset": "0.11"
+  },
+  "duration": 469.733333,
+  "encoded_frames_sampled": 42,
+  "chapter_boundaries_sampled": 15,
+  "asr": "No missing clause detected. Six differences: articles and phonetic Jassy/Jesse spelling; see asr-differences.json. ASR is not a listening judgment.",
+  "author_approval": "B sound direction and B voice audition selected; extended full film available for review",
+  "uninterrupted_full_watch": "not performed by agent",
+  "headphone_listening": "not performed by agent",
+  "sampled_visual_review": "All six contact sheets inspected; no layout overflow or competing captions observed. Tile padding is not video content."
+}

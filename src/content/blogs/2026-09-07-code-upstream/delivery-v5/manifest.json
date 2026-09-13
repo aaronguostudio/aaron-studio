@@ -1,0 +1,51 @@
+{
+  "version": 5,
+  "status": "local-review-only",
+  "preparedAt": "2026-09-08T18:37:57.375549+00:00",
+  "masterSha256": "9b5debc0ea6a734f16581bd58fa159ee047e2856ea0f2eadbfea777a85b1c56b",
+  "durationSeconds": 480.8333333333333,
+  "captions": 154,
+  "audioSameAsV4": true,
+  "files": {
+    "youtube-description.txt": {
+      "bytes": 2592,
+      "sha256": "045bf903f4acc402f4be1d0eee16a83bbbd6181158b74711a1c0a53c774dc2bd"
+    },
+    "chapters.txt": {
+      "bytes": 221,
+      "sha256": "ed92aae0d8bbb52a8f4f65db95e4bdf9d764d4bb423c3341c83690853a6fb812"
+    },
+    "youtube-tags.txt": {
+      "bytes": 283,
+      "sha256": "6cf7892b5dbb030a9800210bc7aab6cdd49f3e5fbfb9369cf0bdf40ca2672664"
+    },
+    "youtube-title.txt": {
+      "bytes": 58,
+      "sha256": "325021ccdc2f4392c3037017cdeee0fa3235853d9a0e33312e2f22fcc972c999"
+    },
+    "video.mp4": {
+      "bytes": 18673190,
+      "sha256": "9b5debc0ea6a734f16581bd58fa159ee047e2856ea0f2eadbfea777a85b1c56b"
+    },
+    "README.md": {
+      "bytes": 737,
+      "sha256": "ea2ec94fb70e2303d71ba54000b68c738883f5f68da405e581c547201fe1e39a"
+    },
+    "thumbnail.jpg": {
+      "bytes": 174413,
+      "sha256": "c23ac3060096b82e3c56dcea17ba8786625f2669c31766b17a4a9d3173831754"
+    },
+    "captions.en.srt": {
+      "bytes": 11014,
+      "sha256": "a8dd9624d721398a24fc85dc70b0ded38ac30c17992fd96b61fe90853fe5a8b7"
+    },
+    "transcript.en.txt": {
+      "bytes": 5748,
+      "sha256": "23113229ba9a23bfbecc5affccecd8cc798bb19db770d78b58303582dde9f787"
+    },
+    "captions.en.vtt": {
+      "bytes": 10514,
+      "sha256": "4e9723b07967b82ebe153473c8cef49fa06824775ad0f18047b580771e8119de"
+    }
+  }
+}

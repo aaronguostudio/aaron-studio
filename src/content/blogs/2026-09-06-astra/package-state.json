@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "slug": "gpt-6-astra-real-work",
+  "date": "2026-09-06",
+  "phase": "published_verified",
+  "artifacts": {
+    "article_en": "gpt-6-astra-real-work.md",
+    "article_zh": "gpt-6-astra-real-work-zh.md",
+    "research": "research-evidence.json",
+    "script": "youtube-script.md",
+    "audio": {
+      "canonical": "audio.mp3",
+      "previous": "_archive/v2-six-points/audio.mp3",
+      "revision": 3,
+      "sha256": "061b85ae76b527e4ec0de312cc8f6f6d1b3eaa2faf545d02ef559bd85aa29945",
+      "script_sha256": "8e1d3f31d978b8f7aca1214145dfd9f41bc26bc65494611d8530467378eb5680",
+      "duration_seconds": 477.355828,
+      "technical_qa": "pass",
+      "human_listening": "No separate listening claim; author instructed video production with the current supplied narration",
+      "status": "authorized_for_video_continuation"
+    },
+    "video": {
+      "canonical": "video.mp4",
+      "alternate": "video-nomusic.mp4",
+      "status": "author_approved",
+      "sha256": "edb55d0b50d76969736da261ce9a02d69bc33bbe3f68f44c2a3238833a8af4ed",
+      "duration_seconds": 485.366667,
+      "technical_qa": "pass",
+      "sampled_visual_qa": "pass",
+      "human_full_watch": "Author said the video was fine; no separate claim of full-length listening.",
+      "qa_report": "video-qa-report.md",
+      "author_feedback": "Video body accepted; star badge rejected; user requested reference-style ASTRA lettering plus OpenAI logo.",
+      "cover_revision_qa": "video-production/launch-style-revision-qa.json"
+    },
+    "review": "review.html",
+    "draft_qa": "draft-qa.md",
+    "evidence_images": [
+      "imgs/evidence/openai-blender.png",
+      "imgs/evidence/openai-google-maps.png"
+    ],
+    "illustrations": {
+      "cover": "imgs/web/00-cover-v3-launch-style.webp",
+      "thumbnail": "imgs/thumbnail-youtube.jpg",
+      "companions": [
+        "imgs/web/01-retained-notes-v1.webp",
+        "imgs/web/02-writing-flow-v1.webp",
+        "imgs/web/03-review-lamp-v1.webp"
+      ],
+      "status": "author_approved",
+      "thumbnail_original": "imgs/00-cover-thumbnail-v3-launch-style.png",
+      "style_reference": "imgs/evidence/author-astra-style-reference.png"
+    }
+  },
+  "locks": {
+    "argument": "editorial_pass",
+    "article": "author_approved",
+    "package": "author_approved",
+    "video_content": "author_approved",
+    "cover": "author_approved"
+  },
+  "publication": {
+    "blog_url": "https://www.aaronguo.com/blogs/gpt-6-astra-real-work",
+    "youtube_url": "https://youtu.be/_12kx0AFhCM",
+    "production_main_commit": "1213e460e64537c51f64812fe35f9c31feceb94c",
+    "authorization": "Author approved final Astra cover and instructed continuation of publication: 好的，没问题，继续",
+    "youtube_id": "_12kx0AFhCM",
+    "youtube_privacy": "public",
+    "youtube_channel_id": "UC00lw_bsmcXk7Dxuk_QqBTg",
+    "blog_pr": "https://github.com/aaronguostudio/aaronguoblog/pull/18",
+    "blog_base": "main",
+    "blog_head_commit": "1674f41cb7b4b5d0fe2a5ed384e482d6da3cbc29",
+    "growth_catalog": "ingested from isolated worktree; 52 content items; no Rybbit refresh requested",
+    "qa": "publication/qa.json",
+    "merged_at": "2026-09-07T02:20:16Z",
+    "blog_url_zh": "https://www.aaronguo.com/zh/blogs/gpt-6-astra-real-work",
+    "youtube_published_at": "2026-09-07T02:22:45Z",
+    "blog_published_at": "2026-09-07T02:21:42.466000+00:00",
+    "production_deployment_id": "dpl_Giw3LFCqb2MXBeruHswADh5jiv6P",
+    "production_source": "git",
+    "production_branch": "main",
+    "live_verification": "publication/live-blog.json",
+    "youtube_verification": "publication/youtube-inspect.json"
+  },
+  "pending": [],
+  "postmortem": {
+    "status": "published_awaiting_24h_and_7d_data",
+    "path": "postmortem.md"
+  },
+  "review_url": "http://127.0.0.1:4327/review.html#video",
+  "revision": 6
+}

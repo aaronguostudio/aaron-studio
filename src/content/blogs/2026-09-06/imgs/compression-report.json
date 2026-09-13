@@ -1,0 +1,62 @@
+[
+  {
+    "file": "00-cover.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "png_bytes": 1936481,
+    "webp_bytes": 48264,
+    "quality": 82
+  },
+  {
+    "file": "00-cover-thumbnail.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "png_bytes": 2508148,
+    "webp_bytes": 168656,
+    "quality": 82
+  },
+  {
+    "file": "01-first-version-v1.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "png_bytes": 1827652,
+    "webp_bytes": 42866,
+    "quality": 82
+  },
+  {
+    "file": "02-selection-v1.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "png_bytes": 1829615,
+    "webp_bytes": 28300,
+    "quality": 82
+  },
+  {
+    "file": "03-maintenance-v1.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "png_bytes": 1826555,
+    "webp_bytes": 68838,
+    "quality": 82
+  },
+  {
+    "file": "04-dhh-portrait-v1.png",
+    "dimensions": [
+      1672,
+      941
+    ],
+    "png_bytes": 2710190,
+    "webp_bytes": 199574,
+    "quality": 82
+  }
+]

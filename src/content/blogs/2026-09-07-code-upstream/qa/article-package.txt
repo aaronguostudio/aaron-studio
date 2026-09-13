@@ -1,0 +1,4 @@
+Blog package quality: PASS
+Directory: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-07-code-upstream
+Slug: code-is-cheap-opportunity-moves-upstream
+Stats: 1540 words, 8 sections, 6 external links, 0 local images

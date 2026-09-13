@@ -1,0 +1,233 @@
+{
+  "schema_version": "0.1",
+  "slug": "dhh-the-joy-of-building",
+  "phase": "blog_and_video_published",
+  "scope": "Publish approved bilingual blog and v7 companion video",
+  "locks": {
+    "argument": "pass",
+    "article": "pass",
+    "package": "author_approved",
+    "blog_package": "pass_production_verified"
+  },
+  "artifacts": {
+    "article": {
+      "en": "dhh-the-joy-of-building.md",
+      "zh": "dhh-the-joy-of-building-zh.md",
+      "sha256": {
+        "en": "8759ea9615fb12e5b52e9847937db507679a07d8b4198d1c26ccc7cc78ba6a10",
+        "zh": "1d7312f0ad791b1454afd04d2c36b8d7ed1a4813bc5c59d2efcb3987fa952ddc"
+      }
+    },
+    "video": {
+      "canonical": "video-v7.mp4",
+      "status": "public_verified",
+      "review_candidates": {
+        "scored": "video-v7.mp4",
+        "narration_only": "video-v7-nomusic.mp4",
+        "sound_and_pacing_highlights": "video-sound-preview-v7.mp4"
+      },
+      "duration_seconds": 512.8,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "qa": "video-qa-report-v7.md",
+      "human_review": "pass_author_approved_and_requested_publication",
+      "technical_qa": "pass_retained_voice_pcm_encoded_gain_checks_39_scene_sampled_visual_qa",
+      "canonical_decision": "User approved complete package and explicitly authorized publication on 2026-09-06",
+      "prior_baseline": {
+        "scored": "video-v6.mp4",
+        "narration_only": "video-v6-nomusic.mp4",
+        "approval": "Author likes illustrations and music character; asks to fix ending entry and try natural rests"
+      },
+      "sha256": "273203737a9114ff4bfbb214c602d2851e04c6970c931ed721f9b18b12f57a2b",
+      "upload_blocker": null,
+      "youtube_id": "KUQ5cKVK8R8",
+      "youtube_url": "https://youtu.be/KUQ5cKVK8R8",
+      "published_at": "2026-09-06T20:02:27Z"
+    },
+    "images": {
+      "cover": "imgs/web/04-dhh-portrait-v1.webp",
+      "thumbnail": "imgs/00-thumbnail-v3-a.png",
+      "body": [
+        "imgs/web/01-first-version-v1.webp",
+        "imgs/web/02-selection-v1.webp",
+        "imgs/web/03-maintenance-v1.webp"
+      ],
+      "status": "author_requested_DHH_cover_live_verified",
+      "portrait": "imgs/web/04-dhh-portrait-v1.webp"
+    },
+    "audio": {
+      "canonical": "audio.mp3",
+      "sample": "audio-sample-60s.mp3",
+      "technical_qa": "pass",
+      "text_fidelity": "pass",
+      "human_review": "approved_v5_including_ending",
+      "status": "approved_and_reused_in_video",
+      "duration_seconds": 495.191995,
+      "script_sha256": "200e3954c9f3f307efec501fab5d1cd157330154aedb374894ded862834e4ad1"
+    },
+    "storyboard": {
+      "path": "video-storyboard.json",
+      "status": "production_pass_with_documented_quiet_holds",
+      "scenes": 39,
+      "planned_duration_seconds": 512.8
+    },
+    "distribution": {
+      "status": "bilingual_blog_and_youtube_published",
+      "external_posts": [
+        {
+          "channel": "blog",
+          "channel_post_id": "dhh-the-joy-of-building:en",
+          "channel_url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+          "title": "Why I Share DHH's Enthusiasm for AI",
+          "language": "en",
+          "post_type": "article",
+          "cta_type": "read",
+          "published_at": "2026-09-06T19:33:43.717Z"
+        },
+        {
+          "channel": "blog",
+          "channel_post_id": "dhh-the-joy-of-building:zh",
+          "channel_url": "https://www.aaronguo.com/zh/blogs/dhh-the-joy-of-building",
+          "title": "我为什么认同 DHH 对 AI 的热情",
+          "language": "zh",
+          "post_type": "article",
+          "cta_type": "read",
+          "published_at": "2026-09-06T19:33:43.717Z"
+        },
+        {
+          "channel": "youtube",
+          "channel_post_id": "KUQ5cKVK8R8",
+          "channel_url": "https://youtu.be/KUQ5cKVK8R8",
+          "title": "Why I Share DHH's Enthusiasm for AI",
+          "language": "en",
+          "post_type": "video",
+          "cta_type": "read_article",
+          "published_at": "2026-09-06T20:02:27Z",
+          "channel_id": "UC00lw_bsmcXk7Dxuk_QqBTg",
+          "duration_seconds": 512.8
+        }
+      ]
+    },
+    "captions": {
+      "current_video": "video-captions-en-v7.srt",
+      "original": "video-captions-en.srt",
+      "text_groups": 171,
+      "words": 1060,
+      "status": "retimed_without_text_changes",
+      "youtube_closed_captions": "not_uploaded_scope_insufficient",
+      "burned_in_captions": "present_in_approved_video"
+    }
+  },
+  "release": {
+    "published_blog_url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+    "production_commit_on_main": "71f91582911641b97a05036a331101019e85a985",
+    "provenance": {
+      "source": "git",
+      "branch": "main",
+      "deployment": "dpl_2ctsjVX1KH5TcAg6zNBuKaFNYnc7",
+      "state": "READY",
+      "production_domain_verified": true,
+      "evidence": "video-link-production-deployment.json",
+      "http_evidence": "video-link-live-verification.json"
+    },
+    "authorization": "Explicit user approval: 好的，我觉得整个blog都成型了，可以开始帮我继续下面的发布工作了。如果还有其他的需要做你继续做，然后就发布就好。",
+    "published_blog_url_zh": "https://www.aaronguo.com/zh/blogs/dhh-the-joy-of-building",
+    "published_at": "2026-09-06T19:33:43.717Z",
+    "youtube_status": "public_processed_verified",
+    "cover_update_pr": "https://github.com/aaronguostudio/aaronguoblog/pull/16",
+    "cover_commit_on_main": "eeec1a3ae1361e1632fa785f368c90e209e4ed8b",
+    "cover_status": "live_verified",
+    "target_youtube_channel": {
+      "name": "Aaron - AI-native builder",
+      "handle": "@ai-native-builder",
+      "evidence": "User screenshot 2026-09-06 at 1.51.03 PM",
+      "email_user_spelling": "arronstudio@gmail.com",
+      "email_verified": false,
+      "id": "UC00lw_bsmcXk7Dxuk_QqBTg",
+      "api_verified": true
+    },
+    "branch_reverification": {
+      "checked_at": "2026-09-06T19:52:46.798849+00:00",
+      "pr15_base": "main",
+      "pr16_base": "main",
+      "origin_main": "eeec1a3ae1361e1632fa785f368c90e209e4ed8b",
+      "domain_resolved_deployment": "dpl_EG647onKcyUfSmsSN1pkLmZdNKfQ",
+      "source": "git",
+      "state": "READY"
+    },
+    "youtube_url": "https://youtu.be/KUQ5cKVK8R8",
+    "youtube_video_id": "KUQ5cKVK8R8",
+    "youtube_link_pr": "https://github.com/aaronguostudio/aaronguoblog/pull/17",
+    "youtube_link_status": "live_verified"
+  },
+  "postmortem": {
+    "status": "published_measurement_windows_pending",
+    "content_ingest": "success_100_statements_101_results",
+    "channel_registration": "success_3_posts_4_results"
+  },
+  "updated_at": "2026-09-06T20:08:20.323605+00:00",
+  "editorial_score": 89,
+  "author_review": "Approved revised article and requested continuation: 好的。帮我继续执行",
+  "evidence_bundle": "partial_validated",
+  "not_started": [],
+  "blog_preview": {
+    "worktree": "/Users/aaronguo/Work/ag/blog/aaronguoblog-dhh-2026-09-06",
+    "branch": "codex/dhh-blog-2026-09-06",
+    "base": "2846c8c",
+    "build": "pass",
+    "browser_qa": "pass_revised_bilingual_desktop_and_narrow_view",
+    "en": "http://127.0.0.1:4316/blogs/dhh-the-joy-of-building",
+    "zh": "http://127.0.0.1:4316/zh/blogs/dhh-the-joy-of-building",
+    "runtime_caveat": "Local .output native libsql module linked from installed pnpm dependency; not a tracked code change.",
+    "commit": "0d1469c"
+  },
+  "change_since_article_lock": "V7: fixed voice gain, slow music-only fades, two new Google Lyria cues, three silence inserts totaling 9.6s; approved narration and articles unchanged.",
+  "stale_artifacts": [],
+  "growth_prediction": {
+    "status": "unavailable",
+    "reason": "evaluate-content returned Maximum call stack size exceeded; no success claimed"
+  },
+  "video_revision": {
+    "version": "v7",
+    "spoken_words": 1060,
+    "duration_seconds": 495.191995,
+    "source_highlights": 3,
+    "review_notes": "video-expansion-review.md",
+    "chinese_outline": "video-outline-zh.md",
+    "previous_audio_archive": "revisions/video-v3-4m44-before-expansion",
+    "duration_trial_archive": "revisions/video-v4-duration-trial",
+    "ending_duration_seconds": 23.777234,
+    "body_regenerated": false,
+    "ending_preview": "audio-ending-preview.mp3",
+    "film_duration_seconds": 512.8,
+    "visual_only": false,
+    "changed_scenes": 10,
+    "new_illustrations": 3,
+    "ending_regenerated": false,
+    "sound_and_pacing_experiment": true,
+    "added_silence_seconds": 9.6,
+    "new_music_cues": 2
+  },
+  "audio_author_review": "Aaron approved the appended ending and requested continuation: 好的，没问题，可以继续",
+  "music": {
+    "asset": "music:b161e820cd4f5741",
+    "status": "internal_chaptered_review_v7",
+    "rights": "author_confirmed_no_issue_and_authorized_video_publication_2026-09-06",
+    "dry_alternative": "video-v7-nomusic.mp4",
+    "cue_plan": "video-production/v7/sound-plan.json",
+    "voice_gain": 1.0,
+    "rights_note": "User confirmed YouTube publication has no issue; legacy Paper Moon provider not independently established. No claim of provider-specific license verification."
+  },
+  "skill_improvement": {
+    "files": [
+      "tiles/blog-production/SKILL.md",
+      "tiles/aaron-video-gen/references/director-pass.md"
+    ],
+    "status": "local_updated_validated_synced",
+    "basis": "v5/v6 sampled comparison; user review of v6 remains pending"
+  },
+  "remaining_limitations": [
+    "Separate selectable English caption track was not uploaded: missing youtube.force-ssl OAuth scope; approved video contains burned-in English captions."
+  ]
+}

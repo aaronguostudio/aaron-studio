@@ -1,0 +1,2 @@
+PASS: scored and narration-only video streams are identical
+SHA256=ce84d7f931d2accd759b0700a75cf2cc95c164edc61c26a8dcadf28dd25f2411

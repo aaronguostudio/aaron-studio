@@ -1,0 +1,96 @@
+{
+  "title": "新主题试写 · 代码越来越便宜，程序员的机会在前移",
+  "limitations": [
+    "本轮真实初稿到编辑修订，无旧 skill 控制组，不是受控 A/B。",
+    "historical-revision 表示保留的前后稿，不表示历史作者已接受。",
+    "所有修订理由是同一模型编辑判断；作者偏好尚未提供。",
+    "三场研究选材尚未确认与用户原本想起的视频相同。",
+    "快照仅保存提供的文件，不是完整执行轨迹；模型身份、耗时成本未记录。"
+  ],
+  "cases": [
+    {
+      "id": "ending",
+      "title": "结尾 · 作者判断",
+      "kind": "historical-revision",
+      "question": "新结尾是否完整表达“机会前移”，而且保留作者兴趣？",
+      "focus": {
+        "before": "这六个建议放在一起",
+        "after": "我赞同的变化"
+      },
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/first-draft/snapshot.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/editorial-v2/snapshot.json",
+      "feedback": [
+        {
+          "text": "初稿结尾首次解释适用范围，打断收束。把限定前移，结尾展开更早参与、技术经验和真实问题。",
+          "source": "reviewer-note",
+          "reference": "本次同一模型编辑审读；不是用户反馈"
+        }
+      ],
+      "checks": [
+        {
+          "label": "中文措辞扫描",
+          "source": "blog-style-quality.ts --language zh",
+          "before": "无提示；不是质量评分",
+          "after": "无提示；不是质量评分"
+        }
+      ],
+      "decision": null
+    },
+    {
+      "id": "requirements",
+      "title": "需求 · 避免厚文档误读",
+      "kind": "historical-revision",
+      "question": "这段是否既说清结果，也给实际反馈留出空间？",
+      "focus": {
+        "before": "我觉得可以从很小的地方开始",
+        "after": "我觉得可以从很小的地方开始"
+      },
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/first-draft/snapshot.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/editorial-v2/snapshot.json",
+      "feedback": [
+        {
+          "text": "增加足以检验当前想法即可尝试，反馈回来继续更新，避免把需求前移写成先完成全部规格。",
+          "source": "reviewer-note",
+          "reference": "本次同一模型编辑审读；不是用户反馈"
+        }
+      ],
+      "checks": [
+        {
+          "label": "中文措辞扫描",
+          "source": "blog-style-quality.ts --language zh",
+          "before": "无提示；不是质量评分",
+          "after": "无提示；不是质量评分"
+        }
+      ],
+      "decision": null
+    },
+    {
+      "id": "small-needs",
+      "title": "建议 · 给出行动起点",
+      "kind": "historical-revision",
+      "question": "最后一条是否让读者知道从哪里开始？",
+      "focus": {
+        "before": "当然，还要把接入",
+        "after": "可以翻一翻过去"
+      },
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/first-draft/snapshot.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/editorial-v2/snapshot.json",
+      "feedback": [
+        {
+          "text": "从泛泛挑一个麻烦，改为回看曾因成本搁置的需求，再计入完整成本。",
+          "source": "reviewer-note",
+          "reference": "本次同一模型编辑审读；不是用户反馈"
+        }
+      ],
+      "checks": [
+        {
+          "label": "中文措辞扫描",
+          "source": "blog-style-quality.ts --language zh",
+          "before": "无提示；不是质量评分",
+          "after": "无提示；不是质量评分"
+        }
+      ],
+      "decision": null
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Blog package quality: PASS
+Directory: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-06-astra
+Slug: gpt-6-astra-real-work
+Stats: 1581 words, 6 sections, 10 external links, 6 local images
+Warnings:
+- youtube-script.md is older than the English article and may need regeneration.
+- video.mp4 is older than the English article and may need regeneration.

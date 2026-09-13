@@ -1,0 +1,16 @@
+{
+  "mode": "live",
+  "source": "manual",
+  "hasFile": true,
+  "hasTursoUrl": true,
+  "hasTursoAuthToken": true,
+  "file": "src/content/blogs/2026-09-06-astra/distribution.json",
+  "slug": "gpt-6-astra-real-work",
+  "postCount": 3,
+  "statementCount": 3,
+  "resultCount": 4,
+  "env": {
+    "TURSO_URL": "[set]",
+    "TURSO_AUTH_TOKEN": "[set]"
+  }
+}

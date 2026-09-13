@@ -1,0 +1,61 @@
+{
+  "render_entry": "src/projects/astra-real-work/index.tsx",
+  "composition": "AstraFilm",
+  "concurrency": 6,
+  "crf": 20,
+  "git_state": "local uncommitted package; no production revision claimed",
+  "artifacts": [
+    {
+      "path": "src/content/blogs/2026-09-06-astra/youtube-script.md",
+      "sha256": "8e1d3f31d978b8f7aca1214145dfd9f41bc26bc65494611d8530467378eb5680",
+      "bytes": 6745
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/audio.mp3",
+      "sha256": "061b85ae76b527e4ec0de312cc8f6f6d1b3eaa2faf545d02ef559bd85aa29945",
+      "bytes": 11457977
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/video-production/timeline.json",
+      "sha256": "04f318f081eeb91ecd3ebb6a375735552e3db97d6cbfd656975f02c0b6553342",
+      "bytes": 38408
+    },
+    {
+      "path": "tiles/aaron-video-gen/remotion/src/projects/astra-real-work/index.tsx",
+      "sha256": "fee5373be0862c5912219c052ee3db419ea938dbb901e309fe6cdd4783f9c533",
+      "bytes": 9358
+    },
+    {
+      "path": "tiles/aaron-video-gen/remotion/src/projects/astra-real-work/data.ts",
+      "sha256": "3a9c033b3d81ee668e0c37d92766102e68f3d47d9069a20a0097af15e3399237",
+      "bytes": 38434
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/video.mp4",
+      "sha256": "fcd505cc8a54491fdd31e046391674b83c18fbd7f21739d49eef66e9bf514033",
+      "bytes": 19657762
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/video-nomusic.mp4",
+      "sha256": "c74cfb7888ce0561e8a7abdbd580fdc5b256ce0969233fb33e07bb5284b218a4",
+      "bytes": 19498647
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/imgs/00-cover-v2-astra-logo.png",
+      "sha256": "12c5439f8e24e6b8cc78d91a13fb14f7182eed5aa91a269c6746b20a49cce55f",
+      "bytes": 2153716
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/imgs/00-cover-thumbnail-v2-astra-logo.png",
+      "sha256": "8b3a723268d5f4959473d4504072c4a3ddb7ce051867c0595a14c78112fdcd39",
+      "bytes": 2647380
+    },
+    {
+      "path": "tiles/aaron-video-gen/remotion/public/astra-real-work/thumbnail.jpg",
+      "sha256": "7004538bcf12756eaae3f29d9406a5e50d3e704761f427900c44fcc05ff65741",
+      "bytes": 265513
+    }
+  ],
+  "revision": 5,
+  "edit_scope": "Replace opening frames 0\u201389 using the same Remotion composition; stream-copy the remaining picture and original audio."
+}

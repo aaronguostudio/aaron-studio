@@ -1,0 +1,83 @@
+{
+  "technical_status": "pass",
+  "video_sha256": "fcd505cc8a54491fdd31e046391674b83c18fbd7f21739d49eef66e9bf514033",
+  "duration_seconds": 485.366667,
+  "video_frames": 14561,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "audio_codec": "aac",
+  "audio_channels": 2,
+  "audio_sample_rate": 48000,
+  "scene_coverage_contiguous": true,
+  "exact_caption_word_sequence": true,
+  "caption_count": 123,
+  "scene_count": 41,
+  "encoded_frame_samples": 123,
+  "aac_voice_gain_windows": [
+    {
+      "start_seconds": 8,
+      "voice_gain_after_aac": 0.9976768286043474,
+      "music_gain_after_aac": 0.9961424949509473
+    },
+    {
+      "start_seconds": 60,
+      "voice_gain_after_aac": 0.9986164154081845,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 120,
+      "voice_gain_after_aac": 0.9989167512634914,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 155,
+      "voice_gain_after_aac": 0.9984487009850535,
+      "music_gain_after_aac": 0.9954510693013598
+    },
+    {
+      "start_seconds": 220,
+      "voice_gain_after_aac": 0.9983037264139071,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 272,
+      "voice_gain_after_aac": 0.9978945870738427,
+      "music_gain_after_aac": 0.9953862616237112
+    },
+    {
+      "start_seconds": 340,
+      "voice_gain_after_aac": 0.996556690903503,
+      "music_gain_after_aac": 0.9891043008829122
+    },
+    {
+      "start_seconds": 398,
+      "voice_gain_after_aac": 0.9983063877556471,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 455,
+      "voice_gain_after_aac": 0.9970851867627333,
+      "music_gain_after_aac": 0.9838519402780064
+    },
+    {
+      "start_seconds": 470,
+      "voice_gain_after_aac": 0.997717642718825,
+      "music_gain_after_aac": 0.9960998296250119
+    }
+  ],
+  "final_second_peak_dbfs": -240.0,
+  "full_human_playback_and_listening": "Author accepted video; full-length listening is not separately asserted",
+  "contact_sheet_visual_review": "pass: all 123 entry/middle/exit samples inspected on six sheets; no collision, stretching or clipped caption found",
+  "delivered_audio_loudness": {
+    "input_i": -16.64,
+    "input_tp": -3.9,
+    "input_lra": 3.6
+  },
+  "loudness_measurement_only": "FFmpeg loudnorm measurement sent to null; delivered audio was not renormalized",
+  "revision": 5,
+  "base_qa": "Original complete V4 QA retained at _archive/v4-pre-logo/technical-qa.json",
+  "cover_only_delta_qa": "video-production/logo-revision-qa.json"
+}

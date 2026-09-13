@@ -1,0 +1,1569 @@
+{
+  "schema_version": 1,
+  "title": "Why I Share DHH’s Enthusiasm for AI",
+  "duration_sec": 503.2,
+  "fps": 30,
+  "direction": {
+    "name": "Warm editorial notes on AI trust",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "Warm ivory, graphite hierarchy, stable registered layout geometry, source rails, protected captions and calm focus changes.",
+    "motion_density": "balanced",
+    "music_strategy": "bookended",
+    "references": [
+      {
+        "id": "accepted-ledger-baseline",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Warm ivory, graphite hierarchy, stable registered layout geometry, source rails, protected captions and calm focus changes.",
+        "avoid": "Repeated full-frame blog slides with drifting text and generic titles."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s00",
+      "title": "AI TRUST / AT WORK",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "AI TRUST / AT WORK",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "AI TRUST / AT WORK",
+        "Aaron Guo"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "AI TRUST / AT WORK",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Aaron Guo",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s01",
+      "title": "Different experiences. One team.",
+      "start_sec": 3.0,
+      "end_sec": 20.9,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "Different experiences.\nOne team.",
+      "first_change_sec": 8,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Different experiences.\nOne team.",
+        "Why I share DHH’s enthusiasm for AI"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Different experiences.\nOne team.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 8,
+          "visual": "Why I share DHH’s enthusiasm for AI",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s02",
+      "title": "Three ideas worth bringing back",
+      "start_sec": 20.9,
+      "end_sec": 32.53333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Three ideas worth bringing back",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Update the judgment",
+        "Choose what matters",
+        "Keep creating"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Three ideas worth bringing back",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Update the judgment",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 3.378,
+          "visual": "Choose what matters",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.256,
+          "visual": "Keep creating",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 8.945,
+          "visual": "From an interview to everyday work",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "01 / Update the judgment",
+      "start_sec": 32.53333333333333,
+      "end_sec": 55.13333333333333,
+      "role": "evidence",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "01 / Update the judgment",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Autocomplete",
+        "Agents using tools",
+        "Results he could use"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "01 / Update the judgment",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Autocomplete",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.5,
+          "visual": "Agents using tools",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 12.5,
+          "visual": "Results he could use",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 17.55,
+          "visual": "DHH describes a change in his own experience",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s04",
+      "title": "One attempt has a scope.",
+      "start_sec": 55.13333333333333,
+      "end_sec": 69.56666666666666,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "One attempt has a scope.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "One attempt has a scope.",
+        "A disappointing result is a reason to learn."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "One attempt has a scope.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A disappointing result is a reason to learn.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s05",
+      "title": "Confidence can stay open",
+      "start_sec": 69.56666666666666,
+      "end_sec": 84.96666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Confidence can stay open",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A useful result",
+        "Know its limits",
+        "Look again"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Confidence can stay open",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A useful result",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 4.633,
+          "visual": "Know its limits",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 8.767,
+          "visual": "Look again",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 12.084,
+          "visual": "Good experience also needs a boundary.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06",
+      "title": "02 / Choose what matters",
+      "start_sec": 84.96666666666667,
+      "end_sec": 102.36666666666666,
+      "role": "evidence",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "02 / Choose what matters",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Who is it for?",
+        "What should it do?",
+        "What comes first?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "02 / Choose what matters",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Who is it for?",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 5.3,
+          "visual": "What should it do?",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 10.1,
+          "visual": "What comes first?",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 13.75,
+          "visual": "DHH on product judgment",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s07",
+      "title": "Notice the friction first",
+      "start_sec": 102.36666666666666,
+      "end_sec": 126.2,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Notice the friction first",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Repeated entry",
+        "Confusing screen",
+        "A useful improvement"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Notice the friction first",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Repeated entry",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.5,
+          "visual": "Confusing screen",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 12.5,
+          "visual": "A useful improvement",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 18.167,
+          "visual": "Illustrative workflow problems",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s08",
+      "title": "More options need better choices.",
+      "start_sec": 126.2,
+      "end_sec": 139.53333333333333,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "More options need better choices.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "More options need better choices.",
+        "Understand the person who might use it."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "More options need better choices.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Understand the person who might use it.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s09",
+      "title": "03 / Keep the joy of creating",
+      "start_sec": 139.53333333333333,
+      "end_sec": 168.2,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "03 / Keep the joy\nof creating",
+      "first_change_sec": 8,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "03 / Keep the joy\nof creating",
+        "Optimism about building; uncertainty about jobs."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "03 / Keep the joy\nof creating",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 8,
+          "visual": "Optimism about building; uncertainty about jobs.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10",
+      "title": "An idea becomes useful.",
+      "start_sec": 168.2,
+      "end_sec": 178.0,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "An idea becomes useful.",
+      "first_change_sec": 4.9,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "An idea becomes useful.",
+        "The product is the point."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "An idea becomes useful.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 4.9,
+          "visual": "The product is the point.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s11",
+      "title": "Ambition to make a preference real",
+      "start_sec": 178.0,
+      "end_sec": 197.36666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Ambition to make\na preference real",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Ambition to make\na preference real",
+        "Omarchy is one expression of that ambition."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Ambition to make\na preference real",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Omarchy is one expression of that ambition.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s12",
+      "title": "My blog workflow",
+      "start_sec": 197.36666666666667,
+      "end_sec": 214.83333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "My blog workflow",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Research",
+        "Outline",
+        "Draft",
+        "Review"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "My blog workflow",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Research",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 4.117,
+          "visual": "Outline",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 7.733,
+          "visual": "Draft",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 11.35,
+          "visual": "Review",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 14.408,
+          "visual": "Reusable guidance · files I can inspect",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13",
+      "title": "This article made the gap visible",
+      "start_sec": 214.83333333333334,
+      "end_sec": 233.33333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "This article made the gap visible",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Earlier draft: Linux",
+        "My feedback",
+        "Revised focus: AI"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "This article made the gap visible",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Earlier draft: Linux",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 5.667,
+          "visual": "My feedback",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 10.833,
+          "visual": "Revised focus: AI",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 14.666,
+          "visual": "Actual revision in this project",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s14",
+      "title": "I keep shaping the meaning.",
+      "start_sec": 233.33333333333334,
+      "end_sec": 250.16666666666666,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "I keep shaping the meaning.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "I keep shaping the meaning.",
+        "A concrete draft gives me something to respond to."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "I keep shaping the meaning.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A concrete draft gives me something to respond to.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s15",
+      "title": "Confidence does not transfer by itself",
+      "start_sec": 250.16666666666666,
+      "end_sec": 266.6666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Confidence does not transfer by itself",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Enthusiastic use",
+        "A shared project",
+        "Reservations"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Confidence does not transfer by itself",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Enthusiastic use",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 5.0,
+          "visual": "A shared project",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 9.5,
+          "visual": "Reservations",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 13.0,
+          "visual": "Different levels of trust in my team",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s16",
+      "title": "A useful reference. Our own evidence.",
+      "start_sec": 266.6666666666667,
+      "end_sec": 280.96666666666664,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "A useful reference.\nOur own evidence.",
+      "first_change_sec": 7.15,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "A useful reference.\nOur own evidence.",
+        "DHH’s experience cannot decide our project."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A useful reference.\nOur own evidence.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 7.15,
+          "visual": "DHH’s experience cannot decide our project.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s17",
+      "title": "Make experience inspectable",
+      "start_sec": 280.96666666666664,
+      "end_sec": 292.8333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make experience inspectable",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Show the method",
+        "Name the concern",
+        "Examine the result"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make experience inspectable",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Show the method",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 3.456,
+          "visual": "Name the concern",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.411,
+          "visual": "Examine the result",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 9.139,
+          "visual": "A proposed way to work together",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s18",
+      "title": "Start with one familiar task.",
+      "start_sec": 292.8333333333333,
+      "end_sec": 297.2,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Start with one familiar task.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Start with one familiar task.",
+        "A practice I would like us to try."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Start with one familiar task.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A practice I would like us to try.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s19",
+      "title": "Agree on what good looks like",
+      "start_sec": 297.2,
+      "end_sec": 316.93333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Agree on what good looks like",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Readable",
+        "Matches the source",
+        "Separates interpretation"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Agree on what good looks like",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Readable",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.078,
+          "visual": "Matches the source",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 11.656,
+          "visual": "Separates interpretation",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 15.695,
+          "visual": "One interview-based paragraph",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s20",
+      "title": "Show how the result was made",
+      "start_sec": 316.93333333333334,
+      "end_sec": 331.26666666666665,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Show how the result was made",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Instructions",
+        "Source material",
+        "Accepted changes"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Show how the result was made",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Instructions",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 4.278,
+          "visual": "Source material",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 8.056,
+          "visual": "Accepted changes",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 11.195,
+          "visual": "Make the method available to a colleague.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s21",
+      "title": "Which edit helped?",
+      "start_sec": 331.26666666666665,
+      "end_sec": 344.3666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Which edit helped?",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Which edit helped?",
+        "A specific result gives us a specific discussion."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Which edit helped?",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A specific result gives us a specific discussion.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s22",
+      "title": "Two claims, different jobs",
+      "start_sec": 344.3666666666667,
+      "end_sec": 362.96666666666664,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two claims, different jobs",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "SOURCE: agents do useful work",
+        "MY VIEW: more ideas worth trying"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Two claims, different jobs",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "SOURCE: agents do useful work",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.5,
+          "visual": "MY VIEW: more ideas worth trying",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 12.55,
+          "visual": "Illustrative comparison, not a reported team error",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s23",
+      "title": "“Everyone is more productive now.”",
+      "start_sec": 362.96666666666664,
+      "end_sec": 377.1333333333333,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "“Everyone is more productive now.”",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "“Everyone is more productive now.”",
+        "An unsupported leap in this example"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "“Everyone is more productive now.”",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "An unsupported leap in this example",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s24",
+      "title": "Both views can improve the result",
+      "start_sec": 377.1333333333333,
+      "end_sec": 386.03333333333336,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Both views can improve the result",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Show where it helped",
+        "Point to claim drift"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Both views can improve the result",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Show where it helped",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 3.45,
+          "visual": "Point to claim drift",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.175,
+          "visual": "Two contributions to the same task",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s25",
+      "title": "Keep or change the method",
+      "start_sec": 386.03333333333336,
+      "end_sec": 394.93333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Keep or change the method",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Useful result → keep",
+        "Claim drift → revise"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Keep or change the method",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Useful result → keep",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 3.45,
+          "visual": "Claim drift → revise",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.175,
+          "visual": "Instructions and review can both improve.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s26",
+      "title": "A proposed practice.",
+      "start_sec": 394.93333333333334,
+      "end_sec": 402.1666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "A proposed practice.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A proposed practice.",
+        "Not a team success story."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A proposed practice.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Not a team success story.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s27",
+      "title": "Trust belongs to a context",
+      "start_sec": 402.1666666666667,
+      "end_sec": 411.8666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Trust belongs to a context",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A writing task",
+        "A shared business system"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Trust belongs to a context",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A writing task",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 3.85,
+          "visual": "A shared business system",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 6.775,
+          "visual": "The consequences change the evidence we need.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s28",
+      "title": "Output can move the bottleneck",
+      "start_sec": 411.8666666666667,
+      "end_sec": 427.1333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Output can move the bottleneck",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "More changes",
+        "Understanding",
+        "Verification"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Output can move the bottleneck",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "More changes",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 4.589,
+          "visual": "Understanding",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 8.678,
+          "visual": "Verification",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 11.972,
+          "visual": "QA remains part of delivery.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s29",
+      "title": "Give responsibility a clear boundary",
+      "start_sec": 427.1333333333333,
+      "end_sec": 438.23333333333335,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Give responsibility a clear boundary",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Who depends on it?",
+        "How do we detect failure?",
+        "How do we recover?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Give responsibility a clear boundary",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Who depends on it?",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 3.2,
+          "visual": "How do we detect failure?",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 5.9,
+          "visual": "How do we recover?",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 8.5,
+          "visual": "I still want AI to take on more work.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s30",
+      "title": "Trust can grow with experience.",
+      "start_sec": 438.23333333333335,
+      "end_sec": 448.73333333333335,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "Trust can grow\nwith experience.",
+      "first_change_sec": 5.25,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Trust can grow\nwith experience.",
+        "Ask for evidence that fits the consequences."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Trust can grow\nwith experience.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 5.25,
+          "visual": "Ask for evidence that fits the consequences.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s31",
+      "title": "One piece of work together",
+      "start_sec": 448.73333333333335,
+      "end_sec": 467.1333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "One piece of work together",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A familiar task",
+        "Agree on good",
+        "Inspect the result"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "One piece of work together",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A familiar task",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 5.633,
+          "visual": "Agree on good",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 10.767,
+          "visual": "Inspect the result",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 14.583,
+          "visual": "We can begin with different levels of confidence.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s32",
+      "title": "One method worth keeping.",
+      "start_sec": 467.1333333333333,
+      "end_sec": 473.4,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "One method worth keeping.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "One method worth keeping.",
+        "Something we can use the next morning."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "One method worth keeping.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Something we can use the next morning.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s33",
+      "title": "What I bring back from DHH",
+      "start_sec": 473.4,
+      "end_sec": 488.26666666666665,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "What I bring back from DHH",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Stay curious",
+        "Build thoughtfully",
+        "Keep the joy"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What I bring back from DHH",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Stay curious",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 4.456,
+          "visual": "Build thoughtfully",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 8.411,
+          "visual": "Keep the joy",
+          "action": "Focus and underline the next peer in the fixed row"
+        },
+        {
+          "at_sec": 11.639,
+          "visual": "Why I share his enthusiasm for AI",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s34",
+      "title": "Trust we earn together.",
+      "start_sec": 488.26666666666665,
+      "end_sec": 498.2,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Recognize the speaker or make usefulness tangible",
+      "entry_mode": "meaningful",
+      "entry_visual": "Trust we earn together.",
+      "first_change_sec": 4.967,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Trust we earn together.",
+        "Products that make someone’s day a little better."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Trust we earn together.",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 4.967,
+          "visual": "Products that make someone’s day a little better.",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s35",
+      "title": "Aaron Guo",
+      "start_sec": 498.2,
+      "end_sec": 503.2,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Expose the relationship and limits in the spoken argument",
+      "entry_mode": "meaningful",
+      "entry_visual": "Aaron Guo",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Aaron Guo",
+        "AI-NATIVE BUILDER · HUMAN-FIRST THINKER"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Aaron Guo",
+          "action": "Complete readable scaffold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "AI-NATIVE BUILDER · HUMAN-FIRST THINKER",
+          "action": "Resolve the supporting conclusion without moving text"
+        }
+      ],
+      "music_cue": "Dry narration; bookended music audition is internal only, rights unverified.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

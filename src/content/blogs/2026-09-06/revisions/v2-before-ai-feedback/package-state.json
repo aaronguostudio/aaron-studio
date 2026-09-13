@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "slug": "dhh-the-joy-of-building",
+  "phase": "awaiting_audio_review",
+  "scope": "blog production continuation through review gates",
+  "locks": {
+    "argument": "pass",
+    "article": "pass",
+    "package": "pending_audio_review_and_publication_approval"
+  },
+  "artifacts": {
+    "article": {
+      "en": "dhh-the-joy-of-building.md",
+      "zh": "dhh-the-joy-of-building-zh.md",
+      "sha256": {
+        "en": "b28b4f7a1183c05ef2021d0f6aef06dbb7ca3d478909a2cb4cd4106417612302",
+        "zh": "75c7006743f44848ed6d87dc6eedc38a6b9bbf17385b0f0a188b34b7f779d2e5"
+      }
+    },
+    "video": {
+      "canonical": null
+    },
+    "images": {
+      "cover": "imgs/web/00-cover.webp",
+      "thumbnail": "imgs/00-cover-thumbnail.png",
+      "body": [
+        "imgs/web/01-first-version-v1.webp",
+        "imgs/web/02-selection-v1.webp",
+        "imgs/web/03-maintenance-v1.webp"
+      ],
+      "status": "pass"
+    },
+    "audio": {
+      "canonical": "audio.mp3",
+      "sample": "audio-sample-60s.mp3",
+      "technical_qa": "pass",
+      "human_review": "pending"
+    },
+    "storyboard": {
+      "path": "video-storyboard.json",
+      "status": "planning_pass"
+    },
+    "distribution": {
+      "status": "drafts_ready",
+      "external_posts": []
+    }
+  },
+  "release": {
+    "published_blog_url": null,
+    "production_commit_on_main": null,
+    "provenance": null
+  },
+  "postmortem": {
+    "status": "not_published"
+  },
+  "updated_at": "2026-09-06T16:52:03.412065+00:00",
+  "editorial_score": 88,
+  "author_review": "approved by user: 好的，我觉得你写的不错",
+  "evidence_bundle": "partial_validated",
+  "not_started": [
+    "video_render",
+    "external_publication"
+  ],
+  "blog_preview": {
+    "worktree": "/Users/aaronguo/Work/ag/blog/aaronguoblog-dhh-2026-09-06",
+    "branch": "codex/dhh-blog-2026-09-06",
+    "base": "2846c8c",
+    "build": "pass",
+    "browser_qa": "pass",
+    "en": "http://127.0.0.1:4316/blogs/dhh-the-joy-of-building",
+    "zh": "http://127.0.0.1:4316/zh/blogs/dhh-the-joy-of-building",
+    "runtime_caveat": "Local .output native libsql module linked from installed pnpm dependency; not a tracked code change."
+  },
+  "change_since_article_lock": "Added accepted illustrations/frontmatter references; corrected Chinese source-label typo only. Arguments and script claims unchanged. Dependent artifacts rechecked."
+}

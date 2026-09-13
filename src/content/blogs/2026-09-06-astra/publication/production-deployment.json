@@ -1,0 +1,56 @@
+{
+  "id": "dpl_Giw3LFCqb2MXBeruHswADh5jiv6P",
+  "name": "aaronguoblog",
+  "url": "aaronguoblog-235z2cmor-aaron-guos-projects.vercel.app",
+  "type": "LAMBDAS",
+  "state": "READY",
+  "createdAt": 1788747618895,
+  "creator": {
+    "uid": "R1k1bfAW213k6NdPLIgbJiBE",
+    "username": "aaronguo"
+  },
+  "project": {
+    "id": "prj_qNERMz17B2Ke4kchUauLbNqvYVxH",
+    "name": "aaronguoblog",
+    "framework": "nuxtjs"
+  },
+  "meta": {
+    "githubCommitAuthorName": "aaronguo",
+    "githubCommitAuthorEmail": "aaronguostudio@gmail.com",
+    "githubCommitMessage": "Publish Astra real-work article and companion video (#18)\n\n* Publish Astra real-work article in English and Chinese\n\n* Keep article share metadata reactive across language navigation",
+    "githubCommitOrg": "aaronguostudio",
+    "githubCommitRef": "main",
+    "githubCommitRepo": "aaronguoblog",
+    "githubCommitSha": "1213e460e64537c51f64812fe35f9c31feceb94c",
+    "githubDeployment": "1",
+    "githubOrg": "aaronguostudio",
+    "githubRepo": "aaronguoblog",
+    "githubRepoOwnerType": "User",
+    "githubCommitRepoId": "960411723",
+    "githubRepoId": "960411723",
+    "githubRepoVisibility": "public",
+    "githubHost": "github.com",
+    "githubCommitAuthorLogin": "aaronguostudio",
+    "githubCommitVerification": "verified",
+    "repoPushedAt": "1788747616000",
+    "branchAlias": "aaronguoblog-git-main-aaron-guos-projects.vercel.app",
+    "lambdaRuntimeStats": "{\"nodejs\":1}"
+  },
+  "alias": [
+    "www.aaronguo.com",
+    "aaronguostudio.com",
+    "aaronguo.com",
+    "aaronguoblog.vercel.app",
+    "aaronguoblog-aaron-guos-projects.vercel.app",
+    "aaronguoblog-git-main-aaron-guos-projects.vercel.app"
+  ],
+  "target": "production",
+  "regions": [
+    "iad1"
+  ],
+  "buildingAt": 1788747619927,
+  "ready": 1788747702466,
+  "readyState": "READY",
+  "source": "git",
+  "aliasError": null
+}

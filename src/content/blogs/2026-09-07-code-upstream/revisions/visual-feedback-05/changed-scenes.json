@@ -1,0 +1,51 @@
+[
+  {
+    "id": "s00",
+    "start": 0.0,
+    "end": 3.0,
+    "frame": 0,
+    "media": "thumbnail.jpg"
+  },
+  {
+    "id": "s02",
+    "start": 18.0,
+    "end": 30.366666666666667,
+    "frame": 726,
+    "media": "cover.png"
+  },
+  {
+    "id": "s09",
+    "start": 98.13333333333334,
+    "end": 115.83333333333333,
+    "frame": 3210,
+    "media": "cover.png"
+  },
+  {
+    "id": "s16",
+    "start": 194.23333333333332,
+    "end": 214.2,
+    "frame": 6126,
+    "media": "customer.png"
+  },
+  {
+    "id": "s19",
+    "start": 238.6,
+    "end": 250.93333333333334,
+    "frame": 7343,
+    "media": "alternatives.png"
+  },
+  {
+    "id": "s25",
+    "start": 308.8666666666667,
+    "end": 325.23333333333335,
+    "frame": 9512,
+    "media": "customer.png"
+  },
+  {
+    "id": "s37",
+    "start": 453.43333333333334,
+    "end": 464.6666666666667,
+    "frame": 13772,
+    "media": "used.png"
+  }
+]

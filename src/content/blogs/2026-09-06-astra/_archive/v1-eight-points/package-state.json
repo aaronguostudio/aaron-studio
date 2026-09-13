@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "slug": "gpt-6-astra-real-work",
+  "date": "2026-09-06",
+  "phase": "article_and_narration_review",
+  "artifacts": {
+    "article_en": "gpt-6-astra-real-work.md",
+    "article_zh": "gpt-6-astra-real-work-zh.md",
+    "research": "research-evidence.json",
+    "script": "youtube-script.md",
+    "audio": {
+      "canonical": "audio.mp3",
+      "sha256": "56cc9a69a00abe9ddb3c5b8f7f2daa0dd3adf858e55217dcfbedecc2c0daf611",
+      "duration_seconds": 419.86322,
+      "technical_qa": "pass",
+      "human_listening": "pending"
+    },
+    "video": {
+      "canonical": null,
+      "status": "not_rendered"
+    },
+    "review": "review.html",
+    "draft_qa": "draft-qa.md"
+  },
+  "locks": {
+    "argument": "editorial_pass",
+    "article": "editorial_pass_for_review",
+    "package": "pending"
+  },
+  "publication": {
+    "blog_url": null,
+    "youtube_url": null,
+    "production_main_commit": null,
+    "authorization": "not_yet_for_this_new_package"
+  },
+  "pending": [
+    "Aaron narration listening review",
+    "Visual direction selection",
+    "Final artwork, storyboard, captions, music and render",
+    "Final media QA and explicit publication authorization"
+  ],
+  "postmortem": {
+    "status": "prediction_recorded_not_published",
+    "path": "postmortem.md"
+  },
+  "review_url": "http://127.0.0.1:4327/review.html"
+}

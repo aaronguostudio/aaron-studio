@@ -1,0 +1,86 @@
+{
+  "technical_checks": {
+    "audio.mp3": true,
+    "video-v2.mp4": true,
+    "youtube-script.md": true,
+    "video-production/timeline.json": true,
+    "voice_profile": true,
+    "captions_in_bounds": true,
+    "caption_no_overlap": true,
+    "source_voice_pcm_equal": true,
+    "all_new_transcripts_match": true,
+    "encoded_peak_below_minus_one": true
+  },
+  "hold_boundaries": [
+    {
+      "at": 424.2,
+      "boundary_peak_dbfs": -50.511837005615234,
+      "rms_dbfs": -61.147647857666016
+    },
+    {
+      "at": 452.9,
+      "boundary_peak_dbfs": -48.498077392578125,
+      "rms_dbfs": -59.780555725097656
+    }
+  ],
+  "media": {
+    "baseline.mp4": {
+      "duration": "57.866667",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ]
+    },
+    "directed.mp4": {
+      "duration": "59.566667",
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1920,
+          "height": 1080,
+          "sample_rate": null,
+          "channels": null
+        },
+        {
+          "codec_name": "aac",
+          "width": null,
+          "height": null,
+          "sample_rate": "48000",
+          "channels": 2
+        }
+      ]
+    }
+  },
+  "browser": {
+    "all_six_media_ready": true,
+    "media_errors": 0,
+    "horizontal_overflow": false
+  },
+  "author_listening": "pending",
+  "headphone_listening": "not performed by agent",
+  "full_film_replacement": false,
+  "encoded_loudness": {
+    "input_i": "-16.64",
+    "input_tp": "-3.65",
+    "input_lra": "4.80",
+    "input_thresh": "-27.78",
+    "output_i": "-18.11",
+    "output_tp": "-5.28",
+    "output_lra": "4.80",
+    "output_thresh": "-29.06",
+    "normalization_type": "dynamic",
+    "target_offset": "0.11"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "artifact-snapshot",
+  "schemaVersion": "1",
+  "id": "8714c885-9c37-488a-8f8c-6562b329232d",
+  "capturedAt": "2026-09-08T00:15:48.046Z",
+  "label": "作者反馈后退回重写 · 当前 FAIL",
+  "artifact": {
+    "path": "src/content/blogs/2026-09-07-code-upstream/editorial-scorecard.md",
+    "content": "# 编辑判断 · 根据作者反馈退回\n\nReview format: evidence-v1\n\nReview evidence: 作者在本任务明确指出观点不鲜明、正反来回稀释意思、证据没有展开、缺少未来五到十年的思考与个人热情；原稿多数建议可直接用于 AI 出现前，结尾把作者期待缩小为小工具改进。论证未达预期，句子润色不能解决。\n\nDecision: FAIL\n\n作者反馈：revisions/author-feedback-01/feedback.md。\n诊断：revisions/author-feedback-01/diagnosis.md。\n保留的原 PASS：revisions/author-feedback-01/before/editorial-scorecard.md。\n\n来源核验与原有结构检查仍有效；编辑未达预期是单独的结论。修正后的规则与新方向样段尚未得到作者评价，不改成 PASS。\n\nArgument Lock: PENDING（重开论证）\nArticle Lock: PENDING（原稿退回）\nPackage Lock: PENDING（媒体及发布未启动）\n",
+    "sha256": "16c97b19f0b096a8c8d2eb802831fdcb0f7b43573fb58fd7025e8688da5052c3"
+  },
+  "context": [
+    {
+      "path": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/feedback.md",
+      "content": "# 作者反馈 · 第一轮\n\n来源：本任务中 Aaron 对 4332 阅读稿的直接反馈，记录于 2026-09-07。下列引号内为逐字节选，其余为摘要。\n\n- “这篇文章读起来就非常不鲜明……没有鲜明的这个观点。”\n- “写作太粘，不干脆，而且也没有特别好的这种证据。”\n- “正反不断地去试探……看完之后没有什么很值得去记住的地方。”\n- 希望直接提出建议，让读者感受到作者的选择，而不是来回平衡。\n- 希望深挖未来五到十年工作可能的变化，以及现在应该怎样准备，让人受到鼓舞。\n- 希望带出个人观点、热情和价值观，而不是完成一篇泛泛的 AI 文章。\n\n作者认为当前文章有实质性问题，需要重新组织论证。这是对原稿的否定性评价，不是对本次新样段或规则修改的认可，也不是对初稿/润色稿之间的偏好投票。\n",
+      "sha256": "b94b32d7d58da126c28218f95e71fb3f7c31575719c4d3e9b11894f9f61fa4c7"
+    }
+  ],
+  "contextMeaning": "provided-files-not-runtime-trace",
+  "model": null
+}

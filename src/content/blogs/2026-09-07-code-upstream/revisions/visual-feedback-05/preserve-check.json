@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "checks": {
+    "audio.mp3": true,
+    "audio-raw.mp3": true,
+    "youtube-script.md": true,
+    "video-captions-en.srt": true,
+    "video-production/mix.wav": true,
+    "video-production/voice-stem.wav": true,
+    "code-is-cheap-opportunity-moves-upstream.md": true,
+    "code-is-cheap-opportunity-moves-upstream-zh.md": true,
+    "timeline": true
+  }
+}

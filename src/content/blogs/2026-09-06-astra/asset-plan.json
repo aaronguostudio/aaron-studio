@@ -1,0 +1,846 @@
+{
+  "schema_version": 1,
+  "title": "GPT-6 Astra in Real Work",
+  "duration_sec": 485.3666666666667,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "ledger-editorial-v1",
+  "asset_library": {
+    "queries": [
+      "calm sparse piano ambient editorial",
+      "paper moon"
+    ],
+    "selected_asset_ids": [
+      "music:b161e820cd4f5741"
+    ]
+  },
+  "beats": [
+    {
+      "id": "s00",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "copy": "ASTRA AT WORK / GPT-6 in real work · Aaron Guo",
+      "visual_role": "emphasis",
+      "asset_type": "generated-still",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": "imgs/thumbnail-youtube.jpg",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "EDITORIAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s01",
+      "start_sec": 3.0,
+      "end_sec": 8.166666666666666,
+      "copy": "The demos are striking. / Official demonstrations",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "demo-exhibits"
+      ],
+      "source_ids": [
+        "launch"
+      ],
+      "asset_path": "imgs/evidence/openai-blender.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "OPENAI · GPT-6 ASTRA SHOWCASE",
+      "rights": "public-source",
+      "editorial_approval": "approved",
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s02",
+      "start_sec": 8.166666666666666,
+      "end_sec": 23.966666666666665,
+      "copy": "My job crossed systems. / Azure / Linux / Windows / Database / Networking. Certificates. Real problems.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s03",
+      "start_sec": 23.966666666666665,
+      "end_sec": 29.8,
+      "copy": "More of the job. / That is what I’m willing to delegate.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s04",
+      "start_sec": 29.8,
+      "end_sec": 42.63333333333333,
+      "copy": "The writing\nfeels more natural. / An everyday workflow, alongside the deployment.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "smooth"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/02-writing-flow-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "EDITORIAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s05",
+      "start_sec": 42.63333333333333,
+      "end_sec": 57.36666666666667,
+      "copy": "Astra with an actual job. / Inside the tools and systems we already use.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s06",
+      "start_sec": 57.36666666666667,
+      "end_sec": 66.5,
+      "copy": "One job. Two environments. / Linux\nBusiness application / Windows\nReporting engine / The business requirement comes first.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s07",
+      "start_sec": 66.5,
+      "end_sec": 77.46666666666667,
+      "copy": "From request to returned PDF. / Linux app / Windows service / Database / PDF result / Keep the existing workflow intact.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s08",
+      "start_sec": 77.46666666666667,
+      "end_sec": 86.7,
+      "copy": "Fit the existing system. / Connections and workflows still have to work.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s09",
+      "start_sec": 86.7,
+      "end_sec": 99.9,
+      "copy": "The work around the code. / Azure / Private network / Windows service / SQL certificate / Azure resources · private networking · existing NAT · SQL trust",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-provision",
+        "network-runbook"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · EXISTING NAT GATEWAY",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s10",
+      "start_sec": 99.9,
+      "end_sec": 110.33333333333333,
+      "copy": "Autonomy has a scope. / Aaron\nScope and service decisions / Astra\nConfiguration and checks / Implementation proceeds inside the agreed boundary.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s11",
+      "start_sec": 110.33333333333333,
+      "end_sec": 120.4,
+      "copy": "The pieces\nstay connected. / One task across the working environment.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": "imgs/00-cover-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s12",
+      "start_sec": 120.4,
+      "end_sec": 128.23333333333332,
+      "copy": "It still met real problems. / Network rule rejected / Certificate checks / The work continued through diagnosis.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s13",
+      "start_sec": 128.23333333333332,
+      "end_sec": 140.8,
+      "copy": "Follow the failure through. / PDF generated / Attachment failed / Read back + retry / Dev verified / Read-back and retry checks completed in Dev.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s14",
+      "start_sec": 140.8,
+      "end_sec": 153.43333333333334,
+      "copy": "Carry the pieces together. / Infrastructure, code, troubleshooting and verification.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "worker"
+      ],
+      "source_ids": [
+        "dev-worker",
+        "attachment"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s15",
+      "start_sec": 153.43333333333334,
+      "end_sec": 165.26666666666668,
+      "copy": "2 / Connect the tools. / Blender model · official showcase",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "demo-exhibits"
+      ],
+      "source_ids": [
+        "launch"
+      ],
+      "asset_path": "imgs/evidence/openai-blender.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "OPENAI · BLENDER MODEL · OFFICIAL DEMONSTRATION",
+      "rights": "public-source",
+      "editorial_approval": "approved",
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s16",
+      "start_sec": 165.26666666666668,
+      "end_sec": 181.83333333333334,
+      "copy": "A result becomes an input. / Google Maps routes · official showcase",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "demo-exhibits"
+      ],
+      "source_ids": [
+        "launch"
+      ],
+      "asset_path": "imgs/evidence/openai-google-maps.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "OPENAI · PEDIATRICIAN SEARCH · OFFICIAL DEMONSTRATION",
+      "rights": "public-source",
+      "editorial_approval": "approved",
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s17",
+      "start_sec": 181.83333333333334,
+      "end_sec": 196.5,
+      "copy": "Ordinary browser work. / Newsletters / Inboxes / Advertising / Matt Shumer’s firsthand account; tools and access still matter.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "browser-work"
+      ],
+      "source_ids": [
+        "shumer"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "MATT SHUMER · ASTRA REVIEW · AUTHOR SELF-REPORT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s18",
+      "start_sec": 196.5,
+      "end_sec": 217.33333333333334,
+      "copy": "Keep the handoffs moving. / Research / Create / Inspect / Continue / One less point where the job returns to me.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "whole-job"
+      ],
+      "source_ids": [
+        "shumer",
+        "context"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s19",
+      "start_sec": 217.33333333333334,
+      "end_sec": 237.03333333333333,
+      "copy": "3 / Keep the history. / Notes and searchable history. Experimental; off by default.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "context"
+      ],
+      "source_ids": [
+        "context"
+      ],
+      "asset_path": "imgs/01-retained-notes-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s20",
+      "start_sec": 237.03333333333333,
+      "end_sec": 248.2,
+      "copy": "A refactor, hours later. / Earlier discovery\nDependency cannot upgrade / Later decision\nKeep the constraint / A hypothetical example of why earlier context matters.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "context"
+      ],
+      "source_ids": [
+        "context"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s21",
+      "start_sec": 248.2,
+      "end_sec": 265.1,
+      "copy": "Keep the reason, too. / Migration failed / Tests showed why / Avoid the same dead end / A hypothetical refactor example.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "context"
+      ],
+      "source_ids": [
+        "context"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s22",
+      "start_sec": 265.1,
+      "end_sec": 277.6,
+      "copy": "Earlier effort\nstays useful. / Long jobs accumulate discoveries.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "context"
+      ],
+      "source_ids": [
+        "context"
+      ],
+      "asset_path": "imgs/01-retained-notes-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s23",
+      "start_sec": 277.6,
+      "end_sec": 287.7,
+      "copy": "4 / Initiative and direction. / Keep going. Understand a change in scope.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s24",
+      "start_sec": 287.7,
+      "end_sec": 300.1666666666667,
+      "copy": "“Keep this in the test environment.” / Before\nContinue implementation / After\nStay inside Dev / An illustrative instruction: new direction changes the next steps.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "skill-review-position"
+      ],
+      "source_ids": [
+        "guidance"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S COLLABORATION EXAMPLE",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s25",
+      "start_sec": 300.1666666666667,
+      "end_sec": 310.46666666666664,
+      "copy": "Review the old skills. / Skills / AGENTS.md / Conflicting rules / Ambiguous or conflicting instructions can stop useful work.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "guidance"
+      ],
+      "source_ids": [
+        "guidance"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "OPENAI · ASTRA USAGE GUIDANCE",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s26",
+      "start_sec": 310.46666666666664,
+      "end_sec": 319.43333333333334,
+      "copy": "Give it a clearer working agreement. / Old habit\nAsk me after every step / Better agreement\nGoal, checks, decision points / Illustrative wording, not a quotation from the documentation.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "skill-review-position"
+      ],
+      "source_ids": [
+        "guidance"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s27",
+      "start_sec": 319.43333333333334,
+      "end_sec": 335.1,
+      "copy": "Scope still matters. / Better instructions do not excuse a misunderstood job.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "skill-review-position"
+      ],
+      "source_ids": [
+        "scope-feedback"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "DEVELOPER SELF-REPORT · EXTRA INFRASTRUCTURE / EARLY IMPLEMENTATION",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s28",
+      "start_sec": 335.1,
+      "end_sec": 344.9,
+      "copy": "5 / More natural prose. / Connected ideas. A more pleasant read.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "smooth"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/02-writing-flow-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "EDITORIAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s29",
+      "start_sec": 344.9,
+      "end_sec": 361.73333333333335,
+      "copy": "From scattered thoughts to an article. / Project experience / Half-formed judgment / A coherent article / The writing should carry the thought.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "smooth"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s30",
+      "start_sec": 361.73333333333335,
+      "end_sec": 374.56666666666666,
+      "copy": "Let one thought lead to the next. / Experience / Observation / Next question / The next paragraph picks up the question.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "smooth"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s31",
+      "start_sec": 374.56666666666666,
+      "end_sec": 390.96666666666664,
+      "copy": "Make the expression\nfit the piece. / Reader, context and tone still contribute.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "smooth"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/02-writing-flow-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "EDITORIAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s32",
+      "start_sec": 390.96666666666664,
+      "end_sec": 402.1666666666667,
+      "copy": "6 / Count the whole cost. / About 3 hours / 45% of weekly allowance / One flight-game project. Not a forecast for every user.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "game-tools-cost"
+      ],
+      "source_ids": [
+        "flight-game"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "TANIAI_ · GODOT / BLENDER PROJECT · AUTHOR SELF-REPORT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s33",
+      "start_sec": 402.1666666666667,
+      "end_sec": 410.23333333333335,
+      "copy": "The allowance can run out. / Useful output still has a cost.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "game-tools-cost"
+      ],
+      "source_ids": [
+        "limits-feedback"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "INDIVIDUAL USER REPORTS · DIFFERENT TASKS AND SETTINGS",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s34",
+      "start_sec": 410.23333333333335,
+      "end_sec": 422.1333333333333,
+      "copy": "Choose by the job. / Small edit\nA lighter model may be enough / Complex work\nConsider the stronger model / Model cost + my time + what gets finished.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s35",
+      "start_sec": 422.1333333333333,
+      "end_sec": 435.46666666666664,
+      "copy": "More trust\nin a longer job. / Across products and systems, within a clear scope.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "closing-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/00-cover-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "EDITORIAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s36",
+      "start_sec": 435.46666666666664,
+      "end_sec": 447.76666666666665,
+      "copy": "New questions come with autonomy. / Verify the result / Trace decisions / Audit the work / How do I verify the result and trace the important decisions?",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "closing-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s37",
+      "start_sec": 447.76666666666665,
+      "end_sec": 460.1,
+      "copy": "I’m tempted to buy more room. / The useful work makes me want to use it more.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "closing-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s38",
+      "start_sec": 460.1,
+      "end_sec": 470.8,
+      "copy": "The excitement\nis still there. / I want the work I watch closely to become work I can trust it with.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "closing-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/03-review-lamp-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "EDITORIAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s39",
+      "start_sec": 470.8,
+      "end_sec": 480.3666666666667,
+      "copy": "AI is still surprising me. / I want to feel the next improvement in real work.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "closing-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S NOTES · REAL WORK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    },
+    {
+      "id": "s40",
+      "start_sec": 480.3666666666667,
+      "end_sec": 485.3666666666667,
+      "copy": "AARON GUO / AI-NATIVE BUILDER · Human-first thinker",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Owned native typography",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native typography retains the same claim and source boundary."
+    }
+  ]
+}

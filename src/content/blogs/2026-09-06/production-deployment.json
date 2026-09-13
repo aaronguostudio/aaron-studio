@@ -1,0 +1,58 @@
+{
+  "deployment": {
+    "id": "dpl_22kRryMq2UaGiFNwipFF1BLMsUeQ",
+    "name": "aaronguoblog",
+    "url": "aaronguoblog-etdsfxfwl-aaron-guos-projects.vercel.app",
+    "type": "LAMBDAS",
+    "state": "READY",
+    "createdAt": 1788723151454,
+    "creator": {
+      "uid": "R1k1bfAW213k6NdPLIgbJiBE",
+      "username": "aaronguo"
+    },
+    "project": {
+      "id": "prj_qNERMz17B2Ke4kchUauLbNqvYVxH",
+      "name": "aaronguoblog",
+      "framework": "nuxtjs"
+    },
+    "meta": {
+      "githubCommitAuthorName": "aaronguo",
+      "githubCommitAuthorEmail": "aaronguostudio@gmail.com",
+      "githubCommitMessage": "Add bilingual DHH essay on AI enthusiasm and team trust (#15)",
+      "githubCommitOrg": "aaronguostudio",
+      "githubCommitRef": "main",
+      "githubCommitRepo": "aaronguoblog",
+      "githubCommitSha": "0ca4093629634e20c3b712a473ef9b594bb79993",
+      "githubDeployment": "1",
+      "githubOrg": "aaronguostudio",
+      "githubRepo": "aaronguoblog",
+      "githubRepoOwnerType": "User",
+      "githubCommitRepoId": "960411723",
+      "githubRepoId": "960411723",
+      "githubRepoVisibility": "public",
+      "githubHost": "github.com",
+      "githubCommitAuthorLogin": "aaronguostudio",
+      "githubCommitVerification": "verified",
+      "repoPushedAt": "1788723148000",
+      "branchAlias": "aaronguoblog-git-main-aaron-guos-projects.vercel.app",
+      "lambdaRuntimeStats": "{\"nodejs\":1}"
+    },
+    "alias": [
+      "www.aaronguo.com",
+      "aaronguostudio.com",
+      "aaronguo.com",
+      "aaronguoblog.vercel.app",
+      "aaronguoblog-aaron-guos-projects.vercel.app",
+      "aaronguoblog-git-main-aaron-guos-projects.vercel.app"
+    ],
+    "target": "production",
+    "regions": [
+      "iad1"
+    ],
+    "buildingAt": 1788723152657,
+    "ready": 1788723223717,
+    "readyState": "READY",
+    "source": "git",
+    "aliasError": null
+  }
+}

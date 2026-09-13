@@ -1,0 +1,52 @@
+{
+  "checkedAt": "2026-09-06T19:33:55.595534+00:00",
+  "pages": [
+    {
+      "url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+      "h1": "Why I Share DHH's Enthusiasm for AI",
+      "imageCount": 5,
+      "coverCount": 1,
+      "canonical": [
+        "https://www.aaronguo.com/blogs/dhh-the-joy-of-building"
+      ],
+      "hreflang": []
+    },
+    {
+      "url": "https://www.aaronguo.com/zh/blogs/dhh-the-joy-of-building",
+      "h1": "我为什么认同 DHH 对 AI 的热情",
+      "imageCount": 5,
+      "coverCount": 1,
+      "canonical": [
+        "https://www.aaronguo.com/zh/blogs/dhh-the-joy-of-building"
+      ],
+      "hreflang": []
+    }
+  ],
+  "assets": [
+    {
+      "name": "2026-09-06-dhh-building-01.webp",
+      "sha256": "62d782b7c73d2b18df949d0b5389c2b837c0dba92dc78d3dee713d5980b9dd83",
+      "matchesCommittedFile": true
+    },
+    {
+      "name": "2026-09-06-dhh-building-02.webp",
+      "sha256": "fc5a938c96de0626ca6dc27335c12b9a5620f65a8c3b724e4c216bb72fb85a55",
+      "matchesCommittedFile": true
+    },
+    {
+      "name": "2026-09-06-dhh-building-03.webp",
+      "sha256": "5fdbf06b93927aa2eef7d42e307004305d753815814f7a6c9e976a7d80cf8e33",
+      "matchesCommittedFile": true
+    },
+    {
+      "name": "2026-09-06-dhh-building-cover.webp",
+      "sha256": "775c3c67d846fbe77e5d73666cc0bf429af5fa3b148bc88062cb56e44b98b1b0",
+      "matchesCommittedFile": true
+    },
+    {
+      "name": "2026-09-06-dhh-building-portrait.webp",
+      "sha256": "f22d2256a8bbe1c6fd9b09bf6a436deff5de84cd4b465907674e9dd15b81d2e3",
+      "matchesCommittedFile": true
+    }
+  ]
+}

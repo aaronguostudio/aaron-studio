@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "slug": "code-is-cheap-opportunity-moves-upstream",
+  "phase": "argument-revision",
+  "updatedAt": "2026-09-08T00:52:34.692375+00:00",
+  "scope": "Research and bilingual article trial; no media or external publishing",
+  "artifacts": {
+    "article": {
+      "english": "code-is-cheap-opportunity-moves-upstream.md",
+      "chinese": "code-is-cheap-opportunity-moves-upstream-zh.md",
+      "sha256": {
+        "english": "c43e3884c97e34a4776137122250bb94efc09292f8e32861bc43702ef3efa1dc",
+        "chinese": "167456dc61ebbbd4f7f5427d25d3fe493501cc87608d8e658c6652752e43fe7d"
+      },
+      "status": "rejected-reference-copy",
+      "unchanged": true
+    },
+    "research": "research-evidence.json",
+    "editorialReview": "revisions/author-feedback-02/review.json",
+    "authorFeedback": "revisions/author-feedback-02/feedback.md",
+    "diagnosis": "revisions/author-feedback-01/diagnosis.md",
+    "directionProbe": "revisions/author-feedback-02/direction-probe.md"
+  },
+  "locks": {
+    "argument": "reopened-after-author-feedback",
+    "article": "rejected-needs-rewrite",
+    "package": "not-started"
+  },
+  "research": {
+    "status": "partial",
+    "sources": 9,
+    "transcripts": 3,
+    "missing": "Original user-selected video links"
+  },
+  "publishing": {
+    "blogUrl": null,
+    "productionCommit": null,
+    "youtubeUrl": null
+  },
+  "postmortem": {
+    "status": "author-rejected-first-trial",
+    "authorPreference": "Author requested less technical repetition and supplied Amazon observation; latest replacement sample still pending author evaluation."
+  }
+}

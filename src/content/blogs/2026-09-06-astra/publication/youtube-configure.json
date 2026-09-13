@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-09-07T02:14:09.851Z",
+  "video": {
+    "kind": "youtube#video",
+    "etag": "WzAgJAwGC7tPGezf_znogYNENig",
+    "id": "_12kx0AFhCM",
+    "snippet": {
+      "publishedAt": "2026-09-07T02:12:15Z",
+      "channelId": "UC00lw_bsmcXk7Dxuk_QqBTg",
+      "title": "GPT-6 Astra in Real Work: 6 Things That Changed",
+      "description": "I've been using GPT-6 Astra for real work: a complex deployment across Azure, Linux, Windows and database connections, alongside everyday writing.\n\nHere are six things I noticed, with official tool demonstrations, early user reports and the cost tradeoffs worth understanding.\n\n1. Complex deployment\n2. Connecting tools\n3. Long-task history\n4. Initiative and reviewing old skills\n5. More natural writing\n6. The whole cost\n\nPersonal experience is not a controlled model comparison. Official screenshots document the discussed showcases; community cost figures describe individual runs. The project outcome discussed is Dev validation.\n\nRead the article:\nhttps://www.aaronguo.com/blogs/gpt-6-astra-real-work?utm_source=youtube&utm_medium=video&utm_campaign=gpt-6-astra-real-work&utm_content=description\n\n中文博客:\nhttps://www.aaronguo.com/zh/blogs/gpt-6-astra-real-work?utm_source=youtube&utm_medium=video&utm_campaign=gpt-6-astra-real-work&utm_content=description-zh\n\nSources:\nhttps://openai.com/index/gpt-6-astra/\nhttps://learn.chatgpt.com/docs/config-file/config-reference\nhttps://developers.openai.com/api/docs/guides/latest-model\nhttps://developers.openai.com/api/docs/models/gpt-6-astra\nhttps://somethingbig.ai/astra-review\nhttps://www.reddit.com/r/SideProject/comments/1w97zrd/everyone_was_sharing_stuff_made_with_gpt_6_astra/\nhttps://www.reddit.com/r/OpenAI/comments/1w7qxdr/astra_gpt6_high_intelligence_low_intuition/\nhttps://www.reddit.com/r/codex/comments/1w7kvf7/gpt6_astra_wow/\n\nChapters (measured from the final timeline):\n00:00 Astra at work\n00:57 A complex deployment\n02:33 Connect the tools\n03:37 Keep the history\n04:37 Initiative and direction\n05:35 More natural prose\n06:30 Count the whole cost\n07:02 What I am ready to trust it with",
+      "thumbnails": {
+        "default": {
+          "url": "https://i.ytimg.com/vi/_12kx0AFhCM/default.jpg",
+          "width": 120,
+          "height": 90
+        },
+        "medium": {
+          "url": "https://i.ytimg.com/vi/_12kx0AFhCM/mqdefault.jpg",
+          "width": 320,
+          "height": 180
+        },
+        "high": {
+          "url": "https://i.ytimg.com/vi/_12kx0AFhCM/hqdefault.jpg",
+          "width": 480,
+          "height": 360
+        },
+        "standard": {
+          "url": "https://i.ytimg.com/vi/_12kx0AFhCM/sddefault.jpg",
+          "width": 640,
+          "height": 480
+        },
+        "maxres": {
+          "url": "https://i.ytimg.com/vi/_12kx0AFhCM/maxresdefault.jpg",
+          "width": 1280,
+          "height": 720
+        }
+      },
+      "channelTitle": "Aaron - AI-native builder",
+      "tags": [
+        "AI agents",
+        "AI writing",
+        "Astra",
+        "Azure",
+        "Codex",
+        "GPT-6",
+        "computer use",
+        "real work",
+        "software deployment"
+      ],
+      "categoryId": "28",
+      "liveBroadcastContent": "none",
+      "defaultLanguage": "en",
+      "localized": {
+        "title": "GPT-6 Astra in Real Work: 6 Things That Changed",
+        "description": "I've been using GPT-6 Astra for real work: a complex deployment across Azure, Linux, Windows and database connections, alongside everyday writing.\n\nHere are six things I noticed, with official tool demonstrations, early user reports and the cost tradeoffs worth understanding.\n\n1. Complex deployment\n2. Connecting tools\n3. Long-task history\n4. Initiative and reviewing old skills\n5. More natural writing\n6. The whole cost\n\nPersonal experience is not a controlled model comparison. Official screenshots document the discussed showcases; community cost figures describe individual runs. The project outcome discussed is Dev validation.\n\nRead the article:\nhttps://www.aaronguo.com/blogs/gpt-6-astra-real-work?utm_source=youtube&utm_medium=video&utm_campaign=gpt-6-astra-real-work&utm_content=description\n\n中文博客:\nhttps://www.aaronguo.com/zh/blogs/gpt-6-astra-real-work?utm_source=youtube&utm_medium=video&utm_campaign=gpt-6-astra-real-work&utm_content=description-zh\n\nSources:\nhttps://openai.com/index/gpt-6-astra/\nhttps://learn.chatgpt.com/docs/config-file/config-reference\nhttps://developers.openai.com/api/docs/guides/latest-model\nhttps://developers.openai.com/api/docs/models/gpt-6-astra\nhttps://somethingbig.ai/astra-review\nhttps://www.reddit.com/r/SideProject/comments/1w97zrd/everyone_was_sharing_stuff_made_with_gpt_6_astra/\nhttps://www.reddit.com/r/OpenAI/comments/1w7qxdr/astra_gpt6_high_intelligence_low_intuition/\nhttps://www.reddit.com/r/codex/comments/1w7kvf7/gpt6_astra_wow/\n\nChapters (measured from the final timeline):\n00:00 Astra at work\n00:57 A complex deployment\n02:33 Connect the tools\n03:37 Keep the history\n04:37 Initiative and direction\n05:35 More natural prose\n06:30 Count the whole cost\n07:02 What I am ready to trust it with"
+      },
+      "defaultAudioLanguage": "en"
+    },
+    "contentDetails": {
+      "duration": "PT8M6S",
+      "dimension": "2d",
+      "definition": "hd",
+      "caption": "false",
+      "licensedContent": false,
+      "contentRating": {},
+      "projection": "rectangular",
+      "hasCustomThumbnail": true
+    },
+    "status": {
+      "uploadStatus": "processed",
+      "privacyStatus": "unlisted",
+      "license": "youtube",
+      "embeddable": true,
+      "publicStatsViewable": true,
+      "madeForKids": false,
+      "selfDeclaredMadeForKids": false
+    },
+    "processingDetails": {
+      "processingStatus": "succeeded",
+      "fileDetailsAvailability": "available",
+      "processingIssuesAvailability": "available",
+      "tagSuggestionsAvailability": "inProgress",
+      "editorSuggestionsAvailability": "inProgress",
+      "thumbnailsAvailability": "inProgress"
+    }
+  }
+}

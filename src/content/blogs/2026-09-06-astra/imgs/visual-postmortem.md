@@ -1,0 +1,2 @@
+# Visual production notes
+The whole-job workbench earns the cover, while a notebook, manuscript and lamp give three distinct quiet ideas. Close thumbnail framing and a three-word promise outperform a wider equipment view at mobile scale. These are candidate editorial judgments, not measured click-through results. Built-in image_gen produced all seven candidates; five accepted assets. No stock or CLI fallback used.

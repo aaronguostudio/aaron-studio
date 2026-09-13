@@ -1,0 +1,7 @@
+{
+  "checks": [
+    "english: accepted prose unchanged; four image references and cover metadata added",
+    "chinese: accepted prose unchanged; four image references and cover metadata added"
+  ],
+  "result": "PASS"
+}

@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "topic": "AI and the next move for engineers",
+  "thesis": "Invest stronger execution capacity in customers, product judgment, commercial understanding and work in use.",
+  "sources": [
+    {
+      "id": "simon-video",
+      "url": "https://www.youtube.com/watch?v=wc8FBhQtdsA",
+      "publisher": "Simon Willison / Lenny Rachitsky",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "boris-video",
+      "url": "https://www.youtube.com/watch?v=We7BZVKbCVw",
+      "publisher": "Boris Cherny / Lenny Rachitsky",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "kent-video",
+      "url": "https://www.youtube.com/watch?v=ddHQQtjIOpw",
+      "publisher": "Kent Beck / Gergely Orosz",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "simon-essay",
+      "url": "https://simonwillison.net/guides/agentic-engineering-patterns/code-is-cheap/",
+      "publisher": "Simon Willison",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "microsoft",
+      "url": "https://www.microsoft.com/insidetrack/blog/engineering-the-frontier-firm-sharing-our-ai-native-approach-to-software-development/",
+      "publisher": "Neil Orint and David Hirning / Microsoft Digital",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "ritchie",
+      "url": "https://www.nokia.com/bell-labs/about/dennis-m-ritchie/chist.html",
+      "publisher": "Dennis M. Ritchie",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "amazon-structure-2024",
+      "url": "https://www.aboutamazon.com/news/company-news/ceo-andy-jassy-latest-update-on-amazon-return-to-office-manager-team-ratio",
+      "publisher": "Andy Jassy / Amazon",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "amazon-ai-2025",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai",
+      "publisher": "Andy Jassy / Amazon",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "amazon-roles-2026",
+      "url": "https://www.aboutamazon.com/news/company-news/amazon-layoffs-corporate-jan-2026",
+      "publisher": "Beth Galetti / Amazon",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Reused from article research-evidence.json and claim-ledger.md; relevant passages verified there. No source media copied into the video."
+    },
+    {
+      "id": "author-input",
+      "url": "http://127.0.0.1:4332/author-input-media.md",
+      "publisher": "Aaron Guo",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Verified as Aaron’s supplied judgment and experience in this conversation, not verified as an empirical staffing claim. See author-input-media.md."
+    },
+    {
+      "id": "hypothetical-script",
+      "url": "http://127.0.0.1:4332/youtube-script.md",
+      "publisher": "Aaron Studio",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "owned",
+      "notes": "Verified to be explicitly hypothetical in the narration. Does not establish a real customer result."
+    }
+  ],
+  "facts": [
+    {
+      "id": "author-judgment",
+      "claim": "Aaron previously formed a judgment about organizational size and business needs; later restructuring did not surprise him. This is his interpretation, not a measured staffing estimate.",
+      "source_ids": [
+        "author-input"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "amazon-statements",
+      "claim": "Amazon announced layer/process reduction in 2024; Jassy forecast future AI corporate workforce efficiency in 2025; the January 2026 layoff announcement again named layers and bureaucracy. No individual contribution inferred.",
+      "source_ids": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "practitioner-examples",
+      "claim": "Cherny describes AI writing code he reviews; Willison describes trying alternatives. Personal practices, not representative measurements.",
+      "source_ids": [
+        "boris-video",
+        "simon-video"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "prototype-practice",
+      "claim": "Willison often tries three approaches; he advocates usability testing. Do not claim measured customer outcomes.",
+      "source_ids": [
+        "simon-video"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "payroll-example",
+      "claim": "Kent Beck uses payroll to illustrate the business obligations behind visible calculation.",
+      "source_ids": [
+        "kent-video"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "hypothetical-tool",
+      "claim": "Document processing tool, exception-handling needs and comparison are hypothetical explanatory examples, not observed customer behavior.",
+      "source_ids": [
+        "hypothetical-script"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "microsoft-practice",
+      "claim": "Microsoft Digital reports initial individual speed did not improve team productivity and describes shared business intent/acceptance specs. Organizational self-report.",
+      "source_ids": [
+        "microsoft"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    },
+    {
+      "id": "report-experience",
+      "claim": "Aaron completed cross-system reporting verification in development; the video makes no production claim.",
+      "source_ids": [
+        "author-input"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Personal judgment or hypothetical example where stated; no universal outcome."
+    }
+  ]
+}

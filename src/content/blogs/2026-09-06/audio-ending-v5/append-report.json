@@ -1,0 +1,34 @@
+{
+  "mode": "append_only_new_tts_ending",
+  "body_source": "revisions/video-v4-approved-body/audio.mp3",
+  "bodyDuration": 470.064762,
+  "endingStart": 470.414762,
+  "endingDuration": 23.777234,
+  "gap": 0.35,
+  "tail": 1,
+  "endingGainDb": 4.51,
+  "endingOriginalLoudness": {
+    "integratedLufs": -29.38,
+    "truePeakDb": -6.11,
+    "loudnessRange": 4.5,
+    "threshold": -39.92,
+    "targetOffset": 1.3
+  },
+  "qa": {
+    "durationSeconds": 495.191995,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192025,
+    "integratedLufs": -16.98,
+    "truePeakDb": -1.73,
+    "loudnessRange": 4.7,
+    "threshold": -28.11,
+    "targetOffset": 0.21,
+    "longSilenceCount": 0
+  },
+  "sample_windows": {
+    "openingStartSeconds": 0,
+    "middleStartSeconds": 217.5959975,
+    "lateStartSeconds": 435.191995
+  }
+}

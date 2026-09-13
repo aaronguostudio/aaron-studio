@@ -1,0 +1,20 @@
+[
+  {
+    "candidate": "commercial-guide.transcript.json",
+    "spoken_words": 119,
+    "exact_word_match": true,
+    "difference": []
+  },
+  {
+    "candidate": "aaron-performance-transfer.transcript.json",
+    "spoken_words": 119,
+    "exact_word_match": true,
+    "difference": []
+  },
+  {
+    "candidate": "pvc-directed.transcript.json",
+    "spoken_words": 119,
+    "exact_word_match": true,
+    "difference": []
+  }
+]

@@ -53,6 +53,7 @@ Aaron 世界的图谱导航。所有实体的快速入口。
 ## Projects
 
 ### Tier 1: Baseline (Mawer)
+- [[projects/private-wealth-hub]] — Brain context 试点；历史证据已导入，当前范围待确认（2026-09-05）
 - [[projects/nova]] 🔴 — political firefight, unstable platform, decision pending
 - [[projects/check-in]] 🟢 — direct line to Keri, real business value, HR 1-1 tool
 

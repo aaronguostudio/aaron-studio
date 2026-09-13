@@ -1,0 +1,10 @@
+from pathlib import Path
+import subprocess,json,re
+p=Path(__file__).resolve().parents[1];d=json.loads((p/'video-production/render-data.json').read_text());end=d['duration'];start=end-30
+music=p/'video-production/music-bookend-normalized.wav'
+filters=f"[1:a]asplit=2[o][e];[o]atrim=0:30,asetpts=PTS-STARTPTS,volume='if(lt(t,2.5),0.8,if(lt(t,3.5),0.8-0.55*(t-2.5),0.25))':eval=frame,afade=t=in:st=0:d=0.5,afade=t=out:st=24:d=6[open];[e]atrim=8:38,asetpts=PTS-STARTPTS,volume='if(lt(t,25),0.25,if(lt(t,26),0.25+0.4*(t-25),0.65))':eval=frame,afade=t=in:st=0:d=1,afade=t=out:st=27.5:d=1,adelay={round(start*1000)}|{round(start*1000)}[close];[0:a][open][close]amix=inputs=3:normalize=0:duration=first,alimiter=limit=0.78:level=false[a]"
+subprocess.run(['ffmpeg','-y','-v','error','-i',str(p/'video-v5-nomusic.mp4'),'-i',str(music),'-filter_complex',filters,'-map','0:v','-map','[a]','-c:v','copy','-c:a','aac','-b:a','192k','-t',str(end),'-movflags','+faststart',str(p/'video-v5.mp4')],check=True)
+probe=subprocess.run(['ffmpeg','-hide_banner','-i',str(p/'video-v5.mp4'),'-af','loudnorm=I=-16:TP=-1.5:LRA=7:print_format=json','-f','null','-'],capture_output=True,text=True,check=True).stderr
+levels=json.loads(probe[probe.rfind('{'):probe.rfind('}')+1]);tail=subprocess.run(['ffmpeg','-hide_banner','-i',str(p/'video-v5.mp4'),'-af',f'atrim=start={end-1},volumedetect','-f','null','-'],capture_output=True,text=True,check=True).stderr
+report={'music_asset_id':'music:b161e820cd4f5741','usage':'internal review only','rights':'needs-verification','music_windows':[[0,30],[start,end-1.5]],'source':'src/content/music-visualizer/paper-moon-pilot/music.mp3','narration_source':'audio.mp3','narration_regenerated':False,'loudness':levels,'last_second_mean_db':re.search(r'mean_volume: ([\-\w.]+) dB',tail).group(1),'last_second_max_db':re.search(r'max_volume: ([\-\w.]+) dB',tail).group(1),'filter':filters}
+(p/'video-production/music-mix-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print('Scored preview ready',levels)

@@ -1,0 +1,33 @@
+{
+  "revision": 2,
+  "assets": [
+    {
+      "file": "imgs/evidence/openai-blender.png",
+      "title": "OpenAI Blender model exhibit",
+      "source_page": "https://openai.com/index/gpt-6-astra/",
+      "source_asset": "https://images.ctfassets.net/kftzwdyauwt9/5GKqNgTeDXRg47LUsmJbVr/4f50a0e4d2cf067f4c44b0610d8ed31e/kix-fz2lpkvbx0we.png?w=3840&q=90&fm=webp",
+      "captured_at": "2026-09-06T22:38:58.292210+00:00",
+      "method": "direct browser screenshot, unaltered",
+      "sha256": "d03cf3b4f8a0ae60b0f341b7766ae98bbfa38765ed92790eadd43288503796b7",
+      "role": "commentary on the specific demonstrated interface and workflow",
+      "rights_status": "third-party editorial excerpt; not a general reuse license",
+      "editorial_review": "selected within Aaron’s explicit request for sourced screenshots",
+      "limitations": "A still does not establish end-to-end reliability, elapsed runtime, one-shot performance or independent replication.",
+      "publication_status": "local draft; no external publication"
+    },
+    {
+      "file": "imgs/evidence/openai-google-maps.png",
+      "title": "OpenAI Pediatrician search opening poster/frame",
+      "source_page": "https://openai.com/index/gpt-6-astra/",
+      "source_asset": "https://player.vimeo.com/video/1223356211?h=382415d2ce",
+      "captured_at": "2026-09-06T22:38:58.292210+00:00",
+      "method": "direct browser screenshot, unaltered",
+      "sha256": "c1974679142e95b36e392807f59ddb2d9e9257eb023333e69568887915f3905b",
+      "role": "commentary on the specific demonstrated interface and workflow",
+      "rights_status": "third-party editorial excerpt; not a general reuse license",
+      "editorial_review": "selected within Aaron’s explicit request for sourced screenshots",
+      "limitations": "A still does not establish end-to-end reliability, elapsed runtime, one-shot performance or independent replication.",
+      "publication_status": "local draft; no external publication"
+    }
+  ]
+}

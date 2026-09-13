@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "slug": "code-is-cheap-opportunity-moves-upstream",
+  "phase": "media-review",
+  "updatedAt": "2026-09-08T01:38:33.101283+00:00",
+  "scope": "Accepted bilingual article; continue illustration and YouTube production for review. No new public release yet.",
+  "artifacts": {
+    "article": {
+      "english": "code-is-cheap-opportunity-moves-upstream.md",
+      "chinese": "code-is-cheap-opportunity-moves-upstream-zh.md",
+      "sha256": {
+        "english": "57b96ecc4f61924e44ebb9804b4ca50d01f83f1a64d827ad10c1f57766629ba8",
+        "chinese": "3fbd201ba822a5cf1795eb6c0af24df0f5468b1eaa878e37762300c74eb95ed8"
+      },
+      "status": "author-accepted-with-illustrations-for-review",
+      "unchanged": false,
+      "contentLock": "revisions/article-accepted-04/article-lock.json",
+      "contentLockCheck": "revisions/article-accepted-04/content-lock-check.json"
+    },
+    "research": "research-evidence.json",
+    "editorialReview": "revisions/article-accepted-04/review.json",
+    "authorFeedback": "revisions/article-accepted-04/feedback.md",
+    "diagnosis": "revisions/author-feedback-01/diagnosis.md",
+    "directionProbe": "revisions/author-feedback-02/direction-probe.md",
+    "images": {
+      "cover": "imgs/00-cover-v1.png",
+      "thumbnail": "imgs/thumbnail-youtube.jpg",
+      "critique": "imgs/visual-critique.md"
+    },
+    "audio": {
+      "canonical": "audio.mp3",
+      "manifest": "audio-generation-manifest.json",
+      "status": "existing-approved-voice-new-take-for-review"
+    },
+    "video": {
+      "canonical": "video.mp4",
+      "status": "awaiting-author-review",
+      "sha256": "002b25ee11d371a91a2e433296107b4f03e1b086177e811dceac569254af8d2e",
+      "durationSeconds": 469.666667,
+      "noMusic": "video-nomusic.mp4",
+      "prototype": "video-prototype.mp4",
+      "qa": "video-qa-report.md",
+      "technicalQa": "video-production/technical-qa.json"
+    },
+    "validation": "package-validation.md"
+  },
+  "locks": {
+    "argument": "accepted",
+    "article": "accepted-for-production",
+    "package": "awaiting-final-media-review"
+  },
+  "research": {
+    "status": "partial",
+    "sources": 9,
+    "transcripts": 3,
+    "missing": "Original user-selected video links"
+  },
+  "publishing": {
+    "blogUrl": null,
+    "productionCommit": null,
+    "youtubeUrl": null
+  },
+  "postmortem": {
+    "status": "author-improvement-recorded",
+    "authorPreference": "Author: latest full version is pretty good and improved; proceed with workflow. Historical revision, not a controlled skill comparison."
+  },
+  "review": {
+    "url": "http://127.0.0.1:4332/critique.html#video",
+    "mediaLoad": {
+      "readyState": 4,
+      "durationSeconds": 469.666667,
+      "width": 1920,
+      "height": 1080,
+      "error": null
+    },
+    "fullWatchAndListening": "pending; not inferred from sampled visual or technical checks"
+  },
+  "checks": {
+    "package": "pass-with-reviewed-timestamp-warning",
+    "workflowValidation": "pass",
+    "assetCatalogValidation": "pass-128-assets-zero-warnings",
+    "authorMediaReview": "pending"
+  }
+}

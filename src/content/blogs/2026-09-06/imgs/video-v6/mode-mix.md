@@ -1,0 +1,1 @@
+Forms: Human-Scale Metaphor / Field Signal Editorial / quiet. Shared draft: Human-Scale Metaphor / Cartoon Briefing / medium. Review tray: Human-Scale Metaphor / Editorial Workbench rendered in graphite / quiet. Manuscript and claim drift: native Paper System Sketch / medium.

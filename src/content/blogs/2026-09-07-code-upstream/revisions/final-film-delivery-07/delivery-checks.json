@@ -1,0 +1,68 @@
+{
+  "film.html": 200,
+  "delivery/video.mp4": 200,
+  "delivery/thumbnail.jpg": 200,
+  "delivery/captions.en.srt": 200,
+  "delivery/captions.en.vtt": 200,
+  "delivery/chapters.txt": 200,
+  "delivery/youtube-description.txt": 200,
+  "code-upstream-video-review.zip": 200,
+  "served_video.mp4_sha256_match": true,
+  "served_captions.en.srt_sha256_match": true,
+  "captions.en.srt_parse": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "subrip",
+        "nb_read_packets": "154"
+      }
+    ]
+  },
+  "captions.en.vtt_parse": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "webvtt",
+        "nb_read_packets": "154"
+      }
+    ]
+  },
+  "rangeRequests": {
+    "bytes=1000-2000": {
+      "status": 206,
+      "range": "bytes 1000-2000/19010554",
+      "correct": true
+    },
+    "bytes=-256": {
+      "status": 206,
+      "range": "bytes 19010298-19010553/19010554",
+      "correct": true
+    },
+    "bytes=19010000-": {
+      "status": 206,
+      "range": "bytes 19010000-19010553/19010554",
+      "correct": true
+    },
+    "invalid_range": 416
+  },
+  "fullDecode": {
+    "exitCode": 0,
+    "method": "ffmpeg -v error -xerror, both streams, entire V3 master"
+  },
+  "packageQuality": "PASS; old baseline timestamp warnings reviewed against unchanged source hashes and canonical V3",
+  "browser": {
+    "url": "http://127.0.0.1:4332/film.html",
+    "duration": 469.733333,
+    "readyState": 4,
+    "mediaError": null,
+    "chapterSeekChecks": [
+      240,
+      411,
+      0
+    ],
+    "horizontalOverflow": false,
+    "consoleErrors": []
+  }
+}

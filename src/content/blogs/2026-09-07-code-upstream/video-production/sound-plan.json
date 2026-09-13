@@ -1,0 +1,76 @@
+{
+  "sample_rate": 48000,
+  "channels": 2,
+  "duration": 469.6666666666667,
+  "voice_gain": 1.0,
+  "voice_source": "audio.mp3",
+  "voice_offset_seconds": 3.0,
+  "voice_source_sha256": "9f28b59cd34b59fe977269d08ab328dd55d30e96867bea86a68edeb54d294c4b",
+  "voice_pcm_exact_match": true,
+  "narration_regenerated": false,
+  "sidechain": false,
+  "limiter": false,
+  "compression": false,
+  "sources": {
+    "paper": {
+      "path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/music-visualizer/paper-moon-pilot/music.mp3",
+      "lufs": -22.83,
+      "sha256": "b161e820cd4f574126748c34fc0bd9e3d93c884e952f534ceef502998dadfaa5",
+      "duration_seconds": 45.024
+    },
+    "turning": {
+      "path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-06/video-production/v7/music/turning-page.mp3",
+      "lufs": -10.52,
+      "sha256": "ce9b4619b5ac15793baf03ed3333b9035570a2b7b73338fa78b89e3ad48ed51c",
+      "duration_seconds": 29.675104166666667
+    },
+    "shared": {
+      "path": "/Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-06/video-production/v7/music/common-ground.mp3",
+      "lufs": -10.99,
+      "sha256": "84b3f283591702d2b40d86a096485376a23e0571d528503f63031f4baa19d281",
+      "duration_seconds": 28.734708333333334
+    }
+  },
+  "cues": [
+    {
+      "id": "opening",
+      "track": "paper",
+      "start": 0,
+      "length": 26,
+      "fade_in": 4,
+      "fade_out": 7,
+      "gain": 0.2
+    },
+    {
+      "id": "watch-the-work",
+      "track": "turning",
+      "start": 176,
+      "length": 28,
+      "fade_in": 6,
+      "fade_out": 7,
+      "gain": 0.2
+    },
+    {
+      "id": "commercial-exploration",
+      "track": "shared",
+      "start": 291,
+      "length": 28,
+      "fade_in": 6,
+      "fade_out": 7,
+      "gain": 0.2
+    },
+    {
+      "id": "closing",
+      "track": "paper",
+      "start": 433.6666666666667,
+      "length": 35,
+      "fade_in": 7,
+      "fade_out": 7,
+      "gain": 0.2
+    }
+  ],
+  "coverage_seconds": 117,
+  "peak_dbfs": -3.990699052810669,
+  "final_second_peak_dbfs": -240.0,
+  "rights_status": "Internal scored review; retain prior author music choices and provider provenance. Publication clearance is checked at release, not asserted by this mix."
+}

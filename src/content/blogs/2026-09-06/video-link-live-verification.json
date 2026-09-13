@@ -1,0 +1,39 @@
+{
+  "checkedAt": "2026-09-06T20:07:54.991577+00:00",
+  "pages": [
+    {
+      "url": "https://www.aaronguo.com/blogs/dhh-the-joy-of-building",
+      "videoEntries": [
+        {
+          "href": "https://youtu.be/KUQ5cKVK8R8",
+          "target": "_blank",
+          "rel": "noopener noreferrer",
+          "class": "inline-flex items-center gap-2 px-3 py-2 rounded-md border dark:border-gray-800 bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-500/20 transition-colors duration-200 text-sm font-medium"
+        },
+        {
+          "href": "https://youtu.be/KUQ5cKVK8R8",
+          "target": "_blank",
+          "rel": "noopener noreferrer",
+          "class": "inline-flex items-center gap-2 px-3 py-2 rounded-md border dark:border-gray-800 bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-500/20 transition-colors duration-200 text-sm font-medium"
+        }
+      ]
+    },
+    {
+      "url": "https://www.aaronguo.com/zh/blogs/dhh-the-joy-of-building",
+      "videoEntries": [
+        {
+          "href": "https://youtu.be/KUQ5cKVK8R8",
+          "target": "_blank",
+          "rel": "noopener noreferrer",
+          "class": "inline-flex items-center gap-2 px-3 py-2 rounded-md border dark:border-gray-800 bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-500/20 transition-colors duration-200 text-sm font-medium"
+        },
+        {
+          "href": "https://youtu.be/KUQ5cKVK8R8",
+          "target": "_blank",
+          "rel": "noopener noreferrer",
+          "class": "inline-flex items-center gap-2 px-3 py-2 rounded-md border dark:border-gray-800 bg-red-500/10 text-red-600 dark:text-red-400 hover:bg-red-500/20 transition-colors duration-200 text-sm font-medium"
+        }
+      ]
+    }
+  ]
+}

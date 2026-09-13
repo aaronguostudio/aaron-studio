@@ -1,0 +1,54 @@
+{
+  "checkedAt": "2026-09-08T01:07:14.253434+00:00",
+  "phase": "article-review",
+  "authorState": "Direction accepted; new full drafts not yet reviewed.",
+  "modelEditorialDecision": "PASS for author reading, not author acceptance.",
+  "articleHashes": {
+    "english": "ffddb39bbe53ee67a28972ca182421afa579b4dcffe4a5c18e031577a305b5ad",
+    "chinese": "354c93a95737eb9332d8b2a97b67f5a9639cdb0cae7c80739e86d60e92a176d4"
+  },
+  "checks": [
+    {
+      "name": "bilingual wording scans",
+      "passed": true,
+      "details": "No flags; Chinese 3342 characters and English 1880 scanner words including metadata."
+    },
+    {
+      "name": "article package gate",
+      "passed": true,
+      "details": "Serious article gate; no media or release requested."
+    },
+    {
+      "name": "research evidence schema",
+      "passed": true,
+      "sources": 9
+    },
+    {
+      "name": "workflow validation and skill sync",
+      "passed": true
+    },
+    {
+      "name": "five distinct recommendations, one personal project reference, corrected opening in both editions",
+      "passed": true
+    },
+    {
+      "name": "preview syntax, snapshot hashes and latest review bundle",
+      "passed": true
+    }
+  ],
+  "browser": {
+    "preview": "http://127.0.0.1:4332/critique.html",
+    "tab": "25",
+    "languageToggle": "Chinese to English to Chinese verified",
+    "fiveRecommendations": true,
+    "horizontalOverflow": false,
+    "screenshot": "Desktop inspected",
+    "skilldev": "Latest two-case review bundle generated and linked for download; no extra SkillDev tab opened."
+  },
+  "limitations": [
+    "No mobile viewport test or new external-link crawl.",
+    "Author confirms direction, not full-draft quality or release.",
+    "Original user-selected video links still unknown; research-selected videos used.",
+    "No media or publication."
+  ]
+}

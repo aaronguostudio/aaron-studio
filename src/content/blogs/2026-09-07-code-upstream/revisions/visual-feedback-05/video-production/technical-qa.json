@@ -1,0 +1,78 @@
+{
+  "technical_status": "pass",
+  "video_sha256": "002b25ee11d371a91a2e433296107b4f03e1b086177e811dceac569254af8d2e",
+  "duration_seconds": 469.666667,
+  "video_frames": 14090,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "audio_codec": "aac",
+  "audio_channels": 2,
+  "audio_sample_rate": 48000,
+  "scene_coverage_contiguous": true,
+  "exact_caption_word_sequence": true,
+  "caption_count": 117,
+  "scene_count": 39,
+  "encoded_frame_samples": 117,
+  "aac_voice_gain_windows": [
+    {
+      "start_seconds": 8,
+      "voice_gain_after_aac": 0.9979610803435548,
+      "music_gain_after_aac": 0.998208226422292
+    },
+    {
+      "start_seconds": 60,
+      "voice_gain_after_aac": 0.9984986818835436,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 120,
+      "voice_gain_after_aac": 0.9981405404654087,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 183,
+      "voice_gain_after_aac": 0.9960373526045656,
+      "music_gain_after_aac": 0.9903757981583698
+    },
+    {
+      "start_seconds": 220,
+      "voice_gain_after_aac": 0.9988754360384792,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 300,
+      "voice_gain_after_aac": 0.998606623123328,
+      "music_gain_after_aac": 0.9950126289856052
+    },
+    {
+      "start_seconds": 340,
+      "voice_gain_after_aac": 0.9984288306679631,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 398,
+      "voice_gain_after_aac": 0.9972267946032466,
+      "music_gain_after_aac": null
+    },
+    {
+      "start_seconds": 440,
+      "voice_gain_after_aac": 0.9979569763517205,
+      "music_gain_after_aac": 0.9777909772586615
+    },
+    {
+      "start_seconds": 455,
+      "voice_gain_after_aac": 0.9980945990040246,
+      "music_gain_after_aac": 0.9937952093941748
+    }
+  ],
+  "final_second_peak_dbfs": -240.0,
+  "full_human_playback_and_listening": "not_claimed; author review pending",
+  "contact_sheet_visual_review": "pass: all 117 encoded samples in 13 contact sheets inspected; see video-qa-report.md",
+  "picture_stream_hash": "SHA256=52fe57351e027faf1af3f94124221aab8ee531c0d2d06e014bc05a3be3f6294b",
+  "scored_and_unscored_picture_identical": true,
+  "measured_integrated_lufs": -16.58,
+  "measured_true_peak_dbtp": -3.98
+}

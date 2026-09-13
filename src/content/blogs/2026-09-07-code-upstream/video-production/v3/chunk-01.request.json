@@ -1,0 +1,15 @@
+{
+  "voice": "R2DWp7zZuWmGxk3r8GIA",
+  "text": "In twenty twenty-four, Amazon announced plans to reduce layers and unnecessary processes. The following year, Andy Jassy said he expected AI efficiency to reduce its total corporate workforce over time. Its January twenty twenty-six layoff announcement again emphasized fewer layers and less bureaucracy. Those statements describe an organization changing. They cannot tell us what any individual contributed. <break time=\"0.7s\" />\n\nMy interpretation is that cheaper execution accelerates a reassessment that was already needed. For the next five to ten years, I want to invest more in understanding customers, making product decisions, and carrying worthwhile work into use. Stronger implementation tools give engineers room to take on more of that responsibility.",
+  "model_id": "eleven_multilingual_v2",
+  "seed": 607,
+  "voice_settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.8,
+    "style": 0.56,
+    "use_speaker_boost": true,
+    "speed": 1
+  },
+  "previous_text": "Years ago, while working at Amazon, I had already reached a conclusion. A company can afford a lot of desirable jobs without needing a team of that size to create its business value. That judgment stayed with me. And as AI takes on more implementation, I think engineers should pay closer attention to where their work becomes useful.\n\nOrganizations can grow around management layers, departmental interests, and internal politics. Coordination expands. The customer's problem may barely change. Someone can work very hard while their abilities are absorbed by work the organization created for itself. So Amazon's later restructuring and layoffs didn't surprise me.",
+  "next_text": "Boris Cherny has described having Claude Code write his code while he continues reviewing it. Simon Willison describes quickly trying several prototypes. These are particular practitioners' experiences. What interests me is how they change our allocation of time. Once you can try an idea more cheaply, deciding which idea deserves the effort becomes more valuable.\n\nThe first place I'd invest is a business domain. Learn who uses a product, who pays, and who bears the consequences when it fails. Kent Beck used payroll to illustrate how much responsibility sits behind apparently simple functionality. Calculating an amount is only part of the work. Keep learning those obligations through actual projects. Over time, you'll notice needs that haven't reached a requirements document."
+}

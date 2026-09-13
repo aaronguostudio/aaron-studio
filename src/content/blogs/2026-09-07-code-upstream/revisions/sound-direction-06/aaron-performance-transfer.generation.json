@@ -1,0 +1,9 @@
+{
+  "generatedAt": "2026-09-08T02:30:50.171Z",
+  "provider": "ElevenLabs",
+  "model": "eleven_multilingual_sts_v2",
+  "voice": "R2DWp7zZuWmGxk3r8GIA",
+  "guide": "commercial-guide-raw.mp3",
+  "requestId": "NSquyDauU2tG9LRybzKY",
+  "status": "candidate - author identity evaluation required"
+}

@@ -1,0 +1,81 @@
+{
+  "mode": "dry-run",
+  "source": "turso",
+  "hasSlug": true,
+  "window": "7d",
+  "hasTursoUrl": true,
+  "hasTursoAuthToken": true,
+  "slug": "gpt-6-astra-real-work",
+  "periodStart": "2026-09-06",
+  "periodEnd": "2026-09-13",
+  "review": {
+    "review_type": "postmortem_7d",
+    "period_start": "2026-09-06",
+    "period_end": "2026-09-13",
+    "summary": "I Put GPT-6 Astra to Work 7d postmortem: 0 pageviews, 0 unique visitors, 0 deep-read events, and 0 reward score.",
+    "insights": [
+      {
+        "type": "measurement_gap",
+        "label": "no_metrics_in_window",
+        "evidence": "No metrics were found for gpt-6-astra-real-work between 2026-09-06 and 2026-09-13.",
+        "confidence": "low"
+      },
+      {
+        "type": "distribution_gap",
+        "label": "linkedin_manual_import_missing",
+        "evidence": "Some distribution channel data is missing or not yet imported.",
+        "confidence": "high"
+      }
+    ],
+    "recommended_actions": [
+      {
+        "action": "Verify content, Rybbit path mapping, and channel post registration before judging performance.",
+        "owner": "blog-growth",
+        "priority": "high"
+      },
+      {
+        "action": "Register channel posts and import missing LinkedIn or YouTube metrics before the next postmortem.",
+        "owner": "blog-growth",
+        "priority": "high"
+      }
+    ],
+    "raw_context": {
+      "slug": "gpt-6-astra-real-work",
+      "reward_version": "v0.1",
+      "metric_window": "7d",
+      "metric_date_start": "2026-09-06",
+      "metric_date_end": "2026-09-13",
+      "sources": [
+        "growth_content_daily_scorecard",
+        "growth_channel_metric_rollup"
+      ],
+      "known_gaps": [
+        "linkedin_manual_import_missing",
+        "youtube_metrics_missing"
+      ],
+      "scorecard": {
+        "pageviews": "0",
+        "unique_visitors": "0",
+        "scroll_75": "0",
+        "scroll_100": "0",
+        "newsletter_subscribes": "0",
+        "outbound_clicks": "0",
+        "linkedin_impressions": "0",
+        "linkedin_reactions": "0",
+        "linkedin_comments": "0",
+        "linkedin_reshares": "0",
+        "linkedin_link_clicks": "0",
+        "youtube_views": "0",
+        "youtube_watch_minutes": "0",
+        "youtube_subscribers_gained": "0",
+        "qualified_engaged_audience_score": "0"
+      },
+      "channel_metrics": []
+    }
+  },
+  "lessonCount": 2,
+  "env": {
+    "TURSO_URL": "[set]",
+    "TURSO_AUTH_TOKEN": "[set]"
+  }
+}

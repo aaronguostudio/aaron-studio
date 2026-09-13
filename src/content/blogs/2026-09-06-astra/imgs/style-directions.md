@@ -1,0 +1,3 @@
+# Selected style direction
+Agent-selected continuation of A, the recommended real-work journey, under Aaron’s request to proceed with illustrations and video after accepting the article. Preserve the restraint and warmth he liked in the DHH film.
+Controlled Mix: Cartoon Briefing / Field Signal Editorial primary; Paper System Sketch for retained history; plain evidence frames for actual screenshots. Palette: warm ivory, graphite, restrained muted teal and warm ochre. No glass required. B technology briefing and C tactile workbench remain rejected alternatives because the operator story benefits from warmer scene media plus exact native typography.

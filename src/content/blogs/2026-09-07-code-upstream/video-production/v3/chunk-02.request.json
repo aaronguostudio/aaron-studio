@@ -1,0 +1,15 @@
+{
+  "voice": "R2DWp7zZuWmGxk3r8GIA",
+  "text": "Boris Cherny has described having Claude Code write his code while he continues reviewing it. Simon Willison describes quickly trying several prototypes. These are particular practitioners' experiences. What interests me is how they change our allocation of time. Once you can try an idea more cheaply, deciding which idea deserves the effort becomes more valuable. <break time=\"0.7s\" />\n\nThe first place I'd invest is a business domain. Learn who uses a product, who pays, and who bears the consequences when it fails. Kent Beck used payroll to illustrate how much responsibility sits behind apparently simple functionality. Calculating an amount is only part of the work. Keep learning those obligations through actual projects. Over time, you'll notice needs that haven't reached a requirements document.",
+  "model_id": "eleven_multilingual_v2",
+  "seed": 607,
+  "voice_settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.8,
+    "style": 0.56,
+    "use_speaker_boost": true,
+    "speed": 1
+  },
+  "previous_text": "In twenty twenty-four, Amazon announced plans to reduce layers and unnecessary processes. The following year, Andy Jassy said he expected AI efficiency to reduce its total corporate workforce over time. Its January twenty twenty-six layoff announcement again emphasized fewer layers and less bureaucracy. Those statements describe an organization changing. They cannot tell us what any individual contributed.\n\nMy interpretation is that cheaper execution accelerates a reassessment that was already needed. For the next five to ten years, I want to invest more in understanding customers, making product decisions, and carrying worthwhile work into use. Stronger implementation tools give engineers room to take on more of that responsibility.",
+  "next_text": "Then get closer to customers. Imagine a tool that processes business documents. This is a hypothetical example. The demonstration extracts every field beautifully. But when you watch someone work, you discover where they pause: an unusual document, a missing confirmation, a result they don't trust. That pause can tell you more about the next feature than another hour polishing the demo.\n\nAsk the person to show you how they handle that case today. Who checks it? How do they correct a mistake? What must continue working in their existing system? You may discover that exception handling deserves attention first. Use some of the time AI saves to have that conversation, and come back after delivery to see what changed."
+}

@@ -1,0 +1,15 @@
+{
+  "voice": "R2DWp7zZuWmGxk3r8GIA",
+  "text": "Years ago, while working at Amazon, I had already reached a conclusion. A company can afford a lot of desirable jobs without needing a team of that size to create its business value. That judgment stayed with me. <break time=\"0.6s\" /> And as AI takes on more implementation, I think engineers should pay closer attention to where their work becomes useful.\n\nOrganizations can grow around management layers, departmental interests, and internal politics. Coordination expands. The customer's problem may barely change. Someone can work very hard while their abilities are absorbed by work the organization created for itself. So Amazon's later restructuring and layoffs didn't surprise me.",
+  "model_id": "eleven_multilingual_v2",
+  "seed": 607,
+  "voice_settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.8,
+    "style": 0.56,
+    "use_speaker_boost": true,
+    "speed": 1
+  },
+  "previous_text": "",
+  "next_text": "In twenty twenty-four, Amazon announced plans to reduce layers and unnecessary processes. The following year, Andy Jassy said he expected AI efficiency to reduce its total corporate workforce over time. Its January twenty twenty-six layoff announcement again emphasized fewer layers and less bureaucracy. Those statements describe an organization changing. They cannot tell us what any individual contributed.\n\nMy interpretation is that cheaper execution accelerates a reassessment that was already needed. For the next five to ten years, I want to invest more in understanding customers, making product decisions, and carrying worthwhile work into use. Stronger implementation tools give engineers room to take on more of that responsibility."
+}

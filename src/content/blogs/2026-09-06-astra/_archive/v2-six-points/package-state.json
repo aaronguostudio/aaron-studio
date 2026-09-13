@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slug": "gpt-6-astra-real-work",
+  "date": "2026-09-06",
+  "phase": "revised_article_and_narration_review",
+  "artifacts": {
+    "article_en": "gpt-6-astra-real-work.md",
+    "article_zh": "gpt-6-astra-real-work-zh.md",
+    "research": "research-evidence.json",
+    "script": "youtube-script.md",
+    "audio": {
+      "canonical": "audio.mp3",
+      "previous": "_archive/v1-eight-points/audio.mp3",
+      "revision": 2,
+      "sha256": "83613bab21c5fa99e455d32c4154983672a905f8fd7c1b188ad4a901e63511f6",
+      "script_sha256": "5fd7ce6fe8c0df060c3cbbaaaa4408fb3a118514a530075fff5edd54c81761f2",
+      "duration_seconds": 445.59093,
+      "technical_qa": "pass",
+      "human_listening": "pending",
+      "status": "ready_for_review"
+    },
+    "video": {
+      "canonical": null,
+      "status": "not_rendered"
+    },
+    "review": "review.html",
+    "draft_qa": "draft-qa.md",
+    "evidence_images": [
+      "imgs/evidence/openai-blender.png",
+      "imgs/evidence/openai-google-maps.png"
+    ]
+  },
+  "locks": {
+    "argument": "editorial_pass",
+    "article": "editorial_pass_for_review",
+    "package": "pending"
+  },
+  "publication": {
+    "blog_url": null,
+    "youtube_url": null,
+    "production_main_commit": null,
+    "authorization": "not_yet_for_this_new_package"
+  },
+  "pending": [
+    "Aaron review of revised article and v2 narration",
+    "Visual direction selection",
+    "Final storyboard, artwork, captions, music and video",
+    "Publication authorization and final delivery verification"
+  ],
+  "postmortem": {
+    "status": "prediction_recorded_not_published",
+    "path": "postmortem.md"
+  },
+  "review_url": "http://127.0.0.1:4327/review.html",
+  "revision": 2
+}

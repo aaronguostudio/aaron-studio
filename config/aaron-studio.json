@@ -3,6 +3,7 @@
   "blogContentRoot": "src/content/blogs",
   "brainRoot": "src/brain",
   "tilesRoot": "tiles",
+  "skillDevRepo": "../skilldev/code",
   "timezone": "America/Edmonton",
   "blogRepo": "/Users/aaronguo/Work/ag/blog/aaronguoblog",
   "blogPostsEn": "/Users/aaronguo/Work/ag/blog/aaronguoblog/content/blogs/en",
@@ -42,5 +43,16 @@
       "clockSkewMs": 100,
       "excludePathSegments": ["qa-frames", "frames", "caption-assets"]
     }
+  },
+  "brainCapture": {
+    "provider": "notion",
+    "recordsPageId": "3d3b5667-a0c6-815f-9ae2-f39fd0e923f2",
+    "recordsMigrationMap": "src/projects/brain-notion-migration/2026-09-06/remaining-map.json",
+    "worldPageId": "3d3b5667-a0c6-8122-9bd3-d720c779efbf",
+    "worldMigrationMap": "src/projects/brain-notion-migration/2026-09-06/world-map.json",
+    "homePageId": "3d3b5667-a0c6-81b0-8ef6-d856eed210ee",
+    "knowledgeDataSourceId": "32696c0c-1cd8-4a45-b99e-bc83e5ee115b",
+    "projectsDataSourceId": "4bd15e19-bf82-409d-a2d7-25d532a57fc1",
+    "insightsDataSourceId": "383b5667-a0c6-80eb-a18c-000b1e7c6afc"
   }
 }

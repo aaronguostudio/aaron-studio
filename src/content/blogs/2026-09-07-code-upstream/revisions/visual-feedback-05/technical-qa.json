@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "video": "video-v2.mp4",
+  "sha256": "918a6ee941487fc6ea6b77fa5b4866e0d2424c6c74d53f51da3c2203f1581661",
+  "durationSeconds": 469.666667,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "frames": 14090,
+  "changedScenes": 7,
+  "encodedSamples": 34,
+  "checks": {
+    "scored_audio_stream_identical": true,
+    "plain_audio_stream_identical": true,
+    "scored_plain_picture_identical": true,
+    "audio_timing_identical": true,
+    "source_locks_unchanged": true
+  },
+  "scoredAudioHash": "SHA256=451c9ce06ead158dd961e263db1a025be4e55656f9f799511c2d08cd5a16d3af",
+  "fullWatchAndListening": "not re-performed; exact previous audio copied, scoped image revision",
+  "visualInspection": "All 34 encoded samples across seven changed scenes, their immediate boundaries and the final frame inspected; no crop or text collision defects."
+}

@@ -1,0 +1,81 @@
+[
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/00-cover-v1.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/00-cover-v1.webp",
+    "original_bytes": 2219160,
+    "web_bytes": 123240,
+    "sha256": "74a2b9f9bb01b91f304b4ab053b065ceef010e0f9930f741f8abbbd69cf28aaf"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/00-cover-thumbnail-v1.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/00-cover-thumbnail-v1.webp",
+    "original_bytes": 2304845,
+    "web_bytes": 144360,
+    "sha256": "fda0c7e0c3107e9e7a24083f3f73cd21aea29eb05a22df17802927b5dfbc6544"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/01-retained-notes-v1.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/01-retained-notes-v1.webp",
+    "original_bytes": 1760060,
+    "web_bytes": 47584,
+    "sha256": "a2bc54a63ba5b5a452485a9cfdcc2c282b30def605e31ce8e04ef65466ab958b"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/02-writing-flow-v1.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/02-writing-flow-v1.webp",
+    "original_bytes": 2124423,
+    "web_bytes": 75984,
+    "sha256": "3baa76761103c57feeb883599c1012705941f18cec50d013f0acfb795b43288f"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/03-review-lamp-v1.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/03-review-lamp-v1.webp",
+    "original_bytes": 2240337,
+    "web_bytes": 98392,
+    "sha256": "5bf44727876a33ff35e5d381dd3c7fa2645f57057684a460f17cc5721255578e"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/evidence/openai-blender.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/openai-blender.webp",
+    "original_bytes": 128737,
+    "web_bytes": 108416,
+    "sha256": "c8fb7a935a3c1346679b2142ecae1faae90b336f7de31df3e60a5485e7f26fcd",
+    "transform": "WebP encoding only; original evidence preserved"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/evidence/openai-google-maps.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/openai-google-maps.webp",
+    "original_bytes": 125683,
+    "web_bytes": 96100,
+    "sha256": "7b43e29b56607c150d26b8dcea1b46ef8646c39b9ae3875873079532f946c0a9",
+    "transform": "WebP encoding only; original evidence preserved"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/00-cover-v2-astra-logo.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/00-cover-v2-astra-logo.webp",
+    "original_bytes": 2153716,
+    "web_bytes": 124402,
+    "sha256": "1b9e6af52b4d0b7cb2d629fa0c5e7d4ae18fbf6d91f210b26efa3c15861ba6c6"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/00-cover-thumbnail-v2-astra-logo.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/00-cover-thumbnail-v2-astra-logo.webp",
+    "original_bytes": 2647380,
+    "web_bytes": 202676,
+    "sha256": "fb1d4385989de8dfb39d0b413e81718d5c1668fd984b2c18c339ec0f59e0477d"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/00-cover-v3-launch-style.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/00-cover-v3-launch-style.webp",
+    "original_bytes": 2348368,
+    "web_bytes": 144204,
+    "sha256": "b9f5dd1a6af790cf8c02aea9eb279ce1ce829cbc5f31a673dd26909c285567d1"
+  },
+  {
+    "file": "src/content/blogs/2026-09-06-astra/imgs/00-cover-thumbnail-v3-launch-style.png",
+    "web": "src/content/blogs/2026-09-06-astra/imgs/web/00-cover-thumbnail-v3-launch-style.webp",
+    "original_bytes": 2598990,
+    "web_bytes": 186878,
+    "sha256": "903c9563b4f6835f5430efd98a3a01d070fd16b43f9231309f75be1dc9226b6a"
+  }
+]

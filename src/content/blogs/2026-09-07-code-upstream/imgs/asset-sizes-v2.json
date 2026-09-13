@@ -1,0 +1,37 @@
+[
+  {
+    "file": "00-cover-v2.png",
+    "width": 1672,
+    "height": 941,
+    "pngBytes": 2193190,
+    "webpBytes": 94974
+  },
+  {
+    "file": "00-cover-thumbnail-v2.png",
+    "width": 1672,
+    "height": 941,
+    "pngBytes": 2036008,
+    "webpBytes": 89922
+  },
+  {
+    "file": "01-watch-the-work-v2.png",
+    "width": 1672,
+    "height": 941,
+    "pngBytes": 2363368,
+    "webpBytes": 135690
+  },
+  {
+    "file": "02-choose-the-path-v2.png",
+    "width": 1672,
+    "height": 941,
+    "pngBytes": 1962766,
+    "webpBytes": 54382
+  },
+  {
+    "file": "03-used-in-the-world-v2.png",
+    "width": 1672,
+    "height": 941,
+    "pngBytes": 2273642,
+    "webpBytes": 117428
+  }
+]

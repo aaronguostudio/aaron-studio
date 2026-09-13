@@ -1,0 +1,28 @@
+{
+  "version": "v6",
+  "audio_sha256": "5e79e7ae3fe4e92da50b9aa40e6d3b3ddf4a116bd3b2e38d28db6f7c5b7cae0f",
+  "script_sha256": "200e3954c9f3f307efec501fab5d1cd157330154aedb374894ded862834e4ad1",
+  "captions_sha256": "9eb2efab6481f05e2806d588a3191112da1a77f90967dfd6e382d6661b9e68f6",
+  "changed_scene_ids": [
+    "s07",
+    "s13",
+    "s17",
+    "s19",
+    "s22",
+    "s23",
+    "s24",
+    "s28",
+    "s29",
+    "s31"
+  ],
+  "unchanged_timing": true,
+  "unchanged_narration": true,
+  "baseline": "video-v5-nomusic.mp4",
+  "renderer": "tiles/aaron-video-gen/remotion/src/projects/dhh-ai-enthusiasm-v6/index.tsx",
+  "audio_stream_preservation": "Both v6 audio streams exactly match their corresponding v5 AAC streams",
+  "nomusic_audio_sha256": "SHA256=4f380d0e47b34224dcf0e5749a331481e31c1aabf927d98c090600064fe16b55",
+  "scored_audio_sha256": "SHA256=a2eee3dad1a38472593181647905402c67d31a020484bdc4a8b1ca07b964e888",
+  "video_stream_sha256": "SHA256=e66e6186a94b7f294e2626c102d63dc64ed9c00e8097d666686b91ee6f65499a",
+  "article_hashes_unchanged": true,
+  "completed_at": "2026-09-06T18:44:21.490255+00:00"
+}

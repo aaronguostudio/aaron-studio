@@ -1,0 +1,1704 @@
+{
+  "schema_version": 1,
+  "title": "AI and the next move for engineers",
+  "duration_sec": 469.6666666666667,
+  "fps": 30,
+  "direction": {
+    "name": "Work that reaches people",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "Ivory paper, graphite typography, registered layout geometry, protected captions, evidence rails, semantic focus; Astra accepted renderer and DHH music restraint inform this continuation.",
+    "motion_density": "balanced",
+    "music_strategy": "chaptered",
+    "references": [
+      {
+        "id": "ledger",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Ivory paper, graphite typography, registered layout geometry, protected captions, evidence rails, semantic focus; Astra accepted renderer and DHH music restraint inform this continuation.",
+        "avoid": "Full-frame illustration slideshow, blank title stages, repeated card grids, decorative camera drift."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s00",
+      "title": "BUILD WHAT MATTERS",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: BUILD WHAT MATTERS",
+      "entry_mode": "meaningful",
+      "entry_visual": "BUILD WHAT MATTERS",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "BUILD WHAT MATTERS",
+        "AI and the next move for engineers"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "BUILD WHAT MATTERS",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.25,
+          "visual": "AI and the next move for engineers",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s01",
+      "title": "A judgment from my years at Amazon.",
+      "start_sec": 3.0,
+      "end_sec": 18.0,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: A judgment from my years at Amazon.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A judgment from my years at Amazon.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A judgment from my years at Amazon.",
+        "Organizational capacity\nJobs it can afford",
+        "Business need\nValue it must create",
+        "A company’s ability to fund roles is different from the need it serves."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A judgment from my years at Amazon.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A company’s ability to fund roles is different from the need it serves.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Business need\nValue it must create",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "A company’s ability to fund roles is different from the need it serves.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s02",
+      "title": "Where does the work\nbecome useful?",
+      "start_sec": 18.0,
+      "end_sec": 30.366666666666667,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Where does the work\nbecome useful?",
+      "entry_mode": "meaningful",
+      "entry_visual": "Where does the work\nbecome useful?",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Where does the work\nbecome useful?",
+        "A career question, made more pressing by stronger execution tools."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Where does the work\nbecome useful?",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "A career question, made more pressing by stronger execution tools.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 11.366666666666667,
+          "visual": "A career question, made more pressing by stronger execution tools.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "An organization can create its own work.",
+      "start_sec": 30.366666666666667,
+      "end_sec": 43.7,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: An organization can create its own work.",
+      "entry_mode": "meaningful",
+      "entry_visual": "An organization can create its own work.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "An organization can create its own work.",
+        "More layers",
+        "More coordination",
+        "More internal work",
+        "Customer needs may grow much more slowly."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "An organization can create its own work.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Customer needs may grow much more slowly.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "More coordination",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "More internal work",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Customer needs may grow much more slowly.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s04",
+      "title": "Hard work can be absorbed internally.",
+      "start_sec": 43.7,
+      "end_sec": 58.166666666666664,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Hard work can be absorbed internally.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Hard work can be absorbed internally.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Hard work can be absorbed internally.",
+        "That shaped how I read the later restructuring."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Hard work can be absorbed internally.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "That shaped how I read the later restructuring.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "That shaped how I read the later restructuring.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s05",
+      "title": "2024 / Reduce layers.",
+      "start_sec": 58.166666666666664,
+      "end_sec": 65.76666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: 2024 / Reduce layers.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2024 / Reduce layers.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2024 / Reduce layers.",
+        "Fewer layers",
+        "Fewer unnecessary processes",
+        "Amazon’s stated organizational priorities."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2024 / Reduce layers.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Amazon’s stated organizational priorities.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Fewer unnecessary processes",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06",
+      "title": "2025 / An AI workforce forecast.",
+      "start_sec": 65.76666666666667,
+      "end_sec": 75.16666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: 2025 / An AI workforce forecast.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2025 / An AI workforce forecast.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2025 / An AI workforce forecast.",
+        "Andy Jassy expected a smaller total corporate workforce over time."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2025 / An AI workforce forecast.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Andy Jassy expected a smaller total corporate workforce over time.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s07",
+      "title": "2026 / Restructuring continued.",
+      "start_sec": 75.16666666666667,
+      "end_sec": 91.43333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: 2026 / Restructuring continued.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2026 / Restructuring continued.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2026 / Restructuring continued.",
+        "Public statement\nFewer layers, less bureaucracy",
+        "Interpretation boundary\nNo verdict on a person",
+        "An announcement cannot establish an individual’s contribution."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2026 / Restructuring continued.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "An announcement cannot establish an individual’s contribution.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Interpretation boundary\nNo verdict on a person",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "An announcement cannot establish an individual’s contribution.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s08",
+      "title": "Cheaper execution changes the calculation.",
+      "start_sec": 91.43333333333334,
+      "end_sec": 98.13333333333334,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Cheaper execution changes the calculation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Cheaper execution changes the calculation.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Cheaper execution changes the calculation.",
+        "My interpretation: it accelerates organizational reassessment."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Cheaper execution changes the calculation.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "My interpretation: it accelerates organizational reassessment.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s09",
+      "title": "Invest in the work\naround the code.",
+      "start_sec": 98.13333333333334,
+      "end_sec": 115.83333333333333,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Invest in the work\naround the code.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Invest in the work\naround the code.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Invest in the work\naround the code.",
+        "Customers. Product choices. Work that reaches use."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Invest in the work\naround the code.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Customers. Product choices. Work that reaches use.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Customers. Product choices. Work that reaches use.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10",
+      "title": "Two ways implementation is changing.",
+      "start_sec": 115.83333333333333,
+      "end_sec": 127.36666666666666,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Two ways implementation is changing.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two ways implementation is changing.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Two ways implementation is changing.",
+        "Boris Cherny\nAI writes; he reviews",
+        "Simon Willison\nTry alternative prototypes",
+        "Their own practices, with human judgment still involved."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Two ways implementation is changing.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Their own practices, with human judgment still involved.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Simon Willison\nTry alternative prototypes",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s11",
+      "title": "What deserves the effort?",
+      "start_sec": 127.36666666666666,
+      "end_sec": 145.33333333333334,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: What deserves the effort?",
+      "entry_mode": "meaningful",
+      "entry_visual": "What deserves the effort?",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What deserves the effort?",
+        "Cheaper trials give us room to ask a better question."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What deserves the effort?",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Cheaper trials give us room to ask a better question.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Cheaper trials give us room to ask a better question.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s12",
+      "title": "1 / Learn an industry deeply.",
+      "start_sec": 145.33333333333334,
+      "end_sec": 157.3,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: 1 / Learn an industry deeply.",
+      "entry_mode": "meaningful",
+      "entry_visual": "1 / Learn an industry deeply.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "1 / Learn an industry deeply.",
+        "Who uses it?",
+        "Who pays?",
+        "Who bears the risk?",
+        "The business gives the feature its meaning."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "1 / Learn an industry deeply.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "The business gives the feature its meaning.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Who pays?",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Who bears the risk?",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13",
+      "title": "Payroll is more than a calculation.",
+      "start_sec": 157.3,
+      "end_sec": 169.43333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Payroll is more than a calculation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Payroll is more than a calculation.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Payroll is more than a calculation.",
+        "Visible feature\nCalculate an amount",
+        "Business context\nObligations behind it",
+        "Kent Beck’s example: visible functionality and broader responsibility."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Payroll is more than a calculation.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Kent Beck’s example: visible functionality and broader responsibility.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Business context\nObligations behind it",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 11.133333333333326,
+          "visual": "Kent Beck’s example: visible functionality and broader responsibility.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s14",
+      "title": "Notice needs before they become tickets.",
+      "start_sec": 169.43333333333334,
+      "end_sec": 180.6,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Notice needs before they become tickets.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Notice needs before they become tickets.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Notice needs before they become tickets.",
+        "Build that understanding across real projects."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Notice needs before they become tickets.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Build that understanding across real projects.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s15",
+      "title": "2 / Spend time with customers.",
+      "start_sec": 180.6,
+      "end_sec": 194.23333333333332,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: 2 / Spend time with customers.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2 / Spend time with customers.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2 / Spend time with customers.",
+        "A beautiful demo",
+        "Accurate-looking fields",
+        "Our document tool is a hypothetical example."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2 / Spend time with customers.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Our document tool is a hypothetical example.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Accurate-looking fields",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Our document tool is a hypothetical example.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s16",
+      "title": "Watch the pause.",
+      "start_sec": 194.23333333333332,
+      "end_sec": 214.2,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Watch the pause.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Watch the pause.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Watch the pause.",
+        "An exception. A missing confirmation. A result they do not trust."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Watch the pause.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "An exception. A missing confirmation. A result they do not trust.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "An exception. A missing confirmation. A result they do not trust.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s17",
+      "title": "Follow the exception.",
+      "start_sec": 214.2,
+      "end_sec": 226.0,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Follow the exception.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow the exception.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Follow the exception.",
+        "Who checks?",
+        "How is it corrected?",
+        "What must keep working?",
+        "Let the user show the current workflow."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow the exception.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Let the user show the current workflow.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "How is it corrected?",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "What must keep working?",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s18",
+      "title": "Observation changes the next feature.",
+      "start_sec": 226.0,
+      "end_sec": 238.6,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Observation changes the next feature.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Observation changes the next feature.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Observation changes the next feature.",
+        "Use some of the saved time to go back and learn."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Observation changes the next feature.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Use some of the saved time to go back and learn.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 11.599999999999994,
+          "visual": "Use some of the saved time to go back and learn.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s19",
+      "title": "3 / Practice product decisions.",
+      "start_sec": 238.6,
+      "end_sec": 250.93333333333334,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: 3 / Practice product decisions.",
+      "entry_mode": "meaningful",
+      "entry_visual": "3 / Practice product decisions.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "3 / Practice product decisions.",
+        "Use cheaper implementation to compare possibilities."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "3 / Practice product decisions.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Use cheaper implementation to compare possibilities.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 11.333333333333343,
+          "visual": "Use cheaper implementation to compare possibilities.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s20",
+      "title": "Two approaches. One user task.",
+      "start_sec": 250.93333333333334,
+      "end_sec": 267.76666666666665,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Two approaches. One user task.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two approaches. One user task.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Two approaches. One user task.",
+        "Approach A\nVerify every item",
+        "Approach B\nHighlight exceptions",
+        "Watch hesitation and task completion before choosing."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Two approaches. One user task.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Watch hesitation and task completion before choosing.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Approach B\nHighlight exceptions",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Watch hesitation and task completion before choosing.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s21",
+      "title": "What should this experiment answer?",
+      "start_sec": 267.76666666666665,
+      "end_sec": 276.26666666666665,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: What should this experiment answer?",
+      "entry_mode": "meaningful",
+      "entry_visual": "What should this experiment answer?",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What should this experiment answer?",
+        "Write the question before building."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What should this experiment answer?",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Write the question before building.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s22",
+      "title": "A basis for choosing.",
+      "start_sec": 276.26666666666665,
+      "end_sec": 294.46666666666664,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: A basis for choosing.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A basis for choosing.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A basis for choosing.",
+        "What belongs?",
+        "What can wait?",
+        "What does the business require?",
+        "Product judgment grows through repeated decisions."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A basis for choosing.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Product judgment grows through repeated decisions.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "What can wait?",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "What does the business require?",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Product judgment grows through repeated decisions.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s23",
+      "title": "4 / Test commercial value.",
+      "start_sec": 294.46666666666664,
+      "end_sec": 302.1,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: 4 / Test commercial value.",
+      "entry_mode": "meaningful",
+      "entry_visual": "4 / Test commercial value.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "4 / Test commercial value.",
+        "A useful product still asks someone to change."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "4 / Test commercial value.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "A useful product still asks someone to change.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s24",
+      "title": "Adoption has a cost.",
+      "start_sec": 302.1,
+      "end_sec": 308.8666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Adoption has a cost.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Adoption has a cost.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Adoption has a cost.",
+        "Money",
+        "Learning",
+        "Integration",
+        "Trust",
+        "Include the change the customer must make."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Adoption has a cost.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Include the change the customer must make.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Learning",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 6.267,
+          "visual": "Integration",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 6.267,
+          "visual": "Trust",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s25",
+      "title": "Why would\nsomeone switch?",
+      "start_sec": 308.8666666666667,
+      "end_sec": 325.23333333333335,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Why would\nsomeone switch?",
+      "entry_mode": "meaningful",
+      "entry_visual": "Why would\nsomeone switch?",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Why would\nsomeone switch?",
+        "A working prototype gives the conversation substance."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Why would\nsomeone switch?",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "A working prototype gives the conversation substance.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "A working prototype gives the conversation substance.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s26",
+      "title": "Take the idea into the market.",
+      "start_sec": 325.23333333333335,
+      "end_sec": 335.03333333333336,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Take the idea into the market.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Take the idea into the market.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Take the idea into the market.",
+        "Try it?",
+        "Integrate it?",
+        "Budget for it?",
+        "Concrete commitments teach more than vague enthusiasm."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Take the idea into the market.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Concrete commitments teach more than vague enthusiasm.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Integrate it?",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Budget for it?",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s27",
+      "title": "Revisit what was once too expensive.",
+      "start_sec": 335.03333333333336,
+      "end_sec": 352.3333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Revisit what was once too expensive.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Revisit what was once too expensive.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Revisit what was once too expensive.",
+        "Cost estimate\nModels, upkeep, support",
+        "Customer evidence\nTime, adoption, alternatives",
+        "Let contact with the market shape what continues."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Revisit what was once too expensive.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Let contact with the market shape what continues.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Customer evidence\nTime, adoption, alternatives",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Let contact with the market shape what continues.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s28",
+      "title": "5 / Follow the project into use.",
+      "start_sec": 352.3333333333333,
+      "end_sec": 365.06666666666666,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: 5 / Follow the project into use.",
+      "entry_mode": "meaningful",
+      "entry_visual": "5 / Follow the project into use.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "5 / Follow the project into use.",
+        "Microsoft Digital: faster individuals did not initially mean a faster team."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "5 / Follow the project into use.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Microsoft Digital: faster individuals did not initially mean a faster team.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 11.733333333333348,
+          "visual": "Microsoft Digital: faster individuals did not initially mean a faster team.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s29",
+      "title": "Connect the work.",
+      "start_sec": 365.06666666666666,
+      "end_sec": 381.8,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Connect the work.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Connect the work.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Connect the work.",
+        "Intent",
+        "Shared specification",
+        "Acceptance",
+        "Business intent and acceptance criteria belong in shared understanding."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Connect the work.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "Business intent and acceptance criteria belong in shared understanding.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Shared specification",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Acceptance",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Business intent and acceptance criteria belong in shared understanding.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s30",
+      "title": "Make completion meaningful.",
+      "start_sec": 381.8,
+      "end_sec": 392.8,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Make completion meaningful.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make completion meaningful.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make completion meaningful.",
+        "Agree on goal",
+        "Check failures",
+        "Help them start",
+        "Return for feedback",
+        "Follow the work through the user’s first real attempt."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make completion meaningful.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "Follow the work through the user’s first real attempt.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Check failures",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Help them start",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 10.5,
+          "visual": "Return for feedback",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s31",
+      "title": "I am more willing to carry a whole task.",
+      "start_sec": 392.8,
+      "end_sec": 405.8666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: I am more willing to carry a whole task.",
+      "entry_mode": "meaningful",
+      "entry_visual": "I am more willing to carry a whole task.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "I am more willing to carry a whole task.",
+        "One cross-system reporting task; verified in development."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "I am more willing to carry a whole task.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "One cross-system reporting task; verified in development.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 12,
+          "visual": "One cross-system reporting task; verified in development.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s32",
+      "title": "Make the result trustworthy.",
+      "start_sec": 405.8666666666667,
+      "end_sec": 411.8,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Make the result trustworthy.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make the result trustworthy.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make the result trustworthy.",
+        "Engineering experience has a place in the whole delivery."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make the result trustworthy.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Engineering experience has a place in the whole delivery.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s33",
+      "title": "Keep ability connected to real needs.",
+      "start_sec": 411.8,
+      "end_sec": 424.46666666666664,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Keep ability connected to real needs.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Keep ability connected to real needs.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Keep ability connected to real needs.",
+        "An organization\nCan provide a role",
+        "My responsibility\nKeep learning what is useful",
+        "The judgment from Amazon still shapes my choices."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Keep ability connected to real needs.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "The judgment from Amazon still shapes my choices.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "My responsibility\nKeep learning what is useful",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 11.666666666666629,
+          "visual": "The judgment from Amazon still shapes my choices.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s34",
+      "title": "Let each project build your judgment.",
+      "start_sec": 424.46666666666664,
+      "end_sec": 438.2,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Let each project build your judgment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Let each project build your judgment.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Let each project build your judgment.",
+        "Understand",
+        "Choose",
+        "Deliver",
+        "Learn",
+        "A customer, a product choice, a result in use."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Let each project build your judgment.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "A customer, a product choice, a result in use.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Choose",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Deliver",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 11,
+          "visual": "Learn",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 12,
+          "visual": "A customer, a product choice, a result in use.",
+          "action": "Intentional reading hold while the spoken example completes; no invented extra animation"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s35",
+      "title": "What will you understand in ten years?",
+      "start_sec": 438.2,
+      "end_sec": 447.46666666666664,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: What will you understand in ten years?",
+      "entry_mode": "meaningful",
+      "entry_visual": "What will you understand in ten years?",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What will you understand in ten years?",
+        "I want a deeper understanding of what people need."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What will you understand in ten years?",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "I want a deeper understanding of what people need.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s36",
+      "title": "Begin with the next project.",
+      "start_sec": 447.46666666666664,
+      "end_sec": 453.43333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the spoken decision legible: Begin with the next project.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Begin with the next project.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Begin with the next project.",
+        "A conversation",
+        "A product experiment",
+        "A complete project",
+        "Capability grows through contact and follow-through."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Begin with the next project.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Capability grows through contact and follow-through.",
+          "action": "Support emphasis or first structural focus"
+        },
+        {
+          "at_sec": 3,
+          "visual": "A product experiment",
+          "action": "Move focus to the next visible concept"
+        },
+        {
+          "at_sec": 5.467,
+          "visual": "A complete project",
+          "action": "Move focus to the next visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s37",
+      "title": "Make things you care about.",
+      "start_sec": 453.43333333333334,
+      "end_sec": 464.6666666666667,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: Make things you care about.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make things you care about.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Make things you care about.",
+        "Things someone else actually needs."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make things you care about.",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Things someone else actually needs.",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s38",
+      "title": "AARON GUO",
+      "start_sec": 464.6666666666667,
+      "end_sec": 469.6666666666667,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Make the spoken decision legible: AARON GUO",
+      "entry_mode": "meaningful",
+      "entry_visual": "AARON GUO",
+      "first_change_sec": 0.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "AARON GUO",
+        "AI-NATIVE BUILDER · Human-first thinker"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "AARON GUO",
+          "action": "Readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.0,
+          "visual": "AI-NATIVE BUILDER · Human-first thinker",
+          "action": "Support emphasis or first structural focus"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

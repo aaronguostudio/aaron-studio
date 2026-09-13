@@ -1,0 +1,55 @@
+{
+  "title": "代码与业务 · 方向确认后的完整重写",
+  "limitations": [
+    "作者已认可方向及五项建议的重心，新全文仍待作者阅读。",
+    "一个案例比较样段与全文的开头，另一个比较旧稿与完整新稿；不构成控制实验。",
+    "旧稿、作者反馈和此前误判均已保留，新的模型 PASS 不代表作者接受。"
+  ],
+  "cases": [
+    {
+      "id": "opening-judgment",
+      "title": "判断与过渡",
+      "kind": "historical-revision",
+      "question": "是否准确表达当时已有判断、后来并不惊讶的态度？",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-02/probe.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/full-redraft-03/snapshot-zh.json",
+      "feedback": [
+        {
+          "text": "作者确认当前方向，要求把不太舒服的感受改为我就有这样一个判断，并用我并不惊讶承接后来的组织调整和裁员。",
+          "source": "author-feedback",
+          "reference": "当前用户口述，见 full-redraft-03/feedback.md。认可方向，不是对本轮全文的评价。"
+        }
+      ],
+      "checks": [],
+      "decision": null,
+      "focus": {
+        "before": "很多年前在亚马逊工作时",
+        "after": "很多年前在亚马逊工作时"
+      }
+    },
+    {
+      "id": "full-rewrite",
+      "title": "五项建议与完整结尾",
+      "kind": "historical-revision",
+      "question": "全文是否形成鲜明的判断，并把五项建议展开为值得实践的内容？",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/editorial-v2/snapshot.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/full-redraft-03/snapshot-zh.json",
+      "feedback": [
+        {
+          "text": "作者确认当前方向，要求把不太舒服的感受改为我就有这样一个判断，并用我并不惊讶承接后来的组织调整和裁员。",
+          "source": "author-feedback",
+          "reference": "当前用户口述，见 full-redraft-03/feedback.md。认可方向，不是对本轮全文的评价。"
+        }
+      ],
+      "checks": [
+        {
+          "label": "措辞扫描",
+          "source": "blog-style-quality.ts；只报告警告，不测量文章品质",
+          "before": "无告警",
+          "after": "无告警"
+        }
+      ],
+      "decision": null
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "version": 3,
+  "voice_selection": "video-production/v3/author-selection.md",
+  "voiceProfile": "aaron-pvc-directed-code-upstream-v1",
+  "settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.8,
+    "style": 0.56,
+    "use_speaker_boost": true,
+    "speed": 1
+  },
+  "global_default_unchanged": true,
+  "spoken_script_sha256": "25c10a8d3547efd1ceda68b76bd129fc840d6d7ffa02abfb13f8674919cdb487",
+  "word_count": 893,
+  "narration_duration": 461.7049166666667,
+  "film_duration": 469.73333333333335,
+  "closing_reused_from": "revisions/sound-direction-06/pvc-directed-raw.mp3",
+  "normalizations": [
+    {
+      "chunk": 0,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.3099999999999992,
+      "before_gain_lufs": "-18.31"
+    },
+    {
+      "chunk": 1,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.3000000000000007,
+      "before_gain_lufs": "-18.30"
+    },
+    {
+      "chunk": 2,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.3000000000000007,
+      "before_gain_lufs": "-18.30"
+    },
+    {
+      "chunk": 3,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.350000000000001,
+      "before_gain_lufs": "-18.35"
+    },
+    {
+      "chunk": 4,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.4299999999999988,
+      "before_gain_lufs": "-18.43"
+    },
+    {
+      "chunk": 5,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.2600000000000016,
+      "before_gain_lufs": "-18.26"
+    },
+    {
+      "chunk": 6,
+      "method": "same two-pass listening normalization as audition",
+      "static_gain_db": 1.3099999999999992,
+      "before_gain_lufs": "-18.31"
+    },
+    {
+      "chunk": 7,
+      "method": "approved audition B; constant gain only",
+      "static_gain_db": 1.4500000000000002,
+      "before_gain_lufs": "-18.45"
+    }
+  ],
+  "holds": [
+    {
+      "phrase": "what changed.",
+      "at": 236.64545833333332,
+      "duration": 0.25695833333333334,
+      "original_gap": 0.7430416666666986,
+      "target_gap": 1.0,
+      "boundary_rms_dbfs": -68.07771301269531
+    },
+    {
+      "phrase": "original task.",
+      "at": 267.1405,
+      "duration": 0.385,
+      "original_gap": 0.6150000000000091,
+      "target_gap": 1.0,
+      "boundary_rms_dbfs": -70.3128662109375
+    },
+    {
+      "phrase": "deserve to continue.",
+      "at": 350.3922708333333,
+      "duration": 0.4263125,
+      "original_gap": 0.6736875000000282,
+      "target_gap": 1.1,
+      "boundary_rms_dbfs": -67.14154815673828
+    },
+    {
+      "phrase": "real needs.",
+      "at": 420.31854166666665,
+      "duration": 0.51,
+      "original_gap": 0.9399999999999977,
+      "target_gap": 1.45,
+      "boundary_rms_dbfs": -71.65483093261719
+    }
+  ],
+  "cues": [
+    {
+      "id": "question",
+      "source": "video-production/v3/inquiry.mp3",
+      "start": 0.0,
+      "length": 26,
+      "role": "Personal observation, questioning an assumption",
+      "source_sha256": "ff1747edc9d6622a17203abc36e40b575d85e526a93b6ebaaca719ae31a176af",
+      "source_lufs": -11.42,
+      "music_normalization_gain": 0.23496328208483072,
+      "envelope": [
+        [
+          0,
+          0
+        ],
+        [
+          3.5,
+          0.42
+        ],
+        [
+          13.52,
+          0.48
+        ],
+        [
+          20,
+          0.38
+        ],
+        [
+          26,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "observe",
+      "source": "video-production/v3/fieldwork.mp3",
+      "start": 180.06666666666666,
+      "length": 27,
+      "role": "Curiosity as the customer example begins",
+      "source_sha256": "41737a3ed6c8f90f1530c17bdaff2935c9e2e60147222e1710c4a20fa6612dab",
+      "source_lufs": -11.93,
+      "music_normalization_gain": 0.24917243712538983,
+      "envelope": [
+        [
+          0,
+          0
+        ],
+        [
+          3.5,
+          0.42
+        ],
+        [
+          14.040000000000001,
+          0.48
+        ],
+        [
+          21,
+          0.38
+        ],
+        [
+          27,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "try",
+      "source": "video-production/v3/possibilities.mp3",
+      "start": 239.66666666666666,
+      "length": 27,
+      "role": "Forward motion while considering two product approaches",
+      "source_sha256": "d492b1f10a4831574f9a96e5cac3f9ed363714566028a00bcb134db14d6f06e0",
+      "source_lufs": -12.23,
+      "music_normalization_gain": 0.2579288964427486,
+      "envelope": [
+        [
+          0,
+          0
+        ],
+        [
+          3.5,
+          0.42
+        ],
+        [
+          14.040000000000001,
+          0.48
+        ],
+        [
+          21,
+          0.38
+        ],
+        [
+          27,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "market",
+      "source": "revisions/sound-direction-06/reflection.mp3",
+      "start": 329.3,
+      "length": 17,
+      "role": "A quieter question: will someone try or pay for the idea?",
+      "source_sha256": "a4234def3287e2796d1c2266b2532b508bf8dea0e1b5dede5cf30778254a3d81",
+      "source_lufs": -11.9,
+      "music_normalization_gain": 0.24831331052955705,
+      "envelope": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0.34
+        ],
+        [
+          12,
+          0.38
+        ],
+        [
+          17,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "return",
+      "source": "revisions/sound-direction-06/reflection.mp3",
+      "start": 414.26666666666665,
+      "length": 17.5,
+      "role": "Return to the personal judgment, then let action speak dry",
+      "source_sha256": "a4234def3287e2796d1c2266b2532b508bf8dea0e1b5dede5cf30778254a3d81",
+      "source_lufs": -11.9,
+      "music_normalization_gain": 0.24831331052955705,
+      "envelope": [
+        [
+          0,
+          0
+        ],
+        [
+          3,
+          0.4
+        ],
+        [
+          8.6,
+          0.4
+        ],
+        [
+          10.2,
+          0.7
+        ],
+        [
+          12,
+          0.42
+        ],
+        [
+          14,
+          0.32
+        ],
+        [
+          17.5,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "resolve",
+      "source": "revisions/sound-direction-06/possibility.mp3",
+      "start": 439.5,
+      "length": 29.23333333333335,
+      "role": "Earned optimism; final sentence has room; music responds after speech",
+      "source_sha256": "3738c316fe4fbae06a7e4505448db9c432cf155eca54416024113a7866d728d9",
+      "source_lufs": -12.3,
+      "music_normalization_gain": 0.2600159563165272,
+      "envelope": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0.38
+        ],
+        [
+          16.206812499999955,
+          0.48
+        ],
+        [
+          18.806812499999957,
+          0.22
+        ],
+        [
+          24.926812499999983,
+          0.22
+        ],
+        [
+          26.226812499999983,
+          0.75
+        ],
+        [
+          29.23333333333335,
+          0
+        ]
+      ]
+    }
+  ],
+  "voice_gain_in_mix": 1,
+  "voice_pcm_retained_after_holds": true,
+  "master_compression": false,
+  "sidechain": false,
+  "narration_loudness": {
+    "input_i": "-16.94",
+    "input_tp": "-3.55",
+    "input_lra": "3.90",
+    "input_thresh": "-27.93",
+    "output_i": "-18.07",
+    "output_tp": "-4.63",
+    "output_lra": "4.00",
+    "output_thresh": "-29.07",
+    "normalization_type": "dynamic",
+    "target_offset": "0.07"
+  },
+  "mix_loudness": {
+    "input_i": "-16.93",
+    "input_tp": "-2.83",
+    "input_lra": "4.10",
+    "input_thresh": "-27.96",
+    "output_i": "-18.11",
+    "output_tp": "-3.97",
+    "output_lra": "4.00",
+    "output_thresh": "-29.11",
+    "normalization_type": "dynamic",
+    "target_offset": "0.11"
+  },
+  "chapters": [
+    {
+      "chunk": 0,
+      "start": 0.0,
+      "end": 55.44925
+    },
+    {
+      "chunk": 1,
+      "start": 55.44925,
+      "end": 116.42485416666666
+    },
+    {
+      "chunk": 2,
+      "start": 116.42485416666666,
+      "end": 178.56145833333332
+    },
+    {
+      "chunk": 3,
+      "start": 178.56145833333332,
+      "end": 237.51845833333334
+    },
+    {
+      "chunk": 4,
+      "start": 237.51845833333334,
+      "end": 294.88522916666665
+    },
+    {
+      "chunk": 5,
+      "start": 294.88522916666665,
+      "end": 351.9682291666667
+    },
+    {
+      "chunk": 6,
+      "start": 351.9682291666667,
+      "end": 408.7178125
+    },
+    {
+      "chunk": 7,
+      "start": 408.7178125,
+      "end": 461.70491666666663
+    }
+  ],
+  "full_film_listening": "pending"
+}

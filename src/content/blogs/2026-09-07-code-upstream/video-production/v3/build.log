@@ -1,0 +1,41 @@
+{
+  "narration_seconds": 461.7049166666667,
+  "film_seconds": 469.73333333333335,
+  "words": 893,
+  "holds": [
+    {
+      "phrase": "what changed.",
+      "at": 236.64545833333332,
+      "duration": 0.25695833333333334,
+      "original_gap": 0.7430416666666986,
+      "target_gap": 1.0,
+      "boundary_rms_dbfs": -68.07771301269531
+    },
+    {
+      "phrase": "original task.",
+      "at": 267.1405,
+      "duration": 0.385,
+      "original_gap": 0.6150000000000091,
+      "target_gap": 1.0,
+      "boundary_rms_dbfs": -70.3128662109375
+    },
+    {
+      "phrase": "deserve to continue.",
+      "at": 350.3922708333333,
+      "duration": 0.4263125,
+      "original_gap": 0.6736875000000282,
+      "target_gap": 1.1,
+      "boundary_rms_dbfs": -67.14154815673828
+    },
+    {
+      "phrase": "real needs.",
+      "at": 420.31854166666665,
+      "duration": 0.51,
+      "original_gap": 0.9399999999999977,
+      "target_gap": 1.45,
+      "boundary_rms_dbfs": -71.65483093261719
+    }
+  ],
+  "music_cues": 6,
+  "music_seconds": 143.73333333333335
+}

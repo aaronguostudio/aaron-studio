@@ -1,0 +1,54 @@
+{
+  "title": "代码与业务 · 个人观察与客户价值",
+  "limitations": [
+    "两个方向样段之间的局部修订，不是完整文章或控制实验。",
+    "原始口述中的一半估计没有核实，未写入样段。",
+    "Amazon 官方文件记录管理层说明和预期，不证明全部裁员原因或个人贡献。",
+    "作者提出修改方向，未评价新样段；不预填偏好。",
+    "前一轮四项复盘保存在 author-feedback-01/review.json。"
+  ],
+  "cases": [
+    {
+      "id": "experience-weight",
+      "title": "个人案例的分量",
+      "kind": "historical-revision",
+      "question": "一句经历与旧文链接，是否足以支持观点而不打断阅读？",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/probe.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-02/probe.json",
+      "feedback": [
+        {
+          "text": "个人报表案例只留一句及旧文链接；加入早年在 Amazon 对组织规模与实际价值的观察；职业建议转向商业、产品、需求、客户和市场。",
+          "source": "author-feedback",
+          "reference": "本任务 2026-09-07 作者口述摘要，见 author-feedback-02/feedback.md。未评审新样段。"
+        }
+      ],
+      "checks": [],
+      "decision": null,
+      "focus": {
+        "before": "那次报表任务的目标",
+        "after": "我最近也用 AI 推进过"
+      }
+    },
+    {
+      "id": "customer-value",
+      "title": "组织观察与成长方向",
+      "kind": "historical-revision",
+      "question": "Amazon 经历是否引出鲜明的判断，并通向客户、产品与市场能力？",
+      "before": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-01/probe.json",
+      "after": "src/content/blogs/2026-09-07-code-upstream/revisions/author-feedback-02/probe.json",
+      "feedback": [
+        {
+          "text": "个人报表案例只留一句及旧文链接；加入早年在 Amazon 对组织规模与实际价值的观察；职业建议转向商业、产品、需求、客户和市场。",
+          "source": "author-feedback",
+          "reference": "本任务 2026-09-07 作者口述摘要，见 author-feedback-02/feedback.md。未评审新样段。"
+        }
+      ],
+      "checks": [],
+      "decision": null,
+      "focus": {
+        "before": "我对 AI 编程的判断很明确",
+        "after": "很多年前在亚马逊工作时"
+      }
+    }
+  ]
+}

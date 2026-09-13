@@ -1,0 +1,16 @@
+{
+  "id": "pvc-directed",
+  "voice": "R2DWp7zZuWmGxk3r8GIA",
+  "body": {
+    "text": "The judgment I reached at Amazon still matters to me. A role can be provided by an organization. My abilities need an ongoing connection to real needs. <break time=\"0.7s\" /> Each project is a chance to strengthen that connection: understand a customer more deeply, make a better product choice, and learn what it takes for someone to adopt the result. <break time=\"1.0s\" />\n\nIf AI can handle much more work in five or ten years, I want to understand more about what people need by then. <break time=\"0.6s\" /> That growth can begin with the next conversation and the next project. Stronger tools make me optimistic about what engineers can attempt. I want to use that opportunity to make things I care about that someone else actually needs.",
+    "model_id": "eleven_multilingual_v2",
+    "seed": 607,
+    "voice_settings": {
+      "stability": 0.4,
+      "similarity_boost": 0.8,
+      "style": 0.56,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  }
+}

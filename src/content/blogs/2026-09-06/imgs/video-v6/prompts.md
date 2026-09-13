@@ -1,0 +1,4 @@
+All images: landscape 3:2 editorial spot illustrations on warm ivory paper, graphite pencil with muted amber/teal/coral wash, lots of negative space, no text, isolated narrative objects rather than full-page presentation slides. Match approved illustration style.
+1. Duplicate entry: two paper forms, abstract blank ruled fields, one ordinary pencil, restrained repeated coral mark. Show the same information needing entry twice; no readable writing.
+2. Shared draft: overhead view of two anonymous adults' hands and sleeves around one paper draft, one pointing and one holding a pencil. Collaborative inspection, natural anatomy, no faces or names.
+3. Review queue: modest stack of papers in a shallow tray beside one open page and a pencil; more output awaiting careful inspection. No numbers, checkmarks, fake charts, or readable writing.

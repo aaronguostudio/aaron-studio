@@ -11,6 +11,7 @@ SURFACES=(".agents" ".codex" ".claude" ".cursor" ".gemini")
 MAPPINGS=(
   "ai-video-lab:tiles/ai-video-lab"
   "aaron-personal-os:tiles/aaron-personal-os"
+  "wave-invoice:tiles/wave-invoice"
   "aaron-video-gen:tiles/aaron-video-gen"
   "asset-library:tiles/asset-library"
   "blog-brainstorm:tiles/blog-brainstorm"
@@ -22,6 +23,7 @@ MAPPINGS=(
   "blog-production:tiles/blog-production"
   "blog-write:tiles/blog-write"
   "brain-ingest:tiles/brain-ingest"
+  "brain-context:tiles/brain-context"
   "pattern-atlas:tiles/pattern-atlas"
   "daily-log:tiles/daily-log"
   "home-decor-shorts:tiles/home-decor-shorts"

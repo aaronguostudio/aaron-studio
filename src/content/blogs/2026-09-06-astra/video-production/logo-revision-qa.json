@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "changed_opening_frames": 90,
+  "preserved_body_frames": 14471,
+  "body_decoded_pixels_and_timestamps_identical": true,
+  "body_packet_timestamps_identical": true,
+  "h264_note": "Concat remux repeats codec parameter sets at 68 keyframes. Packet hashes differ there; all decoded body pixels and timestamps match the approved master.",
+  "scored_audio_packets_and_timestamps_identical": true,
+  "nomusic_audio_packets_and_timestamps_identical": true,
+  "duration_seconds": 485.366667,
+  "video_sha256": "fcd505cc8a54491fdd31e046391674b83c18fbd7f21739d49eef66e9bf514033",
+  "visual_checks": "New logo and typography inspected; frame 89 to frame 90 cut remains clean.",
+  "article_content": "unchanged; cover references only"
+}

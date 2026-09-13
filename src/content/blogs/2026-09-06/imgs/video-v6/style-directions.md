@@ -1,0 +1,1 @@
+Agent-selected under explicit user delegation: maintain the approved Field Signal Editorial / warm graphite style. Controlled variation through object spot illustrations, top-down shared work, paper document detail, and a restrained queue animation. No changes to palette or voice.

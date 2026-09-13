@@ -1,0 +1,52 @@
+{
+  "checked_at": "2026-09-07T02:22:30.065842+00:00",
+  "articles": [
+    {
+      "url": "https://www.aaronguo.com/blogs/gpt-6-astra-real-work",
+      "title": "I Put GPT-6 Astra to Work",
+      "cover_count": 1,
+      "description": "Six observations from using GPT-6 Astra for a complex Azure, Linux and Windows deployment, everyday writing, and the work between tools.",
+      "youtube_link": true
+    },
+    {
+      "url": "https://www.aaronguo.com/zh/blogs/gpt-6-astra-real-work",
+      "title": "我把 GPT-6 Astra 用进了真实工作",
+      "cover_count": 1,
+      "description": "从 Azure、Linux 和 Windows 的复杂部署，到更自然的日常写作：我用 GPT-6 Astra 做真实工作时，最关注的六个变化。",
+      "youtube_link": true
+    }
+  ],
+  "assets": [
+    {
+      "path": "/blogs-img/2026-09-06-astra-work-01.webp",
+      "sha256": "c8fb7a935a3c1346679b2142ecae1faae90b336f7de31df3e60a5485e7f26fcd",
+      "matches_committed_asset": true
+    },
+    {
+      "path": "/blogs-img/2026-09-06-astra-work-02.webp",
+      "sha256": "7b43e29b56607c150d26b8dcea1b46ef8646c39b9ae3875873079532f946c0a9",
+      "matches_committed_asset": true
+    },
+    {
+      "path": "/blogs-img/2026-09-06-astra-work-03.webp",
+      "sha256": "044ea14743786379826ebee26e54f44d5cb980a0f77cf185e60aa5ab80f4c58b",
+      "matches_committed_asset": true
+    },
+    {
+      "path": "/blogs-img/2026-09-06-astra-work-04.webp",
+      "sha256": "57599faecf6a2fceab2ed0333981651f1d586f995916edefaa724fd305ed3f8c",
+      "matches_committed_asset": true
+    },
+    {
+      "path": "/blogs-img/2026-09-06-astra-work-05.webp",
+      "sha256": "ce87761f7f04b751b0f388aee9562d46535ad8f4779d1dca909442b79eb8c2a8",
+      "matches_committed_asset": true
+    },
+    {
+      "path": "/blogs-img/2026-09-06-astra-work-cover.webp",
+      "sha256": "b9f5dd1a6af790cf8c02aea9eb279ce1ce829cbc5f31a673dd26909c285567d1",
+      "matches_committed_asset": true
+    }
+  ],
+  "homepage_cards": "present in English and Chinese"
+}

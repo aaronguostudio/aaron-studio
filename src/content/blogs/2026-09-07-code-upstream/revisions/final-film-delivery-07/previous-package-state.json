@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "slug": "code-is-cheap-opportunity-moves-upstream",
+  "phase": "media-review",
+  "updatedAt": "2026-09-08T05:01:06.824227+00:00",
+  "scope": "Accepted bilingual article; continue illustration and YouTube production for review. No new public release yet.",
+  "artifacts": {
+    "article": {
+      "english": "code-is-cheap-opportunity-moves-upstream.md",
+      "chinese": "code-is-cheap-opportunity-moves-upstream-zh.md",
+      "sha256": {
+        "english": "768fdc06ddd72a4060ab26556a9e2d5b843b9df41dee5731caf8cb98835ff031",
+        "chinese": "4edc7c5556f8ee931cae16603db0d230d395fc8d6235228438cc50a68bec616b"
+      },
+      "status": "author-accepted-with-illustrations-for-review",
+      "unchanged": false,
+      "contentLock": "revisions/article-accepted-04/article-lock.json",
+      "contentLockCheck": "revisions/article-accepted-04/content-lock-check.json",
+      "proseUnchanged": true,
+      "visualRevisionCheck": "revisions/visual-feedback-05/preserve-check.json"
+    },
+    "research": "research-evidence.json",
+    "editorialReview": "revisions/article-accepted-04/review.json",
+    "authorFeedback": "revisions/article-accepted-04/feedback.md",
+    "diagnosis": "revisions/author-feedback-01/diagnosis.md",
+    "directionProbe": "revisions/author-feedback-02/direction-probe.md",
+    "images": {
+      "cover": "imgs/00-cover-v2.png",
+      "thumbnail": "imgs/thumbnail-youtube-v2.jpg",
+      "critique": "imgs/visual-critique.md",
+      "manifest": "imgs/generation-manifest.md",
+      "status": "v2-editor-reviewed-awaiting-author-feedback",
+      "previousFeedback": "revisions/visual-feedback-05/feedback.md"
+    },
+    "audio": {
+      "canonical": "audio-v3.mp3",
+      "manifest": "audio-v3-generation-manifest.json",
+      "status": "author-selected-voice-B-extended-to-full-script",
+      "previous": "audio.mp3",
+      "samples": [
+        {
+          "label": "开头",
+          "path": "audio-v3-opening-60s.mp3"
+        },
+        {
+          "label": "中段",
+          "path": "audio-v3-middle-60s.mp3"
+        },
+        {
+          "label": "结尾",
+          "path": "audio-v3-late-60s.mp3"
+        }
+      ]
+    },
+    "video": {
+      "canonical": "video-v3.mp4",
+      "noMusic": "video-v3-nomusic.mp4",
+      "status": "B-sound-and-voice-selected-full-v3-for-review",
+      "sha256": "57a7aa34c3404bbcf843d394b201df02dd3e7b8a9f1f0f5c108b768ab48b8b3d",
+      "durationSeconds": 469.733333,
+      "qa": "video-qa-report.md",
+      "technicalQa": "video-production/v3/technical-qa.json",
+      "previousMaster": "video-v2.mp4"
+    },
+    "validation": "package-validation.md",
+    "visualFeedback": "revisions/visual-feedback-05/feedback.md",
+    "soundSelection": "video-production/v3/author-selection.md"
+  },
+  "locks": {
+    "argument": "accepted",
+    "article": "accepted-for-production",
+    "package": "awaiting-final-media-review"
+  },
+  "research": {
+    "status": "partial",
+    "sources": 9,
+    "transcripts": 3,
+    "missing": "Original user-selected video links"
+  },
+  "publishing": {
+    "blogUrl": null,
+    "productionCommit": null,
+    "youtubeUrl": null
+  },
+  "postmortem": {
+    "status": "author-improvement-recorded",
+    "authorPreference": "Author: latest full version is pretty good and improved; proceed with workflow. Historical revision, not a controlled skill comparison.",
+    "visualLearning": "Role/action/work-artifact meaning checked separately from style; prior failed interpretation preserved.",
+    "soundLearning": "Choose music roles before cues; distinguish voice from score audition; avoid stacking inserted holds over natural TTS pauses."
+  },
+  "review": {
+    "url": "http://127.0.0.1:4332/critique.html#video",
+    "mediaLoad": {
+      "status": "verified in browser",
+      "video": "video-v3.mp4",
+      "durationSeconds": 469.733333,
+      "readyState": 4,
+      "error": null,
+      "horizontalOverflow": false,
+      "voiceSamples": "All three sample URLs return HTTP 200; audio elements use deferred loading."
+    },
+    "fullWatchAndListening": "B prototype heard and selected by author; full v3 is a new reviewable extension, not yet author-confirmed.",
+    "bilingualNavigation": "English and Chinese switches verified, all v2 references, no horizontal overflow",
+    "servedImageBytesMatch": {
+      "imgs/web/00-cover-v2.webp": true,
+      "imgs/web/01-watch-the-work-v2.webp": true,
+      "imgs/web/02-choose-the-path-v2.webp": true,
+      "imgs/web/03-used-in-the-world-v2.webp": true,
+      "imgs/thumbnail-youtube-v2.jpg": true
+    },
+    "soundSelection": "Video B preferred; voice B accepted by author"
+  },
+  "checks": {
+    "package": "pass-with-reviewed-timestamp-warning",
+    "workflowValidation": "pass",
+    "assetCatalogValidation": "pass-128-assets-zero-warnings",
+    "authorMediaReview": "B+B selected; full v3 pending",
+    "visualRevision": "pass-seven-scenes-34-encoded-samples",
+    "audioUnchanged": "superseded by author-selected voice B; old audio preserved",
+    "soundV3": "technical checks pass; 42 encoded frame samples across 15 chapter boundaries"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "music_asset_id": "music:b161e820cd4f5741",
+  "usage": "internal review only",
+  "rights": "needs-verification",
+  "music_windows": [
+    [
+      0,
+      30
+    ],
+    [
+      473.2,
+      501.7
+    ]
+  ],
+  "source": "src/content/music-visualizer/paper-moon-pilot/music.mp3",
+  "narration_source": "audio.mp3",
+  "narration_regenerated": false,
+  "loudness": {
+    "input_i": "-17.06",
+    "input_tp": "-3.77",
+    "input_lra": "4.70",
+    "input_thresh": "-28.20",
+    "output_i": "-16.10",
+    "output_tp": "-1.50",
+    "output_lra": "4.60",
+    "output_thresh": "-27.14",
+    "normalization_type": "dynamic",
+    "target_offset": "0.10"
+  },
+  "last_second_mean_db": "-91.0",
+  "last_second_max_db": "-91.0",
+  "filter": "[1:a]asplit=2[o][e];[o]atrim=0:30,asetpts=PTS-STARTPTS,volume='if(lt(t,2.5),0.8,if(lt(t,3.5),0.8-0.55*(t-2.5),0.25))':eval=frame,afade=t=in:st=0:d=0.5,afade=t=out:st=24:d=6[open];[e]atrim=8:38,asetpts=PTS-STARTPTS,volume='if(lt(t,25),0.25,if(lt(t,26),0.25+0.4*(t-25),0.65))':eval=frame,afade=t=in:st=0:d=1,afade=t=out:st=27.5:d=1,adelay=473200|473200[close];[0:a][open][close]amix=inputs=3:normalize=0:duration=first,alimiter=limit=0.78:level=false[a]"
+}

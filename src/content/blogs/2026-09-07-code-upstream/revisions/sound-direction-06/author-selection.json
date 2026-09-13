@@ -1,0 +1,11 @@
+{
+  "source": "author message",
+  "verbatim": [
+    "我觉得 B 好多了。",
+    "声音 B 也不错。"
+  ],
+  "video": "B",
+  "voice": "B",
+  "scope": "current film extension; not global default or public release",
+  "production": "video-production/v3/author-selection.md"
+}

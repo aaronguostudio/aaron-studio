@@ -1,0 +1,24 @@
+{
+  "video": "video-v6-nomusic.mp4",
+  "duration": "503.210667",
+  "width": 1920,
+  "height": 1080,
+  "frame_rate": "30/1",
+  "frames": "15096",
+  "audio_loudness": {
+    "input_i": "-17.01",
+    "input_tp": "-4.78",
+    "input_lra": "4.70",
+    "input_thresh": "-28.12",
+    "output_i": "-16.10",
+    "output_tp": "-1.50",
+    "output_lra": "4.40",
+    "output_thresh": "-27.15",
+    "normalization_type": "dynamic",
+    "target_offset": "0.10"
+  },
+  "last_second_mean_db": "-91.0",
+  "selected_frames": 108,
+  "checks": "36 scenes entry/mid/exit decoded sequentially, technical stream checks passed; image sheets pending visual inspection",
+  "visual_review": "Inspected all 36 midpoints, all 10 changed-scene entry/middle/exit sequences, and the prototype before/after comparison. No clipping, missing assets or caption overlap observed in sampled frames. Full human playback not claimed."
+}

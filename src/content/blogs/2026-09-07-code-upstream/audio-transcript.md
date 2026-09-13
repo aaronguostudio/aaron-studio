@@ -1,0 +1,76 @@
+# Audio Transcript: AI Can Write More Code. What Should Engineers Learn Next?
+
+Provider: elevenlabs
+Voice profile: aaron-pvc-identity-v1
+Voice ID: R2DWp7zZuWmGxk3r8GIA
+Model: eleven_multilingual_v2
+Output format: mp3_44100_192
+Stability: 0.5
+Similarity boost: 0.75
+Style: 0.5
+Speaker boost: true
+Speed: 1
+
+## Hook
+
+Years ago, while working at Amazon, I had already reached a conclusion. A company can afford a lot of desirable jobs without needing a team of that size to create its business value. That judgment stayed with me. And as AI takes on more implementation, I think engineers should pay closer attention to where their work becomes useful.
+
+## A judgment that stayed with me
+
+Organizations can grow around management layers, departmental interests, and internal politics. Coordination expands. The customer's problem may barely change. Someone can work very hard while their abilities are absorbed by work the organization created for itself. So Amazon's later restructuring and layoffs didn't surprise me.
+
+## What the public statements say
+
+In twenty twenty-four, Amazon announced plans to reduce layers and unnecessary processes. The following year, Andy Jassy said he expected AI efficiency to reduce its total corporate workforce over time. Its January twenty twenty-six layoff announcement again emphasized fewer layers and less bureaucracy. Those statements describe an organization changing. They cannot tell us what any individual contributed.
+
+## Where I would invest
+
+My interpretation is that cheaper execution accelerates a reassessment that was already needed. For the next five to ten years, I want to invest more in understanding customers, making product decisions, and carrying worthwhile work into use. Stronger implementation tools give engineers room to take on more of that responsibility.
+
+## Make room for a better question
+
+Boris Cherny has described having Claude Code write his code while he continues reviewing it. Simon Willison describes quickly trying several prototypes. These are particular practitioners' experiences. What interests me is how they change our allocation of time. Once you can try an idea more cheaply, deciding which idea deserves the effort becomes more valuable.
+
+## Learn the business beneath the feature
+
+The first place I'd invest is a business domain. Learn who uses a product, who pays, and who bears the consequences when it fails. Kent Beck used payroll to illustrate how much responsibility sits behind apparently simple functionality. Calculating an amount is only part of the work. Keep learning those obligations through actual projects. Over time, you'll notice needs that haven't reached a requirements document.
+
+## Watch the work
+
+Then get closer to customers. Imagine a tool that processes business documents. This is a hypothetical example. The demonstration extracts every field beautifully. But when you watch someone work, you discover where they pause: an unusual document, a missing confirmation, a result they don't trust. That pause can tell you more about the next feature than another hour polishing the demo.
+
+## Let observation change the plan
+
+Ask the person to show you how they handle that case today. Who checks it? How do they correct a mistake? What must continue working in their existing system? You may discover that exception handling deserves attention first. Use some of the time AI saves to have that conversation, and come back after delivery to see what changed.
+
+## Spend cheaper code on better choices
+
+The third investment is product judgment. Willison says he often tries three design approaches. He also advocates watching real people use the software. For our imagined document tool, compare two approaches: verify every item, or highlight only the exceptions. Build enough to answer the question. Then watch where a user hesitates and whether they can finish the original task.
+
+## Know what the experiment should answer
+
+Before building, write down what you need to learn. Afterward, ask whether the attempt answered it. This is how product judgment develops: choosing what belongs, what can wait, and which complexity the business actually requires. AI can propose alternatives. Your contact with the work gives you a basis for choosing among them.
+
+## Why would someone switch?
+
+The fourth investment is commercial judgment. A useful product still asks someone to change. Money is one cost. Migration, learning, integration, and trust matter too. Understand why the customer's existing approach has survived. Then test whether your improvement is worth that disruption. A working prototype gives you something concrete to discuss with a potential customer.
+
+## Take the idea into the market
+
+Would they spend time trying it? Would they discuss an integration? Who controls the budget, and where do they look for alternatives? Include model usage, maintenance, and support in your estimate. Cheaper development gives some previously expensive ideas another chance. Contact with the market tells you which ones deserve to continue.
+
+## Follow the project into use
+
+Finally, take a project through a complete cycle. Microsoft Digital reported that faster individual development initially failed to improve team productivity. It later brought business intent and acceptance criteria into a shared specification. That's an organizational account, but it highlights something practical: progress depends on the connections across the work.
+
+## Make completion meaningful
+
+Agree on the goal. Connect the systems. Check real failure cases. Help the user get started, and return to learn what happened. I recently used AI on a reporting task across several systems and verified it in development. It made me more willing to take on complete tasks. Engineering experience helps make the result something others can trust.
+
+## What will each project teach you?
+
+The judgment I reached at Amazon still matters to me. A role can be provided by an organization. My abilities need an ongoing connection to real needs. Each project is a chance to strengthen that connection: understand a customer more deeply, make a better product choice, and learn what it takes for someone to adopt the result.
+
+## Build what matters
+
+If AI can handle much more work in five or ten years, I want to understand more about what people need by then. That growth can begin with the next conversation and the next project. Stronger tools make me optimistic about what engineers can attempt. I want to use that opportunity to make things I care about that someone else actually needs.

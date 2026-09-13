@@ -1,0 +1,683 @@
+1
+00:00:03,000 --> 00:00:04,892
+In my own team, some people don't yet
+
+2
+00:00:05,020 --> 00:00:07,272
+trust AI enough to use it more.
+
+3
+00:00:07,865 --> 00:00:10,663
+Others are already using it enthusiastically.
+
+4
+00:00:11,766 --> 00:00:13,681
+I am closer to that second group.
+
+5
+00:00:14,633 --> 00:00:18,070
+Listening to DHH talk with Lex Fridman, I
+
+6
+00:00:18,256 --> 00:00:20,322
+recognized that excitement.
+
+7
+00:00:20,914 --> 00:00:22,760
+Three ideas stayed with me.
+
+8
+00:00:23,445 --> 00:00:26,290
+Together, they helped me explain why I want
+
+9
+00:00:26,325 --> 00:00:29,668
+to give AI more responsibility, and what I
+
+10
+00:00:29,784 --> 00:00:32,536
+want that to mean for our work.
+
+11
+00:00:32,536 --> 00:00:34,823
+First, the tool can change enough to deserve
+
+12
+00:00:34,870 --> 00:00:36,100
+a fresh judgment.
+
+13
+00:00:37,261 --> 00:00:40,826
+DHH describes a gap between earlier autocomplete and
+
+14
+00:00:40,918 --> 00:00:44,610
+agents that could use tools, check their work,
+
+15
+00:00:45,226 --> 00:00:48,615
+and deliver code much closer to his expectations.
+
+16
+00:00:49,776 --> 00:00:52,714
+His explanation is that his standards remained; the
+
+17
+00:00:52,760 --> 00:00:54,002
+experience changed.
+
+18
+00:00:55,117 --> 00:00:56,998
+I find that attitude useful.
+
+19
+00:00:57,694 --> 00:01:00,167
+If I tried something and it disappointed me,
+
+20
+00:01:00,272 --> 00:01:01,862
+that experience matters.
+
+21
+00:01:02,466 --> 00:01:04,417
+But I want to remember what I actually
+
+22
+00:01:04,452 --> 00:01:05,021
+tested.
+
+23
+00:01:05,984 --> 00:01:08,539
+A conclusion from that attempt has a scope.
+
+24
+00:01:09,583 --> 00:01:11,894
+The same applies to a good experience.
+
+25
+00:01:13,113 --> 00:01:15,563
+I can be excited by a result without
+
+26
+00:01:15,679 --> 00:01:18,303
+assuming every task is now solved.
+
+27
+00:01:19,185 --> 00:01:21,368
+What I take from him is a willingness
+
+28
+00:01:21,472 --> 00:01:24,967
+to return to the work and look again.
+
+29
+00:01:24,966 --> 00:01:29,134
+Second, being able to implement something makes product
+
+30
+00:01:29,215 --> 00:01:30,968
+judgment more important.
+
+31
+00:01:31,642 --> 00:01:35,984
+DHH emphasizes decisions about the people software serves,
+
+32
+00:01:36,413 --> 00:01:40,639
+its behavior, and its priorities when agents handle
+
+33
+00:01:40,686 --> 00:01:41,696
+implementation.
+
+34
+00:01:42,369 --> 00:01:45,318
+That connects directly with what I care about.
+
+35
+00:01:46,375 --> 00:01:49,521
+Imagine a small improvement to a business workflow.
+
+36
+00:01:50,090 --> 00:01:52,911
+Before we build anything, someone has to notice
+
+37
+00:01:52,934 --> 00:01:53,735
+the friction.
+
+38
+00:01:54,792 --> 00:01:58,240
+Someone has to understand why the same information
+
+39
+00:01:58,321 --> 00:02:03,162
+gets entered twice, or why a perfectly functional
+
+40
+00:02:03,220 --> 00:02:05,206
+screen leaves people confused.
+
+41
+00:02:06,192 --> 00:02:08,398
+If AI gives me more room to explore
+
+42
+00:02:08,445 --> 00:02:11,463
+an idea, I want to use that room
+
+43
+00:02:11,510 --> 00:02:13,843
+to understand the person who might use it.
+
+44
+00:02:14,830 --> 00:02:17,106
+Producing more options only helps if we can
+
+45
+00:02:17,153 --> 00:02:19,533
+choose something useful.
+
+46
+00:02:19,533 --> 00:02:22,772
+Third, the joy of creating can survive a
+
+47
+00:02:22,830 --> 00:02:24,281
+change in how we work.
+
+48
+00:02:25,048 --> 00:02:30,133
+When Lex asks about programmers' anxiety, DHH distinguishes
+
+49
+00:02:30,226 --> 00:02:34,765
+enthusiasm for building things from attachment to programming's
+
+50
+00:02:34,928 --> 00:02:36,263
+mechanical tasks.
+
+51
+00:02:36,913 --> 00:02:40,024
+He also acknowledges uncertainty about employment.
+
+52
+00:02:41,232 --> 00:02:44,169
+I hear an optimistic view of creating, without
+
+53
+00:02:44,192 --> 00:02:47,164
+treating it as a promise about anyone's job.
+
+54
+00:02:48,209 --> 00:02:51,158
+My own excitement comes from seeing an idea
+
+55
+00:02:51,228 --> 00:02:52,296
+become useful.
+
+56
+00:02:53,051 --> 00:02:54,792
+Somebody can get on with the part of
+
+57
+00:02:54,885 --> 00:02:56,882
+their day they actually care about.
+
+58
+00:02:57,997 --> 00:03:01,875
+I also admire the ambition behind Omarchy: taking
+
+59
+00:03:01,921 --> 00:03:05,926
+strong preferences about a working environment and building
+
+60
+00:03:05,996 --> 00:03:08,016
+a whole project around them.
+
+61
+00:03:09,131 --> 00:03:11,523
+That impulse feels familiar to me.
+
+62
+00:03:12,637 --> 00:03:15,017
+I want more worthwhile ideas to get a
+
+63
+00:03:15,087 --> 00:03:17,351
+chance to exist.
+
+64
+00:03:17,351 --> 00:03:19,847
+Those three ideas come together in my blog
+
+65
+00:03:19,940 --> 00:03:20,637
+workflow.
+
+66
+00:03:21,438 --> 00:03:24,561
+An idea can move through research, an outline,
+
+67
+00:03:24,665 --> 00:03:27,893
+a draft, bilingual adaptation, and review.
+
+68
+00:03:28,984 --> 00:03:32,003
+Each step has reusable guidance, and there are
+
+69
+00:03:32,061 --> 00:03:34,278
+files I can inspect and revise.
+
+70
+00:03:34,824 --> 00:03:36,530
+This piece is an example.
+
+71
+00:03:37,169 --> 00:03:39,363
+I wanted to express why I agreed with
+
+72
+00:03:39,398 --> 00:03:40,211
+DHH.
+
+73
+00:03:41,082 --> 00:03:43,345
+An earlier draft gave too much weight to
+
+74
+00:03:43,462 --> 00:03:45,052
+my interest in Linux.
+
+75
+00:03:45,935 --> 00:03:48,198
+I asked for the emphasis to move back
+
+76
+00:03:48,256 --> 00:03:51,136
+to AI, and to the different levels of
+
+77
+00:03:51,217 --> 00:03:52,645
+trust in my own team.
+
+78
+00:03:53,341 --> 00:03:56,523
+The draft helped make that mismatch visible.
+
+79
+00:03:57,219 --> 00:03:59,483
+I could point to what felt wrong and
+
+80
+00:03:59,564 --> 00:04:01,793
+explain what mattered more.
+
+81
+00:04:02,490 --> 00:04:05,160
+That is a kind of collaboration I value:
+
+82
+00:04:05,671 --> 00:04:08,620
+moving an idea forward while I keep shaping
+
+83
+00:04:08,701 --> 00:04:10,153
+its meaning.
+
+84
+00:04:10,153 --> 00:04:13,067
+Inside a company, there is another challenge.
+
+85
+00:04:13,926 --> 00:04:17,479
+My confidence does not automatically become somebody else's
+
+86
+00:04:17,560 --> 00:04:18,384
+confidence.
+
+87
+00:04:19,557 --> 00:04:22,460
+I have colleagues who are actively using AI,
+
+88
+00:04:22,715 --> 00:04:25,489
+and others who don't yet trust it enough.
+
+89
+00:04:26,662 --> 00:04:29,367
+I don't want to turn DHH's enthusiasm into
+
+90
+00:04:29,483 --> 00:04:32,293
+an argument that they should simply agree with
+
+91
+00:04:32,363 --> 00:04:32,699
+me.
+
+92
+00:04:33,733 --> 00:04:36,635
+His experience gives us a useful reference.
+
+93
+00:04:37,285 --> 00:04:39,932
+Our project still needs its own evidence.
+
+94
+00:04:40,966 --> 00:04:43,497
+I would like the people using AI successfully
+
+95
+00:04:43,567 --> 00:04:46,167
+to make their methods easier to inspect.
+
+96
+00:04:46,864 --> 00:04:50,567
+And I want reservations to become specific questions
+
+97
+00:04:50,660 --> 00:04:52,831
+we can investigate.
+
+98
+00:04:52,831 --> 00:04:55,002
+Here is a small exercise I would like
+
+99
+00:04:55,072 --> 00:04:56,035
+us to try.
+
+100
+00:04:57,196 --> 00:04:59,425
+Take a paragraph based on an interview.
+
+101
+00:05:00,273 --> 00:05:03,257
+Ask AI to make it clearer while preserving
+
+102
+00:05:03,303 --> 00:05:03,907
+the meaning.
+
+103
+00:05:05,068 --> 00:05:08,365
+Before we start, agree that a useful result
+
+104
+00:05:08,470 --> 00:05:12,441
+must be readable, match the source, and keep
+
+105
+00:05:12,522 --> 00:05:16,365
+personal interpretations separate from factual claims.
+
+106
+00:05:16,945 --> 00:05:19,825
+The person using AI can show the instructions,
+
+107
+00:05:19,987 --> 00:05:23,784
+the source material, and the changes they accepted.
+
+108
+00:05:24,364 --> 00:05:27,859
+A colleague can then examine the result against
+
+109
+00:05:27,951 --> 00:05:30,308
+those same expectations.
+
+110
+00:05:31,260 --> 00:05:33,664
+That makes the discussion concrete.
+
+111
+00:05:34,616 --> 00:05:38,133
+We can ask which edit improved the paragraph,
+
+112
+00:05:38,830 --> 00:05:42,139
+which one needs checking, and whether the method
+
+113
+00:05:42,208 --> 00:05:44,380
+is worth repeating.
+
+114
+00:05:44,380 --> 00:05:47,306
+Consider a possible mistake in that exercise.
+
+115
+00:05:48,548 --> 00:05:51,578
+DHH describes agents doing useful work.
+
+116
+00:05:52,159 --> 00:05:54,423
+That is a statement about the interview.
+
+117
+00:05:55,200 --> 00:05:57,314
+More of my ideas may now be worth
+
+118
+00:05:57,348 --> 00:05:57,894
+trying.
+
+119
+00:05:58,207 --> 00:05:59,879
+That is my interpretation.
+
+120
+00:06:00,146 --> 00:06:01,876
+Both can belong in a draft.
+
+121
+00:06:02,968 --> 00:06:05,557
+But if a rewrite turns them into everyone
+
+122
+00:06:05,603 --> 00:06:08,854
+is more productive now, it has added a
+
+123
+00:06:08,923 --> 00:06:10,793
+claim we haven't established.
+
+124
+00:06:11,884 --> 00:06:15,007
+A confident sentence can sound better while becoming
+
+125
+00:06:15,077 --> 00:06:16,180
+less accurate.
+
+126
+00:06:17,120 --> 00:06:19,709
+The enthusiastic person can show where the tool
+
+127
+00:06:19,790 --> 00:06:20,406
+helped.
+
+128
+00:06:20,917 --> 00:06:23,680
+The person with reservations can point to the
+
+129
+00:06:23,749 --> 00:06:25,096
+claim that drifted.
+
+130
+00:06:26,048 --> 00:06:29,369
+If the paragraph improved, keep the method.
+
+131
+00:06:29,972 --> 00:06:33,316
+If it failed, adjust the instructions or review
+
+132
+00:06:33,397 --> 00:06:33,966
+step.
+
+133
+00:06:34,918 --> 00:06:36,973
+This is a practice I want to try,
+
+134
+00:06:37,089 --> 00:06:39,585
+rather than a story about a team problem
+
+135
+00:06:39,702 --> 00:06:42,151
+we have already solved.
+
+136
+00:06:42,151 --> 00:06:44,821
+A writing exercise would teach us about that
+
+137
+00:06:44,879 --> 00:06:45,541
+task.
+
+138
+00:06:46,609 --> 00:06:49,825
+Moving into a shared business system raises different
+
+139
+00:06:49,895 --> 00:06:50,812
+questions.
+
+140
+00:06:51,880 --> 00:06:54,632
+I have written before about QA pressure when
+
+141
+00:06:54,701 --> 00:06:57,952
+changes arrive faster than people can understand and
+
+142
+00:06:58,080 --> 00:06:58,974
+verify them.
+
+143
+00:07:00,158 --> 00:07:02,468
+More output can move the work into someone
+
+144
+00:07:02,526 --> 00:07:03,478
+else's queue.
+
+145
+00:07:04,221 --> 00:07:06,125
+That is part of delivery, too.
+
+146
+00:07:07,147 --> 00:07:09,899
+I still want to delegate more to AI.
+
+147
+00:07:10,642 --> 00:07:12,383
+I also want to know who depends on
+
+148
+00:07:12,406 --> 00:07:15,402
+the result, how we will notice a failure,
+
+149
+00:07:15,495 --> 00:07:17,108
+and how we can recover.
+
+150
+00:07:18,223 --> 00:07:21,183
+Trust can grow as we gain experience.
+
+151
+00:07:22,484 --> 00:07:24,875
+The evidence we ask for should fit the
+
+152
+00:07:24,933 --> 00:07:28,730
+consequences of getting something wrong.
+
+153
+00:07:28,730 --> 00:07:31,853
+For my team, I would like that enthusiasm
+
+154
+00:07:31,911 --> 00:07:34,222
+to lead to a shared piece of work.
+
+155
+00:07:35,266 --> 00:07:36,927
+We don't all have to start with the
+
+156
+00:07:36,985 --> 00:07:38,169
+same confidence.
+
+157
+00:07:39,063 --> 00:07:42,174
+We can start with a familiar task, agree
+
+158
+00:07:42,221 --> 00:07:44,845
+on what good looks like, and inspect the
+
+159
+00:07:44,915 --> 00:07:46,006
+result together.
+
+160
+00:07:47,121 --> 00:07:49,872
+If we finish with one method worth keeping,
+
+161
+00:07:50,383 --> 00:07:52,194
+we have something we can use the next
+
+162
+00:07:52,275 --> 00:07:53,065
+morning.
+
+163
+00:07:53,415 --> 00:07:55,946
+So what I take from DHH is this:
+
+164
+00:07:56,341 --> 00:07:59,812
+stay curious as the tools change, be thoughtful
+
+165
+00:07:59,882 --> 00:08:02,529
+about what we build, and keep the joy
+
+166
+00:08:02,645 --> 00:08:03,585
+of creating.
+
+167
+00:08:04,595 --> 00:08:07,173
+That is why I share his enthusiasm for
+
+168
+00:08:07,231 --> 00:08:07,846
+AI.
+
+169
+00:08:08,253 --> 00:08:10,806
+I hope we can turn that enthusiasm into
+
+170
+00:08:10,899 --> 00:08:15,009
+trust we earn together, and products that make
+
+171
+00:08:15,044 --> 00:08:17,192
+someone's day a little better.

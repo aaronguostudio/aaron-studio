@@ -1,0 +1,81 @@
+{
+  "encoded_file": "video-v7.mp4",
+  "duration": "512.800000",
+  "frames": 15384,
+  "voice_projection_checks": [
+    {
+      "start": 5,
+      "estimated_voice_gain": 0.9991642953193414,
+      "voice_gain_db": -0.007261873439846417,
+      "music_gain_coefficient": 0.9966065042952352
+    },
+    {
+      "start": 137,
+      "estimated_voice_gain": 0.9986798809479103,
+      "voice_gain_db": -0.011473983575142621,
+      "music_gain_coefficient": 0.9976085415894064
+    },
+    {
+      "start": 190,
+      "estimated_voice_gain": 0.9992872589003429,
+      "voice_gain_db": -0.006192997796428415,
+      "music_gain_coefficient": 0.9974715875019482
+    },
+    {
+      "start": 201,
+      "estimated_voice_gain": 0.9994341324836946,
+      "voice_gain_db": -0.004916453958416769,
+      "music_gain_coefficient": 0.9977919372878161
+    },
+    {
+      "start": 287,
+      "estimated_voice_gain": 0.9990988626824283,
+      "voice_gain_db": -0.007830708090959967,
+      "music_gain_coefficient": 0.9965516227809788
+    },
+    {
+      "start": 299,
+      "estimated_voice_gain": 0.999514878284132,
+      "voice_gain_db": -0.004214736097741239,
+      "music_gain_coefficient": 0.9986319498597251
+    },
+    {
+      "start": 473,
+      "estimated_voice_gain": 0.9995025395335299,
+      "voice_gain_db": -0.004321961802777996,
+      "music_gain_coefficient": 0.986748193164818
+    },
+    {
+      "start": 484,
+      "estimated_voice_gain": 0.9988427198181495,
+      "voice_gain_db": -0.010057828926102639,
+      "music_gain_coefficient": 0.9989955342300014
+    },
+    {
+      "start": 496,
+      "estimated_voice_gain": 0.9986342924825097,
+      "voice_gain_db": -0.011870492431460362,
+      "music_gain_coefficient": 0.9985448262487104
+    },
+    {
+      "start": 505,
+      "estimated_voice_gain": 0.9984842713237161,
+      "voice_gain_db": -0.01317543972374659,
+      "music_gain_coefficient": 0.9965777692709816
+    }
+  ],
+  "loudness": {
+    "input_i": "-17.03",
+    "input_tp": "-3.91",
+    "input_lra": "5.20",
+    "input_thresh": "-28.26",
+    "output_i": "-16.13",
+    "output_tp": "-1.50",
+    "output_lra": "4.60",
+    "output_thresh": "-27.25",
+    "normalization_type": "dynamic",
+    "target_offset": "0.13"
+  },
+  "last_second_rms_dbfs": -240.0,
+  "meaning": "Voice coefficients are estimated against the known voice and music stems after AAC encoding; exact unity and unmodified samples separately verified in the lossless voice stem. Human listening review is still pending."
+}

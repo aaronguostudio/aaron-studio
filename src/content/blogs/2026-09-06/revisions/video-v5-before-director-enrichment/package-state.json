@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1",
+  "slug": "dhh-the-joy-of-building",
+  "phase": "video_preview_ready_for_author_review",
+  "scope": "blog production continuation through review gates",
+  "locks": {
+    "argument": "pass",
+    "article": "pass",
+    "package": "pending_full_video_review_and_publication_approval",
+    "blog_package": "pass_local_preview_and_build"
+  },
+  "artifacts": {
+    "article": {
+      "en": "dhh-the-joy-of-building.md",
+      "zh": "dhh-the-joy-of-building-zh.md",
+      "sha256": {
+        "en": "89e895660a5941268d94e5cae1a1ed4f6247a81db7c1aa34b2bb8cda5ad1dd13",
+        "zh": "6d7e685e1831be00dd69a1668d83c874227eccac93135aac4f34d670f254de54"
+      }
+    },
+    "video": {
+      "canonical": null,
+      "status": "rendered_local_review_ready",
+      "review_candidates": {
+        "scored": "video-v5.mp4",
+        "narration_only": "video-v5-nomusic.mp4"
+      },
+      "duration_seconds": 503.2,
+      "width": 1920,
+      "height": 1080,
+      "fps": 30,
+      "qa": "video-qa-report.md",
+      "human_review": "pending_full_video",
+      "technical_qa": "pass_108_encoded_frames_caption_fidelity_audio_peak_and_end_silence",
+      "canonical_decision": "Awaiting author selection or approval of full preview; do not treat review files as published."
+    },
+    "images": {
+      "cover": "imgs/web/00-cover.webp",
+      "thumbnail": "imgs/00-thumbnail-v3-a.png",
+      "body": [
+        "imgs/web/01-first-version-v1.webp",
+        "imgs/web/02-selection-v1.webp",
+        "imgs/web/03-maintenance-v1.webp",
+        "imgs/web/04-dhh-portrait-v1.webp"
+      ],
+      "status": "revalidated_for_revised_article",
+      "portrait": "imgs/web/04-dhh-portrait-v1.webp"
+    },
+    "audio": {
+      "canonical": "audio.mp3",
+      "sample": "audio-sample-60s.mp3",
+      "technical_qa": "pass",
+      "text_fidelity": "pass",
+      "human_review": "approved_v5_including_ending",
+      "status": "approved_and_reused_in_video",
+      "duration_seconds": 495.191995,
+      "script_sha256": "200e3954c9f3f307efec501fab5d1cd157330154aedb374894ded862834e4ad1"
+    },
+    "storyboard": {
+      "path": "video-storyboard.json",
+      "status": "production_pass_with_documented_quiet_holds",
+      "scenes": 36,
+      "planned_duration_seconds": 503.2
+    },
+    "distribution": {
+      "status": "revised_drafts_ready",
+      "external_posts": []
+    }
+  },
+  "release": {
+    "published_blog_url": null,
+    "production_commit_on_main": null,
+    "provenance": null,
+    "authorization": "asked_in_this_turn_pending"
+  },
+  "postmortem": {
+    "status": "not_published"
+  },
+  "updated_at": "2026-09-06T18:23:48.206723+00:00",
+  "editorial_score": 89,
+  "author_review": "Approved revised article and requested continuation: 好的。帮我继续执行",
+  "evidence_bundle": "partial_validated",
+  "not_started": [
+    "external_publication"
+  ],
+  "blog_preview": {
+    "worktree": "/Users/aaronguo/Work/ag/blog/aaronguoblog-dhh-2026-09-06",
+    "branch": "codex/dhh-blog-2026-09-06",
+    "base": "2846c8c",
+    "build": "pass",
+    "browser_qa": "pass_revised_bilingual_desktop_and_narrow_view",
+    "en": "http://127.0.0.1:4316/blogs/dhh-the-joy-of-building",
+    "zh": "http://127.0.0.1:4316/zh/blogs/dhh-the-joy-of-building",
+    "runtime_caveat": "Local .output native libsql module linked from installed pnpm dependency; not a tracked code change.",
+    "commit": "0d1469c"
+  },
+  "change_since_article_lock": "Video-only author-requested expansion to three interview highlights followed by personal projects and team views. Approved articles unchanged and hashes verified.",
+  "stale_artifacts": [],
+  "growth_prediction": {
+    "status": "unavailable",
+    "reason": "evaluate-content returned Maximum call stack size exceeded; no success claimed"
+  },
+  "video_revision": {
+    "version": "v5",
+    "spoken_words": 1060,
+    "duration_seconds": 495.191995,
+    "source_highlights": 3,
+    "review_notes": "video-expansion-review.md",
+    "chinese_outline": "video-outline-zh.md",
+    "previous_audio_archive": "revisions/video-v3-4m44-before-expansion",
+    "duration_trial_archive": "revisions/video-v4-duration-trial",
+    "ending_duration_seconds": 23.777234,
+    "body_regenerated": false,
+    "ending_preview": "audio-ending-preview.mp3",
+    "film_duration_seconds": 503.2
+  },
+  "audio_author_review": "Aaron approved the appended ending and requested continuation: 好的，没问题，可以继续",
+  "music": {
+    "asset": "music:b161e820cd4f5741",
+    "status": "internal_bookend_review",
+    "rights": "needs-verification",
+    "dry_alternative": "video-v5-nomusic.mp4"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "kind": "replace",
+    "expected": "a",
+    "transcribed": "the"
+  },
+  {
+    "kind": "insert",
+    "expected": "",
+    "transcribed": "the"
+  },
+  {
+    "kind": "insert",
+    "expected": "",
+    "transcribed": "the"
+  },
+  {
+    "kind": "insert",
+    "expected": "",
+    "transcribed": "the"
+  },
+  {
+    "kind": "replace",
+    "expected": "jassy",
+    "transcribed": "jesse"
+  },
+  {
+    "kind": "insert",
+    "expected": "",
+    "transcribed": "the"
+  }
+]

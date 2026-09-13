@@ -1,0 +1,275 @@
+[
+  {
+    "file": "frame-001.jpg",
+    "frame": 0,
+    "time": 0.0,
+    "roles": [
+      "s00/entry",
+      "s00/middle"
+    ]
+  },
+  {
+    "file": "frame-002.jpg",
+    "frame": 89,
+    "time": 2.966666666666667,
+    "roles": [
+      "s00/exit"
+    ]
+  },
+  {
+    "file": "frame-003.jpg",
+    "frame": 90,
+    "time": 3.0,
+    "roles": [
+      "s00/following-cut"
+    ]
+  },
+  {
+    "file": "frame-004.jpg",
+    "frame": 539,
+    "time": 17.966666666666665,
+    "roles": [
+      "s02/preceding-cut"
+    ]
+  },
+  {
+    "file": "frame-005.jpg",
+    "frame": 540,
+    "time": 18.0,
+    "roles": [
+      "s02/entry"
+    ]
+  },
+  {
+    "file": "frame-006.jpg",
+    "frame": 726,
+    "time": 24.2,
+    "roles": [
+      "s02/middle"
+    ]
+  },
+  {
+    "file": "frame-007.jpg",
+    "frame": 910,
+    "time": 30.333333333333332,
+    "roles": [
+      "s02/exit"
+    ]
+  },
+  {
+    "file": "frame-008.jpg",
+    "frame": 911,
+    "time": 30.366666666666667,
+    "roles": [
+      "s02/following-cut"
+    ]
+  },
+  {
+    "file": "frame-009.jpg",
+    "frame": 2943,
+    "time": 98.1,
+    "roles": [
+      "s09/preceding-cut"
+    ]
+  },
+  {
+    "file": "frame-010.jpg",
+    "frame": 2944,
+    "time": 98.13333333333334,
+    "roles": [
+      "s09/entry"
+    ]
+  },
+  {
+    "file": "frame-011.jpg",
+    "frame": 3210,
+    "time": 107.0,
+    "roles": [
+      "s09/middle"
+    ]
+  },
+  {
+    "file": "frame-012.jpg",
+    "frame": 3474,
+    "time": 115.8,
+    "roles": [
+      "s09/exit"
+    ]
+  },
+  {
+    "file": "frame-013.jpg",
+    "frame": 3475,
+    "time": 115.83333333333333,
+    "roles": [
+      "s09/following-cut"
+    ]
+  },
+  {
+    "file": "frame-014.jpg",
+    "frame": 5826,
+    "time": 194.2,
+    "roles": [
+      "s16/preceding-cut"
+    ]
+  },
+  {
+    "file": "frame-015.jpg",
+    "frame": 5827,
+    "time": 194.23333333333332,
+    "roles": [
+      "s16/entry"
+    ]
+  },
+  {
+    "file": "frame-016.jpg",
+    "frame": 6126,
+    "time": 204.2,
+    "roles": [
+      "s16/middle"
+    ]
+  },
+  {
+    "file": "frame-017.jpg",
+    "frame": 6425,
+    "time": 214.16666666666666,
+    "roles": [
+      "s16/exit"
+    ]
+  },
+  {
+    "file": "frame-018.jpg",
+    "frame": 6426,
+    "time": 214.2,
+    "roles": [
+      "s16/following-cut"
+    ]
+  },
+  {
+    "file": "frame-019.jpg",
+    "frame": 7157,
+    "time": 238.56666666666666,
+    "roles": [
+      "s19/preceding-cut"
+    ]
+  },
+  {
+    "file": "frame-020.jpg",
+    "frame": 7158,
+    "time": 238.6,
+    "roles": [
+      "s19/entry"
+    ]
+  },
+  {
+    "file": "frame-021.jpg",
+    "frame": 7343,
+    "time": 244.76666666666668,
+    "roles": [
+      "s19/middle"
+    ]
+  },
+  {
+    "file": "frame-022.jpg",
+    "frame": 7527,
+    "time": 250.9,
+    "roles": [
+      "s19/exit"
+    ]
+  },
+  {
+    "file": "frame-023.jpg",
+    "frame": 7528,
+    "time": 250.93333333333334,
+    "roles": [
+      "s19/following-cut"
+    ]
+  },
+  {
+    "file": "frame-024.jpg",
+    "frame": 9265,
+    "time": 308.8333333333333,
+    "roles": [
+      "s25/preceding-cut"
+    ]
+  },
+  {
+    "file": "frame-025.jpg",
+    "frame": 9266,
+    "time": 308.8666666666667,
+    "roles": [
+      "s25/entry"
+    ]
+  },
+  {
+    "file": "frame-026.jpg",
+    "frame": 9512,
+    "time": 317.06666666666666,
+    "roles": [
+      "s25/middle"
+    ]
+  },
+  {
+    "file": "frame-027.jpg",
+    "frame": 9756,
+    "time": 325.2,
+    "roles": [
+      "s25/exit"
+    ]
+  },
+  {
+    "file": "frame-028.jpg",
+    "frame": 9757,
+    "time": 325.23333333333335,
+    "roles": [
+      "s25/following-cut"
+    ]
+  },
+  {
+    "file": "frame-029.jpg",
+    "frame": 13602,
+    "time": 453.4,
+    "roles": [
+      "s37/preceding-cut"
+    ]
+  },
+  {
+    "file": "frame-030.jpg",
+    "frame": 13603,
+    "time": 453.43333333333334,
+    "roles": [
+      "s37/entry"
+    ]
+  },
+  {
+    "file": "frame-031.jpg",
+    "frame": 13772,
+    "time": 459.06666666666666,
+    "roles": [
+      "s37/middle"
+    ]
+  },
+  {
+    "file": "frame-032.jpg",
+    "frame": 13939,
+    "time": 464.6333333333333,
+    "roles": [
+      "s37/exit"
+    ]
+  },
+  {
+    "file": "frame-033.jpg",
+    "frame": 13940,
+    "time": 464.6666666666667,
+    "roles": [
+      "s37/following-cut"
+    ]
+  },
+  {
+    "file": "frame-034.jpg",
+    "frame": 14089,
+    "time": 469.6333333333333,
+    "roles": [
+      "final-frame"
+    ]
+  }
+]

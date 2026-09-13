@@ -1,0 +1,996 @@
+{
+  "schema_version": 1,
+  "title": "Why I Share DHH’s Enthusiasm for AI",
+  "duration_sec": 289.352,
+  "fps": 30,
+  "direction": {
+    "name": "Editorial ledger with lamp bookends",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "Ivory ground, stable hierarchy, graphite text, amber focus, source rail; captions own bottom 154px.",
+    "motion_density": "balanced",
+    "music_strategy": "bookended",
+    "references": [
+      {
+        "id": "accepted-ledger-baseline",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Ivory ground, stable hierarchy, graphite text, amber focus, source rail; captions own bottom 154px.",
+        "avoid": "Repeated full-frame blog slides with drifting text and generic titles."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "Different levels of trust",
+      "start_sec": 0,
+      "end_sec": 18.889,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Why I Share DHH's Enthusiasm for AI / One task the team can inspect / Aaron Guo",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Why I Share DHH's Enthusiasm for AI",
+        "One task the team can inspect",
+        "Aaron Guo"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Why I Share DHH's Enthusiasm for AI / One task the team can inspect / Aaron Guo",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Why I Share DHH's Enthusiasm for AI",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "One task the team can inspect",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Aaron Guo",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s02",
+      "title": "From confidence to a method",
+      "start_sec": 18.889,
+      "end_sec": 24.613,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A method colleagues can examine",
+      "first_change_sec": 1.9080000000000001,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A method colleagues can examine"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A method colleagues can examine",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 1.908,
+          "visual": "A method colleagues can examine",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "DHH describes a changed tool",
+      "start_sec": 24.613,
+      "end_sec": 43.015,
+      "role": "evidence",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Earlier autocomplete / Agents performing useful work",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Earlier autocomplete",
+        "Agents performing useful work"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Earlier autocomplete / Agents performing useful work",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Earlier autocomplete",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Agents performing useful work",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Earlier autocomplete",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s04",
+      "title": "Keep an open mind",
+      "start_sec": 43.015,
+      "end_sec": 47.856,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Try again when capabilities change",
+      "first_change_sec": 1.613666666666667,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Try again when capabilities change"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Try again when capabilities change",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 1.614,
+          "visual": "Try again when capabilities change",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s05",
+      "title": "A project needs its own evidence",
+      "start_sec": 47.856,
+      "end_sec": 61.01,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "His confidence cannot settle our project",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "His confidence cannot settle our project"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "His confidence cannot settle our project",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "His confidence cannot settle our project",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "His confidence cannot settle our project",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06",
+      "title": "A proposed shared exercise",
+      "start_sec": 61.01,
+      "end_sec": 70.728,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "PROPOSED PRACTICE / Not a completed team result",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "PROPOSED PRACTICE",
+        "Not a completed team result"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "PROPOSED PRACTICE / Not a completed team result",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "PROPOSED PRACTICE",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s07",
+      "title": "One task on the table",
+      "start_sec": 70.728,
+      "end_sec": 79.714,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Source passage / Clearer paragraph / Meaning preserved",
+      "first_change_sec": 2.9953333333333347,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Source passage",
+        "Clearer paragraph",
+        "Meaning preserved"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Source passage / Clearer paragraph / Meaning preserved",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 2.995,
+          "visual": "Source passage",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s08",
+      "title": "An existing writing workflow",
+      "start_sec": 79.714,
+      "end_sec": 88.933,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Source record / Draft / Review trail",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Source record",
+        "Draft",
+        "Review trail"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Source record / Draft / Review trail",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Source record",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s09",
+      "title": "Agree on a useful result",
+      "start_sec": 88.933,
+      "end_sec": 107.335,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Readable / Matches source / No unsupported general claim",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Readable",
+        "Matches source",
+        "No unsupported general claim"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Readable / Matches source / No unsupported general claim",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Readable",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Matches source",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "No unsupported general claim",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10",
+      "title": "A specific discussion",
+      "start_sec": 107.335,
+      "end_sec": 113.453,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Evaluate this task",
+      "first_change_sec": 2.0393333333333366,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Evaluate this task"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Evaluate this task",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 2.039,
+          "visual": "Evaluate this task",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s11",
+      "title": "Make the method visible",
+      "start_sec": 113.453,
+      "end_sec": 125.899,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Task given / Source provided / Changes accepted",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Task given",
+        "Source provided",
+        "Changes accepted"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Task given / Source provided / Changes accepted",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Task given",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Source provided",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s12",
+      "title": "Two different kinds of claim",
+      "start_sec": 125.899,
+      "end_sec": 139.97,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "SOURCE: Agents doing useful work / INTERPRETATION: More ideas worth trying",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "SOURCE: Agents doing useful work",
+        "INTERPRETATION: More ideas worth trying"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "SOURCE: Agents doing useful work / INTERPRETATION: More ideas worth trying",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "SOURCE: Agents doing useful work",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "INTERPRETATION: More ideas worth trying",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 11.071,
+          "visual": "INTERPRETATION: More ideas worth trying",
+          "action": "Resolve the complete takeaway with one focus change."
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13",
+      "title": "An unsupported leap",
+      "start_sec": 139.97,
+      "end_sec": 155.713,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Example of claim drift / Everyone is more productive now",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Example of claim drift",
+        "Everyone is more productive now"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Example of claim drift / Everyone is more productive now",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Example of claim drift",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Everyone is more productive now",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 12.743,
+          "visual": "Everyone is more productive now",
+          "action": "Resolve the complete takeaway with one focus change."
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s14",
+      "title": "Two contributions",
+      "start_sec": 155.713,
+      "end_sec": 169.39,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Show what became easier / Point to what needs checking",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Show what became easier",
+        "Point to what needs checking"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Show what became easier / Point to what needs checking",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Show what became easier",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Point to what needs checking",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s15",
+      "title": "Keep or change the method",
+      "start_sec": 169.39,
+      "end_sec": 180.559,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Useful improvement: keep method / Claim drift: revise instructions or review",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Useful improvement: keep method",
+        "Claim drift: revise instructions or review"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Useful improvement: keep method / Claim drift: revise instructions or review",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Useful improvement: keep method",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Claim drift: revise instructions or review",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s16",
+      "title": "Bound the conclusion",
+      "start_sec": 180.559,
+      "end_sec": 191.634,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Evidence about one writing task / Not proof for every system",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Evidence about one writing task",
+        "Not proof for every system"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Evidence about one writing task / Not proof for every system",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Evidence about one writing task",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Not proof for every system",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s17",
+      "title": "Who depends on the result",
+      "start_sec": 191.634,
+      "end_sec": 198.391,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Disposable draft / Shared system",
+      "first_change_sec": 2.252333333333335,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Disposable draft",
+        "Shared system"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Disposable draft / Shared system",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 2.252,
+          "visual": "Disposable draft",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s18",
+      "title": "The work can move into QA",
+      "start_sec": 198.391,
+      "end_sec": 210.965,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "More changes / Understanding / Verification",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "More changes",
+        "Understanding",
+        "Verification"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "More changes / Understanding / Verification",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "More changes",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Understanding",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s19",
+      "title": "Delegate with a clear standard",
+      "start_sec": 210.965,
+      "end_sec": 228.531,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Who is affected? / Detect failure / Recover",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Who is affected?",
+        "Detect failure",
+        "Recover"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Who is affected? / Detect failure / Recover",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Who is affected?",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Detect failure",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Recover",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s20",
+      "title": "A specific range of trust",
+      "start_sec": 228.531,
+      "end_sec": 240.652,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Delegate with confidence / Check where needed",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Delegate with confidence",
+        "Check where needed"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Delegate with confidence / Check where needed",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Delegate with confidence",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Check where needed",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s21",
+      "title": "Make an ordinary day better",
+      "start_sec": 240.652,
+      "end_sec": 257.08,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Idea / First version / Useful product",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Idea",
+        "First version",
+        "Useful product"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Idea / First version / Useful product",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Idea",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "First version",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 13,
+          "visual": "Useful product",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s22",
+      "title": "One useful piece of work",
+      "start_sec": 257.08,
+      "end_sec": 268.562,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Conceptual illustration makes usefulness or ongoing care memorable; not evidence.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Finish together / Understand why it helped",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Finish together",
+        "Understand why it helped"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Finish together / Understand why it helped",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Finish together",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Understand why it helped",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration; intentional quiet supports reading.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s23",
+      "title": "Put the task on the table",
+      "start_sec": 268.562,
+      "end_sec": 284.352,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Familiar task / Agree on good / Inspect result / Keep useful method",
+      "first_change_sec": 3,
+      "motion_recipes": [
+        "focus-shift",
+        "connector-draw"
+      ],
+      "content": [
+        "Familiar task",
+        "Agree on good",
+        "Inspect result",
+        "Keep useful method"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Familiar task / Agree on good / Inspect result / Keep useful method",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Familiar task",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Agree on good",
+          "action": "Focus changes with narration; no text displacement"
+        },
+        {
+          "at_sec": 12.79,
+          "visual": "Keep useful method",
+          "action": "Resolve the complete takeaway with one focus change."
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s24",
+      "title": "Aaron Guo",
+      "start_sec": 284.352,
+      "end_sec": 289.352,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Make the proposed task and its limits inspectable; do not imply a completed team experiment.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Aaron Guo / aaronguo.com",
+      "first_change_sec": 1.6666666666666667,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Aaron Guo",
+        "aaronguo.com"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Aaron Guo / aaronguo.com",
+          "action": "Complete scaffold present; preserve reading order"
+        },
+        {
+          "at_sec": 1.667,
+          "visual": "Aaron Guo",
+          "action": "Focus changes with narration; no text displacement"
+        }
+      ],
+      "music_cue": "Dry narration. Bookend music remains an internal audition pending rights and human review.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

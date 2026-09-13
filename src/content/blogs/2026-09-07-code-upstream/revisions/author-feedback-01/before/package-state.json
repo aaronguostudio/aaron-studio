@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "slug": "code-is-cheap-opportunity-moves-upstream",
+  "phase": "article-review",
+  "updatedAt": "2026-09-07T21:40:03.687467+00:00",
+  "scope": "Research and bilingual article trial; no media or external publishing",
+  "artifacts": {
+    "article": {
+      "english": "code-is-cheap-opportunity-moves-upstream.md",
+      "chinese": "code-is-cheap-opportunity-moves-upstream-zh.md",
+      "sha256": {
+        "english": "c43e3884c97e34a4776137122250bb94efc09292f8e32861bc43702ef3efa1dc",
+        "chinese": "167456dc61ebbbd4f7f5427d25d3fe493501cc87608d8e658c6652752e43fe7d"
+      }
+    },
+    "research": "research-evidence.json",
+    "editorialReview": "revisions/review-v2.json"
+  },
+  "locks": {
+    "argument": "pass",
+    "article": "pending-author-review",
+    "package": "not-started"
+  },
+  "research": {
+    "status": "partial",
+    "sources": 6,
+    "transcripts": 3,
+    "missing": "Original user-selected video links"
+  },
+  "publishing": {
+    "blogUrl": null,
+    "productionCommit": null,
+    "youtubeUrl": null
+  },
+  "postmortem": {
+    "status": "prepublication",
+    "authorPreference": null
+  }
+}

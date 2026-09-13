@@ -1,0 +1,1601 @@
+{
+  "duration": 485.3666666666667,
+  "fps": 30,
+  "audioOffset": 3.0,
+  "scenes": [
+    {
+      "id": "s00",
+      "start": 0.0,
+      "end": 3.0,
+      "kind": "cover",
+      "title": "ASTRA AT WORK",
+      "sub": "GPT-6 in real work · Aaron Guo",
+      "nodes": [],
+      "media": "thumbnail.jpg",
+      "facts": [],
+      "sources": [],
+      "rail": "EDITORIAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 0.6000000000000001
+    },
+    {
+      "id": "s01",
+      "start": 3.0,
+      "end": 8.166666666666666,
+      "kind": "evidence",
+      "title": "The demos are striking.",
+      "sub": "Official demonstrations",
+      "nodes": [],
+      "media": "blender.png",
+      "facts": [
+        "demo-exhibits"
+      ],
+      "sources": [
+        "launch"
+      ],
+      "rail": "OPENAI · GPT-6 ASTRA SHOWCASE",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s02",
+      "start": 8.166666666666666,
+      "end": 23.966666666666665,
+      "kind": "flow",
+      "title": "My job crossed systems.",
+      "sub": "Networking. Certificates. Real problems.",
+      "nodes": [
+        "Azure",
+        "Linux",
+        "Windows",
+        "Database"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        11
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s03",
+      "start": 23.966666666666665,
+      "end": 29.8,
+      "kind": "statement",
+      "title": "More of the job.",
+      "sub": "That is what I’m willing to delegate.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s04",
+      "start": 29.8,
+      "end": 42.63333333333333,
+      "kind": "media",
+      "title": "The writing\nfeels more natural.",
+      "sub": "An everyday workflow, alongside the deployment.",
+      "nodes": [],
+      "media": "writing.png",
+      "facts": [
+        "smooth"
+      ],
+      "sources": [],
+      "rail": "EDITORIAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s05",
+      "start": 42.63333333333333,
+      "end": 57.36666666666667,
+      "kind": "statement",
+      "title": "Astra with an actual job.",
+      "sub": "Inside the tools and systems we already use.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s06",
+      "start": 57.36666666666667,
+      "end": 66.5,
+      "kind": "compare",
+      "title": "One job. Two environments.",
+      "sub": "The business requirement comes first.",
+      "nodes": [
+        "Linux\nBusiness application",
+        "Windows\nReporting engine"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s07",
+      "start": 66.5,
+      "end": 77.46666666666667,
+      "kind": "flow",
+      "title": "From request to returned PDF.",
+      "sub": "Keep the existing workflow intact.",
+      "nodes": [
+        "Linux app",
+        "Windows service",
+        "Database",
+        "PDF result"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        10.467
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s08",
+      "start": 77.46666666666667,
+      "end": 86.7,
+      "kind": "statement",
+      "title": "Fit the existing system.",
+      "sub": "Connections and workflows still have to work.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s09",
+      "start": 86.7,
+      "end": 99.9,
+      "kind": "flow",
+      "title": "The work around the code.",
+      "sub": "Azure resources · private networking · existing NAT · SQL trust",
+      "nodes": [
+        "Azure",
+        "Private network",
+        "Windows service",
+        "SQL certificate"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-provision",
+        "network-runbook"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · EXISTING NAT GATEWAY",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        11
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s10",
+      "start": 99.9,
+      "end": 110.33333333333333,
+      "kind": "compare",
+      "title": "Autonomy has a scope.",
+      "sub": "Implementation proceeds inside the agreed boundary.",
+      "nodes": [
+        "Aaron\nScope and service decisions",
+        "Astra\nConfiguration and checks"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s11",
+      "start": 110.33333333333333,
+      "end": 120.4,
+      "kind": "media",
+      "title": "The pieces\nstay connected.",
+      "sub": "One task across the working environment.",
+      "nodes": [],
+      "media": "cover.png",
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s12",
+      "start": 120.4,
+      "end": 128.23333333333332,
+      "kind": "row",
+      "title": "It still met real problems.",
+      "sub": "The work continued through diagnosis.",
+      "nodes": [
+        "Network rule rejected",
+        "Certificate checks"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": true,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s13",
+      "start": 128.23333333333332,
+      "end": 140.8,
+      "kind": "flow",
+      "title": "Follow the failure through.",
+      "sub": "Read-back and retry checks completed in Dev.",
+      "nodes": [
+        "PDF generated",
+        "Attachment failed",
+        "Read back + retry",
+        "Dev verified"
+      ],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        11
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s14",
+      "start": 140.8,
+      "end": 153.43333333333334,
+      "kind": "statement",
+      "title": "Carry the pieces together.",
+      "sub": "Infrastructure, code, troubleshooting and verification.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "worker"
+      ],
+      "sources": [
+        "dev-worker",
+        "attachment"
+      ],
+      "rail": "AARON’S DEV EXPERIENCE · ARCHITECTURE ABSTRACTED",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s15",
+      "start": 153.43333333333334,
+      "end": 165.26666666666668,
+      "kind": "evidence",
+      "title": "2 / Connect the tools.",
+      "sub": "Blender model · official showcase",
+      "nodes": [],
+      "media": "blender.png",
+      "facts": [
+        "demo-exhibits"
+      ],
+      "sources": [
+        "launch"
+      ],
+      "rail": "OPENAI · BLENDER MODEL · OFFICIAL DEMONSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s16",
+      "start": 165.26666666666668,
+      "end": 181.83333333333334,
+      "kind": "evidence",
+      "title": "A result becomes an input.",
+      "sub": "Google Maps routes · official showcase",
+      "nodes": [],
+      "media": "maps.png",
+      "facts": [
+        "demo-exhibits"
+      ],
+      "sources": [
+        "launch"
+      ],
+      "rail": "OPENAI · PEDIATRICIAN SEARCH · OFFICIAL DEMONSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s17",
+      "start": 181.83333333333334,
+      "end": 196.5,
+      "kind": "row",
+      "title": "Ordinary browser work.",
+      "sub": "Matt Shumer’s firsthand account; tools and access still matter.",
+      "nodes": [
+        "Newsletters",
+        "Inboxes",
+        "Advertising"
+      ],
+      "media": null,
+      "facts": [
+        "browser-work"
+      ],
+      "sources": [
+        "shumer"
+      ],
+      "rail": "MATT SHUMER · ASTRA REVIEW · AUTHOR SELF-REPORT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s18",
+      "start": 196.5,
+      "end": 217.33333333333334,
+      "kind": "flow",
+      "title": "Keep the handoffs moving.",
+      "sub": "One less point where the job returns to me.",
+      "nodes": [
+        "Research",
+        "Create",
+        "Inspect",
+        "Continue"
+      ],
+      "media": null,
+      "facts": [
+        "whole-job"
+      ],
+      "sources": [
+        "shumer",
+        "context"
+      ],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        11
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s19",
+      "start": 217.33333333333334,
+      "end": 237.03333333333333,
+      "kind": "media",
+      "title": "3 / Keep the history.",
+      "sub": "Notes and searchable history. Experimental; off by default.",
+      "nodes": [],
+      "media": "notes.png",
+      "facts": [
+        "context"
+      ],
+      "sources": [
+        "context"
+      ],
+      "rail": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s20",
+      "start": 237.03333333333333,
+      "end": 248.2,
+      "kind": "compare",
+      "title": "A refactor, hours later.",
+      "sub": "A hypothetical example of why earlier context matters.",
+      "nodes": [
+        "Earlier discovery\nDependency cannot upgrade",
+        "Later decision\nKeep the constraint"
+      ],
+      "media": null,
+      "facts": [
+        "context"
+      ],
+      "sources": [
+        "context"
+      ],
+      "rail": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s21",
+      "start": 248.2,
+      "end": 265.1,
+      "kind": "row",
+      "title": "Keep the reason, too.",
+      "sub": "A hypothetical refactor example.",
+      "nodes": [
+        "Migration failed",
+        "Tests showed why",
+        "Avoid the same dead end"
+      ],
+      "media": null,
+      "facts": [
+        "context"
+      ],
+      "sources": [
+        "context"
+      ],
+      "rail": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s22",
+      "start": 265.1,
+      "end": 277.6,
+      "kind": "media",
+      "title": "Earlier effort\nstays useful.",
+      "sub": "Long jobs accumulate discoveries.",
+      "nodes": [],
+      "media": "notes.png",
+      "facts": [
+        "context"
+      ],
+      "sources": [
+        "context"
+      ],
+      "rail": "CODEX DOCUMENTATION · EXPERIMENTAL / OFF BY DEFAULT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s23",
+      "start": 277.6,
+      "end": 287.7,
+      "kind": "statement",
+      "title": "4 / Initiative and direction.",
+      "sub": "Keep going. Understand a change in scope.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s24",
+      "start": 287.7,
+      "end": 300.1666666666667,
+      "kind": "compare",
+      "title": "“Keep this in the test environment.”",
+      "sub": "An illustrative instruction: new direction changes the next steps.",
+      "nodes": [
+        "Before\nContinue implementation",
+        "After\nStay inside Dev"
+      ],
+      "media": null,
+      "facts": [
+        "skill-review-position"
+      ],
+      "sources": [
+        "guidance"
+      ],
+      "rail": "AARON’S COLLABORATION EXAMPLE",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s25",
+      "start": 300.1666666666667,
+      "end": 310.46666666666664,
+      "kind": "row",
+      "title": "Review the old skills.",
+      "sub": "Ambiguous or conflicting instructions can stop useful work.",
+      "nodes": [
+        "Skills",
+        "AGENTS.md",
+        "Conflicting rules"
+      ],
+      "media": null,
+      "facts": [
+        "guidance"
+      ],
+      "sources": [
+        "guidance"
+      ],
+      "rail": "OPENAI · ASTRA USAGE GUIDANCE",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s26",
+      "start": 310.46666666666664,
+      "end": 319.43333333333334,
+      "kind": "compare",
+      "title": "Give it a clearer working agreement.",
+      "sub": "Illustrative wording, not a quotation from the documentation.",
+      "nodes": [
+        "Old habit\nAsk me after every step",
+        "Better agreement\nGoal, checks, decision points"
+      ],
+      "media": null,
+      "facts": [
+        "skill-review-position"
+      ],
+      "sources": [
+        "guidance"
+      ],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s27",
+      "start": 319.43333333333334,
+      "end": 335.1,
+      "kind": "statement",
+      "title": "Scope still matters.",
+      "sub": "Better instructions do not excuse a misunderstood job.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "skill-review-position"
+      ],
+      "sources": [
+        "scope-feedback"
+      ],
+      "rail": "DEVELOPER SELF-REPORT · EXTRA INFRASTRUCTURE / EARLY IMPLEMENTATION",
+      "tension": true,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s28",
+      "start": 335.1,
+      "end": 344.9,
+      "kind": "media",
+      "title": "5 / More natural prose.",
+      "sub": "Connected ideas. A more pleasant read.",
+      "nodes": [],
+      "media": "writing.png",
+      "facts": [
+        "smooth"
+      ],
+      "sources": [],
+      "rail": "EDITORIAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s29",
+      "start": 344.9,
+      "end": 361.73333333333335,
+      "kind": "manuscript",
+      "title": "From scattered thoughts to an article.",
+      "sub": "The writing should carry the thought.",
+      "nodes": [
+        "Project experience",
+        "Half-formed judgment",
+        "A coherent article"
+      ],
+      "media": null,
+      "facts": [
+        "smooth"
+      ],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s30",
+      "start": 361.73333333333335,
+      "end": 374.56666666666666,
+      "kind": "flow",
+      "title": "Let one thought lead to the next.",
+      "sub": "The next paragraph picks up the question.",
+      "nodes": [
+        "Experience",
+        "Observation",
+        "Next question"
+      ],
+      "media": null,
+      "facts": [
+        "smooth"
+      ],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s31",
+      "start": 374.56666666666666,
+      "end": 390.96666666666664,
+      "kind": "media",
+      "title": "Make the expression\nfit the piece.",
+      "sub": "Reader, context and tone still contribute.",
+      "nodes": [],
+      "media": "writing.png",
+      "facts": [
+        "smooth"
+      ],
+      "sources": [],
+      "rail": "EDITORIAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s32",
+      "start": 390.96666666666664,
+      "end": 402.1666666666667,
+      "kind": "row",
+      "title": "6 / Count the whole cost.",
+      "sub": "One flight-game project. Not a forecast for every user.",
+      "nodes": [
+        "About 3 hours",
+        "45% of weekly allowance"
+      ],
+      "media": null,
+      "facts": [
+        "game-tools-cost"
+      ],
+      "sources": [
+        "flight-game"
+      ],
+      "rail": "TANIAI_ · GODOT / BLENDER PROJECT · AUTHOR SELF-REPORT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s33",
+      "start": 402.1666666666667,
+      "end": 410.23333333333335,
+      "kind": "statement",
+      "title": "The allowance can run out.",
+      "sub": "Useful output still has a cost.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "game-tools-cost"
+      ],
+      "sources": [
+        "limits-feedback"
+      ],
+      "rail": "INDIVIDUAL USER REPORTS · DIFFERENT TASKS AND SETTINGS",
+      "tension": true,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s34",
+      "start": 410.23333333333335,
+      "end": 422.1333333333333,
+      "kind": "compare",
+      "title": "Choose by the job.",
+      "sub": "Model cost + my time + what gets finished.",
+      "nodes": [
+        "Small edit\nA lighter model may be enough",
+        "Complex work\nConsider the stronger model"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s35",
+      "start": 422.1333333333333,
+      "end": 435.46666666666664,
+      "kind": "media",
+      "title": "More trust\nin a longer job.",
+      "sub": "Across products and systems, within a clear scope.",
+      "nodes": [],
+      "media": "cover.png",
+      "facts": [
+        "closing-judgment"
+      ],
+      "sources": [],
+      "rail": "EDITORIAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s36",
+      "start": 435.46666666666664,
+      "end": 447.76666666666665,
+      "kind": "row",
+      "title": "New questions come with autonomy.",
+      "sub": "How do I verify the result and trace the important decisions?",
+      "nodes": [
+        "Verify the result",
+        "Trace decisions",
+        "Audit the work"
+      ],
+      "media": null,
+      "facts": [
+        "closing-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s37",
+      "start": 447.76666666666665,
+      "end": 460.1,
+      "kind": "statement",
+      "title": "I’m tempted to buy more room.",
+      "sub": "The useful work makes me want to use it more.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "closing-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s38",
+      "start": 460.1,
+      "end": 470.8,
+      "kind": "media",
+      "title": "The excitement\nis still there.",
+      "sub": "I want the work I watch closely to become work I can trust it with.",
+      "nodes": [],
+      "media": "review.png",
+      "facts": [
+        "closing-judgment"
+      ],
+      "sources": [],
+      "rail": "EDITORIAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s39",
+      "start": 470.8,
+      "end": 480.3666666666667,
+      "kind": "statement",
+      "title": "AI is still surprising me.",
+      "sub": "I want to feel the next improvement in real work.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "closing-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON’S NOTES · REAL WORK",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s40",
+      "start": 480.3666666666667,
+      "end": 485.3666666666667,
+      "kind": "end",
+      "title": "AARON GUO",
+      "sub": "AI-NATIVE BUILDER · Human-first thinker",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    }
+  ],
+  "captions": [
+    {
+      "start": 3.0,
+      "end": 7.063,
+      "text": "You've probably seen Astra build games and beautiful 3D scenes."
+    },
+    {
+      "start": 8.166,
+      "end": 10.79,
+      "text": "I've been using it on something harder to show in"
+    },
+    {
+      "start": 10.847999999999999,
+      "end": 14.447,
+      "text": "a short clip: a deployment across Azure,"
+    },
+    {
+      "start": 14.598,
+      "end": 17.176000000000002,
+      "text": "Linux, Windows, and a database."
+    },
+    {
+      "start": 18.279,
+      "end": 20.845,
+      "text": "It involved networking, certificates,"
+    },
+    {
+      "start": 20.995,
+      "end": 23.016,
+      "text": "and real problems along the way."
+    },
+    {
+      "start": 23.968,
+      "end": 27.973,
+      "text": "That experience changed how much of a job I'm willing"
+    },
+    {
+      "start": 28.031,
+      "end": 31.676828,
+      "text": "to give AI. I've also been using it for everyday"
+    },
+    {
+      "start": 31.734828,
+      "end": 35.205828,
+      "text": "writing, where the prose has felt more natural."
+    },
+    {
+      "start": 36.459828,
+      "end": 40.290828,
+      "text": "So I looked at my experience alongside the documentation and"
+    },
+    {
+      "start": 40.441828,
+      "end": 44.191828,
+      "text": "early public reports. Six things stand out."
+    },
+    {
+      "start": 44.969828,
+      "end": 47.349828,
+      "text": "The question connecting them is simple:"
+    },
+    {
+      "start": 48.464828,
+      "end": 52.051828,
+      "text": "what happens when Astra has an actual job to carry,"
+    },
+    {
+      "start": 52.376828,
+      "end": 57.380828,
+      "text": "inside the systems and tools we already use?"
+    },
+    {
+      "start": 57.381134,
+      "end": 62.942134,
+      "text": "First, complex deployment. The business application ran on Linux."
+    },
+    {
+      "start": 63.256134,
+      "end": 65.729134,
+      "text": "The reporting engine needed Windows."
+    },
+    {
+      "start": 66.49513400000001,
+      "end": 69.455134,
+      "text": "I wanted a request to travel from the application to"
+    },
+    {
+      "start": 69.571134,
+      "end": 74.006134,
+      "text": "a Windows service, produce a PDF using the database,"
+    },
+    {
+      "start": 74.169134,
+      "end": 76.514134,
+      "text": "and return it to the business system."
+    },
+    {
+      "start": 77.46613400000001,
+      "end": 81.22813400000001,
+      "text": "Existing connections and workflows still had to work."
+    },
+    {
+      "start": 82.18013400000001,
+      "end": 84.52513400000001,
+      "text": "That was the real job behind the words,"
+    },
+    {
+      "start": 84.64113400000001,
+      "end": 88.960717,
+      "text": "Windows Worker. The work included Azure resources,"
+    },
+    {
+      "start": 89.23871700000001,
+      "end": 93.871717,
+      "text": "private networking, a new subnet attached to an existing NAT"
+    },
+    {
+      "start": 93.975717,
+      "end": 96.761717,
+      "text": "Gateway, Windows service installation,"
+    },
+    {
+      "start": 97.145717,
+      "end": 99.07271700000001,
+      "text": "and SQL certificate trust."
+    },
+    {
+      "start": 99.885717,
+      "end": 103.205717,
+      "text": "Astra advanced those steps within my authorization."
+    },
+    {
+      "start": 104.029717,
+      "end": 108.44171700000001,
+      "text": "I decided the scope and approved changes that could affect"
+    },
+    {
+      "start": 108.59271700000001,
+      "end": 113.97971700000001,
+      "text": "services. But I wasn't switching into every tool to perform"
+    },
+    {
+      "start": 114.06071700000001,
+      "end": 120.39971700000001,
+      "text": "the implementation myself. That made the experience feel very different."
+    },
+    {
+      "start": 120.400091,
+      "end": 122.826091,
+      "text": "Azure rejected an early network rule."
+    },
+    {
+      "start": 123.546091,
+      "end": 127.087091,
+      "text": "Database connectivity brought certificate checks."
+    },
+    {
+      "start": 128.22509100000002,
+      "end": 130.280091,
+      "text": "Later, the PDF existed,"
+    },
+    {
+      "start": 130.884091,
+      "end": 132.927091,
+      "text": "but saving the attachment failed."
+    },
+    {
+      "start": 133.310091,
+      "end": 135.598091,
+      "text": "The work continued through diagnosis,"
+    },
+    {
+      "start": 135.749091,
+      "end": 137.978091,
+      "text": "read-back, and retry checks,"
+    },
+    {
+      "start": 138.164091,
+      "end": 140.091091,
+      "text": "until the chain worked in Dev."
+    },
+    {
+      "start": 140.788091,
+      "end": 143.771091,
+      "text": "What impressed me was connecting infrastructure,"
+    },
+    {
+      "start": 143.922091,
+      "end": 148.996091,
+      "text": "code, troubleshooting, and verification inside one task."
+    },
+    {
+      "start": 149.692091,
+      "end": 153.419091,
+      "text": "The value was in carrying those pieces together."
+    },
+    {
+      "start": 153.418867,
+      "end": 156.483867,
+      "text": "Second, the tools are becoming more connected."
+    },
+    {
+      "start": 157.470867,
+      "end": 161.04686700000002,
+      "text": "OpenAI's showcases include a Blender house model,"
+    },
+    {
+      "start": 161.290867,
+      "end": 164.424867,
+      "text": "an Unreal scene, and a racing game."
+    },
+    {
+      "start": 165.26086700000002,
+      "end": 168.198867,
+      "text": "Another compares clinic routes in Google Maps."
+    },
+    {
+      "start": 168.918867,
+      "end": 170.752867,
+      "text": "These are official demonstrations,"
+    },
+    {
+      "start": 170.822867,
+      "end": 175.60586700000002,
+      "text": "not my reproductions. I look at them for the handoffs:"
+    },
+    {
+      "start": 176.720867,
+      "end": 179.738867,
+      "text": "a result in one place becoming the input to the"
+    },
+    {
+      "start": 179.80886700000002,
+      "end": 185.544091,
+      "text": "next step. Matt Shumer describes browser work on newsletters,"
+    },
+    {
+      "start": 185.857091,
+      "end": 189.154091,
+      "text": "inboxes, and advertising interfaces."
+    },
+    {
+      "start": 189.572091,
+      "end": 193.880091,
+      "text": "A flight-game developer reports using Godot and Blender,"
+    },
+    {
+      "start": 194.298091,
+      "end": 196.097091,
+      "text": "with feedback along the way."
+    },
+    {
+      "start": 196.515091,
+      "end": 198.953091,
+      "text": "The useful combination includes code,"
+    },
+    {
+      "start": 199.185091,
+      "end": 201.972091,
+      "text": "applications, and tool connections."
+    },
+    {
+      "start": 202.738091,
+      "end": 206.372091,
+      "text": "Research, create, inspect, continue."
+    },
+    {
+      "start": 207.266091,
+      "end": 210.900091,
+      "text": "Each handoff the agent handles is one less point where"
+    },
+    {
+      "start": 211.00409100000002,
+      "end": 212.920091,
+      "text": "I have to take the task back."
+    },
+    {
+      "start": 213.686091,
+      "end": 217.320091,
+      "text": "Access and available tools still matter."
+    },
+    {
+      "start": 217.320182,
+      "end": 223.68218199999998,
+      "text": "Third, long tasks. Codex documents experimental context management with notes"
+    },
+    {
+      "start": 223.72918199999998,
+      "end": 227.90818199999998,
+      "text": "and searchable history. It is currently off by default."
+    },
+    {
+      "start": 228.66318199999998,
+      "end": 230.567182,
+      "text": "The idea is straightforward:"
+    },
+    {
+      "start": 231.043182,
+      "end": 233.55118199999998,
+      "text": "when a job grows beyond the current context,"
+    },
+    {
+      "start": 233.620182,
+      "end": 235.93118199999998,
+      "text": "earlier details remain retrievable."
+    },
+    {
+      "start": 237.04518199999998,
+      "end": 241.48018199999999,
+      "text": "Imagine a refactor where a dependency cannot be upgraded."
+    },
+    {
+      "start": 242.595182,
+      "end": 248.202182,
+      "text": "Hours later, the reason for that decision still matters."
+    },
+    {
+      "start": 248.202722,
+      "end": 252.76572199999998,
+      "text": "In that example, a useful record includes the migration that"
+    },
+    {
+      "start": 252.881722,
+      "end": 255.79572199999998,
+      "text": "failed and what the tests revealed."
+    },
+    {
+      "start": 256.399722,
+      "end": 259.858722,
+      "text": "Recovering it could prevent another trip down the same dead"
+    },
+    {
+      "start": 259.928722,
+      "end": 263.992722,
+      "text": "end. This is an illustration of the documented feature."
+    },
+    {
+      "start": 265.10772199999997,
+      "end": 268.973722,
+      "text": "It matters because long jobs accumulate discoveries."
+    },
+    {
+      "start": 270.087722,
+      "end": 274.116722,
+      "text": "I want the context invested early in a task to"
+    },
+    {
+      "start": 274.197722,
+      "end": 277.599722,
+      "text": "keep helping as the work moves on."
+    },
+    {
+      "start": 277.599185,
+      "end": 280.827185,
+      "text": "Fourth, initiative has to work with direction."
+    },
+    {
+      "start": 281.512185,
+      "end": 283.59018499999996,
+      "text": "I want the model to keep going,"
+    },
+    {
+      "start": 284.089185,
+      "end": 287.003185,
+      "text": "while understanding a condition I add along the way."
+    },
+    {
+      "start": 287.688185,
+      "end": 290.81118499999997,
+      "text": "If I say, keep this in the test environment,"
+    },
+    {
+      "start": 291.183185,
+      "end": 293.05218499999995,
+      "text": "that changes the next steps."
+    },
+    {
+      "start": 293.853185,
+      "end": 296.442185,
+      "text": "My view is that upgrading the model is also a"
+    },
+    {
+      "start": 296.48918499999996,
+      "end": 300.16918499999997,
+      "text": "good time to review our old skills."
+    },
+    {
+      "start": 300.168981,
+      "end": 304.17398099999997,
+      "text": "OpenAI recommends auditing skills and instruction files."
+    },
+    {
+      "start": 305.04498099999995,
+      "end": 309.28298099999995,
+      "text": "Ambiguous or conflicting rules can make Astra stop too early."
+    },
+    {
+      "start": 310.454981,
+      "end": 313.218981,
+      "text": "I would replace ask me after every step with a"
+    },
+    {
+      "start": 313.276981,
+      "end": 316.050981,
+      "text": "clear goal, acceptance criteria,"
+    },
+    {
+      "start": 316.23698099999996,
+      "end": 318.36198099999996,
+      "text": "and meaningful decision points."
+    },
+    {
+      "start": 319.44098099999997,
+      "end": 326.00098099999997,
+      "text": "Scope still matters: one developer reported unwanted infrastructure and premature"
+    },
+    {
+      "start": 326.047981,
+      "end": 329.97198099999997,
+      "text": "implementation. Better instructions help,"
+    },
+    {
+      "start": 330.34298099999995,
+      "end": 335.091981,
+      "text": "but the model remains responsible for understanding the job."
+    },
+    {
+      "start": 335.091793,
+      "end": 337.935793,
+      "text": "Fifth, the writing feels more natural."
+    },
+    {
+      "start": 338.771793,
+      "end": 341.442793,
+      "text": "Recent drafts connect ideas more easily,"
+    },
+    {
+      "start": 341.651793,
+      "end": 343.926793,
+      "text": "and the prose is more pleasant to read."
+    },
+    {
+      "start": 344.901793,
+      "end": 347.316793,
+      "text": "I often begin with scattered thoughts,"
+    },
+    {
+      "start": 347.607793,
+      "end": 351.252793,
+      "text": "project experiences, and a point I'm still finding."
+    },
+    {
+      "start": 352.401793,
+      "end": 355.014793,
+      "text": "When those become a coherent article,"
+    },
+    {
+      "start": 355.223793,
+      "end": 357.301793,
+      "text": "I can focus on what I mean to say."
+    },
+    {
+      "start": 358.113793,
+      "end": 361.747793,
+      "text": "That's the improvement I feel in my writing workflow."
+    },
+    {
+      "start": 361.74830099999997,
+      "end": 365.33530099999996,
+      "text": "A concrete experience leads into an observation."
+    },
+    {
+      "start": 366.25330099999996,
+      "end": 370.21230099999997,
+      "text": "The next paragraph picks up the question it leaves behind."
+    },
+    {
+      "start": 370.88530099999997,
+      "end": 373.64830099999995,
+      "text": "I like the writing we're producing together more."
+    },
+    {
+      "start": 374.577301,
+      "end": 376.17930099999995,
+      "text": "This is my experience,"
+    },
+    {
+      "start": 376.295301,
+      "end": 380.55630099999996,
+      "text": "with our existing context and preferences contributing too."
+    },
+    {
+      "start": 381.670301,
+      "end": 384.16730099999995,
+      "text": "I still tell it who the reader is and what"
+    },
+    {
+      "start": 384.22530099999994,
+      "end": 389.12430099999995,
+      "text": "tone I want. Those choices help the expression fit the"
+    },
+    {
+      "start": 389.182301,
+      "end": 396.985004,
+      "text": "piece. Sixth, cost. The flight-game developer reported about three hours"
+    },
+    {
+      "start": 397.043004,
+      "end": 401.118004,
+      "text": "and forty-five percent of a Pro plan's weekly allowance."
+    },
+    {
+      "start": 402.163004,
+      "end": 405.367004,
+      "text": "Other users describe running out before finishing."
+    },
+    {
+      "start": 405.843004,
+      "end": 407.515004,
+      "text": "Those are individual reports,"
+    },
+    {
+      "start": 407.54900399999997,
+      "end": 409.639004,
+      "text": "but they make the tradeoff visible."
+    },
+    {
+      "start": 410.243004,
+      "end": 413.308004,
+      "text": "I would use a lighter model for a small edit,"
+    },
+    {
+      "start": 413.91200399999997,
+      "end": 418.277004,
+      "text": "and consider Astra when the work spans systems,"
+    },
+    {
+      "start": 418.788004,
+      "end": 424.535183,
+      "text": "troubleshooting, and verification. These experiences change what I'm willing to"
+    },
+    {
+      "start": 424.616183,
+      "end": 428.656183,
+      "text": "delegate. I feel more confident giving Astra long,"
+    },
+    {
+      "start": 428.714183,
+      "end": 432.139183,
+      "text": "complex tasks across products and systems,"
+    },
+    {
+      "start": 432.290183,
+      "end": 434.740183,
+      "text": "within a clear goal and scope."
+    },
+    {
+      "start": 435.460183,
+      "end": 437.991183,
+      "text": "Greater autonomy brings new questions:"
+    },
+    {
+      "start": 438.52518299999997,
+      "end": 442.089183,
+      "text": "how do I verify the result and trace the important"
+    },
+    {
+      "start": 442.136183,
+      "end": 446.826183,
+      "text": "decisions? Verification and auditing need more attention."
+    },
+    {
+      "start": 447.778183,
+      "end": 449.659183,
+      "text": "So does the higher price."
+    },
+    {
+      "start": 450.599183,
+      "end": 454.756183,
+      "text": "I'm honestly tempted to pay for another high-allowance subscription."
+    },
+    {
+      "start": 455.557183,
+      "end": 458.982183,
+      "text": "Seeing useful work get done makes me want more room"
+    },
+    {
+      "start": 459.063183,
+      "end": 463.545029,
+      "text": "to use it. Those questions haven't taken away my excitement."
+    },
+    {
+      "start": 464.357029,
+      "end": 467.387029,
+      "text": "I want the work I still have to watch closely"
+    },
+    {
+      "start": 467.457029,
+      "end": 469.849029,
+      "text": "to become work I can trust it with."
+    },
+    {
+      "start": 470.80102899999997,
+      "end": 473.819029,
+      "text": "AI is still finding ways to surprise me."
+    },
+    {
+      "start": 474.423029,
+      "end": 476.850029,
+      "text": "I'm looking forward to it getting better,"
+    },
+    {
+      "start": 477.094029,
+      "end": 480.356029,
+      "text": "and to feeling those improvements in real work."
+    }
+  ]
+}

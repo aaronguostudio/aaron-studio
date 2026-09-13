@@ -1,0 +1,2 @@
+# Astra in real work
+Current direction, chosen in Aaron’s v2 feedback: six crisp observations around a real deployment and more natural writing. Establish the business context before naming the Windows Worker. Add Azure resources, private networking, existing NAT association and SQL certificate work without identifying the project. Explain documented capabilities with clear examples; do not force every point through an Aaron anecdote. Review old skills as an explicit operator position. Remove the standalone seventh/eighth points and forced callbacks to old articles.

@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-09-08T00:19:53.947886+00:00",
+  "phase": "argument-revision",
+  "editorialDecision": "FAIL: current complete draft rejected by author; candidate sample pending",
+  "previousReport": "revisions/author-feedback-01/before/verification.json",
+  "checks": [
+    {
+      "name": "blog-production skill validation",
+      "passed": true
+    },
+    {
+      "name": "workflow validations",
+      "passed": true,
+      "details": "23 workflow tests and 4 research schema tests passed"
+    },
+    {
+      "name": "research evidence schema",
+      "passed": true
+    },
+    {
+      "name": "article package gate",
+      "passed": false,
+      "expected": true,
+      "details": "Only failure: editorial-scorecard does not record Decision: PASS. Author rejection is intentionally preserved."
+    },
+    {
+      "name": "original bilingual article hashes unchanged",
+      "passed": true,
+      "sha256": {
+        "english": "c43e3884c97e34a4776137122250bb94efc09292f8e32861bc43702ef3efa1dc",
+        "chinese": "167456dc61ebbbd4f7f5427d25d3fe493501cc87608d8e658c6652752e43fe7d"
+      }
+    },
+    {
+      "name": "preview generator syntax and latest review bundle pointer",
+      "passed": true
+    },
+    {
+      "name": "four-case review bundle with no candidate preferences fabricated",
+      "passed": true
+    }
+  ],
+  "browser": {
+    "preview": "http://127.0.0.1:4332/critique.html",
+    "visibleContent": "Opening, one developed section and ending; explicitly labelled partial sample and pending author evaluation",
+    "visualCheck": "Desktop screenshot inspected; readable layout",
+    "skilldev": {
+      "url": "http://127.0.0.1:5178/?view=editorial",
+      "tab": "19",
+      "caseCount": 4,
+      "importErrors": [],
+      "authorReason": "",
+      "candidateDecision": "pending"
+    }
+  },
+  "limitations": [
+    "No full article rewrite or English rewrite this revision.",
+    "No controlled comparison; skill effectiveness is unproven.",
+    "Original author-selected videos still unknown.",
+    "No mobile viewport audit, media generation or publishing."
+  ]
+}

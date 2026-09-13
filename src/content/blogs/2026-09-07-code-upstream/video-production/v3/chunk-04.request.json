@@ -1,0 +1,15 @@
+{
+  "voice": "R2DWp7zZuWmGxk3r8GIA",
+  "text": "The third investment is product judgment. Willison says he often tries three design approaches. He also advocates watching real people use the software. For our imagined document tool, compare two approaches: verify every item, or highlight only the exceptions. Build enough to answer the question. Then watch where a user hesitates and whether they can finish the original task. <break time=\"0.55s\" />\n\nBefore building, write down what you need to learn. Afterward, ask whether the attempt answered it. This is how product judgment develops: choosing what belongs, what can wait, and which complexity the business actually requires. AI can propose alternatives. Your contact with the work gives you a basis for choosing among them.",
+  "model_id": "eleven_multilingual_v2",
+  "seed": 607,
+  "voice_settings": {
+    "stability": 0.4,
+    "similarity_boost": 0.8,
+    "style": 0.56,
+    "use_speaker_boost": true,
+    "speed": 1
+  },
+  "previous_text": "Then get closer to customers. Imagine a tool that processes business documents. This is a hypothetical example. The demonstration extracts every field beautifully. But when you watch someone work, you discover where they pause: an unusual document, a missing confirmation, a result they don't trust. That pause can tell you more about the next feature than another hour polishing the demo.\n\nAsk the person to show you how they handle that case today. Who checks it? How do they correct a mistake? What must continue working in their existing system? You may discover that exception handling deserves attention first. Use some of the time AI saves to have that conversation, and come back after delivery to see what changed.",
+  "next_text": "The fourth investment is commercial judgment. A useful product still asks someone to change. Money is one cost. Migration, learning, integration, and trust matter too. Understand why the customer's existing approach has survived. Then test whether your improvement is worth that disruption. A working prototype gives you something concrete to discuss with a potential customer.\n\nWould they spend time trying it? Would they discuss an integration? Who controls the budget, and where do they look for alternatives? Include model usage, maintenance, and support in your estimate. Cheaper development gives some previously expensive ideas another chance. Contact with the market tells you which ones deserve to continue."
+}

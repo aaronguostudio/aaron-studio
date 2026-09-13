@@ -1,0 +1,4 @@
+Blog style score: 100/100
+Passed: yes
+Stats: 1568 words, 121 sentences, 0 slop markers
+- No blog style quality issues detected.

@@ -1,0 +1,232 @@
+{
+  "duration": 59.56666666666668,
+  "fps": 30,
+  "audioOffset": 0,
+  "scenes": [
+    {
+      "id": "s33",
+      "start": 0,
+      "end": 13.666666666666629,
+      "kind": "compare",
+      "title": "Keep ability connected to real needs.",
+      "sub": "The judgment from Amazon still shapes my choices.",
+      "nodes": [
+        "An organization\nCan provide a role",
+        "My responsibility\nKeep learning what is useful"
+      ],
+      "media": null,
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO \u00b7 PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3.0
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s34",
+      "start": 13.666666666666629,
+      "end": 27.399999999999977,
+      "kind": "flow",
+      "title": "Let each project build your judgment.",
+      "sub": "A customer, a product choice, a result in use.",
+      "nodes": [
+        "Understand",
+        "Choose",
+        "Deliver",
+        "Learn"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO \u00b7 PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3.0,
+        7.0,
+        11.0
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s35",
+      "start": 27.399999999999977,
+      "end": 36.66666666666663,
+      "kind": "statement",
+      "title": "What will you understand in ten years?",
+      "sub": "I want a deeper understanding of what people need.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO \u00b7 PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s36",
+      "start": 36.66666666666663,
+      "end": 43.33333333333333,
+      "kind": "row",
+      "title": "Begin with the next project.",
+      "sub": "Capability grows through contact and follow-through.",
+      "nodes": [
+        "A conversation",
+        "A product experiment",
+        "A complete project"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO \u00b7 PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3.0,
+        6.166999999999987
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s37",
+      "start": 43.33333333333333,
+      "end": 54.56666666666668,
+      "kind": "media",
+      "title": "Make things you care about.",
+      "sub": "Things someone else actually needs.",
+      "nodes": [],
+      "media": "used.png",
+      "facts": [],
+      "sources": [],
+      "rail": "CONCEPTUAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s38",
+      "start": 54.56666666666668,
+      "end": 59.56666666666668,
+      "kind": "end",
+      "title": "AARON GUO",
+      "sub": "AI-NATIVE BUILDER \u00b7 Human-first thinker",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.010520000000042273,
+      "end": 3.1915200000000254,
+      "text": "The judgment I reached at Amazon still matters to"
+    },
+    {
+      "start": 3.3075200000000677,
+      "end": 3.6675200000000245,
+      "text": "me."
+    },
+    {
+      "start": 4.248520000000042,
+      "end": 7.220520000000022,
+      "text": "A role can be provided by an organization."
+    },
+    {
+      "start": 8.125520000000051,
+      "end": 11.991520000000037,
+      "text": "My abilities need an ongoing connection to real needs."
+    },
+    {
+      "start": 13.653520000000015,
+      "end": 17.137520000000052,
+      "text": "Each project is a chance to strengthen that connection:"
+    },
+    {
+      "start": 17.798520000000053,
+      "end": 19.923520000000053,
+      "text": "understand a customer more deeply,"
+    },
+    {
+      "start": 20.527520000000038,
+      "end": 22.44252000000006,
+      "text": "make a better product choice,"
+    },
+    {
+      "start": 23.13952000000006,
+      "end": 25.798520000000053,
+      "text": "and learn what it takes for someone to adopt"
+    },
+    {
+      "start": 25.832520000000045,
+      "end": 27.38838800000002,
+      "text": "the result."
+    },
+    {
+      "start": 27.38838800000002,
+      "end": 29.98938800000002,
+      "text": "If AI can handle much more work in five"
+    },
+    {
+      "start": 30.058388000000036,
+      "end": 31.44038800000004,
+      "text": "or ten years,"
+    },
+    {
+      "start": 32.125388000000044,
+      "end": 34.795388,
+      "text": "I want to understand more about what people need"
+    },
+    {
+      "start": 34.87638800000002,
+      "end": 35.57338800000002,
+      "text": "by then."
+    },
+    {
+      "start": 36.67638800000003,
+      "end": 40.21738800000003,
+      "text": "That growth can begin with the next conversation and"
+    },
+    {
+      "start": 40.252387999999996,
+      "end": 41.52938800000004,
+      "text": "the next project."
+    },
+    {
+      "start": 43.320387999999994,
+      "end": 47.19838800000004,
+      "text": "Stronger tools make me optimistic about what engineers can"
+    },
+    {
+      "start": 47.25638800000003,
+      "end": 47.94138800000003,
+      "text": "attempt."
+    },
+    {
+      "start": 48.75438800000002,
+      "end": 51.261388000000025,
+      "text": "I want to use that opportunity to make things"
+    },
+    {
+      "start": 51.33138800000002,
+      "end": 54.55938800000003,
+      "text": "I care about that someone else actually needs."
+    }
+  ]
+}

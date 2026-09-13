@@ -1,0 +1,83 @@
+{
+  "mode": "live",
+  "source": "turso",
+  "limit": 5,
+  "hasTursoUrl": true,
+  "hasTursoAuthToken": true,
+  "reviewCount": 1,
+  "topContentCount": 5,
+  "lessonCount": 2,
+  "context": {
+    "winning_patterns": [
+      "deep_reader_signal"
+    ],
+    "weak_patterns": [
+      "linkedin_manual_import_missing"
+    ],
+    "lessons": [
+      {
+        "lesson_key": "one-person-project-ai-coding:concrete-bottleneck-opening",
+        "lesson_type": "keep",
+        "lesson_text": "Open AI-native systems essays with a concrete operating bottleneck before naming the abstract framework.",
+        "confidence": "medium",
+        "priority": "high",
+        "evidence": {
+          "slug": "one-person-project-ai-coding",
+          "source": "editorial_review",
+          "note": "The revised article improved when it started from a QA queue and then unfolded the one-person project model."
+        }
+      },
+      {
+        "lesson_key": "one-person-project-ai-coding:single-owner-shared-boundary",
+        "lesson_type": "experiment",
+        "lesson_text": "When arguing for AI-era workflow change, test the single-owner/shared-boundary frame again in a different domain.",
+        "confidence": "medium",
+        "priority": "medium",
+        "evidence": {
+          "slug": "one-person-project-ai-coding",
+          "source": "editorial_review",
+          "note": "The owner/agents/boundary/evidence frame gave the article a reusable operating model."
+        }
+      }
+    ],
+    "recommended_actions": [
+      "Reuse the strongest reader-facing angle in a future article brief.",
+      "Register channel posts and import missing LinkedIn or YouTube metrics before the next postmortem."
+    ],
+    "top_content": [
+      {
+        "slug": "anthropic-finance-plugins-insider-take",
+        "title": "Anthropic Just Handed Finance Teams a Complete AI Stack. I Ran It on Real Work — Here's What I Found.",
+        "qualified_engaged_audience_score": 5244.5
+      },
+      {
+        "slug": "chatgpt-explained-kitchen-metaphor",
+        "title": "No Magic: How ChatGPT Actually Works, Explained in One Kitchen",
+        "qualified_engaged_audience_score": 495.95
+      },
+      {
+        "slug": "chamath-process-over-goals",
+        "title": "I Chased Goals for 15 Years. Chamath Showed Me What I Got Wrong.",
+        "qualified_engaged_audience_score": 298.75
+      },
+      {
+        "slug": "ai-became-my-operating-system",
+        "title": "I Gave Codex a Task From a Moving Tesla",
+        "qualified_engaged_audience_score": 234.67000000000002
+      },
+      {
+        "slug": "one-person-project-ai-coding",
+        "title": "The One-Person Project",
+        "qualified_engaged_audience_score": 231.44
+      }
+    ],
+    "measurement_caveats": [
+      "linkedin_manual_import_missing"
+    ],
+    "next_experiment": "Open AI-native systems essays with a concrete operating bottleneck before naming the abstract framework."
+  },
+  "env": {
+    "TURSO_URL": "[set]",
+    "TURSO_AUTH_TOKEN": "[set]"
+  }
+}

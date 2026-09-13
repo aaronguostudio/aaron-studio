@@ -1,0 +1,222 @@
+== Workflow tiles ==
+PASS: tiles/aaron-personal-os/SKILL.md exists
+PASS: tiles/aaron-personal-os/tile.json exists
+PASS: tiles/wave-invoice/SKILL.md exists
+PASS: tiles/wave-invoice/tile.json exists
+PASS: tiles/blog-outline/SKILL.md exists
+PASS: tiles/blog-outline/tile.json exists
+PASS: tiles/blog-write/SKILL.md exists
+PASS: tiles/blog-write/tile.json exists
+PASS: tiles/blog-production/SKILL.md exists
+PASS: tiles/blog-production/tile.json exists
+PASS: tiles/blog-brainstorm/SKILL.md exists
+PASS: tiles/blog-brainstorm/tile.json exists
+PASS: tiles/blog-illustrate/SKILL.md exists
+PASS: tiles/blog-illustrate/tile.json exists
+PASS: tiles/muse/SKILL.md exists
+PASS: tiles/muse/tile.json exists
+PASS: tiles/publish-to-blog/SKILL.md exists
+PASS: tiles/publish-to-blog/tile.json exists
+PASS: tiles/research-evidence/SKILL.md exists
+PASS: tiles/research-evidence/tile.json exists
+PASS: tiles/aaron-video-gen/SKILL.md exists
+PASS: tiles/aaron-video-gen/tile.json exists
+PASS: tiles/brain-ingest/SKILL.md exists
+PASS: tiles/brain-ingest/tile.json exists
+PASS: tiles/brain-context/SKILL.md exists
+PASS: tiles/brain-context/tile.json exists
+PASS: tiles/daily-log/SKILL.md exists
+PASS: tiles/daily-log/tile.json exists
+PASS: tiles/notion-task-intake/SKILL.md exists
+PASS: tiles/notion-task-intake/tile.json exists
+PASS: tiles/weekly-review/SKILL.md exists
+PASS: tiles/weekly-review/tile.json exists
+PASS: tiles/aaron-yt-pipeline/skills/yt-trend-scout/SKILL.md exists
+PASS: tiles/aaron-yt-pipeline/skills/yt-script-writer/SKILL.md exists
+PASS: tiles/aaron-yt-pipeline/skills/yt-video-producer/SKILL.md exists
+PASS: tiles/aaron-yt-pipeline/skills/yt-publish/SKILL.md exists
+
+== Shared config ==
+PASS: config/aaron-studio.json exists
+PASS: config/aaron-studio.json has required keys
+
+== Agent skill surfaces ==
+PASS: .agents/skills/aaron-personal-os -> ../../tiles/aaron-personal-os exposes SKILL.md
+PASS: .agents/skills/wave-invoice -> ../../tiles/wave-invoice exposes SKILL.md
+PASS: .agents/skills/blog-production -> ../../tiles/blog-production exposes SKILL.md
+PASS: .agents/skills/blog-outline -> ../../tiles/blog-outline exposes SKILL.md
+PASS: .agents/skills/blog-write -> ../../tiles/blog-write exposes SKILL.md
+PASS: .agents/skills/blog-brainstorm -> ../../tiles/blog-brainstorm exposes SKILL.md
+PASS: .agents/skills/blog-illustrate -> ../../tiles/blog-illustrate exposes SKILL.md
+PASS: .agents/skills/muse -> ../../tiles/muse exposes SKILL.md
+PASS: .agents/skills/publish-to-blog -> ../../tiles/publish-to-blog exposes SKILL.md
+PASS: .agents/skills/research-evidence -> ../../tiles/research-evidence exposes SKILL.md
+PASS: .agents/skills/aaron-video-gen -> ../../tiles/aaron-video-gen exposes SKILL.md
+PASS: .agents/skills/brain-ingest -> ../../tiles/brain-ingest exposes SKILL.md
+PASS: .agents/skills/brain-context -> ../../tiles/brain-context exposes SKILL.md
+PASS: .agents/skills/daily-log -> ../../tiles/daily-log exposes SKILL.md
+PASS: .agents/skills/notion-task-intake -> ../../tiles/notion-task-intake exposes SKILL.md
+PASS: .agents/skills/weekly-review -> ../../tiles/weekly-review exposes SKILL.md
+PASS: .agents/skills/yt-script-writer -> ../../tiles/aaron-yt-pipeline/skills/yt-script-writer exposes SKILL.md
+PASS: .agents/skills/yt-publish -> ../../tiles/aaron-yt-pipeline/skills/yt-publish exposes SKILL.md
+PASS: .codex/skills/aaron-personal-os -> ../../tiles/aaron-personal-os exposes SKILL.md
+PASS: .codex/skills/wave-invoice -> ../../tiles/wave-invoice exposes SKILL.md
+PASS: .codex/skills/blog-production -> ../../tiles/blog-production exposes SKILL.md
+PASS: .codex/skills/blog-outline -> ../../tiles/blog-outline exposes SKILL.md
+PASS: .codex/skills/blog-write -> ../../tiles/blog-write exposes SKILL.md
+PASS: .codex/skills/blog-brainstorm -> ../../tiles/blog-brainstorm exposes SKILL.md
+PASS: .codex/skills/blog-illustrate -> ../../tiles/blog-illustrate exposes SKILL.md
+PASS: .codex/skills/muse -> ../../tiles/muse exposes SKILL.md
+PASS: .codex/skills/publish-to-blog -> ../../tiles/publish-to-blog exposes SKILL.md
+PASS: .codex/skills/research-evidence -> ../../tiles/research-evidence exposes SKILL.md
+PASS: .codex/skills/aaron-video-gen -> ../../tiles/aaron-video-gen exposes SKILL.md
+PASS: .codex/skills/brain-ingest -> ../../tiles/brain-ingest exposes SKILL.md
+PASS: .codex/skills/brain-context -> ../../tiles/brain-context exposes SKILL.md
+PASS: .codex/skills/daily-log -> ../../tiles/daily-log exposes SKILL.md
+PASS: .codex/skills/notion-task-intake -> ../../tiles/notion-task-intake exposes SKILL.md
+PASS: .codex/skills/weekly-review -> ../../tiles/weekly-review exposes SKILL.md
+PASS: .codex/skills/yt-script-writer -> ../../tiles/aaron-yt-pipeline/skills/yt-script-writer exposes SKILL.md
+PASS: .codex/skills/yt-publish -> ../../tiles/aaron-yt-pipeline/skills/yt-publish exposes SKILL.md
+PASS: .claude/skills/aaron-personal-os -> ../../tiles/aaron-personal-os exposes SKILL.md
+PASS: .claude/skills/wave-invoice -> ../../tiles/wave-invoice exposes SKILL.md
+PASS: .claude/skills/blog-production -> ../../tiles/blog-production exposes SKILL.md
+PASS: .claude/skills/blog-outline -> ../../tiles/blog-outline exposes SKILL.md
+PASS: .claude/skills/blog-write -> ../../tiles/blog-write exposes SKILL.md
+PASS: .claude/skills/blog-brainstorm -> ../../tiles/blog-brainstorm exposes SKILL.md
+PASS: .claude/skills/blog-illustrate -> ../../tiles/blog-illustrate exposes SKILL.md
+PASS: .claude/skills/muse -> ../../tiles/muse exposes SKILL.md
+PASS: .claude/skills/publish-to-blog -> ../../tiles/publish-to-blog exposes SKILL.md
+PASS: .claude/skills/research-evidence -> ../../tiles/research-evidence exposes SKILL.md
+PASS: .claude/skills/aaron-video-gen -> ../../tiles/aaron-video-gen exposes SKILL.md
+PASS: .claude/skills/brain-ingest -> ../../tiles/brain-ingest exposes SKILL.md
+PASS: .claude/skills/brain-context -> ../../tiles/brain-context exposes SKILL.md
+PASS: .claude/skills/daily-log -> ../../tiles/daily-log exposes SKILL.md
+PASS: .claude/skills/notion-task-intake -> ../../tiles/notion-task-intake exposes SKILL.md
+PASS: .claude/skills/weekly-review -> ../../tiles/weekly-review exposes SKILL.md
+PASS: .claude/skills/yt-script-writer -> ../../tiles/aaron-yt-pipeline/skills/yt-script-writer exposes SKILL.md
+PASS: .claude/skills/yt-publish -> ../../tiles/aaron-yt-pipeline/skills/yt-publish exposes SKILL.md
+PASS: .cursor/skills/aaron-personal-os -> ../../tiles/aaron-personal-os exposes SKILL.md
+PASS: .cursor/skills/wave-invoice -> ../../tiles/wave-invoice exposes SKILL.md
+PASS: .cursor/skills/blog-production -> ../../tiles/blog-production exposes SKILL.md
+PASS: .cursor/skills/blog-outline -> ../../tiles/blog-outline exposes SKILL.md
+PASS: .cursor/skills/blog-write -> ../../tiles/blog-write exposes SKILL.md
+PASS: .cursor/skills/blog-brainstorm -> ../../tiles/blog-brainstorm exposes SKILL.md
+PASS: .cursor/skills/blog-illustrate -> ../../tiles/blog-illustrate exposes SKILL.md
+PASS: .cursor/skills/muse -> ../../tiles/muse exposes SKILL.md
+PASS: .cursor/skills/publish-to-blog -> ../../tiles/publish-to-blog exposes SKILL.md
+PASS: .cursor/skills/research-evidence -> ../../tiles/research-evidence exposes SKILL.md
+PASS: .cursor/skills/aaron-video-gen -> ../../tiles/aaron-video-gen exposes SKILL.md
+PASS: .cursor/skills/brain-ingest -> ../../tiles/brain-ingest exposes SKILL.md
+PASS: .cursor/skills/brain-context -> ../../tiles/brain-context exposes SKILL.md
+PASS: .cursor/skills/daily-log -> ../../tiles/daily-log exposes SKILL.md
+PASS: .cursor/skills/notion-task-intake -> ../../tiles/notion-task-intake exposes SKILL.md
+PASS: .cursor/skills/weekly-review -> ../../tiles/weekly-review exposes SKILL.md
+PASS: .cursor/skills/yt-script-writer -> ../../tiles/aaron-yt-pipeline/skills/yt-script-writer exposes SKILL.md
+PASS: .cursor/skills/yt-publish -> ../../tiles/aaron-yt-pipeline/skills/yt-publish exposes SKILL.md
+PASS: .gemini/skills/aaron-personal-os -> ../../tiles/aaron-personal-os exposes SKILL.md
+PASS: .gemini/skills/wave-invoice -> ../../tiles/wave-invoice exposes SKILL.md
+PASS: .gemini/skills/blog-production -> ../../tiles/blog-production exposes SKILL.md
+PASS: .gemini/skills/blog-outline -> ../../tiles/blog-outline exposes SKILL.md
+PASS: .gemini/skills/blog-write -> ../../tiles/blog-write exposes SKILL.md
+PASS: .gemini/skills/blog-brainstorm -> ../../tiles/blog-brainstorm exposes SKILL.md
+PASS: .gemini/skills/blog-illustrate -> ../../tiles/blog-illustrate exposes SKILL.md
+PASS: .gemini/skills/muse -> ../../tiles/muse exposes SKILL.md
+PASS: .gemini/skills/publish-to-blog -> ../../tiles/publish-to-blog exposes SKILL.md
+PASS: .gemini/skills/research-evidence -> ../../tiles/research-evidence exposes SKILL.md
+PASS: .gemini/skills/aaron-video-gen -> ../../tiles/aaron-video-gen exposes SKILL.md
+PASS: .gemini/skills/brain-ingest -> ../../tiles/brain-ingest exposes SKILL.md
+PASS: .gemini/skills/brain-context -> ../../tiles/brain-context exposes SKILL.md
+PASS: .gemini/skills/daily-log -> ../../tiles/daily-log exposes SKILL.md
+PASS: .gemini/skills/notion-task-intake -> ../../tiles/notion-task-intake exposes SKILL.md
+PASS: .gemini/skills/weekly-review -> ../../tiles/weekly-review exposes SKILL.md
+PASS: .gemini/skills/yt-script-writer -> ../../tiles/aaron-yt-pipeline/skills/yt-script-writer exposes SKILL.md
+PASS: .gemini/skills/yt-publish -> ../../tiles/aaron-yt-pipeline/skills/yt-publish exposes SKILL.md
+
+== Git ignore hygiene ==
+PASS: .video-gen-cache files are ignored
+PASS: generated mp4 files are ignored
+PASS: tile output files are ignored
+PASS: generated narration audio is ignored
+
+== Documentation ==
+PASS: src/content/strategy/youtube-scriptwriting-playbook.md exists
+PASS: src/content/strategy/remotion-video-engineering.md exists
+PASS: tiles/aaron-video-gen/scripts/audit-script.ts exists
+PASS: tiles/aaron-video-gen/scripts/script-audit.ts exists
+PASS: tiles/aaron-video-gen/scripts/remotion-audit.ts exists
+PASS: agent docs mention Codex compatibility
+
+== Workflow contract tests ==
+bun test v1.4.2 (744846f84)
+
+tiles/blog-write/scripts/blog-write-workflow.test.ts:
+(pass) blog-write workflow quality gate > documents the blog writing language strategy [0.61ms]
+(pass) blog-write workflow quality gate > documents Chinese lexical precision review [0.11ms]
+(pass) blog-write workflow quality gate > does not force a personal anecdote to carry the opening [0.07ms]
+(pass) blog-write workflow quality gate > requires participation and write-back for self-improving workflow claims [0.05ms]
+(pass) blog-write workflow quality gate > documents methodology label precision review [0.04ms]
+(pass) blog-write workflow quality gate > requires blog-style-quality in the blog-write skill [0.04ms]
+(pass) blog-write workflow quality gate > requires blog-style-quality in the production orchestrator [0.06ms]
+(pass) blog-write workflow quality gate > requires feedback-loop context and pre-publish evaluation [0.07ms]
+(pass) blog-write workflow quality gate > retains compatible editorial artifacts in the production orchestrator [0.14ms]
+(pass) blog-write workflow quality gate > requires workflow 2.1 canon alignment and prose polish gates [0.15ms]
+(pass) blog-write workflow quality gate > requires workflow 3 evidence, scorecard, and package integrity gates [0.15ms]
+(pass) blog-write workflow quality gate > retains explicit production locks in the shared contract [0.08ms]
+
+tiles/blog-production/scripts/workflow2-artifacts.test.ts:
+(pass) workflow2 artifact generator > includes workflow 2.1 alignment and prose artifacts [0.14ms]
+(pass) workflow2 artifact generator > creates every workflow 2 artifact when missing [5.51ms]
+(pass) workflow2 artifact generator > does not overwrite existing editorial artifacts [1.46ms]
+
+tiles/blog-illustrate/scripts/blog-illustration-workflow.test.ts:
+(pass) blog illustration workflow 2.0 > documents Aaron visual modes and pacing rules [0.07ms]
+(pass) blog illustration workflow 2.0 > provides templates for every new visual artifact [0.75ms]
+(pass) blog illustration workflow 2.0 > requires the visual strategy workflow in blog-illustrate skill [0.21ms]
+(pass) blog illustration workflow 2.0 > requires an explicit style direction decision before prompts [0.05ms]
+(pass) blog illustration workflow 2.0 > supports style-library exploration and visibly different style probes [0.47ms]
+(pass) blog illustration workflow 2.0 > locks concept before style and records image provenance [0.15ms]
+(pass) blog illustration workflow 2.0 > keeps article detection and visual weight vocabulary deterministic [0.29ms]
+(pass) blog illustration workflow 2.0 > keeps images-stock integration optional in phase 1 [0.06ms]
+
+ 23 pass
+ 0 fail
+ 175 expect() calls
+Ran 23 tests across 3 files. [43.00ms]
+PASS: workflow contract tests pass
+TAP version 13
+# Subtest: accepts the Uncle Bob X and YouTube evidence fixture
+ok 1 - accepts the Uncle Bob X and YouTube evidence fixture
+  ---
+  duration_ms: 2.3085
+  type: 'test'
+  ...
+# Subtest: rejects secret-bearing keys
+ok 2 - rejects secret-bearing keys
+  ---
+  duration_ms: 0.378417
+  type: 'test'
+  ...
+# Subtest: requires integrity metadata for an available transcript
+ok 3 - requires integrity metadata for an available transcript
+  ---
+  duration_ms: 0.203458
+  type: 'test'
+  ...
+# Subtest: rejects claims that cite an unknown source
+ok 4 - rejects claims that cite an unknown source
+  ---
+  duration_ms: 0.153791
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 46.070208
+PASS: research evidence contract tests pass
+
+All workflow validations passed.

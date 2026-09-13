@@ -1,0 +1,12 @@
+{
+  "revision": 6,
+  "status": "pass",
+  "scope": "Author-provided ASTRA launch lettering and additional OpenAI identifier, replacing the rejected V5 star badge",
+  "changed_opening_frames": 90,
+  "retained_body_frames": 14471,
+  "retained_body_decoded_pixels_and_timestamps_identical": true,
+  "music_and_nomusic_audio_packets_and_timestamps_identical": true,
+  "duration_seconds": 485.366667,
+  "visual_review": "Generated covers and encoded opening inspected; legible lemon ASTRA with restrained pink/green fringe, independent white OpenAI symbol, no badge and no overlap.",
+  "video_sha256": "edb55d0b50d76969736da261ce9a02d69bc33bbe3f68f44c2a3238833a8af4ed"
+}

@@ -1,0 +1,185 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "dhh-building-2026-09-06",
+  "topic": "Aaron's agreement with DHH on AI and differences in team trust",
+  "created_at": "2026-09-06T16:24:53.515806+00:00",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "dhh-blog-2026-09-06"
+  },
+  "sources": [
+    {
+      "id": "video",
+      "type": "youtube_video",
+      "canonical_url": "https://www.youtube.com/watch?v=NYFGCESmikA",
+      "title": "DHH: Future of Programming, AI, Agentic Engineering, Vibe Coding & Linux | Lex Fridman Podcast #501",
+      "author_name": "Lex Fridman / DHH",
+      "displayed_published_at": "2026-08-26 (publisher episode page)",
+      "retrieved_at": "2026-09-06T16:24:53.515806+00:00",
+      "access_method": "public_web",
+      "linked_source_ids": [
+        "transcript",
+        "episode"
+      ],
+      "transcript": {
+        "status": "available",
+        "language": "en",
+        "caption_kind": "human",
+        "retrieval_method": "manual",
+        "word_count": 58175,
+        "line_count": 17370,
+        "byte_count": 435640,
+        "sha256": "3da9689ced617b388c12d7fa028f2b9e987295efbc9136d13d72e19188ba6c57",
+        "artifact_path": "/tmp/aaron-dhh-evidence/transcript.txt",
+        "limitation": "Publisher-hosted human transcript, downloaded over public HTTPS; manual here means editorial acquisition rather than caption API. Counts describe HTMLParser text export including page chrome. Relevant sections read; no claim to audiovisual or full-episode review. Publisher warns of possible transcription errors."
+      },
+      "limitations": [
+        "YouTube direct web fetch throttled. Exact video ID verified against publisher transcript links. Transcript chapter times and audio episode chapter times differ by about six minutes; cite transcript anchors rather than claiming audio alignment."
+      ]
+    },
+    {
+      "id": "transcript",
+      "type": "web",
+      "canonical_url": "https://lexfridman.com/dhh-2-transcript/",
+      "author_name": "Lex Fridman",
+      "retrieved_at": "2026-09-06T16:24:53.515806+00:00",
+      "access_method": "public_web",
+      "transcript": {
+        "status": "available",
+        "language": "en",
+        "caption_kind": "human",
+        "retrieval_method": "manual",
+        "word_count": 58175,
+        "line_count": 17370,
+        "byte_count": 435640,
+        "sha256": "3da9689ced617b388c12d7fa028f2b9e987295efbc9136d13d72e19188ba6c57",
+        "artifact_path": "/tmp/aaron-dhh-evidence/transcript.txt",
+        "limitation": "Publisher-hosted human transcript, downloaded over public HTTPS; manual here means editorial acquisition rather than caption API. Counts describe HTMLParser text export including page chrome. Relevant sections read; no claim to audiovisual or full-episode review. Publisher warns of possible transcription errors."
+      }
+    },
+    {
+      "id": "episode",
+      "type": "web",
+      "canonical_url": "https://lexfridman.com/dhh-2/",
+      "displayed_published_at": "August 26, 2026",
+      "retrieved_at": "2026-09-06T16:24:53.515806+00:00",
+      "access_method": "public_web"
+    },
+    {
+      "id": "omarchy",
+      "type": "web",
+      "canonical_url": "https://omarchy.org/",
+      "retrieved_at": "2026-09-06T16:24:53.515806+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Project self-description; not a performance or personal-use test."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "kind": "source_fact",
+      "text": "DHH ties his change in AI practice to agents doing useful work, rather than autocomplete alone.",
+      "source_ids": [
+        "transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "00:05:54–00:09:39; self-report, not a model benchmark."
+    },
+    {
+      "id": "c2",
+      "kind": "source_fact",
+      "text": "DHH emphasizes deciding what software does, for whom, and what version one includes.",
+      "source_ids": [
+        "transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "00:53:16; his view, not universal proof that engineering skill is obsolete."
+    },
+    {
+      "id": "c3",
+      "kind": "source_fact",
+      "text": "DHH distinguishes enthusiasm for building from attachment to mechanical programming and acknowledges uncertainty about work.",
+      "source_ids": [
+        "transcript"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "01:10:51–01:14:04; do not turn his optimism into an employment guarantee."
+    },
+    {
+      "id": "c4",
+      "kind": "operator_observation",
+      "text": "Aaron explicitly described product impact and making business enjoyable as his main source of pleasure.",
+      "source_ids": [],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "2026-09-05 original user message re-read in local session; paraphrase in draft, not invented quotation. See personal-proof.md for local evidence."
+    },
+    {
+      "id": "c5",
+      "kind": "operator_observation",
+      "text": "Aaron’s writing workflow separates planning, drafting, review, and polish; one prior article passed its style scanner in this run.",
+      "source_ids": [],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "2026-09-06 read-only check, detailed in personal-proof.md; scanner is not proof of reader value. See personal-proof.md for local evidence."
+    },
+    {
+      "id": "c6",
+      "kind": "inference",
+      "text": "Lower implementation friction can make a personally meaningful small product worth trying.",
+      "source_ids": [
+        "transcript"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Aaron interpretation; no measured economic or market result."
+    },
+    {
+      "id": "c7",
+      "kind": "operator_observation",
+      "text": "Aaron wanted to try Omarchy after the interview.",
+      "source_ids": [],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Direct 2026-09-05 user request; no sustained Linux-use claim. See personal-proof.md for local evidence."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "exact-video URL lookup",
+      "publisher episode and human transcript",
+      "public HTTPS transcript export",
+      "scoped local source and artifact verification"
+    ],
+    "unresolved_gaps": [
+      "Audiovisual content not reviewed; source is publisher human transcript.",
+      "No quantified before/after productivity study.",
+      "Aaron has not yet reviewed the new first-person phrasing."
+    ],
+    "notes": [
+      "Coverage sufficient for bounded reflective article; exclude politics, health, employment forecasts and model rankings. Raw transcript stays outside publishable repository."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "Private user records read locally only. No client names, finance data, account data, or session transcript copied into article."
+    ]
+  },
+  "author_revision": {
+    "date": "2026-09-06T17:11:08.233238+00:00",
+    "observations": [
+      "The user directly reports different levels of AI trust and active use within his own company team."
+    ],
+    "scope": "No colleague identities, causes, quotes, measured performance or completed shared experiment supplied. Omarchy is incidental."
+  }
+}

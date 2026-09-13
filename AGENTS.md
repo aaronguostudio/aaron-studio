@@ -2,6 +2,8 @@
 
 # Agent Rules <!-- tessl-managed -->
 
+For Granola-to-Brain processing or task-scoped Brain retrieval, use `tiles/brain-context/SKILL.md`. Treat meeting proposals and unreviewed change cards as evidence/questions, not execution scope. Read only the relevant project context and sources.
+
 @.tessl/RULES.md follow the [instructions](.tessl/RULES.md)
 
 If `.tessl/RULES.md` is not installed, fall back to this repo's shared workflow model:

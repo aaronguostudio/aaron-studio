@@ -1,0 +1,751 @@
+{
+  "schema_version": 1,
+  "title": "AI and the next move for engineers",
+  "duration_sec": 469.6666666666667,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "ledger-editorial-v1",
+  "asset_library": {
+    "queries": [
+      "calm piano",
+      "Paper Moon"
+    ],
+    "selected_asset_ids": [
+      "music:b161e820cd4f5741"
+    ]
+  },
+  "beats": [
+    {
+      "id": "s00",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "copy": "BUILD WHAT MATTERS / AI and the next move for engineers",
+      "visual_role": "emphasis",
+      "asset_type": "generated-still",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": "imgs/thumbnail-youtube.jpg",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CONCEPTUAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s01",
+      "start_sec": 3.0,
+      "end_sec": 18.0,
+      "copy": "A judgment from my years at Amazon. / Organizational capacity\nJobs it can afford / Business need\nValue it must create / A company’s ability to fund roles is different from the need it serves.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s02",
+      "start_sec": 18.0,
+      "end_sec": 30.366666666666667,
+      "copy": "Where does the work\nbecome useful? / A career question, made more pressing by stronger execution tools.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/00-cover-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s03",
+      "start_sec": 30.366666666666667,
+      "end_sec": 43.7,
+      "copy": "An organization can create its own work. / More layers / More coordination / More internal work / Customer needs may grow much more slowly.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s04",
+      "start_sec": 43.7,
+      "end_sec": 58.166666666666664,
+      "copy": "Hard work can be absorbed internally. / That shaped how I read the later restructuring.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s05",
+      "start_sec": 58.166666666666664,
+      "end_sec": 65.76666666666667,
+      "copy": "2024 / Reduce layers. / Fewer layers / Fewer unnecessary processes / Amazon’s stated organizational priorities.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "amazon-statements"
+      ],
+      "source_ids": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AMAZON · PUBLIC STATEMENTS · 2024 / 2025 / JAN 2026",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s06",
+      "start_sec": 65.76666666666667,
+      "end_sec": 75.16666666666667,
+      "copy": "2025 / An AI workforce forecast. / Andy Jassy expected a smaller total corporate workforce over time.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "amazon-statements"
+      ],
+      "source_ids": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AMAZON · PUBLIC STATEMENTS · 2024 / 2025 / JAN 2026",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s07",
+      "start_sec": 75.16666666666667,
+      "end_sec": 91.43333333333334,
+      "copy": "2026 / Restructuring continued. / Public statement\nFewer layers, less bureaucracy / Interpretation boundary\nNo verdict on a person / An announcement cannot establish an individual’s contribution.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "amazon-statements"
+      ],
+      "source_ids": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AMAZON · PUBLIC STATEMENTS · 2024 / 2025 / JAN 2026",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s08",
+      "start_sec": 91.43333333333334,
+      "end_sec": 98.13333333333334,
+      "copy": "Cheaper execution changes the calculation. / My interpretation: it accelerates organizational reassessment.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s09",
+      "start_sec": 98.13333333333334,
+      "end_sec": 115.83333333333333,
+      "copy": "Invest in the work\naround the code. / Customers. Product choices. Work that reaches use.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/00-cover-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s10",
+      "start_sec": 115.83333333333333,
+      "end_sec": 127.36666666666666,
+      "copy": "Two ways implementation is changing. / Boris Cherny\nAI writes; he reviews / Simon Willison\nTry alternative prototypes / Their own practices, with human judgment still involved.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "practitioner-examples"
+      ],
+      "source_ids": [
+        "boris-video",
+        "simon-video"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "BORIS CHERNY / SIMON WILLISON · PERSONAL PRACTICES",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s11",
+      "start_sec": 127.36666666666666,
+      "end_sec": 145.33333333333334,
+      "copy": "What deserves the effort? / Cheaper trials give us room to ask a better question.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "practitioner-examples"
+      ],
+      "source_ids": [
+        "boris-video",
+        "simon-video"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "BORIS CHERNY / SIMON WILLISON · PERSONAL PRACTICES",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s12",
+      "start_sec": 145.33333333333334,
+      "end_sec": 157.3,
+      "copy": "1 / Learn an industry deeply. / Who uses it? / Who pays? / Who bears the risk? / The business gives the feature its meaning.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s13",
+      "start_sec": 157.3,
+      "end_sec": 169.43333333333334,
+      "copy": "Payroll is more than a calculation. / Visible feature\nCalculate an amount / Business context\nObligations behind it / Kent Beck’s example: visible functionality and broader responsibility.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "payroll-example"
+      ],
+      "source_ids": [
+        "kent-video"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "KENT BECK × GERGELY OROSZ · INTERVIEW PARAPHRASE",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s14",
+      "start_sec": 169.43333333333334,
+      "end_sec": 180.6,
+      "copy": "Notice needs before they become tickets. / Build that understanding across real projects.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s15",
+      "start_sec": 180.6,
+      "end_sec": 194.23333333333332,
+      "copy": "2 / Spend time with customers. / A beautiful demo / Accurate-looking fields / Our document tool is a hypothetical example.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "hypothetical-tool"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s16",
+      "start_sec": 194.23333333333332,
+      "end_sec": 214.2,
+      "copy": "Watch the pause. / An exception. A missing confirmation. A result they do not trust.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "hypothetical-tool"
+      ],
+      "source_ids": [],
+      "asset_path": "imgs/01-watch-the-work-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s17",
+      "start_sec": 214.2,
+      "end_sec": 226.0,
+      "copy": "Follow the exception. / Who checks? / How is it corrected? / What must keep working? / Let the user show the current workflow.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "hypothetical-tool"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s18",
+      "start_sec": 226.0,
+      "end_sec": 238.6,
+      "copy": "Observation changes the next feature. / Use some of the saved time to go back and learn.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "hypothetical-tool"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s19",
+      "start_sec": 238.6,
+      "end_sec": 250.93333333333334,
+      "copy": "3 / Practice product decisions. / Use cheaper implementation to compare possibilities.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "prototype-practice"
+      ],
+      "source_ids": [
+        "simon-video"
+      ],
+      "asset_path": "imgs/02-choose-the-path-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "WILLISON: ALTERNATIVES + USABILITY ADVICE · ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s20",
+      "start_sec": 250.93333333333334,
+      "end_sec": 267.76666666666665,
+      "copy": "Two approaches. One user task. / Approach A\nVerify every item / Approach B\nHighlight exceptions / Watch hesitation and task completion before choosing.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "hypothetical-tool"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s21",
+      "start_sec": 267.76666666666665,
+      "end_sec": 276.26666666666665,
+      "copy": "What should this experiment answer? / Write the question before building.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s22",
+      "start_sec": 276.26666666666665,
+      "end_sec": 294.46666666666664,
+      "copy": "A basis for choosing. / What belongs? / What can wait? / What does the business require? / Product judgment grows through repeated decisions.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s23",
+      "start_sec": 294.46666666666664,
+      "end_sec": 302.1,
+      "copy": "4 / Test commercial value. / A useful product still asks someone to change.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s24",
+      "start_sec": 302.1,
+      "end_sec": 308.8666666666667,
+      "copy": "Adoption has a cost. / Money / Learning / Integration / Trust / Include the change the customer must make.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s25",
+      "start_sec": 308.8666666666667,
+      "end_sec": 325.23333333333335,
+      "copy": "Why would\nsomeone switch? / A working prototype gives the conversation substance.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": "imgs/01-watch-the-work-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CONCEPTUAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s26",
+      "start_sec": 325.23333333333335,
+      "end_sec": 335.03333333333336,
+      "copy": "Take the idea into the market. / Try it? / Integrate it? / Budget for it? / Concrete commitments teach more than vague enthusiasm.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s27",
+      "start_sec": 335.03333333333336,
+      "end_sec": 352.3333333333333,
+      "copy": "Revisit what was once too expensive. / Cost estimate\nModels, upkeep, support / Customer evidence\nTime, adoption, alternatives / Let contact with the market shape what continues.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s28",
+      "start_sec": 352.3333333333333,
+      "end_sec": 365.06666666666666,
+      "copy": "5 / Follow the project into use. / Microsoft Digital: faster individuals did not initially mean a faster team.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "microsoft-practice"
+      ],
+      "source_ids": [
+        "microsoft"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "MICROSOFT DIGITAL · SEPT 3, 2026 · ORGANIZATIONAL SELF-REPORT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s29",
+      "start_sec": 365.06666666666666,
+      "end_sec": 381.8,
+      "copy": "Connect the work. / Intent / Shared specification / Acceptance / Business intent and acceptance criteria belong in shared understanding.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "microsoft-practice"
+      ],
+      "source_ids": [
+        "microsoft"
+      ],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "MICROSOFT DIGITAL · PARAPHRASE, NOT INDEPENDENT BENCHMARK",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s30",
+      "start_sec": 381.8,
+      "end_sec": 392.8,
+      "copy": "Make completion meaningful. / Agree on goal / Check failures / Help them start / Return for feedback / Follow the work through the user’s first real attempt.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s31",
+      "start_sec": 392.8,
+      "end_sec": 405.8666666666667,
+      "copy": "I am more willing to carry a whole task. / One cross-system reporting task; verified in development.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "report-experience"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON’S EXPERIENCE · DEVELOPMENT VERIFICATION",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s32",
+      "start_sec": 405.8666666666667,
+      "end_sec": 411.8,
+      "copy": "Make the result trustworthy. / Engineering experience has a place in the whole delivery.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s33",
+      "start_sec": 411.8,
+      "end_sec": 424.46666666666664,
+      "copy": "Keep ability connected to real needs. / An organization\nCan provide a role / My responsibility\nKeep learning what is useful / The judgment from Amazon still shapes my choices.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "author-judgment"
+      ],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s34",
+      "start_sec": 424.46666666666664,
+      "end_sec": 438.2,
+      "copy": "Let each project build your judgment. / Understand / Choose / Deliver / Learn / A customer, a product choice, a result in use.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s35",
+      "start_sec": 438.2,
+      "end_sec": 447.46666666666664,
+      "copy": "What will you understand in ten years? / I want a deeper understanding of what people need.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s36",
+      "start_sec": 447.46666666666664,
+      "end_sec": 453.43333333333334,
+      "copy": "Begin with the next project. / A conversation / A product experiment / A complete project / Capability grows through contact and follow-through.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "AARON GUO · PERSONAL JUDGMENT",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s37",
+      "start_sec": 453.43333333333334,
+      "end_sec": 464.6666666666667,
+      "copy": "Make things you care about. / Things someone else actually needs.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": "imgs/03-used-in-the-world-v1.png",
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "CONCEPTUAL ILLUSTRATION",
+      "rights": "generated",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    },
+    {
+      "id": "s38",
+      "start_sec": 464.6666666666667,
+      "end_sec": 469.6666666666667,
+      "copy": "AARON GUO / AI-NATIVE BUILDER · Human-first thinker",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": null,
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Owned typography",
+      "rights": "owned",
+      "editorial_approval": null,
+      "fallback": "Native type preserves the claim and source boundary."
+    }
+  ]
+}

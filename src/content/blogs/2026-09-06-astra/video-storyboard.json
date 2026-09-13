@@ -1,0 +1,1747 @@
+{
+  "schema_version": 1,
+  "title": "GPT-6 Astra in Real Work",
+  "duration_sec": 485.3666666666667,
+  "fps": 30,
+  "direction": {
+    "name": "A real job travels across tools",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "Warm ivory, graphite hierarchy, registered layout geometry, source rails and protected captions; DHH v7 supplies the quiet chaptered music reference.",
+    "motion_density": "balanced",
+    "music_strategy": "chaptered",
+    "references": [
+      {
+        "id": "ledger",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Warm ivory, graphite hierarchy, registered layout geometry, source rails and protected captions; DHH v7 supplies the quiet chaptered music reference.",
+        "avoid": "Full-frame slide decks, empty title stages, repeating cards, decorative camera motion."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s00",
+      "title": "ASTRA AT WORK",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: ASTRA AT WORK",
+      "entry_mode": "meaningful",
+      "entry_visual": "ASTRA AT WORK",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "ASTRA AT WORK",
+        "GPT-6 in real work · Aaron Guo"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "ASTRA AT WORK",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.25,
+          "visual": "GPT-6 in real work · Aaron Guo",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s01",
+      "title": "The demos are striking.",
+      "start_sec": 3.0,
+      "end_sec": 8.166666666666666,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: The demos are striking.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The demos are striking.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "The demos are striking.",
+        "Official demonstrations"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The demos are striking.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Official demonstrations",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s02",
+      "title": "My job crossed systems.",
+      "start_sec": 8.166666666666666,
+      "end_sec": 23.966666666666665,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: My job crossed systems.",
+      "entry_mode": "meaningful",
+      "entry_visual": "My job crossed systems.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "My job crossed systems.",
+        "Azure",
+        "Linux",
+        "Windows",
+        "Database",
+        "Networking. Certificates. Real problems."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "My job crossed systems.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "Networking. Certificates. Real problems.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Linux",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Windows",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "More of the job.",
+      "start_sec": 23.966666666666665,
+      "end_sec": 29.8,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: More of the job.",
+      "entry_mode": "meaningful",
+      "entry_visual": "More of the job.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "More of the job.",
+        "That is what I’m willing to delegate."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "More of the job.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "That is what I’m willing to delegate.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s04",
+      "title": "The writing\nfeels more natural.",
+      "start_sec": 29.8,
+      "end_sec": 42.63333333333333,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: The writing\nfeels more natural.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The writing\nfeels more natural.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "The writing\nfeels more natural.",
+        "An everyday workflow, alongside the deployment."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The writing\nfeels more natural.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "An everyday workflow, alongside the deployment.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "An everyday workflow, alongside the deployment.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s05",
+      "title": "Astra with an actual job.",
+      "start_sec": 42.63333333333333,
+      "end_sec": 57.36666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: Astra with an actual job.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Astra with an actual job.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Astra with an actual job.",
+        "Inside the tools and systems we already use."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Astra with an actual job.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Inside the tools and systems we already use.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Inside the tools and systems we already use.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Inside the tools and systems we already use.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06",
+      "title": "One job. Two environments.",
+      "start_sec": 57.36666666666667,
+      "end_sec": 66.5,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: One job. Two environments.",
+      "entry_mode": "meaningful",
+      "entry_visual": "One job. Two environments.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "One job. Two environments.",
+        "Linux\nBusiness application",
+        "Windows\nReporting engine",
+        "The business requirement comes first."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "One job. Two environments.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "The business requirement comes first.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Windows\nReporting engine",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s07",
+      "title": "From request to returned PDF.",
+      "start_sec": 66.5,
+      "end_sec": 77.46666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: From request to returned PDF.",
+      "entry_mode": "meaningful",
+      "entry_visual": "From request to returned PDF.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "From request to returned PDF.",
+        "Linux app",
+        "Windows service",
+        "Database",
+        "PDF result",
+        "Keep the existing workflow intact."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "From request to returned PDF.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "Keep the existing workflow intact.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Windows service",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s08",
+      "title": "Fit the existing system.",
+      "start_sec": 77.46666666666667,
+      "end_sec": 86.7,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: Fit the existing system.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Fit the existing system.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Fit the existing system.",
+        "Connections and workflows still have to work."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Fit the existing system.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Connections and workflows still have to work.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Connections and workflows still have to work.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s09",
+      "title": "The work around the code.",
+      "start_sec": 86.7,
+      "end_sec": 99.9,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: The work around the code.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The work around the code.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "The work around the code.",
+        "Azure",
+        "Private network",
+        "Windows service",
+        "SQL certificate",
+        "Azure resources · private networking · existing NAT · SQL trust"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The work around the code.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "Azure resources · private networking · existing NAT · SQL trust",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Private network",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10",
+      "title": "Autonomy has a scope.",
+      "start_sec": 99.9,
+      "end_sec": 110.33333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Autonomy has a scope.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Autonomy has a scope.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Autonomy has a scope.",
+        "Aaron\nScope and service decisions",
+        "Astra\nConfiguration and checks",
+        "Implementation proceeds inside the agreed boundary."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Autonomy has a scope.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Implementation proceeds inside the agreed boundary.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Astra\nConfiguration and checks",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s11",
+      "title": "The pieces\nstay connected.",
+      "start_sec": 110.33333333333333,
+      "end_sec": 120.4,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: The pieces\nstay connected.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The pieces\nstay connected.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "The pieces\nstay connected.",
+        "One task across the working environment."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The pieces\nstay connected.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "One task across the working environment.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "One task across the working environment.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s12",
+      "title": "It still met real problems.",
+      "start_sec": 120.4,
+      "end_sec": 128.23333333333332,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: It still met real problems.",
+      "entry_mode": "meaningful",
+      "entry_visual": "It still met real problems.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "It still met real problems.",
+        "Network rule rejected",
+        "Certificate checks",
+        "The work continued through diagnosis."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "It still met real problems.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "The work continued through diagnosis.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13",
+      "title": "Follow the failure through.",
+      "start_sec": 128.23333333333332,
+      "end_sec": 140.8,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Follow the failure through.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow the failure through.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Follow the failure through.",
+        "PDF generated",
+        "Attachment failed",
+        "Read back + retry",
+        "Dev verified",
+        "Read-back and retry checks completed in Dev."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow the failure through.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "Read-back and retry checks completed in Dev.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Attachment failed",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s14",
+      "title": "Carry the pieces together.",
+      "start_sec": 140.8,
+      "end_sec": 153.43333333333334,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: Carry the pieces together.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Carry the pieces together.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Carry the pieces together.",
+        "Infrastructure, code, troubleshooting and verification."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Carry the pieces together.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Infrastructure, code, troubleshooting and verification.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Infrastructure, code, troubleshooting and verification.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s15",
+      "title": "2 / Connect the tools.",
+      "start_sec": 153.43333333333334,
+      "end_sec": 165.26666666666668,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: 2 / Connect the tools.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2 / Connect the tools.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "2 / Connect the tools.",
+        "Blender model · official showcase"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2 / Connect the tools.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Blender model · official showcase",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Blender model · official showcase",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s16",
+      "title": "A result becomes an input.",
+      "start_sec": 165.26666666666668,
+      "end_sec": 181.83333333333334,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: A result becomes an input.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A result becomes an input.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "A result becomes an input.",
+        "Google Maps routes · official showcase"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A result becomes an input.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Google Maps routes · official showcase",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Google Maps routes · official showcase",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Google Maps routes · official showcase",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s17",
+      "title": "Ordinary browser work.",
+      "start_sec": 181.83333333333334,
+      "end_sec": 196.5,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Ordinary browser work.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Ordinary browser work.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Ordinary browser work.",
+        "Newsletters",
+        "Inboxes",
+        "Advertising",
+        "Matt Shumer’s firsthand account; tools and access still matter."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Ordinary browser work.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Matt Shumer’s firsthand account; tools and access still matter.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Inboxes",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Advertising",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s18",
+      "title": "Keep the handoffs moving.",
+      "start_sec": 196.5,
+      "end_sec": 217.33333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Keep the handoffs moving.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Keep the handoffs moving.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Keep the handoffs moving.",
+        "Research",
+        "Create",
+        "Inspect",
+        "Continue",
+        "One less point where the job returns to me."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Keep the handoffs moving.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "One less point where the job returns to me.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Create",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Inspect",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Continue",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s19",
+      "title": "3 / Keep the history.",
+      "start_sec": 217.33333333333334,
+      "end_sec": 237.03333333333333,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: 3 / Keep the history.",
+      "entry_mode": "meaningful",
+      "entry_visual": "3 / Keep the history.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "3 / Keep the history.",
+        "Notes and searchable history. Experimental; off by default."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "3 / Keep the history.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Notes and searchable history. Experimental; off by default.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Notes and searchable history. Experimental; off by default.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Notes and searchable history. Experimental; off by default.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s20",
+      "title": "A refactor, hours later.",
+      "start_sec": 237.03333333333333,
+      "end_sec": 248.2,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: A refactor, hours later.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A refactor, hours later.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A refactor, hours later.",
+        "Earlier discovery\nDependency cannot upgrade",
+        "Later decision\nKeep the constraint",
+        "A hypothetical example of why earlier context matters."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A refactor, hours later.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A hypothetical example of why earlier context matters.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Later decision\nKeep the constraint",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s21",
+      "title": "Keep the reason, too.",
+      "start_sec": 248.2,
+      "end_sec": 265.1,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Keep the reason, too.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Keep the reason, too.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Keep the reason, too.",
+        "Migration failed",
+        "Tests showed why",
+        "Avoid the same dead end",
+        "A hypothetical refactor example."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Keep the reason, too.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "A hypothetical refactor example.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Tests showed why",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Avoid the same dead end",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s22",
+      "title": "Earlier effort\nstays useful.",
+      "start_sec": 265.1,
+      "end_sec": 277.6,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: Earlier effort\nstays useful.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Earlier effort\nstays useful.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Earlier effort\nstays useful.",
+        "Long jobs accumulate discoveries."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Earlier effort\nstays useful.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Long jobs accumulate discoveries.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Long jobs accumulate discoveries.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s23",
+      "title": "4 / Initiative and direction.",
+      "start_sec": 277.6,
+      "end_sec": 287.7,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: 4 / Initiative and direction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "4 / Initiative and direction.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "4 / Initiative and direction.",
+        "Keep going. Understand a change in scope."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "4 / Initiative and direction.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Keep going. Understand a change in scope.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Keep going. Understand a change in scope.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s24",
+      "title": "“Keep this in the test environment.”",
+      "start_sec": 287.7,
+      "end_sec": 300.1666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: “Keep this in the test environment.”",
+      "entry_mode": "meaningful",
+      "entry_visual": "“Keep this in the test environment.”",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "“Keep this in the test environment.”",
+        "Before\nContinue implementation",
+        "After\nStay inside Dev",
+        "An illustrative instruction: new direction changes the next steps."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "“Keep this in the test environment.”",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "An illustrative instruction: new direction changes the next steps.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "After\nStay inside Dev",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s25",
+      "title": "Review the old skills.",
+      "start_sec": 300.1666666666667,
+      "end_sec": 310.46666666666664,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Review the old skills.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Review the old skills.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Review the old skills.",
+        "Skills",
+        "AGENTS.md",
+        "Conflicting rules",
+        "Ambiguous or conflicting instructions can stop useful work."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Review the old skills.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Ambiguous or conflicting instructions can stop useful work.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "AGENTS.md",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s26",
+      "title": "Give it a clearer working agreement.",
+      "start_sec": 310.46666666666664,
+      "end_sec": 319.43333333333334,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Give it a clearer working agreement.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Give it a clearer working agreement.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Give it a clearer working agreement.",
+        "Old habit\nAsk me after every step",
+        "Better agreement\nGoal, checks, decision points",
+        "Illustrative wording, not a quotation from the documentation."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Give it a clearer working agreement.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Illustrative wording, not a quotation from the documentation.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Better agreement\nGoal, checks, decision points",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s27",
+      "title": "Scope still matters.",
+      "start_sec": 319.43333333333334,
+      "end_sec": 335.1,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: Scope still matters.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Scope still matters.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Scope still matters.",
+        "Better instructions do not excuse a misunderstood job."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Scope still matters.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Better instructions do not excuse a misunderstood job.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Better instructions do not excuse a misunderstood job.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Better instructions do not excuse a misunderstood job.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s28",
+      "title": "5 / More natural prose.",
+      "start_sec": 335.1,
+      "end_sec": 344.9,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: 5 / More natural prose.",
+      "entry_mode": "meaningful",
+      "entry_visual": "5 / More natural prose.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "5 / More natural prose.",
+        "Connected ideas. A more pleasant read."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "5 / More natural prose.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Connected ideas. A more pleasant read.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Connected ideas. A more pleasant read.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s29",
+      "title": "From scattered thoughts to an article.",
+      "start_sec": 344.9,
+      "end_sec": 361.73333333333335,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: From scattered thoughts to an article.",
+      "entry_mode": "meaningful",
+      "entry_visual": "From scattered thoughts to an article.",
+      "first_change_sec": 3.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "From scattered thoughts to an article.",
+        "Project experience",
+        "Half-formed judgment",
+        "A coherent article",
+        "The writing should carry the thought."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "From scattered thoughts to an article.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 3.0,
+          "visual": "The writing should carry the thought.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Half-formed judgment",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "A coherent article",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s30",
+      "title": "Let one thought lead to the next.",
+      "start_sec": 361.73333333333335,
+      "end_sec": 374.56666666666666,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Let one thought lead to the next.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Let one thought lead to the next.",
+      "first_change_sec": 2.4,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Let one thought lead to the next.",
+        "Experience",
+        "Observation",
+        "Next question",
+        "The next paragraph picks up the question."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Let one thought lead to the next.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 2.4,
+          "visual": "The next paragraph picks up the question.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Observation",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s31",
+      "title": "Make the expression\nfit the piece.",
+      "start_sec": 374.56666666666666,
+      "end_sec": 390.96666666666664,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: Make the expression\nfit the piece.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make the expression\nfit the piece.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Make the expression\nfit the piece.",
+        "Reader, context and tone still contribute."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make the expression\nfit the piece.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Reader, context and tone still contribute.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Reader, context and tone still contribute.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Reader, context and tone still contribute.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s32",
+      "title": "6 / Count the whole cost.",
+      "start_sec": 390.96666666666664,
+      "end_sec": 402.1666666666667,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: 6 / Count the whole cost.",
+      "entry_mode": "meaningful",
+      "entry_visual": "6 / Count the whole cost.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "6 / Count the whole cost.",
+        "About 3 hours",
+        "45% of weekly allowance",
+        "One flight-game project. Not a forecast for every user."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "6 / Count the whole cost.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "One flight-game project. Not a forecast for every user.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "45% of weekly allowance",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s33",
+      "title": "The allowance can run out.",
+      "start_sec": 402.1666666666667,
+      "end_sec": 410.23333333333335,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: The allowance can run out.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The allowance can run out.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "The allowance can run out.",
+        "Useful output still has a cost."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The allowance can run out.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Useful output still has a cost.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Useful output still has a cost.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s34",
+      "title": "Choose by the job.",
+      "start_sec": 410.23333333333335,
+      "end_sec": 422.1333333333333,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: Choose by the job.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Choose by the job.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Choose by the job.",
+        "Small edit\nA lighter model may be enough",
+        "Complex work\nConsider the stronger model",
+        "Model cost + my time + what gets finished."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Choose by the job.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Model cost + my time + what gets finished.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Complex work\nConsider the stronger model",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s35",
+      "title": "More trust\nin a longer job.",
+      "start_sec": 422.1333333333333,
+      "end_sec": 435.46666666666664,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: More trust\nin a longer job.",
+      "entry_mode": "meaningful",
+      "entry_visual": "More trust\nin a longer job.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "More trust\nin a longer job.",
+        "Across products and systems, within a clear scope."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "More trust\nin a longer job.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Across products and systems, within a clear scope.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Across products and systems, within a clear scope.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s36",
+      "title": "New questions come with autonomy.",
+      "start_sec": 435.46666666666664,
+      "end_sec": 447.76666666666665,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Make this spoken idea legible: New questions come with autonomy.",
+      "entry_mode": "meaningful",
+      "entry_visual": "New questions come with autonomy.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "New questions come with autonomy.",
+        "Verify the result",
+        "Trace decisions",
+        "Audit the work",
+        "How do I verify the result and trace the important decisions?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "New questions come with autonomy.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "How do I verify the result and trace the important decisions?",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "Trace decisions",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s37",
+      "title": "I’m tempted to buy more room.",
+      "start_sec": 447.76666666666665,
+      "end_sec": 460.1,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: I’m tempted to buy more room.",
+      "entry_mode": "meaningful",
+      "entry_visual": "I’m tempted to buy more room.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "I’m tempted to buy more room.",
+        "The useful work makes me want to use it more."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "I’m tempted to buy more room.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "The useful work makes me want to use it more.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "The useful work makes me want to use it more.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s38",
+      "title": "The excitement\nis still there.",
+      "start_sec": 460.1,
+      "end_sec": 470.8,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: The excitement\nis still there.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The excitement\nis still there.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "The excitement\nis still there.",
+        "I want the work I watch closely to become work I can trust it with."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The excitement\nis still there.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "I want the work I watch closely to become work I can trust it with.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "I want the work I watch closely to become work I can trust it with.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s39",
+      "title": "AI is still surprising me.",
+      "start_sec": 470.8,
+      "end_sec": 480.3666666666667,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: AI is still surprising me.",
+      "entry_mode": "meaningful",
+      "entry_visual": "AI is still surprising me.",
+      "first_change_sec": 1.0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "AI is still surprising me.",
+        "I want to feel the next improvement in real work."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "AI is still surprising me.",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "I want to feel the next improvement in real work.",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        },
+        {
+          "at_sec": 6,
+          "visual": "I want to feel the next improvement in real work.",
+          "action": "Intentional still hold for the spoken explanation; no additional animation is implied"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s40",
+      "title": "AARON GUO",
+      "start_sec": 480.3666666666667,
+      "end_sec": 485.3666666666667,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Make this spoken idea legible: AARON GUO",
+      "entry_mode": "meaningful",
+      "entry_visual": "AARON GUO",
+      "first_change_sec": 0.0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "AARON GUO",
+        "AI-NATIVE BUILDER · Human-first thinker"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "AARON GUO",
+          "action": "Complete readable scaffold at entry"
+        },
+        {
+          "at_sec": 0.0,
+          "visual": "AI-NATIVE BUILDER · Human-first thinker",
+          "action": "Actual first change: support emphasis, underline, connector or focus, depending on composition"
+        }
+      ],
+      "music_cue": "Sparse chaptered music; voice gain fixed at unity. See sound-plan.json.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

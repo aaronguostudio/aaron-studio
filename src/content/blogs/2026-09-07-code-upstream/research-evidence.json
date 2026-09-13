@@ -1,0 +1,344 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "2026-09-07-code-upstream",
+  "topic": "Coding cost and upstream opportunities for engineers",
+  "created_at": "2026-09-07T21:34:09.815830+00:00",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "2026-09-07-code-upstream"
+  },
+  "sources": [
+    {
+      "id": "simon-video",
+      "type": "youtube_video",
+      "canonical_url": "https://www.youtube.com/watch?v=wc8FBhQtdsA",
+      "title": "An AI state of the union: We’ve passed the inflection point & dark factories are coming",
+      "author_name": "Simon Willison / Lenny Rachitsky",
+      "displayed_published_at": "20260402",
+      "retrieved_at": "2026-09-07T21:34:09.815830+00:00",
+      "access_method": "yt_dlp",
+      "transcript": {
+        "status": "available",
+        "language": "en",
+        "caption_kind": "auto_generated",
+        "retrieval_method": "yt_dlp",
+        "word_count": 24499,
+        "line_count": 3131,
+        "byte_count": 133096,
+        "sha256": "e4f44676b6168df5df188824d38ffad750d6d69104b7eb05ffebcbef9768d757",
+        "artifact_path": "/Users/aaronguo/.cache/aaron-studio/research/2026-09-07-code-upstream/wc8FBhQtdsA.transcript.txt",
+        "limitation": "Public automatic captions; only cited chapter ranges closely read; speaker names checked against publisher notes."
+      },
+      "limitations": [
+        "Research-selected source; not confirmed as the video the author originally watched.",
+        "Personal views and self-reported practices, not representative industry measurements."
+      ]
+    },
+    {
+      "id": "boris-video",
+      "type": "youtube_video",
+      "canonical_url": "https://www.youtube.com/watch?v=We7BZVKbCVw",
+      "title": "Head of Claude Code: What happens after coding is solved | Boris Cherny",
+      "author_name": "Boris Cherny / Lenny Rachitsky",
+      "displayed_published_at": "20260219",
+      "retrieved_at": "2026-09-07T21:34:09.815830+00:00",
+      "access_method": "yt_dlp",
+      "transcript": {
+        "status": "available",
+        "language": "en",
+        "caption_kind": "auto_generated",
+        "retrieval_method": "yt_dlp",
+        "word_count": 23020,
+        "line_count": 2999,
+        "byte_count": 122478,
+        "sha256": "dd44c847e236643591cdb5fe8a2bd08f810bcf23bfef64ca56bd7313f91d82fb",
+        "artifact_path": "/Users/aaronguo/.cache/aaron-studio/research/2026-09-07-code-upstream/We7BZVKbCVw.transcript.txt",
+        "limitation": "Public automatic captions; only cited chapter ranges closely read; speaker names checked against publisher notes."
+      },
+      "limitations": [
+        "Research-selected source; not confirmed as the video the author originally watched.",
+        "Personal views and self-reported practices, not representative industry measurements."
+      ]
+    },
+    {
+      "id": "kent-video",
+      "type": "youtube_video",
+      "canonical_url": "https://www.youtube.com/watch?v=ddHQQtjIOpw",
+      "title": "How Kent Beck shapes the software engineering industry",
+      "author_name": "Kent Beck / Gergely Orosz",
+      "displayed_published_at": "20260701",
+      "retrieved_at": "2026-09-07T21:34:09.815830+00:00",
+      "access_method": "yt_dlp",
+      "transcript": {
+        "status": "available",
+        "language": "en",
+        "caption_kind": "auto_generated",
+        "retrieval_method": "yt_dlp",
+        "word_count": 27735,
+        "line_count": 3549,
+        "byte_count": 151080,
+        "sha256": "c071f21da7b9a8e8bfeef830eb0c48a42471ee97f5f583b64647a254470eb06d",
+        "artifact_path": "/Users/aaronguo/.cache/aaron-studio/research/2026-09-07-code-upstream/ddHQQtjIOpw.transcript.txt",
+        "limitation": "Public automatic captions; only cited chapter ranges closely read; speaker names checked against publisher notes."
+      },
+      "limitations": [
+        "Research-selected source; not confirmed as the video the author originally watched.",
+        "Personal views and self-reported practices, not representative industry measurements."
+      ]
+    },
+    {
+      "id": "simon-essay",
+      "type": "web",
+      "canonical_url": "https://simonwillison.net/guides/agentic-engineering-patterns/code-is-cheap/",
+      "title": "Writing code is cheap now",
+      "author_name": "Simon Willison",
+      "displayed_published_at": "2026-02-23; updated 2026-02-24",
+      "retrieved_at": "2026-09-07T21:34:09.815830+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Author or organization perspective; not independently replicated outcomes."
+      ]
+    },
+    {
+      "id": "microsoft",
+      "type": "web",
+      "canonical_url": "https://www.microsoft.com/insidetrack/blog/engineering-the-frontier-firm-sharing-our-ai-native-approach-to-software-development/",
+      "title": "Engineering the Frontier Firm",
+      "author_name": "Neil Orint and David Hirning / Microsoft Digital",
+      "displayed_published_at": "2026-09-03",
+      "retrieved_at": "2026-09-07T21:34:09.815830+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Author or organization perspective; not independently replicated outcomes."
+      ]
+    },
+    {
+      "id": "ritchie",
+      "type": "paper",
+      "canonical_url": "https://www.nokia.com/bell-labs/about/dennis-m-ritchie/chist.html",
+      "title": "The Development of the C Language",
+      "author_name": "Dennis M. Ritchie",
+      "displayed_published_at": "1993-04",
+      "retrieved_at": "2026-09-07T21:34:09.815830+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Historical background, not proof of a linear language succession."
+      ]
+    },
+    {
+      "id": "amazon-structure-2024",
+      "type": "web",
+      "canonical_url": "https://www.aboutamazon.com/news/company-news/ceo-andy-jassy-latest-update-on-amazon-return-to-office-manager-team-ratio",
+      "title": "Message from CEO Andy Jassy: Strengthening our culture and teams",
+      "author_name": "Andy Jassy / Amazon",
+      "displayed_published_at": "2024-09-16",
+      "retrieved_at": "2026-09-08T00:52:34.692375+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Employer self-report: establishes stated reasons or expectations, not independent causal attribution or individual worker value.",
+        "Publication date checked in official page datePublished metadata via curl; original body read using web tool."
+      ]
+    },
+    {
+      "id": "amazon-ai-2025",
+      "type": "web",
+      "canonical_url": "https://www.aboutamazon.com/news/company-news/amazon-ceo-andy-jassy-on-generative-ai",
+      "title": "Message from CEO Andy Jassy: Some thoughts on Generative AI",
+      "author_name": "Andy Jassy / Amazon",
+      "displayed_published_at": "2025-06-17",
+      "retrieved_at": "2026-09-08T00:52:34.692375+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Employer self-report: establishes stated reasons or expectations, not independent causal attribution or individual worker value.",
+        "Publication date checked in official page datePublished metadata via curl; original body read using web tool."
+      ]
+    },
+    {
+      "id": "amazon-roles-2026",
+      "type": "web",
+      "canonical_url": "https://www.aboutamazon.com/news/company-news/amazon-layoffs-corporate-jan-2026",
+      "title": "Update on our organization",
+      "author_name": "Beth Galetti / Amazon",
+      "displayed_published_at": "2026-01-28",
+      "retrieved_at": "2026-09-08T00:52:34.692375+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Employer self-report: establishes stated reasons or expectations, not independent causal attribution or individual worker value.",
+        "Publication date checked in official page datePublished metadata via curl; original body read using web tool."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "boris-practice",
+      "kind": "source_fact",
+      "text": "Boris describes AI-authored code plus human review.",
+      "source_ids": [
+        "boris-video"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "16:17–17:31; personal practice at interview date."
+    },
+    {
+      "id": "simon-prototypes",
+      "kind": "source_fact",
+      "text": "Simon says he often tries three design prototypes and advocates real-user usability testing to help assess options.",
+      "source_ids": [
+        "simon-video"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "22:11–23:35 re-read from acquired automatic captions. Actual prototyping practice distinguished from proposed usability testing."
+    },
+    {
+      "id": "kent-domain",
+      "kind": "source_fact",
+      "text": "Kent points to business obligations beyond a visible feature.",
+      "source_ids": [
+        "kent-video"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "2:14:13–2:15:39; no compliance guidance or savings claims used."
+    },
+    {
+      "id": "microsoft-intent",
+      "kind": "source_fact",
+      "text": "Microsoft Digital reports moving intent and acceptance into specifications.",
+      "source_ids": [
+        "microsoft"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Organizational self-report, not neutral performance evidence."
+    },
+    {
+      "id": "higher-languages",
+      "kind": "source_fact",
+      "text": "Ritchie describes expression and comprehension advantages above assembler.",
+      "source_ids": [
+        "ritchie"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "History opening; limited analogy."
+    },
+    {
+      "id": "upstream-opportunity",
+      "kind": "inference",
+      "text": "Lower implementation cost makes problem selection and demand discovery more salient.",
+      "source_ids": [
+        "simon-video",
+        "simon-essay",
+        "microsoft"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Aaron interpretation; AI also assists upstream; not an employment forecast."
+    },
+    {
+      "id": "dev-reporting",
+      "kind": "operator_observation",
+      "text": "Aaron has described a Dev Linux/Windows report round trip. ",
+      "source_ids": [],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Approved source: src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md, section 1. No claim of production readiness or measured speedup."
+    },
+    {
+      "id": "microsoft-individual-team-gap",
+      "kind": "source_fact",
+      "text": "Microsoft Digital reports that faster individual development did not initially translate to team productivity, prompting process changes.",
+      "source_ids": [
+        "microsoft"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Rechecked 2026-09-07, article opening. Organization self-report, not an independently measured general result."
+    },
+    {
+      "id": "amazon-structure-before-current-cuts",
+      "kind": "source_fact",
+      "text": "In September 2024 Amazon described excessive layers and processes and announced organizational flattening.",
+      "source_ids": [
+        "amazon-structure-2024"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Body paragraphs on manager layers and process. Does not establish surplus headcount percentage or imply AI did not yet exist."
+    },
+    {
+      "id": "amazon-ai-workforce-expectation",
+      "kind": "source_fact",
+      "text": "In June 2025 Andy Jassy expected extensive AI use to reduce total corporate workforce over the following years, with fewer people in some types of work and more in others.",
+      "source_ids": [
+        "amazon-ai-2025"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Expectation stated by management, not measured realized reductions attributable to AI."
+    },
+    {
+      "id": "amazon-january-2026-explanation",
+      "kind": "source_fact",
+      "text": "The January 2026 reduction announcement again stated reducing layers, increasing ownership and removing bureaucracy as organizational goals.",
+      "source_ids": [
+        "amazon-roles-2026"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "No claim that these statements exhaust causes or assess the contribution of affected individuals. Draft does not use the 16000 count."
+    },
+    {
+      "id": "author-amazon-organizational-observation",
+      "kind": "operator_observation",
+      "text": "Aaron describes a considered judgment from his earlier Amazon employment: organizational staffing and expansion did not necessarily track customer value. He says later restructuring and layoffs did not surprise him.",
+      "source_ids": [],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Current author clarification recorded in revisions/full-redraft-03/feedback.md. Subjective judgment, not independently verified. No discomfort, numerical workforce estimate, team details, or all-layoff causation asserted."
+    },
+    {
+      "id": "ai-accelerates-organizational-reappraisal",
+      "kind": "inference",
+      "text": "Aaron interprets lower execution costs as a catalyst for re-examining existing organizational structures and staffing.",
+      "source_ids": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Author interpretation consistent with stated plans, not proof of causes of all layoffs or lack of value of affected people."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "public web search",
+      "publisher episode notes",
+      "yt-dlp public metadata and automatic captions",
+      "local author-approved article"
+    ],
+    "unresolved_gaps": [
+      "User original video links have not been supplied; these are editorially selected candidates.",
+      "Automatic captions can contain recognition errors; whole videos not watched.",
+      "No representative labor-market survey or controlled productivity experiment.",
+      "Amazon employer statements do not establish causal contribution of AI to any specific layoff; author historical estimate is unverified and omitted."
+    ],
+    "notes": [
+      "All three selected caption tracks acquired without browser authentication.",
+      "Raw transcript text is stored outside the publishable repository."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "No customer identities or private infrastructure identifiers in article."
+    ]
+  }
+}

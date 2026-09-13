@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-09-07T02:17:27.932540+00:00",
+  "youtube": {
+    "id": "_12kx0AFhCM",
+    "channel_verified": true,
+    "processing": "succeeded",
+    "definition": "hd",
+    "language": "en",
+    "defaultAudioLanguage": "en",
+    "thumbnail": "V6 launch-style",
+    "synthetic_media": {
+      "update_response": true,
+      "signed_out_watch_label": "AI: Content was made with AI",
+      "policy": "https://support.google.com/youtube/answer/14328491"
+    },
+    "signed_out_playback": {
+      "duration": 485.401,
+      "playback_observed_seconds": 13.678455,
+      "paused_after_verification": true
+    },
+    "captions": "English captions burned into video. No selectable caption track uploaded.",
+    "privacy": "public",
+    "public_readback": "publication/youtube-inspect.json",
+    "signed_out_watch": "title and channel confirmed; AI disclosure shown; Unlisted label absent after publish"
+  },
+  "blog": {
+    "post_number": 32,
+    "slug": "gpt-6-astra-real-work",
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "images": 6,
+    "link_validation": "pass",
+    "lint": "pass",
+    "tests": "248 passed",
+    "browser_images": "all 6 loaded in both languages after scroll",
+    "browser_overflow": false,
+    "viewport": [
+      856,
+      1075
+    ],
+    "language_switch": "works",
+    "initial_metadata_issue": "Client navigation froze head metadata at fallback values; fixed by reactive useHead callbacks. Regression validation pending.",
+    "production_build": "pass after metadata fix",
+    "metadata_regression": "PASS: ZH to EN and EN to ZH update title, description, og:image and canonical without reload",
+    "browser_console_errors": 0,
+    "head_commit": "1674f41cb7b4b5d0fe2a5ed384e482d6da3cbc29",
+    "pr_checks": "all passed on 1674f41cb7b4b5d0fe2a5ed384e482d6da3cbc29",
+    "pr": "https://github.com/aaronguostudio/aaronguoblog/pull/18",
+    "main_commit": "1213e460e64537c51f64812fe35f9c31feceb94c",
+    "main_tree_matches_reviewed_head": true,
+    "live_verification": "publication/live-blog.json"
+  }
+}

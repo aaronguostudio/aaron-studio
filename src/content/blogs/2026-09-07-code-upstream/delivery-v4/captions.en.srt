@@ -1,0 +1,615 @@
+1
+00:00:03,058 --> 00:00:03,848
+Years ago,
+
+2
+00:00:03,929 --> 00:00:05,531
+while working at Amazon,
+
+3
+00:00:06,111 --> 00:00:08,155
+I had already reached a conclusion.
+
+4
+00:00:09,397 --> 00:00:12,509
+A company can afford a lot of desirable jobs
+
+5
+00:00:12,938 --> 00:00:15,585
+without needing a team of that size to create
+
+6
+00:00:15,643 --> 00:00:16,862
+its business value.
+
+7
+00:00:18,105 --> 00:00:19,974
+That judgment stayed with me.
+
+8
+00:00:20,577 --> 00:00:23,213
+And as AI takes on more implementation,
+
+9
+00:00:23,782 --> 00:00:27,486
+I think engineers should pay closer attention to where
+
+10
+00:00:27,521 --> 00:00:29,216
+their work becomes useful.
+
+11
+00:00:30,237 --> 00:00:33,349
+Organizations can grow around management layers,
+
+12
+00:00:33,697 --> 00:00:35,114
+departmental interests,
+
+13
+00:00:35,415 --> 00:00:37,018
+and internal politics.
+
+14
+00:00:37,888 --> 00:00:39,642
+Coordination expands.
+
+15
+00:00:40,513 --> 00:00:42,951
+The customer's problem may barely change.
+
+16
+00:00:43,763 --> 00:00:47,188
+Someone can work very hard while their abilities are
+
+17
+00:00:47,246 --> 00:00:51,205
+absorbed by work the organization created for itself.
+
+18
+00:00:52,320 --> 00:00:57,312
+So Amazon's later restructuring and layoffs didn't surprise me.
+
+19
+00:00:58,495 --> 00:01:00,063
+In twenty twenty-four,
+
+20
+00:01:00,632 --> 00:01:05,787
+Amazon announced plans to reduce layers and unnecessary processes.
+
+21
+00:01:06,553 --> 00:01:07,621
+The following year,
+
+22
+00:01:07,783 --> 00:01:11,789
+Andy Jassy said he expected AI efficiency to reduce
+
+23
+00:01:11,835 --> 00:01:14,807
+its total corporate workforce over time.
+
+24
+00:01:15,574 --> 00:01:20,543
+Its January twenty twenty-six layoff announcement again emphasized fewer
+
+25
+00:01:20,659 --> 00:01:23,329
+layers and less bureaucracy.
+
+26
+00:01:24,142 --> 00:01:27,334
+Those statements describe an organization changing.
+
+27
+00:01:28,031 --> 00:01:31,514
+They cannot tell us what any individual contributed.
+
+28
+00:01:32,269 --> 00:01:37,435
+My interpretation is that cheaper execution accelerates a reassessment
+
+29
+00:01:37,482 --> 00:01:39,223
+that was already needed.
+
+30
+00:01:39,606 --> 00:01:41,824
+For the next five to ten years,
+
+31
+00:01:42,149 --> 00:01:45,458
+I want to invest more in understanding customers,
+
+32
+00:01:45,841 --> 00:01:47,571
+making product decisions,
+
+33
+00:01:47,954 --> 00:01:50,938
+and carrying worthwhile work into use.
+
+34
+00:01:51,321 --> 00:01:56,197
+Stronger implementation tools give engineers room to take on
+
+35
+00:01:56,313 --> 00:01:58,438
+more of that responsibility.
+
+36
+00:01:59,448 --> 00:02:03,140
+Boris Cherny has described having Claude Code write his
+
+37
+00:02:03,233 --> 00:02:05,706
+code while he continues reviewing it.
+
+38
+00:02:06,658 --> 00:02:10,501
+Simon Willison describes quickly trying several prototypes.
+
+39
+00:02:10,942 --> 00:02:14,158
+These are particular practitioners' experiences.
+
+40
+00:02:14,970 --> 00:02:17,931
+What interests me is how they change our allocation
+
+41
+00:02:17,989 --> 00:02:18,674
+of time.
+
+42
+00:02:19,847 --> 00:02:22,169
+Once you can try an idea more cheaply,
+
+43
+00:02:22,714 --> 00:02:26,104
+deciding which idea deserves the effort becomes more valuable.
+
+44
+00:02:29,227 --> 00:02:32,269
+The first place I'd invest is a business domain.
+
+45
+00:02:32,814 --> 00:02:34,637
+Learn who uses a product,
+
+46
+00:02:34,811 --> 00:02:35,798
+who pays,
+
+47
+00:02:36,007 --> 00:02:39,212
+and who bears the consequences when it fails.
+
+48
+00:02:40,024 --> 00:02:43,972
+Kent Beck used payroll to illustrate how much responsibility
+
+49
+00:02:44,041 --> 00:02:47,257
+sits behind apparently simple functionality.
+
+50
+00:02:48,070 --> 00:02:51,263
+Calculating an amount is only part of the work.
+
+51
+00:02:52,075 --> 00:02:55,686
+Keep learning those obligations through actual projects.
+
+52
+00:02:56,801 --> 00:02:57,683
+Over time,
+
+53
+00:02:58,066 --> 00:03:02,037
+you'll notice needs that haven't reached a requirements document.
+
+54
+00:03:04,840 --> 00:03:06,848
+Then get closer to customers.
+
+55
+00:03:07,881 --> 00:03:11,167
+Imagine a tool that processes business documents.
+
+56
+00:03:11,585 --> 00:03:13,559
+This is a hypothetical example.
+
+57
+00:03:14,128 --> 00:03:17,320
+The demonstration extracts every field beautifully.
+
+58
+00:03:18,528 --> 00:03:20,362
+But when you watch someone work,
+
+59
+00:03:20,443 --> 00:03:22,394
+you discover where they pause:
+
+60
+00:03:23,601 --> 00:03:25,064
+an unusual document,
+
+61
+00:03:25,540 --> 00:03:27,003
+a missing confirmation,
+
+62
+00:03:27,572 --> 00:03:29,348
+a result they don't trust.
+
+63
+00:03:29,987 --> 00:03:32,204
+That pause can tell you more about the next
+
+64
+00:03:32,320 --> 00:03:35,977
+feature than another hour polishing the demo.
+
+65
+00:03:37,196 --> 00:03:39,438
+Ask the person to show you how they handle
+
+66
+00:03:39,472 --> 00:03:40,587
+that case today.
+
+67
+00:03:41,388 --> 00:03:42,410
+Who checks it?
+
+68
+00:03:42,909 --> 00:03:44,790
+How do they correct a mistake?
+
+69
+00:03:45,881 --> 00:03:48,911
+What must continue working in their existing system?
+
+70
+00:03:49,828 --> 00:03:53,950
+You may discover that exception handling deserves attention first.
+
+71
+00:03:55,030 --> 00:03:57,735
+Use some of the time AI saves to have
+
+72
+00:03:57,758 --> 00:03:58,908
+that conversation,
+
+73
+00:03:59,604 --> 00:04:02,797
+and come back after delivery to see what changed.
+
+74
+00:04:05,597 --> 00:04:08,348
+The third investment is product judgment.
+
+75
+00:04:09,103 --> 00:04:12,830
+Willison says he often tries three design approaches.
+
+76
+00:04:13,724 --> 00:04:17,172
+He also advocates watching real people use the software.
+
+77
+00:04:17,926 --> 00:04:20,236
+For our imagined document tool,
+
+78
+00:04:20,503 --> 00:04:21,978
+compare two approaches:
+
+79
+00:04:22,396 --> 00:04:23,859
+verify every item,
+
+80
+00:04:24,068 --> 00:04:26,494
+or highlight only the exceptions.
+
+81
+00:04:27,307 --> 00:04:29,373
+Build enough to answer the question.
+
+82
+00:04:30,070 --> 00:04:32,949
+Then watch where a user hesitates and whether they
+
+83
+00:04:32,996 --> 00:04:35,074
+can finish the original task.
+
+84
+00:04:36,074 --> 00:04:37,038
+Before building,
+
+85
+00:04:37,212 --> 00:04:39,581
+write down what you need to learn.
+
+86
+00:04:40,394 --> 00:04:41,311
+Afterward,
+
+87
+00:04:41,798 --> 00:04:44,086
+ask whether the attempt answered it.
+
+88
+00:04:45,154 --> 00:04:47,766
+This is how product judgment develops:
+
+89
+00:04:48,335 --> 00:04:49,751
+choosing what belongs,
+
+90
+00:04:49,949 --> 00:04:50,935
+what can wait,
+
+91
+00:04:51,249 --> 00:04:54,581
+and which complexity the business actually requires.
+
+92
+00:04:55,347 --> 00:04:57,576
+AI can propose alternatives.
+
+93
+00:04:58,064 --> 00:05:00,758
+Your contact with the work gives you a basis
+
+94
+00:05:00,827 --> 00:05:02,220
+for choosing among them.
+
+95
+00:05:05,031 --> 00:05:07,690
+The fourth investment is commercial judgment.
+
+96
+00:05:08,584 --> 00:05:11,870
+A useful product still asks someone to change.
+
+97
+00:05:12,520 --> 00:05:13,890
+Money is one cost.
+
+98
+00:05:14,238 --> 00:05:15,004
+Migration,
+
+99
+00:05:15,271 --> 00:05:15,840
+learning,
+
+100
+00:05:16,038 --> 00:05:16,885
+integration,
+
+101
+00:05:17,292 --> 00:05:18,905
+and trust matter too.
+
+102
+00:05:19,788 --> 00:05:23,689
+Understand why the customer's existing approach has survived.
+
+103
+00:05:24,641 --> 00:05:28,356
+Then test whether your improvement is worth that disruption.
+
+104
+00:05:29,413 --> 00:05:32,861
+A working prototype gives you something concrete to discuss
+
+105
+00:05:32,954 --> 00:05:34,718
+with a potential customer.
+
+106
+00:05:35,670 --> 00:05:37,748
+Would they spend time trying it?
+
+107
+00:05:38,561 --> 00:05:40,500
+Would they discuss an integration?
+
+108
+00:05:41,730 --> 00:05:43,135
+Who controls the budget,
+
+109
+00:05:43,170 --> 00:05:45,596
+and where do they look for alternatives?
+
+110
+00:05:46,014 --> 00:05:47,500
+Include model usage,
+
+111
+00:05:47,767 --> 00:05:48,603
+maintenance,
+
+112
+00:05:48,766 --> 00:05:50,542
+and support in your estimate.
+
+113
+00:05:51,448 --> 00:05:56,579
+Cheaper development gives some previously expensive ideas another chance.
+
+114
+00:05:56,997 --> 00:06:00,178
+Contact with the market tells you which ones deserve
+
+115
+00:06:00,213 --> 00:06:01,014
+to continue.
+
+116
+00:06:03,814 --> 00:06:04,499
+Finally,
+
+117
+00:06:04,906 --> 00:06:07,355
+take a project through a complete cycle.
+
+118
+00:06:08,377 --> 00:06:13,509
+Microsoft Digital reported that faster individual development initially failed
+
+119
+00:06:13,602 --> 00:06:15,657
+to improve team productivity.
+
+120
+00:06:16,678 --> 00:06:21,218
+It later brought business intent and acceptance criteria into
+
+121
+00:06:21,322 --> 00:06:23,029
+a shared specification.
+
+122
+00:06:23,888 --> 00:06:26,001
+That's an organizational account,
+
+123
+00:06:26,466 --> 00:06:28,672
+but it highlights something practical:
+
+124
+00:06:29,542 --> 00:06:32,398
+progress depends on the connections across the work.
+
+125
+00:06:33,107 --> 00:06:34,326
+Agree on the goal.
+
+126
+00:06:34,953 --> 00:06:36,345
+Connect the systems.
+
+127
+00:06:36,810 --> 00:06:38,505
+Check real failure cases.
+
+128
+00:06:39,143 --> 00:06:40,664
+Help the user get started,
+
+129
+00:06:40,699 --> 00:06:42,754
+and return to learn what happened.
+
+130
+00:06:43,776 --> 00:06:47,375
+I recently used AI on a reporting task across
+
+131
+00:06:47,468 --> 00:06:50,498
+several systems and verified it in development.
+
+132
+00:06:51,253 --> 00:06:53,644
+It made me more willing to take on complete
+
+133
+00:06:53,702 --> 00:06:54,433
+tasks.
+
+134
+00:06:55,467 --> 00:06:59,159
+Engineering experience helps make the result something others can
+
+135
+00:06:59,217 --> 00:06:59,786
+trust.
+
+136
+00:07:02,897 --> 00:07:06,097
+The judgment I reached at Amazon still matters to
+
+137
+00:07:06,197 --> 00:07:06,318
+me.
+
+138
+00:07:07,778 --> 00:07:10,197
+A role can be provided by an organization.
+
+139
+00:07:11,578 --> 00:07:14,957
+My abilities need an ongoing connection to real needs.
+
+140
+00:07:16,407 --> 00:07:19,367
+Each project is a chance to strengthen that connection:
+
+141
+00:07:20,627 --> 00:07:22,467
+understand a customer more deeply,
+
+142
+00:07:23,267 --> 00:07:24,828
+make a better product choice,
+
+143
+00:07:25,467 --> 00:07:28,047
+and learn what it takes for someone to adopt
+
+144
+00:07:28,107 --> 00:07:28,787
+the result.
+
+145
+00:07:30,088 --> 00:07:32,647
+If AI can handle much more work in five
+
+146
+00:07:32,707 --> 00:07:33,547
+or ten years,
+
+147
+00:07:34,168 --> 00:07:36,967
+I want to understand more about what people need
+
+148
+00:07:37,028 --> 00:07:37,547
+by then.
+
+149
+00:07:38,427 --> 00:07:41,387
+That growth can begin with the next conversation and
+
+150
+00:07:41,447 --> 00:07:42,567
+the next project.
+
+151
+00:07:43,907 --> 00:07:47,887
+Stronger tools make me optimistic about what engineers can
+
+152
+00:07:47,967 --> 00:07:48,487
+attempt.
+
+153
+00:07:49,807 --> 00:07:52,168
+I want to use that opportunity to make things
+
+154
+00:07:52,267 --> 00:07:55,527
+I care about that someone else actually needs.

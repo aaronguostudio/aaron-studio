@@ -1,0 +1,65 @@
+{
+  "checkedAt": "2026-09-07T21:43:33.365698+00:00",
+  "phase": "article-review",
+  "checks": [
+    {
+      "name": "research",
+      "passed": true,
+      "report": "qa/research.txt"
+    },
+    {
+      "name": "article-package",
+      "passed": true,
+      "report": "qa/article-package.txt"
+    },
+    {
+      "name": "style-en",
+      "passed": true,
+      "report": "qa/style-en.txt"
+    },
+    {
+      "name": "style-zh",
+      "passed": true,
+      "report": "qa/style-zh.txt"
+    },
+    {
+      "name": "article hashes and six recommendations in both editions",
+      "passed": true
+    },
+    {
+      "name": "preview generator syntax",
+      "passed": true
+    },
+    {
+      "name": "existing internal source link en",
+      "passed": true,
+      "title": "I Put GPT-6 Astra to Work | Aaron Guo"
+    },
+    {
+      "name": "existing internal source link zh",
+      "passed": true,
+      "title": "我把 GPT-6 Astra 用进了真实工作 | Aaron Guo"
+    }
+  ],
+  "browser": {
+    "preview": "http://127.0.0.1:4332/review.html",
+    "desktopWidth": 1391,
+    "horizontalOverflow": false,
+    "languageToggle": "Chinese → English → Chinese passed",
+    "revisionDetails": "opened through visible link",
+    "skilldev": {
+      "url": "http://127.0.0.1:5178/?view=editorial",
+      "tab": "19",
+      "caseCount": 3,
+      "importErrors": [],
+      "authorReason": "",
+      "decision": "pending"
+    }
+  },
+  "limitations": [
+    "Author original video links not supplied.",
+    "No controlled comparison with old skill; no measured quality score.",
+    "Draft only; no images, audio, video or publication.",
+    "No mobile viewport or full console audit performed in this article phase."
+  ]
+}

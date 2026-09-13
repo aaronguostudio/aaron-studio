@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "topic": "DHH, AI enthusiasm and differences in team trust",
+  "thesis": "Evaluate one familiar shared task and decide which method to keep.",
+  "sources": [
+    {
+      "id": "lex-dhh",
+      "url": "https://lexfridman.com/dhh-2-transcript/",
+      "publisher": "Lex Fridman",
+      "published_at": "2026-08-26",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Relevant early agent discussion verified; no interview audio or footage reused."
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "DHH describes agents performing useful work as a change in his experience compared with earlier autocomplete.",
+      "source_ids": [
+        "lex-dhh"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Self-report, not independent benchmark or endorsement of Aaron’s team practice."
+    }
+  ],
+  "operator_observations": [
+    {
+      "id": "o1",
+      "claim": "Aaron directly reports differing levels of AI trust within his company team.",
+      "local_evidence": "author-feedback-v3.md; current conversation",
+      "status": "author_confirmed"
+    },
+    {
+      "id": "o2",
+      "claim": "Source/draft/review artifacts exist for this article.",
+      "local_evidence": "research-evidence.json, claim-ledger.md, revisions/",
+      "status": "observed"
+    },
+    {
+      "id": "o3",
+      "claim": "Shared writing exercise and unsupported rewrite are illustrative proposals, not reported team outcomes.",
+      "local_evidence": "youtube-script.md",
+      "status": "prospective_example"
+    }
+  ]
+}

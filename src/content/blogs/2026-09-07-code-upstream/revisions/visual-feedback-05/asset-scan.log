@@ -1,0 +1,6 @@
+Indexed 128 assets (113 unique audio files, 15 visualizer presets).
+Deduplicated 19 copied audio files.
+Catalog: src/content/asset-library
+Search DB: .cache/asset-library/assets.sqlite
+(node:28004) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
