@@ -1,0 +1,2 @@
+# Audio review
+Existing global profile aaron-pvc-identity-v1 retained without control changes. English narration and Chinese subtitles assumed after the optional question; no new clone or voice candidate. Raw generation and normalization preserved. Measured narration: 60.464762 seconds, -16.47 LUFS, -1.68 dBTP, no long silences. Main narration starts at 5 seconds; field recording surrounds it. Human naturalness and identity review: pending Aaron watching the pilot. Technical checks do not constitute human listening approval. No publication authorized.

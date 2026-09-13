@@ -1,0 +1,38 @@
+{
+  "duration": 201.86666666666667,
+  "voice": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "segments": [
+    {
+      "source": "../singing-sands-pilot-2026-09-08/pilot-mix.wav",
+      "source_start": 0,
+      "source_end": 49.233333333333334,
+      "timeline_start": 0,
+      "approval": "author-approved 2026-09-08"
+    },
+    {
+      "source": "extension/audio.mp3",
+      "timeline_start": 49.233333333333334
+    },
+    {
+      "source": "../singing-sands-pilot-2026-09-08/pilot-mix.wav",
+      "source_start": 59.5,
+      "source_end": 74,
+      "timeline_start": 187.36666666666667,
+      "approval": "author-approved 2026-09-08"
+    }
+  ]
+}

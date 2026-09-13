@@ -1,0 +1,321 @@
+{
+  "averageWordsExcludingCaptions": 10.837209302325581,
+  "maxWordsExcludingCaptions": 21,
+  "primaryTextContrast": 13.135135299961112,
+  "sidebar": false,
+  "provenanceFooter": false,
+  "extraOutcomeSentence": false,
+  "primaryTextOpacity": 1,
+  "heroPx": 92,
+  "sceneTitlePx": 72,
+  "bodyPx": [
+    48,
+    52,
+    58,
+    60
+  ],
+  "captionsPx": 34,
+  "scenes": [
+    {
+      "scene": "s01",
+      "kind": "statement",
+      "wordsExcludingCaptions": 16,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s02",
+      "kind": "media",
+      "wordsExcludingCaptions": 11,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s03",
+      "kind": "row",
+      "wordsExcludingCaptions": 16,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "s04",
+      "kind": "statement",
+      "wordsExcludingCaptions": 14,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s05",
+      "kind": "row",
+      "wordsExcludingCaptions": 13,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "s06",
+      "kind": "statement",
+      "wordsExcludingCaptions": 10,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s07",
+      "kind": "statement",
+      "wordsExcludingCaptions": 7,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s08",
+      "kind": "statement",
+      "wordsExcludingCaptions": 11,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s09",
+      "kind": "row",
+      "wordsExcludingCaptions": 17,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "s10",
+      "kind": "compare",
+      "wordsExcludingCaptions": 21,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "s11",
+      "kind": "statement",
+      "wordsExcludingCaptions": 9,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "bridge-industry",
+      "kind": "chapter",
+      "wordsExcludingCaptions": 4,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s12",
+      "kind": "row",
+      "wordsExcludingCaptions": 16,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "s13",
+      "kind": "compare",
+      "wordsExcludingCaptions": 14,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "s14",
+      "kind": "statement",
+      "wordsExcludingCaptions": 11,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "bridge-customers",
+      "kind": "chapter",
+      "wordsExcludingCaptions": 4,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s15",
+      "kind": "row",
+      "wordsExcludingCaptions": 14,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "s16",
+      "kind": "media",
+      "wordsExcludingCaptions": 6,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s17",
+      "kind": "row",
+      "wordsExcludingCaptions": 16,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "s18",
+      "kind": "statement",
+      "wordsExcludingCaptions": 12,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "bridge-product",
+      "kind": "chapter",
+      "wordsExcludingCaptions": 3,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s19",
+      "kind": "media",
+      "wordsExcludingCaptions": 6,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s20",
+      "kind": "compare",
+      "wordsExcludingCaptions": 12,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "s21",
+      "kind": "statement",
+      "wordsExcludingCaptions": 8,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s22",
+      "kind": "row",
+      "wordsExcludingCaptions": 14,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "bridge-commercial",
+      "kind": "chapter",
+      "wordsExcludingCaptions": 3,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s23",
+      "kind": "statement",
+      "wordsExcludingCaptions": 11,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s24",
+      "kind": "row",
+      "wordsExcludingCaptions": 11,
+      "textBlocksExcludingContextAndCaptions": 5,
+      "nodes": 4
+    },
+    {
+      "scene": "s25",
+      "kind": "media",
+      "wordsExcludingCaptions": 7,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s26",
+      "kind": "row",
+      "wordsExcludingCaptions": 15,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "s27",
+      "kind": "compare",
+      "wordsExcludingCaptions": 15,
+      "textBlocksExcludingContextAndCaptions": 3,
+      "nodes": 2
+    },
+    {
+      "scene": "bridge-delivery",
+      "kind": "chapter",
+      "wordsExcludingCaptions": 5,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s28",
+      "kind": "statement",
+      "wordsExcludingCaptions": 12,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s29",
+      "kind": "flow",
+      "wordsExcludingCaptions": 10,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "s30",
+      "kind": "flow",
+      "wordsExcludingCaptions": 16,
+      "textBlocksExcludingContextAndCaptions": 5,
+      "nodes": 4
+    },
+    {
+      "scene": "s31",
+      "kind": "statement",
+      "wordsExcludingCaptions": 9,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s32",
+      "kind": "statement",
+      "wordsExcludingCaptions": 7,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "bridge-closing",
+      "kind": "chapter",
+      "wordsExcludingCaptions": 3,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s33",
+      "kind": "statement",
+      "wordsExcludingCaptions": 13,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s34",
+      "kind": "flow",
+      "wordsExcludingCaptions": 11,
+      "textBlocksExcludingContextAndCaptions": 5,
+      "nodes": 4
+    },
+    {
+      "scene": "s35",
+      "kind": "statement",
+      "wordsExcludingCaptions": 9,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    },
+    {
+      "scene": "s36",
+      "kind": "row",
+      "wordsExcludingCaptions": 16,
+      "textBlocksExcludingContextAndCaptions": 4,
+      "nodes": 3
+    },
+    {
+      "scene": "s37",
+      "kind": "media",
+      "wordsExcludingCaptions": 8,
+      "textBlocksExcludingContextAndCaptions": 1,
+      "nodes": 0
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "singing-sands-pilot-2026-09-08",
+  "topic": "Singing sand video pilot",
+  "created_at": "2026-09-08T12:35:48.976427+00:00",
+  "status": "complete",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "singing-sands-pilot"
+  },
+  "sources": [
+    {
+      "id": "nps-sound",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "title": "National Park Service / nps-sound",
+      "retrieved_at": "2026-09-08T12:35:48.976427+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Natural sound and field footage separate from the illustrative macro."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "nps-eureka",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/places/eureka-dunes.htm",
+      "title": "National Park Service / nps-eureka",
+      "retrieved_at": "2026-09-08T12:35:48.976427+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Natural sound and field footage separate from the illustrative macro."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "caltech",
+      "type": "paper",
+      "canonical_url": "https://authors.library.caltech.edu/records/s0m0a-cyg09",
+      "title": "CaltechAUTHORS / caltech",
+      "retrieved_at": "2026-09-08T12:35:48.976427+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Paper abstract only; no definitive mechanism is asserted."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "f1",
+      "kind": "source_fact",
+      "text": "Some dunes produce sustained low sound during avalanches.",
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f2",
+      "kind": "source_fact",
+      "text": "The NPS recording is from Great Sand Dunes National Park.",
+      "source_ids": [
+        "nps-sound"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f3",
+      "kind": "source_fact",
+      "text": "At Eureka Dunes, dry sand can boom; damp sand does not.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f4",
+      "kind": "source_fact",
+      "text": "The sound can resemble a low organ note or distant airplane.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f5",
+      "kind": "source_fact",
+      "text": "Research has proposed different mechanisms for sustaining dune sound.",
+      "source_ids": [
+        "caltech"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "Official NPS pages and media",
+      "Caltech paper abstract",
+      "Browser video preview",
+      "Decoded source contact sheet"
+    ],
+    "unresolved_gaps": [],
+    "notes": [
+      "Complete only for the bounded five pilot claims; mechanism review not comprehensive.",
+      "NPS source is ambient sound with on-screen captions, no spoken transcript needed.",
+      "Human listening preference and final publication approval remain outside source verification."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false
+  }
+}

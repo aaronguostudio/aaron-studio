@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "topic": "Singing sands",
+  "thesis": "Some apparently silent landscapes have a conditional audible voice.",
+  "sources": [
+    {
+      "id": "nps-sound",
+      "url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "publisher": "National Park Service",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "NPS credit; no copyright symbol; page states public-domain use. Browser and decoded source frames inspected."
+    },
+    {
+      "id": "nps-eureka",
+      "url": "https://www.nps.gov/places/eureka-dunes.htm",
+      "publisher": "National Park Service",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Photo explicitly credited NPS photo; text supports dryness and organ/airplane comparison."
+    },
+    {
+      "id": "caltech",
+      "url": "https://authors.library.caltech.edu/records/s0m0a-cyg09",
+      "publisher": "CaltechAUTHORS",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "2007 Vriend et al. abstract challenges grain-size theory; narration only acknowledges competing explanations."
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Some dunes produce sustained low sound during avalanches.",
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f2",
+      "claim": "The NPS recording is from Great Sand Dunes National Park.",
+      "source_ids": [
+        "nps-sound"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f3",
+      "claim": "At Eureka Dunes, dry sand can boom; damp sand does not.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f4",
+      "claim": "The sound can resemble a low organ note or distant airplane.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f5",
+      "claim": "Research has proposed different mechanisms for sustaining dune sound.",
+      "source_ids": [
+        "caltech"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    }
+  ]
+}

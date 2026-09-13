@@ -1,0 +1,3230 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-08T13:52:50.637Z",
+  "source": {
+    "script": "youtube-script.md",
+    "script_sha256": "39e536c0b3f3e2ffa1a9df923ec1e6448406d3b6796c17550f58bf617275220e",
+    "transcript": "audio-transcript.md",
+    "transcript_sha256": "0882e645dc44fadf4cd2c769c7c996d528eeec301d1558504b9ea6e34e92fc71"
+  },
+  "tts": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "voice_profile_selection": {
+    "id": "aaron-pvc-identity-v1",
+    "selected_sample": "B",
+    "selected_at": "2026-07-11",
+    "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate."
+  },
+  "outputs": {
+    "final": "audio.mp3",
+    "raw": "audio-raw.mp3",
+    "sample_60s": "audio-sample-60s.mp3",
+    "sample_middle_60s": "audio-sample-middle-60s.mp3",
+    "sample_late_60s": "audio-sample-late-60s.mp3"
+  },
+  "qa": {
+    "durationSeconds": 311.518912,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192044,
+    "integratedLufs": -16.6,
+    "truePeakDb": -1.64,
+    "loudnessRange": 3.8,
+    "longSilenceCount": 0
+  },
+  "sample_windows": {
+    "openingStartSeconds": 0,
+    "middleStartSeconds": 125.759456,
+    "lateStartSeconds": 251.518912
+  },
+  "timeline": {
+    "duration": 311.51891199999994,
+    "segments": [
+      {
+        "id": "hook",
+        "title": "Hook",
+        "start": 0,
+        "end": 33.436735,
+        "duration": 33.436735
+      },
+      {
+        "id": "slide-01",
+        "title": "From grains to your ears",
+        "start": 33.436735,
+        "end": 59.814603,
+        "duration": 26.377868
+      },
+      {
+        "id": "slide-02",
+        "title": "Change one thing",
+        "start": 59.814603,
+        "end": 88.978866,
+        "duration": 29.164263
+      },
+      {
+        "id": "slide-03",
+        "title": "What a clearer note means",
+        "start": 88.978866,
+        "end": 115.449614,
+        "duration": 26.470748
+      },
+      {
+        "id": "slide-04",
+        "title": "A later chapter in the debate",
+        "start": 115.449614,
+        "end": 147.911111,
+        "duration": 32.461497
+      },
+      {
+        "id": "slide-05",
+        "title": "Ask a sharper question",
+        "start": 147.911111,
+        "end": 174.10322,
+        "duration": 26.192109
+      },
+      {
+        "id": "slide-06",
+        "title": "A factory can sing too",
+        "start": 174.10322,
+        "end": 210.697869,
+        "duration": 36.594649
+      },
+      {
+        "id": "slide-07",
+        "title": "When sound is a problem",
+        "start": 210.697869,
+        "end": 239.397733,
+        "duration": 28.699864
+      },
+      {
+        "id": "slide-08",
+        "title": "Grains that grip",
+        "start": 239.397733,
+        "end": 281.84380999999996,
+        "duration": 42.446077
+      },
+      {
+        "id": "slide-09",
+        "title": "Why the small things matter",
+        "start": 281.84380999999996,
+        "end": 311.51891199999994,
+        "duration": 29.675102
+      }
+    ],
+    "wordTimings": [
+      {
+        "word": "Why",
+        "start": 0,
+        "end": 0.209
+      },
+      {
+        "word": "does",
+        "start": 0.255,
+        "end": 0.43
+      },
+      {
+        "word": "that",
+        "start": 0.476,
+        "end": 0.65
+      },
+      {
+        "word": "sound",
+        "start": 0.72,
+        "end": 1.022
+      },
+      {
+        "word": "feel",
+        "start": 1.126,
+        "end": 1.347
+      },
+      {
+        "word": "so",
+        "start": 1.405,
+        "end": 1.544
+      },
+      {
+        "word": "surprising?",
+        "start": 1.602,
+        "end": 2.368
+      },
+      {
+        "word": "Because",
+        "start": 3.228,
+        "end": 3.634
+      },
+      {
+        "word": "loose",
+        "start": 3.692,
+        "end": 3.982
+      },
+      {
+        "word": "sand",
+        "start": 4.052,
+        "end": 4.377
+      },
+      {
+        "word": "usually",
+        "start": 4.493,
+        "end": 4.818
+      },
+      {
+        "word": "gives",
+        "start": 4.876,
+        "end": 5.12
+      },
+      {
+        "word": "us",
+        "start": 5.224,
+        "end": 5.41
+      },
+      {
+        "word": "a",
+        "start": 5.492,
+        "end": 5.538
+      },
+      {
+        "word": "scattered",
+        "start": 5.642,
+        "end": 6.258
+      },
+      {
+        "word": "hiss.",
+        "start": 6.362,
+        "end": 6.978
+      },
+      {
+        "word": "A",
+        "start": 7.709,
+        "end": 7.779
+      },
+      {
+        "word": "sustained",
+        "start": 7.86,
+        "end": 8.382
+      },
+      {
+        "word": "note",
+        "start": 8.522,
+        "end": 8.847
+      },
+      {
+        "word": "means",
+        "start": 8.916,
+        "end": 9.195
+      },
+      {
+        "word": "that",
+        "start": 9.253,
+        "end": 9.416
+      },
+      {
+        "word": "some",
+        "start": 9.474,
+        "end": 9.729
+      },
+      {
+        "word": "pattern",
+        "start": 9.776,
+        "end": 10.252
+      },
+      {
+        "word": "is",
+        "start": 10.333,
+        "end": 10.484
+      },
+      {
+        "word": "repeating.",
+        "start": 10.588,
+        "end": 11.25
+      },
+      {
+        "word": "At",
+        "start": 12.109,
+        "end": 12.26
+      },
+      {
+        "word": "the",
+        "start": 12.295,
+        "end": 12.365
+      },
+      {
+        "word": "dunes",
+        "start": 12.411,
+        "end": 12.713
+      },
+      {
+        "word": "examined",
+        "start": 12.783,
+        "end": 13.386
+      },
+      {
+        "word": "in",
+        "start": 13.491,
+        "end": 13.595
+      },
+      {
+        "word": "one",
+        "start": 13.677,
+        "end": 13.886
+      },
+      {
+        "word": "field",
+        "start": 13.92,
+        "end": 14.269
+      },
+      {
+        "word": "study,",
+        "start": 14.35,
+        "end": 15.081
+      },
+      {
+        "word": "the",
+        "start": 15.43,
+        "end": 15.546
+      },
+      {
+        "word": "strongest",
+        "start": 15.592,
+        "end": 16.324
+      },
+      {
+        "word": "frequencies",
+        "start": 16.428,
+        "end": 17.136
+      },
+      {
+        "word": "sat",
+        "start": 17.299,
+        "end": 17.636
+      },
+      {
+        "word": "between",
+        "start": 17.752,
+        "end": 18.089
+      },
+      {
+        "word": "seventy",
+        "start": 18.147,
+        "end": 18.669
+      },
+      {
+        "word": "and",
+        "start": 19.006,
+        "end": 19.18
+      },
+      {
+        "word": "one",
+        "start": 19.261,
+        "end": 19.447
+      },
+      {
+        "word": "hundred",
+        "start": 19.494,
+        "end": 19.819
+      },
+      {
+        "word": "and",
+        "start": 19.9,
+        "end": 20.028
+      },
+      {
+        "word": "five",
+        "start": 20.132,
+        "end": 20.446
+      },
+      {
+        "word": "hertz.",
+        "start": 20.515,
+        "end": 21.142
+      },
+      {
+        "word": "That's",
+        "start": 21.839,
+        "end": 22.129
+      },
+      {
+        "word": "around",
+        "start": 22.187,
+        "end": 22.535
+      },
+      {
+        "word": "seventy",
+        "start": 22.652,
+        "end": 23.139
+      },
+      {
+        "word": "to",
+        "start": 23.209,
+        "end": 23.29
+      },
+      {
+        "word": "a",
+        "start": 23.371,
+        "end": 23.406
+      },
+      {
+        "word": "hundred",
+        "start": 23.487,
+        "end": 23.871
+      },
+      {
+        "word": "vibrations",
+        "start": 23.987,
+        "end": 24.73
+      },
+      {
+        "word": "each",
+        "start": 24.846,
+        "end": 25.066
+      },
+      {
+        "word": "second.",
+        "start": 25.159,
+        "end": 25.833
+      },
+      {
+        "word": "The",
+        "start": 26.645,
+        "end": 26.785
+      },
+      {
+        "word": "landscape",
+        "start": 26.854,
+        "end": 27.446
+      },
+      {
+        "word": "sounds",
+        "start": 27.505,
+        "end": 27.911
+      },
+      {
+        "word": "still,",
+        "start": 28.027,
+        "end": 28.747
+      },
+      {
+        "word": "yet",
+        "start": 29.258,
+        "end": 29.594
+      },
+      {
+        "word": "something",
+        "start": 29.71,
+        "end": 30.175
+      },
+      {
+        "word": "inside",
+        "start": 30.244,
+        "end": 30.697
+      },
+      {
+        "word": "it",
+        "start": 30.744,
+        "end": 30.86
+      },
+      {
+        "word": "is",
+        "start": 30.941,
+        "end": 31.104
+      },
+      {
+        "word": "intensely",
+        "start": 31.196,
+        "end": 31.789
+      },
+      {
+        "word": "active.",
+        "start": 31.858,
+        "end": 33.437
+      },
+      {
+        "word": "And",
+        "start": 33.436735,
+        "end": 33.645735
+      },
+      {
+        "word": "how",
+        "start": 33.796735,
+        "end": 34.016735
+      },
+      {
+        "word": "does",
+        "start": 34.075735,
+        "end": 34.272735
+      },
+      {
+        "word": "movement",
+        "start": 34.376735,
+        "end": 34.841735
+      },
+      {
+        "word": "become",
+        "start": 34.910734999999995,
+        "end": 35.340734999999995
+      },
+      {
+        "word": "something",
+        "start": 35.386735,
+        "end": 35.793735
+      },
+      {
+        "word": "we",
+        "start": 35.839735,
+        "end": 35.979735
+      },
+      {
+        "word": "hear?",
+        "start": 36.048735,
+        "end": 36.547734999999996
+      },
+      {
+        "word": "Sound",
+        "start": 37.209735,
+        "end": 37.558735
+      },
+      {
+        "word": "travels",
+        "start": 37.604735,
+        "end": 38.080735
+      },
+      {
+        "word": "through",
+        "start": 38.150735,
+        "end": 38.452735
+      },
+      {
+        "word": "air",
+        "start": 38.521735,
+        "end": 38.800734999999996
+      },
+      {
+        "word": "as",
+        "start": 39.218734999999995,
+        "end": 39.415735
+      },
+      {
+        "word": "small",
+        "start": 39.554735,
+        "end": 39.972735
+      },
+      {
+        "word": "changes",
+        "start": 40.042735,
+        "end": 40.530735
+      },
+      {
+        "word": "in",
+        "start": 40.611734999999996,
+        "end": 40.704735
+      },
+      {
+        "word": "pressure.",
+        "start": 40.774735,
+        "end": 41.435735
+      },
+      {
+        "word": "Air",
+        "start": 42.503735,
+        "end": 42.712734999999995
+      },
+      {
+        "word": "particles",
+        "start": 42.770735,
+        "end": 43.281735
+      },
+      {
+        "word": "pass",
+        "start": 43.397735,
+        "end": 43.722735
+      },
+      {
+        "word": "the",
+        "start": 43.839735,
+        "end": 43.920735
+      },
+      {
+        "word": "disturbance",
+        "start": 43.989734999999996,
+        "end": 44.674735
+      },
+      {
+        "word": "along;",
+        "start": 44.721734999999995,
+        "end": 45.278735
+      },
+      {
+        "word": "they",
+        "start": 45.696735,
+        "end": 45.847735
+      },
+      {
+        "word": "don't",
+        "start": 45.905735,
+        "end": 46.126735
+      },
+      {
+        "word": "fly",
+        "start": 46.242734999999996,
+        "end": 46.660735
+      },
+      {
+        "word": "all",
+        "start": 46.776735,
+        "end": 46.962734999999995
+      },
+      {
+        "word": "the",
+        "start": 47.020735,
+        "end": 47.078734999999995
+      },
+      {
+        "word": "way",
+        "start": 47.147735,
+        "end": 47.368735
+      },
+      {
+        "word": "from",
+        "start": 47.449735,
+        "end": 47.681734999999996
+      },
+      {
+        "word": "the",
+        "start": 47.751735,
+        "end": 47.832735
+      },
+      {
+        "word": "dune",
+        "start": 47.902735,
+        "end": 48.204735
+      },
+      {
+        "word": "into",
+        "start": 48.262735,
+        "end": 48.471734999999995
+      },
+      {
+        "word": "your",
+        "start": 48.552735,
+        "end": 48.726735
+      },
+      {
+        "word": "ear.",
+        "start": 48.830735,
+        "end": 49.341735
+      },
+      {
+        "word": "Think",
+        "start": 49.759735,
+        "end": 50.050735
+      },
+      {
+        "word": "of",
+        "start": 50.108734999999996,
+        "end": 50.212734999999995
+      },
+      {
+        "word": "a",
+        "start": 50.282735,
+        "end": 50.317735
+      },
+      {
+        "word": "message",
+        "start": 50.386735,
+        "end": 50.816734999999994
+      },
+      {
+        "word": "passed",
+        "start": 50.874735,
+        "end": 51.303735
+      },
+      {
+        "word": "through",
+        "start": 51.396735,
+        "end": 51.721734999999995
+      },
+      {
+        "word": "a",
+        "start": 51.803735,
+        "end": 51.861734999999996
+      },
+      {
+        "word": "crowd.",
+        "start": 51.942735,
+        "end": 52.650735
+      },
+      {
+        "word": "Our",
+        "start": 53.463735,
+        "end": 53.614734999999996
+      },
+      {
+        "word": "slow",
+        "start": 53.672735,
+        "end": 54.055735
+      },
+      {
+        "word": "animation",
+        "start": 54.171735,
+        "end": 54.786735
+      },
+      {
+        "word": "shows",
+        "start": 54.868735,
+        "end": 55.204735
+      },
+      {
+        "word": "the",
+        "start": 55.274735,
+        "end": 55.367734999999996
+      },
+      {
+        "word": "idea,",
+        "start": 55.448735,
+        "end": 55.924735
+      },
+      {
+        "word": "not",
+        "start": 55.971734999999995,
+        "end": 56.203734999999995
+      },
+      {
+        "word": "the",
+        "start": 56.249735,
+        "end": 56.330735
+      },
+      {
+        "word": "actual",
+        "start": 56.412735,
+        "end": 56.807734999999994
+      },
+      {
+        "word": "speed",
+        "start": 56.865735,
+        "end": 57.259735
+      },
+      {
+        "word": "of",
+        "start": 57.352734999999996,
+        "end": 57.491735
+      },
+      {
+        "word": "these",
+        "start": 57.584734999999995,
+        "end": 57.805735
+      },
+      {
+        "word": "vibrations.",
+        "start": 57.863735,
+        "end": 59.813734999999994
+      },
+      {
+        "word": "The",
+        "start": 59.814603,
+        "end": 59.977602999999995
+      },
+      {
+        "word": "researchers",
+        "start": 60.035602999999995,
+        "end": 60.603603
+      },
+      {
+        "word": "did",
+        "start": 60.685603,
+        "end": 60.905603
+      },
+      {
+        "word": "more",
+        "start": 60.975603,
+        "end": 61.277603
+      },
+      {
+        "word": "than",
+        "start": 61.323603,
+        "end": 61.486602999999995
+      },
+      {
+        "word": "pour",
+        "start": 61.555603,
+        "end": 61.881603
+      },
+      {
+        "word": "sand",
+        "start": 61.950603,
+        "end": 62.287603
+      },
+      {
+        "word": "onto",
+        "start": 62.368603,
+        "end": 62.624603
+      },
+      {
+        "word": "a",
+        "start": 62.728603,
+        "end": 62.775603
+      },
+      {
+        "word": "desk.",
+        "start": 62.856603,
+        "end": 63.483602999999995
+      },
+      {
+        "word": "They",
+        "start": 64.330603,
+        "end": 64.516603
+      },
+      {
+        "word": "used",
+        "start": 64.59760299999999,
+        "end": 64.84160299999999
+      },
+      {
+        "word": "an",
+        "start": 64.911603,
+        "end": 65.015603
+      },
+      {
+        "word": "inclined",
+        "start": 65.09760299999999,
+        "end": 65.631603
+      },
+      {
+        "word": "channel,",
+        "start": 65.689603,
+        "end": 66.385603
+      },
+      {
+        "word": "prepared",
+        "start": 66.629603,
+        "end": 67.08260299999999
+      },
+      {
+        "word": "layers",
+        "start": 67.18660299999999,
+        "end": 67.500603
+      },
+      {
+        "word": "of",
+        "start": 67.558603,
+        "end": 67.651603
+      },
+      {
+        "word": "sand,",
+        "start": 67.720603,
+        "end": 68.313603
+      },
+      {
+        "word": "and",
+        "start": 68.777603,
+        "end": 68.939603
+      },
+      {
+        "word": "removed",
+        "start": 69.044603,
+        "end": 69.427603
+      },
+      {
+        "word": "a",
+        "start": 69.473603,
+        "end": 69.497603
+      },
+      {
+        "word": "gate",
+        "start": 69.578603,
+        "end": 69.822603
+      },
+      {
+        "word": "to",
+        "start": 69.880603,
+        "end": 69.98460299999999
+      },
+      {
+        "word": "start",
+        "start": 70.054603,
+        "end": 70.367603
+      },
+      {
+        "word": "an",
+        "start": 70.426603,
+        "end": 70.518603
+      },
+      {
+        "word": "avalanche.",
+        "start": 70.623603,
+        "end": 71.378603
+      },
+      {
+        "word": "Microphones",
+        "start": 72.376603,
+        "end": 73.165603
+      },
+      {
+        "word": "and",
+        "start": 73.235603,
+        "end": 73.363603
+      },
+      {
+        "word": "acceleration",
+        "start": 73.467603,
+        "end": 74.21060299999999
+      },
+      {
+        "word": "sensors",
+        "start": 74.280603,
+        "end": 74.790603
+      },
+      {
+        "word": "recorded",
+        "start": 74.895603,
+        "end": 75.452603
+      },
+      {
+        "word": "what",
+        "start": 75.522603,
+        "end": 75.73160299999999
+      },
+      {
+        "word": "happened.",
+        "start": 75.801603,
+        "end": 76.428603
+      },
+      {
+        "word": "Bringing",
+        "start": 77.04360299999999,
+        "end": 77.600603
+      },
+      {
+        "word": "the",
+        "start": 77.670603,
+        "end": 77.763603
+      },
+      {
+        "word": "phenomenon",
+        "start": 77.821603,
+        "end": 78.43660299999999
+      },
+      {
+        "word": "indoors",
+        "start": 78.552603,
+        "end": 79.284603
+      },
+      {
+        "word": "made",
+        "start": 79.980603,
+        "end": 80.224603
+      },
+      {
+        "word": "it",
+        "start": 80.270603,
+        "end": 80.363603
+      },
+      {
+        "word": "possible",
+        "start": 80.433603,
+        "end": 80.944603
+      },
+      {
+        "word": "to",
+        "start": 80.979603,
+        "end": 81.048603
+      },
+      {
+        "word": "control",
+        "start": 81.141603,
+        "end": 81.571603
+      },
+      {
+        "word": "the",
+        "start": 81.629603,
+        "end": 81.71060299999999
+      },
+      {
+        "word": "setup",
+        "start": 81.780603,
+        "end": 82.221603
+      },
+      {
+        "word": "and",
+        "start": 82.314603,
+        "end": 82.488603
+      },
+      {
+        "word": "compare",
+        "start": 82.639603,
+        "end": 83.057603
+      },
+      {
+        "word": "samples.",
+        "start": 83.115603,
+        "end": 83.928603
+      },
+      {
+        "word": "A",
+        "start": 84.624603,
+        "end": 84.705603
+      },
+      {
+        "word": "strange",
+        "start": 84.78760299999999,
+        "end": 85.239603
+      },
+      {
+        "word": "landscape",
+        "start": 85.298603,
+        "end": 85.797603
+      },
+      {
+        "word": "had",
+        "start": 85.843603,
+        "end": 85.994603
+      },
+      {
+        "word": "become",
+        "start": 86.110603,
+        "end": 86.540603
+      },
+      {
+        "word": "a",
+        "start": 86.598603,
+        "end": 86.65660299999999
+      },
+      {
+        "word": "testable",
+        "start": 86.737603,
+        "end": 87.236603
+      },
+      {
+        "word": "experiment.",
+        "start": 87.283603,
+        "end": 88.97860299999999
+      },
+      {
+        "word": "A",
+        "start": 88.978866,
+        "end": 89.094866
+      },
+      {
+        "word": "clearer",
+        "start": 89.175866,
+        "end": 89.61786599999999
+      },
+      {
+        "word": "note",
+        "start": 89.686866,
+        "end": 89.942866
+      },
+      {
+        "word": "doesn't",
+        "start": 89.976866,
+        "end": 90.278866
+      },
+      {
+        "word": "mean",
+        "start": 90.32586599999999,
+        "end": 90.487866
+      },
+      {
+        "word": "the",
+        "start": 90.534866,
+        "end": 90.615866
+      },
+      {
+        "word": "sand",
+        "start": 90.67386599999999,
+        "end": 91.010866
+      },
+      {
+        "word": "became",
+        "start": 91.103866,
+        "end": 91.532866
+      },
+      {
+        "word": "louder.",
+        "start": 91.613866,
+        "end": 92.264866
+      },
+      {
+        "word": "Pitch,",
+        "start": 92.774866,
+        "end": 93.378866
+      },
+      {
+        "word": "loudness,",
+        "start": 93.529866,
+        "end": 94.365866
+      },
+      {
+        "word": "and",
+        "start": 94.53986599999999,
+        "end": 94.690866
+      },
+      {
+        "word": "the",
+        "start": 94.737866,
+        "end": 94.806866
+      },
+      {
+        "word": "mixture",
+        "start": 94.87686599999999,
+        "end": 95.282866
+      },
+      {
+        "word": "of",
+        "start": 95.317866,
+        "end": 95.375866
+      },
+      {
+        "word": "frequencies",
+        "start": 95.445866,
+        "end": 96.199866
+      },
+      {
+        "word": "are",
+        "start": 96.25786599999999,
+        "end": 96.397866
+      },
+      {
+        "word": "different",
+        "start": 96.443866,
+        "end": 96.792866
+      },
+      {
+        "word": "features",
+        "start": 96.87386599999999,
+        "end": 97.34986599999999
+      },
+      {
+        "word": "of",
+        "start": 97.430866,
+        "end": 97.546866
+      },
+      {
+        "word": "a",
+        "start": 97.639866,
+        "end": 97.674866
+      },
+      {
+        "word": "sound.",
+        "start": 97.744866,
+        "end": 98.359866
+      },
+      {
+        "word": "In",
+        "start": 99.659866,
+        "end": 99.810866
+      },
+      {
+        "word": "the",
+        "start": 99.845866,
+        "end": 99.915866
+      },
+      {
+        "word": "sorting",
+        "start": 99.984866,
+        "end": 100.356866
+      },
+      {
+        "word": "experiment,",
+        "start": 100.425866,
+        "end": 101.470866
+      },
+      {
+        "word": "selecting",
+        "start": 101.749866,
+        "end": 102.318866
+      },
+      {
+        "word": "a",
+        "start": 102.388866,
+        "end": 102.411866
+      },
+      {
+        "word": "narrower",
+        "start": 102.49286599999999,
+        "end": 103.142866
+      },
+      {
+        "word": "range",
+        "start": 103.467866,
+        "end": 103.839866
+      },
+      {
+        "word": "of",
+        "start": 103.90886599999999,
+        "end": 104.048866
+      },
+      {
+        "word": "grain",
+        "start": 104.16486599999999,
+        "end": 104.454866
+      },
+      {
+        "word": "sizes",
+        "start": 104.547866,
+        "end": 105.06986599999999
+      },
+      {
+        "word": "made",
+        "start": 105.162866,
+        "end": 105.371866
+      },
+      {
+        "word": "the",
+        "start": 105.394866,
+        "end": 105.464866
+      },
+      {
+        "word": "frequency",
+        "start": 105.534866,
+        "end": 106.103866
+      },
+      {
+        "word": "more",
+        "start": 106.184866,
+        "end": 106.404866
+      },
+      {
+        "word": "defined.",
+        "start": 106.451866,
+        "end": 107.19486599999999
+      },
+      {
+        "word": "The",
+        "start": 107.89086599999999,
+        "end": 108.018866
+      },
+      {
+        "word": "sieve",
+        "start": 108.09986599999999,
+        "end": 108.37886599999999
+      },
+      {
+        "word": "didn't",
+        "start": 108.436866,
+        "end": 108.773866
+      },
+      {
+        "word": "manufacture",
+        "start": 108.81986599999999,
+        "end": 109.52786599999999
+      },
+      {
+        "word": "musical",
+        "start": 109.586866,
+        "end": 110.038866
+      },
+      {
+        "word": "grains.",
+        "start": 110.10886599999999,
+        "end": 110.793866
+      },
+      {
+        "word": "It",
+        "start": 111.304866,
+        "end": 111.466866
+      },
+      {
+        "word": "selected",
+        "start": 111.536866,
+        "end": 112.12886599999999
+      },
+      {
+        "word": "grains",
+        "start": 112.244866,
+        "end": 112.662866
+      },
+      {
+        "word": "already",
+        "start": 112.732866,
+        "end": 113.127866
+      },
+      {
+        "word": "present",
+        "start": 113.196866,
+        "end": 113.684866
+      },
+      {
+        "word": "in",
+        "start": 113.75486599999999,
+        "end": 113.87086599999999
+      },
+      {
+        "word": "the",
+        "start": 113.916866,
+        "end": 113.99786599999999
+      },
+      {
+        "word": "sample.",
+        "start": 114.055866,
+        "end": 115.449866
+      },
+      {
+        "word": "A",
+        "start": 115.449614,
+        "end": 115.565614
+      },
+      {
+        "word": "later",
+        "start": 115.681614,
+        "end": 115.983614
+      },
+      {
+        "word": "field",
+        "start": 116.06461399999999,
+        "end": 116.378614
+      },
+      {
+        "word": "study,",
+        "start": 116.494614,
+        "end": 117.15661399999999
+      },
+      {
+        "word": "published",
+        "start": 117.330614,
+        "end": 117.82961399999999
+      },
+      {
+        "word": "in",
+        "start": 117.910614,
+        "end": 118.003614
+      },
+      {
+        "word": "twenty",
+        "start": 118.06161399999999,
+        "end": 118.386614
+      },
+      {
+        "word": "fifteen,",
+        "start": 118.456614,
+        "end": 119.222614
+      },
+      {
+        "word": "separated",
+        "start": 119.652614,
+        "end": 120.279614
+      },
+      {
+        "word": "short",
+        "start": 120.395614,
+        "end": 120.720614
+      },
+      {
+        "word": "bursts",
+        "start": 120.77861399999999,
+        "end": 121.196614
+      },
+      {
+        "word": "of",
+        "start": 121.254614,
+        "end": 121.370614
+      },
+      {
+        "word": "sound",
+        "start": 121.486614,
+        "end": 121.904614
+      },
+      {
+        "word": "from",
+        "start": 122.020614,
+        "end": 122.28761399999999
+      },
+      {
+        "word": "the",
+        "start": 122.369614,
+        "end": 122.450614
+      },
+      {
+        "word": "longer",
+        "start": 122.53161399999999,
+        "end": 122.868614
+      },
+      {
+        "word": "boom.",
+        "start": 122.937614,
+        "end": 123.541614
+      },
+      {
+        "word": "The",
+        "start": 123.982614,
+        "end": 124.098614
+      },
+      {
+        "word": "researchers",
+        "start": 124.18061399999999,
+        "end": 124.84161399999999
+      },
+      {
+        "word": "called",
+        "start": 124.958614,
+        "end": 125.32961399999999
+      },
+      {
+        "word": "the",
+        "start": 125.422614,
+        "end": 125.515614
+      },
+      {
+        "word": "short",
+        "start": 125.56161399999999,
+        "end": 125.875614
+      },
+      {
+        "word": "bursts",
+        "start": 125.968614,
+        "end": 126.548614
+      },
+      {
+        "word": "burps,",
+        "start": 126.873614,
+        "end": 127.744614
+      },
+      {
+        "word": "and",
+        "start": 128.127614,
+        "end": 128.290614
+      },
+      {
+        "word": "found",
+        "start": 128.371614,
+        "end": 128.661614
+      },
+      {
+        "word": "that",
+        "start": 128.777614,
+        "end": 128.963614
+      },
+      {
+        "word": "they",
+        "start": 129.033614,
+        "end": 129.323614
+      },
+      {
+        "word": "involved",
+        "start": 129.416614,
+        "end": 129.915614
+      },
+      {
+        "word": "different",
+        "start": 130.031614,
+        "end": 130.391614
+      },
+      {
+        "word": "kinds",
+        "start": 130.437614,
+        "end": 130.76261399999999
+      },
+      {
+        "word": "of",
+        "start": 130.809614,
+        "end": 130.925614
+      },
+      {
+        "word": "waves.",
+        "start": 131.041614,
+        "end": 131.71461399999998
+      },
+      {
+        "word": "Their",
+        "start": 132.156614,
+        "end": 132.388614
+      },
+      {
+        "word": "analysis",
+        "start": 132.457614,
+        "end": 133.119614
+      },
+      {
+        "word": "again",
+        "start": 133.189614,
+        "end": 133.560614
+      },
+      {
+        "word": "supported",
+        "start": 133.642614,
+        "end": 134.350614
+      },
+      {
+        "word": "a",
+        "start": 134.443614,
+        "end": 134.51261399999999
+      },
+      {
+        "word": "role",
+        "start": 134.628614,
+        "end": 135.116614
+      },
+      {
+        "word": "for",
+        "start": 135.174614,
+        "end": 135.337614
+      },
+      {
+        "word": "the",
+        "start": 135.383614,
+        "end": 135.453614
+      },
+      {
+        "word": "dune's",
+        "start": 135.511614,
+        "end": 135.95261399999998
+      },
+      {
+        "word": "layers",
+        "start": 136.231614,
+        "end": 136.823614
+      },
+      {
+        "word": "in",
+        "start": 137.206614,
+        "end": 137.345614
+      },
+      {
+        "word": "the",
+        "start": 137.392614,
+        "end": 137.461614
+      },
+      {
+        "word": "sustained",
+        "start": 137.531614,
+        "end": 138.06561399999998
+      },
+      {
+        "word": "booming.",
+        "start": 138.181614,
+        "end": 138.773614
+      },
+      {
+        "word": "So",
+        "start": 139.21461399999998,
+        "end": 139.423614
+      },
+      {
+        "word": "scale",
+        "start": 139.493614,
+        "end": 139.89961399999999
+      },
+      {
+        "word": "matters:",
+        "start": 139.946614,
+        "end": 140.747614
+      },
+      {
+        "word": "a",
+        "start": 141.560614,
+        "end": 141.629614
+      },
+      {
+        "word": "shallow",
+        "start": 141.722614,
+        "end": 142.117614
+      },
+      {
+        "word": "laboratory",
+        "start": 142.187614,
+        "end": 142.709614
+      },
+      {
+        "word": "flow",
+        "start": 142.77961399999998,
+        "end": 143.197614
+      },
+      {
+        "word": "and",
+        "start": 143.580614,
+        "end": 143.789614
+      },
+      {
+        "word": "a",
+        "start": 143.870614,
+        "end": 143.89361399999999
+      },
+      {
+        "word": "large",
+        "start": 143.963614,
+        "end": 144.311614
+      },
+      {
+        "word": "dune",
+        "start": 144.38161399999998,
+        "end": 144.880614
+      },
+      {
+        "word": "need",
+        "start": 145.031614,
+        "end": 145.298614
+      },
+      {
+        "word": "careful",
+        "start": 145.426614,
+        "end": 145.820614
+      },
+      {
+        "word": "comparison.",
+        "start": 145.902614,
+        "end": 147.910614
+      },
+      {
+        "word": "That",
+        "start": 147.911111,
+        "end": 148.178111
+      },
+      {
+        "word": "is",
+        "start": 148.29411100000002,
+        "end": 148.422111
+      },
+      {
+        "word": "useful",
+        "start": 148.52611100000001,
+        "end": 148.933111
+      },
+      {
+        "word": "scientific",
+        "start": 148.99111100000002,
+        "end": 149.594111
+      },
+      {
+        "word": "progress,",
+        "start": 149.676111,
+        "end": 150.512111
+      },
+      {
+        "word": "even",
+        "start": 150.87211100000002,
+        "end": 151.162111
+      },
+      {
+        "word": "without",
+        "start": 151.220111,
+        "end": 151.591111
+      },
+      {
+        "word": "a",
+        "start": 151.661111,
+        "end": 151.719111
+      },
+      {
+        "word": "single",
+        "start": 151.80011100000002,
+        "end": 152.149111
+      },
+      {
+        "word": "tidy",
+        "start": 152.183111,
+        "end": 152.555111
+      },
+      {
+        "word": "answer.",
+        "start": 152.613111,
+        "end": 153.21711100000002
+      },
+      {
+        "word": "Instead",
+        "start": 154.111111,
+        "end": 154.61011100000002
+      },
+      {
+        "word": "of",
+        "start": 154.680111,
+        "end": 154.784111
+      },
+      {
+        "word": "asking",
+        "start": 154.900111,
+        "end": 155.307111
+      },
+      {
+        "word": "only,",
+        "start": 155.399111,
+        "end": 155.899111
+      },
+      {
+        "word": "why",
+        "start": 156.096111,
+        "end": 156.293111
+      },
+      {
+        "word": "does",
+        "start": 156.351111,
+        "end": 156.52611100000001
+      },
+      {
+        "word": "sand",
+        "start": 156.595111,
+        "end": 156.944111
+      },
+      {
+        "word": "sing,",
+        "start": 157.025111,
+        "end": 157.559111
+      },
+      {
+        "word": "we",
+        "start": 157.721111,
+        "end": 157.861111
+      },
+      {
+        "word": "can",
+        "start": 157.90711100000001,
+        "end": 158.058111
+      },
+      {
+        "word": "ask:",
+        "start": 158.12811100000002,
+        "end": 158.697111
+      },
+      {
+        "word": "what",
+        "start": 158.964111,
+        "end": 159.161111
+      },
+      {
+        "word": "starts",
+        "start": 159.254111,
+        "end": 159.614111
+      },
+      {
+        "word": "the",
+        "start": 159.684111,
+        "end": 159.765111
+      },
+      {
+        "word": "vibration?",
+        "start": 159.834111,
+        "end": 160.589111
+      },
+      {
+        "word": "What",
+        "start": 160.891111,
+        "end": 161.088111
+      },
+      {
+        "word": "selects",
+        "start": 161.17011100000002,
+        "end": 161.553111
+      },
+      {
+        "word": "the",
+        "start": 161.599111,
+        "end": 161.692111
+      },
+      {
+        "word": "pitch?",
+        "start": 161.750111,
+        "end": 162.273111
+      },
+      {
+        "word": "What",
+        "start": 162.749111,
+        "end": 162.945111
+      },
+      {
+        "word": "makes",
+        "start": 163.015111,
+        "end": 163.24711100000002
+      },
+      {
+        "word": "it",
+        "start": 163.317111,
+        "end": 163.445111
+      },
+      {
+        "word": "loud",
+        "start": 163.561111,
+        "end": 163.828111
+      },
+      {
+        "word": "enough",
+        "start": 163.921111,
+        "end": 164.19911100000002
+      },
+      {
+        "word": "to",
+        "start": 164.246111,
+        "end": 164.339111
+      },
+      {
+        "word": "hear?",
+        "start": 164.45511100000002,
+        "end": 164.93111100000002
+      },
+      {
+        "word": "And",
+        "start": 165.883111,
+        "end": 166.04511100000002
+      },
+      {
+        "word": "what",
+        "start": 166.161111,
+        "end": 166.32411100000002
+      },
+      {
+        "word": "keeps",
+        "start": 166.405111,
+        "end": 166.649111
+      },
+      {
+        "word": "it",
+        "start": 166.719111,
+        "end": 166.835111
+      },
+      {
+        "word": "going?",
+        "start": 166.904111,
+        "end": 167.427111
+      },
+      {
+        "word": "One",
+        "start": 168.541111,
+        "end": 168.762111
+      },
+      {
+        "word": "experiment",
+        "start": 168.820111,
+        "end": 169.528111
+      },
+      {
+        "word": "may",
+        "start": 169.621111,
+        "end": 169.772111
+      },
+      {
+        "word": "answer",
+        "start": 169.84211100000002,
+        "end": 170.144111
+      },
+      {
+        "word": "one",
+        "start": 170.237111,
+        "end": 170.399111
+      },
+      {
+        "word": "of",
+        "start": 170.434111,
+        "end": 170.515111
+      },
+      {
+        "word": "those",
+        "start": 170.608111,
+        "end": 170.840111
+      },
+      {
+        "word": "questions",
+        "start": 170.887111,
+        "end": 171.398111
+      },
+      {
+        "word": "better",
+        "start": 171.47911100000002,
+        "end": 171.792111
+      },
+      {
+        "word": "than",
+        "start": 171.862111,
+        "end": 172.013111
+      },
+      {
+        "word": "the",
+        "start": 172.071111,
+        "end": 172.152111
+      },
+      {
+        "word": "others.",
+        "start": 172.245111,
+        "end": 174.103111
+      },
+      {
+        "word": "Does",
+        "start": 174.10322,
+        "end": 174.35822
+      },
+      {
+        "word": "any",
+        "start": 174.42821999999998,
+        "end": 174.63721999999999
+      },
+      {
+        "word": "of",
+        "start": 174.70722,
+        "end": 174.78822
+      },
+      {
+        "word": "this",
+        "start": 174.85822,
+        "end": 175.04322
+      },
+      {
+        "word": "connect",
+        "start": 175.12521999999998,
+        "end": 175.51922
+      },
+      {
+        "word": "to",
+        "start": 175.55422,
+        "end": 175.61221999999998
+      },
+      {
+        "word": "practical",
+        "start": 175.72822,
+        "end": 176.28622
+      },
+      {
+        "word": "engineering?",
+        "start": 176.35522,
+        "end": 177.18022
+      },
+      {
+        "word": "Yes,",
+        "start": 177.62122,
+        "end": 178.14321999999999
+      },
+      {
+        "word": "through",
+        "start": 178.31722,
+        "end": 178.61921999999998
+      },
+      {
+        "word": "the",
+        "start": 178.65421999999998,
+        "end": 178.72422
+      },
+      {
+        "word": "wider",
+        "start": 178.79322,
+        "end": 179.10721999999998
+      },
+      {
+        "word": "problem",
+        "start": 179.16522,
+        "end": 179.62922
+      },
+      {
+        "word": "of",
+        "start": 179.71122,
+        "end": 179.81521999999998
+      },
+      {
+        "word": "moving",
+        "start": 179.95422,
+        "end": 180.37222
+      },
+      {
+        "word": "granular",
+        "start": 180.45422,
+        "end": 181.06922
+      },
+      {
+        "word": "materials.",
+        "start": 181.13922,
+        "end": 182.07922
+      },
+      {
+        "word": "In",
+        "start": 183.18222,
+        "end": 183.33321999999998
+      },
+      {
+        "word": "tall,",
+        "start": 183.40322,
+        "end": 183.77421999999999
+      },
+      {
+        "word": "narrow",
+        "start": 183.82121999999998,
+        "end": 184.15722
+      },
+      {
+        "word": "silos,",
+        "start": 184.21522,
+        "end": 185.04022
+      },
+      {
+        "word": "researchers",
+        "start": 185.42322,
+        "end": 186.01522
+      },
+      {
+        "word": "have",
+        "start": 186.07322,
+        "end": 186.27022
+      },
+      {
+        "word": "measured",
+        "start": 186.37521999999998,
+        "end": 186.81622
+      },
+      {
+        "word": "pulsing",
+        "start": 186.90922,
+        "end": 187.36221999999998
+      },
+      {
+        "word": "motion",
+        "start": 187.44322,
+        "end": 187.80321999999998
+      },
+      {
+        "word": "and",
+        "start": 187.88422,
+        "end": 188.02321999999998
+      },
+      {
+        "word": "loud",
+        "start": 188.17422,
+        "end": 188.48821999999998
+      },
+      {
+        "word": "sound",
+        "start": 188.56922,
+        "end": 189.09222
+      },
+      {
+        "word": "as",
+        "start": 189.40521999999999,
+        "end": 189.61422
+      },
+      {
+        "word": "material",
+        "start": 189.76522,
+        "end": 190.31122
+      },
+      {
+        "word": "empties",
+        "start": 190.39222,
+        "end": 190.79822
+      },
+      {
+        "word": "out.",
+        "start": 190.91522,
+        "end": 191.42522
+      },
+      {
+        "word": "They",
+        "start": 192.11022,
+        "end": 192.27321999999998
+      },
+      {
+        "word": "call",
+        "start": 192.33122,
+        "end": 192.56322
+      },
+      {
+        "word": "these",
+        "start": 192.63322,
+        "end": 192.84222
+      },
+      {
+        "word": "effects",
+        "start": 192.88822,
+        "end": 193.27122
+      },
+      {
+        "word": "silo",
+        "start": 193.30622,
+        "end": 193.64321999999999
+      },
+      {
+        "word": "quake",
+        "start": 193.72422,
+        "end": 194.11921999999998
+      },
+      {
+        "word": "and",
+        "start": 194.17722,
+        "end": 194.33921999999998
+      },
+      {
+        "word": "silo",
+        "start": 194.47922,
+        "end": 194.86221999999998
+      },
+      {
+        "word": "music.",
+        "start": 194.94322,
+        "end": 195.65122
+      },
+      {
+        "word": "In",
+        "start": 196.69621999999998,
+        "end": 196.84722
+      },
+      {
+        "word": "the",
+        "start": 196.87022,
+        "end": 196.95221999999998
+      },
+      {
+        "word": "experiments,",
+        "start": 197.02122,
+        "end": 198.02022
+      },
+      {
+        "word": "friction",
+        "start": 198.33321999999998,
+        "end": 198.79822
+      },
+      {
+        "word": "between",
+        "start": 198.85622,
+        "end": 199.16922
+      },
+      {
+        "word": "the",
+        "start": 199.19222,
+        "end": 199.26221999999999
+      },
+      {
+        "word": "grains",
+        "start": 199.32022,
+        "end": 199.75021999999998
+      },
+      {
+        "word": "and",
+        "start": 199.80822,
+        "end": 199.91222
+      },
+      {
+        "word": "the",
+        "start": 199.95922,
+        "end": 200.01722
+      },
+      {
+        "word": "wall",
+        "start": 200.09822,
+        "end": 200.50422
+      },
+      {
+        "word": "could",
+        "start": 200.86422,
+        "end": 201.07322
+      },
+      {
+        "word": "alternate",
+        "start": 201.14321999999999,
+        "end": 201.66522
+      },
+      {
+        "word": "between",
+        "start": 201.71222,
+        "end": 202.03722
+      },
+      {
+        "word": "sticking",
+        "start": 202.10721999999998,
+        "end": 202.58321999999998
+      },
+      {
+        "word": "and",
+        "start": 202.66422,
+        "end": 202.81521999999998
+      },
+      {
+        "word": "slipping.",
+        "start": 202.96622,
+        "end": 203.63922
+      },
+      {
+        "word": "That",
+        "start": 204.53322,
+        "end": 204.74222
+      },
+      {
+        "word": "motion",
+        "start": 204.81222,
+        "end": 205.17221999999998
+      },
+      {
+        "word": "drove",
+        "start": 205.23022,
+        "end": 205.48522
+      },
+      {
+        "word": "the",
+        "start": 205.50822,
+        "end": 205.57822
+      },
+      {
+        "word": "silo's",
+        "start": 205.63621999999998,
+        "end": 206.03122
+      },
+      {
+        "word": "vibration,",
+        "start": 206.13621999999998,
+        "end": 207.00621999999998
+      },
+      {
+        "word": "and",
+        "start": 207.42422,
+        "end": 207.61022
+      },
+      {
+        "word": "sound",
+        "start": 207.73821999999998,
+        "end": 208.06322
+      },
+      {
+        "word": "resonance",
+        "start": 208.16722,
+        "end": 208.70221999999998
+      },
+      {
+        "word": "followed.",
+        "start": 208.76022,
+        "end": 210.69822
+      },
+      {
+        "word": "For",
+        "start": 210.697869,
+        "end": 210.894869
+      },
+      {
+        "word": "an",
+        "start": 210.987869,
+        "end": 211.080869
+      },
+      {
+        "word": "engineer,",
+        "start": 211.161869,
+        "end": 211.788869
+      },
+      {
+        "word": "this",
+        "start": 211.835869,
+        "end": 212.044869
+      },
+      {
+        "word": "is",
+        "start": 212.113869,
+        "end": 212.21886899999998
+      },
+      {
+        "word": "more",
+        "start": 212.334869,
+        "end": 212.531869
+      },
+      {
+        "word": "than",
+        "start": 212.566869,
+        "end": 212.70686899999998
+      },
+      {
+        "word": "a",
+        "start": 212.764869,
+        "end": 212.787869
+      },
+      {
+        "word": "curious",
+        "start": 212.868869,
+        "end": 213.414869
+      },
+      {
+        "word": "soundtrack.",
+        "start": 213.530869,
+        "end": 214.377869
+      },
+      {
+        "word": "Unwanted",
+        "start": 215.457869,
+        "end": 216.061869
+      },
+      {
+        "word": "vibration",
+        "start": 216.142869,
+        "end": 216.757869
+      },
+      {
+        "word": "can",
+        "start": 216.827869,
+        "end": 216.990869
+      },
+      {
+        "word": "be",
+        "start": 217.036869,
+        "end": 217.152869
+      },
+      {
+        "word": "a",
+        "start": 217.199869,
+        "end": 217.233869
+      },
+      {
+        "word": "structural",
+        "start": 217.280869,
+        "end": 217.860869
+      },
+      {
+        "word": "concern,",
+        "start": 217.930869,
+        "end": 218.731869
+      },
+      {
+        "word": "and",
+        "start": 219.23086899999998,
+        "end": 219.416869
+      },
+      {
+        "word": "loud",
+        "start": 219.567869,
+        "end": 219.834869
+      },
+      {
+        "word": "noise",
+        "start": 219.915869,
+        "end": 220.240869
+      },
+      {
+        "word": "is",
+        "start": 220.310869,
+        "end": 220.461869
+      },
+      {
+        "word": "a",
+        "start": 220.519869,
+        "end": 220.554869
+      },
+      {
+        "word": "problem",
+        "start": 220.612869,
+        "end": 221.065869
+      },
+      {
+        "word": "of",
+        "start": 221.146869,
+        "end": 221.227869
+      },
+      {
+        "word": "its",
+        "start": 221.320869,
+        "end": 221.506869
+      },
+      {
+        "word": "own.",
+        "start": 221.564869,
+        "end": 222.098869
+      },
+      {
+        "word": "The",
+        "start": 223.178869,
+        "end": 223.317869
+      },
+      {
+        "word": "mechanism",
+        "start": 223.398869,
+        "end": 224.014869
+      },
+      {
+        "word": "isn't",
+        "start": 224.107869,
+        "end": 224.43286899999998
+      },
+      {
+        "word": "automatically",
+        "start": 224.524869,
+        "end": 225.314869
+      },
+      {
+        "word": "identical",
+        "start": 225.383869,
+        "end": 225.964869
+      },
+      {
+        "word": "to",
+        "start": 226.034869,
+        "end": 226.115869
+      },
+      {
+        "word": "a",
+        "start": 226.231869,
+        "end": 226.26686899999999
+      },
+      {
+        "word": "singing",
+        "start": 226.336869,
+        "end": 226.719869
+      },
+      {
+        "word": "dune.",
+        "start": 226.800869,
+        "end": 227.392869
+      },
+      {
+        "word": "The",
+        "start": 228.321869,
+        "end": 228.449869
+      },
+      {
+        "word": "connection",
+        "start": 228.530869,
+        "end": 229.075869
+      },
+      {
+        "word": "is",
+        "start": 229.157869,
+        "end": 229.296869
+      },
+      {
+        "word": "the",
+        "start": 229.354869,
+        "end": 229.435869
+      },
+      {
+        "word": "engineering",
+        "start": 229.517869,
+        "end": 230.097869
+      },
+      {
+        "word": "question:",
+        "start": 230.167869,
+        "end": 230.898869
+      },
+      {
+        "word": "when",
+        "start": 231.502869,
+        "end": 231.688869
+      },
+      {
+        "word": "many",
+        "start": 231.757869,
+        "end": 232.013869
+      },
+      {
+        "word": "grains",
+        "start": 232.094869,
+        "end": 232.454869
+      },
+      {
+        "word": "move",
+        "start": 232.60586899999998,
+        "end": 232.953869
+      },
+      {
+        "word": "together,",
+        "start": 232.988869,
+        "end": 233.75486899999999
+      },
+      {
+        "word": "how",
+        "start": 234.451869,
+        "end": 234.648869
+      },
+      {
+        "word": "does",
+        "start": 234.71886899999998,
+        "end": 234.927869
+      },
+      {
+        "word": "their",
+        "start": 234.973869,
+        "end": 235.159869
+      },
+      {
+        "word": "collective",
+        "start": 235.240869,
+        "end": 235.786869
+      },
+      {
+        "word": "motion",
+        "start": 235.86786899999998,
+        "end": 236.239869
+      },
+      {
+        "word": "couple",
+        "start": 236.320869,
+        "end": 236.692869
+      },
+      {
+        "word": "to",
+        "start": 236.738869,
+        "end": 236.83186899999998
+      },
+      {
+        "word": "the",
+        "start": 236.912869,
+        "end": 236.982869
+      },
+      {
+        "word": "structure",
+        "start": 237.040869,
+        "end": 237.562869
+      },
+      {
+        "word": "around",
+        "start": 237.632869,
+        "end": 238.00486899999999
+      },
+      {
+        "word": "them?",
+        "start": 238.062869,
+        "end": 239.397869
+      },
+      {
+        "word": "Another",
+        "start": 239.397733,
+        "end": 239.861733
+      },
+      {
+        "word": "surprising",
+        "start": 239.93173299999998,
+        "end": 240.43073299999998
+      },
+      {
+        "word": "example",
+        "start": 240.488733,
+        "end": 240.953733
+      },
+      {
+        "word": "comes",
+        "start": 240.999733,
+        "end": 241.28973299999998
+      },
+      {
+        "word": "from",
+        "start": 241.394733,
+        "end": 241.638733
+      },
+      {
+        "word": "robotics.",
+        "start": 241.742733,
+        "end": 242.613733
+      },
+      {
+        "word": "Researchers",
+        "start": 243.623733,
+        "end": 244.16973299999998
+      },
+      {
+        "word": "demonstrated",
+        "start": 244.238733,
+        "end": 245.016733
+      },
+      {
+        "word": "a",
+        "start": 245.12173299999998,
+        "end": 245.179733
+      },
+      {
+        "word": "gripper",
+        "start": 245.28373299999998,
+        "end": 245.748733
+      },
+      {
+        "word": "made",
+        "start": 245.82973299999998,
+        "end": 246.108733
+      },
+      {
+        "word": "from",
+        "start": 246.166733,
+        "end": 246.398733
+      },
+      {
+        "word": "a",
+        "start": 246.46773299999998,
+        "end": 246.49173299999998
+      },
+      {
+        "word": "flexible",
+        "start": 246.54973299999997,
+        "end": 247.17673299999998
+      },
+      {
+        "word": "bag",
+        "start": 247.23473299999998,
+        "end": 247.512733
+      },
+      {
+        "word": "of",
+        "start": 247.570733,
+        "end": 247.66373299999998
+      },
+      {
+        "word": "granular",
+        "start": 247.803733,
+        "end": 248.36073299999998
+      },
+      {
+        "word": "material.",
+        "start": 248.41873299999997,
+        "end": 249.207733
+      },
+      {
+        "word": "Press",
+        "start": 250.380733,
+        "end": 250.74073299999998
+      },
+      {
+        "word": "the",
+        "start": 250.798733,
+        "end": 250.856733
+      },
+      {
+        "word": "soft",
+        "start": 250.91473299999998,
+        "end": 251.20473299999998
+      },
+      {
+        "word": "bag",
+        "start": 251.274733,
+        "end": 251.564733
+      },
+      {
+        "word": "against",
+        "start": 251.62273299999998,
+        "end": 251.971733
+      },
+      {
+        "word": "an",
+        "start": 252.017733,
+        "end": 252.07573299999999
+      },
+      {
+        "word": "object,",
+        "start": 252.14573299999998,
+        "end": 252.84173299999998
+      },
+      {
+        "word": "and",
+        "start": 252.992733,
+        "end": 253.166733
+      },
+      {
+        "word": "it",
+        "start": 253.28373299999998,
+        "end": 253.364733
+      },
+      {
+        "word": "conforms",
+        "start": 253.410733,
+        "end": 253.95673299999999
+      },
+      {
+        "word": "to",
+        "start": 254.01473299999998,
+        "end": 254.107733
+      },
+      {
+        "word": "the",
+        "start": 254.18873299999998,
+        "end": 254.25873299999998
+      },
+      {
+        "word": "shape.",
+        "start": 254.304733,
+        "end": 254.815733
+      },
+      {
+        "word": "Apply",
+        "start": 255.814733,
+        "end": 256.18573299999997
+      },
+      {
+        "word": "a",
+        "start": 256.266733,
+        "end": 256.290733
+      },
+      {
+        "word": "vacuum,",
+        "start": 256.348733,
+        "end": 256.951733
+      },
+      {
+        "word": "and",
+        "start": 257.056733,
+        "end": 257.184733
+      },
+      {
+        "word": "the",
+        "start": 257.230733,
+        "end": 257.300733
+      },
+      {
+        "word": "grains",
+        "start": 257.346733,
+        "end": 257.660733
+      },
+      {
+        "word": "pack",
+        "start": 257.776733,
+        "end": 258.066733
+      },
+      {
+        "word": "into",
+        "start": 258.182733,
+        "end": 258.379733
+      },
+      {
+        "word": "a",
+        "start": 258.484733,
+        "end": 258.519733
+      },
+      {
+        "word": "more",
+        "start": 258.612733,
+        "end": 258.821733
+      },
+      {
+        "word": "rigid,",
+        "start": 258.879733,
+        "end": 259.424733
+      },
+      {
+        "word": "jammed",
+        "start": 259.587733,
+        "end": 259.924733
+      },
+      {
+        "word": "state",
+        "start": 260.00573299999996,
+        "end": 260.759733
+      },
+      {
+        "word": "that",
+        "start": 260.922733,
+        "end": 261.108733
+      },
+      {
+        "word": "can",
+        "start": 261.143733,
+        "end": 261.270733
+      },
+      {
+        "word": "hold",
+        "start": 261.328733,
+        "end": 261.537733
+      },
+      {
+        "word": "the",
+        "start": 261.561733,
+        "end": 261.63073299999996
+      },
+      {
+        "word": "object.",
+        "start": 261.700733,
+        "end": 262.350733
+      },
+      {
+        "word": "Release",
+        "start": 262.838733,
+        "end": 263.221733
+      },
+      {
+        "word": "it,",
+        "start": 263.27973299999996,
+        "end": 263.68573299999997
+      },
+      {
+        "word": "and",
+        "start": 264.045733,
+        "end": 264.208733
+      },
+      {
+        "word": "the",
+        "start": 264.242733,
+        "end": 264.312733
+      },
+      {
+        "word": "system",
+        "start": 264.370733,
+        "end": 264.788733
+      },
+      {
+        "word": "can",
+        "start": 264.869733,
+        "end": 265.009733
+      },
+      {
+        "word": "become",
+        "start": 265.067733,
+        "end": 265.403733
+      },
+      {
+        "word": "deformable",
+        "start": 265.450733,
+        "end": 266.100733
+      },
+      {
+        "word": "again.",
+        "start": 266.13573299999996,
+        "end": 266.692733
+      },
+      {
+        "word": "This",
+        "start": 267.76073299999996,
+        "end": 267.99373299999996
+      },
+      {
+        "word": "is",
+        "start": 268.062733,
+        "end": 268.17873299999997
+      },
+      {
+        "word": "an",
+        "start": 268.225733,
+        "end": 268.306733
+      },
+      {
+        "word": "application",
+        "start": 268.364733,
+        "end": 269.003733
+      },
+      {
+        "word": "of",
+        "start": 269.061733,
+        "end": 269.15473299999996
+      },
+      {
+        "word": "granular",
+        "start": 269.270733,
+        "end": 269.862733
+      },
+      {
+        "word": "physics,",
+        "start": 269.931733,
+        "end": 270.756733
+      },
+      {
+        "word": "not",
+        "start": 271.069733,
+        "end": 271.301733
+      },
+      {
+        "word": "an",
+        "start": 271.348733,
+        "end": 271.441733
+      },
+      {
+        "word": "invention",
+        "start": 271.522733,
+        "end": 272.056733
+      },
+      {
+        "word": "traced",
+        "start": 272.114733,
+        "end": 272.474733
+      },
+      {
+        "word": "directly",
+        "start": 272.590733,
+        "end": 273.10173299999997
+      },
+      {
+        "word": "to",
+        "start": 273.15973299999996,
+        "end": 273.252733
+      },
+      {
+        "word": "singing",
+        "start": 273.333733,
+        "end": 273.716733
+      },
+      {
+        "word": "sand.",
+        "start": 273.77473299999997,
+        "end": 274.343733
+      },
+      {
+        "word": "The",
+        "start": 275.00573299999996,
+        "end": 275.132733
+      },
+      {
+        "word": "link",
+        "start": 275.21473299999997,
+        "end": 275.458733
+      },
+      {
+        "word": "is",
+        "start": 275.550733,
+        "end": 275.69073299999997
+      },
+      {
+        "word": "how",
+        "start": 275.806733,
+        "end": 276.108733
+      },
+      {
+        "word": "a",
+        "start": 276.201733,
+        "end": 276.259733
+      },
+      {
+        "word": "crowd",
+        "start": 276.340733,
+        "end": 276.828733
+      },
+      {
+        "word": "of",
+        "start": 276.944733,
+        "end": 277.095733
+      },
+      {
+        "word": "simple",
+        "start": 277.187733,
+        "end": 277.53673299999997
+      },
+      {
+        "word": "particles",
+        "start": 277.58273299999996,
+        "end": 278.151733
+      },
+      {
+        "word": "can",
+        "start": 278.244733,
+        "end": 278.453733
+      },
+      {
+        "word": "behave",
+        "start": 278.523733,
+        "end": 279.022733
+      },
+      {
+        "word": "like",
+        "start": 279.091733,
+        "end": 279.359733
+      },
+      {
+        "word": "a",
+        "start": 279.405733,
+        "end": 279.451733
+      },
+      {
+        "word": "very",
+        "start": 279.544733,
+        "end": 279.800733
+      },
+      {
+        "word": "different",
+        "start": 279.846733,
+        "end": 280.194733
+      },
+      {
+        "word": "material.",
+        "start": 280.241733,
+        "end": 281.843733
+      },
+      {
+        "word": "That",
+        "start": 281.84380999999996,
+        "end": 282.08781
+      },
+      {
+        "word": "is",
+        "start": 282.13381,
+        "end": 282.24980999999997
+      },
+      {
+        "word": "what",
+        "start": 282.31980999999996,
+        "end": 282.55181
+      },
+      {
+        "word": "makes",
+        "start": 282.63280999999995,
+        "end": 282.87681
+      },
+      {
+        "word": "this",
+        "start": 282.95880999999997,
+        "end": 283.13280999999995
+      },
+      {
+        "word": "subject",
+        "start": 283.19080999999994,
+        "end": 283.73580999999996
+      },
+      {
+        "word": "worth",
+        "start": 283.84081,
+        "end": 284.15380999999996
+      },
+      {
+        "word": "following",
+        "start": 284.25881,
+        "end": 284.79281
+      },
+      {
+        "word": "beyond",
+        "start": 284.89680999999996,
+        "end": 285.22281
+      },
+      {
+        "word": "the",
+        "start": 285.26881,
+        "end": 285.32680999999997
+      },
+      {
+        "word": "first",
+        "start": 285.40781,
+        "end": 285.68681
+      },
+      {
+        "word": "surprising",
+        "start": 285.79080999999996,
+        "end": 286.38381
+      },
+      {
+        "word": "sound.",
+        "start": 286.45280999999994,
+        "end": 287.09180999999995
+      },
+      {
+        "word": "A",
+        "start": 288.24080999999995,
+        "end": 288.32180999999997
+      },
+      {
+        "word": "pile",
+        "start": 288.41481,
+        "end": 288.69381
+      },
+      {
+        "word": "can",
+        "start": 288.72880999999995,
+        "end": 288.86780999999996
+      },
+      {
+        "word": "flow,",
+        "start": 288.94881,
+        "end": 289.58781
+      },
+      {
+        "word": "a",
+        "start": 290.20280999999994,
+        "end": 290.27280999999994
+      },
+      {
+        "word": "packed",
+        "start": 290.37681,
+        "end": 290.72580999999997
+      },
+      {
+        "word": "collection",
+        "start": 290.87681,
+        "end": 291.36380999999994
+      },
+      {
+        "word": "can",
+        "start": 291.42180999999994,
+        "end": 291.57280999999995
+      },
+      {
+        "word": "resist",
+        "start": 291.63080999999994,
+        "end": 292.01381
+      },
+      {
+        "word": "motion,",
+        "start": 292.11880999999994,
+        "end": 292.76881
+      },
+      {
+        "word": "and",
+        "start": 293.30280999999997,
+        "end": 293.47680999999994
+      },
+      {
+        "word": "under",
+        "start": 293.58180999999996,
+        "end": 293.80181
+      },
+      {
+        "word": "the",
+        "start": 293.85981,
+        "end": 293.91781
+      },
+      {
+        "word": "right",
+        "start": 293.99980999999997,
+        "end": 294.17380999999995
+      },
+      {
+        "word": "conditions",
+        "start": 294.24280999999996,
+        "end": 294.86981
+      },
+      {
+        "word": "an",
+        "start": 295.26480999999995,
+        "end": 295.41580999999996
+      },
+      {
+        "word": "avalanche",
+        "start": 295.49681,
+        "end": 295.98481
+      },
+      {
+        "word": "can",
+        "start": 296.04281,
+        "end": 296.20581
+      },
+      {
+        "word": "sustain",
+        "start": 296.26381,
+        "end": 296.69280999999995
+      },
+      {
+        "word": "a",
+        "start": 296.77480999999995,
+        "end": 296.79780999999997
+      },
+      {
+        "word": "note.",
+        "start": 296.90180999999995,
+        "end": 297.43580999999995
+      },
+      {
+        "word": "We",
+        "start": 298.59680999999995,
+        "end": 298.72480999999993
+      },
+      {
+        "word": "don't",
+        "start": 298.75980999999996,
+        "end": 298.93380999999994
+      },
+      {
+        "word": "need",
+        "start": 298.95680999999996,
+        "end": 299.10781
+      },
+      {
+        "word": "to",
+        "start": 299.13181,
+        "end": 299.20080999999993
+      },
+      {
+        "word": "pretend",
+        "start": 299.28180999999995,
+        "end": 299.76980999999995
+      },
+      {
+        "word": "every",
+        "start": 299.86280999999997,
+        "end": 300.11780999999996
+      },
+      {
+        "word": "natural",
+        "start": 300.18780999999996,
+        "end": 300.62881
+      },
+      {
+        "word": "curiosity",
+        "start": 300.69881,
+        "end": 301.60380999999995
+      },
+      {
+        "word": "immediately",
+        "start": 301.92981,
+        "end": 302.61481
+      },
+      {
+        "word": "becomes",
+        "start": 302.67280999999997,
+        "end": 303.17180999999994
+      },
+      {
+        "word": "a",
+        "start": 303.26480999999995,
+        "end": 303.32280999999995
+      },
+      {
+        "word": "gadget.",
+        "start": 303.41580999999996,
+        "end": 304.06580999999994
+      },
+      {
+        "word": "Sometimes",
+        "start": 305.17981,
+        "end": 305.80681
+      },
+      {
+        "word": "it",
+        "start": 305.92280999999997,
+        "end": 306.03880999999996
+      },
+      {
+        "word": "gives",
+        "start": 306.10880999999995,
+        "end": 306.36481
+      },
+      {
+        "word": "us",
+        "start": 306.48080999999996,
+        "end": 306.64280999999994
+      },
+      {
+        "word": "a",
+        "start": 306.71281,
+        "end": 306.75881
+      },
+      {
+        "word": "better",
+        "start": 306.84081,
+        "end": 307.15380999999996
+      },
+      {
+        "word": "question,",
+        "start": 307.23481,
+        "end": 307.96680999999995
+      },
+      {
+        "word": "and",
+        "start": 308.34980999999993,
+        "end": 308.52380999999997
+      },
+      {
+        "word": "a",
+        "start": 308.58180999999996,
+        "end": 308.61681
+      },
+      {
+        "word": "better",
+        "start": 308.68681,
+        "end": 308.98780999999997
+      },
+      {
+        "word": "way",
+        "start": 309.06980999999996,
+        "end": 309.26680999999996
+      },
+      {
+        "word": "to",
+        "start": 309.33680999999996,
+        "end": 309.41781
+      },
+      {
+        "word": "look",
+        "start": 309.49880999999993,
+        "end": 309.70780999999994
+      },
+      {
+        "word": "at",
+        "start": 309.78880999999996,
+        "end": 309.97480999999993
+      },
+      {
+        "word": "ordinary",
+        "start": 310.10281,
+        "end": 310.67180999999994
+      },
+      {
+        "word": "matter.",
+        "start": 310.75280999999995,
+        "end": 311.51881
+      }
+    ]
+  }
+}

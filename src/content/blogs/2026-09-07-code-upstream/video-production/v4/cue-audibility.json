@@ -1,0 +1,37 @@
+[
+  {
+    "cue": "opening",
+    "audibleAboveMinus45AfterSeconds": 0.4,
+    "peak100msRmsDbfs": -30.8
+  },
+  {
+    "cue": "industry",
+    "audibleAboveMinus45AfterSeconds": 0.2,
+    "peak100msRmsDbfs": -30.0
+  },
+  {
+    "cue": "customers",
+    "audibleAboveMinus45AfterSeconds": 0.3,
+    "peak100msRmsDbfs": -27.9
+  },
+  {
+    "cue": "product",
+    "audibleAboveMinus45AfterSeconds": 0.2,
+    "peak100msRmsDbfs": -27.1
+  },
+  {
+    "cue": "commercial",
+    "audibleAboveMinus45AfterSeconds": 0.2,
+    "peak100msRmsDbfs": -26.9
+  },
+  {
+    "cue": "delivery",
+    "audibleAboveMinus45AfterSeconds": 0.3,
+    "peak100msRmsDbfs": -26.1
+  },
+  {
+    "cue": "closing",
+    "audibleAboveMinus45AfterSeconds": 0.3,
+    "peak100msRmsDbfs": -27.9
+  }
+]

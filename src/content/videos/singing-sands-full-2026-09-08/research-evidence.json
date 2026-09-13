@@ -1,0 +1,215 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "singing-sands-full-2026-09-08",
+  "topic": "Complete singing-sands science film",
+  "created_at": "2026-09-08T12:58:48.819199+00:00",
+  "status": "complete",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "singing-sands-full-2026-09-08"
+  },
+  "sources": [
+    {
+      "id": "nps-sound",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "title": "National Park Service / nps-sound",
+      "retrieved_at": "2026-09-08T12:35:48.976427+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Natural sound and field footage separate from the illustrative macro."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "nps-eureka",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/places/eureka-dunes.htm",
+      "title": "National Park Service / nps-eureka",
+      "retrieved_at": "2026-09-08T12:35:48.976427+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Natural sound and field footage separate from the illustrative macro."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "caltech",
+      "type": "paper",
+      "canonical_url": "https://authors.library.caltech.edu/records/s0m0a-cyg09",
+      "title": "CaltechAUTHORS / caltech",
+      "retrieved_at": "2026-09-08T12:35:48.976427+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Paper abstract only; no definitive mechanism is asserted."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "douady-2006",
+      "type": "web",
+      "canonical_url": "https://arxiv.org/abs/nlin/0412047",
+      "title": "Douady et al. / Physical Review Letters",
+      "retrieved_at": "2026-09-08T12:58:48.819199+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Relative motion and synchronization theory. Abstract read directly. DOI 10.1103/PhysRevLett.97.018002."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "dagois-2012",
+      "type": "web",
+      "canonical_url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2012GL052540",
+      "title": "Dagois-Bohy et al. / Geophysical Research Letters",
+      "retrieved_at": "2026-09-08T12:58:48.819199+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Publisher abstract and laboratory experiment indexed text read. Singing sand on hard-bottom channel; sorted grain comparison. No publisher figures or audio reused."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "nps-moses",
+      "type": "web",
+      "canonical_url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "title": "NPS / Kurt Moses",
+      "retrieved_at": "2026-09-08T12:58:48.819199+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Asset metadata explicitly states Public domain:Full Granting Rights and photographer Kurt Moses; preserve attribution. 1500x998 original downloaded and inspected."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "f1",
+      "kind": "source_fact",
+      "text": "Some dunes produce sustained low sound during avalanches.",
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f2",
+      "kind": "source_fact",
+      "text": "The NPS recording is from Great Sand Dunes National Park.",
+      "source_ids": [
+        "nps-sound"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f3",
+      "kind": "source_fact",
+      "text": "At Eureka Dunes, dry sand can boom; damp sand does not.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f4",
+      "kind": "source_fact",
+      "text": "The sound can resemble a low organ note or distant airplane.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f5",
+      "kind": "source_fact",
+      "text": "Research has proposed different mechanisms for sustaining dune sound.",
+      "source_ids": [
+        "caltech"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f6",
+      "kind": "source_fact",
+      "text": "Relative motion of grains during avalanches is linked to dune sound; synchronization is an influential explanation.",
+      "source_ids": [
+        "douady-2006"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f7",
+      "kind": "source_fact",
+      "text": "Suitable singing-dune sand produced sound in laboratory avalanches in a hard-bottom channel.",
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f8",
+      "kind": "source_fact",
+      "text": "Sorting the mixed-size sand into a narrower grain-size range produced a more defined note.",
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "f9",
+      "kind": "source_fact",
+      "text": "Field studies proposed layered-dune waveguides, while other experiments emphasize flowing grains.",
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "Official NPS pages and media",
+      "Caltech paper abstract",
+      "Browser video preview",
+      "Decoded source contact sheet",
+      "Publisher 2012 abstract and experimental-method indexed text",
+      "2006 authors arXiv abstract",
+      "NPS Gallery asset rights metadata"
+    ],
+    "unresolved_gaps": [],
+    "notes": [
+      "Bounded explanatory claims checked against primary sources; not a comprehensive review of all dune acoustics.",
+      "Clapping is an original explicit analogy; drawings are not measurements.",
+      "Pilot received author listening approval; full continuation available for author review."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false
+  }
+}

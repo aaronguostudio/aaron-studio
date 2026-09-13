@@ -1,0 +1,19 @@
+{
+  "duration": "201.866667",
+  "bytes": "63324308",
+  "sha256": "b58cc9d364689833f4a252f421cae7bc9236e70a3a9c9bf51913a115eac368bb",
+  "loudness": {
+    "input_i": "-16.69",
+    "input_tp": "-4.53",
+    "input_lra": "4.60",
+    "input_thresh": "-27.78",
+    "output_i": "-15.92",
+    "output_tp": "-2.27",
+    "output_lra": "4.80",
+    "output_thresh": "-27.00",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.08"
+  }
+}
+[Parsed_volumedetect_0 @ 0x86cc15f80] mean_volume: -91.0 dB
+[Parsed_volumedetect_0 @ 0x86cc15f80] max_volume: -91.0 dB

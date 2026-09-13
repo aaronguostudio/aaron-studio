@@ -1,0 +1,53 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/film.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf62.12.101
+    comment         : Made with Remotion 4.0.427
+  Duration: 00:03:21.87, start: 0.000000, bitrate: 2509 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 2312 kb/s, 30 fps, 30 tbr, 90k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc61.19.100 libx264
+    Side data:
+      ICC Profile: (456 bytes)
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 188 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    comment         : Made with Remotion 4.0.427
+    encoder         : Lavf62.12.101
+  Stream #0:0(und): Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+    Metadata:
+      encoder         : Lavc62.28.101 wrapped_avframe
+      handler_name    : VideoHandler
+    Side data:
+      ICC Profile: (456 bytes)
+  Stream #0:1(und): Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s (default)
+    Metadata:
+      encoder         : Lavc62.28.101 pcm_s16le
+      handler_name    : SoundHandler
+[Parsed_loudnorm_0 @ 0xb2f019f80] 
+{
+	"input_i" : "-16.69",
+	"input_tp" : "-4.53",
+	"input_lra" : "4.60",
+	"input_thresh" : "-27.78",
+	"output_i" : "-15.92",
+	"output_tp" : "-2.27",
+	"output_lra" : "4.80",
+	"output_thresh" : "-27.00",
+	"normalization_type" : "dynamic",
+	"target_offset" : "-0.08"
+}
+[out#0/null @ 0xb2f0183c0] video:2508KiB audio:151408KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 6056 fps=1138 q=-0.0 Lsize=N/A time=00:03:21.86 bitrate=N/A speed=37.9x elapsed=0:00:05.31    

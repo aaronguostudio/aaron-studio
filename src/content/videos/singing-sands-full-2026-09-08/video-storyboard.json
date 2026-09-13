@@ -1,0 +1,595 @@
+{
+  "schema_version": 1,
+  "title": "The desert has a voice",
+  "duration_sec": 201.86666666666667,
+  "fps": 30,
+  "direction": {
+    "name": "Natural documentary",
+    "style_family_id": "sand-documentary-v1",
+    "visual_spine": "Warm actual sand, cream small type, stable captions, illustrative macro labeled.",
+    "motion_density": "balanced",
+    "music_strategy": "none",
+    "references": [
+      {
+        "id": "nps",
+        "url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+        "borrow": "Let real field sound and sand movement carry attention.",
+        "avoid": "Institutional title/end overlays and repetition."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "title": "Sliding sand in official NPS recording",
+      "start_sec": 0,
+      "end_sec": 9,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Sliding sand in official NPS recording",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Sliding sand in official NPS recording",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-synced viewing cue",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Actual NPS sound; narration enters after 5 seconds."
+    },
+    {
+      "id": "s02",
+      "title": "Sliding sand in official NPS recording",
+      "start_sec": 9,
+      "end_sec": 18.4,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Sliding sand in official NPS recording",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Sliding sand in official NPS recording",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-synced viewing cue",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Actual NPS sound; narration enters after 5 seconds."
+    },
+    {
+      "id": "s03",
+      "title": "Wide Eureka dune photograph",
+      "start_sec": 18.4,
+      "end_sec": 24.1,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Wide Eureka dune photograph",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Wide Eureka dune photograph",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Dry narration; no score."
+    },
+    {
+      "id": "s04",
+      "title": "Wide Eureka dune photograph",
+      "start_sec": 24.1,
+      "end_sec": 33.6666667,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Wide Eureka dune photograph",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Wide Eureka dune photograph",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-synced viewing cue",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Dry narration; no score."
+    },
+    {
+      "id": "s05",
+      "title": "Labeled illustrative macro of sand grains",
+      "start_sec": 33.6666667,
+      "end_sec": 37.8666667,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Labeled illustrative macro of sand grains",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Labeled illustrative macro of sand grains",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Dry narration."
+    },
+    {
+      "id": "s06",
+      "title": "Dry/damp illustrated comparison",
+      "start_sec": 37.8666667,
+      "end_sec": 49.233333333333334,
+      "role": "explanation",
+      "template": "split-comparison",
+      "intensity": "structured",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Dry/damp illustrated comparison",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "compare-wipe"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Dry/damp illustrated comparison",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.75,
+          "visual": "Damp-side illustration revealed",
+          "action": "wipe",
+          "motion": {
+            "recipe": "compare-wipe",
+            "purpose": "explain",
+            "continuity_anchor": "The same sand texture stays aligned through the comparison.",
+            "why_not_static": "The moist condition appears when the narrator says add moisture.",
+            "duration_sec": 0.65,
+            "easing": "ease-in-out",
+            "loop": false,
+            "translate_px": 0,
+            "rotation_deg": 0
+          }
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-synced viewing cue",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration; silence is explanatory, not fabricated field evidence."
+    },
+    {
+      "id": "science-1",
+      "start_sec": 49.233333333333334,
+      "end_sec": 70.36349233333334,
+      "title": "Relative grain motion",
+      "role": "explanation",
+      "template": "sand-science-explainer",
+      "intensity": "structured",
+      "purpose": "Show the explanatory relationship while preserving source/illustration distinction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Relative grain motion",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Relative grain motion",
+        "source label",
+        "caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Relative grain motion",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5,
+          "visual": "Narration-synchronized change",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration only. Real recording returns at ending."
+    },
+    {
+      "id": "science-2",
+      "start_sec": 70.36349233333334,
+      "end_sec": 95.67324333333333,
+      "title": "Clapping analogy and synchronized grains",
+      "role": "explanation",
+      "template": "sand-science-explainer",
+      "intensity": "structured",
+      "purpose": "Show the explanatory relationship while preserving source/illustration distinction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Clapping analogy and synchronized grains",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Clapping analogy and synchronized grains",
+        "source label",
+        "caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Clapping analogy and synchronized grains",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5,
+          "visual": "Narration-synchronized change",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration only. Real recording returns at ending."
+    },
+    {
+      "id": "science-3",
+      "start_sec": 95.67324333333333,
+      "end_sec": 116.84984233333333,
+      "title": "Hard-bottom avalanche channel",
+      "role": "explanation",
+      "template": "sand-science-explainer",
+      "intensity": "structured",
+      "purpose": "Show the explanatory relationship while preserving source/illustration distinction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Hard-bottom avalanche channel",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Hard-bottom avalanche channel",
+        "source label",
+        "caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Hard-bottom avalanche channel",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5,
+          "visual": "Narration-synchronized change",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration only. Real recording returns at ending."
+    },
+    {
+      "id": "science-4",
+      "start_sec": 116.84984233333333,
+      "end_sec": 139.97691733333335,
+      "title": "Selecting grains with a sieve",
+      "role": "explanation",
+      "template": "sand-science-explainer",
+      "intensity": "structured",
+      "purpose": "Show the explanatory relationship while preserving source/illustration distinction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Selecting grains with a sieve",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Selecting grains with a sieve",
+        "source label",
+        "caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Selecting grains with a sieve",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5,
+          "visual": "Narration-synchronized change",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration only. Real recording returns at ending."
+    },
+    {
+      "id": "science-5",
+      "start_sec": 139.97691733333335,
+      "end_sec": 165.24022833333333,
+      "title": "Dune-layer hypothesis",
+      "role": "explanation",
+      "template": "sand-science-explainer",
+      "intensity": "structured",
+      "purpose": "Show the explanatory relationship while preserving source/illustration distinction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Dune-layer hypothesis",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Dune-layer hypothesis",
+        "source label",
+        "caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Dune-layer hypothesis",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5,
+          "visual": "Narration-synchronized change",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": true,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration only. Real recording returns at ending."
+    },
+    {
+      "id": "science-6",
+      "start_sec": 165.24022833333333,
+      "end_sec": 187.36666666666667,
+      "title": "Return to the landscape",
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Show the explanatory relationship while preserving source/illustration distinction.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Return to the landscape",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Return to the landscape",
+        "source label",
+        "caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Return to the landscape",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5,
+          "visual": "Narration-synchronized change",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Narration only. Real recording returns at ending."
+    },
+    {
+      "id": "end-s08",
+      "title": "Return to field footage and photograph",
+      "start_sec": 187.36666666666667,
+      "end_sec": 191.86666666666667,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Return to field footage and photograph",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Return to field footage and photograph",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Final genuine sound excerpt; fade to silence."
+    },
+    {
+      "id": "end-s09",
+      "title": "Return to field footage and photograph",
+      "start_sec": 191.86666666666667,
+      "end_sec": 200.36666666666667,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Return to field footage and photograph",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Return to field footage and photograph",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-synced viewing cue",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Final genuine sound excerpt; fade to silence."
+    },
+    {
+      "id": "end-s10",
+      "title": "Return to field footage and photograph",
+      "start_sec": 200.36666666666667,
+      "end_sec": 201.86666666666667,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Allow the viewer to inspect the phenomenon and distinguish evidence from explanation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Return to field footage and photograph",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "sand",
+        "source label"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Return to field footage and photograph",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "Footage motion, caption change, or authored fade",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Final genuine sound excerpt; fade to silence."
+    }
+  ]
+}

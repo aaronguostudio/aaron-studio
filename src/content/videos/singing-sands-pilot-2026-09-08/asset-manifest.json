@@ -1,0 +1,38 @@
+{
+  "status": "internal-prototype",
+  "assets": [
+    {
+      "path": "assets/raw/singing-sand-nps.mp4",
+      "sha256": "e2e22ced40acd518a5cdedfba0e5fb13c50f69afb1b6ac70db1a4179508a99b4"
+    },
+    {
+      "path": "assets/sand-detail.mp4",
+      "sha256": "b8dfb0b09b846b77e78b4e95d1deb686fb0b57d3e1f6b456ae3a76ebd6d23e13"
+    },
+    {
+      "path": "assets/raw/eureka-nps.jpg",
+      "sha256": "b78377183461a0b25e78e1902185e81782834db9654d1c1908b206efe45aba90"
+    },
+    {
+      "path": "assets/grains-illustration.png",
+      "sha256": "6005fa3552d7d0ab2fd3bc489d03e6ac1f71efc22ee3580acf447f653405a36c"
+    },
+    {
+      "path": "assets/field-recording.wav",
+      "sha256": "0e39c663cbfb78b6e4ca9899c6b0c3aae83fa4e8d92e7d5ba925312b3aba032c"
+    },
+    {
+      "path": "audio.mp3",
+      "sha256": "5b106c5521ab2924081e39a259f2b4a35ec8b1cf85d40c0265b1ec96568be8e4"
+    }
+  ],
+  "generated_image": {
+    "provider": "image_gen",
+    "original": "/Users/aaronguo/.codex/generated_images/01a07f6d-5be6-7440-ab8e-dd0894b33fd7/exec-e06cfead-15cd-4826-9d7c-4b2281de58a6.png",
+    "role": "macro illustration, never factual evidence",
+    "asset_library": {
+      "policy": "ignore",
+      "scope": "project-specific"
+    }
+  }
+}

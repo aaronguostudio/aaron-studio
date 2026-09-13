@@ -1,0 +1,560 @@
+{
+  "schema_version": 1,
+  "title": "The desert has a voice",
+  "duration_sec": 536.7666666666667,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "sand-documentary-en-v2",
+  "asset_library": {
+    "queries": [
+      "documentary warm sparse piano marimba acoustic ambient"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "intro",
+      "start_sec": 0,
+      "end_sec": 18.4,
+      "copy": "The desert has a voice",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS public-domain recording or credited photograph.",
+      "rights": "licensed",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "avalanche",
+      "start_sec": 18.4,
+      "end_sec": 34.0,
+      "copy": "A whole hillside, making sound",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f1",
+        "f4"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-full-2026-09-08/assets/eureka-wide.jpg",
+      "status": "ready",
+      "provenance": "NPS public-domain recording or credited photograph.",
+      "rights": "licensed",
+      "license_url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "creator": "Kurt Moses",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "conditions",
+      "start_sec": 34.0,
+      "end_sec": 49.86666666666667,
+      "copy": "The conditions matter",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f3"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "note",
+      "start_sec": 49.86666666666667,
+      "end_sec": 86.33333333333333,
+      "copy": "A pattern in the noise",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f13"
+      ],
+      "source_ids": [
+        "waves-2015"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "flow",
+      "start_sec": 86.33333333333333,
+      "end_sec": 107.76666666666667,
+      "copy": "Motion between grains",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6"
+      ],
+      "source_ids": [
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "sync",
+      "start_sec": 107.76666666666667,
+      "end_sec": 133.4,
+      "copy": "Finding a shared rhythm",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6"
+      ],
+      "source_ids": [
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "air",
+      "start_sec": 133.4,
+      "end_sec": 160.1,
+      "copy": "From movement to your ears",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f10"
+      ],
+      "source_ids": [
+        "air"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "lab",
+      "start_sec": 160.1,
+      "end_sec": 184.3,
+      "copy": "A song without a dune",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f7"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "method",
+      "start_sec": 184.3,
+      "end_sec": 213.76666666666668,
+      "copy": "Change the conditions. Measure the result.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f7"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "sort",
+      "start_sec": 213.76666666666668,
+      "end_sec": 237.2,
+      "copy": "Selecting the singers",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f8"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "pitch",
+      "start_sec": 237.2,
+      "end_sec": 264.0,
+      "copy": "Pitch is not loudness",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f14"
+      ],
+      "source_ids": [
+        "air",
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "debate",
+      "start_sec": 264.0,
+      "end_sec": 292.26666666666665,
+      "copy": "One sound. Different explanations.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f9"
+      ],
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "later",
+      "start_sec": 292.26666666666665,
+      "end_sec": 325.03333333333336,
+      "copy": "Burps and booms",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f13"
+      ],
+      "source_ids": [
+        "waves-2015"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "questions",
+      "start_sec": 325.03333333333336,
+      "end_sec": 351.53333333333336,
+      "copy": "Ask a sharper question",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f9"
+      ],
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "silo",
+      "start_sec": 351.53333333333336,
+      "end_sec": 391.1333333333333,
+      "copy": "When a factory sings",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "f11"
+      ],
+      "source_ids": [
+        "silos"
+      ],
+      "asset_path": "assets/silo.png",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "engineering",
+      "start_sec": 391.1333333333333,
+      "end_sec": 420.1333333333333,
+      "copy": "The engineering problem",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f11"
+      ],
+      "source_ids": [
+        "silos"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "gripper",
+      "start_sec": 420.1333333333333,
+      "end_sec": 465.6,
+      "copy": "Grains that grip",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "f12"
+      ],
+      "source_ids": [
+        "gripper",
+        "gripper-release"
+      ],
+      "asset_path": "assets/gripper.png",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "meaning",
+      "start_sec": 465.6,
+      "end_sec": 495.6,
+      "copy": "Beyond the first surprise",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6",
+        "f12"
+      ],
+      "source_ids": [
+        "douady-2006",
+        "gripper",
+        "gripper-release"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "resolve",
+      "start_sec": 495.6,
+      "end_sec": 520.1333333333333,
+      "copy": "Back to the landscape",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6",
+        "f9"
+      ],
+      "source_ids": [
+        "douady-2006",
+        "caltech",
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/extra-scenes.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "listen",
+      "start_sec": 520.1333333333333,
+      "end_sec": 532.7666666666667,
+      "copy": "Listen again.",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS public-domain recording or credited photograph.",
+      "rights": "licensed",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "end-card",
+      "start_sec": 532.7666666666667,
+      "end_sec": 536.7666666666667,
+      "copy": "Listen again.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-long/index.tsx",
+      "status": "ready",
+      "provenance": "Original author end card.",
+      "rights": "owned",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    }
+  ]
+}

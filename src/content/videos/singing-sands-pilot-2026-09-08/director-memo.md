@@ -1,0 +1,4 @@
+# Director memo
+A small non-tech pilot requested by Aaron. The first five seconds are the real sound with minimal identity. Actual field footage is replayed with a closer crop during the hook. Eureka photo is explicitly labeled as a different location. The generated macro is always labeled. Dry/damp comparison is a condition diagram, never a measurement. It appears at the matching phrase, and the narrator acknowledges research limits. The ending gives the source sound 5.5 seconds without speech.
+
+No persistent progress bar, long paragraph panels, AI-business slogan, background music, decorative sprites, or dramatic synthesized rumble. Prototype uses existing voice identity, pending Aaron's listening preference in this new context. A single stock photo is only 638 by 400 and is knowingly soft at 1080p; this is a pilot limitation, replace before a polished episode. Source reuse is intentionally bounded to one recording; a longer episode needs additional real footage.

@@ -1,0 +1,10 @@
+{
+  "voice_pcm_preserved": true,
+  "all_original_voice_spans": 7,
+  "scenes_contiguous": true,
+  "no_caption_during_chapter_pause": true,
+  "words": 893,
+  "captions": 154,
+  "duration": 480.8333333333333,
+  "music_entrances_match_chapters": true
+}

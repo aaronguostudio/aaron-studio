@@ -1,0 +1,110 @@
+[
+  {
+    "file": "film.mp4",
+    "sha256": "aa90436b3bad7565aace34ae6dd2573d584b044dc242b0d5fdffd25a2949e855",
+    "bytes": 138228247,
+    "duration": 537.033333,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "loudness_lufs": -16.34,
+    "true_peak_dbtp": -1.95,
+    "complete_decode": "pass"
+  },
+  {
+    "file": "shorts/SandVoiceShort.mp4",
+    "sha256": "d198d73aa4e90ba181700d04f0601e9673c12f15332bafc2d5725e75391d74c8",
+    "bytes": 22827080,
+    "duration": 41.233333,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "loudness_lufs": -17.35,
+    "true_peak_dbtp": -2.3,
+    "complete_decode": "pass"
+  },
+  {
+    "file": "shorts/SandLabShort.mp4",
+    "sha256": "d873af994400e9341557e41573eb4c535a5821af0a8ee77b8b832b571112e9fb",
+    "bytes": 12137997,
+    "duration": 38.733333,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "loudness_lufs": -16.08,
+    "true_peak_dbtp": -2.26,
+    "complete_decode": "pass"
+  },
+  {
+    "file": "shorts/SandGripperShort.mp4",
+    "sha256": "be093e838ae553fb266beffb6d6289e826bcc7b9127aa66b8fbdddb7c3f6174d",
+    "bytes": 4677543,
+    "duration": 32.633333,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ],
+    "loudness_lufs": -16.5,
+    "true_peak_dbtp": -2.28,
+    "complete_decode": "pass"
+  }
+]

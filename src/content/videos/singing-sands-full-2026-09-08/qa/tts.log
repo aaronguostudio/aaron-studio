@@ -1,0 +1,42 @@
+
+[parse] Reading script: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/youtube-script.md
+[parse] Found 5 slides in "Inside the sound"
+[parse] Found [HOOK] section (247 chars)
+[audit] PASS -> /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/youtube-script-audit.md
+[images] Skipped for --audio-only
+[audio] Final spoken transcript → /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-transcript.md
+
+[tts] Generating narration with elevenlabs (voice: R2DWp7zZuWmGxk3r8GIA, profile: aaron-pvc-identity-v1)
+  Slide 0: "Finding a rhythm" (306 chars)
+    → 25.3s
+  Slide 1: "A song without a dune" (269 chars)
+    → 21.2s
+  Slide 2: "Sorting the singers" (268 chars)
+    → 23.1s
+  Slide 3: "What remains open" (296 chars)
+    → 25.3s
+  Slide 4: "Back to the landscape" (264 chars)
+    → 21.5s
+
+[tts] Generating hook narration...
+  Hook (247 chars)
+    → 21.1s
+
+[audio] Concatenating narration → /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/.video-gen-tmp/narration-full.mp3
+[audio] Preserved raw narration -> /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-raw.mp3
+[audio] Normalizing review copy and running QA...
+
+✅ Audio generated: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio.mp3
+   Raw: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-raw.mp3
+   Opening 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-sample-60s.mp3
+   Middle 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-sample-middle-60s.mp3
+   Late 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-sample-late-60s.mp3
+   Transcript: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-transcript.md
+   Manifest: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-full-2026-09-08/extension/audio-generation-manifest.json
+   Voice profile: aaron-pvc-identity-v1
+   Voice ID: R2DWp7zZuWmGxk3r8GIA
+   Model: eleven_multilingual_v2
+   Size: 3.1 MB
+   Duration: ~138s
+   Loudness: -16.59 LUFS, -1.65 dBTP
+   Long silences: 0

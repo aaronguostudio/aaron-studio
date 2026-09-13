@@ -1,0 +1,1780 @@
+{
+  "schema_version": 1,
+  "title": "AI and the next move for engineers",
+  "duration_sec": 480.8333333333333,
+  "fps": 30,
+  "direction": {
+    "name": "One idea per frame",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "One primary message, short chapter context, high-contrast large type, generous spacing; optional illustration or a single bounded group.",
+    "motion_density": "balanced",
+    "music_strategy": "chaptered",
+    "references": [
+      {
+        "id": "ledger",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Ivory paper, graphite typography, registered layout geometry, protected captions, evidence rails, semantic focus; Astra accepted renderer and DHH music restraint inform this continuation.",
+        "avoid": "Full-frame illustration slideshow, blank title stages, repeated card grids, decorative camera drift."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s00",
+      "title": "BUILD WHAT MATTERS",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "BUILD WHAT MATTERS",
+      "first_change_sec": 0.25,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "BUILD WHAT MATTERS"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "BUILD WHAT MATTERS",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.25,
+          "visual": "BUILD WHAT MATTERS",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s01",
+      "title": "A company can fund a role.\nThat doesn’t prove its value.",
+      "start_sec": 3.0,
+      "end_sec": 18.066666666666666,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A company can fund a role.\nThat doesn’t prove its value.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A company can fund a role.\nThat doesn’t prove its value."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A company can fund a role.\nThat doesn’t prove its value.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "A company can fund a role.\nThat doesn’t prove its value.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s02",
+      "title": "Where does the work\nbecome useful?",
+      "start_sec": 18.066666666666666,
+      "end_sec": 30.066666666666666,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Where does the work\nbecome useful?",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Where does the work\nbecome useful?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Where does the work\nbecome useful?",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Where does the work\nbecome useful?",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s03",
+      "title": "Organizations create internal work.",
+      "start_sec": 30.066666666666666,
+      "end_sec": 43.766666666666666,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Organizations create internal work.",
+      "first_change_sec": 2.95341967574932,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Organizations create internal work.",
+        "More layers",
+        "More coordination",
+        "More internal work"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Organizations create internal work.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "More layers",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.95341967574932,
+          "visual": "More coordination",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 7.196394816390285,
+          "visual": "More internal work",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s04",
+      "title": "An organization can become\nbusy with its own work.",
+      "start_sec": 43.766666666666666,
+      "end_sec": 58.43333333333333,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "An organization can become\nbusy with its own work.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "An organization can become\nbusy with its own work."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "An organization can become\nbusy with its own work.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "An organization can become\nbusy with its own work.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s05",
+      "title": "Amazon · 2024",
+      "start_sec": 58.43333333333333,
+      "end_sec": 66.56666666666666,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Amazon · 2024",
+      "first_change_sec": 3.3512233617234415,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Amazon · 2024",
+        "Fewer layers",
+        "Fewer unnecessary processes"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Amazon · 2024",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Fewer layers",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 3.3512233617234415,
+          "visual": "Fewer unnecessary processes",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s06",
+      "title": "Andy Jassy expected\na smaller corporate workforce.",
+      "start_sec": 66.56666666666666,
+      "end_sec": 75.56666666666666,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Andy Jassy expected\na smaller corporate workforce.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Andy Jassy expected\na smaller corporate workforce."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Andy Jassy expected\na smaller corporate workforce.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Andy Jassy expected\na smaller corporate workforce.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s07",
+      "title": "Fewer layers.\nLess bureaucracy.",
+      "start_sec": 75.56666666666666,
+      "end_sec": 92.3,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Fewer layers.\nLess bureaucracy.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Fewer layers.\nLess bureaucracy."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Fewer layers.\nLess bureaucracy.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Fewer layers.\nLess bureaucracy.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s08",
+      "title": "I see AI accelerating\nthe reassessment.",
+      "start_sec": 92.3,
+      "end_sec": 99.6,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "I see AI accelerating\nthe reassessment.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "I see AI accelerating\nthe reassessment."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "I see AI accelerating\nthe reassessment.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "I see AI accelerating\nthe reassessment.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s09",
+      "title": "Invest beyond the code.",
+      "start_sec": 99.6,
+      "end_sec": 119.23333333333333,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Invest beyond the code.",
+      "first_change_sec": 0,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Invest beyond the code.",
+        "Industry · Customers",
+        "Product · Value · Delivery"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Invest beyond the code.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Industry · Customers",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 0.5440480066953768,
+          "visual": "Product · Value · Delivery",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s10",
+      "title": "Two ways to use cheaper code.",
+      "start_sec": 119.23333333333333,
+      "end_sec": 130.96666666666667,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two ways to use cheaper code.",
+      "first_change_sec": 0.6402307715376168,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Two ways to use cheaper code.",
+        "Boris Cherny\nAI writes; he reviews",
+        "Simon Willison\nTry alternatives"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Two ways to use cheaper code.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Boris Cherny\nAI writes; he reviews",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 0.6402307715376168,
+          "visual": "Two ways to use cheaper code.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 3.230611648148141,
+          "visual": "Simon Willison\nTry alternatives",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s11",
+      "title": "What is worth building?",
+      "start_sec": 130.96666666666667,
+      "end_sec": 146.3,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "What is worth building?",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What is worth building?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What is worth building?",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "What is worth building?",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "bridge-industry",
+      "title": "Learn an industry deeply",
+      "start_sec": 146.3,
+      "end_sec": 149.13333333333333,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Learn an industry deeply",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Learn an industry deeply"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Learn an industry deeply",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Learn an industry deeply",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Chapter industry entrance",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s12",
+      "title": "Learn who needs what.",
+      "start_sec": 149.13333333333333,
+      "end_sec": 160.06666666666666,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Learn who needs what.",
+      "first_change_sec": 2.8215602049180575,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Learn who needs what.",
+        "Who uses it?",
+        "Who pays?",
+        "Who bears the risk?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Learn who needs what.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Who uses it?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.8215602049180575,
+          "visual": "Who pays?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 6.352918619402999,
+          "visual": "Who bears the risk?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s13",
+      "title": "Payroll is more than math.",
+      "start_sec": 160.06666666666666,
+      "end_sec": 172.1,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Payroll is more than math.",
+      "first_change_sec": 0.48255900000000906,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Payroll is more than math.",
+        "Calculate the amount",
+        "Understand the obligations"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Payroll is more than math.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Calculate the amount",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 0.48255900000000906,
+          "visual": "Payroll is more than math.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 2.8799257296353744,
+          "visual": "Understand the obligations",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s14",
+      "title": "Notice the need\nbefore it becomes a ticket.",
+      "start_sec": 172.1,
+      "end_sec": 182.23333333333332,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Notice the need\nbefore it becomes a ticket.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Notice the need\nbefore it becomes a ticket."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Notice the need\nbefore it becomes a ticket.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Notice the need\nbefore it becomes a ticket.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "bridge-customers",
+      "title": "Spend time with customers",
+      "start_sec": 182.23333333333332,
+      "end_sec": 184.83333333333334,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Spend time with customers",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Spend time with customers"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Spend time with customers",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Spend time with customers",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Chapter customers entrance",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s15",
+      "title": "A convincing demo is a start.",
+      "start_sec": 184.83333333333334,
+      "end_sec": 198.5,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A convincing demo is a start.",
+      "first_change_sec": 2.798168549713864,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A convincing demo is a start.",
+        "A beautiful demo",
+        "Accurate-looking fields"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A convincing demo is a start.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "A beautiful demo",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.798168549713864,
+          "visual": "Accurate-looking fields",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s16",
+      "title": "Watch the pause.",
+      "start_sec": 198.5,
+      "end_sec": 217.1,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Watch the pause.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Watch the pause."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Watch the pause.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Watch the pause.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s17",
+      "title": "Follow the exception.",
+      "start_sec": 217.1,
+      "end_sec": 229.83333333333334,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow the exception.",
+      "first_change_sec": 3.114954378803759,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Follow the exception.",
+        "Who checks?",
+        "How is it corrected?",
+        "What must keep working?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow the exception.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Who checks?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 3.114954378803759,
+          "visual": "How is it corrected?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 7.533280350851527,
+          "visual": "What must keep working?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s18",
+      "title": "Go back.\nLet the work change your next idea.",
+      "start_sec": 229.83333333333334,
+      "end_sec": 242.96666666666667,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Go back.\nLet the work change your next idea.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Go back.\nLet the work change your next idea."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Go back.\nLet the work change your next idea.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Go back.\nLet the work change your next idea.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "bridge-product",
+      "title": "Practice product decisions",
+      "start_sec": 242.96666666666667,
+      "end_sec": 245.53333333333333,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Practice product decisions",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Practice product decisions"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Practice product decisions",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Practice product decisions",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Chapter product entrance",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s19",
+      "title": "Try another approach.",
+      "start_sec": 245.53333333333333,
+      "end_sec": 257.93333333333334,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Try another approach.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Try another approach."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Try another approach.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Try another approach.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s20",
+      "title": "Same task. Two approaches.",
+      "start_sec": 257.93333333333334,
+      "end_sec": 275.9,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Same task. Two approaches.",
+      "first_change_sec": 0.5525093333333757,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Same task. Two approaches.",
+        "Verify every item",
+        "Highlight exceptions"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Same task. Two approaches.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Verify every item",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 0.5525093333333757,
+          "visual": "Same task. Two approaches.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 3.3056900762950363,
+          "visual": "Highlight exceptions",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s21",
+      "title": "Write the question\nbefore building.",
+      "start_sec": 275.9,
+      "end_sec": 285.1333333333333,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Write the question\nbefore building.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Write the question\nbefore building."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Write the question\nbefore building.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Write the question\nbefore building.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s22",
+      "title": "Choose what belongs.",
+      "start_sec": 285.1333333333333,
+      "end_sec": 302.4,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Choose what belongs.",
+      "first_change_sec": 2.7827286787804724,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Choose what belongs.",
+        "Build now",
+        "Leave for later",
+        "Understand the complexity"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Choose what belongs.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Build now",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.7827286787804724,
+          "visual": "Leave for later",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 6.634035348765451,
+          "visual": "Understand the complexity",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "bridge-commercial",
+      "title": "Test commercial value",
+      "start_sec": 302.4,
+      "end_sec": 304.96666666666664,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Test commercial value",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Test commercial value"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Test commercial value",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Test commercial value",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Chapter commercial entrance",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s23",
+      "title": "A useful product still\nasks someone to change.",
+      "start_sec": 304.96666666666664,
+      "end_sec": 312.53333333333336,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A useful product still\nasks someone to change.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A useful product still\nasks someone to change."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A useful product still\nasks someone to change.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "A useful product still\nasks someone to change.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s24",
+      "title": "Switching has a cost.",
+      "start_sec": 312.53333333333336,
+      "end_sec": 319.8,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Switching has a cost.",
+      "first_change_sec": 3.011996468725215,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Switching has a cost.",
+        "Money",
+        "Learning",
+        "Integration",
+        "Trust"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Switching has a cost.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Money",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 3.011996468725215,
+          "visual": "Learning",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 6.702599333724891,
+          "visual": "Integration",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 6.702599333724891,
+          "visual": "Trust",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s25",
+      "title": "Why would\nsomeone switch?",
+      "start_sec": 319.8,
+      "end_sec": 335.6,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Why would\nsomeone switch?",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Why would\nsomeone switch?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Why would\nsomeone switch?",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Why would\nsomeone switch?",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s26",
+      "title": "Ask for a real commitment.",
+      "start_sec": 335.6,
+      "end_sec": 346.1,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Ask for a real commitment.",
+      "first_change_sec": 3.7137914053986947,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Ask for a real commitment.",
+        "Try it?",
+        "Integrate it?",
+        "Budget for it?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Ask for a real commitment.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Try it?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 3.7137914053986947,
+          "visual": "Integrate it?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 8.234717330769229,
+          "visual": "Budget for it?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s27",
+      "title": "Test the whole equation.",
+      "start_sec": 346.1,
+      "end_sec": 361.2,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Test the whole equation.",
+      "first_change_sec": 0.4487929578967851,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Test the whole equation.",
+        "What will it cost?",
+        "What will customers change?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Test the whole equation.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "What will it cost?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 0.4487929578967851,
+          "visual": "Test the whole equation.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 2.4831204905963773,
+          "visual": "What will customers change?",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "bridge-delivery",
+      "title": "Follow the project into use",
+      "start_sec": 361.2,
+      "end_sec": 363.8,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow the project into use",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Follow the project into use"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow the project into use",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Follow the project into use",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Chapter delivery entrance",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s28",
+      "title": "Microsoft Digital:\nfaster people, not yet a faster team.",
+      "start_sec": 363.8,
+      "end_sec": 376.7,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Microsoft Digital:\nfaster people, not yet a faster team.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Microsoft Digital:\nfaster people, not yet a faster team."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Microsoft Digital:\nfaster people, not yet a faster team.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Microsoft Digital:\nfaster people, not yet a faster team.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s29",
+      "title": "Connect the work.",
+      "start_sec": 376.7,
+      "end_sec": 393.03333333333336,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Connect the work.",
+      "first_change_sec": 2.7891698719124975,
+      "motion_recipes": [
+        "connector-draw"
+      ],
+      "content": [
+        "Connect the work.",
+        "Intent",
+        "Shared specification",
+        "Acceptance"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Connect the work.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Intent",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.7891698719124975,
+          "visual": "Connect the work.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 3.4391698719124975,
+          "visual": "Shared specification",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 7.323842445378148,
+          "visual": "Acceptance",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s30",
+      "title": "Follow through.",
+      "start_sec": 393.03333333333336,
+      "end_sec": 403.76666666666665,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow through.",
+      "first_change_sec": 2.5343451096829086,
+      "motion_recipes": [
+        "connector-draw"
+      ],
+      "content": [
+        "Follow through.",
+        "Agree on goal",
+        "Check failures",
+        "Help them start",
+        "Return for feedback"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow through.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Agree on goal",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.5343451096829086,
+          "visual": "Follow through.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 3.1843451096829085,
+          "visual": "Check failures",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 6.77255683333334,
+          "visual": "Help them start",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 10.147911162004618,
+          "visual": "Return for feedback",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s31",
+      "title": "Carry the whole task\nthrough verification.",
+      "start_sec": 403.76666666666665,
+      "end_sec": 415.46666666666664,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Carry the whole task\nthrough verification.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Carry the whole task\nthrough verification."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Carry the whole task\nthrough verification.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Carry the whole task\nthrough verification.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s32",
+      "title": "Make the result\ntrustworthy.",
+      "start_sec": 415.46666666666664,
+      "end_sec": 419.96666666666664,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make the result\ntrustworthy.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make the result\ntrustworthy."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make the result\ntrustworthy.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Make the result\ntrustworthy.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "bridge-closing",
+      "title": "Build what matters",
+      "start_sec": 419.96666666666664,
+      "end_sec": 422.8666666666667,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Build what matters",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Build what matters"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Build what matters",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Build what matters",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Chapter closing entrance",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s33",
+      "title": "A role can be given.\nJudgment has to be built.",
+      "start_sec": 422.8666666666667,
+      "end_sec": 436.3333333333333,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A role can be given.\nJudgment has to be built.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A role can be given.\nJudgment has to be built."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A role can be given.\nJudgment has to be built.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "A role can be given.\nJudgment has to be built.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s34",
+      "title": "Build judgment through projects.",
+      "start_sec": 436.3333333333333,
+      "end_sec": 450.0,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Build judgment through projects.",
+      "first_change_sec": 2.0768923105386876,
+      "motion_recipes": [
+        "connector-draw"
+      ],
+      "content": [
+        "Build judgment through projects.",
+        "Understand",
+        "Choose",
+        "Deliver",
+        "Learn"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Build judgment through projects.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "Understand",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.0768923105386876,
+          "visual": "Build judgment through projects.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        },
+        {
+          "at_sec": 2.7268923105386875,
+          "visual": "Choose",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 7.022259145367343,
+          "visual": "Deliver",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 10.560603320995938,
+          "visual": "Learn",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s35",
+      "title": "Understand more deeply\nwhat people need.",
+      "start_sec": 450.0,
+      "end_sec": 458.43333333333334,
+      "role": "emphasis",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Understand more deeply\nwhat people need.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Understand more deeply\nwhat people need."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Understand more deeply\nwhat people need.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Understand more deeply\nwhat people need.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s36",
+      "title": "Start with the next project.",
+      "start_sec": 458.43333333333334,
+      "end_sec": 463.9,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Start with the next project.",
+      "first_change_sec": 2.4816104449540717,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Start with the next project.",
+        "A conversation",
+        "A product experiment",
+        "A complete project"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Start with the next project.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0,
+          "visual": "A conversation",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 2.4816104449540717,
+          "visual": "A product experiment",
+          "action": "Concept is already readable; focus marker follows the narration."
+        },
+        {
+          "at_sec": 4.922592363003105,
+          "visual": "A complete project",
+          "action": "Concept is already readable; focus marker follows the narration."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s37",
+      "title": "Make things you care about.",
+      "start_sec": 463.9,
+      "end_sec": 475.8,
+      "role": "explanation",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make things you care about.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make things you care about."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make things you care about.",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Make things you care about.",
+          "action": "Bounded accent or connector begins; reading text remains fully opaque."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "editorial-statement"
+    },
+    {
+      "id": "s38",
+      "title": "AARON GUO",
+      "start_sec": 475.8,
+      "end_sec": 480.8333333333333,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "One primary message and at most one supporting visual group; narration carries detail.",
+      "entry_mode": "meaningful",
+      "entry_visual": "AARON GUO",
+      "first_change_sec": 0,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "AARON GUO"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "AARON GUO",
+          "action": "All primary copy is readable at entry. Chapter context is a quiet single line."
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

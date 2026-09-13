@@ -1,0 +1,45 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/film.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf62.12.101
+    comment         : Made with Remotion 4.0.427
+  Duration: 00:08:56.77, start: 0.000000, bitrate: 1708 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 1507 kb/s, 30 fps, 30 tbr, 90k tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+    Side data:
+      ICC Profile: (456 bytes)
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 191 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    comment         : Made with Remotion 4.0.427
+    encoder         : Lavf62.12.101
+  Stream #0:0(und): Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s (default)
+    Metadata:
+      encoder         : Lavc62.28.101 pcm_s16le
+      handler_name    : SoundHandler
+size=N/A time=00:00:14.30 bitrate=N/A speed=28.6x elapsed=0:00:00.50    size=N/A time=00:00:32.20 bitrate=N/A speed=32.1x elapsed=0:00:01.00    size=N/A time=00:00:53.70 bitrate=N/A speed=35.6x elapsed=0:00:01.50    size=N/A time=00:01:15.80 bitrate=N/A speed=37.7x elapsed=0:00:02.01    size=N/A time=00:01:37.50 bitrate=N/A speed=38.8x elapsed=0:00:02.51    size=N/A time=00:01:59.90 bitrate=N/A speed=39.7x elapsed=0:00:03.01    size=N/A time=00:02:21.80 bitrate=N/A speed=40.3x elapsed=0:00:03.51    size=N/A time=00:02:41.00 bitrate=N/A speed=  40x elapsed=0:00:04.02    size=N/A time=00:02:55.70 bitrate=N/A speed=38.8x elapsed=0:00:04.52    size=N/A time=00:03:08.40 bitrate=N/A speed=37.5x elapsed=0:00:05.02    size=N/A time=00:03:21.50 bitrate=N/A speed=36.4x elapsed=0:00:05.53    size=N/A time=00:03:32.50 bitrate=N/A speed=35.2x elapsed=0:00:06.03    size=N/A time=00:03:43.40 bitrate=N/A speed=34.2x elapsed=0:00:06.53    size=N/A time=00:03:54.30 bitrate=N/A speed=33.3x elapsed=0:00:07.04    size=N/A time=00:04:13.20 bitrate=N/A speed=33.6x elapsed=0:00:07.54    size=N/A time=00:04:36.70 bitrate=N/A speed=34.4x elapsed=0:00:08.04    size=N/A time=00:05:00.50 bitrate=N/A speed=35.1x elapsed=0:00:08.55    size=N/A time=00:05:24.60 bitrate=N/A speed=35.8x elapsed=0:00:09.05    size=N/A time=00:05:48.70 bitrate=N/A speed=36.5x elapsed=0:00:09.56    size=N/A time=00:06:12.40 bitrate=N/A speed=  37x elapsed=0:00:10.06    size=N/A time=00:06:36.20 bitrate=N/A speed=37.5x elapsed=0:00:10.56    size=N/A time=00:07:00.00 bitrate=N/A speed=37.9x elapsed=0:00:11.06    size=N/A time=00:07:23.90 bitrate=N/A speed=38.4x elapsed=0:00:11.57    size=N/A time=00:07:47.60 bitrate=N/A speed=38.7x elapsed=0:00:12.07    size=N/A time=00:08:11.50 bitrate=N/A speed=39.1x elapsed=0:00:12.57    size=N/A time=00:08:35.30 bitrate=N/A speed=39.4x elapsed=0:00:13.08    [Parsed_loudnorm_0 @ 0x8eb00d200] 
+{
+	"input_i" : "-16.87",
+	"input_tp" : "-3.95",
+	"input_lra" : "4.50",
+	"input_thresh" : "-27.70",
+	"output_i" : "-24.06",
+	"output_tp" : "-9.56",
+	"output_lra" : "4.50",
+	"output_thresh" : "-34.82",
+	"normalization_type" : "dynamic",
+	"target_offset" : "0.06"
+}
+[out#0/null @ 0x8eb00ca80] video:0KiB audio:402576KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:08:56.80 bitrate=N/A speed=39.7x elapsed=0:00:13.51    

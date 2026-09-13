@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "phase": "pilot-approved-for-full-episode",
+  "title": "The desert has a voice / 沙丘真的会唱歌",
+  "artifacts": {
+    "video": {
+      "canonical": "pilot.mp4",
+      "sha256": "0bc5b417d71e1c0664701b2a74ca5621ae714fc1c129a9166a3026eff21a9f61",
+      "duration_sec": 74,
+      "status": "internal-prototype"
+    },
+    "review": "review.html",
+    "audio": "audio.mp3"
+  },
+  "publication": {
+    "status": "not-published",
+    "authorized": false
+  },
+  "review": {
+    "technical": "pass",
+    "human_listening": "approved-by-author",
+    "style_acceptance": "approved-by-author",
+    "approval_date": "2026-09-08",
+    "language_note": "Chinese and English mix to polish after full film"
+  }
+}

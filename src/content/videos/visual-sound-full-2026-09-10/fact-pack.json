@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "topic": "Singing sands",
+  "thesis": "Understand a real dune sound, distinguish experimental questions, and explore bounded links to granular engineering.",
+  "sources": [
+    {
+      "id": "nps-sound",
+      "url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "publisher": "National Park Service",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "NPS credit; no copyright symbol; page states public-domain use. Browser and decoded source frames inspected."
+    },
+    {
+      "id": "nps-eureka",
+      "url": "https://www.nps.gov/places/eureka-dunes.htm",
+      "publisher": "National Park Service",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Photo explicitly credited NPS photo; text supports dryness and organ/airplane comparison."
+    },
+    {
+      "id": "caltech",
+      "url": "https://authors.library.caltech.edu/records/s0m0a-cyg09",
+      "publisher": "CaltechAUTHORS",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "2007 Vriend et al. abstract challenges grain-size theory; narration only acknowledges competing explanations."
+    },
+    {
+      "id": "douady-2006",
+      "url": "https://arxiv.org/abs/nlin/0412047",
+      "publisher": "Douady et al. / Physical Review Letters",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Relative motion and synchronization theory. Abstract read directly. DOI 10.1103/PhysRevLett.97.018002."
+    },
+    {
+      "id": "dagois-2012",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2012GL052540",
+      "publisher": "Dagois-Bohy et al. / Geophysical Research Letters",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Publisher abstract and laboratory experiment indexed text read. Singing sand on hard-bottom channel; sorted grain comparison. No publisher figures or audio reused."
+    },
+    {
+      "id": "nps-moses",
+      "url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "publisher": "NPS / Kurt Moses",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Asset metadata explicitly states Public domain:Full Granting Rights and photographer Kurt Moses; preserve attribution. 1500x998 original downloaded and inspected."
+    },
+    {
+      "id": "air",
+      "url": "https://openstax.org/books/university-physics-volume-1/pages/17-1-sound-waves",
+      "publisher": "OpenStax University Physics",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Longitudinal pressure disturbances and local air particle oscillation."
+    },
+    {
+      "id": "silos",
+      "url": "https://arxiv.org/abs/cond-mat/0310086",
+      "publisher": "Muite et al., Powder Technology 2004",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Silo sound/vibration and wall-grain stick-slip; DOI 10.1016/j.powtec.2004.07.003. Publisher abstract and Princeton record corroborate."
+    },
+    {
+      "id": "gripper",
+      "url": "https://arxiv.org/abs/1009.4444",
+      "publisher": "Brown et al., PNAS 2010",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Vacuum-induced granular jamming gripper. DOI 10.1073/pnas.1003250107."
+    },
+    {
+      "id": "gripper-release",
+      "url": "https://news.cornell.edu/stories/2012/02/robotic-gripper-can-now-throw-things",
+      "publisher": "Cornell Chronicle, 2012",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Subsequent gripper demonstration clarifies release through pressure reversal."
+    },
+    {
+      "id": "waves-2015",
+      "url": "https://authors.library.caltech.edu/records/b3tan-cab83",
+      "publisher": "Vriend et al., Physics of Fluids 2015",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "70\u2013105 Hz at investigated sites; burping versus booming wave modes; DOI 10.1063/1.4931971."
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Some dunes produce sustained low sound during avalanches.",
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f2",
+      "claim": "The NPS recording is from Great Sand Dunes National Park.",
+      "source_ids": [
+        "nps-sound"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f3",
+      "claim": "At Eureka Dunes, dry sand can boom; damp sand does not.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f4",
+      "claim": "The sound can resemble a low organ note or distant airplane.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f5",
+      "claim": "Research has proposed different mechanisms for sustaining dune sound.",
+      "source_ids": [
+        "caltech"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f6",
+      "claim": "Relative motion of grains during avalanches is linked to dune sound; synchronization is an influential explanation.",
+      "source_ids": [
+        "douady-2006"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Clapping is an original analogy, not an observed microscopic experiment. Motion shown slow, not at audible frequency."
+    },
+    {
+      "id": "f7",
+      "claim": "Suitable singing-dune sand produced sound in laboratory avalanches in a hard-bottom channel.",
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Only under tested conditions; do not claim ordinary sand can always sing."
+    },
+    {
+      "id": "f8",
+      "claim": "Sorting the mixed-size sand into a narrower grain-size range produced a more defined note.",
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Sieve selects existing grains; it does not resize them. No numerical spectrum claimed."
+    },
+    {
+      "id": "f9",
+      "claim": "Field studies proposed layered-dune waveguides, while other experiments emphasize flowing grains.",
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Competing interpretations; no claim of complete resolution."
+    },
+    {
+      "id": "f10",
+      "claim": "Sound in air propagates as pressure disturbances while air particles oscillate locally.",
+      "source_ids": [
+        "air"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Diagram is slow and symbolic, not a measured molecular simulation."
+    },
+    {
+      "id": "f11",
+      "claim": "Silo studies measured discharge-driven vibration and sound linked to stick-slip wall friction in tall narrow silos.",
+      "source_ids": [
+        "silos"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Related engineering domain; not claimed identical to dune acoustics."
+    },
+    {
+      "id": "f12",
+      "claim": "A flexible bag of granular material can conform to an object and become more rigid under vacuum to grip it.",
+      "source_ids": [
+        "gripper",
+        "gripper-release"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Related granular physics, not a direct invention from singing-dune research."
+    },
+    {
+      "id": "f13",
+      "claim": "The 2015 field study distinguished brief burps and sustained booming and reported 70\u2013105 Hz peaks at investigated sites.",
+      "source_ids": [
+        "waves-2015"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not universalize frequency range or present waveguide interpretation as the only explanation."
+    },
+    {
+      "id": "f14",
+      "claim": "Pitch, loudness and spectral concentration are different sound properties.",
+      "source_ids": [
+        "air",
+        "dagois-2012"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Selecting grain sizes does not resize grains or simply imply increased loudness."
+    },
+    {
+      "id": "f15",
+      "claim": "The 2010 gripper study identifies friction, suction and interlocking and reports reliable grip with volume changes below 0.5 percent in its experiments.",
+      "source_ids": [
+        "gripper"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Experimental finding, not a universal guarantee."
+    },
+    {
+      "id": "f16",
+      "claim": "The 2012 Cornell coffee-ground balloon gripper used positive pressure to reset, release and launch objects; durability and repeatability remained engineering questions.",
+      "source_ids": [
+        "gripper-release"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Historical demonstration, not a claim of present commercial readiness."
+    }
+  ]
+}

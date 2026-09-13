@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "topic": "Singing sands",
+  "thesis": "A sensory documentary that follows relative grain motion, synchronization, laboratory avalanches, size selection, and the bounds of competing explanations.",
+  "sources": [
+    {
+      "id": "nps-sound",
+      "url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "publisher": "National Park Service",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "NPS credit; no copyright symbol; page states public-domain use. Browser and decoded source frames inspected."
+    },
+    {
+      "id": "nps-eureka",
+      "url": "https://www.nps.gov/places/eureka-dunes.htm",
+      "publisher": "National Park Service",
+      "source_type": "official",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Photo explicitly credited NPS photo; text supports dryness and organ/airplane comparison."
+    },
+    {
+      "id": "caltech",
+      "url": "https://authors.library.caltech.edu/records/s0m0a-cyg09",
+      "publisher": "CaltechAUTHORS",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "2007 Vriend et al. abstract challenges grain-size theory; narration only acknowledges competing explanations."
+    },
+    {
+      "id": "douady-2006",
+      "url": "https://arxiv.org/abs/nlin/0412047",
+      "publisher": "Douady et al. / Physical Review Letters",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Relative motion and synchronization theory. Abstract read directly. DOI 10.1103/PhysRevLett.97.018002."
+    },
+    {
+      "id": "dagois-2012",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/2012GL052540",
+      "publisher": "Dagois-Bohy et al. / Geophysical Research Letters",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Publisher abstract and laboratory experiment indexed text read. Singing sand on hard-bottom channel; sorted grain comparison. No publisher figures or audio reused."
+    },
+    {
+      "id": "nps-moses",
+      "url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "publisher": "NPS / Kurt Moses",
+      "source_type": "primary",
+      "verification_status": "verified",
+      "rights": "public-source",
+      "notes": "Asset metadata explicitly states Public domain:Full Granting Rights and photographer Kurt Moses; preserve attribution. 1500x998 original downloaded and inspected."
+    }
+  ],
+  "facts": [
+    {
+      "id": "f1",
+      "claim": "Some dunes produce sustained low sound during avalanches.",
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f2",
+      "claim": "The NPS recording is from Great Sand Dunes National Park.",
+      "source_ids": [
+        "nps-sound"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f3",
+      "claim": "At Eureka Dunes, dry sand can boom; damp sand does not.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f4",
+      "claim": "The sound can resemble a low organ note or distant airplane.",
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f5",
+      "claim": "Research has proposed different mechanisms for sustaining dune sound.",
+      "source_ids": [
+        "caltech"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Do not conflate Great Sand Dunes footage with Eureka location or claim a settled microscopic mechanism."
+    },
+    {
+      "id": "f6",
+      "claim": "Relative motion of grains during avalanches is linked to dune sound; synchronization is an influential explanation.",
+      "source_ids": [
+        "douady-2006"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Clapping is an original analogy, not an observed microscopic experiment. Motion shown slow, not at audible frequency."
+    },
+    {
+      "id": "f7",
+      "claim": "Suitable singing-dune sand produced sound in laboratory avalanches in a hard-bottom channel.",
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Only under tested conditions; do not claim ordinary sand can always sing."
+    },
+    {
+      "id": "f8",
+      "claim": "Sorting the mixed-size sand into a narrower grain-size range produced a more defined note.",
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Sieve selects existing grains; it does not resize them. No numerical spectrum claimed."
+    },
+    {
+      "id": "f9",
+      "claim": "Field studies proposed layered-dune waveguides, while other experiments emphasize flowing grains.",
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "confidence": "high",
+      "usable_in_script": true,
+      "sensitivity": "Competing interpretations; no claim of complete resolution."
+    }
+  ]
+}

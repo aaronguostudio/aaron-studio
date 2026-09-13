@@ -1,0 +1,1378 @@
+{
+  "schema_version": 1,
+  "title": "This Sand Sings",
+  "duration_sec": 537.0333333333333,
+  "fps": 30,
+  "direction": {
+    "name": "Warm English documentary",
+    "style_family_id": "sand-documentary-en-v2",
+    "visual_spine": "Actual sand, tactile illustrations, original explanatory diagrams, quiet English captions.",
+    "motion_density": "balanced",
+    "music_strategy": "chaptered",
+    "references": [
+      {
+        "id": "nps",
+        "url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+        "borrow": "Immediate field sound and actual sand motion.",
+        "avoid": "Institutional title overlays."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "intro",
+      "start_sec": 0,
+      "end_sec": 15.233333333333333,
+      "title": "The desert has a voice",
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The desert has a voice",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "The desert has a voice",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The desert has a voice",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "avalanche",
+      "start_sec": 15.233333333333333,
+      "end_sec": 26.966666666666665,
+      "title": "A whole hillside, making sound",
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A whole hillside, making sound",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "A whole hillside, making sound",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A whole hillside, making sound",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "conditions",
+      "start_sec": 26.966666666666665,
+      "end_sec": 38.733333333333334,
+      "title": "The conditions matter",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The conditions matter",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "The conditions matter",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The conditions matter",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "note",
+      "start_sec": 38.733333333333334,
+      "end_sec": 66.76666666666667,
+      "title": "A pattern in the noise",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A pattern in the noise",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "A pattern in the noise",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A pattern in the noise",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "flow",
+      "start_sec": 66.76666666666667,
+      "end_sec": 84.16666666666667,
+      "title": "Motion between grains",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Motion between grains",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Motion between grains",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Motion between grains",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "sync",
+      "start_sec": 84.16666666666667,
+      "end_sec": 105.13333333333334,
+      "title": "Finding a shared rhythm",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Finding a shared rhythm",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Finding a shared rhythm",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Finding a shared rhythm",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "air",
+      "start_sec": 105.13333333333334,
+      "end_sec": 125.5,
+      "title": "From movement to your ears",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "From movement to your ears",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "From movement to your ears",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "From movement to your ears",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "pressure",
+      "start_sec": 125.5,
+      "end_sec": 152.1,
+      "title": "Follow one particle",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow one particle",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Follow one particle",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "From movement to your ears",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "lab",
+      "start_sec": 152.1,
+      "end_sec": 171.2,
+      "title": "A song without a dune",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A song without a dune",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "A song without a dune",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A song without a dune",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "method",
+      "start_sec": 171.2,
+      "end_sec": 193.66666666666666,
+      "title": "Change the conditions. Measure the result.",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Change the conditions. Measure the result.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Change the conditions. Measure the result.",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Change the conditions. Measure the result.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "control",
+      "start_sec": 193.66666666666666,
+      "end_sec": 225.63333333333333,
+      "title": "Change one thing",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Change one thing",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Change one thing",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Change the conditions. Measure the result.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "sort",
+      "start_sec": 225.63333333333333,
+      "end_sec": 244.03333333333333,
+      "title": "Selecting the singers",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Selecting the singers",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Selecting the singers",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Selecting the singers",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "pitch",
+      "start_sec": 244.03333333333333,
+      "end_sec": 266.4,
+      "title": "Pitch is not loudness",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Pitch is not loudness",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Pitch is not loudness",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Pitch is not loudness",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "debate",
+      "start_sec": 266.4,
+      "end_sec": 287.23333333333335,
+      "title": "One sound. Different explanations.",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "One sound. Different explanations.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "One sound. Different explanations.",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "One sound. Different explanations.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "later",
+      "start_sec": 287.23333333333335,
+      "end_sec": 311.06666666666666,
+      "title": "Burps and booms",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Burps and booms",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Burps and booms",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Burps and booms",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "questions",
+      "start_sec": 311.06666666666666,
+      "end_sec": 332.3666666666667,
+      "title": "Ask a sharper question",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Ask a sharper question",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Ask a sharper question",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Ask a sharper question",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "silo",
+      "start_sec": 332.3666666666667,
+      "end_sec": 363.96666666666664,
+      "title": "When a factory sings",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "When a factory sings",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "When a factory sings",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "When a factory sings",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "engineering",
+      "start_sec": 363.96666666666664,
+      "end_sec": 385.9,
+      "title": "The engineering problem",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The engineering problem",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "The engineering problem",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The engineering problem",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "gripper",
+      "start_sec": 385.9,
+      "end_sec": 422.26666666666665,
+      "title": "Grains that grip",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Grains that grip",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Grains that grip",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Grains that grip",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 32,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "gripforces",
+      "start_sec": 422.26666666666665,
+      "end_sec": 449.26666666666665,
+      "title": "Three ways to hold",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Three ways to hold",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Three ways to hold",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Grains that grip",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "release",
+      "start_sec": 449.26666666666665,
+      "end_sec": 479.76666666666665,
+      "title": "A small change, another possibility",
+      "role": "explanation",
+      "template": "sand-science-longform",
+      "intensity": "structured",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A small change, another possibility",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "A small change, another possibility",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Grains that grip",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 25,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "meaning",
+      "start_sec": 479.76666666666665,
+      "end_sec": 501.8,
+      "title": "Beyond the first surprise",
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Beyond the first surprise",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Beyond the first surprise",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Beyond the first surprise",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "resolve",
+      "start_sec": 501.8,
+      "end_sec": 521.8666666666667,
+      "title": "Back to the landscape",
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Back to the landscape",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Back to the landscape",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Back to the landscape",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 12,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 18,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "listen",
+      "start_sec": 521.8666666666667,
+      "end_sec": 533.0333333333333,
+      "title": "Listen again.",
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Listen again.",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "none"
+      ],
+      "content": [
+        "Listen again.",
+        "English caption"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Listen again.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        },
+        {
+          "at_sec": 7,
+          "visual": "Narration-aligned caption, state change, or ongoing explanatory process",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    },
+    {
+      "id": "end-card",
+      "start_sec": 533.0333333333333,
+      "end_sec": 537.0333333333333,
+      "title": "Visual & Sound",
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Show the described relationship or provide a real-world visual reset with visible source/illustration labels.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Visual & Sound",
+      "first_change_sec": 0.5,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Visual & Sound",
+        "Look closer. Listen differently."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Author identity",
+          "action": "hold"
+        }
+      ],
+      "prototype_required": false,
+      "fallback_template": "image-sequence",
+      "music_cue": "Real recording at opening/close; scored chapter bridge and voice-driven music ducking in the body.",
+      "transform_envelope": {
+        "max_translation_px": 260,
+        "max_rotation_deg": 13,
+        "protected_caption_top_px": 930
+      }
+    }
+  ]
+}

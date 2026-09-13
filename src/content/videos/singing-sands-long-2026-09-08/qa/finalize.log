@@ -1,0 +1,98 @@
+[
+  {
+    "file": "film.mp4",
+    "sha256": "49e9bfb3ed61dcda747610cbcd881968f8e93e7f3887b4f21a9d09bf80ed476c",
+    "bytes": 114601624,
+    "duration": 536.766667,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ]
+  },
+  {
+    "file": "shorts/SandVoiceShort.mp4",
+    "sha256": "37b7f7c79a87fdf5d4f316e01439a96bdc15961f42263d4f3d0fa6106e84637c",
+    "bytes": 20965079,
+    "duration": 52.366667,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ]
+  },
+  {
+    "file": "shorts/SandLabShort.mp4",
+    "sha256": "e392fa89c68a3736c9cfe34af32f0093fab75a103557490ae1999ae2d0dbea5f",
+    "bytes": 12864278,
+    "duration": 50.166667,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ]
+  },
+  {
+    "file": "shorts/SandGripperShort.mp4",
+    "sha256": "05ee128aabac7efa7b156012ea7bc80bc28e4b88f442c550af6f07c7bdb105f4",
+    "bytes": 2879122,
+    "duration": 40.733333,
+    "streams": [
+      {
+        "codec_type": "video",
+        "codec_name": "h264",
+        "width": 1080,
+        "height": 1920,
+        "sample_rate": null,
+        "channels": null
+      },
+      {
+        "codec_type": "audio",
+        "codec_name": "aac",
+        "width": null,
+        "height": null,
+        "sample_rate": "48000",
+        "channels": 2
+      }
+    ]
+  }
+]

@@ -211,6 +211,10 @@ Image-level gates:
 - generated text stays inside the explicit allowed-text budget;
 - actual dimensions and aspect ratio are inspected after generation.
 
+### Role and meaning check
+
+Review semantic fit separately from visual style. Before accepting a people-based illustration, describe who each person is, what work they are doing, and which visible action or artifact establishes that role. Do not rely on gender, a caption, or private prompt intent to make the relationship legible. For a business/agent essay, reject an attractive domestic or couple-like scene when it diverts attention from the work; show the business object, decision or result that the passage actually discusses. If an agent is depicted, make its software or symbolic nature clear rather than silently casting a second human as the agent. Preserve author rejection alongside the earlier model critique so a visual PASS cannot erase a failed interpretation.
+
 ## FDE regression lessons
 
 Use the 2026-07-06 FDE image set as a regression case.

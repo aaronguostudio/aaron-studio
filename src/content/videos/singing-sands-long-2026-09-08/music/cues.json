@@ -1,0 +1,62 @@
+[
+  {
+    "chapter": 1,
+    "start": 49.86666666666667,
+    "end": 160.1,
+    "sourceStart": 0,
+    "sourceEnd": 110.23333333333332,
+    "baseGain": 0.36,
+    "duck": "sidechain threshold .025 ratio 6 attack 15ms release 500ms",
+    "job": "A pattern in the noise"
+  },
+  {
+    "chapter": 2,
+    "start": 160.1,
+    "end": 264.0,
+    "sourceStart": 45,
+    "sourceEnd": 148.9,
+    "baseGain": 0.36,
+    "duck": "sidechain threshold .025 ratio 6 attack 15ms release 500ms",
+    "job": "Bring it into the laboratory"
+  },
+  {
+    "chapter": 3,
+    "start": 264.0,
+    "end": 351.53333333333336,
+    "sourceStart": 90,
+    "sourceEnd": 177.53333333333336,
+    "baseGain": 0.36,
+    "duck": "sidechain threshold .025 ratio 6 attack 15ms release 500ms",
+    "job": "Why the debate continues"
+  },
+  {
+    "chapter": 4,
+    "start": 351.53333333333336,
+    "end": 420.1333333333333,
+    "sourceStart": 30,
+    "sourceEnd": 98.59999999999997,
+    "baseGain": 0.36,
+    "duck": "sidechain threshold .025 ratio 6 attack 15ms release 500ms",
+    "job": "When a factory sings"
+  },
+  {
+    "chapter": 5,
+    "start": 420.1333333333333,
+    "end": 495.6,
+    "sourceStart": 85,
+    "sourceEnd": 160.4666666666667,
+    "baseGain": 0.36,
+    "duck": "sidechain threshold .025 ratio 6 attack 15ms release 500ms",
+    "job": "Grains that grip"
+  },
+  {
+    "chapter": 6,
+    "start": 495.6,
+    "end": 519.1333333333333,
+    "sourceStart": 150,
+    "sourceEnd": 173.5333333333333,
+    "baseGain": 0.36,
+    "duck": "sidechain threshold .025 ratio 6 attack 15ms release 500ms",
+    "job": "Listen differently"
+  }
+]

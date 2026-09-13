@@ -1,0 +1,364 @@
+{
+  "schema_version": 1,
+  "title": "The desert has a voice",
+  "duration_sec": 201.86666666666667,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "sand-documentary-v1",
+  "asset_library": {
+    "queries": [
+      "curiosity desert sparse acoustic documentary"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "s01",
+      "start_sec": 0,
+      "end_sec": 9,
+      "copy": "Sliding sand in official NPS recording",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s02",
+      "start_sec": 9,
+      "end_sec": 18.4,
+      "copy": "Sliding sand in official NPS recording",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s03",
+      "start_sec": 18.4,
+      "end_sec": 24.1,
+      "copy": "Wide Eureka dune photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f1",
+        "f4"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/raw/eureka-nps.jpg",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/aboutus/disclaimer.htm",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 0,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s04",
+      "start_sec": 24.1,
+      "end_sec": 33.6666667,
+      "copy": "Wide Eureka dune photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f1",
+        "f4"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/raw/eureka-nps.jpg",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/aboutus/disclaimer.htm",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 0,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s05",
+      "start_sec": 33.6666667,
+      "end_sec": 37.8666667,
+      "copy": "Labeled illustrative macro of sand grains",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "f3"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/grains-illustration.png",
+      "status": "ready",
+      "provenance": "Generated illustrative macro, labeled illustration, never factual evidence.",
+      "rights": "generated",
+      "fallback": "Static NPS Eureka photo with narration."
+    },
+    {
+      "id": "s06",
+      "start_sec": 37.8666667,
+      "end_sec": 49.233333333333334,
+      "copy": "Dry/damp illustrated comparison",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f3"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/grains-illustration.png",
+      "status": "ready",
+      "provenance": "Generated illustrative macro, labeled illustration, never factual evidence.",
+      "rights": "generated",
+      "fallback": "Static NPS Eureka photo with narration."
+    },
+    {
+      "id": "science-1",
+      "start_sec": 49.233333333333334,
+      "end_sec": 70.36349233333334,
+      "copy": "Relative grain motion",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6"
+      ],
+      "source_ids": [
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original authored schematic, not an experimental measurement.",
+      "rights": "owned",
+      "fallback": "Static illustration with narration.",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08"
+    },
+    {
+      "id": "science-2",
+      "start_sec": 70.36349233333334,
+      "end_sec": 95.67324333333333,
+      "copy": "Clapping analogy and synchronized grains",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6"
+      ],
+      "source_ids": [
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original authored schematic, not an experimental measurement.",
+      "rights": "owned",
+      "fallback": "Static illustration with narration.",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08"
+    },
+    {
+      "id": "science-3",
+      "start_sec": 95.67324333333333,
+      "end_sec": 116.84984233333333,
+      "copy": "Hard-bottom avalanche channel",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f7"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original authored schematic, not an experimental measurement.",
+      "rights": "owned",
+      "fallback": "Static illustration with narration.",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08"
+    },
+    {
+      "id": "science-4",
+      "start_sec": 116.84984233333333,
+      "end_sec": 139.97691733333335,
+      "copy": "Selecting grains with a sieve",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f8"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/singing-sands-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original authored schematic, not an experimental measurement.",
+      "rights": "owned",
+      "fallback": "Static illustration with narration.",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08"
+    },
+    {
+      "id": "science-5",
+      "start_sec": 139.97691733333335,
+      "end_sec": 165.24022833333333,
+      "copy": "Dune-layer hypothesis",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f9"
+      ],
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "nps-moses"
+      ],
+      "asset_path": "assets/eureka-wide.jpg",
+      "status": "ready",
+      "provenance": "Kurt Moses / NPS photo; metadata grants public domain. Layer diagram original when present.",
+      "rights": "licensed",
+      "fallback": "Static illustration with narration.",
+      "license_url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "creator": "Kurt Moses",
+      "retrieved_at": "2026-09-08"
+    },
+    {
+      "id": "science-6",
+      "start_sec": 165.24022833333333,
+      "end_sec": 187.36666666666667,
+      "copy": "Return to the landscape",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f6",
+        "f9"
+      ],
+      "source_ids": [
+        "nps-moses",
+        "douady-2006"
+      ],
+      "asset_path": "assets/eureka-wide.jpg",
+      "status": "ready",
+      "provenance": "Kurt Moses / NPS photo; metadata grants public domain. Layer diagram original when present.",
+      "rights": "licensed",
+      "fallback": "Static illustration with narration.",
+      "license_url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "creator": "Kurt Moses",
+      "retrieved_at": "2026-09-08"
+    },
+    {
+      "id": "end-s08",
+      "start_sec": 187.36666666666667,
+      "end_sec": 191.86666666666667,
+      "copy": "Return to field footage and photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f5"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "end-s09",
+      "start_sec": 191.86666666666667,
+      "end_sec": 200.36666666666667,
+      "copy": "Return to field footage and photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f5"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "end-s10",
+      "start_sec": 200.36666666666667,
+      "end_sec": 201.86666666666667,
+      "copy": "Return to field footage and photograph",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": "",
+      "status": "ready",
+      "provenance": "Frame-driven fade to charcoal; no new factual claim.",
+      "rights": "generated",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 5,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    }
+  ]
+}

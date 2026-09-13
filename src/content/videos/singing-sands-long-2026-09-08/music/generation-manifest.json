@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-09-08T13:49:52.083Z",
+  "title": "Singing Sands — Curious Matter",
+  "theme": "paper-moon",
+  "visualStyle": "ink-current",
+  "prompt": "Instrumental only. An original restrained natural-science documentary score, warm felt piano, soft wooden marimba, occasional plucked acoustic harmonics, a very light warm sustained string texture. 76 BPM, gentle curious movement, spacious rests for a low male speaking voice, no prominent bass drone. Arc: first 15 seconds a memorable sparse three-note question; 15 to 65 seconds a quiet repeating investigative pulse with variation; 65 to 125 seconds slightly more open harmony and occasional wood notes, no energetic build; 125 to 165 seconds a warmer reflective answer, finally a 15-second graceful complete resolution with natural decay. Intimate, tactile, patient, never sleepy or mysterious-horror. No vocals, choir, heavy drums, digital glitches, risers, trailer hits, recognizable melodies, or imitation. This is a documentary narration bed and chapter bridge palette, not a standalone dramatic song.",
+  "compositionPlan": null,
+  "requestedDurationSec": 180,
+  "actualAudioDurationSec": 180.024,
+  "model": "music_v2",
+  "songId": "dSegLdJWwLw7gaFAUKl4",
+  "source": "eleven-music-api",
+  "audioPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/music/music.mp3",
+  "outputPath": "/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/music/unused.mp4",
+  "resolution": "1080p",
+  "width": 1920,
+  "height": 1080,
+  "renderScale": 0.75,
+  "gl": "swiftshader",
+  "audioAnalysisPath": null,
+  "audioAnalysisVersion": null,
+  "commercialUseNote": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+}

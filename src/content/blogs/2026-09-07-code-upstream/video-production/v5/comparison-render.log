@@ -1,0 +1,62 @@
+🧹 Webpack config change detected. Clearing cache... 
+Bundling 6%
+Bundling 24%
+Bundling 38%
+Bundling 51%
+Bundling 65%
+Bundling 71%
+Bundling 76%
+Bundling 81%
+Bundling 87%
+Bundling 92%
+Bundling 98%
+Bundling 100%
+Copying public dir 11.5 MB
+Copying public dir 22.4 MB
+Copying public dir 46.9 MB
+Copying public dir 65.6 MB
+Copying public dir 76.5 MB
+Copying public dir 78.1 MB
+Copying public dir 84.6 MB
+Copying public dir 97.2 MB
+Copying public dir 99.1 MB
+Copying public dir 119.9 MB
+Copying public dir 128.9 MB
+Copying public dir 140 MB
+Copying public dir 150.8 MB
+Copying public dir 161.6 MB
+Copying public dir 165.3 MB
+Copying public dir 171.6 MB
+Copying public dir 185 MB
+Copying public dir 195.9 MB
+Copying public dir 200.9 MB
+Copying public dir 225.6 MB
+Copying public dir 230.7 MB
+Copying public dir 233.4 MB
+Copying public dir 245.1 MB
+Copying public dir 245.3 MB
+Copying public dir 256.7 MB
+Copying public dir 263.9 MB
+Copying public dir 276.3 MB
+Copying public dir 287.5 MB
+Copying public dir 290.6 MB
+Copying public dir 291 MB
+Copying public dir 292.4 MB
+Copying public dir 335.4 MB
+Copying public dir 336.7 MB
+Copying public dir 349 MB
+Copying public dir 351.4 MB
+Copying public dir 362.1 MB
+Copying public dir 363.1 MB
+Copying public dir 376.1 MB
+Copying public dir 378.6 MB
+Copying public dir 389.6 MB
+Getting composition
+⚡️ Cached bundle. Subsequent renders will be faster.
+Composition          UpstreamMinimalFilm
+Format               png
+Output               /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-07-code-upstream/video-production/v5/comparison.png
+Rendered 0/1
+Rendered 0/1
+Rendered 1/1
++                    /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-07-code-upstream/video-production/v5/comparison.png

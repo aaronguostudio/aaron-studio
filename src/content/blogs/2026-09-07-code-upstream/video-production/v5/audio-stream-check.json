@@ -1,0 +1,11 @@
+{
+  "aacIdentical": true,
+  "sha256": {
+    "video-v4.mp4": "f97c5765249fde10e2515adcc7e661eaa550bd0f90f42ca02a8c0ecfad0d2b78",
+    "video-v5.mp4": "f97c5765249fde10e2515adcc7e661eaa550bd0f90f42ca02a8c0ecfad0d2b78",
+    "video-v4-nomusic.mp4": "fbbb574a707dedc3597516c38c0e707d004beb043f5c65dd7e4ee441da5d8440",
+    "video-v5-nomusic.mp4": "fbbb574a707dedc3597516c38c0e707d004beb043f5c65dd7e4ee441da5d8440"
+  },
+  "retimed": false,
+  "remixed": false
+}

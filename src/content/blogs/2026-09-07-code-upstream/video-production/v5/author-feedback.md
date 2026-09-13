@@ -1,0 +1,1 @@
+Author rejected V4 visual density: persistent agenda, full chapter title plus headline, split content and repeated summary. Remove the Personal Judgment/provenance line throughout. Simplify the full film and enlarge readable type. Keep the accepted words/performance/illustration style.

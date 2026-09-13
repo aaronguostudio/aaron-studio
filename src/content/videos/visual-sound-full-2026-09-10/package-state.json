@@ -1,0 +1,32 @@
+{
+  "phase": "complete-local-review-master",
+  "channel": "Visual & Sound",
+  "language": "en-US",
+  "voice": {
+    "label": "F",
+    "id": "nPczCjzI2devNBz1zQrb",
+    "name": "Brian",
+    "author_approved": true
+  },
+  "cover": "A",
+  "visual_direction": "author-approved",
+  "artifacts": {
+    "video": {
+      "canonical": "film.mp4",
+      "sha256": "aa90436b3bad7565aace34ae6dd2573d584b044dc242b0d5fdffd25a2949e855",
+      "duration_sec": 537.033333
+    },
+    "shorts": [
+      "shorts/SandVoiceShort.mp4",
+      "shorts/SandLabShort.mp4",
+      "shorts/SandGripperShort.mp4"
+    ],
+    "review": "http://127.0.0.1:8775/review.html",
+    "captions": "captions.en.srt"
+  },
+  "review": {
+    "technical": "passed",
+    "author_full_master": "awaiting next-day review"
+  },
+  "published": false
+}

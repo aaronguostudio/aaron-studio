@@ -1,0 +1,35 @@
+{
+  "language": "en",
+  "master": "film.mp4",
+  "method": "Word-boundary source selection, portrait re-layout, original master soundtrack, 2.5-second closing tail",
+  "shorts": [
+    {
+      "id": "SandVoiceShort",
+      "title": "This sound is sand.",
+      "start": 0,
+      "end": 49.86666666666667,
+      "duration": 52.36666666666667,
+      "file": "shorts/SandVoiceShort.mp4",
+      "sha256": "37b7f7c79a87fdf5d4f316e01439a96bdc15961f42263d4f3d0fa6106e84637c"
+    },
+    {
+      "id": "SandLabShort",
+      "title": "A song without a dune.",
+      "start": 166.095,
+      "end": 213.76666666666668,
+      "duration": 50.166666666666664,
+      "file": "shorts/SandLabShort.mp4",
+      "sha256": "e392fa89c68a3736c9cfe34af32f0093fab75a103557490ae1999ae2d0dbea5f"
+    },
+    {
+      "id": "SandGripperShort",
+      "title": "A robot gripper made of grains.",
+      "start": 427.3593333333333,
+      "end": 465.6,
+      "duration": 40.733333333333334,
+      "file": "shorts/SandGripperShort.mp4",
+      "sha256": "05ee128aabac7efa7b156012ea7bc80bc28e4b88f442c550af6f07c7bdb105f4"
+    }
+  ],
+  "master_sha256": "49e9bfb3ed61dcda747610cbcd881968f8e93e7f3887b4f21a9d09bf80ed476c"
+}

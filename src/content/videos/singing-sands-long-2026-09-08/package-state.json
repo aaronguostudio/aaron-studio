@@ -1,0 +1,12 @@
+{
+  "phase": "rendered-technical-qa-passed-awaiting-author-review",
+  "language": "en",
+  "duration_sec": 536.766667,
+  "shorts": 3,
+  "published": false,
+  "prior_version": "singing-sands-full-2026-09-08",
+  "voice_profile": "aaron-pvc-identity-v1",
+  "new_narration_human_listening_approval": false,
+  "music_rights": "active-plan-verification-pending",
+  "review_url": "http://127.0.0.1:8772/review.html"
+}

@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-08T12:31:22.339Z",
+  "source": {
+    "script": "youtube-script.md",
+    "script_sha256": "9e7fdd07ac5cc9d67e8a1881f96c068ca9c75583e08f23db427e6f8fa4bce941",
+    "transcript": "audio-transcript.md",
+    "transcript_sha256": "212d512148ab186a5a108a6d82cffbd97fe1b78ac3e5f11f419221394dbbc166"
+  },
+  "tts": {
+    "provider": "elevenlabs",
+    "voiceProfile": "aaron-pvc-identity-v1",
+    "voice": "R2DWp7zZuWmGxk3r8GIA",
+    "speed": 1,
+    "modelId": "eleven_multilingual_v2",
+    "outputFormat": "mp3_44100_192",
+    "voiceSettings": {
+      "stability": 0.5,
+      "similarity_boost": 0.75,
+      "style": 0.5,
+      "use_speaker_boost": true,
+      "speed": 1
+    }
+  },
+  "voice_profile_selection": {
+    "id": "aaron-pvc-identity-v1",
+    "selected_sample": "B",
+    "selected_at": "2026-07-11",
+    "selection_reason": "Aaron prioritized recognizable voice identity over the greater naturalness of the v3 candidate."
+  },
+  "outputs": {
+    "final": "audio.mp3",
+    "raw": "audio-raw.mp3",
+    "sample_60s": "audio-sample-60s.mp3",
+    "sample_middle_60s": "audio-sample-middle-60s.mp3",
+    "sample_late_60s": "audio-sample-late-60s.mp3"
+  },
+  "qa": {
+    "durationSeconds": 60.464762,
+    "sampleRate": 44100,
+    "channels": 1,
+    "bitRate": 192199,
+    "integratedLufs": -16.47,
+    "truePeakDb": -1.68,
+    "loudnessRange": 3.1,
+    "longSilenceCount": 0
+  },
+  "sample_windows": {
+    "openingStartSeconds": 0,
+    "middleStartSeconds": 0.23238100000000017,
+    "lateStartSeconds": 0.46476200000000034
+  },
+  "timeline": {
+    "duration": 60.464762,
+    "segments": [
+      {
+        "id": "hook",
+        "title": "Hook",
+        "start": 0,
+        "end": 13.374694,
+        "duration": 13.374694
+      },
+      {
+        "id": "slide-01",
+        "title": "A landscape becomes an instrument",
+        "start": 13.374694,
+        "end": 28.653424,
+        "duration": 15.27873
+      },
+      {
+        "id": "slide-02",
+        "title": "The conditions matter",
+        "start": 28.653424,
+        "end": 44.210794,
+        "duration": 15.55737
+      },
+      {
+        "id": "slide-03",
+        "title": "Listen again",
+        "start": 44.210794,
+        "end": 60.464762,
+        "duration": 16.253968
+      }
+    ],
+    "wordTimings": [
+      {
+        "word": "That",
+        "start": 0,
+        "end": 0.255
+      },
+      {
+        "word": "low",
+        "start": 0.383,
+        "end": 0.639
+      },
+      {
+        "word": "rumble",
+        "start": 0.72,
+        "end": 1.242
+      },
+      {
+        "word": "is",
+        "start": 1.3,
+        "end": 1.521
+      },
+      {
+        "word": "a",
+        "start": 1.602,
+        "end": 1.672
+      },
+      {
+        "word": "sand",
+        "start": 1.788,
+        "end": 2.171
+      },
+      {
+        "word": "dune.",
+        "start": 2.264,
+        "end": 2.833
+      },
+      {
+        "word": "You're",
+        "start": 3.785,
+        "end": 4.017
+      },
+      {
+        "word": "hearing",
+        "start": 4.075,
+        "end": 4.412
+      },
+      {
+        "word": "a",
+        "start": 4.481,
+        "end": 4.505
+      },
+      {
+        "word": "real",
+        "start": 4.598,
+        "end": 4.83
+      },
+      {
+        "word": "recording",
+        "start": 4.899,
+        "end": 5.515
+      },
+      {
+        "word": "from",
+        "start": 5.584,
+        "end": 5.793
+      },
+      {
+        "word": "Great",
+        "start": 5.886,
+        "end": 6.165
+      },
+      {
+        "word": "Sand",
+        "start": 6.246,
+        "end": 6.571
+      },
+      {
+        "word": "Dunes",
+        "start": 6.618,
+        "end": 7.012
+      },
+      {
+        "word": "National",
+        "start": 7.129,
+        "end": 7.616
+      },
+      {
+        "word": "Park.",
+        "start": 7.686,
+        "end": 8.348
+      },
+      {
+        "word": "Watch",
+        "start": 9.044,
+        "end": 9.358
+      },
+      {
+        "word": "the",
+        "start": 9.427,
+        "end": 9.52
+      },
+      {
+        "word": "surface:",
+        "start": 9.601,
+        "end": 10.437
+      },
+      {
+        "word": "the",
+        "start": 10.762,
+        "end": 10.879
+      },
+      {
+        "word": "sand",
+        "start": 10.948,
+        "end": 11.297
+      },
+      {
+        "word": "is",
+        "start": 11.389,
+        "end": 11.54
+      },
+      {
+        "word": "sliding.",
+        "start": 11.656,
+        "end": 13.375
+      },
+      {
+        "word": "On",
+        "start": 13.374694,
+        "end": 13.583694
+      },
+      {
+        "word": "some",
+        "start": 13.641694,
+        "end": 13.873694
+      },
+      {
+        "word": "dunes,",
+        "start": 13.920694,
+        "end": 14.663694
+      },
+      {
+        "word": "an",
+        "start": 14.907694,
+        "end": 15.057694
+      },
+      {
+        "word": "avalanche",
+        "start": 15.127694,
+        "end": 15.592694
+      },
+      {
+        "word": "produces",
+        "start": 15.650694,
+        "end": 16.253694
+      },
+      {
+        "word": "a",
+        "start": 16.335694,
+        "end": 16.381694
+      },
+      {
+        "word": "deep,",
+        "start": 16.474694,
+        "end": 16.834694
+      },
+      {
+        "word": "sustained",
+        "start": 16.915694,
+        "end": 17.484694
+      },
+      {
+        "word": "note.",
+        "start": 17.635694,
+        "end": 18.297694
+      },
+      {
+        "word": "It",
+        "start": 19.109694,
+        "end": 19.249693999999998
+      },
+      {
+        "word": "can",
+        "start": 19.283694,
+        "end": 19.434694
+      },
+      {
+        "word": "resemble",
+        "start": 19.504694,
+        "end": 19.980694
+      },
+      {
+        "word": "a",
+        "start": 20.027694,
+        "end": 20.061694
+      },
+      {
+        "word": "distant",
+        "start": 20.131694,
+        "end": 20.665694000000002
+      },
+      {
+        "word": "airplane,",
+        "start": 20.781694,
+        "end": 21.640694
+      },
+      {
+        "word": "or",
+        "start": 22.081694,
+        "end": 22.314694
+      },
+      {
+        "word": "the",
+        "start": 22.395694,
+        "end": 22.465694
+      },
+      {
+        "word": "lowest",
+        "start": 22.534694000000002,
+        "end": 22.883694
+      },
+      {
+        "word": "pipes",
+        "start": 22.999693999999998,
+        "end": 23.382694
+      },
+      {
+        "word": "of",
+        "start": 23.451694,
+        "end": 23.602694
+      },
+      {
+        "word": "an",
+        "start": 23.718694,
+        "end": 23.800694
+      },
+      {
+        "word": "organ.",
+        "start": 23.916694,
+        "end": 24.543694000000002
+      },
+      {
+        "word": "A",
+        "start": 25.239694,
+        "end": 25.332694
+      },
+      {
+        "word": "whole",
+        "start": 25.402694,
+        "end": 25.657694
+      },
+      {
+        "word": "hillside,",
+        "start": 25.692694,
+        "end": 26.540694000000002
+      },
+      {
+        "word": "making",
+        "start": 26.784694000000002,
+        "end": 27.132694
+      },
+      {
+        "word": "sound.",
+        "start": 27.190694,
+        "end": 28.653694
+      },
+      {
+        "word": "But",
+        "start": 28.653424,
+        "end": 28.874424
+      },
+      {
+        "word": "this",
+        "start": 28.908424,
+        "end": 29.083424
+      },
+      {
+        "word": "isn't",
+        "start": 29.199424,
+        "end": 29.524424
+      },
+      {
+        "word": "something",
+        "start": 29.582424,
+        "end": 30.093424000000002
+      },
+      {
+        "word": "every",
+        "start": 30.209424000000002,
+        "end": 30.487424
+      },
+      {
+        "word": "pile",
+        "start": 30.557424,
+        "end": 30.905424
+      },
+      {
+        "word": "of",
+        "start": 30.952424,
+        "end": 31.045424
+      },
+      {
+        "word": "sand",
+        "start": 31.138424,
+        "end": 31.497424000000002
+      },
+      {
+        "word": "can",
+        "start": 31.579424000000003,
+        "end": 31.741424000000002
+      },
+      {
+        "word": "do.",
+        "start": 31.811424000000002,
+        "end": 32.264424
+      },
+      {
+        "word": "At",
+        "start": 32.867424,
+        "end": 33.053424
+      },
+      {
+        "word": "Eureka",
+        "start": 33.076424,
+        "end": 33.518424
+      },
+      {
+        "word": "Dunes,",
+        "start": 33.576424,
+        "end": 34.261424
+      },
+      {
+        "word": "the",
+        "start": 34.412424,
+        "end": 34.528424
+      },
+      {
+        "word": "sand",
+        "start": 34.597424000000004,
+        "end": 34.922424
+      },
+      {
+        "word": "needs",
+        "start": 35.015424,
+        "end": 35.271424
+      },
+      {
+        "word": "to",
+        "start": 35.317424,
+        "end": 35.398424
+      },
+      {
+        "word": "be",
+        "start": 35.468424,
+        "end": 35.561424
+      },
+      {
+        "word": "dry.",
+        "start": 35.596424,
+        "end": 36.165424
+      },
+      {
+        "word": "Add",
+        "start": 36.966424,
+        "end": 37.210424
+      },
+      {
+        "word": "moisture,",
+        "start": 37.302424,
+        "end": 37.999424000000005
+      },
+      {
+        "word": "and",
+        "start": 38.069424,
+        "end": 38.220424
+      },
+      {
+        "word": "the",
+        "start": 38.266424,
+        "end": 38.336424
+      },
+      {
+        "word": "booming",
+        "start": 38.394424,
+        "end": 38.765424
+      },
+      {
+        "word": "stops.",
+        "start": 38.835424,
+        "end": 39.601424
+      },
+      {
+        "word": "The",
+        "start": 40.402424,
+        "end": 40.542424
+      },
+      {
+        "word": "conditions",
+        "start": 40.611424,
+        "end": 41.180424
+      },
+      {
+        "word": "matter",
+        "start": 41.273424,
+        "end": 41.645424000000006
+      },
+      {
+        "word": "as",
+        "start": 41.726424,
+        "end": 41.888424
+      },
+      {
+        "word": "much",
+        "start": 42.004424,
+        "end": 42.237424000000004
+      },
+      {
+        "word": "as",
+        "start": 42.295424,
+        "end": 42.446424
+      },
+      {
+        "word": "the",
+        "start": 42.527424,
+        "end": 42.597424000000004
+      },
+      {
+        "word": "movement.",
+        "start": 42.678424,
+        "end": 44.210424
+      },
+      {
+        "word": "Researchers",
+        "start": 44.210794,
+        "end": 44.860794
+      },
+      {
+        "word": "have",
+        "start": 44.930794,
+        "end": 45.104794
+      },
+      {
+        "word": "proposed",
+        "start": 45.174794,
+        "end": 45.743794
+      },
+      {
+        "word": "different",
+        "start": 45.917794,
+        "end": 46.311794
+      },
+      {
+        "word": "explanations",
+        "start": 46.393794,
+        "end": 47.275794
+      },
+      {
+        "word": "for",
+        "start": 47.345794,
+        "end": 47.507794
+      },
+      {
+        "word": "how",
+        "start": 47.589794,
+        "end": 47.809794
+      },
+      {
+        "word": "the",
+        "start": 47.879794,
+        "end": 47.960794
+      },
+      {
+        "word": "sound",
+        "start": 48.041794,
+        "end": 48.378794
+      },
+      {
+        "word": "is",
+        "start": 48.494794,
+        "end": 48.622794
+      },
+      {
+        "word": "sustained.",
+        "start": 48.715794,
+        "end": 49.527794
+      },
+      {
+        "word": "We",
+        "start": 50.038794,
+        "end": 50.178793999999996
+      },
+      {
+        "word": "can",
+        "start": 50.224794,
+        "end": 50.375794
+      },
+      {
+        "word": "watch",
+        "start": 50.433794,
+        "end": 50.700794
+      },
+      {
+        "word": "the",
+        "start": 50.758794,
+        "end": 50.851794
+      },
+      {
+        "word": "avalanche.",
+        "start": 50.932794,
+        "end": 51.768794
+      },
+      {
+        "word": "Explaining",
+        "start": 52.209794,
+        "end": 52.871794
+      },
+      {
+        "word": "its",
+        "start": 52.952794,
+        "end": 53.034794
+      },
+      {
+        "word": "voice",
+        "start": 53.126794000000004,
+        "end": 53.498794000000004
+      },
+      {
+        "word": "is",
+        "start": 53.556794,
+        "end": 53.684794
+      },
+      {
+        "word": "harder.",
+        "start": 53.800793999999996,
+        "end": 54.380794
+      },
+      {
+        "word": "Listen",
+        "start": 54.531794,
+        "end": 54.891794
+      },
+      {
+        "word": "again.",
+        "start": 54.961794,
+        "end": 55.553793999999996
+      },
+      {
+        "word": "A",
+        "start": 55.936794,
+        "end": 56.017794
+      },
+      {
+        "word": "landscape",
+        "start": 56.099794,
+        "end": 56.644794
+      },
+      {
+        "word": "we",
+        "start": 56.691794,
+        "end": 56.807794
+      },
+      {
+        "word": "think",
+        "start": 56.876794000000004,
+        "end": 57.120794000000004
+      },
+      {
+        "word": "of",
+        "start": 57.213794,
+        "end": 57.352794
+      },
+      {
+        "word": "as",
+        "start": 57.445794,
+        "end": 57.596794
+      },
+      {
+        "word": "silent,",
+        "start": 57.712794,
+        "end": 58.525794
+      },
+      {
+        "word": "making",
+        "start": 58.699794,
+        "end": 59.059794
+      },
+      {
+        "word": "itself",
+        "start": 59.129794000000004,
+        "end": 59.535793999999996
+      },
+      {
+        "word": "heard.",
+        "start": 59.663793999999996,
+        "end": 60.464794
+      }
+    ]
+  }
+}

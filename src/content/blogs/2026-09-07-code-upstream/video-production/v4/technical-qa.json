@@ -1,0 +1,85 @@
+{
+  "version": 4,
+  "checkedAt": "2026-09-08T18:03:11.285443+00:00",
+  "decision": "PASS technical and sampled visual; author listening pending",
+  "masterSha256": "367a5b04384043cc37985079a4273b1d035fa18fece688354fb584166bc4a06e",
+  "durationSeconds": 480.8333333333333,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "side_data_list": [
+          {}
+        ]
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "sample_rate": "48000",
+        "r_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "480.833333"
+    }
+  },
+  "fullAvDecode": "pass ffmpeg -xerror",
+  "encodedLoudness": {
+    "input_i": "-16.96",
+    "input_tp": "-3.14",
+    "input_lra": "4.40"
+  },
+  "finalSecondPeakDbfs": -133.37870293836977,
+  "sourceLocks": {
+    "youtube-script.md": true,
+    "audio-v3.mp3": true,
+    "video-v3.mp4": true,
+    "code-is-cheap-opportunity-moves-upstream.md": true,
+    "code-is-cheap-opportunity-moves-upstream-zh.md": true
+  },
+  "timing": {
+    "voice_pcm_preserved": true,
+    "all_original_voice_spans": 7,
+    "scenes_contiguous": true,
+    "no_caption_during_chapter_pause": true,
+    "words": 893,
+    "captions": 154,
+    "duration": 480.8333333333333,
+    "music_entrances_match_chapters": true
+  },
+  "sampledVisualReview": {
+    "frames": 87,
+    "contactSheets": 8,
+    "coverage": "Each non-chapter midpoint plus before, entry, .2/.4/.6/.8 seconds, end and exit at six chapter plates",
+    "observed": "Readable hierarchy; no body/title/caption overlap. Brief clipped text during mask reveal is intentional. Contact sheet padding is not footage.",
+    "fullHumanViewing": false
+  },
+  "range": {
+    "status": 206,
+    "contentRange": "bytes 0-1023/21226108",
+    "bytes": 1024
+  },
+  "browser": {
+    "duration": 480.833333,
+    "videoWidth": 1920,
+    "videoHeight": 1080,
+    "readyState": 4,
+    "error": null,
+    "horizontalOverflow": false,
+    "testedSeekSeconds": [
+      182.233333,
+      419.966666
+    ],
+    "source": "delivery-v4/video.mp4"
+  },
+  "captions": "154 cues and 893 timed words shifted with preserved PCM; chapter pauses are caption-free",
+  "deliveryManifest": "all hashes match",
+  "archiveCrc": "pass",
+  "publishing": "not authorized; no publication"
+}

@@ -1,0 +1,205 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "curiosity-exploration-2026-09-07",
+  "topic": "Non-tech visual knowledge video topic exploration",
+  "created_at": "2026-09-08T05:12:05.751578+00:00",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "curiosity-exploration-2026-09-07"
+  },
+  "sources": [
+    {
+      "id": "sand",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "title": "Singing Sand Phenomenon",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "sand-limits",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/places/eureka-dunes.htm",
+      "title": "Eureka Dunes",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "pockets",
+      "type": "web",
+      "canonical_url": "https://www.vam.ac.uk/articles/womens-tie-pockets",
+      "title": "Women’s tie-on pockets",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "pineapple",
+      "type": "web",
+      "canonical_url": "https://www.nationaltrust.org.uk/visit/cheshire-greater-manchester/dunham-massey/things-to-see-in-dunham-massey-house",
+      "title": "Dunham Massey house",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "fireflies",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/rlc/ogbfrec/synchronic-firefly-research-at-congaree.htm",
+      "title": "Synchronic Firefly Research",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "stones",
+      "type": "web",
+      "canonical_url": "https://www.nps.gov/deva/planyourvisit/the-racetrack.htm",
+      "title": "The Racetrack",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    },
+    {
+      "id": "timeball",
+      "type": "web",
+      "canonical_url": "https://www.rmg.co.uk/royal-observatory/attractions/greenwich-time-ball?show=nav.3613",
+      "title": "The Greenwich Time Ball",
+      "retrieved_at": "2026-09-08T05:12:05.751578+00:00",
+      "access_method": "public_web",
+      "limitations": [
+        "Source page text inspected; individual media files have not been downloaded or visually/audibly reviewed."
+      ],
+      "transcript": {
+        "status": "not_applicable"
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-sand",
+      "kind": "source_fact",
+      "text": "NPS provides a 19.186 second video of singing sand; its usage statement says NPS credited media without a copyright symbol are public domain.",
+      "source_ids": [
+        "sand"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "claim-sand-limits",
+      "kind": "source_fact",
+      "text": "Dry sand avalanching down a dune can produce a low sound; the page says the mechanism is not fully understood.",
+      "source_ids": [
+        "sand-limits"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "claim-pockets",
+      "kind": "source_fact",
+      "text": "Women used detachable pockets tied around the waist; bags and pockets coexisted rather than following a simple replacement chronology.",
+      "source_ids": [
+        "pockets"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "claim-pineapple",
+      "kind": "source_fact",
+      "text": "Pineapples were once symbols of wealth displayed in grand houses.",
+      "source_ids": [
+        "pineapple"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "claim-fireflies",
+      "kind": "source_fact",
+      "text": "Some firefly species flash in coordination with a larger group.",
+      "source_ids": [
+        "fireflies"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "claim-stones",
+      "kind": "source_fact",
+      "text": "The page reports direct observations in December 2013 of thin floating ice panels driven by light winds pushing rocks across a shallow pond.",
+      "source_ids": [
+        "stones"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "claim-timeball",
+      "kind": "source_fact",
+      "text": "The Greenwich time ball was first used in 1833 to distribute a visible time signal to ships and Londoners.",
+      "source_ids": [
+        "timeball"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "Public web search",
+      "Official museum and national park page text"
+    ],
+    "unresolved_gaps": [
+      "No audience demand or competitive performance research; rankings are editorial judgments.",
+      "Media rights must be checked per asset; institutional hosting does not grant blanket reuse rights.",
+      "Singing sand mechanism requires research paper verification before scripting a definitive explanation.",
+      "No audiovisual playback review or transcript acquisition performed.",
+      "Topic, narration language and pilot duration are not selected by Aaron."
+    ],
+    "notes": [
+      "Exploration only, not a production-ready fact pack or approved treatment."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false
+  }
+}

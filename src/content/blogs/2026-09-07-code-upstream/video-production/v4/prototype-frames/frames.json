@@ -1,0 +1,102 @@
+[
+  {
+    "frame": 182,
+    "seconds": 182.2,
+    "label": "bridge-customers -0.03s"
+  },
+  {
+    "frame": 183,
+    "seconds": 182.23333333333332,
+    "label": "bridge-customers +0.00s"
+  },
+  {
+    "frame": 189,
+    "seconds": 182.43333333333334,
+    "label": "bridge-customers +0.20s"
+  },
+  {
+    "frame": 195,
+    "seconds": 182.63333333333333,
+    "label": "bridge-customers +0.40s"
+  },
+  {
+    "frame": 201,
+    "seconds": 182.83333333333334,
+    "label": "bridge-customers +0.60s"
+  },
+  {
+    "frame": 207,
+    "seconds": 183.03333333333333,
+    "label": "bridge-customers +0.80s"
+  },
+  {
+    "frame": 260,
+    "seconds": 184.8,
+    "label": "bridge-customers +2.57s"
+  },
+  {
+    "frame": 262,
+    "seconds": 184.86666666666667,
+    "label": "bridge-customers +2.63s"
+  },
+  {
+    "frame": 710,
+    "seconds": 199.8,
+    "label": "s16"
+  },
+  {
+    "frame": 1268,
+    "seconds": 218.4,
+    "label": "s17"
+  },
+  {
+    "frame": 1650,
+    "seconds": 231.13333333333333,
+    "label": "s18"
+  },
+  {
+    "frame": 2004,
+    "seconds": 242.93333333333334,
+    "label": "bridge-product -0.03s"
+  },
+  {
+    "frame": 2005,
+    "seconds": 242.96666666666667,
+    "label": "bridge-product +0.00s"
+  },
+  {
+    "frame": 2011,
+    "seconds": 243.16666666666666,
+    "label": "bridge-product +0.20s"
+  },
+  {
+    "frame": 2017,
+    "seconds": 243.36666666666667,
+    "label": "bridge-product +0.40s"
+  },
+  {
+    "frame": 2023,
+    "seconds": 243.56666666666666,
+    "label": "bridge-product +0.60s"
+  },
+  {
+    "frame": 2029,
+    "seconds": 243.76666666666668,
+    "label": "bridge-product +0.80s"
+  },
+  {
+    "frame": 2081,
+    "seconds": 245.5,
+    "label": "bridge-product +2.53s"
+  },
+  {
+    "frame": 2083,
+    "seconds": 245.56666666666666,
+    "label": "bridge-product +2.60s"
+  },
+  {
+    "frame": 2493,
+    "seconds": 259.23333333333335,
+    "label": "s20"
+  }
+]

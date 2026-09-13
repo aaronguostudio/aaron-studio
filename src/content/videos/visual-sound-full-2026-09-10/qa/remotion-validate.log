@@ -1,0 +1,22 @@
+
+> aaron-video-remotion@1.0.0 validate
+> npm run typecheck && npm run audit
+
+
+> aaron-video-remotion@1.0.0 typecheck
+> tsc --noEmit
+
+
+> aaron-video-remotion@1.0.0 audit
+> npx -y bun ../scripts/remotion-audit.ts
+
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/SpectrumVisualizers.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/editorial/EditorialLayoutEngine.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/projects/qa-factory-prototype/index.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/projects/dhh-ai-enthusiasm/index.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/projects/codex-research-first-en/index.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/projects/human-review-required-001/index.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/components/TitleCard.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/components/GradientOverlay.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/AuthorityBoundaryLongformThumbnails.tsx has no obvious Remotion timing primitive
+[warn] /Users/aaronguo/Work/ag/aaron-studio/tiles/aaron-video-gen/remotion/src/SpectrumVisualizerFamilies.tsx has no obvious Remotion timing primitive

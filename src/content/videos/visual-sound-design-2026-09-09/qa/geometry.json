@@ -1,0 +1,8 @@
+{
+  "lab_all_540_frames_min_grain_clearance_px": 1.0999999999998877,
+  "gripper_contact_min_surface_distance": 0.7539861744383373,
+  "ball_radius": 0.75,
+  "note": "Geometry sanity checks, not physics validation",
+  "release_linear_path_min_surface_distance": 0.7539861744383373,
+  "release_note": "Bag rises 0.65 units while relaxing, then retracts; this removes the prior unloaded-bag/ball intersection."
+}

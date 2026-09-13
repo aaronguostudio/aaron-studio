@@ -1,0 +1,7 @@
+/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/visual-sound-design-2026-09-09/blender/gripper.py:12: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name);m.diffuse_color=(*color,1);m.use_nodes=True;n=m.node_tree.nodes.get('Principled BSDF');n.inputs['Base Color'].default_value=(*color,1);n.inputs['Metallic'].default_value=metal;n.inputs['Roughness'].default_value=rough;return m
+00:03.697  render           | Saved: '/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/visual-sound-design-2026-09-09/blender/preview.png'
+Info: Saved as "gripper.blend"
+Blender 5.2.1 LTS (hash 9e2066aef7ef built 2026-08-25 01:35:57)
+
+Blender quit

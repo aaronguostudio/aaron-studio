@@ -1,0 +1,120 @@
+[
+  {
+    "path": "lab-revision.mp4",
+    "duration": 18.048,
+    "sha256": "cd790b899d7c6656581dad9c8a179fe55c103e9aed7dd18f76905fd6b3da4bdb",
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "30/1",
+        "sample_rate": null
+      },
+      {
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ],
+    "decode": "pass"
+  },
+  {
+    "path": "gripper-study.mp4",
+    "duration": 18.0,
+    "sha256": "cec86e6b449b634cb7a12a6e1605b4efd78aa042e0b41df337b04c7be6616ada",
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "r_frame_rate": "24/1",
+        "sample_rate": null
+      }
+    ],
+    "decode": "pass"
+  },
+  {
+    "path": "audio/A.mp3",
+    "duration": 36.223125,
+    "sha256": "b427bac457a5d4e48bb2829c2c4462c86d45a39430c5a42587be14b9382a355d",
+    "streams": [
+      {
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ],
+    "decode": "pass",
+    "loudness": {
+      "input_i": "-16.56",
+      "input_tp": "-1.71",
+      "input_lra": "2.00",
+      "input_thresh": "-26.96",
+      "output_i": "-24.09",
+      "output_tp": "-9.16",
+      "output_lra": "2.00",
+      "output_thresh": "-34.44",
+      "normalization_type": "dynamic",
+      "target_offset": "0.09"
+    }
+  },
+  {
+    "path": "audio/B.mp3",
+    "duration": 35.9445,
+    "sha256": "da86c985e56f4bb215d838b5c2e79a531bc9b9f0c9093087f6130e1cbaf435ee",
+    "streams": [
+      {
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ],
+    "decode": "pass",
+    "loudness": {
+      "input_i": "-16.44",
+      "input_tp": "-1.72",
+      "input_lra": "2.60",
+      "input_thresh": "-26.96",
+      "output_i": "-24.29",
+      "output_tp": "-9.32",
+      "output_lra": "2.30",
+      "output_thresh": "-34.70",
+      "normalization_type": "dynamic",
+      "target_offset": "0.29"
+    }
+  },
+  {
+    "path": "audio/C.mp3",
+    "duration": 42.631833,
+    "sha256": "d9dbc9a5563aec9175aa0e075ff2138d2120074e8c47efa04ced0abb6a0e1b8f",
+    "streams": [
+      {
+        "codec_type": "audio",
+        "width": null,
+        "height": null,
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ],
+    "decode": "pass",
+    "loudness": {
+      "input_i": "-16.27",
+      "input_tp": "-1.74",
+      "input_lra": "1.90",
+      "input_thresh": "-26.68",
+      "output_i": "-23.92",
+      "output_tp": "-9.17",
+      "output_lra": "1.70",
+      "output_thresh": "-34.31",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.08"
+    }
+  }
+]

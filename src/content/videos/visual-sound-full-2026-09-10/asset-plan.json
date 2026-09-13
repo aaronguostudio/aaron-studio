@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "title": "This Sand Sings",
+  "duration_sec": 537.0333333333333,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "sand-documentary-en-v2",
+  "asset_library": {
+    "queries": [
+      "documentary warm sparse piano marimba acoustic ambient"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "intro",
+      "start_sec": 0,
+      "end_sec": 15.233333333333333,
+      "copy": "The desert has a voice",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS public-domain recording or credited photograph.",
+      "rights": "licensed",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "avalanche",
+      "start_sec": 15.233333333333333,
+      "end_sec": 26.966666666666665,
+      "copy": "A whole hillside, making sound",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f1",
+        "f4"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-full-2026-09-08/assets/eureka-wide.jpg",
+      "status": "ready",
+      "provenance": "NPS public-domain recording or credited photograph.",
+      "rights": "licensed",
+      "license_url": "https://npgallery.nps.gov/AssetDetail/ae8d30f9-0da0-42bf-9adb-b2382c85b117",
+      "creator": "Kurt Moses",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "conditions",
+      "start_sec": 26.966666666666665,
+      "end_sec": 38.733333333333334,
+      "copy": "The conditions matter",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f3"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "note",
+      "start_sec": 38.733333333333334,
+      "end_sec": 66.76666666666667,
+      "copy": "A pattern in the noise",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f13"
+      ],
+      "source_ids": [
+        "waves-2015"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "flow",
+      "start_sec": 66.76666666666667,
+      "end_sec": 84.16666666666667,
+      "copy": "Motion between grains",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6"
+      ],
+      "source_ids": [
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "sync",
+      "start_sec": 84.16666666666667,
+      "end_sec": 105.13333333333334,
+      "copy": "Finding a shared rhythm",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6"
+      ],
+      "source_ids": [
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "air",
+      "start_sec": 105.13333333333334,
+      "end_sec": 125.5,
+      "copy": "From movement to your ears",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f10"
+      ],
+      "source_ids": [
+        "air"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "pressure",
+      "start_sec": 125.5,
+      "end_sec": 152.1,
+      "copy": "Follow one particle",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f10"
+      ],
+      "source_ids": [
+        "air"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "lab",
+      "start_sec": 152.1,
+      "end_sec": 171.2,
+      "copy": "A song without a dune",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f7"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "method",
+      "start_sec": 171.2,
+      "end_sec": 193.66666666666666,
+      "copy": "Change the conditions. Measure the result.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f7"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "control",
+      "start_sec": 193.66666666666666,
+      "end_sec": 225.63333333333333,
+      "copy": "Change one thing",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f7"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "sort",
+      "start_sec": 225.63333333333333,
+      "end_sec": 244.03333333333333,
+      "copy": "Selecting the singers",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f8"
+      ],
+      "source_ids": [
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "pitch",
+      "start_sec": 244.03333333333333,
+      "end_sec": 266.4,
+      "copy": "Pitch is not loudness",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f14"
+      ],
+      "source_ids": [
+        "air",
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "debate",
+      "start_sec": 266.4,
+      "end_sec": 287.23333333333335,
+      "copy": "One sound. Different explanations.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f9"
+      ],
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "later",
+      "start_sec": 287.23333333333335,
+      "end_sec": 311.06666666666666,
+      "copy": "Burps and booms",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f13"
+      ],
+      "source_ids": [
+        "waves-2015"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "questions",
+      "start_sec": 311.06666666666666,
+      "end_sec": 332.3666666666667,
+      "copy": "Ask a sharper question",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f9"
+      ],
+      "source_ids": [
+        "caltech",
+        "dagois-2012",
+        "douady-2006"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "silo",
+      "start_sec": 332.3666666666667,
+      "end_sec": 363.96666666666664,
+      "copy": "When a factory sings",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "f11"
+      ],
+      "source_ids": [
+        "silos"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "engineering",
+      "start_sec": 363.96666666666664,
+      "end_sec": 385.9,
+      "copy": "The engineering problem",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f11"
+      ],
+      "source_ids": [
+        "silos"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "gripper",
+      "start_sec": 385.9,
+      "end_sec": 422.26666666666665,
+      "copy": "Grains that grip",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f12"
+      ],
+      "source_ids": [
+        "gripper",
+        "gripper-release"
+      ],
+      "asset_path": "assets/gripper-refined.mp4",
+      "status": "ready",
+      "provenance": "Author-approved Blender explanatory model and render; not experimental footage.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "gripforces",
+      "start_sec": 422.26666666666665,
+      "end_sec": 449.26666666666665,
+      "copy": "Three ways to hold",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f15"
+      ],
+      "source_ids": [
+        "gripper"
+      ],
+      "asset_path": "assets/gripper-hero.png",
+      "status": "ready",
+      "provenance": "Author-approved Blender explanatory model and render; not experimental footage.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "release",
+      "start_sec": 449.26666666666665,
+      "end_sec": 479.76666666666665,
+      "copy": "A small change, another possibility",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f16"
+      ],
+      "source_ids": [
+        "gripper-release"
+      ],
+      "asset_path": "assets/gripper-hero.png",
+      "status": "ready",
+      "provenance": "Author-approved Blender explanatory model and render; not experimental footage.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "meaning",
+      "start_sec": 479.76666666666665,
+      "end_sec": 501.8,
+      "copy": "Beyond the first surprise",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6",
+        "f12"
+      ],
+      "source_ids": [
+        "douady-2006",
+        "gripper",
+        "gripper-release"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "resolve",
+      "start_sec": 501.8,
+      "end_sec": 521.8666666666667,
+      "copy": "Back to the landscape",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f6",
+        "f9"
+      ],
+      "source_ids": [
+        "douady-2006",
+        "caltech",
+        "dagois-2012"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original explanatory artwork; not field evidence or calibrated measurement.",
+      "rights": "owned",
+      "license_url": "",
+      "creator": "Aaron Studio",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 0,
+      "source_end_sec": 0,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "listen",
+      "start_sec": 521.8666666666667,
+      "end_sec": 533.0333333333333,
+      "copy": "Listen again.",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../singing-sands-pilot-2026-09-08/assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS public-domain recording or credited photograph.",
+      "rights": "licensed",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    },
+    {
+      "id": "end-card",
+      "start_sec": 533.0333333333333,
+      "end_sec": 537.0333333333333,
+      "copy": "Listen again.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound",
+        "nps-eureka"
+      ],
+      "asset_path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-full/index.tsx",
+      "status": "ready",
+      "provenance": "Original author end card.",
+      "rights": "owned",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08T14:00:03.846422+00:00",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required",
+      "fallback": "Static explanatory still with unchanged audio."
+    }
+  ]
+}

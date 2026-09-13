@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "phase": "author-approved-direction-expanded-revision-requested",
+  "title": "沙丘真的会唱歌 / The desert has a voice",
+  "artifacts": {
+    "video": {
+      "canonical": "film.mp4",
+      "sha256": "b58cc9d364689833f4a252f421cae7bc9236e70a3a9c9bf51913a115eac368bb",
+      "duration_sec": 201.866667,
+      "status": "complete-review-film"
+    },
+    "review": "review.html",
+    "audio": "film-mix.wav"
+  },
+  "review": {
+    "technical": "pass",
+    "rendered_visuals": "pass",
+    "browser_playback_and_chapters": "pass",
+    "pilot_voice_and_direction": "author-approved-2026-09-08",
+    "new_narration_listening": "pending-author-review",
+    "language_polish": "deferred-per-author-instruction",
+    "author_feedback": "Approved overall film, voice and visual form; requested 7–8+ minute version with additional content, chapter music and short-form workflow."
+  },
+  "publication": {
+    "status": "not-published",
+    "authorized": false
+  }
+}

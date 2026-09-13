@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "title": "The desert has a voice",
+  "duration_sec": 74,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "sand-documentary-v1",
+  "asset_library": {
+    "queries": [
+      "curiosity desert sparse acoustic documentary"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "s01",
+      "start_sec": 0,
+      "end_sec": 9,
+      "copy": "Sliding sand in official NPS recording",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s02",
+      "start_sec": 9,
+      "end_sec": 18.4,
+      "copy": "Sliding sand in official NPS recording",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f1",
+        "f2"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s03",
+      "start_sec": 18.4,
+      "end_sec": 24.1,
+      "copy": "Wide Eureka dune photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f1",
+        "f4"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "assets/raw/eureka-nps.jpg",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/aboutus/disclaimer.htm",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 0,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s04",
+      "start_sec": 24.1,
+      "end_sec": 33.6666667,
+      "copy": "Wide Eureka dune photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f1",
+        "f4"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "assets/raw/eureka-nps.jpg",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/aboutus/disclaimer.htm",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 0,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s05",
+      "start_sec": 33.6666667,
+      "end_sec": 37.8666667,
+      "copy": "Labeled illustrative macro of sand grains",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "f3"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "assets/grains-illustration.png",
+      "status": "ready",
+      "provenance": "Generated illustrative macro, labeled illustration, never factual evidence.",
+      "rights": "generated",
+      "fallback": "Static NPS Eureka photo with narration."
+    },
+    {
+      "id": "s06",
+      "start_sec": 37.8666667,
+      "end_sec": 49.2333333,
+      "copy": "Dry/damp illustrated comparison",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f3"
+      ],
+      "source_ids": [
+        "nps-eureka"
+      ],
+      "asset_path": "assets/grains-illustration.png",
+      "status": "ready",
+      "provenance": "Generated illustrative macro, labeled illustration, never factual evidence.",
+      "rights": "generated",
+      "fallback": "Static NPS Eureka photo with narration."
+    },
+    {
+      "id": "s07",
+      "start_sec": 49.2333333,
+      "end_sec": 59.5,
+      "copy": "Wide Eureka dune photograph",
+      "visual_role": "explanation",
+      "asset_type": "source-screenshot",
+      "fact_ids": [
+        "f5"
+      ],
+      "source_ids": [
+        "nps-eureka",
+        "caltech"
+      ],
+      "asset_path": "assets/raw/eureka-nps.jpg",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/aboutus/disclaimer.htm",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 0,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s08",
+      "start_sec": 59.5,
+      "end_sec": 64,
+      "copy": "Return to field footage and photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f5"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s09",
+      "start_sec": 64,
+      "end_sec": 72.5,
+      "copy": "Return to field footage and photograph",
+      "visual_role": "evidence",
+      "asset_type": "source-video",
+      "fact_ids": [
+        "f5"
+      ],
+      "source_ids": [
+        "nps-sound"
+      ],
+      "asset_path": "assets/sand-detail.mp4",
+      "status": "ready",
+      "provenance": "NPS original field footage or photograph, credited NPS with explicit public-domain terms.",
+      "rights": "licensed",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 7.5,
+      "source_end_sec": 14.5,
+      "editorial_approval": "not-required"
+    },
+    {
+      "id": "s10",
+      "start_sec": 72.5,
+      "end_sec": 74,
+      "copy": "Return to field footage and photograph",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "asset_path": "",
+      "status": "ready",
+      "provenance": "Frame-driven fade to charcoal; no new factual claim.",
+      "rights": "generated",
+      "fallback": "Static NPS Eureka photo with narration.",
+      "license_url": "https://www.nps.gov/media/video/view.htm?id=899DBB31-8EC7-42BA-A719-A880E58D823B",
+      "creator": "National Park Service",
+      "retrieved_at": "2026-09-08",
+      "source_start_sec": 5,
+      "source_end_sec": 14,
+      "editorial_approval": "not-required"
+    }
+  ]
+}

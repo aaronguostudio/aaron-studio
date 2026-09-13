@@ -1,0 +1,47 @@
+{
+  "stage": "design-prototypes-awaiting-author-selection",
+  "brand": "Visual & Sound",
+  "parent": "singing-sands-long-2026-09-08",
+  "full_film_replaced": false,
+  "published": false,
+  "deliverables": [
+    "two thumbnail and identity directions",
+    "three same-text normalized narration auditions",
+    "18-second Blender cutaway gripper motion study",
+    "18-second revised laboratory animation"
+  ],
+  "visual_decisions": {
+    "author_brand_removed": true,
+    "repeated_provenance_overlays_removed": true,
+    "source_records_retained": true
+  },
+  "prototypes": {
+    "gripper": {
+      "status": "prototype",
+      "purpose": "Conform, grip, lift and release with dimensional cutaway",
+      "simulation": "directed keyframes and shape keys; not calibrated physics",
+      "fallback": "existing 2D segment retained in original film"
+    },
+    "lab": {
+      "status": "prototype",
+      "purpose": "Correct rotated layout and layered motion",
+      "fallback": "existing master remains available"
+    }
+  },
+  "narration": {
+    "default_unchanged": "aaron-pvc-identity-v1",
+    "candidates": [
+      "A",
+      "B",
+      "C"
+    ],
+    "selection_pending": true,
+    "selection_criteria": [
+      "naturalness",
+      "clarity",
+      "pacing",
+      "long-form comfort"
+    ]
+  },
+  "sources": "../singing-sands-long-2026-09-08/fact-pack.json"
+}

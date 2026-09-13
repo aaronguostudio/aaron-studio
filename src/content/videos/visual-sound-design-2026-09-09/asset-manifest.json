@@ -1,0 +1,22 @@
+{
+  "cover_a": {
+    "path": "assets/cover-a.png",
+    "origin": "built-in imagegen",
+    "role": "conceptual thumbnail, not source evidence",
+    "generated_file": "exec-6a7d9341-97c0-43c9-9b9f-4dd09c9b387a.png"
+  },
+  "cover_b": {
+    "path": "assets/cover-b.png",
+    "origin": "built-in imagegen",
+    "role": "conceptual thumbnail, not source evidence",
+    "generated_file": "exec-f01e3be1-2f1b-4e75-9b40-bcdceb2608f8.png"
+  },
+  "gripper": {
+    "path": "blender/gripper.blend",
+    "origin": "original local Blender model and animation"
+  },
+  "lab": {
+    "path": "../../../../tiles/aaron-video-gen/remotion/src/projects/visual-sound-design/index.tsx",
+    "origin": "original project-specific Remotion animation"
+  }
+}

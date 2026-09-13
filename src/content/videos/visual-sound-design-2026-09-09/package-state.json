@@ -1,0 +1,9 @@
+{
+  "status": "design-review-ready",
+  "author_selection": "pending",
+  "full_film_replaced": false,
+  "published": false,
+  "review_url": "http://127.0.0.1:8773/review.html",
+  "technical_qa": "pass",
+  "voice_human_review": "pending"
+}

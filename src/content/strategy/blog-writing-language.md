@@ -2,13 +2,11 @@
 
 ## Purpose
 
-Aaron's blog should read like an operator with lived judgment, not like a generic AI essay generator. The goal is not to fool AI detectors. The goal is to publish work that has concrete experience, sharp claims, natural rhythm, and commercial usefulness.
+Aaron's blog should read like an operator with lived judgment, not like a generic AI essay generator. The goal is not to fool AI detectors. The goal is to publish work with concrete material, clear author judgment and natural rhythm. Commercial usefulness matters when it serves this article's purpose.
 
-Default shape:
-
-```text
-Concrete work observation -> tension -> mechanism -> operator frame -> objection -> implication.
-```
+Choose the article's form using `tiles/blog-production/references/editorial-system.md`.
+An opinion-led essay may open directly with a consequential judgment. Do not
+force every article through a scene, framework and objection sequence.
 
 ## External skill inputs
 
@@ -29,7 +27,7 @@ Reject or revise a draft when several of these appear together:
 - Formulaic contrast: "not just X, it is Y" or repeated "it is not about X; it is about Y".
 - Vague claims with no receipt: "teams will improve alignment", "AI unlocks potential", "this changes everything".
 - Low rhythm variation: every sentence is similar length and every paragraph has the same shape.
-- Generic ending: "In conclusion", "to summarize", "future looks bright", "exciting times lie ahead".
+- Generic ending: stock wrap-ups such as "In conclusion" or optimism such as "future looks bright" detached from the article's evidence and the author's experience. Grounded enthusiasm is welcome.
 - Chinese mechanical tone: "首先/其次/最后", "综上所述", "具有重要意义", "一定程度上", "积极拥抱", "不断提升" clustered together.
 
 Use the scanner:
@@ -43,7 +41,9 @@ The scanner is a candidate detector, not a final judge. A clean score does not g
 
 ## Story craft gate
 
-Aaron's blog is not fiction, but it still needs narrative force. A useful operator essay usually has a story problem:
+Use this pass when the article relies on a story. Opinion-led essays can earn
+attention through a clear judgment and its consequences; do not invent a scene
+to satisfy a story template. A useful operator story often has this movement:
 
 ```text
 something changed -> the old process failed -> the real constraint appeared -> a new operating rule emerged.
@@ -55,7 +55,7 @@ Reject or revise when:
 - there is no tension: no constraint, bottleneck, tradeoff, failure, objection, risk, or before/after conflict;
 - the article only explains a concept and never shows the moment where the concept became necessary;
 - the ending says the topic matters but does not land a payoff;
-- the conclusion does not name what the reader should see differently, decide differently, or operate differently.
+- the conclusion leaves the central question unresolved without a clear author judgment, changed understanding, or earned reason to keep thinking about it.
 
 Good blog hooks start with a concrete disturbance:
 
@@ -74,7 +74,16 @@ Concrete does not mean autobiographical. Choose the opening with the strongest r
 
 Good narrative tension is not fake drama. It is the real friction in the system: time, judgment, ownership, review, quality, customer risk, market timing, or execution cost.
 
-Good payoff is not a summary. It is an operating rule, implication, or decision lens the reader can reuse.
+Good payoff brings the article to a meaningful close. It can offer an operating rule, an implication, a changed belief, or a personal judgment earned by the preceding evidence. Brief synthesis is useful when it connects the parts into that judgment.
+
+### 结尾要真正收住
+
+- 回看开头提出的问题，再连读最后几段：读者应能明白，这些经历或证据放在一起，让作者得出了什么判断。
+- 给收尾留出展开的空间。一个漂亮的末句、最后一个分点或一句行动建议，不能自动代替完整的结论；也不要把各节标题再列一遍。
+- 可以写信任如何变化、哪些问题仍然存在，以及作者真实的期待或担忧。情绪必须来自正文和作者提供的感受，不编造个人体验，不把期待写成已经实现的能力。
+- 新的取舍只承接正文已经建立的线索；需要另开一节论证的新观点，应移回正文或留到下一篇。
+- 不强制 CTA、固定段数、操作清单或旧文呼应。结尾的任务是让读者带着清楚的判断和恰当的情绪离开。
+- 人工检查“为什么到这里可以结束”，不能只靠扫描器关键词判定收尾合格。视频也检查最后的完整口播段落，给最终一句自然落下的时间。
 
 ### 自我提升不是自动发生
 
@@ -88,18 +97,9 @@ Good payoff is not a summary. It is an operating rule, implication, or decision 
 
 ## Aaron voice craft gate
 
-A strong Aaron post usually has:
+Use `tiles/blog-production/references/editorial-system.md` for form-specific editorial judgment. Shared voice qualities are concrete material, enough context for the reader, natural paragraph movement and an ending that completes the author's thought. Personal responses may be reflective; cases may be technical; explainers may rely on public evidence. Do not force all of them into an operating framework or a contrarian commercial thesis.
 
-- a concrete opening: a project, meeting, bottleneck, customer, metric, failure, or workflow change;
-- a thesis that a smart operator could disagree with;
-- mechanism: why the shift happens, not only what changed;
-- lived evidence: first-person experience or specific operational evidence with dates, numbers, systems, teams, or constraints;
-- commercial value: cost structure, leverage, judgment, product, customers, market, execution, or strategy;
-- a counterargument or risk so the piece does not read as hype;
-- section rhythm that mixes short punch lines with longer explanations;
-- an ending that advances the thesis with an implication, operating rule, or decision lens.
-
-Bad revision adds adjectives. Good revision adds receipts.
+When a revision improves the prose, record the passage and why it works. Select examples for clarity and fidelity to the author's intent, not merely for dates, numbers or first-person keywords.
 
 ### 直接陈述优先于自造标签
 

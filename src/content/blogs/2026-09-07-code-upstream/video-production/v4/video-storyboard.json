@@ -1,0 +1,2076 @@
+{
+  "schema_version": 1,
+  "title": "AI and the next move for engineers",
+  "duration_sec": 480.8333333333333,
+  "fps": 30,
+  "direction": {
+    "name": "Work that reaches people",
+    "style_family_id": "ledger-editorial-v1",
+    "visual_spine": "Ivory paper, graphite typography, registered layout geometry, protected captions, evidence rails, semantic focus; Astra accepted renderer and DHH music restraint inform this continuation.",
+    "motion_density": "balanced",
+    "music_strategy": "chaptered",
+    "references": [
+      {
+        "id": "ledger",
+        "url": "https://youtu.be/5vEEBhbfUWw",
+        "borrow": "Ivory paper, graphite typography, registered layout geometry, protected captions, evidence rails, semantic focus; Astra accepted renderer and DHH music restraint inform this continuation.",
+        "avoid": "Full-frame illustration slideshow, blank title stages, repeated card grids, decorative camera drift."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s00",
+      "title": "BUILD WHAT MATTERS",
+      "start_sec": 0.0,
+      "end_sec": 3.0,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "BUILD WHAT MATTERS",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "BUILD WHAT MATTERS",
+        "AI and the next move for engineers"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "BUILD WHAT MATTERS",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "AI and the next move for engineers",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "BUILD WHAT MATTERS",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s01",
+      "title": "A judgment from my years at Amazon.",
+      "start_sec": 3.0,
+      "end_sec": 18.066666666666666,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A judgment from my years at Amazon.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A judgment from my years at Amazon.",
+        "Organizational capacity\nJobs it can afford",
+        "Business need\nValue it must create",
+        "A company\u2019s ability to fund roles is different from the need it serves."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A judgment from my years at Amazon.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "A company\u2019s ability to fund roles is different from the need it serves.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.4558170254403131,
+          "visual": "Organizational capacity\nJobs it can afford",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.672512532637076,
+          "visual": "Business need\nValue it must create",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s02",
+      "title": "Where does the work\nbecome useful?",
+      "start_sec": 18.066666666666666,
+      "end_sec": 30.066666666666666,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Where does the work\nbecome useful?",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Where does the work\nbecome useful?",
+        "A career question, made more pressing by stronger execution tools."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Where does the work\nbecome useful?",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "A career question, made more pressing by stronger execution tools.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5370476190476161,
+          "visual": "Where does the work\nbecome useful?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s03",
+      "title": "An organization can create its own work.",
+      "start_sec": 30.066666666666666,
+      "end_sec": 43.766666666666666,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "An organization can create its own work.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "An organization can create its own work.",
+        "More layers",
+        "More coordination",
+        "More internal work",
+        "Customer needs may grow much more slowly."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "An organization can create its own work.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Customer needs may grow much more slowly.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6573052244955946,
+          "visual": "More layers",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.95341967574932,
+          "visual": "More coordination",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 7.196394816390285,
+          "visual": "More internal work",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s04",
+      "title": "Hard work can be absorbed internally.",
+      "start_sec": 43.766666666666666,
+      "end_sec": 58.43333333333333,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Hard work can be absorbed internally.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Hard work can be absorbed internally.",
+        "That shaped how I read the later restructuring."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Hard work can be absorbed internally.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "That shaped how I read the later restructuring.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.4792878118143449,
+          "visual": "Hard work can be absorbed internally.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s05",
+      "title": "2024 / Reduce layers.",
+      "start_sec": 58.43333333333333,
+      "end_sec": 66.56666666666666,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2024 / Reduce layers.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2024 / Reduce layers.",
+        "Fewer layers",
+        "Fewer unnecessary processes",
+        "Amazon\u2019s stated organizational priorities."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2024 / Reduce layers.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Amazon\u2019s stated organizational priorities.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5676642581453564,
+          "visual": "Fewer layers",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.3512233617234415,
+          "visual": "Fewer unnecessary processes",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06",
+      "title": "2025 / An AI workforce forecast.",
+      "start_sec": 66.56666666666666,
+      "end_sec": 75.56666666666666,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2025 / An AI workforce forecast.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2025 / An AI workforce forecast.",
+        "Andy Jassy expected a smaller total corporate workforce over time."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2025 / An AI workforce forecast.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Andy Jassy expected a smaller total corporate workforce over time.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.42908297708152077,
+          "visual": "2025 / An AI workforce forecast.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s07",
+      "title": "2026 / Restructuring continued.",
+      "start_sec": 75.56666666666666,
+      "end_sec": 92.3,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2026 / Restructuring continued.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2026 / Restructuring continued.",
+        "Public statement\nFewer layers, less bureaucracy",
+        "Interpretation boundary\nNo verdict on a person",
+        "An announcement cannot establish an individual\u2019s contribution."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2026 / Restructuring continued.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "An announcement cannot establish an individual\u2019s contribution.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5175623497267736,
+          "visual": "Public statement\nFewer layers, less bureaucracy",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.1844347121341485,
+          "visual": "Interpretation boundary\nNo verdict on a person",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s08",
+      "title": "Cheaper execution changes the calculation.",
+      "start_sec": 92.3,
+      "end_sec": 99.6,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Cheaper execution changes the calculation.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Cheaper execution changes the calculation.",
+        "My interpretation: it accelerates organizational reassessment."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Cheaper execution changes the calculation.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "My interpretation: it accelerates organizational reassessment.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5748206978776551,
+          "visual": "Cheaper execution changes the calculation.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s09",
+      "title": "Invest in the work\naround the code.",
+      "start_sec": 99.6,
+      "end_sec": 119.23333333333333,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Invest in the work\naround the code.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Invest in the work\naround the code.",
+        "Customers. Product choices. Work that reaches use."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Invest in the work\naround the code.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Customers. Product choices. Work that reaches use.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5440480066953768,
+          "visual": "Invest in the work\naround the code.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10",
+      "title": "Two ways implementation is changing.",
+      "start_sec": 119.23333333333333,
+      "end_sec": 130.96666666666667,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two ways implementation is changing.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Two ways implementation is changing.",
+        "Boris Cherny\nAI writes; he reviews",
+        "Simon Willison\nTry alternative prototypes",
+        "Their own practices, with human judgment still involved."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Two ways implementation is changing.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Their own practices, with human judgment still involved.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6402307715376168,
+          "visual": "Boris Cherny\nAI writes; he reviews",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.230611648148141,
+          "visual": "Simon Willison\nTry alternative prototypes",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s11",
+      "title": "What deserves the effort?",
+      "start_sec": 130.96666666666667,
+      "end_sec": 146.3,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "What deserves the effort?",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What deserves the effort?",
+        "Cheaper trials give us room to ask a better question."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What deserves the effort?",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Cheaper trials give us room to ask a better question.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.49719681645569835,
+          "visual": "What deserves the effort?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "bridge-industry",
+      "title": "Learn an industry deeply",
+      "start_sec": 146.3,
+      "end_sec": 149.13333333333333,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Learn an industry deeply",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Learn an industry deeply",
+        "Understand the roles",
+        "Learn the obligations",
+        "Notice unmet needs"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Learn an industry deeply",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "The business gives a feature its meaning.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.65,
+          "visual": "Learn the obligations",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Notice unmet needs",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Chapter industry entrance",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s12",
+      "title": "1 / Learn an industry deeply.",
+      "start_sec": 149.13333333333333,
+      "end_sec": 160.06666666666666,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "1 / Learn an industry deeply.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "1 / Learn an industry deeply.",
+        "Who uses it?",
+        "Who pays?",
+        "Who bears the risk?",
+        "The business gives the feature its meaning."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "1 / Learn an industry deeply.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "The business gives the feature its meaning.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5945252167883268,
+          "visual": "Who uses it?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.8215602049180575,
+          "visual": "Who pays?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 6.352918619402999,
+          "visual": "Who bears the risk?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13",
+      "title": "Payroll is more than a calculation.",
+      "start_sec": 160.06666666666666,
+      "end_sec": 172.1,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Payroll is more than a calculation.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Payroll is more than a calculation.",
+        "Visible feature\nCalculate an amount",
+        "Business context\nObligations behind it",
+        "Kent Beck\u2019s example: visible functionality and broader responsibility."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Payroll is more than a calculation.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Kent Beck\u2019s example: visible functionality and broader responsibility.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.48255900000000906,
+          "visual": "Visible feature\nCalculate an amount",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.8799257296353744,
+          "visual": "Business context\nObligations behind it",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s14",
+      "title": "Notice needs before they become tickets.",
+      "start_sec": 172.1,
+      "end_sec": 182.23333333333332,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Notice needs before they become tickets.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Notice needs before they become tickets.",
+        "Build that understanding across real projects."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Notice needs before they become tickets.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Build that understanding across real projects.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.47976583414239826,
+          "visual": "Notice needs before they become tickets.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "bridge-customers",
+      "title": "Spend time with customers",
+      "start_sec": 182.23333333333332,
+      "end_sec": 184.83333333333334,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Spend time with customers",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Spend time with customers",
+        "Watch real work",
+        "Follow the exception",
+        "Return after delivery"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Spend time with customers",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Let observation change the next feature.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.65,
+          "visual": "Follow the exception",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Return after delivery",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Chapter customers entrance",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s15",
+      "title": "2 / Spend time with customers.",
+      "start_sec": 184.83333333333334,
+      "end_sec": 198.5,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "2 / Spend time with customers.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "2 / Spend time with customers.",
+        "A beautiful demo",
+        "Accurate-looking fields",
+        "Our document tool is a hypothetical example."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "2 / Spend time with customers.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Our document tool is a hypothetical example.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.47451461077358204,
+          "visual": "A beautiful demo",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.798168549713864,
+          "visual": "Accurate-looking fields",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s16",
+      "title": "Watch the pause.",
+      "start_sec": 198.5,
+      "end_sec": 217.1,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Watch the pause.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Watch the pause.",
+        "An exception. A missing confirmation. A result they do not trust."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Watch the pause.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "An exception. A missing confirmation. A result they do not trust.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6120922369389064,
+          "visual": "Watch the pause.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s17",
+      "title": "Follow the exception.",
+      "start_sec": 217.1,
+      "end_sec": 229.83333333333334,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow the exception.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Follow the exception.",
+        "Who checks?",
+        "How is it corrected?",
+        "What must keep working?",
+        "Let the user show the current workflow."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow the exception.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Let the user show the current workflow.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6375868395303428,
+          "visual": "Who checks?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.114954378803759,
+          "visual": "How is it corrected?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 7.533280350851527,
+          "visual": "What must keep working?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s18",
+      "title": "Observation changes the next feature.",
+      "start_sec": 229.83333333333334,
+      "end_sec": 242.96666666666667,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Observation changes the next feature.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Observation changes the next feature.",
+        "Use some of the saved time to go back and learn."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Observation changes the next feature.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Use some of the saved time to go back and learn.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5147089969053695,
+          "visual": "Observation changes the next feature.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "bridge-product",
+      "title": "Practice product decisions",
+      "start_sec": 242.96666666666667,
+      "end_sec": 245.53333333333333,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Practice product decisions",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Practice product decisions",
+        "Try alternatives",
+        "Test one question",
+        "Choose what belongs"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Practice product decisions",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Spend cheaper code on better choices.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.65,
+          "visual": "Test one question",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Choose what belongs",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Chapter product entrance",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s19",
+      "title": "3 / Practice product decisions.",
+      "start_sec": 245.53333333333333,
+      "end_sec": 257.93333333333334,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "3 / Practice product decisions.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "3 / Practice product decisions.",
+        "Use cheaper implementation to compare possibilities."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "3 / Practice product decisions.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Use cheaper implementation to compare possibilities.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6246769950407156,
+          "visual": "3 / Practice product decisions.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s20",
+      "title": "Two approaches. One user task.",
+      "start_sec": 257.93333333333334,
+      "end_sec": 275.9,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Two approaches. One user task.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Two approaches. One user task.",
+        "Approach A\nVerify every item",
+        "Approach B\nHighlight exceptions",
+        "Watch hesitation and task completion before choosing."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Two approaches. One user task.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Watch hesitation and task completion before choosing.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5525093333333757,
+          "visual": "Approach A\nVerify every item",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.3056900762950363,
+          "visual": "Approach B\nHighlight exceptions",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s21",
+      "title": "What should this experiment answer?",
+      "start_sec": 275.9,
+      "end_sec": 285.1333333333333,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "What should this experiment answer?",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What should this experiment answer?",
+        "Write the question before building."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What should this experiment answer?",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Write the question before building.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6594954433811608,
+          "visual": "What should this experiment answer?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s22",
+      "title": "A basis for choosing.",
+      "start_sec": 285.1333333333333,
+      "end_sec": 302.4,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "A basis for choosing.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A basis for choosing.",
+        "What belongs?",
+        "What can wait?",
+        "What does the business require?",
+        "Product judgment grows through repeated decisions."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "A basis for choosing.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Product judgment grows through repeated decisions.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.513970270308107,
+          "visual": "What belongs?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.7827286787804724,
+          "visual": "What can wait?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 6.634035348765451,
+          "visual": "What does the business require?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "bridge-commercial",
+      "title": "Test commercial value",
+      "start_sec": 302.4,
+      "end_sec": 304.96666666666664,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Test commercial value",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Test commercial value",
+        "Understand switching",
+        "Meet the market",
+        "Count the whole cost"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Test commercial value",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Find out why someone would change.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.65,
+          "visual": "Meet the market",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Count the whole cost",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Chapter commercial entrance",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s23",
+      "title": "4 / Test commercial value.",
+      "start_sec": 304.96666666666664,
+      "end_sec": 312.53333333333336,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "4 / Test commercial value.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "4 / Test commercial value.",
+        "A useful product still asks someone to change."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "4 / Test commercial value.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "A useful product still asks someone to change.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5255684266347771,
+          "visual": "4 / Test commercial value.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s24",
+      "title": "Adoption has a cost.",
+      "start_sec": 312.53333333333336,
+      "end_sec": 319.8,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Adoption has a cost.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Adoption has a cost.",
+        "Money",
+        "Learning",
+        "Integration",
+        "Trust",
+        "Include the change the customer must make."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Adoption has a cost.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Include the change the customer must make.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.45687622126439464,
+          "visual": "Money",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.011996468725215,
+          "visual": "Learning",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 6.702599333724891,
+          "visual": "Integration",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 6.702599333724891,
+          "visual": "Trust",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s25",
+      "title": "Why would\nsomeone switch?",
+      "start_sec": 319.8,
+      "end_sec": 335.6,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Why would\nsomeone switch?",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Why would\nsomeone switch?",
+        "A working prototype gives the conversation substance."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Why would\nsomeone switch?",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "A working prototype gives the conversation substance.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5350474010101038,
+          "visual": "Why would\nsomeone switch?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s26",
+      "title": "Take the idea into the market.",
+      "start_sec": 335.6,
+      "end_sec": 346.1,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Take the idea into the market.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Take the idea into the market.",
+        "Try it?",
+        "Integrate it?",
+        "Budget for it?",
+        "Concrete commitments teach more than vague enthusiasm."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Take the idea into the market.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Concrete commitments teach more than vague enthusiasm.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5614757172130567,
+          "visual": "Try it?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.7137914053986947,
+          "visual": "Integrate it?",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 8.234717330769229,
+          "visual": "Budget for it?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s27",
+      "title": "Revisit what was once too expensive.",
+      "start_sec": 346.1,
+      "end_sec": 361.2,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Revisit what was once too expensive.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Revisit what was once too expensive.",
+        "Cost estimate\nModels, upkeep, support",
+        "Customer evidence\nTime, adoption, alternatives",
+        "Let contact with the market shape what continues."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Revisit what was once too expensive.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Let contact with the market shape what continues.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.4487929578967851,
+          "visual": "Cost estimate\nModels, upkeep, support",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.4831204905963773,
+          "visual": "Customer evidence\nTime, adoption, alternatives",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "bridge-delivery",
+      "title": "Follow the project into use",
+      "start_sec": 361.2,
+      "end_sec": 363.8,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Follow the project into use",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Follow the project into use",
+        "Connect the work",
+        "Define completion",
+        "Earn trust in use"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Follow the project into use",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Carry the work beyond implementation.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.65,
+          "visual": "Define completion",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Earn trust in use",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Chapter delivery entrance",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s28",
+      "title": "5 / Follow the project into use.",
+      "start_sec": 363.8,
+      "end_sec": 376.7,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "5 / Follow the project into use.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "5 / Follow the project into use.",
+        "Microsoft Digital: faster individuals did not initially mean a faster team."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "5 / Follow the project into use.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Microsoft Digital: faster individuals did not initially mean a faster team.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.9496639070638366,
+          "visual": "5 / Follow the project into use.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s29",
+      "title": "Connect the work.",
+      "start_sec": 376.7,
+      "end_sec": 393.03333333333336,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Connect the work.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Connect the work.",
+        "Intent",
+        "Shared specification",
+        "Acceptance",
+        "Business intent and acceptance criteria belong in shared understanding."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Connect the work.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Business intent and acceptance criteria belong in shared understanding.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5866191198830961,
+          "visual": "Intent",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.4391698719124975,
+          "visual": "Shared specification",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 7.323842445378148,
+          "visual": "Acceptance",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s30",
+      "title": "Make completion meaningful.",
+      "start_sec": 393.03333333333336,
+      "end_sec": 403.76666666666665,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make completion meaningful.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make completion meaningful.",
+        "Agree on goal",
+        "Check failures",
+        "Help them start",
+        "Return for feedback",
+        "Follow the work through the user\u2019s first real attempt."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make completion meaningful.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Follow the work through the user\u2019s first real attempt.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5416552612330179,
+          "visual": "Agree on goal",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.1843451096829085,
+          "visual": "Check failures",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 6.77255683333334,
+          "visual": "Help them start",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 10.147911162004618,
+          "visual": "Return for feedback",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s31",
+      "title": "I am more willing to carry a whole task.",
+      "start_sec": 403.76666666666665,
+      "end_sec": 415.46666666666664,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "I am more willing to carry a whole task.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "I am more willing to carry a whole task.",
+        "One cross-system reporting task; verified in development."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "I am more willing to carry a whole task.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "One cross-system reporting task; verified in development.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.494612311097967,
+          "visual": "I am more willing to carry a whole task.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s32",
+      "title": "Make the result trustworthy.",
+      "start_sec": 415.46666666666664,
+      "end_sec": 419.96666666666664,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make the result trustworthy.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make the result trustworthy.",
+        "Engineering experience has a place in the whole delivery."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make the result trustworthy.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Engineering experience has a place in the whole delivery.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.42270665996602474,
+          "visual": "Make the result trustworthy.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "bridge-closing",
+      "title": "Build what matters",
+      "start_sec": 419.96666666666664,
+      "end_sec": 422.8666666666667,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Build what matters",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Build what matters",
+        "Stay close to needs",
+        "Learn through projects",
+        "Begin with the next one"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Build what matters",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Let each project build your judgment.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.65,
+          "visual": "Learn through projects",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 1.0,
+          "visual": "Begin with the next one",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Chapter closing entrance",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s33",
+      "title": "Keep ability connected to real needs.",
+      "start_sec": 422.8666666666667,
+      "end_sec": 436.3333333333333,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Keep ability connected to real needs.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Keep ability connected to real needs.",
+        "An organization\nCan provide a role",
+        "My responsibility\nKeep learning what is useful",
+        "The judgment from Amazon still shapes my choices."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Keep ability connected to real needs.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "The judgment from Amazon still shapes my choices.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.46701109770106086,
+          "visual": "An organization\nCan provide a role",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 3.036040669014028,
+          "visual": "My responsibility\nKeep learning what is useful",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s34",
+      "title": "Let each project build your judgment.",
+      "start_sec": 436.3333333333333,
+      "end_sec": 450.0,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Let each project build your judgment.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Let each project build your judgment.",
+        "Understand",
+        "Choose",
+        "Deliver",
+        "Learn",
+        "A customer, a product choice, a result in use."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Let each project build your judgment.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "A customer, a product choice, a result in use.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5069415248962059,
+          "visual": "Understand",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.7268923105386875,
+          "visual": "Choose",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 7.022259145367343,
+          "visual": "Deliver",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 10.560603320995938,
+          "visual": "Learn",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s35",
+      "title": "What will you understand in ten years?",
+      "start_sec": 450.0,
+      "end_sec": 458.43333333333334,
+      "role": "emphasis",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "What will you understand in ten years?",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "What will you understand in ten years?",
+        "I want a deeper understanding of what people need."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "What will you understand in ten years?",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "I want a deeper understanding of what people need.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.6279499712643428,
+          "visual": "What will you understand in ten years?",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s36",
+      "title": "Begin with the next project.",
+      "start_sec": 458.43333333333334,
+      "end_sec": 463.9,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Begin with the next project.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Begin with the next project.",
+        "A conversation",
+        "A product experiment",
+        "A complete project",
+        "Capability grows through contact and follow-through."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Begin with the next project.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Capability grows through contact and follow-through.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.4545861614465707,
+          "visual": "A conversation",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 2.4816104449540717,
+          "visual": "A product experiment",
+          "action": "Narration-matched focus on the visible concept"
+        },
+        {
+          "at_sec": 4.922592363003105,
+          "visual": "A complete project",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s37",
+      "title": "Make things you care about.",
+      "start_sec": 463.9,
+      "end_sec": 475.8,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Make things you care about.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Make things you care about.",
+        "Things someone else actually needs."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Make things you care about.",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "Things someone else actually needs.",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5378693688688259,
+          "visual": "Make things you care about.",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s38",
+      "title": "AARON GUO",
+      "start_sec": 475.8,
+      "end_sec": 480.8333333333333,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Make chapter and active subtopic clear before reading the example.",
+      "entry_mode": "meaningful",
+      "entry_visual": "AARON GUO",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "AARON GUO",
+        "AI-NATIVE BUILDER \u00b7 Human-first thinker"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "AARON GUO",
+          "action": "Visible chapter title and full agenda scaffold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "AI-NATIVE BUILDER \u00b7 Human-first thinker",
+          "action": "Body-only reveal or chapter focus settle"
+        },
+        {
+          "at_sec": 0.5124473333332844,
+          "visual": "AARON GUO",
+          "action": "Narration-matched focus on the visible concept"
+        }
+      ],
+      "music_cue": "Sparse chapter cues; constant voice gain.",
+      "prototype_required": false,
+      "fallback_template": "image-sequence"
+    }
+  ]
+}

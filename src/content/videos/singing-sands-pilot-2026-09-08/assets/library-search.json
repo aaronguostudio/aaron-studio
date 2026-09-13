@@ -1,0 +1,414 @@
+[
+  {
+    "asset": {
+      "schema_version": 1,
+      "id": "music:3244aa70fdd322bf",
+      "type": "music",
+      "subtype": "section",
+      "title": "Prism Breaks — Movement I",
+      "summary": "calm, minimal, nocturnal, cinematic, lofi section",
+      "files": [
+        {
+          "role": "master",
+          "path": "src/content/music-visualizer/prism-breaks-long-night/movement-one/music.mp3",
+          "sha256": "3244aa70fdd322bfb40aae280558d8c3bc4e6f13162c2dd5babdd8bf20ad20ed",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 7920045
+        }
+      ],
+      "technical": {
+        "duration_sec": 330,
+        "duration_bucket": "long",
+        "format": "mp3",
+        "codec": "mp3",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "bit_rate_bps": 192001,
+        "loopable": true,
+        "instrumental": true
+      },
+      "semantics": {
+        "moods": [
+          "calm",
+          "minimal",
+          "nocturnal",
+          "cinematic",
+          "lofi"
+        ],
+        "energy": "low",
+        "use_cases": [
+          "long-form",
+          "audio-visualization",
+          "deep-work",
+          "reading"
+        ],
+        "topics": [],
+        "tags": [
+          "piano",
+          "percussion",
+          "acoustic"
+        ]
+      },
+      "quality": {
+        "status": "candidate",
+        "qa_notes": []
+      },
+      "rights": {
+        "status": "needs-verification",
+        "commercial_use": null,
+        "note": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+      },
+      "provenance": {
+        "source_type": "generated",
+        "model": "music_v2",
+        "prompt": "Instrumental only. First movement of a continuous 10-minute futuristic broken-beat focus session at 104 BPM. Preserve the elegant sonic world of the original Prism Breaks study: a syncopated kick-and-rim pattern with a light two-step feel, clipped hand percussion, a rubbery but restrained sub-bass motif, airy synthetic mallet plucks, and an expansive cool pad. Shape a calm long-form arc rather than a loop: 0:00–0:25 a soft signal arrives; 0:25–2:30 a clean, stable broken groove; 2:30–4:25 a subtle bass and mallet variation; 4:25–5:24 a slightly wider luminous harmonic color. Keep each change sparse and patient, with enough low-frequency articulation for a contained visual response. In the final six seconds, gently thin upper percussion and leave bass and pad breathing for a seamless handoff. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl dust, no jazzy chords, no trap hats, no dramatic build-up, no drop, no heavy wobble bass, no harsh treble, no EDM risers, and no abrupt ending.",
+        "created_at": "2026-07-12T18:25:14.034Z",
+        "manifest_paths": [
+          "src/content/music-visualizer/prism-breaks-long-night/movement-one/generation-manifest.json"
+        ]
+      },
+      "relations": {
+        "derived_from": [],
+        "variants": [],
+        "demonstrated_with": [],
+        "paired_with": []
+      },
+      "usage": {
+        "use_count": 0,
+        "last_used_at": null,
+        "used_in": []
+      },
+      "search_text": "music:3244aa70fdd322bf music section Prism Breaks — Movement I calm, minimal, nocturnal, cinematic, lofi section low calm minimal nocturnal cinematic lofi long-form audio-visualization deep-work reading piano percussion acoustic needs-verification music_v2 Instrumental only. First movement of a continuous 10-minute futuristic broken-beat focus session at 104 BPM. Preserve the elegant sonic world of the original Prism Breaks study: a syncopated kick-and-rim pattern with a light two-step feel, clipped hand percussion, a rubbery but restrained sub-bass motif, airy synthetic mallet plucks, and an expansive cool pad. Shape a calm long-form arc rather than a loop: 0:00–0:25 a soft signal arrives; 0:25–2:30 a clean, stable broken groove; 2:30–4:25 a subtle bass and mallet variation; 4:25–5:24 a slightly wider luminous harmonic color. Keep each change sparse and patient, with enough low-frequency articulation for a contained visual response. In the final six seconds, gently thin upper percussion and leave bass and pad breathing for a seamless handoff. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl dust, no jazzy chords, no trap hats, no dramatic build-up, no drop, no heavy wobble bass, no harsh treble, no EDM risers, and no abrupt ending. src/content/music-visualizer/prism-breaks-long-night/movement-one/music.mp3",
+      "indexed_at": "2026-09-08T02:07:20.086Z"
+    },
+    "score": 14,
+    "matches": [
+      "sparse",
+      "acoustic"
+    ]
+  },
+  {
+    "asset": {
+      "schema_version": 1,
+      "id": "music:698a8d22de73b8c4",
+      "type": "music",
+      "subtype": "short-track",
+      "title": "Prism Motor",
+      "summary": "calm, minimal, dark, lofi short track",
+      "files": [
+        {
+          "role": "master",
+          "path": "src/content/music-visualizer/orb-rhythm-lab/prism-motor/music.mp3",
+          "sha256": "698a8d22de73b8c43825f73a49bf38ae6b8acc8f7efbb688001c8bf62b004713",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        }
+      ],
+      "technical": {
+        "duration_sec": 42.024,
+        "duration_bucket": "short",
+        "format": "mp3",
+        "codec": "mp3",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "bit_rate_bps": 192008,
+        "loopable": null,
+        "instrumental": true
+      },
+      "semantics": {
+        "moods": [
+          "calm",
+          "minimal",
+          "dark",
+          "lofi"
+        ],
+        "energy": "low",
+        "use_cases": [
+          "short-form",
+          "audio-visualization",
+          "deep-work",
+          "reading",
+          "audition",
+          "short-video"
+        ],
+        "topics": [],
+        "tags": [
+          "piano",
+          "guitar",
+          "synth",
+          "percussion",
+          "acoustic"
+        ]
+      },
+      "quality": {
+        "status": "candidate",
+        "qa_notes": []
+      },
+      "rights": {
+        "status": "needs-verification",
+        "commercial_use": null,
+        "note": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+      },
+      "provenance": {
+        "source_type": "generated",
+        "model": "music_v2",
+        "prompt": "Instrumental only. A hypnotic 42-second minimal electronic focus track at 116 BPM with a steady, elegant motorik pulse. Use a soft but firm four-on-the-floor kick, a sparse dry clap or rim, one quietly ticking percussion line, a dark analog sequence, a rounded bass anchor, and wide translucent synth chords. Keep it sleek, spacious, and slightly futuristic: stronger rhythmic propulsion than lo-fi, but never clubby or aggressive. Structure: 0–6 seconds ignition, 6–29 seconds steady propulsion, 29–35 seconds color opening with a second sequence layer, 35–42 seconds reduce back to the core pulse. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl noise, no disco guitar, no EDM drop, no risers, no supersaw, no aggressive compression, no harsh hi-hats.",
+        "created_at": "2026-07-12T18:12:57.392Z",
+        "manifest_paths": [
+          "src/content/music-visualizer/orb-rhythm-lab/prism-motor/generation-manifest.json"
+        ]
+      },
+      "relations": {
+        "derived_from": [],
+        "variants": [],
+        "demonstrated_with": [],
+        "paired_with": []
+      },
+      "usage": {
+        "use_count": 0,
+        "last_used_at": null,
+        "used_in": []
+      },
+      "search_text": "music:698a8d22de73b8c4 music short-track Prism Motor calm, minimal, dark, lofi short track low calm minimal dark lofi short-form audio-visualization deep-work reading audition short-video piano guitar synth percussion acoustic needs-verification music_v2 Instrumental only. A hypnotic 42-second minimal electronic focus track at 116 BPM with a steady, elegant motorik pulse. Use a soft but firm four-on-the-floor kick, a sparse dry clap or rim, one quietly ticking percussion line, a dark analog sequence, a rounded bass anchor, and wide translucent synth chords. Keep it sleek, spacious, and slightly futuristic: stronger rhythmic propulsion than lo-fi, but never clubby or aggressive. Structure: 0–6 seconds ignition, 6–29 seconds steady propulsion, 29–35 seconds color opening with a second sequence layer, 35–42 seconds reduce back to the core pulse. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl noise, no disco guitar, no EDM drop, no risers, no supersaw, no aggressive compression, no harsh hi-hats. src/content/music-visualizer/orb-rhythm-lab/prism-motor/music.mp3",
+      "indexed_at": "2026-09-08T02:07:20.086Z"
+    },
+    "score": 14,
+    "matches": [
+      "sparse",
+      "acoustic"
+    ]
+  },
+  {
+    "asset": {
+      "schema_version": 1,
+      "id": "music:1943a4323794b66a",
+      "type": "music",
+      "subtype": "short-track",
+      "title": "Prism Pulse",
+      "summary": "minimal, dark, energetic, lofi short track",
+      "files": [
+        {
+          "role": "master",
+          "path": "src/content/music-visualizer/orb-rhythm-lab/prism-pulse/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/radial/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/linear/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/mirrored/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/x-spectrum/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/radial-dots/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/waveform-line/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/radial-waveform/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        },
+        {
+          "role": "alternate",
+          "path": "src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/music.mp3",
+          "sha256": "1943a4323794b66a24377c51ed5ee3c08e3772a83bef0ab87e237c753f26a77d",
+          "mime_type": "audio/mpeg",
+          "size_bytes": 1008621
+        }
+      ],
+      "technical": {
+        "duration_sec": 42.024,
+        "duration_bucket": "short",
+        "format": "mp3",
+        "codec": "mp3",
+        "sample_rate_hz": 48000,
+        "channels": 2,
+        "bit_rate_bps": 192008,
+        "loopable": null,
+        "instrumental": true
+      },
+      "semantics": {
+        "moods": [
+          "minimal",
+          "dark",
+          "energetic",
+          "lofi"
+        ],
+        "energy": "dynamic",
+        "use_cases": [
+          "short-form",
+          "audio-visualization",
+          "deep-work",
+          "reading",
+          "audition",
+          "short-video"
+        ],
+        "topics": [],
+        "tags": [
+          "piano",
+          "synth",
+          "percussion",
+          "acoustic"
+        ]
+      },
+      "quality": {
+        "status": "candidate",
+        "qa_notes": []
+      },
+      "rights": {
+        "status": "needs-verification",
+        "commercial_use": null,
+        "note": "Verify the active ElevenLabs paid-plan music terms before commercial publication."
+      },
+      "provenance": {
+        "source_type": "generated",
+        "model": "music_v2",
+        "prompt": "Instrumental only. A polished 42-second nocturnal minimal electronica focus track at 108 BPM. Build a clear, tactile groove from a compact punchy kick, a short muted rim hit, syncopated tom-like percussion, an elastic mono-synth bass pulse, glassy analog chord stabs, and a thin granular shimmer. The rhythm should be confident and forward-moving but leave large pockets of silence; it should feel like colored light orbiting a dark energy core. Structure: 0–7 seconds sparse signal, 7–28 seconds locked groove, 28–35 seconds a subtle harmonic lift, 35–42 seconds a clean restrained release. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl crackle, no jazz harmony, no EDM riser, no big drop, no aggressive sidechain pump, no festival snare, no harsh highs.",
+        "created_at": "2026-07-12T18:13:16.131Z",
+        "manifest_paths": [
+          "src/content/music-visualizer/orb-rhythm-lab/prism-pulse/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/radial/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/library-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/linear/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/mirrored/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/x-spectrum/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/radial-dots/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/waveform-line/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/radial-waveform/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/generation-manifest.json",
+          "src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/generation-manifest.json"
+        ]
+      },
+      "relations": {
+        "derived_from": [],
+        "variants": [],
+        "demonstrated_with": [
+          "visualizer:spectrum-bars:v1",
+          "visualizer:mirrored-spectrum:v1",
+          "visualizer:waveform-line:v1",
+          "visualizer:mirrored-waveform:v1",
+          "visualizer:filled-spectrum:v1",
+          "visualizer:spectrum-dots:v1",
+          "visualizer:twin-spectrum:v1",
+          "visualizer:radial-spectrum:v1",
+          "visualizer:radial-waveform:v1",
+          "visualizer:radial-dots:v1",
+          "visualizer:spectrum-arc:v1",
+          "visualizer:filled-radial-spectrum:v1",
+          "visualizer:triangle-spectrum:v1",
+          "visualizer:x-spectrum:v1",
+          "visualizer:side-burst-ring:v1"
+        ],
+        "paired_with": []
+      },
+      "usage": {
+        "use_count": 1,
+        "last_used_at": "2026-07-15T15:01:37.815Z",
+        "used_in": [
+          {
+            "project": "src/content/videos/2026-07-15-starship-flight-13",
+            "role": "background-music",
+            "recorded_at": "2026-07-15T15:01:37.815Z"
+          }
+        ]
+      },
+      "search_text": "music:1943a4323794b66a music short-track Prism Pulse minimal, dark, energetic, lofi short track dynamic minimal dark energetic lofi short-form audio-visualization deep-work reading audition short-video piano synth percussion acoustic needs-verification music_v2 Instrumental only. A polished 42-second nocturnal minimal electronica focus track at 108 BPM. Build a clear, tactile groove from a compact punchy kick, a short muted rim hit, syncopated tom-like percussion, an elastic mono-synth bass pulse, glassy analog chord stabs, and a thin granular shimmer. The rhythm should be confident and forward-moving but leave large pockets of silence; it should feel like colored light orbiting a dark energy core. Structure: 0–7 seconds sparse signal, 7–28 seconds locked groove, 28–35 seconds a subtle harmonic lift, 35–42 seconds a clean restrained release. No vocals, no lo-fi, no Rhodes, no acoustic piano, no vinyl crackle, no jazz harmony, no EDM riser, no big drop, no aggressive sidechain pump, no festival snare, no harsh highs. src/content/music-visualizer/orb-rhythm-lab/prism-pulse/music.mp3 src/content/music-visualizer/spectrum-demos-v1/radial/music.mp3 src/content/music-visualizer/spectrum-demos-v1/linear/music.mp3 src/content/music-visualizer/spectrum-demos-v1/mirrored/music.mp3 src/content/music-visualizer/spectrum-demos-v1/x-spectrum/music.mp3 src/content/music-visualizer/spectrum-demos-v1/radial-dots/music.mp3 src/content/music-visualizer/spectrum-demos-v1/spectrum-arc/music.mp3 src/content/music-visualizer/spectrum-demos-v1/waveform-line/music.mp3 src/content/music-visualizer/spectrum-demos-v1/twin-spectrum/music.mp3 src/content/music-visualizer/spectrum-demos-v1/spectrum-dots/music.mp3 src/content/music-visualizer/spectrum-demos-v1/side-burst-ring/music.mp3 src/content/music-visualizer/spectrum-demos-v1/radial-waveform/music.mp3 src/content/music-visualizer/spectrum-demos-v1/filled-spectrum/music.mp3 src/content/music-visualizer/spectrum-demos-v1/triangle-spectrum/music.mp3 src/content/music-visualizer/spectrum-demos-v1/mirrored-waveform/music.mp3 src/content/music-visualizer/spectrum-demos-v1/filled-radial-spectrum/music.mp3",
+      "indexed_at": "2026-09-08T02:07:20.086Z"
+    },
+    "score": 13.65,
+    "matches": [
+      "sparse",
+      "acoustic"
+    ]
+  }
+]

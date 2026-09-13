@@ -1,0 +1,487 @@
+{
+  "provider": "ElevenLabs",
+  "voice_id": "nPczCjzI2devNBz1zQrb",
+  "voice_name": "Brian",
+  "language": "en-US",
+  "author_approved": true,
+  "segments": [
+    {
+      "id": "intro",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "That low rumble is a sand dune. You're hearing a real recording from Great Sand Dunes National Park. Watch the surface: the sand is sliding.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "next_text": "On some dunes, an avalanche produces a deep, sustained note. It can resemble a distant airplane, or the lowest pipes of an organ. A whole hillside, making sound."
+      },
+      "file": "audio/intro.mp3",
+      "sha256": "4463f2f4178d7024017134e60dd59d3dbc44007b1ea114ece935fbf6da2f7a10"
+    },
+    {
+      "id": "avalanche",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "On some dunes, an avalanche produces a deep, sustained note. It can resemble a distant airplane, or the lowest pipes of an organ. A whole hillside, making sound.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "That low rumble is a sand dune. You're hearing a real recording from Great Sand Dunes National Park. Watch the surface: the sand is sliding.",
+        "next_text": "But this isn't something every pile of sand can do. At Eureka Dunes, the sand needs to be dry. Add moisture, and the booming stops. The conditions matter as much as the movement."
+      },
+      "file": "audio/avalanche.mp3",
+      "sha256": "8a92fbb0c1a2674702bea8b191d7046be4c07cb4810e191907a64ee6aa47686f"
+    },
+    {
+      "id": "conditions",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "But this isn't something every pile of sand can do. At Eureka Dunes, the sand needs to be dry. Add moisture, and the booming stops. The conditions matter as much as the movement.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "On some dunes, an avalanche produces a deep, sustained note. It can resemble a distant airplane, or the lowest pipes of an organ. A whole hillside, making sound.",
+        "next_text": "Why does that sound feel so surprising? Because loose sand usually gives us a scattered hiss. A sustained note means that some pattern is repeating. At the dunes examined in one field study, the strongest frequencies sat between seventy and one hundred and five hertz. That's around seventy to a hundred vibrations each second. The landscape sounds still, yet something inside it is intensely active."
+      },
+      "file": "audio/conditions.mp3",
+      "sha256": "83c7102af86fb0dd04feb74aa279c7cca04f57caebd7a1a20f3ce8dc1768c6a7"
+    },
+    {
+      "id": "note",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Why does that sound feel so surprising? Because loose sand usually gives us a scattered hiss. A sustained note means that some pattern is repeating. At the dunes examined in one field study, the strongest frequencies sat between seventy and one hundred and five hertz. That's around seventy to a hundred vibrations each second. The landscape sounds still, yet something inside it is intensely active.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "But this isn't something every pile of sand can do. At Eureka Dunes, the sand needs to be dry. Add moisture, and the booming stops. The conditions matter as much as the movement.",
+        "next_text": "So what is actually vibrating? Start with the avalanche. Grains roll and slide past their neighbors. Researchers have linked the sound to this relative motion. The wind can move sand, but it isn't simply blowing across the dune like a giant flute."
+      },
+      "file": "audio/note.mp3",
+      "sha256": "c3351ce32e09502b329dd064a43f3390b0722b413196f3e0277b6d73cb4c33e4"
+    },
+    {
+      "id": "flow",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "So what is actually vibrating? Start with the avalanche. Grains roll and slide past their neighbors. Researchers have linked the sound to this relative motion. The wind can move sand, but it isn't simply blowing across the dune like a giant flute.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "Why does that sound feel so surprising? Because loose sand usually gives us a scattered hiss. A sustained note means that some pattern is repeating. At the dunes examined in one field study, the strongest frequencies sat between seventy and one hundred and five hertz. That's around seventy to a hundred vibrations each second. The landscape sounds still, yet something inside it is intensely active.",
+        "next_text": "One influential explanation is synchronization. Imagine a crowd clapping. Scattered claps sound like a jumble. When people settle into a shared rhythm, a clear pulse emerges. The comparison isn't literal. But it helps explain how many moving grains could produce a sustained note, instead of just a rustle."
+      },
+      "file": "audio/flow.mp3",
+      "sha256": "53b61e679b0ddfdc8359cc1cef929c0d85daeccc2cdbc89c367f1350da6cc944"
+    },
+    {
+      "id": "sync",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "One influential explanation is synchronization. Imagine a crowd clapping. Scattered claps sound like a jumble. When people settle into a shared rhythm, a clear pulse emerges. The comparison isn't literal. But it helps explain how many moving grains could produce a sustained note, instead of just a rustle.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "So what is actually vibrating? Start with the avalanche. Grains roll and slide past their neighbors. Researchers have linked the sound to this relative motion. The wind can move sand, but it isn't simply blowing across the dune like a giant flute.",
+        "next_text": "And how does movement become something we hear? Sound travels through air as small changes in pressure. Air particles pass the disturbance along; they don't fly all the way from the dune into your ear. Think of a message passed through a crowd. Our slow animation shows the idea, not the actual speed of these vibrations."
+      },
+      "file": "audio/sync.mp3",
+      "sha256": "5270209f78cc70f3fe6b7054f8773abb6d218613ae38d9b064b7498bf5c778a8"
+    },
+    {
+      "id": "air",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "And how does movement become something we hear? Sound travels through air as small changes in pressure. Air particles pass the disturbance along; they don't fly all the way from the dune into your ear. Think of a message passed through a crowd. Our slow animation shows the idea, not the actual speed of these vibrations.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "One influential explanation is synchronization. Imagine a crowd clapping. Scattered claps sound like a jumble. When people settle into a shared rhythm, a clear pulse emerges. The comparison isn't literal. But it helps explain how many moving grains could produce a sustained note, instead of just a rustle.",
+        "next_text": "Watch one marked particle in the animation. It moves back and forth around the same position, while the pattern continues across the screen. A compressed region is followed by a less compressed region. That repeating change is what the microphone detects. This gives us two different motions to keep track of: the local movement of the material, and the travel of the disturbance. Confusing those two makes sound seem much more mysterious than it needs to be."
+      },
+      "file": "audio/air.mp3",
+      "sha256": "fbcf8eb94a88ff11671f5ac769ef2e5cab4188a2ce353bfdc69bbbd5d127d7e5"
+    },
+    {
+      "id": "pressure",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Watch one marked particle in the animation. It moves back and forth around the same position, while the pattern continues across the screen. A compressed region is followed by a less compressed region. That repeating change is what the microphone detects. This gives us two different motions to keep track of: the local movement of the material, and the travel of the disturbance. Confusing those two makes sound seem much more mysterious than it needs to be.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "And how does movement become something we hear? Sound travels through air as small changes in pressure. Air particles pass the disturbance along; they don't fly all the way from the dune into your ear. Think of a message passed through a crowd. Our slow animation shows the idea, not the actual speed of these vibrations.",
+        "next_text": "Then came a revealing experiment. Researchers brought singing sand into the laboratory. They let it avalanche down an inclined channel with a hard bottom. It still sang. Under those conditions, the moving sand didn't need an entire dune underneath it to make the sound."
+      },
+      "file": "audio/pressure.mp3",
+      "sha256": "96225dcc8c566237833b255ebafbacb017cd01228c8bb751bd3b3e673859b3b0"
+    },
+    {
+      "id": "lab",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Then came a revealing experiment. Researchers brought singing sand into the laboratory. They let it avalanche down an inclined channel with a hard bottom. It still sang. Under those conditions, the moving sand didn't need an entire dune underneath it to make the sound.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "Watch one marked particle in the animation. It moves back and forth around the same position, while the pattern continues across the screen. A compressed region is followed by a less compressed region. That repeating change is what the microphone detects. This gives us two different motions to keep track of: the local movement of the material, and the travel of the disturbance. Confusing those two makes sound seem much more mysterious than it needs to be.",
+        "next_text": "The researchers did more than pour sand onto a desk. They used an inclined channel, prepared layers of sand, and removed a gate to start an avalanche. Microphones and acceleration sensors recorded what happened. Bringing the phenomenon indoors made it possible to control the setup and compare samples. A strange landscape had become a testable experiment."
+      },
+      "file": "audio/lab.mp3",
+      "sha256": "a1fee631df87393a3c4a35fb6a71e6897dd7b4ee27395efd5d1686b4c15beeca"
+    },
+    {
+      "id": "method",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "The researchers did more than pour sand onto a desk. They used an inclined channel, prepared layers of sand, and removed a gate to start an avalanche. Microphones and acceleration sensors recorded what happened. Bringing the phenomenon indoors made it possible to control the setup and compare samples. A strange landscape had become a testable experiment.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "Then came a revealing experiment. Researchers brought singing sand into the laboratory. They let it avalanche down an inclined channel with a hard bottom. It still sang. Under those conditions, the moving sand didn't need an entire dune underneath it to make the sound.",
+        "next_text": "Imagine trying to compare two sounds outdoors. The slope, the sand, the moisture, and the way the avalanche starts might all be different. If the recordings change, which difference caused it? A controlled experiment narrows that question. Hold the setup steady, change a chosen condition, and compare what the instruments record. That is why the channel matters. It turns a remarkable sound into something that can be examined through a sequence of smaller, more specific questions."
+      },
+      "file": "audio/method.mp3",
+      "sha256": "a8046f8cac0db97d2b3d94abc160fbceef237a1359110e0a624d874c5b80e4e8"
+    },
+    {
+      "id": "control",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Imagine trying to compare two sounds outdoors. The slope, the sand, the moisture, and the way the avalanche starts might all be different. If the recordings change, which difference caused it? A controlled experiment narrows that question. Hold the setup steady, change a chosen condition, and compare what the instruments record. That is why the channel matters. It turns a remarkable sound into something that can be examined through a sequence of smaller, more specific questions.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "The researchers did more than pour sand onto a desk. They used an inclined channel, prepared layers of sand, and removed a gate to start an avalanche. Microphones and acceleration sensors recorded what happened. Bringing the phenomenon indoors made it possible to control the setup and compare samples. A strange landscape had become a testable experiment.",
+        "next_text": "They also investigated grain size. Sand containing a wider mixture of sizes produced a broader, noisier sound. After sieving that sand into a narrower range of sizes, the note became more clearly defined. Changing the grains changed the voice. That is a powerful clue."
+      },
+      "file": "audio/control.mp3",
+      "sha256": "d2ae8b9031d617e7798bb902841b466a8cd2a6b9c1e834707f5308d49c6ec09a"
+    },
+    {
+      "id": "sort",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "They also investigated grain size. Sand containing a wider mixture of sizes produced a broader, noisier sound. After sieving that sand into a narrower range of sizes, the note became more clearly defined. Changing the grains changed the voice. That is a powerful clue.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "Imagine trying to compare two sounds outdoors. The slope, the sand, the moisture, and the way the avalanche starts might all be different. If the recordings change, which difference caused it? A controlled experiment narrows that question. Hold the setup steady, change a chosen condition, and compare what the instruments record. That is why the channel matters. It turns a remarkable sound into something that can be examined through a sequence of smaller, more specific questions.",
+        "next_text": "A clearer note doesn't mean the sand became louder. Pitch, loudness, and the mixture of frequencies are different features of a sound. In the sorting experiment, selecting a narrower range of grain sizes made the frequency more defined. The sieve didn't manufacture musical grains. It selected grains already present in the sample."
+      },
+      "file": "audio/sort.mp3",
+      "sha256": "574a533d3095009c4fd886ff56448d6d6ebb47b05b41bd78b59bb45082e6796c"
+    },
+    {
+      "id": "pitch",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "A clearer note doesn't mean the sand became louder. Pitch, loudness, and the mixture of frequencies are different features of a sound. In the sorting experiment, selecting a narrower range of grain sizes made the frequency more defined. The sieve didn't manufacture musical grains. It selected grains already present in the sample.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "They also investigated grain size. Sand containing a wider mixture of sizes produced a broader, noisier sound. After sieving that sand into a narrower range of sizes, the note became more clearly defined. Changing the grains changed the voice. That is a powerful clue.",
+        "next_text": "But there is more than one explanation in the research. Field studies have emphasized how layers inside a dune can guide and reinforce vibrations. Other experiments emphasize the flowing grains. Making sand sing in a lab answers one question. It doesn't settle every detail of a booming hillside."
+      },
+      "file": "audio/pitch.mp3",
+      "sha256": "067357a246ae0946fe5297c2c6b6eb8f0939c131e35617c7ea505e9cf007b479"
+    },
+    {
+      "id": "debate",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "But there is more than one explanation in the research. Field studies have emphasized how layers inside a dune can guide and reinforce vibrations. Other experiments emphasize the flowing grains. Making sand sing in a lab answers one question. It doesn't settle every detail of a booming hillside.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "A clearer note doesn't mean the sand became louder. Pitch, loudness, and the mixture of frequencies are different features of a sound. In the sorting experiment, selecting a narrower range of grain sizes made the frequency more defined. The sieve didn't manufacture musical grains. It selected grains already present in the sample.",
+        "next_text": "A later field study, published in twenty fifteen, separated short bursts of sound from the longer boom. The researchers called the short bursts burps, and found that they involved different kinds of waves. Their analysis again supported a role for the dune's layers in the sustained booming. So scale matters: a shallow laboratory flow and a large dune need careful comparison."
+      },
+      "file": "audio/debate.mp3",
+      "sha256": "f275b78003265255fbbbee5e94d161a09e609bc233bd788170a220f738ce31ec"
+    },
+    {
+      "id": "later",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "A later field study, published in twenty fifteen, separated short bursts of sound from the longer boom. The researchers called the short bursts burps, and found that they involved different kinds of waves. Their analysis again supported a role for the dune's layers in the sustained booming. So scale matters: a shallow laboratory flow and a large dune need careful comparison.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "But there is more than one explanation in the research. Field studies have emphasized how layers inside a dune can guide and reinforce vibrations. Other experiments emphasize the flowing grains. Making sand sing in a lab answers one question. It doesn't settle every detail of a booming hillside.",
+        "next_text": "That is useful scientific progress, even without a single tidy answer. Instead of asking only, why does sand sing, we can ask: what starts the vibration? What selects the pitch? What makes it loud enough to hear? And what keeps it going? One experiment may answer one of those questions better than the others."
+      },
+      "file": "audio/later.mp3",
+      "sha256": "cb1cf4d83fee5ade5fbdde0532d9c79caa5a09bb7c1c958fac0132a81e8331e0"
+    },
+    {
+      "id": "questions",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "That is useful scientific progress, even without a single tidy answer. Instead of asking only, why does sand sing, we can ask: what starts the vibration? What selects the pitch? What makes it loud enough to hear? And what keeps it going? One experiment may answer one of those questions better than the others.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "A later field study, published in twenty fifteen, separated short bursts of sound from the longer boom. The researchers called the short bursts burps, and found that they involved different kinds of waves. Their analysis again supported a role for the dune's layers in the sustained booming. So scale matters: a shallow laboratory flow and a large dune need careful comparison.",
+        "next_text": "Does any of this connect to practical engineering? Yes, through the wider problem of moving granular materials. In tall, narrow silos, researchers have measured pulsing motion and loud sound as material empties out. They call these effects silo quake and silo music. In the experiments, friction between the grains and the wall could alternate between sticking and slipping. That motion drove the silo's vibration, and sound resonance followed."
+      },
+      "file": "audio/questions.mp3",
+      "sha256": "b574e26f56321633233f8bbc341d754fb103baa3ab35bc06953349d764683513"
+    },
+    {
+      "id": "silo",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Does any of this connect to practical engineering? Yes, through the wider problem of moving granular materials. In tall, narrow silos, researchers have measured pulsing motion and loud sound as material empties out. They call these effects silo quake and silo music. In the experiments, friction between the grains and the wall could alternate between sticking and slipping. That motion drove the silo's vibration, and sound resonance followed.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "That is useful scientific progress, even without a single tidy answer. Instead of asking only, why does sand sing, we can ask: what starts the vibration? What selects the pitch? What makes it loud enough to hear? And what keeps it going? One experiment may answer one of those questions better than the others.",
+        "next_text": "For an engineer, this is more than a curious soundtrack. Unwanted vibration can be a structural concern, and loud noise is a problem of its own. The mechanism isn't automatically identical to a singing dune. The connection is the engineering question: when many grains move together, how does their collective motion couple to the structure around them?"
+      },
+      "file": "audio/silo.mp3",
+      "sha256": "c16531d85aa10da7384ea2811437506958a81433d7d609d0db1a9f6a3edef7b7"
+    },
+    {
+      "id": "engineering",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "For an engineer, this is more than a curious soundtrack. Unwanted vibration can be a structural concern, and loud noise is a problem of its own. The mechanism isn't automatically identical to a singing dune. The connection is the engineering question: when many grains move together, how does their collective motion couple to the structure around them?",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "Does any of this connect to practical engineering? Yes, through the wider problem of moving granular materials. In tall, narrow silos, researchers have measured pulsing motion and loud sound as material empties out. They call these effects silo quake and silo music. In the experiments, friction between the grains and the wall could alternate between sticking and slipping. That motion drove the silo's vibration, and sound resonance followed.",
+        "next_text": "Another surprising example comes from robotics. Researchers demonstrated a gripper made from a flexible bag of granular material. Press the soft bag against an object, and it conforms to the shape. Apply a vacuum, and the grains pack into a more rigid, jammed state that can hold the object. Release it, and the system can become deformable again. This is an application of granular physics, not an invention traced directly to singing sand. The link is how a crowd of simple particles can behave like a very different material."
+      },
+      "file": "audio/engineering.mp3",
+      "sha256": "b6c4abb60df7f8e04487976a452f4c699b6f4d38cc09e8f1ed75e07aea7ff91e"
+    },
+    {
+      "id": "gripper",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Another surprising example comes from robotics. Researchers demonstrated a gripper made from a flexible bag of granular material. Press the soft bag against an object, and it conforms to the shape. Apply a vacuum, and the grains pack into a more rigid, jammed state that can hold the object. Release it, and the system can become deformable again. This is an application of granular physics, not an invention traced directly to singing sand. The link is how a crowd of simple particles can behave like a very different material.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "For an engineer, this is more than a curious soundtrack. Unwanted vibration can be a structural concern, and loud noise is a problem of its own. The mechanism isn't automatically identical to a singing dune. The connection is the engineering question: when many grains move together, how does their collective motion couple to the structure around them?",
+        "next_text": "The original gripper study identified three contributions to the holding force: friction, suction, and mechanical interlocking. Their importance depends on the contact with the object. The bag is doing more than becoming stiff. It first adapts to a shape, then keeps that shape as the particles jam. The researchers reported that a volume change of less than half a percent could be enough to establish a reliable grip in their experiments."
+      },
+      "file": "audio/gripper.mp3",
+      "sha256": "ce1735570273d6d120b5c358993f7c20874316f3855baff93a9827c90d9b82fa"
+    },
+    {
+      "id": "gripforces",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "The original gripper study identified three contributions to the holding force: friction, suction, and mechanical interlocking. Their importance depends on the contact with the object. The bag is doing more than becoming stiff. It first adapts to a shape, then keeps that shape as the particles jam. The researchers reported that a volume change of less than half a percent could be enough to establish a reliable grip in their experiments.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "Another surprising example comes from robotics. Researchers demonstrated a gripper made from a flexible bag of granular material. Press the soft bag against an object, and it conforms to the shape. Apply a vacuum, and the grains pack into a more rigid, jammed state that can hold the object. Release it, and the system can become deformable again. This is an application of granular physics, not an invention traced directly to singing sand. The link is how a crowd of simple particles can behave like a very different material.",
+        "next_text": "A later Cornell demonstration added positive air pressure to help the gripper reset. The prototype used coffee grounds inside a latex balloon. Reversing the pressure released the object, and a quick pressure change could even launch it. A device built to pick things up could now throw them. That did not remove the practical questions. Researchers still needed to understand wear, repeatability, and how the particles changed with use. A promising laboratory demonstration is the beginning of that engineering work."
+      },
+      "file": "audio/gripforces.mp3",
+      "sha256": "3886d00d03a91c6bbdd285b1d8ab4062bf1ea5b2f1a4158ee051792652819f29"
+    },
+    {
+      "id": "release",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "A later Cornell demonstration added positive air pressure to help the gripper reset. The prototype used coffee grounds inside a latex balloon. Reversing the pressure released the object, and a quick pressure change could even launch it. A device built to pick things up could now throw them. That did not remove the practical questions. Researchers still needed to understand wear, repeatability, and how the particles changed with use. A promising laboratory demonstration is the beginning of that engineering work.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "The original gripper study identified three contributions to the holding force: friction, suction, and mechanical interlocking. Their importance depends on the contact with the object. The bag is doing more than becoming stiff. It first adapts to a shape, then keeps that shape as the particles jam. The researchers reported that a volume change of less than half a percent could be enough to establish a reliable grip in their experiments.",
+        "next_text": "That is what makes this subject worth following beyond the first surprising sound. A pile can flow, a packed collection can resist motion, and under the right conditions an avalanche can sustain a note. We don't need to pretend every natural curiosity immediately becomes a gadget. Sometimes it gives us a better question, and a better way to look at ordinary matter."
+      },
+      "file": "audio/release.mp3",
+      "sha256": "810113990ce7506b6ebedf0edaa143ed68bfbb0ef0a4abafb84f61dbce216284"
+    },
+    {
+      "id": "meaning",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "That is what makes this subject worth following beyond the first surprising sound. A pile can flow, a packed collection can resist motion, and under the right conditions an avalanche can sustain a note. We don't need to pretend every natural curiosity immediately becomes a gadget. Sometimes it gives us a better question, and a better way to look at ordinary matter.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "A later Cornell demonstration added positive air pressure to help the gripper reset. The prototype used coffee grounds inside a latex balloon. Reversing the pressure released the object, and a quick pressure change could even launch it. A device built to pick things up could now throw them. That did not remove the practical questions. Researchers still needed to understand wear, repeatability, and how the particles changed with use. A promising laboratory demonstration is the beginning of that engineering work.",
+        "next_text": "So the useful picture is this: the avalanche sets suitable sand in motion. Collective movement can organize that motion into sound. The grain properties, the flow, and the surrounding conditions all matter. Tiny things moving together can give a landscape a voice."
+      },
+      "file": "audio/meaning.mp3",
+      "sha256": "e084d880c0c0a63eb6bb86bb1b0d302e05a7546f8749ba31c0d8da431d8184a8"
+    },
+    {
+      "id": "resolve",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "So the useful picture is this: the avalanche sets suitable sand in motion. Collective movement can organize that motion into sound. The grain properties, the flow, and the surrounding conditions all matter. Tiny things moving together can give a landscape a voice.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "That is what makes this subject worth following beyond the first surprising sound. A pile can flow, a packed collection can resist motion, and under the right conditions an avalanche can sustain a note. We don't need to pretend every natural curiosity immediately becomes a gadget. Sometimes it gives us a better question, and a better way to look at ordinary matter.",
+        "next_text": "Listen again. A landscape we think of as silent, making itself heard."
+      },
+      "file": "audio/resolve.mp3",
+      "sha256": "a809f4be53fa04e71c6c26fcb015aa1f56d4a941ade6b23b3c973ec3a7d112df"
+    },
+    {
+      "id": "listen",
+      "voice_id": "nPczCjzI2devNBz1zQrb",
+      "author_approved_label": "F",
+      "request": {
+        "text": "Listen again. A landscape we think of as silent, making itself heard.",
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {
+          "stability": 0.55,
+          "similarity_boost": 0.75,
+          "style": 0,
+          "use_speaker_boost": true,
+          "speed": 1
+        },
+        "previous_text": "So the useful picture is this: the avalanche sets suitable sand in motion. Collective movement can organize that motion into sound. The grain properties, the flow, and the surrounding conditions all matter. Tiny things moving together can give a landscape a voice."
+      },
+      "file": "audio/listen.mp3",
+      "sha256": "794986157048252ff12b74d3647cc8a1ea019fd00f559295aad1f1ea10e54e05"
+    }
+  ]
+}

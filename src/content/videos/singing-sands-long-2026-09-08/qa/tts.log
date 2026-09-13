@@ -1,0 +1,50 @@
+
+[parse] Reading script: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/youtube-script.md
+[parse] Found 9 slides in "The desert has a voice — expanded narration"
+[parse] Found [HOOK] section (400 chars)
+[audit] PASS -> /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/youtube-script-audit.md
+[images] Skipped for --audio-only
+[audio] Final spoken transcript → /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-transcript.md
+
+[tts] Generating narration with elevenlabs (voice: R2DWp7zZuWmGxk3r8GIA, profile: aaron-pvc-identity-v1)
+  Slide 0: "From grains to your ears" (321 chars)
+    → 26.4s
+  Slide 1: "Change one thing" (356 chars)
+    → 29.2s
+  Slide 2: "What a clearer note means" (331 chars)
+    → 26.5s
+  Slide 3: "A later chapter in the debate" (377 chars)
+    → 32.5s
+  Slide 4: "Ask a sharper question" (310 chars)
+    → 26.2s
+  Slide 5: "A factory can sing too" (444 chars)
+    → 36.6s
+  Slide 6: "When sound is a problem" (353 chars)
+    → 28.7s
+  Slide 7: "Grains that grip" (528 chars)
+    → 42.4s
+  Slide 8: "Why the small things matter" (367 chars)
+    → 29.7s
+
+[tts] Generating hook narration...
+  Hook (400 chars)
+    → 33.4s
+
+[audio] Concatenating narration → /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/.video-gen-tmp/narration-full.mp3
+[audio] Preserved raw narration -> /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-raw.mp3
+[audio] Normalizing review copy and running QA...
+
+✅ Audio generated: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio.mp3
+   Raw: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-raw.mp3
+   Opening 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-sample-60s.mp3
+   Middle 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-sample-middle-60s.mp3
+   Late 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-sample-late-60s.mp3
+   Transcript: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-transcript.md
+   Manifest: /Users/aaronguo/Work/ag/aaron-studio/src/content/videos/singing-sands-long-2026-09-08/new-narration/audio-generation-manifest.json
+   Voice profile: aaron-pvc-identity-v1
+   Voice ID: R2DWp7zZuWmGxk3r8GIA
+   Model: eleven_multilingual_v2
+   Size: 7.1 MB
+   Duration: ~312s
+   Loudness: -16.60 LUFS, -1.64 dBTP
+   Long silences: 0

@@ -1,0 +1,637 @@
+[
+  {
+    "frame": 45,
+    "seconds": 1.5,
+    "label": "s00 midpoint"
+  },
+  {
+    "frame": 316,
+    "seconds": 10.533333333333333,
+    "label": "s01 midpoint"
+  },
+  {
+    "frame": 722,
+    "seconds": 24.066666666666666,
+    "label": "s02 midpoint"
+  },
+  {
+    "frame": 1108,
+    "seconds": 36.93333333333333,
+    "label": "s03 midpoint"
+  },
+  {
+    "frame": 1533,
+    "seconds": 51.1,
+    "label": "s04 midpoint"
+  },
+  {
+    "frame": 1875,
+    "seconds": 62.5,
+    "label": "s05 midpoint"
+  },
+  {
+    "frame": 2132,
+    "seconds": 71.06666666666666,
+    "label": "s06 midpoint"
+  },
+  {
+    "frame": 2518,
+    "seconds": 83.93333333333334,
+    "label": "s07 midpoint"
+  },
+  {
+    "frame": 2878,
+    "seconds": 95.93333333333334,
+    "label": "s08 midpoint"
+  },
+  {
+    "frame": 3282,
+    "seconds": 109.4,
+    "label": "s09 midpoint"
+  },
+  {
+    "frame": 3753,
+    "seconds": 125.1,
+    "label": "s10 midpoint"
+  },
+  {
+    "frame": 4159,
+    "seconds": 138.63333333333333,
+    "label": "s11 midpoint"
+  },
+  {
+    "frame": 4388,
+    "seconds": 146.26666666666668,
+    "label": "bridge-industry -0.03s"
+  },
+  {
+    "frame": 4389,
+    "seconds": 146.3,
+    "label": "bridge-industry +0.00s"
+  },
+  {
+    "frame": 4395,
+    "seconds": 146.5,
+    "label": "bridge-industry +0.20s"
+  },
+  {
+    "frame": 4401,
+    "seconds": 146.7,
+    "label": "bridge-industry +0.40s"
+  },
+  {
+    "frame": 4407,
+    "seconds": 146.9,
+    "label": "bridge-industry +0.60s"
+  },
+  {
+    "frame": 4413,
+    "seconds": 147.1,
+    "label": "bridge-industry +0.80s"
+  },
+  {
+    "frame": 4473,
+    "seconds": 149.1,
+    "label": "bridge-industry +2.80s"
+  },
+  {
+    "frame": 4475,
+    "seconds": 149.16666666666666,
+    "label": "bridge-industry +2.87s"
+  },
+  {
+    "frame": 4638,
+    "seconds": 154.6,
+    "label": "s12 midpoint"
+  },
+  {
+    "frame": 4982,
+    "seconds": 166.06666666666666,
+    "label": "s13 midpoint"
+  },
+  {
+    "frame": 5315,
+    "seconds": 177.16666666666666,
+    "label": "s14 midpoint"
+  },
+  {
+    "frame": 5466,
+    "seconds": 182.2,
+    "label": "bridge-customers -0.03s"
+  },
+  {
+    "frame": 5467,
+    "seconds": 182.23333333333332,
+    "label": "bridge-customers +0.00s"
+  },
+  {
+    "frame": 5473,
+    "seconds": 182.43333333333334,
+    "label": "bridge-customers +0.20s"
+  },
+  {
+    "frame": 5479,
+    "seconds": 182.63333333333333,
+    "label": "bridge-customers +0.40s"
+  },
+  {
+    "frame": 5485,
+    "seconds": 182.83333333333334,
+    "label": "bridge-customers +0.60s"
+  },
+  {
+    "frame": 5491,
+    "seconds": 183.03333333333333,
+    "label": "bridge-customers +0.80s"
+  },
+  {
+    "frame": 5544,
+    "seconds": 184.8,
+    "label": "bridge-customers +2.57s"
+  },
+  {
+    "frame": 5546,
+    "seconds": 184.86666666666667,
+    "label": "bridge-customers +2.63s"
+  },
+  {
+    "frame": 5750,
+    "seconds": 191.66666666666666,
+    "label": "s15 midpoint"
+  },
+  {
+    "frame": 6234,
+    "seconds": 207.8,
+    "label": "s16 midpoint"
+  },
+  {
+    "frame": 6704,
+    "seconds": 223.46666666666667,
+    "label": "s17 midpoint"
+  },
+  {
+    "frame": 7092,
+    "seconds": 236.4,
+    "label": "s18 midpoint"
+  },
+  {
+    "frame": 7288,
+    "seconds": 242.93333333333334,
+    "label": "bridge-product -0.03s"
+  },
+  {
+    "frame": 7289,
+    "seconds": 242.96666666666667,
+    "label": "bridge-product +0.00s"
+  },
+  {
+    "frame": 7295,
+    "seconds": 243.16666666666666,
+    "label": "bridge-product +0.20s"
+  },
+  {
+    "frame": 7301,
+    "seconds": 243.36666666666667,
+    "label": "bridge-product +0.40s"
+  },
+  {
+    "frame": 7307,
+    "seconds": 243.56666666666666,
+    "label": "bridge-product +0.60s"
+  },
+  {
+    "frame": 7313,
+    "seconds": 243.76666666666668,
+    "label": "bridge-product +0.80s"
+  },
+  {
+    "frame": 7365,
+    "seconds": 245.5,
+    "label": "bridge-product +2.53s"
+  },
+  {
+    "frame": 7367,
+    "seconds": 245.56666666666666,
+    "label": "bridge-product +2.60s"
+  },
+  {
+    "frame": 7552,
+    "seconds": 251.73333333333332,
+    "label": "s19 midpoint"
+  },
+  {
+    "frame": 8007,
+    "seconds": 266.9,
+    "label": "s20 midpoint"
+  },
+  {
+    "frame": 8416,
+    "seconds": 280.53333333333336,
+    "label": "s21 midpoint"
+  },
+  {
+    "frame": 8813,
+    "seconds": 293.76666666666665,
+    "label": "s22 midpoint"
+  },
+  {
+    "frame": 9071,
+    "seconds": 302.3666666666667,
+    "label": "bridge-commercial -0.03s"
+  },
+  {
+    "frame": 9072,
+    "seconds": 302.4,
+    "label": "bridge-commercial +0.00s"
+  },
+  {
+    "frame": 9078,
+    "seconds": 302.6,
+    "label": "bridge-commercial +0.20s"
+  },
+  {
+    "frame": 9084,
+    "seconds": 302.8,
+    "label": "bridge-commercial +0.40s"
+  },
+  {
+    "frame": 9090,
+    "seconds": 303.0,
+    "label": "bridge-commercial +0.60s"
+  },
+  {
+    "frame": 9096,
+    "seconds": 303.2,
+    "label": "bridge-commercial +0.80s"
+  },
+  {
+    "frame": 9148,
+    "seconds": 304.93333333333334,
+    "label": "bridge-commercial +2.53s"
+  },
+  {
+    "frame": 9150,
+    "seconds": 305.0,
+    "label": "bridge-commercial +2.60s"
+  },
+  {
+    "frame": 9262,
+    "seconds": 308.73333333333335,
+    "label": "s23 midpoint"
+  },
+  {
+    "frame": 9485,
+    "seconds": 316.1666666666667,
+    "label": "s24 midpoint"
+  },
+  {
+    "frame": 9831,
+    "seconds": 327.7,
+    "label": "s25 midpoint"
+  },
+  {
+    "frame": 10226,
+    "seconds": 340.8666666666667,
+    "label": "s26 midpoint"
+  },
+  {
+    "frame": 10610,
+    "seconds": 353.6666666666667,
+    "label": "s27 midpoint"
+  },
+  {
+    "frame": 10835,
+    "seconds": 361.1666666666667,
+    "label": "bridge-delivery -0.03s"
+  },
+  {
+    "frame": 10836,
+    "seconds": 361.2,
+    "label": "bridge-delivery +0.00s"
+  },
+  {
+    "frame": 10842,
+    "seconds": 361.4,
+    "label": "bridge-delivery +0.20s"
+  },
+  {
+    "frame": 10848,
+    "seconds": 361.6,
+    "label": "bridge-delivery +0.40s"
+  },
+  {
+    "frame": 10854,
+    "seconds": 361.8,
+    "label": "bridge-delivery +0.60s"
+  },
+  {
+    "frame": 10860,
+    "seconds": 362.0,
+    "label": "bridge-delivery +0.80s"
+  },
+  {
+    "frame": 10913,
+    "seconds": 363.76666666666665,
+    "label": "bridge-delivery +2.57s"
+  },
+  {
+    "frame": 10915,
+    "seconds": 363.8333333333333,
+    "label": "bridge-delivery +2.63s"
+  },
+  {
+    "frame": 11108,
+    "seconds": 370.26666666666665,
+    "label": "s28 midpoint"
+  },
+  {
+    "frame": 11385,
+    "seconds": 379.5,
+    "label": "s29 connector 1 0.00"
+  },
+  {
+    "frame": 11390,
+    "seconds": 379.6666666666667,
+    "label": "s29 connector 1 0.25"
+  },
+  {
+    "frame": 11394,
+    "seconds": 379.8,
+    "label": "s29 connector 1 0.50"
+  },
+  {
+    "frame": 11399,
+    "seconds": 379.96666666666664,
+    "label": "s29 connector 1 0.75"
+  },
+  {
+    "frame": 11404,
+    "seconds": 380.1333333333333,
+    "label": "s29 connector 1 1.00"
+  },
+  {
+    "frame": 11501,
+    "seconds": 383.3666666666667,
+    "label": "s29 connector 2 0.00"
+  },
+  {
+    "frame": 11506,
+    "seconds": 383.53333333333336,
+    "label": "s29 connector 2 0.25"
+  },
+  {
+    "frame": 11511,
+    "seconds": 383.7,
+    "label": "s29 connector 2 0.50"
+  },
+  {
+    "frame": 11516,
+    "seconds": 383.8666666666667,
+    "label": "s29 connector 2 0.75"
+  },
+  {
+    "frame": 11521,
+    "seconds": 384.03333333333336,
+    "label": "s29 connector 2 1.00"
+  },
+  {
+    "frame": 11546,
+    "seconds": 384.8666666666667,
+    "label": "s29 midpoint"
+  },
+  {
+    "frame": 11867,
+    "seconds": 395.56666666666666,
+    "label": "s30 connector 1 0.00"
+  },
+  {
+    "frame": 11872,
+    "seconds": 395.73333333333335,
+    "label": "s30 connector 1 0.25"
+  },
+  {
+    "frame": 11877,
+    "seconds": 395.9,
+    "label": "s30 connector 1 0.50"
+  },
+  {
+    "frame": 11882,
+    "seconds": 396.06666666666666,
+    "label": "s30 connector 1 0.75"
+  },
+  {
+    "frame": 11887,
+    "seconds": 396.23333333333335,
+    "label": "s30 connector 1 1.00"
+  },
+  {
+    "frame": 11952,
+    "seconds": 398.4,
+    "label": "s30 midpoint"
+  },
+  {
+    "frame": 11975,
+    "seconds": 399.1666666666667,
+    "label": "s30 connector 2 0.00"
+  },
+  {
+    "frame": 11980,
+    "seconds": 399.3333333333333,
+    "label": "s30 connector 2 0.25"
+  },
+  {
+    "frame": 11984,
+    "seconds": 399.46666666666664,
+    "label": "s30 connector 2 0.50"
+  },
+  {
+    "frame": 11989,
+    "seconds": 399.6333333333333,
+    "label": "s30 connector 2 0.75"
+  },
+  {
+    "frame": 11994,
+    "seconds": 399.8,
+    "label": "s30 connector 2 1.00"
+  },
+  {
+    "frame": 12076,
+    "seconds": 402.53333333333336,
+    "label": "s30 connector 3 0.00"
+  },
+  {
+    "frame": 12081,
+    "seconds": 402.7,
+    "label": "s30 connector 3 0.25"
+  },
+  {
+    "frame": 12086,
+    "seconds": 402.8666666666667,
+    "label": "s30 connector 3 0.50"
+  },
+  {
+    "frame": 12091,
+    "seconds": 403.03333333333336,
+    "label": "s30 connector 3 0.75"
+  },
+  {
+    "frame": 12095,
+    "seconds": 403.1666666666667,
+    "label": "s30 connector 3 1.00"
+  },
+  {
+    "frame": 12288,
+    "seconds": 409.6,
+    "label": "s31 midpoint"
+  },
+  {
+    "frame": 12532,
+    "seconds": 417.73333333333335,
+    "label": "s32 midpoint"
+  },
+  {
+    "frame": 12598,
+    "seconds": 419.93333333333334,
+    "label": "bridge-closing -0.03s"
+  },
+  {
+    "frame": 12599,
+    "seconds": 419.96666666666664,
+    "label": "bridge-closing +0.00s"
+  },
+  {
+    "frame": 12605,
+    "seconds": 420.1666666666667,
+    "label": "bridge-closing +0.20s"
+  },
+  {
+    "frame": 12611,
+    "seconds": 420.3666666666667,
+    "label": "bridge-closing +0.40s"
+  },
+  {
+    "frame": 12617,
+    "seconds": 420.56666666666666,
+    "label": "bridge-closing +0.60s"
+  },
+  {
+    "frame": 12623,
+    "seconds": 420.76666666666665,
+    "label": "bridge-closing +0.80s"
+  },
+  {
+    "frame": 12685,
+    "seconds": 422.8333333333333,
+    "label": "bridge-closing +2.87s"
+  },
+  {
+    "frame": 12687,
+    "seconds": 422.9,
+    "label": "bridge-closing +2.93s"
+  },
+  {
+    "frame": 12888,
+    "seconds": 429.6,
+    "label": "s33 midpoint"
+  },
+  {
+    "frame": 13152,
+    "seconds": 438.4,
+    "label": "s34 connector 1 0.00"
+  },
+  {
+    "frame": 13157,
+    "seconds": 438.56666666666666,
+    "label": "s34 connector 1 0.25"
+  },
+  {
+    "frame": 13162,
+    "seconds": 438.73333333333335,
+    "label": "s34 connector 1 0.50"
+  },
+  {
+    "frame": 13167,
+    "seconds": 438.9,
+    "label": "s34 connector 1 0.75"
+  },
+  {
+    "frame": 13172,
+    "seconds": 439.06666666666666,
+    "label": "s34 connector 1 1.00"
+  },
+  {
+    "frame": 13281,
+    "seconds": 442.7,
+    "label": "s34 connector 2 0.00"
+  },
+  {
+    "frame": 13286,
+    "seconds": 442.8666666666667,
+    "label": "s34 connector 2 0.25"
+  },
+  {
+    "frame": 13291,
+    "seconds": 443.03333333333336,
+    "label": "s34 connector 2 0.50"
+  },
+  {
+    "frame": 13295,
+    "seconds": 443.1666666666667,
+    "label": "s34 midpoint"
+  },
+  {
+    "frame": 13296,
+    "seconds": 443.2,
+    "label": "s34 connector 2 0.75"
+  },
+  {
+    "frame": 13301,
+    "seconds": 443.3666666666667,
+    "label": "s34 connector 2 1.00"
+  },
+  {
+    "frame": 13387,
+    "seconds": 446.23333333333335,
+    "label": "s34 connector 3 0.00"
+  },
+  {
+    "frame": 13392,
+    "seconds": 446.4,
+    "label": "s34 connector 3 0.25"
+  },
+  {
+    "frame": 13397,
+    "seconds": 446.56666666666666,
+    "label": "s34 connector 3 0.50"
+  },
+  {
+    "frame": 13402,
+    "seconds": 446.73333333333335,
+    "label": "s34 connector 3 0.75"
+  },
+  {
+    "frame": 13407,
+    "seconds": 446.9,
+    "label": "s34 connector 3 1.00"
+  },
+  {
+    "frame": 13626,
+    "seconds": 454.2,
+    "label": "s35 midpoint"
+  },
+  {
+    "frame": 13835,
+    "seconds": 461.1666666666667,
+    "label": "s36 midpoint"
+  },
+  {
+    "frame": 14096,
+    "seconds": 469.8666666666667,
+    "label": "s37 midpoint"
+  },
+  {
+    "frame": 14350,
+    "seconds": 478.3333333333333,
+    "label": "s38 midpoint"
+  }
+]

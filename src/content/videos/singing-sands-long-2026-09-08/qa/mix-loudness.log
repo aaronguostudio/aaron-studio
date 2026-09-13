@@ -1,0 +1,30 @@
+[aist#0:0/pcm_s16le @ 0xc57400180] Guessed Channel Layout: stereo
+Input #0, wav, from 'src/content/videos/singing-sands-long-2026-09-08/film-mix.wav':
+  Metadata:
+    encoder         : Lavf62.12.101
+  Duration: 00:08:56.77, bitrate: 1536 kb/s
+  Stream #0:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 48000 Hz, stereo, s16, 1536 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (pcm_s16le (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    encoder         : Lavf62.12.101
+  Stream #0:0: Audio: pcm_s16le, 192000 Hz, stereo, s16, 6144 kb/s
+    Metadata:
+      encoder         : Lavc62.28.101 pcm_s16le
+size=N/A time=00:00:18.20 bitrate=N/A speed=36.4x elapsed=0:00:00.50    size=N/A time=00:00:36.50 bitrate=N/A speed=36.5x elapsed=0:00:01.00    size=N/A time=00:00:56.00 bitrate=N/A speed=37.2x elapsed=0:00:01.50    size=N/A time=00:01:16.20 bitrate=N/A speed=37.9x elapsed=0:00:02.01    size=N/A time=00:01:36.40 bitrate=N/A speed=38.4x elapsed=0:00:02.51    size=N/A time=00:01:54.80 bitrate=N/A speed=38.1x elapsed=0:00:03.01    size=N/A time=00:02:11.50 bitrate=N/A speed=37.4x elapsed=0:00:03.51    size=N/A time=00:02:25.60 bitrate=N/A speed=36.2x elapsed=0:00:04.01    size=N/A time=00:02:45.20 bitrate=N/A speed=36.5x elapsed=0:00:04.52    size=N/A time=00:03:03.70 bitrate=N/A speed=36.6x elapsed=0:00:05.02    size=N/A time=00:03:18.90 bitrate=N/A speed=  36x elapsed=0:00:05.52    size=N/A time=00:03:38.40 bitrate=N/A speed=36.2x elapsed=0:00:06.02    size=N/A time=00:03:56.70 bitrate=N/A speed=36.2x elapsed=0:00:06.53    size=N/A time=00:04:15.20 bitrate=N/A speed=36.3x elapsed=0:00:07.03    size=N/A time=00:04:32.00 bitrate=N/A speed=36.1x elapsed=0:00:07.54    size=N/A time=00:04:50.20 bitrate=N/A speed=36.1x elapsed=0:00:08.04    size=N/A time=00:05:06.10 bitrate=N/A speed=35.8x elapsed=0:00:08.55    size=N/A time=00:05:21.60 bitrate=N/A speed=35.5x elapsed=0:00:09.05    size=N/A time=00:05:36.10 bitrate=N/A speed=35.2x elapsed=0:00:09.55    size=N/A time=00:05:52.30 bitrate=N/A speed=  35x elapsed=0:00:10.06    size=N/A time=00:06:09.70 bitrate=N/A speed=  35x elapsed=0:00:10.56    size=N/A time=00:06:21.70 bitrate=N/A speed=34.5x elapsed=0:00:11.07    size=N/A time=00:06:36.00 bitrate=N/A speed=34.2x elapsed=0:00:11.57    size=N/A time=00:06:49.60 bitrate=N/A speed=33.9x elapsed=0:00:12.08    size=N/A time=00:07:01.20 bitrate=N/A speed=33.5x elapsed=0:00:12.58    size=N/A time=00:07:15.30 bitrate=N/A speed=33.3x elapsed=0:00:13.08    size=N/A time=00:07:26.90 bitrate=N/A speed=32.9x elapsed=0:00:13.59    size=N/A time=00:07:41.30 bitrate=N/A speed=32.7x elapsed=0:00:14.09    size=N/A time=00:07:55.90 bitrate=N/A speed=32.6x elapsed=0:00:14.59    size=N/A time=00:08:02.50 bitrate=N/A speed=31.9x elapsed=0:00:15.10    size=N/A time=00:08:14.20 bitrate=N/A speed=31.7x elapsed=0:00:15.60    size=N/A time=00:08:27.60 bitrate=N/A speed=31.5x elapsed=0:00:16.11    size=N/A time=00:08:40.00 bitrate=N/A speed=31.3x elapsed=0:00:16.61    [Parsed_loudnorm_0 @ 0xc5743c900] 
+{
+	"input_i" : "-16.85",
+	"input_tp" : "-3.94",
+	"input_lra" : "4.50",
+	"input_thresh" : "-27.67",
+	"output_i" : "-24.07",
+	"output_tp" : "-9.58",
+	"output_lra" : "4.50",
+	"output_thresh" : "-34.82",
+	"normalization_type" : "dynamic",
+	"target_offset" : "0.07"
+}
+[out#0/null @ 0xc5743c180] video:0KiB audio:402575KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:08:56.80 bitrate=N/A speed=31.4x elapsed=0:00:17.10    
