@@ -1,0 +1,2173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>blog-production · SkillDev</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0b0d10; --panel:#13171c; --line:#29313a; --muted:#8b98a5; --text:#edf2f7; --accent:#9b87f5; --cyan:#63d6d1; --warn:#f0b35a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(circle at 80% -20%,#2a2050 0,transparent 34%),var(--bg); color:var(--text); font:14px/1.5 ui-sans-serif,system-ui,-apple-system,sans-serif; }
+    main { width:min(1180px,calc(100% - 32px)); margin:0 auto; padding:56px 0 80px; }
+    header { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:end; margin-bottom:30px; }
+    .eyebrow { color:var(--cyan); text-transform:uppercase; letter-spacing:.14em; font-size:12px; font-weight:700; }
+    h1 { font-size:clamp(36px,6vw,72px); line-height:1; margin:10px 0 14px; letter-spacing:-.05em; }
+    header p { max-width:760px; color:#b9c2ca; font-size:16px; margin:0; }
+    .digest { color:var(--muted); font:11px ui-monospace,SFMono-Regular,monospace; max-width:270px; overflow-wrap:anywhere; text-align:right; }
+    .stats { display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-bottom:28px; }
+    .stat,.panel { background:color-mix(in srgb,var(--panel) 92%,transparent); border:1px solid var(--line); border-radius:16px; }
+    .stat { padding:17px 18px; }
+    .stat strong { display:block; font-size:28px; letter-spacing:-.04em; }
+    .stat span { color:var(--muted); }
+    .layout { display:grid; grid-template-columns:1.05fr .95fr; gap:16px; }
+    .panel { padding:22px; min-width:0; }
+    .panel.wide { grid-column:1/-1; }
+    h2 { margin:0 0 18px; font-size:17px; }
+    ul { list-style:none; margin:0; padding:0; }
+    .pipeline { display:flex; gap:8px; overflow:auto; margin:0; padding:0 0 8px; list-style:none; }
+    .pipeline li { display:flex; align-items:center; gap:10px; min-width:max-content; padding:10px 14px 10px 9px; border:1px solid #3b315e; border-radius:999px; background:#191628; }
+    .pipeline li:not(:last-child)::after { content:"→"; color:var(--accent); margin-left:6px; }
+    .step { width:26px; height:26px; display:grid; place-items:center; border-radius:50%; background:var(--accent); color:#0c0915; font-weight:800; }
+    .sections { display:grid; gap:6px; }
+    .sections li { padding:7px 10px; margin-left:calc((var(--level) - 1) * 14px); border-left:2px solid color-mix(in srgb,var(--accent) 65%,transparent); color:#d8dce2; }
+    .resources { display:grid; gap:8px; }
+    .resources li { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:10px 0; border-bottom:1px solid #222932; }
+    .resources strong,.resources code { display:block; }
+    code { color:#aeb8c3; font:11px ui-monospace,SFMono-Regular,monospace; overflow-wrap:anywhere; }
+    .badge { flex:none; border-radius:999px; padding:4px 8px; font-size:10px; text-transform:uppercase; letter-spacing:.06em; background:#232a31; color:#aab4bd; }
+    .badge.external { color:#f3c77d; background:#352919; }
+    .artifacts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .artifacts li { display:flex; justify-content:space-between; gap:14px; padding:12px; border:1px solid #262d36; border-radius:11px; background:#101419; }
+    .artifacts strong,.artifacts span { display:block; }
+    .artifacts span { color:var(--muted); margin-top:3px; }
+    .decisions { counter-reset:route; display:grid; gap:8px; margin:0; padding:0; list-style:none; }
+    .decisions li { position:relative; padding:10px 12px 10px 34px; background:#101419; border-radius:10px; color:#c8d0d8; }
+    .decisions li::before { counter-increment:route; content:counter(route); position:absolute; left:11px; color:var(--cyan); font-weight:700; }
+    .issues { display:grid; gap:8px; }
+    .issues li { display:grid; grid-template-columns:150px 1fr; gap:12px; padding:9px 11px; border-radius:9px; background:#101419; }
+    .issues span { font:11px ui-monospace,SFMono-Regular,monospace; color:var(--muted); }
+    .issues .warning { border-left:3px solid var(--warn); }
+    .issues .error { border-left:3px solid #f56b6b; }
+    .issues .info { border-left:3px solid #5aa7f0; }
+    .issues .ok { border-left:3px solid #4ec98c; }
+    details { margin-top:16px; }
+    summary { cursor:pointer; color:var(--muted); }
+    pre { max-height:520px; overflow:auto; padding:16px; border-radius:12px; background:#090b0e; color:#bac5cf; font:11px/1.55 ui-monospace,SFMono-Regular,monospace; }
+    @media (max-width:780px) { header { grid-template-columns:1fr; } .digest { text-align:left; } .stats { grid-template-columns:repeat(2,1fr); } .layout { grid-template-columns:1fr; } .panel.wide { grid-column:auto; } .artifacts { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div><div class="eyebrow">SkillDev workflow explorer · manifest 0.1</div><h1>blog-production</h1><p>Use when running or resuming Aaron&#039;s end-to-end blog workflow, especially when the user wants one entry point for idea, article, images, video, social, and publishing.</p></div>
+      <div class="digest">sha256:f89b748bc2d6314f50b6103f0fa1bde6e0777da0985755c105e1e68cbbce332c</div>
+    </header>
+    <section class="stats">
+      <div class="stat"><strong>14</strong><span>sections</span></div><div class="stat"><strong>11</strong><span>stages</span></div><div class="stat"><strong>40</strong><span>artifacts</span></div><div class="stat"><strong>32</strong><span>resources</span></div><div class="stat"><strong>10</strong><span>routing rules</span></div><div class="stat"><strong>12</strong><span>issues</span></div>
+    </section>
+    <section class="layout">
+      <article class="panel wide"><h2>Pipeline</h2><ol class="pipeline"><li><span class="step">1</span><span>muse</span></li><li><span class="step">2</span><span>research-evidence (source-led work)</span></li><li><span class="step">3</span><span>blog-brainstorm</span></li><li><span class="step">4</span><span>blog-outline</span></li><li><span class="step">5</span><span>blog-canon-alignment</span></li><li><span class="step">6</span><span>blog-write</span></li><li><span class="step">7</span><span>blog-prose-editor</span></li><li><span class="step">8</span><span>blog-illustrate</span></li><li><span class="step">9</span><span>aaron-video-gen</span></li><li><span class="step">10</span><span>publish-to-blog</span></li><li><span class="step">11</span><span>yt-publish</span></li></ol></article>
+      <article class="panel"><h2>Document structure</h2><ul class="sections"><li style="--level:1">Blog Production</li><li style="--level:2">Pipeline</li><li style="--level:2">Artifact Contract</li><li style="--level:2">Workflow</li><li style="--level:3">0. Source Intake And Greenlight</li><li style="--level:3">0. Bootstrap Workflow 3 Artifacts</li><li style="--level:3">1. Pick the post directory</li><li style="--level:3">Aaron&#039;s default blog style</li><li style="--level:3">2. Detect the next step</li><li style="--level:3">3. Execute one phase at a time</li><li style="--level:3">4. Quality gates</li><li style="--level:3">5. Recovery behavior</li><li style="--level:3">6. Completion report</li><li style="--level:2">Codex Compatibility</li></ul></article>
+      <article class="panel"><h2>Routing rules</h2><ol class="decisions"><li>When the seed is a specific link, video, interview, paper, launch, or a theme</li><li>Before brainstorm, outline, or writing begins, run or inspect:</li><li>If the user requests a specific phase, run that phase even if earlier artifacts are missing, but report the gap.</li><li>If any artifact is missing or weak, stop and run the focused phase instead of drafting.</li><li>If the article fails any item, run a `blog-write` revision pass before continuing.</li><li>When the seed is an interview or another creator&#039;s video, the companion video</li><li>If the script fails any item, run a `blog-write` video adaptation pass before continuing.</li><li>If the audit fails, run a `blog-write` video adaptation pass before visual enrichment or rendering.</li><li>When evaluating a new voice or model, compare the same locked 45-60 second script under blind labels. Do not generate the full narration until Aaron selects a winner. Do not render video while `audio-generation.md` is pending.</li><li>If a post has mixed historical formats, normalize forward rather than rewriting history:</li></ol></article>
+      <article class="panel wide"><h2>Artifact contract</h2><ul class="artifacts"><li><div><strong>idea.md</strong><span>Raw idea or seed</span></div><code>manual / muse</code></li><li><div><strong>research-evidence.json</strong><span>Versioned canonical sources, transcript provenance, claims, coverage gaps, and privacy state</span></div><code>research-evidence</code></li><li><div><strong>source-intake.md</strong><span>Source-first greenlight: primary-source notes, distinctness test, personal experiment, and media proof map</span></div><code>blog-production / blog-brainstorm</code></li><li><div><strong>memory-reflection.md</strong><span>prior-post reflection, internal link candidates, continuity thesis</span></div><code>blog-production / blog-brainstorm</code></li><li><div><strong>editorial-brief.md</strong><span>reader pain, sharp thesis, evidence need, counterargument, kill criteria</span></div><code>blog-brainstorm</code></li><li><div><strong>research-dossier.md</strong><span>sources, cases, facts, counterarguments, open questions</span></div><code>blog-brainstorm</code></li><li><div><strong>claim-ledger.md</strong><span>fact / inference / judgment map with source dates, confidence, and verification</span></div><code>blog-brainstorm / blog-production</code></li><li><div><strong>content-plan.md</strong><span>researched content plan</span></div><code>blog-brainstorm</code></li><li><div><strong>argument-memo.md</strong><span>thesis, mechanism, evidence map, counterargument, reusable frame</span></div><code>blog-outline</code></li><li><div><strong>canon-alignment.md</strong><span>prior-post alignment, viewpoint continuity, internal link candidates, ideas to upgrade or avoid</span></div><code>blog-canon-alignment</code></li><li><div><strong>plan.md</strong><span>writing-ready outline</span></div><code>blog-outline</code></li><li><div><strong>&lt;slug&gt;.md</strong><span>English article</span></div><code>blog-write</code></li><li><div><strong>&lt;slug&gt;-zh.md</strong><span>Chinese article</span></div><code>blog-write</code></li><li><div><strong>red-team-review.md</strong><span>skeptical editorial review and required revisions</span></div><code>blog-write</code></li><li><div><strong>prose-polish-review.md</strong><span>EN/ZH prose polish goals, edits, boundaries, validation result</span></div><code>blog-prose-editor</code></li><li><div><strong>editorial-scorecard.md</strong><span>editorial contract, weighted final score, and revision delta</span></div><code>blog-production / blog-write</code></li><li><div><strong>package-state.json</strong><span>machine-readable phase, canonical asset pointers, release provenance, and postmortem status</span></div><code>blog-production</code></li><li><div><strong>postmortem.md</strong><span>prediction, 24h/7d outcomes, workflow lesson, next experiment</span></div><code>blog-production</code></li><li><div><strong>workflow-retrospective.md</strong><span>optional deep-revision summary, durable lessons, lock failures, and next-run protocol</span></div><code>blog-production</code></li><li><div><strong>canon-note.md</strong><span>canonical idea, reusable frame, claim updates, internal link map</span></div><code>blog-write / blog-production</code></li><li><div><strong>distribution-plan.md</strong><span>platform jobs, assets, CTA, UTM links, and launch experiments</span></div><code>blog-write</code></li><li><div><strong>x-post.md</strong><span>social teaser for X with link in reply</span></div><code>blog-write</code></li><li><div><strong>x-standalone-tweet.md</strong><span>follow-up single-insight social teaser</span></div><code>blog-write</code></li><li><div><strong>linkedin-brief.md</strong><span>LinkedIn-native professional operator post</span></div><code>blog-write</code></li><li><div><strong>facebook-post.md</strong><span>Facebook-native personal-network post</span></div><code>blog-write</code></li><li><div><strong>newsletter-teaser.md</strong><span>Beehiiv teaser</span></div><code>blog-write</code></li><li><div><strong>imgs/outline.md</strong><span>illustration plan</span></div><code>blog-illustrate</code></li><li><div><strong>imgs/generation-manifest.md</strong><span>image backend, prompt, candidate, selection, and provenance record</span></div><code>blog-illustrate</code></li><li><div><strong>imgs/web/00-cover.webp</strong><span>blog cover</span></div><code>blog-illustrate</code></li><li><div><strong>video-brief.md</strong><span>video-native angle, story spine, retention plan</span></div><code>blog-write</code></li><li><div><strong>youtube-script.md</strong><span>slide video script</span></div><code>blog-write</code></li><li><div><strong>youtube-script-audit.md</strong><span>scriptwriting gate result</span></div><code>blog-write / aaron-video-gen</code></li><li><div><strong>audio-transcript.md</strong><span>exact approved spoken text plus resolved voice profile</span></div><code>aaron-video-gen</code></li><li><div><strong>audio.mp3</strong><span>normalized full narration review file</span></div><code>aaron-video-gen</code></li><li><div><strong>audio-raw.mp3</strong><span>untouched concatenated TTS output</span></div><code>aaron-video-gen</code></li><li><div><strong>audio-sample-60s.mp3</strong><span>fast listening sample from the opening</span></div><code>aaron-video-gen</code></li><li><div><strong>audio-generation-manifest.json</strong><span>TTS identity, hashes, output paths, and technical QA</span></div><code>aaron-video-gen</code></li><li><div><strong>audio-generation.md</strong><span>human listening decision and unresolved issues</span></div><code>aaron-video-gen / manual review</code></li><li><div><strong>video.mp4</strong><span>generated YouTube video</span></div><code>aaron-video-gen</code></li><li><div><strong>youtube-metadata.md</strong><span>YouTube title/description/tags</span></div><code>blog-write / aaron-video-gen</code></li></ul></article>
+      <article class="panel wide"><h2>Resources and dependencies</h2><ul class="resources"><li><div><strong>aaron-video-gen/config/voice-profiles.json</strong><code>aaron-video-gen/config/voice-profiles.json</code></div><span class="badge external">external · referenced</span></li><li><div><strong>asset-decision-log.md</strong><code>asset-decision-log.md</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>config/aaron-studio.json</strong><code>config/aaron-studio.json</code></div><span class="badge external">external · referenced</span></li><li><div><strong>distribution.json</strong><code>distribution.json</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>handoff.md</strong><code>handoff.md</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>editorial-system.md</strong><code>references/editorial-system.md</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>blog-package-quality.test.ts</strong><code>scripts/blog-package-quality.test.ts</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>blog-package-quality.ts</strong><code>scripts/blog-package-quality.ts</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>sync-agent-skills.sh</strong><code>scripts/sync-agent-skills.sh</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>workflow2-artifacts.test.ts</strong><code>scripts/workflow2-artifacts.test.ts</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>workflow2-artifacts.ts</strong><code>scripts/workflow2-artifacts.ts</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>workflow3-artifacts.test.ts</strong><code>scripts/workflow3-artifacts.test.ts</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>workflow3-artifacts.ts</strong><code>scripts/workflow3-artifacts.ts</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>SKILL.md</strong><code>SKILL.md</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>src/content/strategy/blog-writing-language.md</strong><code>src/content/strategy/blog-writing-language.md</code></div><span class="badge external">external · referenced</span></li><li><div><strong>src/content/strategy/x.md</strong><code>src/content/strategy/x.md</code></div><span class="badge external">external · referenced</span></li><li><div><strong>argument-memo.md</strong><code>templates/workflow2/argument-memo.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>canon-alignment.md</strong><code>templates/workflow2/canon-alignment.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>canon-note.md</strong><code>templates/workflow2/canon-note.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>editorial-brief.md</strong><code>templates/workflow2/editorial-brief.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>idea.md</strong><code>templates/workflow2/idea.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>memory-reflection.md</strong><code>templates/workflow2/memory-reflection.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>postmortem.md</strong><code>templates/workflow2/postmortem.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>prose-polish-review.md</strong><code>templates/workflow2/prose-polish-review.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>red-team-review.md</strong><code>templates/workflow2/red-team-review.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>research-dossier.md</strong><code>templates/workflow2/research-dossier.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>claim-ledger.md</strong><code>templates/workflow3/claim-ledger.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>editorial-scorecard.md</strong><code>templates/workflow3/editorial-scorecard.md</code></div><span class="badge internal">internal · discovered</span></li><li><div><strong>tiles/aaron-video-gen/references/director-pass.md</strong><code>tiles/aaron-video-gen/references/director-pass.md</code></div><span class="badge external">external · referenced</span></li><li><div><strong>tiles/blog-write/references/social-distribution.md</strong><code>tiles/blog-write/references/social-distribution.md</code></div><span class="badge external">external · referenced</span></li><li><div><strong>video-treatment.md</strong><code>video-treatment.md</code></div><span class="badge internal">internal · referenced</span></li><li><div><strong>x-teaser.md</strong><code>x-teaser.md</code></div><span class="badge internal">internal · referenced</span></li></ul></article>
+      <article class="panel wide"><h2>Inspection issues</h2><ul class="issues"><li class="info"><span>external-dependency</span>Reference resolves outside this skill bundle: config/aaron-studio.json</li><li class="info"><span>external-dependency</span>Reference resolves outside this skill bundle: src/content/strategy/x.md</li><li class="info"><span>external-dependency</span>Reference resolves outside this skill bundle: src/content/strategy/blog-writing-language.md</li><li class="info"><span>external-dependency</span>Reference resolves outside this skill bundle: tiles/blog-write/references/social-distribution.md</li><li class="warning"><span>missing-reference</span>Referenced file does not exist: distribution.json</li><li class="warning"><span>missing-reference</span>Referenced file does not exist: video-treatment.md</li><li class="warning"><span>missing-reference</span>Referenced file does not exist: asset-decision-log.md</li><li class="info"><span>external-dependency</span>Reference resolves outside this skill bundle: aaron-video-gen/config/voice-profiles.json</li><li class="info"><span>external-dependency</span>Reference resolves outside this skill bundle: tiles/aaron-video-gen/references/director-pass.md</li><li class="warning"><span>missing-reference</span>Referenced file does not exist: handoff.md</li><li class="warning"><span>missing-reference</span>Referenced file does not exist: x-teaser.md</li><li class="warning"><span>missing-reference</span>Referenced file does not exist: scripts/sync-agent-skills.sh</li></ul><details><summary>Raw manifest</summary><pre>{
+  &quot;manifestVersion&quot;: &quot;0.1&quot;,
+  &quot;skill&quot;: {
+    &quot;name&quot;: &quot;blog-production&quot;,
+    &quot;description&quot;: &quot;Use when running or resuming Aaron&#039;s end-to-end blog workflow, especially when the user wants one entry point for idea, article, images, video, social, and publishing.&quot;
+  },
+  &quot;source&quot;: {
+    &quot;rootName&quot;: &quot;blog-production&quot;,
+    &quot;skillFile&quot;: &quot;SKILL.md&quot;,
+    &quot;digest&quot;: &quot;sha256:f89b748bc2d6314f50b6103f0fa1bde6e0777da0985755c105e1e68cbbce332c&quot;
+  },
+  &quot;stats&quot;: {
+    &quot;sections&quot;: 14,
+    &quot;stages&quot;: 11,
+    &quot;artifacts&quot;: 40,
+    &quot;resources&quot;: 32,
+    &quot;decisions&quot;: 10,
+    &quot;issues&quot;: 12
+  },
+  &quot;nodes&quot;: [
+    {
+      &quot;id&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;kind&quot;: &quot;skill&quot;,
+      &quot;label&quot;: &quot;blog-production&quot;,
+      &quot;path&quot;: &quot;SKILL.md&quot;
+    },
+    {
+      &quot;id&quot;: &quot;section:4f58b346c216&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;Blog Production&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 1
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:5eba7a0c586d&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;Pipeline&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 2
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:5ea45c1e43cf&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;Artifact Contract&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 2
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:dee731a7b907&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;Workflow&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 2
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:5f171b5be6be&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;0. Source Intake And Greenlight&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:49ae2de2dbd8&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;0. Bootstrap Workflow 3 Artifacts&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:0930667851b9&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;1. Pick the post directory&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:222384398d5b&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;Aaron&#039;s default blog style&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:41cf0ce7e227&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;2. Detect the next step&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:f8b98469360f&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;3. Execute one phase at a time&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:7a3cdec0626c&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;4. Quality gates&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:41e9c89b496b&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;5. Recovery behavior&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:01690799aba0&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;6. Completion report&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;section:efc010d07902&quot;,
+      &quot;kind&quot;: &quot;section&quot;,
+      &quot;label&quot;: &quot;Codex Compatibility&quot;,
+      &quot;metadata&quot;: {
+        &quot;level&quot;: 2
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:5e249c63090a&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;muse&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 1
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:a652236966b2&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;research-evidence (source-led work)&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 2
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;blog-brainstorm&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 3
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:e1ed56ec61c9&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;blog-outline&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 4
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:5e0e24b00fb0&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;blog-canon-alignment&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 5
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;blog-write&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 6
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:bd6c73246b23&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;blog-prose-editor&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 7
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:042cc1e2ff6c&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;blog-illustrate&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 8
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;aaron-video-gen&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 9
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:ea3a649ee7c6&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;publish-to-blog&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 10
+      }
+    },
+    {
+      &quot;id&quot;: &quot;stage:d4d8b097ef14&quot;,
+      &quot;kind&quot;: &quot;stage&quot;,
+      &quot;label&quot;: &quot;yt-publish&quot;,
+      &quot;metadata&quot;: {
+        &quot;order&quot;: 11
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:e6ed17251b44&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;idea.md&quot;,
+      &quot;path&quot;: &quot;idea.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;Raw idea or seed&quot;,
+        &quot;producer&quot;: &quot;manual / muse&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:71cb75aad118&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;research-evidence.json&quot;,
+      &quot;path&quot;: &quot;research-evidence.json&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;Versioned canonical sources, transcript provenance, claims, coverage gaps, and privacy state&quot;,
+        &quot;producer&quot;: &quot;research-evidence&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:662c4d99847c&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;source-intake.md&quot;,
+      &quot;path&quot;: &quot;source-intake.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;Source-first greenlight: primary-source notes, distinctness test, personal experiment, and media proof map&quot;,
+        &quot;producer&quot;: &quot;blog-production / blog-brainstorm&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:5bcb2afd5ebe&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;memory-reflection.md&quot;,
+      &quot;path&quot;: &quot;memory-reflection.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;prior-post reflection, internal link candidates, continuity thesis&quot;,
+        &quot;producer&quot;: &quot;blog-production / blog-brainstorm&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:f69aeb61d836&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;editorial-brief.md&quot;,
+      &quot;path&quot;: &quot;editorial-brief.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;reader pain, sharp thesis, evidence need, counterargument, kill criteria&quot;,
+        &quot;producer&quot;: &quot;blog-brainstorm&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:e23a86381b3a&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;research-dossier.md&quot;,
+      &quot;path&quot;: &quot;research-dossier.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;sources, cases, facts, counterarguments, open questions&quot;,
+        &quot;producer&quot;: &quot;blog-brainstorm&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:939782a4a0ce&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;claim-ledger.md&quot;,
+      &quot;path&quot;: &quot;claim-ledger.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;fact / inference / judgment map with source dates, confidence, and verification&quot;,
+        &quot;producer&quot;: &quot;blog-brainstorm / blog-production&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:4c2109c0114a&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;content-plan.md&quot;,
+      &quot;path&quot;: &quot;content-plan.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;researched content plan&quot;,
+        &quot;producer&quot;: &quot;blog-brainstorm&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:5d11744b7ca0&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;argument-memo.md&quot;,
+      &quot;path&quot;: &quot;argument-memo.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;thesis, mechanism, evidence map, counterargument, reusable frame&quot;,
+        &quot;producer&quot;: &quot;blog-outline&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:b6aa187657c3&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;canon-alignment.md&quot;,
+      &quot;path&quot;: &quot;canon-alignment.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;prior-post alignment, viewpoint continuity, internal link candidates, ideas to upgrade or avoid&quot;,
+        &quot;producer&quot;: &quot;blog-canon-alignment&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:8cb1952eb759&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;plan.md&quot;,
+      &quot;path&quot;: &quot;plan.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;writing-ready outline&quot;,
+        &quot;producer&quot;: &quot;blog-outline&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:3e66b9add9b8&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;&lt;slug&gt;.md&quot;,
+      &quot;path&quot;: &quot;&lt;slug&gt;.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;English article&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:87f005c03451&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;&lt;slug&gt;-zh.md&quot;,
+      &quot;path&quot;: &quot;&lt;slug&gt;-zh.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;Chinese article&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:29e2620c17d6&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;red-team-review.md&quot;,
+      &quot;path&quot;: &quot;red-team-review.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;skeptical editorial review and required revisions&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:2a8655898f64&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;prose-polish-review.md&quot;,
+      &quot;path&quot;: &quot;prose-polish-review.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;EN/ZH prose polish goals, edits, boundaries, validation result&quot;,
+        &quot;producer&quot;: &quot;blog-prose-editor&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:5901ead320e2&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;editorial-scorecard.md&quot;,
+      &quot;path&quot;: &quot;editorial-scorecard.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;editorial contract, weighted final score, and revision delta&quot;,
+        &quot;producer&quot;: &quot;blog-production / blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:89b742e1e779&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;package-state.json&quot;,
+      &quot;path&quot;: &quot;package-state.json&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;machine-readable phase, canonical asset pointers, release provenance, and postmortem status&quot;,
+        &quot;producer&quot;: &quot;blog-production&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:609456e0ce8d&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;postmortem.md&quot;,
+      &quot;path&quot;: &quot;postmortem.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;prediction, 24h/7d outcomes, workflow lesson, next experiment&quot;,
+        &quot;producer&quot;: &quot;blog-production&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:08482226f79a&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;workflow-retrospective.md&quot;,
+      &quot;path&quot;: &quot;workflow-retrospective.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;optional deep-revision summary, durable lessons, lock failures, and next-run protocol&quot;,
+        &quot;producer&quot;: &quot;blog-production&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:dd31179d9975&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;canon-note.md&quot;,
+      &quot;path&quot;: &quot;canon-note.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;canonical idea, reusable frame, claim updates, internal link map&quot;,
+        &quot;producer&quot;: &quot;blog-write / blog-production&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:1c9d12e2dd42&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;distribution-plan.md&quot;,
+      &quot;path&quot;: &quot;distribution-plan.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;platform jobs, assets, CTA, UTM links, and launch experiments&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:cb9e39d5a891&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;x-post.md&quot;,
+      &quot;path&quot;: &quot;x-post.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;social teaser for X with link in reply&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:c4bd6b630f56&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;x-standalone-tweet.md&quot;,
+      &quot;path&quot;: &quot;x-standalone-tweet.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;follow-up single-insight social teaser&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:78c8b776b5a6&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;linkedin-brief.md&quot;,
+      &quot;path&quot;: &quot;linkedin-brief.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;LinkedIn-native professional operator post&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:3c8c8ad31640&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;facebook-post.md&quot;,
+      &quot;path&quot;: &quot;facebook-post.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;Facebook-native personal-network post&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:efbe6dcdbbe6&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;newsletter-teaser.md&quot;,
+      &quot;path&quot;: &quot;newsletter-teaser.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;Beehiiv teaser&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:a2e906ec1968&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;imgs/outline.md&quot;,
+      &quot;path&quot;: &quot;imgs/outline.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;illustration plan&quot;,
+        &quot;producer&quot;: &quot;blog-illustrate&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:fe1ed7c98eea&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;imgs/generation-manifest.md&quot;,
+      &quot;path&quot;: &quot;imgs/generation-manifest.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;image backend, prompt, candidate, selection, and provenance record&quot;,
+        &quot;producer&quot;: &quot;blog-illustrate&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:5bc70e73c6a9&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;imgs/web/00-cover.webp&quot;,
+      &quot;path&quot;: &quot;imgs/web/00-cover.webp&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;blog cover&quot;,
+        &quot;producer&quot;: &quot;blog-illustrate&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:3f4a4c9712c4&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;video-brief.md&quot;,
+      &quot;path&quot;: &quot;video-brief.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;video-native angle, story spine, retention plan&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:318a38aacb58&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;youtube-script.md&quot;,
+      &quot;path&quot;: &quot;youtube-script.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;slide video script&quot;,
+        &quot;producer&quot;: &quot;blog-write&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:f116c9360682&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;youtube-script-audit.md&quot;,
+      &quot;path&quot;: &quot;youtube-script-audit.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;scriptwriting gate result&quot;,
+        &quot;producer&quot;: &quot;blog-write / aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:ab8810cf7fa6&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;audio-transcript.md&quot;,
+      &quot;path&quot;: &quot;audio-transcript.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;exact approved spoken text plus resolved voice profile&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:2f8521faccbd&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;audio.mp3&quot;,
+      &quot;path&quot;: &quot;audio.mp3&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;normalized full narration review file&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:f73cbd37d812&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;audio-raw.mp3&quot;,
+      &quot;path&quot;: &quot;audio-raw.mp3&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;untouched concatenated TTS output&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:6247a79fa7b3&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;audio-sample-60s.mp3&quot;,
+      &quot;path&quot;: &quot;audio-sample-60s.mp3&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;fast listening sample from the opening&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:6cd25003100e&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;audio-generation-manifest.json&quot;,
+      &quot;path&quot;: &quot;audio-generation-manifest.json&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;TTS identity, hashes, output paths, and technical QA&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:3c35d974dcc9&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;audio-generation.md&quot;,
+      &quot;path&quot;: &quot;audio-generation.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;human listening decision and unresolved issues&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen / manual review&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:dfa3308d9864&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;video.mp4&quot;,
+      &quot;path&quot;: &quot;video.mp4&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;generated YouTube video&quot;,
+        &quot;producer&quot;: &quot;aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;artifact:baa294ef70fe&quot;,
+      &quot;kind&quot;: &quot;artifact&quot;,
+      &quot;label&quot;: &quot;youtube-metadata.md&quot;,
+      &quot;path&quot;: &quot;youtube-metadata.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;meaning&quot;: &quot;YouTube title/description/tags&quot;,
+        &quot;producer&quot;: &quot;blog-write / aaron-video-gen&quot;
+      }
+    },
+    {
+      &quot;id&quot;: &quot;decision:faaadcc19a4a&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;When the seed is a specific link, video, interview, paper, launch, or a theme&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:06ef0e9aca17&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;Before brainstorm, outline, or writing begins, run or inspect:&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:4a6702260333&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;If the user requests a specific phase, run that phase even if earlier artifacts are missing, but report the gap.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:9dbad4455c78&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;If any artifact is missing or weak, stop and run the focused phase instead of drafting.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:2d184bece469&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;If the article fails any item, run a `blog-write` revision pass before continuing.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:278d0d6125e8&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;When the seed is an interview or another creator&#039;s video, the companion video&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:a099c899ce11&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;If the script fails any item, run a `blog-write` video adaptation pass before continuing.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:c7f4ee6cfc54&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;If the audit fails, run a `blog-write` video adaptation pass before visual enrichment or rendering.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:1c4610122743&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;When evaluating a new voice or model, compare the same locked 45-60 second script under blind labels. Do not generate the full narration until Aaron selects a winner. Do not render video while `audio-generation.md` is pending.&quot;
+    },
+    {
+      &quot;id&quot;: &quot;decision:43b745497c0e&quot;,
+      &quot;kind&quot;: &quot;decision&quot;,
+      &quot;label&quot;: &quot;If a post has mixed historical formats, normalize forward rather than rewriting history:&quot;
+    },
+    {
+      &quot;id&quot;: &quot;resource:08d442db191b&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;aaron-video-gen/config/voice-profiles.json&quot;,
+      &quot;path&quot;: &quot;aaron-video-gen/config/voice-profiles.json&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;external&quot;,
+        &quot;referenced&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:e222fd4c0e30&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;asset-decision-log.md&quot;,
+      &quot;path&quot;: &quot;asset-decision-log.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:4b7c28fdd42d&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;config/aaron-studio.json&quot;,
+      &quot;path&quot;: &quot;config/aaron-studio.json&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;external&quot;,
+        &quot;referenced&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:4a3705f02f6e&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;distribution.json&quot;,
+      &quot;path&quot;: &quot;distribution.json&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:0704326e1e7b&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;handoff.md&quot;,
+      &quot;path&quot;: &quot;handoff.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:35d2c93e48ae&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;editorial-system.md&quot;,
+      &quot;path&quot;: &quot;references/editorial-system.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:e499b1d28ed1&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;blog-package-quality.test.ts&quot;,
+      &quot;path&quot;: &quot;scripts/blog-package-quality.test.ts&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:5f37a605da89&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;blog-package-quality.ts&quot;,
+      &quot;path&quot;: &quot;scripts/blog-package-quality.ts&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:970ac020f155&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;sync-agent-skills.sh&quot;,
+      &quot;path&quot;: &quot;scripts/sync-agent-skills.sh&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:e38127a43521&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;workflow2-artifacts.test.ts&quot;,
+      &quot;path&quot;: &quot;scripts/workflow2-artifacts.test.ts&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:9c5fc0bc0de2&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;workflow2-artifacts.ts&quot;,
+      &quot;path&quot;: &quot;scripts/workflow2-artifacts.ts&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:d0a9ee63cf93&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;workflow3-artifacts.test.ts&quot;,
+      &quot;path&quot;: &quot;scripts/workflow3-artifacts.test.ts&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:a66dc0b4b950&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;workflow3-artifacts.ts&quot;,
+      &quot;path&quot;: &quot;scripts/workflow3-artifacts.ts&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:141e17a797fb&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;SKILL.md&quot;,
+      &quot;path&quot;: &quot;SKILL.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:d56eb7e8485a&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;src/content/strategy/blog-writing-language.md&quot;,
+      &quot;path&quot;: &quot;src/content/strategy/blog-writing-language.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;external&quot;,
+        &quot;referenced&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:6c37e0cafec4&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;src/content/strategy/x.md&quot;,
+      &quot;path&quot;: &quot;src/content/strategy/x.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;external&quot;,
+        &quot;referenced&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:829a8d3349bc&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;argument-memo.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/argument-memo.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:ade855e27775&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;canon-alignment.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/canon-alignment.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:ca98e2b978b1&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;canon-note.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/canon-note.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:e945a99d348f&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;editorial-brief.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/editorial-brief.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:ca316b067371&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;idea.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/idea.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:a795a8efd2af&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;memory-reflection.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/memory-reflection.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:27298e80563d&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;postmortem.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/postmortem.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:44da69ce37b1&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;prose-polish-review.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/prose-polish-review.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:9842ab14ded3&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;red-team-review.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/red-team-review.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:7d73864a5ef9&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;research-dossier.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow2/research-dossier.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:1be8b507a35d&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;claim-ledger.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow3/claim-ledger.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:b38367137e2a&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;editorial-scorecard.md&quot;,
+      &quot;path&quot;: &quot;templates/workflow3/editorial-scorecard.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:2810f4f54ef3&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;tiles/aaron-video-gen/references/director-pass.md&quot;,
+      &quot;path&quot;: &quot;tiles/aaron-video-gen/references/director-pass.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;external&quot;,
+        &quot;referenced&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:337222e1ebfa&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;tiles/blog-write/references/social-distribution.md&quot;,
+      &quot;path&quot;: &quot;tiles/blog-write/references/social-distribution.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;external&quot;,
+        &quot;referenced&quot;: true
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:729508a155a8&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;video-treatment.md&quot;,
+      &quot;path&quot;: &quot;video-treatment.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: false
+      }
+    },
+    {
+      &quot;id&quot;: &quot;resource:a4ac6e02e8bd&quot;,
+      &quot;kind&quot;: &quot;resource&quot;,
+      &quot;label&quot;: &quot;x-teaser.md&quot;,
+      &quot;path&quot;: &quot;x-teaser.md&quot;,
+      &quot;metadata&quot;: {
+        &quot;scope&quot;: &quot;internal&quot;,
+        &quot;referenced&quot;: true,
+        &quot;exists&quot;: false
+      }
+    }
+  ],
+  &quot;edges&quot;: [
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:4f58b346c216&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:5eba7a0c586d&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:5ea45c1e43cf&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:dee731a7b907&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:5f171b5be6be&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:49ae2de2dbd8&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:0930667851b9&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:222384398d5b&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:41cf0ce7e227&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:f8b98469360f&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:7a3cdec0626c&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:41e9c89b496b&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:01690799aba0&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;section:efc010d07902&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;stage:5e249c63090a&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:5e249c63090a&quot;,
+      &quot;to&quot;: &quot;stage:a652236966b2&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:a652236966b2&quot;,
+      &quot;to&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;stage:e1ed56ec61c9&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:e1ed56ec61c9&quot;,
+      &quot;to&quot;: &quot;stage:5e0e24b00fb0&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:5e0e24b00fb0&quot;,
+      &quot;to&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;stage:bd6c73246b23&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:bd6c73246b23&quot;,
+      &quot;to&quot;: &quot;stage:042cc1e2ff6c&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:042cc1e2ff6c&quot;,
+      &quot;to&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;stage:ea3a649ee7c6&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:ea3a649ee7c6&quot;,
+      &quot;to&quot;: &quot;stage:d4d8b097ef14&quot;,
+      &quot;relation&quot;: &quot;routes-to&quot;,
+      &quot;execution&quot;: &quot;sequential&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:e6ed17251b44&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:71cb75aad118&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:662c4d99847c&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5bcb2afd5ebe&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:f69aeb61d836&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:e23a86381b3a&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:939782a4a0ce&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:4c2109c0114a&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5d11744b7ca0&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:b6aa187657c3&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:8cb1952eb759&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3e66b9add9b8&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:87f005c03451&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:29e2620c17d6&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:2a8655898f64&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5901ead320e2&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:89b742e1e779&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:609456e0ce8d&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:08482226f79a&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:dd31179d9975&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:1c9d12e2dd42&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:cb9e39d5a891&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:c4bd6b630f56&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:78c8b776b5a6&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3c8c8ad31640&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:efbe6dcdbbe6&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:a2e906ec1968&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:fe1ed7c98eea&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5bc70e73c6a9&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3f4a4c9712c4&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:318a38aacb58&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:f116c9360682&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:ab8810cf7fa6&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:2f8521faccbd&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:f73cbd37d812&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:6247a79fa7b3&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:6cd25003100e&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3c35d974dcc9&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:dfa3308d9864&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:baa294ef70fe&quot;,
+      &quot;relation&quot;: &quot;declares&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:5e249c63090a&quot;,
+      &quot;to&quot;: &quot;artifact:e6ed17251b44&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:a652236966b2&quot;,
+      &quot;to&quot;: &quot;artifact:71cb75aad118&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:662c4d99847c&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;artifact:662c4d99847c&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5bcb2afd5ebe&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;artifact:5bcb2afd5ebe&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;artifact:f69aeb61d836&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;artifact:e23a86381b3a&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;artifact:939782a4a0ce&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:939782a4a0ce&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:b137cc893a72&quot;,
+      &quot;to&quot;: &quot;artifact:4c2109c0114a&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:e1ed56ec61c9&quot;,
+      &quot;to&quot;: &quot;artifact:5d11744b7ca0&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:5e0e24b00fb0&quot;,
+      &quot;to&quot;: &quot;artifact:b6aa187657c3&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:e1ed56ec61c9&quot;,
+      &quot;to&quot;: &quot;artifact:8cb1952eb759&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:3e66b9add9b8&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:87f005c03451&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:29e2620c17d6&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:bd6c73246b23&quot;,
+      &quot;to&quot;: &quot;artifact:2a8655898f64&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5901ead320e2&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:5901ead320e2&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:89b742e1e779&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:609456e0ce8d&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:08482226f79a&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:dd31179d9975&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:dd31179d9975&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:1c9d12e2dd42&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:cb9e39d5a891&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:c4bd6b630f56&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:78c8b776b5a6&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:3c8c8ad31640&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:efbe6dcdbbe6&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:042cc1e2ff6c&quot;,
+      &quot;to&quot;: &quot;artifact:a2e906ec1968&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:042cc1e2ff6c&quot;,
+      &quot;to&quot;: &quot;artifact:fe1ed7c98eea&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:042cc1e2ff6c&quot;,
+      &quot;to&quot;: &quot;artifact:5bc70e73c6a9&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:3f4a4c9712c4&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:318a38aacb58&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:f116c9360682&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:f116c9360682&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:ab8810cf7fa6&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:2f8521faccbd&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:f73cbd37d812&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:6247a79fa7b3&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:6cd25003100e&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:3c35d974dcc9&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:dfa3308d9864&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:f40e1584bb9a&quot;,
+      &quot;to&quot;: &quot;artifact:baa294ef70fe&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;stage:2ebcbde69b2f&quot;,
+      &quot;to&quot;: &quot;artifact:baa294ef70fe&quot;,
+      &quot;relation&quot;: &quot;produces&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:faaadcc19a4a&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:06ef0e9aca17&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:4a6702260333&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:9dbad4455c78&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:2d184bece469&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:278d0d6125e8&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:a099c899ce11&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:c7f4ee6cfc54&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:1c4610122743&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;decision:43b745497c0e&quot;,
+      &quot;relation&quot;: &quot;contains&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:e6ed17251b44&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:71cb75aad118&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:662c4d99847c&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5bcb2afd5ebe&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:f69aeb61d836&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:e23a86381b3a&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:939782a4a0ce&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:4c2109c0114a&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5d11744b7ca0&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:b6aa187657c3&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:8cb1952eb759&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:29e2620c17d6&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:2a8655898f64&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:5901ead320e2&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:89b742e1e779&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:609456e0ce8d&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:08482226f79a&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:dd31179d9975&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:1c9d12e2dd42&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:cb9e39d5a891&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:c4bd6b630f56&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:78c8b776b5a6&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3c8c8ad31640&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:efbe6dcdbbe6&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:a2e906ec1968&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:fe1ed7c98eea&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3f4a4c9712c4&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:318a38aacb58&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:f116c9360682&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:ab8810cf7fa6&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:6cd25003100e&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:3c35d974dcc9&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;artifact:baa294ef70fe&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:35d2c93e48ae&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:4b7c28fdd42d&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:6c37e0cafec4&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:d56eb7e8485a&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:141e17a797fb&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:337222e1ebfa&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:4a3705f02f6e&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:729508a155a8&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:e222fd4c0e30&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:08d442db191b&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:2810f4f54ef3&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:0704326e1e7b&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:a4ac6e02e8bd&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    },
+    {
+      &quot;from&quot;: &quot;skill:35c9f70d4958&quot;,
+      &quot;to&quot;: &quot;resource:970ac020f155&quot;,
+      &quot;relation&quot;: &quot;references&quot;,
+      &quot;execution&quot;: &quot;declarative&quot;
+    }
+  ],
+  &quot;issues&quot;: [
+    {
+      &quot;severity&quot;: &quot;info&quot;,
+      &quot;code&quot;: &quot;external-dependency&quot;,
+      &quot;message&quot;: &quot;Reference resolves outside this skill bundle: config/aaron-studio.json&quot;,
+      &quot;path&quot;: &quot;config/aaron-studio.json&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;info&quot;,
+      &quot;code&quot;: &quot;external-dependency&quot;,
+      &quot;message&quot;: &quot;Reference resolves outside this skill bundle: src/content/strategy/x.md&quot;,
+      &quot;path&quot;: &quot;src/content/strategy/x.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;info&quot;,
+      &quot;code&quot;: &quot;external-dependency&quot;,
+      &quot;message&quot;: &quot;Reference resolves outside this skill bundle: src/content/strategy/blog-writing-language.md&quot;,
+      &quot;path&quot;: &quot;src/content/strategy/blog-writing-language.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;info&quot;,
+      &quot;code&quot;: &quot;external-dependency&quot;,
+      &quot;message&quot;: &quot;Reference resolves outside this skill bundle: tiles/blog-write/references/social-distribution.md&quot;,
+      &quot;path&quot;: &quot;tiles/blog-write/references/social-distribution.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;warning&quot;,
+      &quot;code&quot;: &quot;missing-reference&quot;,
+      &quot;message&quot;: &quot;Referenced file does not exist: distribution.json&quot;,
+      &quot;path&quot;: &quot;distribution.json&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;warning&quot;,
+      &quot;code&quot;: &quot;missing-reference&quot;,
+      &quot;message&quot;: &quot;Referenced file does not exist: video-treatment.md&quot;,
+      &quot;path&quot;: &quot;video-treatment.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;warning&quot;,
+      &quot;code&quot;: &quot;missing-reference&quot;,
+      &quot;message&quot;: &quot;Referenced file does not exist: asset-decision-log.md&quot;,
+      &quot;path&quot;: &quot;asset-decision-log.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;info&quot;,
+      &quot;code&quot;: &quot;external-dependency&quot;,
+      &quot;message&quot;: &quot;Reference resolves outside this skill bundle: aaron-video-gen/config/voice-profiles.json&quot;,
+      &quot;path&quot;: &quot;aaron-video-gen/config/voice-profiles.json&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;info&quot;,
+      &quot;code&quot;: &quot;external-dependency&quot;,
+      &quot;message&quot;: &quot;Reference resolves outside this skill bundle: tiles/aaron-video-gen/references/director-pass.md&quot;,
+      &quot;path&quot;: &quot;tiles/aaron-video-gen/references/director-pass.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;warning&quot;,
+      &quot;code&quot;: &quot;missing-reference&quot;,
+      &quot;message&quot;: &quot;Referenced file does not exist: handoff.md&quot;,
+      &quot;path&quot;: &quot;handoff.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;warning&quot;,
+      &quot;code&quot;: &quot;missing-reference&quot;,
+      &quot;message&quot;: &quot;Referenced file does not exist: x-teaser.md&quot;,
+      &quot;path&quot;: &quot;x-teaser.md&quot;
+    },
+    {
+      &quot;severity&quot;: &quot;warning&quot;,
+      &quot;code&quot;: &quot;missing-reference&quot;,
+      &quot;message&quot;: &quot;Referenced file does not exist: scripts/sync-agent-skills.sh&quot;,
+      &quot;path&quot;: &quot;scripts/sync-agent-skills.sh&quot;
+    }
+  ]
+}</pre></details></article>
+    </section>
+  </main>
+</body>
+</html>

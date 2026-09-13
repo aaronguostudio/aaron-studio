@@ -1,0 +1,2096 @@
+{
+  "manifestVersion": "0.1",
+  "skill": {
+    "name": "blog-production",
+    "description": "Use when running or resuming Aaron's end-to-end blog workflow, especially when the user wants one entry point for idea, article, images, video, social, and publishing."
+  },
+  "source": {
+    "rootName": "blog-production",
+    "skillFile": "SKILL.md",
+    "digest": "sha256:f89b748bc2d6314f50b6103f0fa1bde6e0777da0985755c105e1e68cbbce332c"
+  },
+  "stats": {
+    "sections": 14,
+    "stages": 11,
+    "artifacts": 40,
+    "resources": 32,
+    "decisions": 10,
+    "issues": 12
+  },
+  "nodes": [
+    {
+      "id": "skill:35c9f70d4958",
+      "kind": "skill",
+      "label": "blog-production",
+      "path": "SKILL.md"
+    },
+    {
+      "id": "section:4f58b346c216",
+      "kind": "section",
+      "label": "Blog Production",
+      "metadata": {
+        "level": 1
+      }
+    },
+    {
+      "id": "section:5eba7a0c586d",
+      "kind": "section",
+      "label": "Pipeline",
+      "metadata": {
+        "level": 2
+      }
+    },
+    {
+      "id": "section:5ea45c1e43cf",
+      "kind": "section",
+      "label": "Artifact Contract",
+      "metadata": {
+        "level": 2
+      }
+    },
+    {
+      "id": "section:dee731a7b907",
+      "kind": "section",
+      "label": "Workflow",
+      "metadata": {
+        "level": 2
+      }
+    },
+    {
+      "id": "section:5f171b5be6be",
+      "kind": "section",
+      "label": "0. Source Intake And Greenlight",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:49ae2de2dbd8",
+      "kind": "section",
+      "label": "0. Bootstrap Workflow 3 Artifacts",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:0930667851b9",
+      "kind": "section",
+      "label": "1. Pick the post directory",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:222384398d5b",
+      "kind": "section",
+      "label": "Aaron's default blog style",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:41cf0ce7e227",
+      "kind": "section",
+      "label": "2. Detect the next step",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:f8b98469360f",
+      "kind": "section",
+      "label": "3. Execute one phase at a time",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:7a3cdec0626c",
+      "kind": "section",
+      "label": "4. Quality gates",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:41e9c89b496b",
+      "kind": "section",
+      "label": "5. Recovery behavior",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:01690799aba0",
+      "kind": "section",
+      "label": "6. Completion report",
+      "metadata": {
+        "level": 3
+      }
+    },
+    {
+      "id": "section:efc010d07902",
+      "kind": "section",
+      "label": "Codex Compatibility",
+      "metadata": {
+        "level": 2
+      }
+    },
+    {
+      "id": "stage:5e249c63090a",
+      "kind": "stage",
+      "label": "muse",
+      "metadata": {
+        "order": 1
+      }
+    },
+    {
+      "id": "stage:a652236966b2",
+      "kind": "stage",
+      "label": "research-evidence (source-led work)",
+      "metadata": {
+        "order": 2
+      }
+    },
+    {
+      "id": "stage:b137cc893a72",
+      "kind": "stage",
+      "label": "blog-brainstorm",
+      "metadata": {
+        "order": 3
+      }
+    },
+    {
+      "id": "stage:e1ed56ec61c9",
+      "kind": "stage",
+      "label": "blog-outline",
+      "metadata": {
+        "order": 4
+      }
+    },
+    {
+      "id": "stage:5e0e24b00fb0",
+      "kind": "stage",
+      "label": "blog-canon-alignment",
+      "metadata": {
+        "order": 5
+      }
+    },
+    {
+      "id": "stage:f40e1584bb9a",
+      "kind": "stage",
+      "label": "blog-write",
+      "metadata": {
+        "order": 6
+      }
+    },
+    {
+      "id": "stage:bd6c73246b23",
+      "kind": "stage",
+      "label": "blog-prose-editor",
+      "metadata": {
+        "order": 7
+      }
+    },
+    {
+      "id": "stage:042cc1e2ff6c",
+      "kind": "stage",
+      "label": "blog-illustrate",
+      "metadata": {
+        "order": 8
+      }
+    },
+    {
+      "id": "stage:2ebcbde69b2f",
+      "kind": "stage",
+      "label": "aaron-video-gen",
+      "metadata": {
+        "order": 9
+      }
+    },
+    {
+      "id": "stage:ea3a649ee7c6",
+      "kind": "stage",
+      "label": "publish-to-blog",
+      "metadata": {
+        "order": 10
+      }
+    },
+    {
+      "id": "stage:d4d8b097ef14",
+      "kind": "stage",
+      "label": "yt-publish",
+      "metadata": {
+        "order": 11
+      }
+    },
+    {
+      "id": "artifact:e6ed17251b44",
+      "kind": "artifact",
+      "label": "idea.md",
+      "path": "idea.md",
+      "metadata": {
+        "meaning": "Raw idea or seed",
+        "producer": "manual / muse"
+      }
+    },
+    {
+      "id": "artifact:71cb75aad118",
+      "kind": "artifact",
+      "label": "research-evidence.json",
+      "path": "research-evidence.json",
+      "metadata": {
+        "meaning": "Versioned canonical sources, transcript provenance, claims, coverage gaps, and privacy state",
+        "producer": "research-evidence"
+      }
+    },
+    {
+      "id": "artifact:662c4d99847c",
+      "kind": "artifact",
+      "label": "source-intake.md",
+      "path": "source-intake.md",
+      "metadata": {
+        "meaning": "Source-first greenlight: primary-source notes, distinctness test, personal experiment, and media proof map",
+        "producer": "blog-production / blog-brainstorm"
+      }
+    },
+    {
+      "id": "artifact:5bcb2afd5ebe",
+      "kind": "artifact",
+      "label": "memory-reflection.md",
+      "path": "memory-reflection.md",
+      "metadata": {
+        "meaning": "prior-post reflection, internal link candidates, continuity thesis",
+        "producer": "blog-production / blog-brainstorm"
+      }
+    },
+    {
+      "id": "artifact:f69aeb61d836",
+      "kind": "artifact",
+      "label": "editorial-brief.md",
+      "path": "editorial-brief.md",
+      "metadata": {
+        "meaning": "reader pain, sharp thesis, evidence need, counterargument, kill criteria",
+        "producer": "blog-brainstorm"
+      }
+    },
+    {
+      "id": "artifact:e23a86381b3a",
+      "kind": "artifact",
+      "label": "research-dossier.md",
+      "path": "research-dossier.md",
+      "metadata": {
+        "meaning": "sources, cases, facts, counterarguments, open questions",
+        "producer": "blog-brainstorm"
+      }
+    },
+    {
+      "id": "artifact:939782a4a0ce",
+      "kind": "artifact",
+      "label": "claim-ledger.md",
+      "path": "claim-ledger.md",
+      "metadata": {
+        "meaning": "fact / inference / judgment map with source dates, confidence, and verification",
+        "producer": "blog-brainstorm / blog-production"
+      }
+    },
+    {
+      "id": "artifact:4c2109c0114a",
+      "kind": "artifact",
+      "label": "content-plan.md",
+      "path": "content-plan.md",
+      "metadata": {
+        "meaning": "researched content plan",
+        "producer": "blog-brainstorm"
+      }
+    },
+    {
+      "id": "artifact:5d11744b7ca0",
+      "kind": "artifact",
+      "label": "argument-memo.md",
+      "path": "argument-memo.md",
+      "metadata": {
+        "meaning": "thesis, mechanism, evidence map, counterargument, reusable frame",
+        "producer": "blog-outline"
+      }
+    },
+    {
+      "id": "artifact:b6aa187657c3",
+      "kind": "artifact",
+      "label": "canon-alignment.md",
+      "path": "canon-alignment.md",
+      "metadata": {
+        "meaning": "prior-post alignment, viewpoint continuity, internal link candidates, ideas to upgrade or avoid",
+        "producer": "blog-canon-alignment"
+      }
+    },
+    {
+      "id": "artifact:8cb1952eb759",
+      "kind": "artifact",
+      "label": "plan.md",
+      "path": "plan.md",
+      "metadata": {
+        "meaning": "writing-ready outline",
+        "producer": "blog-outline"
+      }
+    },
+    {
+      "id": "artifact:3e66b9add9b8",
+      "kind": "artifact",
+      "label": "<slug>.md",
+      "path": "<slug>.md",
+      "metadata": {
+        "meaning": "English article",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:87f005c03451",
+      "kind": "artifact",
+      "label": "<slug>-zh.md",
+      "path": "<slug>-zh.md",
+      "metadata": {
+        "meaning": "Chinese article",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:29e2620c17d6",
+      "kind": "artifact",
+      "label": "red-team-review.md",
+      "path": "red-team-review.md",
+      "metadata": {
+        "meaning": "skeptical editorial review and required revisions",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:2a8655898f64",
+      "kind": "artifact",
+      "label": "prose-polish-review.md",
+      "path": "prose-polish-review.md",
+      "metadata": {
+        "meaning": "EN/ZH prose polish goals, edits, boundaries, validation result",
+        "producer": "blog-prose-editor"
+      }
+    },
+    {
+      "id": "artifact:5901ead320e2",
+      "kind": "artifact",
+      "label": "editorial-scorecard.md",
+      "path": "editorial-scorecard.md",
+      "metadata": {
+        "meaning": "editorial contract, weighted final score, and revision delta",
+        "producer": "blog-production / blog-write"
+      }
+    },
+    {
+      "id": "artifact:89b742e1e779",
+      "kind": "artifact",
+      "label": "package-state.json",
+      "path": "package-state.json",
+      "metadata": {
+        "meaning": "machine-readable phase, canonical asset pointers, release provenance, and postmortem status",
+        "producer": "blog-production"
+      }
+    },
+    {
+      "id": "artifact:609456e0ce8d",
+      "kind": "artifact",
+      "label": "postmortem.md",
+      "path": "postmortem.md",
+      "metadata": {
+        "meaning": "prediction, 24h/7d outcomes, workflow lesson, next experiment",
+        "producer": "blog-production"
+      }
+    },
+    {
+      "id": "artifact:08482226f79a",
+      "kind": "artifact",
+      "label": "workflow-retrospective.md",
+      "path": "workflow-retrospective.md",
+      "metadata": {
+        "meaning": "optional deep-revision summary, durable lessons, lock failures, and next-run protocol",
+        "producer": "blog-production"
+      }
+    },
+    {
+      "id": "artifact:dd31179d9975",
+      "kind": "artifact",
+      "label": "canon-note.md",
+      "path": "canon-note.md",
+      "metadata": {
+        "meaning": "canonical idea, reusable frame, claim updates, internal link map",
+        "producer": "blog-write / blog-production"
+      }
+    },
+    {
+      "id": "artifact:1c9d12e2dd42",
+      "kind": "artifact",
+      "label": "distribution-plan.md",
+      "path": "distribution-plan.md",
+      "metadata": {
+        "meaning": "platform jobs, assets, CTA, UTM links, and launch experiments",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:cb9e39d5a891",
+      "kind": "artifact",
+      "label": "x-post.md",
+      "path": "x-post.md",
+      "metadata": {
+        "meaning": "social teaser for X with link in reply",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:c4bd6b630f56",
+      "kind": "artifact",
+      "label": "x-standalone-tweet.md",
+      "path": "x-standalone-tweet.md",
+      "metadata": {
+        "meaning": "follow-up single-insight social teaser",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:78c8b776b5a6",
+      "kind": "artifact",
+      "label": "linkedin-brief.md",
+      "path": "linkedin-brief.md",
+      "metadata": {
+        "meaning": "LinkedIn-native professional operator post",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:3c8c8ad31640",
+      "kind": "artifact",
+      "label": "facebook-post.md",
+      "path": "facebook-post.md",
+      "metadata": {
+        "meaning": "Facebook-native personal-network post",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:efbe6dcdbbe6",
+      "kind": "artifact",
+      "label": "newsletter-teaser.md",
+      "path": "newsletter-teaser.md",
+      "metadata": {
+        "meaning": "Beehiiv teaser",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:a2e906ec1968",
+      "kind": "artifact",
+      "label": "imgs/outline.md",
+      "path": "imgs/outline.md",
+      "metadata": {
+        "meaning": "illustration plan",
+        "producer": "blog-illustrate"
+      }
+    },
+    {
+      "id": "artifact:fe1ed7c98eea",
+      "kind": "artifact",
+      "label": "imgs/generation-manifest.md",
+      "path": "imgs/generation-manifest.md",
+      "metadata": {
+        "meaning": "image backend, prompt, candidate, selection, and provenance record",
+        "producer": "blog-illustrate"
+      }
+    },
+    {
+      "id": "artifact:5bc70e73c6a9",
+      "kind": "artifact",
+      "label": "imgs/web/00-cover.webp",
+      "path": "imgs/web/00-cover.webp",
+      "metadata": {
+        "meaning": "blog cover",
+        "producer": "blog-illustrate"
+      }
+    },
+    {
+      "id": "artifact:3f4a4c9712c4",
+      "kind": "artifact",
+      "label": "video-brief.md",
+      "path": "video-brief.md",
+      "metadata": {
+        "meaning": "video-native angle, story spine, retention plan",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:318a38aacb58",
+      "kind": "artifact",
+      "label": "youtube-script.md",
+      "path": "youtube-script.md",
+      "metadata": {
+        "meaning": "slide video script",
+        "producer": "blog-write"
+      }
+    },
+    {
+      "id": "artifact:f116c9360682",
+      "kind": "artifact",
+      "label": "youtube-script-audit.md",
+      "path": "youtube-script-audit.md",
+      "metadata": {
+        "meaning": "scriptwriting gate result",
+        "producer": "blog-write / aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:ab8810cf7fa6",
+      "kind": "artifact",
+      "label": "audio-transcript.md",
+      "path": "audio-transcript.md",
+      "metadata": {
+        "meaning": "exact approved spoken text plus resolved voice profile",
+        "producer": "aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:2f8521faccbd",
+      "kind": "artifact",
+      "label": "audio.mp3",
+      "path": "audio.mp3",
+      "metadata": {
+        "meaning": "normalized full narration review file",
+        "producer": "aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:f73cbd37d812",
+      "kind": "artifact",
+      "label": "audio-raw.mp3",
+      "path": "audio-raw.mp3",
+      "metadata": {
+        "meaning": "untouched concatenated TTS output",
+        "producer": "aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:6247a79fa7b3",
+      "kind": "artifact",
+      "label": "audio-sample-60s.mp3",
+      "path": "audio-sample-60s.mp3",
+      "metadata": {
+        "meaning": "fast listening sample from the opening",
+        "producer": "aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:6cd25003100e",
+      "kind": "artifact",
+      "label": "audio-generation-manifest.json",
+      "path": "audio-generation-manifest.json",
+      "metadata": {
+        "meaning": "TTS identity, hashes, output paths, and technical QA",
+        "producer": "aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:3c35d974dcc9",
+      "kind": "artifact",
+      "label": "audio-generation.md",
+      "path": "audio-generation.md",
+      "metadata": {
+        "meaning": "human listening decision and unresolved issues",
+        "producer": "aaron-video-gen / manual review"
+      }
+    },
+    {
+      "id": "artifact:dfa3308d9864",
+      "kind": "artifact",
+      "label": "video.mp4",
+      "path": "video.mp4",
+      "metadata": {
+        "meaning": "generated YouTube video",
+        "producer": "aaron-video-gen"
+      }
+    },
+    {
+      "id": "artifact:baa294ef70fe",
+      "kind": "artifact",
+      "label": "youtube-metadata.md",
+      "path": "youtube-metadata.md",
+      "metadata": {
+        "meaning": "YouTube title/description/tags",
+        "producer": "blog-write / aaron-video-gen"
+      }
+    },
+    {
+      "id": "decision:faaadcc19a4a",
+      "kind": "decision",
+      "label": "When the seed is a specific link, video, interview, paper, launch, or a theme"
+    },
+    {
+      "id": "decision:06ef0e9aca17",
+      "kind": "decision",
+      "label": "Before brainstorm, outline, or writing begins, run or inspect:"
+    },
+    {
+      "id": "decision:4a6702260333",
+      "kind": "decision",
+      "label": "If the user requests a specific phase, run that phase even if earlier artifacts are missing, but report the gap."
+    },
+    {
+      "id": "decision:9dbad4455c78",
+      "kind": "decision",
+      "label": "If any artifact is missing or weak, stop and run the focused phase instead of drafting."
+    },
+    {
+      "id": "decision:2d184bece469",
+      "kind": "decision",
+      "label": "If the article fails any item, run a `blog-write` revision pass before continuing."
+    },
+    {
+      "id": "decision:278d0d6125e8",
+      "kind": "decision",
+      "label": "When the seed is an interview or another creator's video, the companion video"
+    },
+    {
+      "id": "decision:a099c899ce11",
+      "kind": "decision",
+      "label": "If the script fails any item, run a `blog-write` video adaptation pass before continuing."
+    },
+    {
+      "id": "decision:c7f4ee6cfc54",
+      "kind": "decision",
+      "label": "If the audit fails, run a `blog-write` video adaptation pass before visual enrichment or rendering."
+    },
+    {
+      "id": "decision:1c4610122743",
+      "kind": "decision",
+      "label": "When evaluating a new voice or model, compare the same locked 45-60 second script under blind labels. Do not generate the full narration until Aaron selects a winner. Do not render video while `audio-generation.md` is pending."
+    },
+    {
+      "id": "decision:43b745497c0e",
+      "kind": "decision",
+      "label": "If a post has mixed historical formats, normalize forward rather than rewriting history:"
+    },
+    {
+      "id": "resource:08d442db191b",
+      "kind": "resource",
+      "label": "aaron-video-gen/config/voice-profiles.json",
+      "path": "aaron-video-gen/config/voice-profiles.json",
+      "metadata": {
+        "scope": "external",
+        "referenced": true
+      }
+    },
+    {
+      "id": "resource:e222fd4c0e30",
+      "kind": "resource",
+      "label": "asset-decision-log.md",
+      "path": "asset-decision-log.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": false
+      }
+    },
+    {
+      "id": "resource:4b7c28fdd42d",
+      "kind": "resource",
+      "label": "config/aaron-studio.json",
+      "path": "config/aaron-studio.json",
+      "metadata": {
+        "scope": "external",
+        "referenced": true
+      }
+    },
+    {
+      "id": "resource:4a3705f02f6e",
+      "kind": "resource",
+      "label": "distribution.json",
+      "path": "distribution.json",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": false
+      }
+    },
+    {
+      "id": "resource:0704326e1e7b",
+      "kind": "resource",
+      "label": "handoff.md",
+      "path": "handoff.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": false
+      }
+    },
+    {
+      "id": "resource:35d2c93e48ae",
+      "kind": "resource",
+      "label": "editorial-system.md",
+      "path": "references/editorial-system.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": true
+      }
+    },
+    {
+      "id": "resource:e499b1d28ed1",
+      "kind": "resource",
+      "label": "blog-package-quality.test.ts",
+      "path": "scripts/blog-package-quality.test.ts",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:5f37a605da89",
+      "kind": "resource",
+      "label": "blog-package-quality.ts",
+      "path": "scripts/blog-package-quality.ts",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:970ac020f155",
+      "kind": "resource",
+      "label": "sync-agent-skills.sh",
+      "path": "scripts/sync-agent-skills.sh",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": false
+      }
+    },
+    {
+      "id": "resource:e38127a43521",
+      "kind": "resource",
+      "label": "workflow2-artifacts.test.ts",
+      "path": "scripts/workflow2-artifacts.test.ts",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:9c5fc0bc0de2",
+      "kind": "resource",
+      "label": "workflow2-artifacts.ts",
+      "path": "scripts/workflow2-artifacts.ts",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:d0a9ee63cf93",
+      "kind": "resource",
+      "label": "workflow3-artifacts.test.ts",
+      "path": "scripts/workflow3-artifacts.test.ts",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:a66dc0b4b950",
+      "kind": "resource",
+      "label": "workflow3-artifacts.ts",
+      "path": "scripts/workflow3-artifacts.ts",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:141e17a797fb",
+      "kind": "resource",
+      "label": "SKILL.md",
+      "path": "SKILL.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": true
+      }
+    },
+    {
+      "id": "resource:d56eb7e8485a",
+      "kind": "resource",
+      "label": "src/content/strategy/blog-writing-language.md",
+      "path": "src/content/strategy/blog-writing-language.md",
+      "metadata": {
+        "scope": "external",
+        "referenced": true
+      }
+    },
+    {
+      "id": "resource:6c37e0cafec4",
+      "kind": "resource",
+      "label": "src/content/strategy/x.md",
+      "path": "src/content/strategy/x.md",
+      "metadata": {
+        "scope": "external",
+        "referenced": true
+      }
+    },
+    {
+      "id": "resource:829a8d3349bc",
+      "kind": "resource",
+      "label": "argument-memo.md",
+      "path": "templates/workflow2/argument-memo.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:ade855e27775",
+      "kind": "resource",
+      "label": "canon-alignment.md",
+      "path": "templates/workflow2/canon-alignment.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:ca98e2b978b1",
+      "kind": "resource",
+      "label": "canon-note.md",
+      "path": "templates/workflow2/canon-note.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:e945a99d348f",
+      "kind": "resource",
+      "label": "editorial-brief.md",
+      "path": "templates/workflow2/editorial-brief.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:ca316b067371",
+      "kind": "resource",
+      "label": "idea.md",
+      "path": "templates/workflow2/idea.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:a795a8efd2af",
+      "kind": "resource",
+      "label": "memory-reflection.md",
+      "path": "templates/workflow2/memory-reflection.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:27298e80563d",
+      "kind": "resource",
+      "label": "postmortem.md",
+      "path": "templates/workflow2/postmortem.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:44da69ce37b1",
+      "kind": "resource",
+      "label": "prose-polish-review.md",
+      "path": "templates/workflow2/prose-polish-review.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:9842ab14ded3",
+      "kind": "resource",
+      "label": "red-team-review.md",
+      "path": "templates/workflow2/red-team-review.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:7d73864a5ef9",
+      "kind": "resource",
+      "label": "research-dossier.md",
+      "path": "templates/workflow2/research-dossier.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:1be8b507a35d",
+      "kind": "resource",
+      "label": "claim-ledger.md",
+      "path": "templates/workflow3/claim-ledger.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:b38367137e2a",
+      "kind": "resource",
+      "label": "editorial-scorecard.md",
+      "path": "templates/workflow3/editorial-scorecard.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": false
+      }
+    },
+    {
+      "id": "resource:2810f4f54ef3",
+      "kind": "resource",
+      "label": "tiles/aaron-video-gen/references/director-pass.md",
+      "path": "tiles/aaron-video-gen/references/director-pass.md",
+      "metadata": {
+        "scope": "external",
+        "referenced": true
+      }
+    },
+    {
+      "id": "resource:337222e1ebfa",
+      "kind": "resource",
+      "label": "tiles/blog-write/references/social-distribution.md",
+      "path": "tiles/blog-write/references/social-distribution.md",
+      "metadata": {
+        "scope": "external",
+        "referenced": true
+      }
+    },
+    {
+      "id": "resource:729508a155a8",
+      "kind": "resource",
+      "label": "video-treatment.md",
+      "path": "video-treatment.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": false
+      }
+    },
+    {
+      "id": "resource:a4ac6e02e8bd",
+      "kind": "resource",
+      "label": "x-teaser.md",
+      "path": "x-teaser.md",
+      "metadata": {
+        "scope": "internal",
+        "referenced": true,
+        "exists": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:4f58b346c216",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:5eba7a0c586d",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:5ea45c1e43cf",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:dee731a7b907",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:5f171b5be6be",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:49ae2de2dbd8",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:0930667851b9",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:222384398d5b",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:41cf0ce7e227",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:f8b98469360f",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:7a3cdec0626c",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:41e9c89b496b",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:01690799aba0",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "section:efc010d07902",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "stage:5e249c63090a",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:5e249c63090a",
+      "to": "stage:a652236966b2",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:a652236966b2",
+      "to": "stage:b137cc893a72",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "stage:e1ed56ec61c9",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:e1ed56ec61c9",
+      "to": "stage:5e0e24b00fb0",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:5e0e24b00fb0",
+      "to": "stage:f40e1584bb9a",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "stage:bd6c73246b23",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:bd6c73246b23",
+      "to": "stage:042cc1e2ff6c",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:042cc1e2ff6c",
+      "to": "stage:2ebcbde69b2f",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "stage:ea3a649ee7c6",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "stage:ea3a649ee7c6",
+      "to": "stage:d4d8b097ef14",
+      "relation": "routes-to",
+      "execution": "sequential"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:e6ed17251b44",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:71cb75aad118",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:662c4d99847c",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5bcb2afd5ebe",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:f69aeb61d836",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:e23a86381b3a",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:939782a4a0ce",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:4c2109c0114a",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5d11744b7ca0",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:b6aa187657c3",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:8cb1952eb759",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3e66b9add9b8",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:87f005c03451",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:29e2620c17d6",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:2a8655898f64",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5901ead320e2",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:89b742e1e779",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:609456e0ce8d",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:08482226f79a",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:dd31179d9975",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:1c9d12e2dd42",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:cb9e39d5a891",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:c4bd6b630f56",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:78c8b776b5a6",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3c8c8ad31640",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:efbe6dcdbbe6",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:a2e906ec1968",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:fe1ed7c98eea",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5bc70e73c6a9",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3f4a4c9712c4",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:318a38aacb58",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:f116c9360682",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:ab8810cf7fa6",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:2f8521faccbd",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:f73cbd37d812",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:6247a79fa7b3",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:6cd25003100e",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3c35d974dcc9",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:dfa3308d9864",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:baa294ef70fe",
+      "relation": "declares",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:5e249c63090a",
+      "to": "artifact:e6ed17251b44",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:a652236966b2",
+      "to": "artifact:71cb75aad118",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:662c4d99847c",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "artifact:662c4d99847c",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5bcb2afd5ebe",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "artifact:5bcb2afd5ebe",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "artifact:f69aeb61d836",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "artifact:e23a86381b3a",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "artifact:939782a4a0ce",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:939782a4a0ce",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:b137cc893a72",
+      "to": "artifact:4c2109c0114a",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:e1ed56ec61c9",
+      "to": "artifact:5d11744b7ca0",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:5e0e24b00fb0",
+      "to": "artifact:b6aa187657c3",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:e1ed56ec61c9",
+      "to": "artifact:8cb1952eb759",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:3e66b9add9b8",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:87f005c03451",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:29e2620c17d6",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:bd6c73246b23",
+      "to": "artifact:2a8655898f64",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5901ead320e2",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:5901ead320e2",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:89b742e1e779",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:609456e0ce8d",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:08482226f79a",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:dd31179d9975",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:dd31179d9975",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:1c9d12e2dd42",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:cb9e39d5a891",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:c4bd6b630f56",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:78c8b776b5a6",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:3c8c8ad31640",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:efbe6dcdbbe6",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:042cc1e2ff6c",
+      "to": "artifact:a2e906ec1968",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:042cc1e2ff6c",
+      "to": "artifact:fe1ed7c98eea",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:042cc1e2ff6c",
+      "to": "artifact:5bc70e73c6a9",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:3f4a4c9712c4",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:318a38aacb58",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:f116c9360682",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:f116c9360682",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:ab8810cf7fa6",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:2f8521faccbd",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:f73cbd37d812",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:6247a79fa7b3",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:6cd25003100e",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:3c35d974dcc9",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:dfa3308d9864",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:f40e1584bb9a",
+      "to": "artifact:baa294ef70fe",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "stage:2ebcbde69b2f",
+      "to": "artifact:baa294ef70fe",
+      "relation": "produces",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:faaadcc19a4a",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:06ef0e9aca17",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:4a6702260333",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:9dbad4455c78",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:2d184bece469",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:278d0d6125e8",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:a099c899ce11",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:c7f4ee6cfc54",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:1c4610122743",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "decision:43b745497c0e",
+      "relation": "contains",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:e6ed17251b44",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:71cb75aad118",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:662c4d99847c",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5bcb2afd5ebe",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:f69aeb61d836",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:e23a86381b3a",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:939782a4a0ce",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:4c2109c0114a",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5d11744b7ca0",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:b6aa187657c3",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:8cb1952eb759",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:29e2620c17d6",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:2a8655898f64",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:5901ead320e2",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:89b742e1e779",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:609456e0ce8d",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:08482226f79a",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:dd31179d9975",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:1c9d12e2dd42",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:cb9e39d5a891",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:c4bd6b630f56",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:78c8b776b5a6",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3c8c8ad31640",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:efbe6dcdbbe6",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:a2e906ec1968",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:fe1ed7c98eea",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3f4a4c9712c4",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:318a38aacb58",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:f116c9360682",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:ab8810cf7fa6",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:6cd25003100e",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:3c35d974dcc9",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "artifact:baa294ef70fe",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:35d2c93e48ae",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:4b7c28fdd42d",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:6c37e0cafec4",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:d56eb7e8485a",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:141e17a797fb",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:337222e1ebfa",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:4a3705f02f6e",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:729508a155a8",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:e222fd4c0e30",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:08d442db191b",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:2810f4f54ef3",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:0704326e1e7b",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:a4ac6e02e8bd",
+      "relation": "references",
+      "execution": "declarative"
+    },
+    {
+      "from": "skill:35c9f70d4958",
+      "to": "resource:970ac020f155",
+      "relation": "references",
+      "execution": "declarative"
+    }
+  ],
+  "issues": [
+    {
+      "severity": "info",
+      "code": "external-dependency",
+      "message": "Reference resolves outside this skill bundle: config/aaron-studio.json",
+      "path": "config/aaron-studio.json"
+    },
+    {
+      "severity": "info",
+      "code": "external-dependency",
+      "message": "Reference resolves outside this skill bundle: src/content/strategy/x.md",
+      "path": "src/content/strategy/x.md"
+    },
+    {
+      "severity": "info",
+      "code": "external-dependency",
+      "message": "Reference resolves outside this skill bundle: src/content/strategy/blog-writing-language.md",
+      "path": "src/content/strategy/blog-writing-language.md"
+    },
+    {
+      "severity": "info",
+      "code": "external-dependency",
+      "message": "Reference resolves outside this skill bundle: tiles/blog-write/references/social-distribution.md",
+      "path": "tiles/blog-write/references/social-distribution.md"
+    },
+    {
+      "severity": "warning",
+      "code": "missing-reference",
+      "message": "Referenced file does not exist: distribution.json",
+      "path": "distribution.json"
+    },
+    {
+      "severity": "warning",
+      "code": "missing-reference",
+      "message": "Referenced file does not exist: video-treatment.md",
+      "path": "video-treatment.md"
+    },
+    {
+      "severity": "warning",
+      "code": "missing-reference",
+      "message": "Referenced file does not exist: asset-decision-log.md",
+      "path": "asset-decision-log.md"
+    },
+    {
+      "severity": "info",
+      "code": "external-dependency",
+      "message": "Reference resolves outside this skill bundle: aaron-video-gen/config/voice-profiles.json",
+      "path": "aaron-video-gen/config/voice-profiles.json"
+    },
+    {
+      "severity": "info",
+      "code": "external-dependency",
+      "message": "Reference resolves outside this skill bundle: tiles/aaron-video-gen/references/director-pass.md",
+      "path": "tiles/aaron-video-gen/references/director-pass.md"
+    },
+    {
+      "severity": "warning",
+      "code": "missing-reference",
+      "message": "Referenced file does not exist: handoff.md",
+      "path": "handoff.md"
+    },
+    {
+      "severity": "warning",
+      "code": "missing-reference",
+      "message": "Referenced file does not exist: x-teaser.md",
+      "path": "x-teaser.md"
+    },
+    {
+      "severity": "warning",
+      "code": "missing-reference",
+      "message": "Referenced file does not exist: scripts/sync-agent-skills.sh",
+      "path": "scripts/sync-agent-skills.sh"
+    }
+  ]
+}

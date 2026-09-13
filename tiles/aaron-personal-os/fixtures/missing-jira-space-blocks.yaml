@@ -1,0 +1,12 @@
+id: missing-jira-space-blocks
+mode: apply
+input:
+  intent: jira-create-issue
+  project_context: {}
+expected:
+  decision: block-and-ask
+  must_ask_for:
+    - jira-space
+  must_not:
+    - infer-jira-space-from-repository-or-issue
+    - create-or-update-the-jira-issue

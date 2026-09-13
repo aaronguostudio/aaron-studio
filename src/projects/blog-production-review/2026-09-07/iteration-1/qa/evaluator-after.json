@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-09-07T21:17:23.126Z",
+  "results": [
+    {
+      "id": "later-section-leak",
+      "expected": "fail",
+      "before": "pass",
+      "after": "fail"
+    },
+    {
+      "id": "valid-decision",
+      "expected": "pass",
+      "before": "pass",
+      "after": "pass"
+    },
+    {
+      "id": "absent-go",
+      "expected": "fail",
+      "before": "fail",
+      "after": "fail"
+    },
+    {
+      "id": "missing-section",
+      "expected": "fail",
+      "before": "fail",
+      "after": "fail"
+    }
+  ]
+}

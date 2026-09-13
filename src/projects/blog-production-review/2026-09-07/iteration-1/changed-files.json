@@ -1,0 +1,91 @@
+[
+  {
+    "path": "src/content/strategy/blog-writing-language.md",
+    "before": "158bfad42d9b9022dae5f648ab9cc5b322082acca62ea40f051e6605251e84e5",
+    "after": "6d4388c3ede62160a73502de4c35c5fea6ed37e45efb7cbe133be2f222cd7803"
+  },
+  {
+    "path": "tiles/blog-prose-editor/SKILL.md",
+    "before": "4736bef5be88bd8a9c39f8316964bebca8030a70cf0f3e6d03c2741a55f5b307",
+    "after": "8ffc42fbf6c704360af4813fa08279ff225dcb70707b47d05a6e326cbee27392"
+  },
+  {
+    "path": "tiles/blog-write/SKILL.md",
+    "before": "aa06ccda68ed315d96a5d378743b3e43944a4a0cfedb2006721fb9e46a5268c1",
+    "after": "ecb00a9aa8c781f52df12c196d57b9ef132bc2244c091ea041faac5b6cd20837"
+  },
+  {
+    "path": "tiles/blog-production/SKILL.md",
+    "before": "e9bc90a47e00afc73cc34da0b17f62d32710620cf72a5f4378623df4bb281bca",
+    "after": "e1b19021d211300c8621eb8d4cd73e4bfa51b9868ad72809dfb7cb2c157d123b"
+  },
+  {
+    "path": "tiles/blog-outline/SKILL.md",
+    "before": "c72678c80c361ea16f6ead6882892ce78fd79be5d811b1bca3d95f8963f9c32e",
+    "after": "3878a89c9560d177ef41e1adc672c21eb5ffc2ba5b1af1aa0538a1c6a10fce51"
+  },
+  {
+    "path": "tiles/blog-brainstorm/SKILL.md",
+    "before": "8f09141a94f5b4d69557a4944f4fcc42e49249e04c2e2978a3c352d0ed6f068c",
+    "after": "98644f00a5252333e7392af85134cc117406bd6353af713b78cf5c233f0b3621"
+  },
+  {
+    "path": "tiles/blog-production/references/editorial-system.md",
+    "before": "5b032a559c8a04a34d9e44b47913c7ae4de7ec59900f069cb64b80281afdd9d2",
+    "after": "f31e4dae86187a7c73fc0402c1923813119bf6d7f36a04857209728b40dc2849"
+  },
+  {
+    "path": "tiles/blog-production/scripts/blog-package-quality.test.ts",
+    "before": "4915fb51051bb29235ecd3cbf5b8a67e2f4053f820baedda61589d0b6502a444",
+    "after": "8781b6df78d004d8aa3f0d728489f675f65448a2236d4ade2a792e62a7459a41"
+  },
+  {
+    "path": "tiles/blog-production/scripts/blog-package-quality.ts",
+    "before": "6ca254da0a3f0e07d106acb8d7daf69990cf5baf16550045345ac50440a2bbc4",
+    "after": "279711d83a9600d26b1a6cf6290a54b5b0508b7baefecae3f2cc5919e1914fea"
+  },
+  {
+    "path": "tiles/blog-production/templates/workflow2/editorial-brief.md",
+    "before": "9dfabf984050dbe337f7f254bab0d79930861be20424b76426eb25de4107ea1c",
+    "after": "d14a0c303ec21b5e44f17deed84f7647d410dcfda3023c208db675923e1378df"
+  },
+  {
+    "path": "tiles/blog-production/templates/workflow2/memory-reflection.md",
+    "before": "cb7c6b941f6b8e6cf98363b480f8109f3b7cec2625a3df3e455544fad4e6be5b",
+    "after": "d550488d81ac73949c333eebb13c8485ee0846c8af5a72430ea020953faa1833"
+  },
+  {
+    "path": "tiles/blog-production/templates/workflow2/argument-memo.md",
+    "before": "bfc0de2289989ee5135cf6a66796257f10d909dba4e7edb5f01737b0425bae90",
+    "after": "683fd6701f18d77bef2870aa7371469dca16033f3446fc1705dcfc0fd4f2410f"
+  },
+  {
+    "path": "tiles/blog-production/templates/workflow2/red-team-review.md",
+    "before": "6e9a630942ae05fa382eb4d446be811eccc20d7ba36eda9387cc142a02058db1",
+    "after": "a478cda32eca93468d32141897f81826c0cb47c8fc63055f930ef92ffcc305e3"
+  },
+  {
+    "path": "tiles/blog-production/templates/workflow3/editorial-scorecard.md",
+    "before": "0f51b635d10598599692ab25459e7bd8707245bbdf0f76d9cb6d82f2adbdc95b",
+    "after": "6e1363934c0cfddbb5287edaed4957a4016993807fb2ed4bbe6e6bd1088ad436"
+  },
+  {
+    "path": "tiles/blog-write/scripts/blog-write-workflow.test.ts",
+    "before": "b7e72a9d7693fbecdef19621b78ef898984b3a45b52b3f33ba372afb649183ba",
+    "after": "162c318268ff87e4618d2066e2a408d0dd202bba9fa641b3c7391a75cc39da95"
+  },
+  {
+    "path": "tiles/blog-production/references/editorial-examples.md",
+    "before": null,
+    "after": "ac5e8a9b3285fe6401275873ba8afcfb0379f944287e8670d8898d55b519015b"
+  },
+  {
+    "path": "tiles/blog-production/references/skilldev-review.md",
+    "before": null,
+    "after": "f4402d2baa0d0e20682fae20c73f4ef87ff472baba7e2d021565754d80a30a4e"
+  },
+  {
+    "path": "config/aaron-studio.json",
+    "change": "Added only skillDevRepo; prior unrelated config edits retained"
+  }
+]

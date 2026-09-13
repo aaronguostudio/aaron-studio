@@ -1,0 +1,274 @@
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /review.html HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /assets/cover-approved.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /blender/preview.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /audio/E.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /audio/D.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /audio/F.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:28:35] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:28:35] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:28:55] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:28:55] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:29:15] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:29:15] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:29:35] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:29:35] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:29:55] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:29:55] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:30:15] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:30:15] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:30:35] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:30:35] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:30:47] "GET /review.html HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 23:30:47] "GET /blender/preview.png HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 23:30:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:30:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:30:47] "GET /audio/D.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:30:47] "GET /audio/E.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:30:47] "GET /audio/F.mp3 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55587)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/visual-sound-refinement-2026-09-09/serve.py", line 6, in __init__
+    def __init__(self,*a,**kw):super().__init__(*a,directory=str(Path(__file__).resolve().parent),**kw)
+                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 732, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 496, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 484, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 739, in do_GET
+    self.copyfile(f, self.wfile)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/visual-sound-refinement-2026-09-09/serve.py", line 26, in copyfile
+    out.write(chunk);remaining-=len(chunk)
+    ~~~~~~~~~^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 845, in write
+    self._sock.sendall(b)
+    ~~~~~~~~~~~~~~~~~~^^^
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [09/Sep/2026 23:31:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:31:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:31:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:31:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:31:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:31:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:32:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:32:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:32:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:32:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:32:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:32:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:33:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:33:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:33:22] "GET /audio/D.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:33:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:33:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:33:31] "GET /audio/E.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:33:37] "GET /audio/F.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:33:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:33:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:34:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:34:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:34:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:34:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:34:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:34:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:35:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:35:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:35:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:35:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:35:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:35:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:36:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:36:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:36:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:36:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:36:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:36:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:37:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:37:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:37:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:37:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:37:40] "GET /audio/F.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:37:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:37:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:38:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:38:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:38:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:38:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:38:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:38:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:39:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:39:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:39:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:39:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:39:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:39:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:40:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:40:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:40:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:40:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:40:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:40:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:41:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:41:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:41:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:41:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:41:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:41:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:42:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:42:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:42:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:42:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:42:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:42:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:43:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:43:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:43:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:43:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:43:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:43:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:44:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:44:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:44:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:44:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:44:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:44:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:45:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:45:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:45:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:45:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:45:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:45:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:46:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:46:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:46:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:46:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:46:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:46:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:47:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:47:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:47:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:47:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:47:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:47:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:48:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:48:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:48:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:48:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:48:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:48:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:49:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:49:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:49:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:49:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:49:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:49:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:50:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:50:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:50:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:50:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:50:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:50:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:51:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:51:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:51:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:51:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:51:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:51:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:52:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:52:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:52:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:52:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:52:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:52:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:53:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:53:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:53:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:53:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:53:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:53:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:54:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:54:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:54:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:54:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:54:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:54:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:55:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:55:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:55:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:55:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:55:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:55:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:56:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:56:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:56:27] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:56:27] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:56:47] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:56:47] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:57:07] code 404, message File not found
+127.0.0.1 - - [09/Sep/2026 23:57:07] "GET /ready.json HTTP/1.1" 404 -
+127.0.0.1 - - [09/Sep/2026 23:57:27] "GET /ready.json HTTP/1.1" 200 -
+127.0.0.1 - - [09/Sep/2026 23:57:27] "GET /gripper-refined.mp4 HTTP/1.1" 206 -
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 60576)
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/visual-sound-refinement-2026-09-09/serve.py", line 6, in __init__
+    def __init__(self,*a,**kw):super().__init__(*a,directory=str(Path(__file__).resolve().parent),**kw)
+                               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 732, in __init__
+    super().__init__(*args, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 766, in __init__
+    self.handle()
+    ~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 496, in handle
+    self.handle_one_request()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 484, in handle_one_request
+    method()
+    ~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/http/server.py", line 739, in do_GET
+    self.copyfile(f, self.wfile)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/Users/aaronguo/Work/ag/aaron-studio/src/content/videos/visual-sound-refinement-2026-09-09/serve.py", line 26, in copyfile
+    out.write(chunk);remaining-=len(chunk)
+    ~~~~~~~~~^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/socketserver.py", line 845, in write
+    self._sock.sendall(b)
+    ~~~~~~~~~~~~~~~~~~^^^
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /review.html HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /ready.json HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /audio/D.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /audio/E.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /audio/F.mp3 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /gripper-refined.mp4 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:29] "GET /blender/hero-4k.png HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:57:45] "GET /gripper-refined.mp4 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:59:30] "GET /gripper-refined.mp4 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:59:38] "GET /gripper-refined.mp4 HTTP/1.1" 206 -
+127.0.0.1 - - [09/Sep/2026 23:59:39] "GET /gripper-refined.mp4 HTTP/1.1" 206 -

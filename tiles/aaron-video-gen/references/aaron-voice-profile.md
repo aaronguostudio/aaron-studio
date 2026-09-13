@@ -39,6 +39,17 @@ opening, middle, and late passages before the profile is promoted.
 
 ## Operating Rule
 
+### Code-upstream selection
+
+For `2026-09-07-code-upstream`, Aaron selected voice **B** from
+`revisions/sound-direction-06/`: the same PVC and Multilingual v2 with stability
+`0.4`, similarity `0.8`, style `0.56`, speaker boost enabled, and speed **1.0**,
+plus sparse SSML pauses. The request and `video-production/v3/author-selection.md`
+are the package's authority when resuming this film. This is not the July blind
+sample B or the V5 candidate at speed 1.04. The accepted closing is reused;
+opening and middle passages in the full extension are new takes for review.
+The global default above is unchanged by this package-level selection.
+
 Use this profile for Aaron's English blog narration and YouTube essays unless Aaron explicitly chooses another profile.
 
 Do not automatically migrate the production voice when ElevenLabs releases a newer model. A new model, clone, remix, or parameter set must pass a blind listening comparison on the same locked 45-60 second script.

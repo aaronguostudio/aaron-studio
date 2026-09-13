@@ -1,0 +1,190 @@
+{
+  "title": "Blog Production · 第一次共同迭代",
+  "limitations": [
+    "四组历史稿件早于本轮 skill 修改，只用于校准作者偏好，不能证明新规则导致了旧稿的改善。",
+    "模型、原始执行耗时、费用与实际加载轨迹未被这些快照记录；未知项保持未知。",
+    "文件捕获时间是本次读取时间，不是原始写作时间。",
+    "Skill 版本对照保留了本轮开始前的工作区文件，包括此前已存在的修改。",
+    "界面里的选择是评审意见；文件校验只证明文本版本一致。"
+  ],
+  "cases": [
+    {
+      "id": "dhh-author-intent",
+      "title": "DHH · 作者意图",
+      "kind": "historical-revision",
+      "question": "开头有没有抓住真正的认同？",
+      "focus": {
+        "before": "听完 DHH 和 Lex Fridman",
+        "after": "听完 DHH 和 Lex Fridman"
+      },
+      "before": {
+        "artifact": "src/content/blogs/2026-09-06/revisions/v2-before-ai-feedback/dhh-the-joy-of-building-zh.md",
+        "label": "作者反馈前的历史稿"
+      },
+      "after": {
+        "artifact": "src/content/blogs/2026-09-06/dhh-the-joy-of-building-zh.md",
+        "label": "作者认可的版本"
+      },
+      "feedback": [
+        {
+          "text": "不用写想去试试 Linux；文章落点是认同 DHH 对 AI 的观点；加入团队对 AI 信任不同的实际感受。",
+          "source": "author-feedback",
+          "reference": "本任务中 Aaron 的反馈摘要；不是新的评审"
+        }
+      ],
+      "checks": [
+        {
+          "label": "对应英文稿的语言扫描",
+          "source": "2026-09-07 scanner-replay.json；当前展示为中文稿",
+          "before": "无告警（历史工具分数 100）",
+          "after": "无告警（历史工具分数 100）"
+        }
+      ],
+      "decision": {
+        "preference": "after",
+        "reason": "不用写想去试试 Linux；文章落点是认同 DHH 对 AI 的观点；加入团队对 AI 信任不同的实际感受。",
+        "source": "author-reported",
+        "recordedAt": "2026-09-07T21:13:21.491Z"
+      }
+    },
+    {
+      "id": "astra-context-before-detail",
+      "title": "Astra · 背景",
+      "kind": "historical-revision",
+      "question": "读者是否先理解任务，再遇到技术名词？",
+      "focus": {
+        "before": "## 1. 可以交给它的工作，开始变得更完整",
+        "after": "## 1. 复杂部署，接得住"
+      },
+      "before": {
+        "artifact": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work-zh.md",
+        "label": "作者反馈前的历史稿"
+      },
+      "after": {
+        "artifact": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+        "label": "作者认可的版本"
+      },
+      "feedback": [
+        {
+          "text": "先交代复杂部署任务，再提 Linux、Windows Worker、SQL certificate、Azure 资源和网络配置；不要透露具体项目。",
+          "source": "author-feedback",
+          "reference": "本任务中 Aaron 的反馈摘要；不是新的评审"
+        }
+      ],
+      "checks": [
+        {
+          "label": "对应英文稿的语言扫描",
+          "source": "2026-09-07 scanner-replay.json；当前展示为中文稿",
+          "before": "无告警（历史工具分数 100）",
+          "after": "无告警（历史工具分数 100）"
+        }
+      ],
+      "decision": {
+        "preference": "after",
+        "reason": "先交代复杂部署任务，再提 Linux、Windows Worker、SQL certificate、Azure 资源和网络配置；不要透露具体项目。",
+        "source": "author-reported",
+        "recordedAt": "2026-09-07T21:13:21.491Z"
+      }
+    },
+    {
+      "id": "astra-writing-experience",
+      "title": "Astra · 写作感受",
+      "kind": "historical-revision",
+      "question": "文字是否表达了作者真正喜欢的变化？",
+      "focus": {
+        "before": "## 5. 写作变好，也体现在更快接近我想写的那篇文章",
+        "after": "## 5. 文字更自然"
+      },
+      "before": {
+        "artifact": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work-zh.md",
+        "label": "作者反馈前的历史稿"
+      },
+      "after": {
+        "artifact": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+        "label": "作者认可的版本"
+      },
+      "feedback": [
+        {
+          "text": "重点是写作更加顺畅和自然；不要让纠正次数和 DHH 制作过程盖过这个观点。",
+          "source": "author-feedback",
+          "reference": "本任务中 Aaron 的反馈摘要；不是新的评审"
+        }
+      ],
+      "checks": [
+        {
+          "label": "对应英文稿的语言扫描",
+          "source": "2026-09-07 scanner-replay.json；当前展示为中文稿",
+          "before": "无告警（历史工具分数 100）",
+          "after": "无告警（历史工具分数 100）"
+        }
+      ],
+      "decision": {
+        "preference": "after",
+        "reason": "重点是写作更加顺畅和自然；不要让纠正次数和 DHH 制作过程盖过这个观点。",
+        "source": "author-reported",
+        "recordedAt": "2026-09-07T21:13:21.491Z"
+      }
+    },
+    {
+      "id": "astra-earned-ending",
+      "title": "Astra · 结尾",
+      "kind": "historical-revision",
+      "question": "结尾是否收住信任、代价与期待？",
+      "focus": {
+        "before": "下一个复杂部署任务",
+        "after": "这些体验放在一起"
+      },
+      "before": {
+        "artifact": "src/content/blogs/2026-09-06-astra/_archive/v2-six-points/gpt-6-astra-real-work-zh.md",
+        "label": "作者反馈前的历史稿"
+      },
+      "after": {
+        "artifact": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+        "label": "作者认可的版本"
+      },
+      "feedback": [
+        {
+          "text": "收束到更信任跨产品长时间复杂任务，同时面对验证审计与价格；保留继续期待 AI 进步的情绪。",
+          "source": "author-feedback",
+          "reference": "本任务中 Aaron 的反馈摘要；不是新的评审"
+        }
+      ],
+      "checks": [
+        {
+          "label": "对应英文稿的语言扫描",
+          "source": "2026-09-07 scanner-replay.json；当前展示为中文稿",
+          "before": "无告警（历史工具分数 100）",
+          "after": "无告警（历史工具分数 100）"
+        }
+      ],
+      "decision": {
+        "preference": "after",
+        "reason": "收束到更信任跨产品长时间复杂任务，同时面对验证审计与价格；保留继续期待 AI 进步的情绪。",
+        "source": "author-reported",
+        "recordedAt": "2026-09-07T21:13:21.491Z"
+      }
+    },
+    {
+      "id": "editorial-skill-iteration",
+      "title": "Skill · 本轮修改",
+      "kind": "skill-change",
+      "question": "哪些规则改变了，哪些效果还需要检验？",
+      "before": "src/projects/blog-production-review/2026-09-07/iteration-1/runs/2026-09-07T21-13-21-491Z/rule-before.json",
+      "after": "src/projects/blog-production-review/2026-09-07/iteration-1/runs/2026-09-07T21-13-21-491Z/rule-after.json",
+      "feedback": [
+        {
+          "text": "作者同意以小迭代同时提高 SkillDev 和 blog skill。本轮集中处理意图、背景、结尾与证据式审查，并保留有效的媒体和发布约束。",
+          "source": "reviewer-note",
+          "reference": "本轮已授权范围与实现摘要"
+        }
+      ],
+      "checks": [],
+      "decision": {
+        "preference": "uncertain",
+        "reason": "规则和工具已实现；下一篇新主题的写作表现尚待验证。历史稿件的改进不归因于本轮新规则。",
+        "source": "reviewer-note",
+        "recordedAt": "2026-09-07T21:13:21.491Z"
+      }
+    }
+  ]
+}

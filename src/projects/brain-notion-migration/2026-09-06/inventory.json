@@ -1,0 +1,1484 @@
+{
+  "date": "2026-09-06",
+  "scope": "Full file inventory; selective content review, not a full factual audit",
+  "source_file_count": 158,
+  "counts": {
+    "review_research_later": 26,
+    "keep_workflow_support": 17,
+    "keep_operations": 12,
+    "migrated_curated": 14,
+    "keep_artifact": 10,
+    "review_context_later": 45,
+    "exclude_placeholder": 3,
+    "keep_personal_history": 17,
+    "exclude_empty": 2,
+    "exclude_scratch": 1,
+    "keep_source_evidence": 11
+  },
+  "entries": [
+    {
+      "source_path": "src/brain/2025-02-19-lenny-boris-cherny-claude-code.md",
+      "bytes": 4273,
+      "sha256": "1204800cf65f0e8cf24e205e509597dd40aa9e0cdc8c87dce083d6fa5c5f4e47",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/README.md",
+      "bytes": 2868,
+      "sha256": "51d474eb33e2592bc0156abc9d8892b628f272964aff1d8be31508330f7346ad",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/agent-decisions/README.md",
+      "bytes": 732,
+      "sha256": "798f85075b5c537e166d350c4eb6be50eedb5af7ffaa79bb2f3ec6bf5ae0d8b3",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/agent-decisions/rejected/2026-08-16-no-legacy-video-fallback.md",
+      "bytes": 1804,
+      "sha256": "9690a445ff0189f772210d756411bde51977beddafa6faae311e30986bc0d5d1",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/README.md",
+      "bytes": 5199,
+      "sha256": "c973df0a070e090df233bef21036e70f52a40c8e5452b2433ccb0c59eef7f19a",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/_template.md",
+      "bytes": 501,
+      "sha256": "bc04d6ba38f97082aa4b3cff071381d082e74b36749af5a9b8c8a2ba2a374e47",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/discounted-cash-flow.md",
+      "bytes": 14805,
+      "sha256": "81bdb6af30ddb4afa935a4c04de8b7e331c950dae74687297f4a1757eecf4526",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-8174-bf17-dc8bae010062",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68174bf17dc8bae010062",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/document-visual-language.md",
+      "bytes": 24227,
+      "sha256": "f38c6141d1ba5bea20d9e948dc5c210880b11d6b425105838d312baf9460ce77",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81c1-8de8-e2ee0211ffd9",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c18de8e2ee0211ffd9",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/harness-engineering.md",
+      "bytes": 21703,
+      "sha256": "a30f840dccd7614c6adf8435acf1b35f3f7f108fd668708e297ebb59f58492cd",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81ac-896f-d7e61c6a38a3",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ac896fd7e61c6a38a3",
+      "treatment": "merged_curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/idempotency.md",
+      "bytes": 12510,
+      "sha256": "e1783f6d14983f14646275a94d982db20b6090a6adfc6a8565921540119be1ef",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-8101-9d37-fffb012a08aa",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681019d37fffb012a08aa",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/index.html",
+      "bytes": 25533,
+      "sha256": "75cd4434d8a61526c71108bd3339c69f9995964a45e02239b1289184fdbbadd3",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/monte-carlo-simulation.md",
+      "bytes": 13571,
+      "sha256": "7096f54de52580449cf0500541e8137484473d39f93310a7fa963a1f804ae3a9",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-811a-94d2-eeee52c2922c",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811a94d2eeee52c2922c",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/optimistic-concurrency.md",
+      "bytes": 13609,
+      "sha256": "4d90a3461e02badd2c2e12257ab1625d0991d80522d72e722e8da350194099c8",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-8177-86cd-e1d5f5fa216f",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6817786cde1d5f5fa216f",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/pages/discounted-cash-flow.html",
+      "bytes": 72520,
+      "sha256": "7116fce1a0b9d5b0c71672e0a4788cf1124e5a8e774d90441edf37778415b152",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/document-visual-language.html",
+      "bytes": 44458,
+      "sha256": "cb99b1b8ec3f71171ff8a7dcdf86422fa18a1c820ef995bf571df81d31a0172c",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/harness-engineering.html",
+      "bytes": 94746,
+      "sha256": "33ffde455542f070ef2fd4dd55b939ae46c35649787ee591996ce648cd519727",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/idempotency.html",
+      "bytes": 32569,
+      "sha256": "2411ee8c2545a2745d5985f0a16a3e89fc0a5ad73d650334486f7894a9698afb",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/monte-carlo-simulation.html",
+      "bytes": 76172,
+      "sha256": "4223fc30e1c77870eecb0cd3c76ef78ca6810db4b167090a698cecb537ea76f1",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/optimistic-concurrency.html",
+      "bytes": 46818,
+      "sha256": "7d033547a09d313749e298f436926bfc52f22a47464c8f53d315b48f42ff5773",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/paired-randomization-test.html",
+      "bytes": 40534,
+      "sha256": "c597ebeda974870b921e8d5e9c33120e48476ecd131fe73c628d5e3acccb7871",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/progressive-disclosure.html",
+      "bytes": 39332,
+      "sha256": "f85dc3960ac6b4507a9ad8c4f1323557ddece8997cb880ca639fb119ddfcd10a",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/pages/single-source-of-truth.html",
+      "bytes": 28696,
+      "sha256": "241012c46be71226146d75a915efc93212f8a7129e00e6a1276aa8cba6588a3b",
+      "disposition": "keep_artifact",
+      "reason": "交互与导航 HTML 留在 repo；后续接可访问链接",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/concepts/paired-randomization-test.md",
+      "bytes": 15464,
+      "sha256": "3a3bc0bb4ec36ceb70582fc842b8294f328faea34431d5908d07ed1c93e9ca1e",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-815f-b9ba-feeef53f1881",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6815fb9bafeeef53f1881",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/progressive-disclosure.md",
+      "bytes": 13892,
+      "sha256": "2efef5927773936e425ee610c1aeb88e4a1f373aa57725b58d0285a2293fcb18",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-814e-8606-d84fc5b73c5f",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6814e8606d84fc5b73c5f",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/concepts/single-source-of-truth.md",
+      "bytes": 13683,
+      "sha256": "11a08db19370076eace08741b71d2c4b4a79ff06b76bc907820a216b3e184a67",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81fc-a4b9-efd2ce40836b",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681fca4b9efd2ce40836b",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/decisions/2026-04-13-continuous-ingest-adoption.md",
+      "bytes": 1354,
+      "sha256": "a653bddf6ca2ae3fcc2f326a7cd49b1a2816856dc64cb2d4c692a078a86c6fdb",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/decisions/2026-04-15-client-facing-ai-lab-pivot.md",
+      "bytes": 1143,
+      "sha256": "c7d04ec8351c7010866df824ec2c31480eadbfee2f7742d91d71d71819933ee3",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/decisions/README.md",
+      "bytes": 1588,
+      "sha256": "d17f0c4b8a95e9efa86a4a629d691ce01bf532e5896ad1d835aca593271d759f",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/development-philosophy/README.md",
+      "bytes": 1388,
+      "sha256": "a88b9df4ae9c3eb8fde9cc519a90ae73c8e0efdaa3c6734177c25bcaea083f16",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/development-philosophy/distribution-is-a-product-requirement.md",
+      "bytes": 5133,
+      "sha256": "9052dad1f60d79e74805da2fb32035469d7c69d893b72658929fa1417790e7c5",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81c7-8651-c6223710b87f",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c78651c6223710b87f",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/development-philosophy/project-harness-is-ai-autonomy-infrastructure.md",
+      "bytes": 5937,
+      "sha256": "ed4eb0b45811242584145d220ed41e096165443dc6156a6169805bec4960107c",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81ac-896f-d7e61c6a38a3",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ac896fd7e61c6a38a3",
+      "treatment": "merged_curated_summary"
+    },
+    {
+      "source_path": "src/brain/development-philosophy/visibility-is-a-product-requirement.md",
+      "bytes": 5427,
+      "sha256": "8d6eb918de4d653670527c999e6feb177cac2c0822ee94816fa95d87151dc9f2",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-8101-b549-e6a6c24c00ce",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68101b549e6a6c24c00ce",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/goals/2026.md",
+      "bytes": 632,
+      "sha256": "f33c74f32ee749ac99e909705ff2a34efa615c6b575f9e6fbb78a2cd41282b49",
+      "disposition": "exclude_placeholder",
+      "reason": "旧目标草稿含 TBD/未填写内容；不认定为当前目标",
+      "review_depth": "content_screened",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/goals/current-quarter.md",
+      "bytes": 684,
+      "sha256": "325b62c5faba46bdcb8182dbfa4a03e6880cc8404853477a7ec445b37a9c0bbb",
+      "disposition": "exclude_placeholder",
+      "reason": "旧目标草稿含 TBD/未填写内容；不认定为当前目标",
+      "review_depth": "content_screened",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/goals/north-star.md",
+      "bytes": 735,
+      "sha256": "4d3de5b51d5eb8a0983e2507439c9753098129bc26059c890d6a2370ec151d73",
+      "disposition": "exclude_placeholder",
+      "reason": "旧目标草稿含 TBD/未填写内容；不认定为当前目标",
+      "review_depth": "content_screened",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/02/2026-02-18.md",
+      "bytes": 952,
+      "sha256": "51a7016f0f8de23b8c190173299d8733faae3909c5d1161ad4bce6d357069608",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-08.md",
+      "bytes": 1520,
+      "sha256": "a2f4da029d534ed0805f26dca5ed006d2b9ef0228aa45ce9a2c672c93c9d8653",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-09.md",
+      "bytes": 1621,
+      "sha256": "38787be648b449b26547253026216668e96cb7c76f7bd3b6e47946e1c0eba915",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81ab-9bfb-c286f89ad1c7",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ab9bfbc286f89ad1c7",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-13.md",
+      "bytes": 206,
+      "sha256": "e9e5b233322e021402a0d7b3b51e65e3b4f341764429b527445795b3b5f2ce53",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-16.md",
+      "bytes": 3085,
+      "sha256": "a6532455a1e8bd19949a92ec0131a8010dd70e82ab49c904347020ab6780f3fc",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-23.md",
+      "bytes": 5375,
+      "sha256": "accbc917c4d6dc94b0fb210a95b73e67a7a710356462aca2bb6d9fc98cd9a022",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-25.md",
+      "bytes": 1382,
+      "sha256": "8c1f8ae6adba393693746ddeec2b2fb87cd16edc85088af88a6ac3255a2d3730",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-26.md",
+      "bytes": 530,
+      "sha256": "9013bfcaab4d60a242f03088972b03c2340230f720eb9284fe761ad7c38008cf",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-27.md",
+      "bytes": 757,
+      "sha256": "8ec467a5ba4064953d7e9db904d81f1897d7270169c9544a5e8c6201fee58313",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/03/2026-03-29.md",
+      "bytes": 236,
+      "sha256": "2ba2a1ade75730b395e93097b7da2f842d823caebbadfcfe331d5182a00d39ac",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/04/2026-04-01.md",
+      "bytes": 318,
+      "sha256": "d3edcac8df68bea988c328922d8c220c7bc931dee49ee6247d850daadf31f352",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/04/2026-04-02.md",
+      "bytes": 2,
+      "sha256": "84a5e715899e1c4b9138530513ebf39462d21e0ef56de8b9658c32619a6158d9",
+      "disposition": "exclude_empty",
+      "reason": "空白或只有标题符号；不迁入",
+      "review_depth": "full_content_reviewed",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/04/2026-04-13.md",
+      "bytes": 96,
+      "sha256": "3d7c9f5c642eef6f81222640b09366c60fdbbfa68948de1a5812593e2a3b5cac",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/04/2026-04-18.md",
+      "bytes": 1755,
+      "sha256": "75523393c1da897b1a9afbfb87cb48bc7d9002d02ca8a6b8ea87d387d34d860d",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/04/2026-04-21.md",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "disposition": "exclude_empty",
+      "reason": "空白或只有标题符号；不迁入",
+      "review_depth": "full_content_reviewed",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/04/2026-04-26.md",
+      "bytes": 980,
+      "sha256": "437a5743ad5dbd030edb83d97f21389832c7ad57bb8a29ae025470017b4c8688",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/05/2026-05-18.md",
+      "bytes": 527,
+      "sha256": "9e4779d6a3a32260672561674d8eaf0d09f83bd374b46ee97a0294260e8ae462",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/06/2026-06-07.md",
+      "bytes": 1658,
+      "sha256": "d34cdcdef723cbac4700d2fbc1521eb584be232f57227921ea7623a7a044b2c2",
+      "disposition": "migrated_curated",
+      "reason": "精选摘要已迁入 Notion；保留原文",
+      "review_depth": "selected_content_reviewed",
+      "source_deleted": false,
+      "notion_page_id": "3d3b5667-a0c6-81bb-a626-d1dd5631c8b8",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681bba626d1dd5631c8b8",
+      "treatment": "curated_summary"
+    },
+    {
+      "source_path": "src/brain/journal/2026/06/2026-06-14.md",
+      "bytes": 393,
+      "sha256": "357bf5d6049ef8c588ca6ff805573c14c25cd4e37e2b4cdb802a8c16e4cbf0b5",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/journal/2026/06/2026-06-15.md",
+      "bytes": 472,
+      "sha256": "d2838beed3c6edfa3b5be66e88e41935b5587a2c8fd1285e80e0ab83d09082ee",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/life/routine.md",
+      "bytes": 5339,
+      "sha256": "990fd41fc31c08ab1fa0660bd4a9f49533d8db3ebc1b7e06f19446ea19adb3e9",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/cf/2026-04-cf.md",
+      "bytes": 902,
+      "sha256": "b5e5493c2ced08e9783c1e1f799f14fac6497f37ed59b0986d6588672ae17c52",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/cf/2026-05-cf.md",
+      "bytes": 358,
+      "sha256": "3f02502854d6f676a2609e4afb38a12f60187eef0ed065fc25b81ade5724016b",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/cf/2026-06-cf.md",
+      "bytes": 169,
+      "sha256": "1caf2a8ca0c5d01abbb2d035bc596f59de0abdaaac8f97a863e382ac535d4112",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/cf/2026-07-cf.md",
+      "bytes": 864,
+      "sha256": "dbd54cb9c31d4c82651be34c4290403463ee8a71620efac5eb14395258b0ee58",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/cf/2026-08-cf.md",
+      "bytes": 307,
+      "sha256": "f6df4c2b5873e4758119bcc5fd3811d88aca518aee5a8ed8089afda9d5a8e61f",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/oc/2026-04-oc.md",
+      "bytes": 1091,
+      "sha256": "7635508b4b4bc522cbfe89da398331f92780b3167c9398d83be3525b5ac8f4cd",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/oc/2026-05-oc.md",
+      "bytes": 2053,
+      "sha256": "18c6a6e0bc5609783ba127cd48dbd4711b0e2656b6130d5103d6d5aa488974d4",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/oc/2026-06-oc.md",
+      "bytes": 19957,
+      "sha256": "881ce699ac79324508d0ebdf16a8fbb068cd27f48d98b81c5a945c49f9282072",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/oc/2026-07-oc.md",
+      "bytes": 791,
+      "sha256": "d3326efca498a1365492cb52f723826647c871b076f6ae8d20d7fc49f0f14ff9",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/logs/oc/2026-08-oc.md",
+      "bytes": 874,
+      "sha256": "192128d59189f081ee1eaff3a20ef5ea538d3670b41ed592b0553beb8b1ecfd9",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/notes/git-multi-remote.md",
+      "bytes": 889,
+      "sha256": "fd790bffc9f59c9bee74cb3bba4fb94eb9ff7d2e90d6c48a9415b93eeb099f28",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/notes/nova-update.md",
+      "bytes": 289,
+      "sha256": "effae050a0fd510e92822f2fa14e465dd2c7cc837bc7284d1f0ab0e4e68683b1",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/notes/private-wealth/hazel.md",
+      "bytes": 173,
+      "sha256": "e27764055b0404f170591ef70d30d621bc40afeb83c707d94c363d3cda7fca1b",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/notes/temp.md",
+      "bytes": 196,
+      "sha256": "a58793632d6e3c8e10444605f9b49e09b9c9e4a740ba06b8a02432e0930e0061",
+      "disposition": "exclude_scratch",
+      "reason": "孤立的 Campaign prompt；不是已完成知识",
+      "review_depth": "full_content_reviewed",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/processing/README.md",
+      "bytes": 2546,
+      "sha256": "0e7559eb2a64980c8eb48560e7885e12c5ad1c50ed9ffaf11a23c5ad041d9f9f",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md",
+      "bytes": 2650,
+      "sha256": "0341f92b5cedd78a355c07eabd5071b53ec4840d9802a3f4f1227e626a74c2c4",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/processing/pilot-context.md",
+      "bytes": 1598,
+      "sha256": "150b183a5fd960521d35ecf7ab0b931158039369d2d2d97ebbe757842e4709d8",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-03-01-karpathy-microgpt.md",
+      "bytes": 3540,
+      "sha256": "1b52bc88099db355e7fb6dbfcc90c2fff75b3f9484bbed079387bacac7e30f50",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-03-03-siliconvalley-101-health-care.md",
+      "bytes": 142,
+      "sha256": "2b95aa6e3bd50b3e9556b3343dd022446afb47689a550c24207fb55e622d2824",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-03-21-learn-palantir.md",
+      "bytes": 341,
+      "sha256": "6b017f200ee9ecb286abc00b80f2db7d88ea7319bdcfe0cfed96265de4a5b780",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-03-29-cli-vs-mcp-research.md",
+      "bytes": 99,
+      "sha256": "8d18a4ee94aa0e17288d0c3c64cbf02504be4e809f0fbebe9f8f80779cf566c7",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-03-30-google-ai-agent/23807_agentspace_ebook_and_promo_fa_zh-cn.pdf",
+      "bytes": 12626789,
+      "sha256": "e67fc4bf607846e3b6641063923f7811a0e7a57d122d5200f7f62dffa0d9ba02",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "bytes": 4957,
+      "sha256": "d6fb0184601ea0122491cf048fa1fae9fc0ddf5a0eeb62b6eea053b90a570e8d",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-04-19-anthropic-labs-claude-design.md",
+      "bytes": 6483,
+      "sha256": "b7b110405af8aa0d90be2bf897cff3a410cfd24173c850143a148ec87b259f37",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-06-14-nadella-token-capital-frontier-ecosystem.md",
+      "bytes": 2341,
+      "sha256": "c7ae2e3a471f9dd38a0d5d1a29872af1f464b4af2abfce23d8a905271b843346",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/2026/2026-06-15-vivek-good-at-research.md",
+      "bytes": 3634,
+      "sha256": "25728ed9a93cf717bc64a459f5af66e951d6b537e383e6fd9eff979c7f66b7ce",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/README.md",
+      "bytes": 564,
+      "sha256": "3d0bd6989390c57e3a227d642400c22fc9de26a53af9fd02a019091a509a722a",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/00-Cordis内核与组合层（vendored插件框架+.md",
+      "bytes": 16522,
+      "sha256": "d922460353e3033a9709fe8cdd040014571510307d6f5082ea42c8bacdf9f868",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/01-agent主循环与事件模型（turn-step、inbox.md",
+      "bytes": 20151,
+      "sha256": "e5da063ef25fe058672628183afcdc6d5d6d7356b0c8249ee9e306255baae12a",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/02-会话日志作为单一事实源（append-only事件日志、m.md",
+      "bytes": 17584,
+      "sha256": "568fe6b5c64e20b1c33ab18598c75f591f7c544b39e8f483eba223fb3fec3355",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/03-工具注册表、执行管线与系统提示词组装（packages-co.md",
+      "bytes": 20177,
+      "sha256": "f9876aaf4d30b2127616e83d05d3c7a7cfbcb331cf5073fd56ccee8fb2307ea2",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/04-capabilityseam(能力接缝)体系:fs-s.md",
+      "bytes": 16982,
+      "sha256": "ac2d13f02840da5d2dcfce99baac16100a982d1d76aeb1fe2abbc98515e45dd8",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/05-生态兼容层（skill-MCP-hooks桥-.md",
+      "bytes": 17749,
+      "sha256": "5a3af751fa8bb92d38064e18db953ce3a8f47a0e2a74243793ea662523c5e0ca",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/06-多agent与运行模式（subagent-workf.md",
+      "bytes": 21777,
+      "sha256": "1417099da1211438527c82ae5ff18830a291b68b6e607d50b413c4a8367ef63d",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/07-持久化与状态（session持久化-SQLite、stor.md",
+      "bytes": 21955,
+      "sha256": "dd2b8e7559b2d6150079b1293ab6e562d52e3614664e20021fa625258a208f8e",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/08-质量基建：测试策略、快照回放、覆盖率闸门、生成器与doc-.md",
+      "bytes": 15486,
+      "sha256": "d8a3179bbe9cb80c59fd2af10534b8b1c6f32209e529e65f4086aba9031e851d",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/09-工程过程资产：AgentNotes制度、postmort.md",
+      "bytes": 19167,
+      "sha256": "960ffe6be6bdcf32dc8ee0ad7aaaf55253e581a4e45737752e3e8f256d2705c0",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/10-对外API面：typert类型图RPC、api-BF.md",
+      "bytes": 17321,
+      "sha256": "06ee8cad12c49c6a7d3e042f86e56a5ff337c2b41e4b230d9d091bb0f2788113",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/11-cost-critic.md",
+      "bytes": 16135,
+      "sha256": "ae8cd1b3feba1b4db63903ba746c611d05b3eabdcab6ad1af06edf74a7605576",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/12-compare-critic.md",
+      "bytes": 19166,
+      "sha256": "7ceda3b7156a0081931cae6dbeb6b449f7ef2ac67b108639efde094fd866dae6",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/13-orange-book-critic.md",
+      "bytes": 20414,
+      "sha256": "a2ad7b5a8ecce8ae0e47d853efbd4ef2cf4c53f2992ddc81d9b873fe6bbf89d2",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/README.md",
+      "bytes": 1689,
+      "sha256": "fc3eb24028f32882e3f7f7ad42349462bc6a95f1b8420c27173e7a56175c038d",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reading/deepseek-harness-teardown/orange-book-full-text.txt",
+      "bytes": 239302,
+      "sha256": "718eb6fe8caa9dc3e22ee5ca4c1f2b20d694c2d456c1a55de63b5ac094a18bb7",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reviews/README.md",
+      "bytes": 1277,
+      "sha256": "ae5418c47f452851abb7f21bdd87fa3ed8b85ce959fef834820bd1b04c429206",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reviews/monthly/.template.md",
+      "bytes": 594,
+      "sha256": "f9bbc4f5e6ed4e71a05e23c88a3b91f8d318800cf6bccb86e0447fe6df67ceb7",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reviews/quarterly/.template.md",
+      "bytes": 715,
+      "sha256": "8d27605abba73504f1e1fad9e64833f00fee5585373cfe273a28cab439ed43aa",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reviews/weekly/.template.md",
+      "bytes": 894,
+      "sha256": "1bfcfd296f003440131477d04f4cb34547048c5c9c380a499625fd112137b0c7",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/reviews/weekly/2026-W16.md",
+      "bytes": 5565,
+      "sha256": "b17aa9245f83e1f8e78bec3dec358c0e8c40f0807b1c4a9b07b917e336967222",
+      "disposition": "keep_personal_history",
+      "reason": "日记与复盘保留历史；不把旧优先级直接当成当前计划",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/tech-learning/2026-08-22-typescript-7-native-toolchain.md",
+      "bytes": 8673,
+      "sha256": "bf4b61553be89d22f529ffe64f98facee19c38ee5a89cfddb04ec09c1d08eafb",
+      "disposition": "review_research_later",
+      "reason": "研究材料先保留；版本、归因和来源尚未逐项复核",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/tech-learning/README.md",
+      "bytes": 2454,
+      "sha256": "2c9d2e95d06883e4eead7b2644a46f649dbe60631c2f69523c330a88f8373789",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/video-lab/lessons.md",
+      "bytes": 4414,
+      "sha256": "8c9f5831d7b781a955207fe8b8e42ba55a0e2c739fd12461f1a4802461b100a2",
+      "disposition": "keep_operations",
+      "reason": "工时、运行经验与执行约束；保留操作证据",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/INDEX.md",
+      "bytes": 3787,
+      "sha256": "54662683a2f8f9ce21aa6c0a2ff2350cab830e537a8233267d4de68ecdebbba1",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/README.md",
+      "bytes": 1408,
+      "sha256": "0118cf0ffc6d4b7eb3cde35c1bfad72cc32d80862bc954a6ea16eff9828aa2bb",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-09/alex-bezos-squiggly-lines.md",
+      "bytes": 6861,
+      "sha256": "31e48b7d4e150b9697d4a2972193688903757757541427aad8bb097bf4d75f11",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-09/justin-direct-message-aaron-ux.md",
+      "bytes": 2890,
+      "sha256": "32fa36378e4fc1713af919716440c816cfffc9b0f3475e13d8431e54396a50b4",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-09/justin-interaction-definition.md",
+      "bytes": 5791,
+      "sha256": "30d12a71fb7a2caf842968f37438d465cbe661e496e5f46bedf621f12c4c5be5",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-09/justin-post-retreat-message.md",
+      "bytes": 10305,
+      "sha256": "72628eba44f67e36d1710244cf6d32ff4f7cb8a4607b798a8b8ce4122a64e8a6",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-09/nova-team-meeting-notes.md",
+      "bytes": 10751,
+      "sha256": "5701bcc0f3cffff78c87fd9ac8a78c64bd3f19e8b58e01804c4975ce7b9575d7",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-09/redis-architecture-discussion.md",
+      "bytes": 9161,
+      "sha256": "80c97d7baa5f573fab264531ccc6e10a876755ba52f858adf95ff37bb459ffa4",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security.md",
+      "bytes": 3595,
+      "sha256": "fbd250d890d9d6da4cdaf55dc7f4df8a77fbb61677eb13ec7f5b256e3fdb31c5",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-04-23/mawer-ai-tools-wealth-platform-exploration.md",
+      "bytes": 4266,
+      "sha256": "3330b2ee12d4ebba69313cadf84fee8a83a163b4d86a85149a163bea2b157a99",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-05-04/jon-vgbt-1month-catchup.md",
+      "bytes": 4836,
+      "sha256": "e14acb94d032edc8d0f020e5185e8431f7e4b50b01d21f48d4c0d9629d8ace44",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-07-02/granola-689f6bff-fb47-4f43-a87a-028740c3e40a-r1.md",
+      "bytes": 2888,
+      "sha256": "ac10a6a03f1e1ecb03d3aece6945698452bc5f515b9dfc9f4315da73a1c52e61",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/2026-07-17/aaron-blog-ai-brand-sales-agent-contract.md",
+      "bytes": 8215,
+      "sha256": "544edbb96f1faf9d2c631ee8b3b6d9a77a84b041f3d37023d0a8c0f9e5506889",
+      "disposition": "keep_source_evidence",
+      "reason": "原始会议与来源证据；不直接提升为当前知识",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/_archive/README.md",
+      "bytes": 2917,
+      "sha256": "8797939eafdc9c7e0ece2913a7696a5c1427efee684fb136bff186a40c79d1d3",
+      "disposition": "keep_workflow_support",
+      "reason": "目录、模板与操作约定留在 repo",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/orgs/mawer.md",
+      "bytes": 3997,
+      "sha256": "bc5f3678c251c3dd4ee0c851c19eb0d369cc54cf821ea7dcc45431d1a5b334db",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/orgs/orgnext.md",
+      "bytes": 1766,
+      "sha256": "1e589779867fae3e6a00836647f7e0f2d96fe1d5767aa0f2ab85f6294338f40f",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/aaron.md",
+      "bytes": 4302,
+      "sha256": "505c0c60f32d732d3e9aae764f785be385ede966daf58a48157060a85ab2d068",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/alex.md",
+      "bytes": 4296,
+      "sha256": "69e2d6662d85457ce11fc2a98e531e642451da893319a0021c7cb5ccf73e197a",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/carol-schneider.md",
+      "bytes": 6134,
+      "sha256": "d0f756622de401987cd6f3dfbb7cbeefdfa73744e66f6439ebf46f9d1a359926",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/chintan.md",
+      "bytes": 395,
+      "sha256": "7351cb9c7b3d36a84e44329b1911f8ae0f9e786551ce54197378fcdd1e69a6ab",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/david-buchanan.md",
+      "bytes": 3621,
+      "sha256": "f0651576c59094fcb13dea28df83050808d1c28a17ff013792a601a56d5f7ad8",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/duncan-mountford.md",
+      "bytes": 692,
+      "sha256": "5ceb7b9a44223a449994fe721b66ad140b3f10bc121d64e12142d1254902de64",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/dwight-pratt.md",
+      "bytes": 477,
+      "sha256": "51f2c6df96a92abfef5f541006de37df68e88fd2bc57a8e6becb8b0e08150aaa",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/eric.md",
+      "bytes": 8574,
+      "sha256": "2a0b9454bad535e2324b744f568b865757cf0684a5c2dab38d0f1eea4ac524c0",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/grace.md",
+      "bytes": 383,
+      "sha256": "878f21ce3a79be60641b27af35979a752db06d0cef0a8c40c6c7cfc40972ba7a",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/jeff-house.md",
+      "bytes": 5406,
+      "sha256": "54c2bef9bf9b823364d71df6e34b5bec7ac31f15a0e837258466569db8fa3378",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/jon.md",
+      "bytes": 1589,
+      "sha256": "0cd14c1bc409417a9eae6e0c21f4f11b5effcc39dbc4a0bbe341522b5e2ac6e2",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/justin-anderson.md",
+      "bytes": 8765,
+      "sha256": "dde69c8609d96a689a36dceb2b4df4bc19eab97575fa15dd6dfe0b4b7a0115d2",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/keri.md",
+      "bytes": 3170,
+      "sha256": "8abaacd48b37114c3184eddd881a6b2f2a358a47344b7aaebcc52f051c14fe38",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/kyle.md",
+      "bytes": 368,
+      "sha256": "01fb21d78d1998c56b076ff3ca8ba96cb3bfc9a1e76ea4a9adebec320ff67f8f",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/narek.md",
+      "bytes": 4354,
+      "sha256": "aa899f2626522011f10ca966772dd59e733ef2b3d5be4370bd268e101698671f",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/steven-wittens.md",
+      "bytes": 439,
+      "sha256": "4db92dc0ab8718240df4bf6184f1170ca18c97087ee0af79dc2fe0e6dd13aca7",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/thiago.md",
+      "bytes": 3818,
+      "sha256": "c17482df662fbc59aa642551c1826728689196635ef83c2ff6d08f0dfbf56ab7",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/wilson.md",
+      "bytes": 3016,
+      "sha256": "f1599c2c268d536b2cb065ff9fb08fcb5acba68fa6daf5c1b110262e3e8e56c5",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/people/xiaojun.md",
+      "bytes": 325,
+      "sha256": "7d6aaeb7e11ac4b5930ff2b90b56f7a8f7bb011d9b56e44ed4acb7af4934c0bc",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/aaronguoblog.md",
+      "bytes": 1489,
+      "sha256": "b8df3883dfee3464c6f5dc92b0a96c94a3c2539b0262660171d6f4c62b2868e9",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/check-in.md",
+      "bytes": 4118,
+      "sha256": "a195aa1dae06d7308535e404e45ac6b09c93a57f08034d9cd11f0e087f488ada",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/drumnext.md",
+      "bytes": 1072,
+      "sha256": "88feb8cf4abd8078d958527c1f28478a99fa486ce63771df9d40e93ba3bdd4a5",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/hermes-gg.md",
+      "bytes": 1359,
+      "sha256": "552d2f387f60cce410787bcc3012af73d7fdedb3a461626669f3e77cbdb43b43",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/nova.md",
+      "bytes": 11481,
+      "sha256": "e7a49498ae1974dfa20dbd1593fa141dbe97df4c694aadbf29f711cda3783c59",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/orgnext-mvp.md",
+      "bytes": 4469,
+      "sha256": "2b2531ddbf8f80278ac5faf1906f1601924652c68d4fd9dc8c0607387f787ff0",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/private-wealth-hub.md",
+      "bytes": 1697,
+      "sha256": "ebf75e194a4c6d9127e8ba7047fda100641c23b033aff4f5246759497ac9400d",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/signal.md",
+      "bytes": 1821,
+      "sha256": "4c96f9a2f0a7f91b8500133c3372671444ee5713ad46dda33786ab5b395240f1",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/vgbt.md",
+      "bytes": 6811,
+      "sha256": "138240b8d44604f24c4ac4697d1eb01896c06cbbb2050a6faaa161de5327780b",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/projects/visual-and-sound.md",
+      "bytes": 1511,
+      "sha256": "f8cda473010d566b63c147eb2dcf0d9245464103efd8b1c8d01a3e89fe4dac4e",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/themes/ai-native-life.md",
+      "bytes": 1050,
+      "sha256": "3154310375ba77c38376c5dc11ae77428a11075798f3498497abbf45bff4638f",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/themes/career-trajectory.md",
+      "bytes": 1174,
+      "sha256": "84e4f79e3628f2590121589d9954c07989deadcf1faf41febf9cfc66702b5c39",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/themes/family.md",
+      "bytes": 333,
+      "sha256": "44b15bc2cd39f201911f22832e7c886eb4a3c7a0542a75bc038cc5ea63e1d520",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/themes/financial-freedom.md",
+      "bytes": 3088,
+      "sha256": "1903a7f7bb100aa2abff4cd7c77c240206b6dd3f16d510b42c371606cc0cf745",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/themes/long-termism.md",
+      "bytes": 871,
+      "sha256": "4d0bb161a01e0c134c784acccee3fdec5c351e43b7508daa95bf29643b51116e",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    },
+    {
+      "source_path": "src/brain/world/themes/regulated-financial-ai-career-strategy.md",
+      "bytes": 29538,
+      "sha256": "4432ecc0c0dc68643e25aac52dd14f1461bb194d6a2a5d00d16818ad68331815",
+      "disposition": "review_context_later",
+      "reason": "历史背景或草稿；需核对日期、当前适用性和来源后再精选",
+      "review_depth": "structure_only",
+      "source_deleted": false
+    }
+  ]
+}

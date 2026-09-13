@@ -1,0 +1,18 @@
+id: apply-jira-space-context
+mode: apply
+input:
+  intent: jira-create-issue
+  project_context:
+    work:
+      jira:
+        space_key: CMW
+        space_name: CM Wizard
+  requested_target:
+    jira_space_key: CMW
+expected:
+  decision: allow-after-preflight
+  must_state:
+    - jira-space-key-CMW
+  must_not:
+    - create-or-update-the-jira-issue
+    - select-another-jira-space

@@ -1,0 +1,957 @@
+{
+  "date": "2026-09-06",
+  "scope": "src/brain only",
+  "total": 158,
+  "migrated_full_text": 114,
+  "retained_or_excluded": 44,
+  "entries": [
+    {
+      "path": "src/brain/2025-02-19-lenny-boris-cherny-claude-code.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681e18ceecc2d735b490e?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/agent-decisions/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/agent-decisions/rejected/2026-08-16-no-legacy-video-fallback.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/_template.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/discounted-cash-flow.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6819f9be0fa14517d6eb7?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/document-visual-language.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68197a540f3b09b139623?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/harness-engineering.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681bfa8bbf0cfcd18a3ab?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/idempotency.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68168b1b5c923ddf5a097?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/index.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/monte-carlo-simulation.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681fe8998fa9aed884bb4?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/optimistic-concurrency.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6813d9e9be3aafc8d37b2?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/discounted-cash-flow.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/document-visual-language.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/harness-engineering.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/idempotency.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/monte-carlo-simulation.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/optimistic-concurrency.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/paired-randomization-test.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/progressive-disclosure.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/pages/single-source-of-truth.html",
+      "notion_url": null,
+      "disposition": "保留 repo：交互网页 artifact",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/paired-randomization-test.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681878707df9e0e8a7a69?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/progressive-disclosure.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681529f64e77e0ca8192e?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/concepts/single-source-of-truth.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681228aece71ce7fbf1b6?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/decisions/2026-04-13-continuous-ingest-adoption.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681d686c0ee2200593565?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/decisions/2026-04-15-client-facing-ai-lab-pivot.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681fbac11c9e646e14ca0?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/decisions/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/development-philosophy/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/development-philosophy/distribution-is-a-product-requirement.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6810592baf74d1c1603c6?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/development-philosophy/project-harness-is-ai-autonomy-infrastructure.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f4b7edfbeafc0f0743?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/development-philosophy/visibility-is-a-product-requirement.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681199a0df64af63e9afd?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/goals/2026.md",
+      "notion_url": null,
+      "disposition": "排除：未填写目标模板",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/goals/current-quarter.md",
+      "notion_url": null,
+      "disposition": "排除：未填写目标模板",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/goals/north-star.md",
+      "notion_url": null,
+      "disposition": "排除：未填写目标模板",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/02/2026-02-18.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68160ba6dc0679fb8e808?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-08.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681698670d01e7c772208?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-09.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c5b830db96c284771c?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-13.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681858064e4b1a370dd60?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-16.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68140ac6ae3c996197e1d?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-23.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68126a92fd85fec97c449?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-25.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68155961ffa44d97ffa89?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-26.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68169b59ec4af5c68e466?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-27.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811a8470e28dce0a89c8?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-29.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68187beafc52955ec8bbe?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-01.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68168b071e59161459089?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-02.md",
+      "notion_url": null,
+      "disposition": "排除：空白日记",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-13.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6819ab04ee28cd55c887f?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-18.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811daaf1c79e26382463?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-21.md",
+      "notion_url": null,
+      "disposition": "排除：空白日记",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-26.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681dbaadfc0e86d35dbe9?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/05/2026-05-18.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6813ca171d2b96501d15d?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-07.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6818fba06f7857102b15e?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-14.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f39f7ee7e38dd5b9ff?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-15.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c3bc8ecafe0bda67ba?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/life/routine.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6816bb00cea345467e0bf?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/cf/2026-04-cf.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/cf/2026-05-cf.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/cf/2026-06-cf.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/cf/2026-07-cf.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/cf/2026-08-cf.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/oc/2026-04-oc.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/oc/2026-05-oc.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/oc/2026-06-oc.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/oc/2026-07-oc.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/logs/oc/2026-08-oc.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/notes/git-multi-remote.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681cd956cd6023ff1dcad?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/notes/nova-update.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f79d94ddf4a7a19550?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/notes/private-wealth/hazel.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6818ca62fd05a71657424?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/notes/temp.md",
+      "notion_url": null,
+      "disposition": "排除：临时执行 prompt",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/processing/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681d99bdad1cfae24588c?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/processing/pilot-context.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68163917cf774d072199a?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-01-karpathy-microgpt.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6812abeaaccb2b8d503aa?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-03-siliconvalley-101-health-care.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c39982d47e69c66e1e?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-21-learn-palantir.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681b99205d2215e941200?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-29-cli-vs-mcp-research.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6814dafe6e6a91970dcf3?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-30-google-ai-agent/23807_agentspace_ebook_and_promo_fa_zh-cn.pdf",
+      "notion_url": null,
+      "disposition": "保留 repo：原始参考附件",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811380dbc93ae5e5f7c6?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-04-19-anthropic-labs-claude-design.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681888ae9ebd31d7bf9f7?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-06-14-nadella-token-capital-frontier-ecosystem.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811b8478f070f9bad25f?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/2026/2026-06-15-vivek-good-at-research.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6812c887adfc4545dff75?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/00-Cordis内核与组合层（vendored插件框架+.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68190aafee555cd4b6907?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/01-agent主循环与事件模型（turn-step、inbox.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6815e834ec75dddc22fdf?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/02-会话日志作为单一事实源（append-only事件日志、m.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68197bc44de838a57ba77?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/03-工具注册表、执行管线与系统提示词组装（packages-co.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68173a260c55e23f7c18a?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/04-capabilityseam(能力接缝)体系:fs-s.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68126b32cfeedf21b2739?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/05-生态兼容层（skill-MCP-hooks桥-.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6819a90c8dd404b4f7d36?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/06-多agent与运行模式（subagent-workf.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811f9780d0cd953eb24e?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/07-持久化与状态（session持久化-SQLite、stor.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68170848bca189ab1d996?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/08-质量基建：测试策略、快照回放、覆盖率闸门、生成器与doc-.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68132b9fbd74fe71f390b?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/09-工程过程资产：AgentNotes制度、postmort.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811f897dd3717847ef00?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/10-对外API面：typert类型图RPC、api-BF.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681e5b5c4ff7297cbf0fd?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/11-cost-critic.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6817cb594cab39d3d40e8?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/12-compare-critic.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ea82b3f46559ebfc44?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/13-orange-book-critic.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f2b442f355c84193d7?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/orange-book-full-text.txt",
+      "notion_url": null,
+      "disposition": "保留 repo：原始参考附件",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reviews/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reviews/monthly/.template.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reviews/quarterly/.template.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reviews/weekly/.template.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/reviews/weekly/2026-W16.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681aabcf5c6745e786245?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/tech-learning/2026-08-22-typescript-7-native-toolchain.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681e7b8d6d6b4b91d0573?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/tech-learning/README.md",
+      "notion_url": null,
+      "disposition": "保留 repo：目录、模板与工作流说明",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/video-lab/lessons.md",
+      "notion_url": null,
+      "disposition": "保留 repo：工时与运行记录",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/INDEX.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6810da5bffcd49c58c65c?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/README.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681d09475d781cfe19657?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/alex-bezos-squiggly-lines.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f2a912c1ad312609e0?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/justin-direct-message-aaron-ux.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681cd82e4d9a70315b844?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/justin-interaction-definition.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6816796cbe079433ab74b?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/justin-post-retreat-message.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681d192e4ce11a5fbc4b0?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/nova-team-meeting-notes.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681fea283c4fad0221fff?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/redis-architecture-discussion.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6816488c2f27331569dca?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ee8ad8f10e48c61efc?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-23/mawer-ai-tools-wealth-platform-exploration.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681318871fa432374d25c?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-05-04/jon-vgbt-1month-catchup.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6812da202d29a98caaba6?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-07-02/granola-689f6bff-fb47-4f43-a87a-028740c3e40a-r1.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6815ebcdaf484ae3c6995?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/2026-07-17/aaron-blog-ai-brand-sales-agent-contract.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68140b234f54387f9cd3f?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/_archive/README.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6813a9574f0c958ec51cb?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/orgs/mawer.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68141a63cf8a760cb12a0?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/orgs/orgnext.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68108ab51e6a31affe9da?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/aaron.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68197b724d7cfafe23022?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/alex.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681979fa5ff31982ae8b9?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/carol-schneider.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681709d35f0502ced4aab?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/chintan.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681188734f80dcde6ad72?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/david-buchanan.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6817398dec4a361dfcddc?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/duncan-mountford.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68115870ec2c740978a13?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/dwight-pratt.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f39721e6093fc825a3?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/eric.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68136b41aec6867c96163?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/grace.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6816f93b0cc60235e6960?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/jeff-house.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681e48058dfd6cd6c5a5b?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/jon.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681feaf51ecc1b07a9c47?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/justin-anderson.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68139a6f3f93af488a7e6?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/keri.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68135806ac1a95e45b335?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/kyle.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68114a9c2cb7c3b0ed384?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/narek.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6812c9a3bf4ba106b5d43?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/steven-wittens.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681b786cfef5d77e7d8b4?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/thiago.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6818ab02dd83f39744a5b?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/wilson.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6810a82f4e3e1aac5a127?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/people/xiaojun.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681b084e5c63362a453da?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/aaronguoblog.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68108a992c0dd75ce76c9?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/check-in.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6819d8860d383534f27bc?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/drumnext.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681d2bfe7cfb1c3967953?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/hermes-gg.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6813e9534d51ae721c092?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/nova.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6816a9a2ef5e911a64008?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/orgnext-mvp.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681a9b8b9dbf7a3b245f0?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/private-wealth-hub.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68126bf08cc78b720e44c?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/signal.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c88723c10a12c2496d?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/vgbt.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681f7ae10eb186b8c2c6f?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/projects/visual-and-sound.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681518874d0ae18d71b50?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/themes/ai-native-life.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681168798f615215075f2?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/themes/career-trajectory.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681938c9bf8913cde4448?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/themes/family.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681768ce2d16c86ccd425?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/themes/financial-freedom.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6812daa0be9e5453461f0?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/themes/long-termism.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68124aff6d87af31aca2d?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    },
+    {
+      "path": "src/brain/world/themes/regulated-financial-ai-career-strategy.md",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681568759d0482b70ebd2?pvs=204",
+      "disposition": "migrated_full_text",
+      "source_deleted": false
+    }
+  ]
+}

@@ -773,3 +773,5 @@ Conversational narration rewrites are cached in `<script-dir>/.video-gen-cache/`
 Estimate cost from the approved storyboard: narration length, generated image
 count, music licensing, external footage, and rendering complexity now vary by
 treatment. Do not optimize the treatment around an obsolete fixed image quota.
+
+For extending an approved film into a longer documentary, deriving standalone portrait shorts, or planning separate language editions, use [Long films and shorts](references/longform-and-shorts.md).

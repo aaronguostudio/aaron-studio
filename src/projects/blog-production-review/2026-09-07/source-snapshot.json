@@ -1,0 +1,83 @@
+{
+  "observedAt": "2026-09-07T20:07:52.955Z",
+  "kind": "Local files used in retrospective audit; not a runtime loaded-context trace",
+  "root": "/Users/aaronguo/Work/ag/aaron-studio",
+  "files": [
+    {
+      "path": "src/content/blogs/2026-09-06/revisions/v2-before-ai-feedback/dhh-the-joy-of-building-zh.md",
+      "sha256": "75c7006743f44848ed6d87dc6eedc38a6b9bbf17385b0f0a188b34b7f779d2e5"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06/dhh-the-joy-of-building-zh.md",
+      "sha256": "1d7312f0ad791b1454afd04d2c36b8d7ed1a4813bc5c59d2efcb3987fa952ddc"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work-zh.md",
+      "sha256": "023340b87a9d97d82e4efda9b1c01ea4043157bf39a1b48cc2f1b254082f9623"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+      "sha256": "2485f01eddc0f2d29990eaed7bad2e6858cc94a294ad7fd1494844619774bfb2"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/_archive/v2-six-points/gpt-6-astra-real-work-zh.md",
+      "sha256": "2b2dce273975a89a47e5b67dea8b49f7539f283a4981576482a66d153db6842b"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06/revisions/v2-before-ai-feedback/dhh-the-joy-of-building.md",
+      "sha256": "b28b4f7a1183c05ef2021d0f6aef06dbb7ca3d478909a2cb4cd4106417612302"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06/dhh-the-joy-of-building.md",
+      "sha256": "8759ea9615fb12e5b52e9847937db507679a07d8b4198d1c26ccc7cc78ba6a10"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work.md",
+      "sha256": "0297c3fd9cdc25d11c4c32181b591ce2e86e099159ab238ce946dfe3f6b270ce"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/_archive/v2-six-points/gpt-6-astra-real-work.md",
+      "sha256": "89c7cd7dc9bc0a3f7632ff8f416a0ccc22bd6ccdddb88345711e62318c39a35a"
+    },
+    {
+      "path": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work.md",
+      "sha256": "6b5ce6453bb87e676a5a3a7b8e884bf634fb7cce7d4c406c575aeb019e71ef37"
+    },
+    {
+      "path": "tiles/blog-production/SKILL.md",
+      "sha256": "e9bc90a47e00afc73cc34da0b17f62d32710620cf72a5f4378623df4bb281bca"
+    },
+    {
+      "path": "tiles/blog-brainstorm/SKILL.md",
+      "sha256": "8f09141a94f5b4d69557a4944f4fcc42e49249e04c2e2978a3c352d0ed6f068c"
+    },
+    {
+      "path": "tiles/blog-outline/SKILL.md",
+      "sha256": "c72678c80c361ea16f6ead6882892ce78fd79be5d811b1bca3d95f8963f9c32e"
+    },
+    {
+      "path": "tiles/blog-canon-alignment/SKILL.md",
+      "sha256": "1ad03aa61f98c888480db6e4676ca7b21d7ce21b842554b91203e0a16f707722"
+    },
+    {
+      "path": "tiles/blog-write/SKILL.md",
+      "sha256": "aa06ccda68ed315d96a5d378743b3e43944a4a0cfedb2006721fb9e46a5268c1"
+    },
+    {
+      "path": "tiles/blog-prose-editor/SKILL.md",
+      "sha256": "4736bef5be88bd8a9c39f8316964bebca8030a70cf0f3e6d03c2741a55f5b307"
+    },
+    {
+      "path": "tiles/blog-production/references/editorial-system.md",
+      "sha256": "5b032a559c8a04a34d9e44b47913c7ae4de7ec59900f069cb64b80281afdd9d2"
+    },
+    {
+      "path": "src/content/strategy/blog-writing-language.md",
+      "sha256": "158bfad42d9b9022dae5f648ab9cc5b322082acca62ea40f051e6605251e84e5"
+    },
+    {
+      "path": "tiles/blog-write/scripts/blog-style-quality.ts",
+      "sha256": "f9a8da912b28eb4289212ec0376c5a91ea1dfd6ae1a92909a6b7409e1517791d"
+    }
+  ]
+}

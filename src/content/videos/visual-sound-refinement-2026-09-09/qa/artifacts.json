@@ -1,0 +1,51 @@
+{
+  "gripper-refined.mp4": {
+    "sha256": "f3d656d9c07a201fc99014e88775ad6f8414e981fa2da150dbe0598f442d6601",
+    "bytes": 5642460,
+    "duration": "18.000000",
+    "streams": [
+      {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1"
+      }
+    ]
+  },
+  "D.mp3": {
+    "sha256": "1d80a26e3f732df7ec29e0b39c0e773dc26c99dbc86d5be9d0ec32d18bb2ccea",
+    "bytes": 738477,
+    "duration": "30.696979",
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ]
+  },
+  "E.mp3": {
+    "sha256": "80ad038757a5cf2f3efd30ff0255289286fb4675aea038d7bd6d1e3bcbe0f988",
+    "bytes": 740205,
+    "duration": "30.789667",
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ]
+  },
+  "F.mp3": {
+    "sha256": "2b0b654bf7b693f2fe3497dfeff653ff8349b3b5400392a988f4219f62391b47",
+    "bytes": 740205,
+    "duration": "30.789667",
+    "streams": [
+      {
+        "codec_name": "mp3",
+        "r_frame_rate": "0/0",
+        "sample_rate": "48000"
+      }
+    ]
+  }
+}

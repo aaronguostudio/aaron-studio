@@ -1,0 +1,46 @@
+{
+  "verifiedAt": "2026-09-07T21:20:32.948988+00:00",
+  "skilldev": {
+    "branch": "codex/editorial-review-iteration",
+    "commit": "b085768",
+    "localOnly": true,
+    "tests": {
+      "pass": 14,
+      "fail": 0,
+      "skip": 1
+    },
+    "typecheck": "passed",
+    "build": "passed",
+    "schemas": {
+      "schemas": 10,
+      "records": 18
+    },
+    "privateReviewExcludedFromStaticBuild": true
+  },
+  "blog": {
+    "targetedTests": {
+      "pass": 11,
+      "fail": 0
+    },
+    "workflowValidation": "passed",
+    "skillSync": "passed",
+    "skillValidation": "5 changed skill entrypoints passed",
+    "baselineArticleFilesChecked": 10,
+    "articlesUnchanged": true
+  },
+  "browser": [
+    "real bundle loaded",
+    "historical focus selected",
+    "provided rule comparison opened",
+    "review survives view switch",
+    "exported JSON downloaded and parsed",
+    "export re-import retained reason",
+    "tampered content rejected; prior data retained",
+    "original review restored"
+  ],
+  "limits": [
+    "No new-model writing experiment performed",
+    "Snapshots and editorial comparisons are not full runtime traces",
+    "Historical article preference does not establish efficacy of the new rules"
+  ]
+}

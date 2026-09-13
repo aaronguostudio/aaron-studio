@@ -1,0 +1,86 @@
+{
+  "capturedAt": "2026-09-07T21:02:00.949699+00:00",
+  "meaning": "Actual pre-edit working files, including prior uncommitted user work; not historical loaded context",
+  "files": [
+    {
+      "path": "tiles/blog-production/SKILL.md",
+      "sha256": "e9bc90a47e00afc73cc34da0b17f62d32710620cf72a5f4378623df4bb281bca"
+    },
+    {
+      "path": "tiles/blog-brainstorm/SKILL.md",
+      "sha256": "8f09141a94f5b4d69557a4944f4fcc42e49249e04c2e2978a3c352d0ed6f068c"
+    },
+    {
+      "path": "tiles/blog-outline/SKILL.md",
+      "sha256": "c72678c80c361ea16f6ead6882892ce78fd79be5d811b1bca3d95f8963f9c32e"
+    },
+    {
+      "path": "tiles/blog-write/SKILL.md",
+      "sha256": "aa06ccda68ed315d96a5d378743b3e43944a4a0cfedb2006721fb9e46a5268c1"
+    },
+    {
+      "path": "tiles/blog-prose-editor/SKILL.md",
+      "sha256": "4736bef5be88bd8a9c39f8316964bebca8030a70cf0f3e6d03c2741a55f5b307"
+    },
+    {
+      "path": "tiles/blog-canon-alignment/SKILL.md",
+      "sha256": "1ad03aa61f98c888480db6e4676ca7b21d7ce21b842554b91203e0a16f707722"
+    },
+    {
+      "path": "tiles/blog-production/references/editorial-system.md",
+      "sha256": "5b032a559c8a04a34d9e44b47913c7ae4de7ec59900f069cb64b80281afdd9d2"
+    },
+    {
+      "path": "src/content/strategy/blog-writing-language.md",
+      "sha256": "158bfad42d9b9022dae5f648ab9cc5b322082acca62ea40f051e6605251e84e5"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/editorial-brief.md",
+      "sha256": "9dfabf984050dbe337f7f254bab0d79930861be20424b76426eb25de4107ea1c"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/canon-alignment.md",
+      "sha256": "311c018b565212554230f6669197a18290f7e9a5cafca8677f384f24bd65129c"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/canon-note.md",
+      "sha256": "e77d4c6291dff94e292b94d32845ca18859842db52b8ff9912bf0f15bf2bb134"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/idea.md",
+      "sha256": "4be73742794c0dff145cd819a98a971dc6117e59244b7dbf0dd3d9524f3f00c7"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/memory-reflection.md",
+      "sha256": "cb7c6b941f6b8e6cf98363b480f8109f3b7cec2625a3df3e455544fad4e6be5b"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/postmortem.md",
+      "sha256": "a04686002d8f175f82ae121729bcf420021b428f48ff568b7e27a44e2c56dd82"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/prose-polish-review.md",
+      "sha256": "f04fb968eb0bde31cd5db6dec35ae0a996c81671cda2efe480a1ab76809c313f"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/argument-memo.md",
+      "sha256": "bfc0de2289989ee5135cf6a66796257f10d909dba4e7edb5f01737b0425bae90"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/red-team-review.md",
+      "sha256": "6e9a630942ae05fa382eb4d446be811eccc20d7ba36eda9387cc142a02058db1"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow2/research-dossier.md",
+      "sha256": "2e544d7521d2ec60799151e8c0dc75447a04faeb852711bdfa04c473d8b406dc"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow3/editorial-scorecard.md",
+      "sha256": "0f51b635d10598599692ab25459e7bd8707245bbdf0f76d9cb6d82f2adbdc95b"
+    },
+    {
+      "path": "tiles/blog-production/templates/workflow3/claim-ledger.md",
+      "sha256": "f85cd8e6f5a5630861c283282d0aff486e341dd3b33acab9990ad5ab07db0190"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "kind": "retrospective deterministic scanner replay; no model generations",
+  "results": [
+    {
+      "label": "DHH before author focus correction",
+      "path": "src/content/blogs/2026-09-06/revisions/v2-before-ai-feedback/dhh-the-joy-of-building.md",
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "stats": {
+        "words": 1418,
+        "unit": "words",
+        "sentences": 93,
+        "aiSlopMarkers": 0
+      }
+    },
+    {
+      "label": "DHH accepted",
+      "path": "src/content/blogs/2026-09-06/dhh-the-joy-of-building.md",
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "stats": {
+        "words": 1371,
+        "unit": "words",
+        "sentences": 86,
+        "aiSlopMarkers": 0
+      }
+    },
+    {
+      "label": "Astra eight points",
+      "path": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work.md",
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "stats": {
+        "words": 1751,
+        "unit": "words",
+        "sentences": 117,
+        "aiSlopMarkers": 0
+      }
+    },
+    {
+      "label": "Astra six points before ending correction",
+      "path": "src/content/blogs/2026-09-06-astra/_archive/v2-six-points/gpt-6-astra-real-work.md",
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "stats": {
+        "words": 1535,
+        "unit": "words",
+        "sentences": 103,
+        "aiSlopMarkers": 0
+      }
+    },
+    {
+      "label": "Astra accepted",
+      "path": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work.md",
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "stats": {
+        "words": 1666,
+        "unit": "words",
+        "sentences": 112,
+        "aiSlopMarkers": 0
+      }
+    }
+  ]
+}

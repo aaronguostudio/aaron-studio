@@ -1,0 +1,119 @@
+{
+  "kind": "deterministic evaluator unit probe; synthetic input, no model generation",
+  "observedAt": "2026-09-07T20:07:52.900Z",
+  "checkout": "/Users/aaronguo/Work/ag/skilldev/code",
+  "results": [
+    {
+      "id": "later-section-leak",
+      "output": "## Decision\nWAIT\n\n## Notes\nGO",
+      "expectedVerdict": "fail",
+      "observedVerdict": "pass",
+      "matchesExpectation": false,
+      "evaluation": {
+        "schemaVersion": "0.1",
+        "runId": "probe-later-section-leak",
+        "fixtureId": "section-boundary-probe",
+        "evaluator": "deterministic-rubric",
+        "score": 1,
+        "maxScore": 1,
+        "percentage": 100,
+        "passThresholdPercent": 100,
+        "verdict": "pass",
+        "checks": [
+          {
+            "criterionId": "decision-go",
+            "label": "GO appears inside Decision",
+            "passed": true,
+            "pointsAwarded": 1,
+            "pointsPossible": 1,
+            "evidence": "WAIT ## Notes GO"
+          }
+        ]
+      }
+    },
+    {
+      "id": "valid-decision",
+      "output": "## Decision\nGO\n\n## Notes\nWAIT",
+      "expectedVerdict": "pass",
+      "observedVerdict": "pass",
+      "matchesExpectation": true,
+      "evaluation": {
+        "schemaVersion": "0.1",
+        "runId": "probe-valid-decision",
+        "fixtureId": "section-boundary-probe",
+        "evaluator": "deterministic-rubric",
+        "score": 1,
+        "maxScore": 1,
+        "percentage": 100,
+        "passThresholdPercent": 100,
+        "verdict": "pass",
+        "checks": [
+          {
+            "criterionId": "decision-go",
+            "label": "GO appears inside Decision",
+            "passed": true,
+            "pointsAwarded": 1,
+            "pointsPossible": 1,
+            "evidence": "GO ## Notes WAIT"
+          }
+        ]
+      }
+    },
+    {
+      "id": "absent-go",
+      "output": "## Decision\nWAIT\n\n## Notes\nWAIT",
+      "expectedVerdict": "fail",
+      "observedVerdict": "fail",
+      "matchesExpectation": true,
+      "evaluation": {
+        "schemaVersion": "0.1",
+        "runId": "probe-absent-go",
+        "fixtureId": "section-boundary-probe",
+        "evaluator": "deterministic-rubric",
+        "score": 0,
+        "maxScore": 1,
+        "percentage": 0,
+        "passThresholdPercent": 100,
+        "verdict": "fail",
+        "checks": [
+          {
+            "criterionId": "decision-go",
+            "label": "GO appears inside Decision",
+            "passed": false,
+            "pointsAwarded": 0,
+            "pointsPossible": 1,
+            "evidence": "No matching observable text."
+          }
+        ]
+      }
+    },
+    {
+      "id": "missing-section",
+      "output": "## Notes\nGO",
+      "expectedVerdict": "fail",
+      "observedVerdict": "fail",
+      "matchesExpectation": true,
+      "evaluation": {
+        "schemaVersion": "0.1",
+        "runId": "probe-missing-section",
+        "fixtureId": "section-boundary-probe",
+        "evaluator": "deterministic-rubric",
+        "score": 0,
+        "maxScore": 1,
+        "percentage": 0,
+        "passThresholdPercent": 100,
+        "verdict": "fail",
+        "checks": [
+          {
+            "criterionId": "decision-go",
+            "label": "GO appears inside Decision",
+            "passed": false,
+            "pointsAwarded": 0,
+            "pointsPossible": 1,
+            "evidence": "No matching observable text."
+          }
+        ]
+      }
+    }
+  ]
+}

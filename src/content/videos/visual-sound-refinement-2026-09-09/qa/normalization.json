@@ -1,0 +1,38 @@
+{
+  "D": {
+    "input_i": "-24.79",
+    "input_tp": "-7.99",
+    "input_lra": "2.90",
+    "input_thresh": "-35.24",
+    "output_i": "-16.40",
+    "output_tp": "-1.50",
+    "output_lra": "2.20",
+    "output_thresh": "-26.88",
+    "normalization_type": "dynamic",
+    "target_offset": "0.40"
+  },
+  "E": {
+    "input_i": "-24.23",
+    "input_tp": "-5.15",
+    "input_lra": "3.60",
+    "input_thresh": "-34.52",
+    "output_i": "-16.83",
+    "output_tp": "-1.50",
+    "output_lra": "2.50",
+    "output_thresh": "-27.03",
+    "normalization_type": "dynamic",
+    "target_offset": "0.83"
+  },
+  "F": {
+    "input_i": "-24.24",
+    "input_tp": "-4.12",
+    "input_lra": "2.90",
+    "input_thresh": "-34.79",
+    "output_i": "-16.57",
+    "output_tp": "-1.50",
+    "output_lra": "2.30",
+    "output_thresh": "-27.04",
+    "normalization_type": "dynamic",
+    "target_offset": "0.57"
+  }
+}

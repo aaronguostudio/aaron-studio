@@ -1,0 +1,2019 @@
+{
+  "date": "2026-09-06",
+  "root": {
+    "id": "3d3b5667-a0c6-815f-9ae2-f39fd0e923f2",
+    "url": "https://app.notion.com/p/3d3b5667a0c6815f9ae2f39fd0e923f2?pvs=204",
+    "properties": {
+      "title": "个人记录与资料"
+    }
+  },
+  "categories": {
+    "history": {
+      "id": "3d3b5667-a0c6-8115-b699-c391e496e71f",
+      "url": "https://app.notion.com/p/3d3b5667a0c68115b699c391e496e71f?pvs=204",
+      "properties": {
+        "title": "日记与复盘"
+      }
+    },
+    "life": {
+      "id": "3d3b5667-a0c6-818d-b233-d64c098454d2",
+      "url": "https://app.notion.com/p/3d3b5667a0c6818db233d64c098454d2?pvs=204",
+      "properties": {
+        "title": "生活与历史决定"
+      }
+    },
+    "reading": {
+      "id": "3d3b5667-a0c6-81bc-b0c4-fdee93d1fa0c",
+      "url": "https://app.notion.com/p/3d3b5667a0c681bcb0c4fdee93d1fa0c?pvs=204",
+      "properties": {
+        "title": "阅读与学习"
+      }
+    },
+    "deepseek": {
+      "id": "3d3b5667-a0c6-8189-b78a-e3e841461ecd",
+      "url": "https://app.notion.com/p/3d3b5667a0c68189b78ae3e841461ecd?pvs=204",
+      "properties": {
+        "title": "DeepSeek Harness 研究"
+      }
+    },
+    "sources": {
+      "id": "3d3b5667-a0c6-811a-b275-ef1647856117",
+      "url": "https://app.notion.com/p/3d3b5667a0c6811ab275ef1647856117?pvs=204",
+      "properties": {
+        "title": "知识卡的原始长文"
+      }
+    },
+    "context": {
+      "id": "3d3b5667-a0c6-817a-97a8-d5e1f989e9bc",
+      "url": "https://app.notion.com/p/3d3b5667a0c6817a97a8d5e1f989e9bc?pvs=204",
+      "properties": {
+        "title": "项目笔记与待确认背景"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "src/brain/2025-02-19-lenny-boris-cherny-claude-code.md",
+      "size": 4273,
+      "sha256": "1204800cf65f0e8cf24e205e509597dd40aa9e0cdc8c87dce083d6fa5c5f4e47",
+      "cat": "reading",
+      "curated": null,
+      "title": "Lenny x Boris Cherny — Head of Claude Code at Anthropic",
+      "page": {
+        "id": "3d3b5667-a0c6-81e1-8cee-cc2d735b490e",
+        "url": "https://app.notion.com/p/3d3b5667a0c681e18ceecc2d735b490e?pvs=204",
+        "properties": {
+          "title": "Lenny x Boris Cherny — Head of Claude Code at Anthropic"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/2025-02-19-lenny-boris-cherny-claude-code.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/discounted-cash-flow.md",
+      "size": 14805,
+      "sha256": "81bdb6af30ddb4afa935a4c04de8b7e331c950dae74687297f4a1757eecf4526",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-8174-bf17-dc8bae010062",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c68174bf17dc8bae010062",
+        "treatment": "curated_summary"
+      },
+      "title": "Discounted Cash Flow · 折现现金流估值 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-819f-9be0-fa14517d6eb7",
+        "url": "https://app.notion.com/p/3d3b5667a0c6819f9be0fa14517d6eb7?pvs=204",
+        "properties": {
+          "title": "Discounted Cash Flow · 折现现金流估值 · 原始长文"
+        }
+      },
+      "outgoing": [
+        "src/brain/concepts/monte-carlo-simulation.md"
+      ],
+      "check": {
+        "path": "src/brain/concepts/discounted-cash-flow.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/document-visual-language.md",
+      "size": 24227,
+      "sha256": "f38c6141d1ba5bea20d9e948dc5c210880b11d6b425105838d312baf9460ce77",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81c1-8de8-e2ee0211ffd9",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681c18de8e2ee0211ffd9",
+        "treatment": "curated_summary"
+      },
+      "title": "Document Visual Language · 文档视觉语言 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8197-a540-f3b09b139623",
+        "url": "https://app.notion.com/p/3d3b5667a0c68197a540f3b09b139623?pvs=204",
+        "properties": {
+          "title": "Document Visual Language · 文档视觉语言 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/document-visual-language.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/harness-engineering.md",
+      "size": 21703,
+      "sha256": "a30f840dccd7614c6adf8435acf1b35f3f7f108fd668708e297ebb59f58492cd",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81ac-896f-d7e61c6a38a3",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681ac896fd7e61c6a38a3",
+        "treatment": "merged_curated_summary"
+      },
+      "title": "Harness Engineering · 智能体运行支架工程 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-81bf-a8bb-f0cfcd18a3ab",
+        "url": "https://app.notion.com/p/3d3b5667a0c681bfa8bbf0cfcd18a3ab?pvs=204",
+        "properties": {
+          "title": "Harness Engineering · 智能体运行支架工程 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/harness-engineering.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/idempotency.md",
+      "size": 12510,
+      "sha256": "e1783f6d14983f14646275a94d982db20b6090a6adfc6a8565921540119be1ef",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-8101-9d37-fffb012a08aa",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681019d37fffb012a08aa",
+        "treatment": "curated_summary"
+      },
+      "title": "Idempotency · 幂等性 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8168-b1b5-c923ddf5a097",
+        "url": "https://app.notion.com/p/3d3b5667a0c68168b1b5c923ddf5a097?pvs=204",
+        "properties": {
+          "title": "Idempotency · 幂等性 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/idempotency.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/monte-carlo-simulation.md",
+      "size": 13571,
+      "sha256": "7096f54de52580449cf0500541e8137484473d39f93310a7fa963a1f804ae3a9",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-811a-94d2-eeee52c2922c",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c6811a94d2eeee52c2922c",
+        "treatment": "curated_summary"
+      },
+      "title": "Monte Carlo Simulation · 蒙特卡洛模拟 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-81fe-8998-fa9aed884bb4",
+        "url": "https://app.notion.com/p/3d3b5667a0c681fe8998fa9aed884bb4?pvs=204",
+        "properties": {
+          "title": "Monte Carlo Simulation · 蒙特卡洛模拟 · 原始长文"
+        }
+      },
+      "outgoing": [
+        "src/brain/concepts/discounted-cash-flow.md",
+        "src/brain/concepts/paired-randomization-test.md"
+      ],
+      "check": {
+        "path": "src/brain/concepts/monte-carlo-simulation.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/optimistic-concurrency.md",
+      "size": 13609,
+      "sha256": "4d90a3461e02badd2c2e12257ab1625d0991d80522d72e722e8da350194099c8",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-8177-86cd-e1d5f5fa216f",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c6817786cde1d5f5fa216f",
+        "treatment": "curated_summary"
+      },
+      "title": "Optimistic Concurrency · 乐观并发控制 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-813d-9e9b-e3aafc8d37b2",
+        "url": "https://app.notion.com/p/3d3b5667a0c6813d9e9be3aafc8d37b2?pvs=204",
+        "properties": {
+          "title": "Optimistic Concurrency · 乐观并发控制 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/optimistic-concurrency.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/paired-randomization-test.md",
+      "size": 15464,
+      "sha256": "3a3bc0bb4ec36ceb70582fc842b8294f328faea34431d5908d07ed1c93e9ca1e",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-815f-b9ba-feeef53f1881",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c6815fb9bafeeef53f1881",
+        "treatment": "curated_summary"
+      },
+      "title": "Paired Randomization Test · 配对随机化检验 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8187-8707-df9e0e8a7a69",
+        "url": "https://app.notion.com/p/3d3b5667a0c681878707df9e0e8a7a69?pvs=204",
+        "properties": {
+          "title": "Paired Randomization Test · 配对随机化检验 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/paired-randomization-test.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [
+          "“有 p < 0.05 就可以上线”"
+        ],
+        "written": true,
+        "heading_format_note": "Raw heading differences were inspected: Markdown escaping or filename autolinks; filename links corrected."
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/progressive-disclosure.md",
+      "size": 13892,
+      "sha256": "2efef5927773936e425ee610c1aeb88e4a1f373aa57725b58d0285a2293fcb18",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-814e-8606-d84fc5b73c5f",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c6814e8606d84fc5b73c5f",
+        "treatment": "curated_summary"
+      },
+      "title": "Progressive Disclosure · 渐进披露 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8152-9f64-e77e0ca8192e",
+        "url": "https://app.notion.com/p/3d3b5667a0c681529f64e77e0ca8192e?pvs=204",
+        "properties": {
+          "title": "Progressive Disclosure · 渐进披露 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/progressive-disclosure.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/single-source-of-truth.md",
+      "size": 13683,
+      "sha256": "11a08db19370076eace08741b71d2c4b4a79ff06b76bc907820a216b3e184a67",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81fc-a4b9-efd2ce40836b",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681fca4b9efd2ce40836b",
+        "treatment": "curated_summary"
+      },
+      "title": "Single Source of Truth · 单一事实来源 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8122-8aec-e71ce7fbf1b6",
+        "url": "https://app.notion.com/p/3d3b5667a0c681228aece71ce7fbf1b6?pvs=204",
+        "properties": {
+          "title": "Single Source of Truth · 单一事实来源 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/concepts/single-source-of-truth.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/decisions/2026-04-13-continuous-ingest-adoption.md",
+      "size": 1354,
+      "sha256": "a653bddf6ca2ae3fcc2f326a7cd49b1a2816856dc64cb2d4c692a078a86c6fdb",
+      "cat": "life",
+      "curated": null,
+      "title": "Adopt Karpathy continuous-ingest workflow for brain/",
+      "page": {
+        "id": "3d3b5667-a0c6-81d6-86c0-ee2200593565",
+        "url": "https://app.notion.com/p/3d3b5667a0c681d686c0ee2200593565?pvs=204",
+        "properties": {
+          "title": "Adopt Karpathy continuous-ingest workflow for brain/"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/decisions/2026-04-13-continuous-ingest-adoption.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/decisions/2026-04-15-client-facing-ai-lab-pivot.md",
+      "size": 1143,
+      "sha256": "c7d04ec8351c7010866df824ec2c31480eadbfee2f7742d91d71d71819933ee3",
+      "cat": "life",
+      "curated": null,
+      "title": "Pivot to client-facing AI lab (Mawer)",
+      "page": {
+        "id": "3d3b5667-a0c6-81fb-ac11-c9e646e14ca0",
+        "url": "https://app.notion.com/p/3d3b5667a0c681fbac11c9e646e14ca0?pvs=204",
+        "properties": {
+          "title": "Pivot to client-facing AI lab (Mawer)"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/decisions/2026-04-15-client-facing-ai-lab-pivot.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/development-philosophy/distribution-is-a-product-requirement.md",
+      "size": 5133,
+      "sha256": "9052dad1f60d79e74805da2fb32035469d7c69d893b72658929fa1417790e7c5",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81c7-8651-c6223710b87f",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681c78651c6223710b87f",
+        "treatment": "curated_summary"
+      },
+      "title": "Distribution Is a Product Requirement · 分发是产品需求 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8105-92ba-f74d1c1603c6",
+        "url": "https://app.notion.com/p/3d3b5667a0c6810592baf74d1c1603c6?pvs=204",
+        "properties": {
+          "title": "Distribution Is a Product Requirement · 分发是产品需求 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/development-philosophy/distribution-is-a-product-requirement.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/development-philosophy/project-harness-is-ai-autonomy-infrastructure.md",
+      "size": 5937,
+      "sha256": "ed4eb0b45811242584145d220ed41e096165443dc6156a6169805bec4960107c",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81ac-896f-d7e61c6a38a3",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681ac896fd7e61c6a38a3",
+        "treatment": "merged_curated_summary"
+      },
+      "title": "Project Harness Is AI Autonomy Infrastructure · 项目 Harness 是 AI 自主执行的基础设施 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-81f4-b7ed-fbeafc0f0743",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f4b7edfbeafc0f0743?pvs=204",
+        "properties": {
+          "title": "Project Harness Is AI Autonomy Infrastructure · 项目 Harness 是 AI 自主执行的基础设施 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/development-philosophy/project-harness-is-ai-autonomy-infrastructure.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/development-philosophy/visibility-is-a-product-requirement.md",
+      "size": 5427,
+      "sha256": "8d6eb918de4d653670527c999e6feb177cac2c0822ee94816fa95d87151dc9f2",
+      "cat": "sources",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-8101-b549-e6a6c24c00ce",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c68101b549e6a6c24c00ce",
+        "treatment": "curated_summary"
+      },
+      "title": "Visibility Is a Product Requirement · 可见性是产品需求 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-8119-9a0d-f64af63e9afd",
+        "url": "https://app.notion.com/p/3d3b5667a0c681199a0df64af63e9afd?pvs=204",
+        "properties": {
+          "title": "Visibility Is a Product Requirement · 可见性是产品需求 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/development-philosophy/visibility-is-a-product-requirement.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/02/2026-02-18.md",
+      "size": 952,
+      "sha256": "51a7016f0f8de23b8c190173299d8733faae3909c5d1161ad4bce6d357069608",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-02-18 · AI-Native Life Progress",
+      "page": {
+        "id": "3d3b5667-a0c6-8160-ba6d-c0679fb8e808",
+        "url": "https://app.notion.com/p/3d3b5667a0c68160ba6dc0679fb8e808?pvs=204",
+        "properties": {
+          "title": "2026-02-18 · AI-Native Life Progress"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/02/2026-02-18.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-08.md",
+      "size": 1520,
+      "sha256": "a2f4da029d534ed0805f26dca5ed006d2b9ef0228aa45ce9a2c672c93c9d8653",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-08 · 努力应该是我的底色",
+      "page": {
+        "id": "3d3b5667-a0c6-8169-8670-d01e7c772208",
+        "url": "https://app.notion.com/p/3d3b5667a0c681698670d01e7c772208?pvs=204",
+        "properties": {
+          "title": "2026-03-08 · 努力应该是我的底色"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-08.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-09.md",
+      "size": 1621,
+      "sha256": "38787be648b449b26547253026216668e96cb7c76f7bd3b6e47946e1c0eba915",
+      "cat": "history",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81ab-9bfb-c286f89ad1c7",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681ab9bfbc286f89ad1c7",
+        "treatment": "curated_summary"
+      },
+      "title": "2026-03-09 · 领域的纵向延伸 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-81c5-b830-db96c284771c",
+        "url": "https://app.notion.com/p/3d3b5667a0c681c5b830db96c284771c?pvs=204",
+        "properties": {
+          "title": "2026-03-09 · 领域的纵向延伸 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-09.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-13.md",
+      "size": 206,
+      "sha256": "e9e5b233322e021402a0d7b3b51e65e3b4f341764429b527445795b3b5f2ce53",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-13 · Jeff 视频的记录",
+      "page": {
+        "id": "3d3b5667-a0c6-8185-8064-e4b1a370dd60",
+        "url": "https://app.notion.com/p/3d3b5667a0c681858064e4b1a370dd60?pvs=204",
+        "properties": {
+          "title": "2026-03-13 · Jeff 视频的记录"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-13.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-16.md",
+      "size": 3085,
+      "sha256": "a6532455a1e8bd19949a92ec0131a8010dd70e82ab49c904347020ab6780f3fc",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-16 · 职业突围备忘录：",
+      "page": {
+        "id": "3d3b5667-a0c6-8140-ac6a-e3c996197e1d",
+        "url": "https://app.notion.com/p/3d3b5667a0c68140ac6ae3c996197e1d?pvs=204",
+        "properties": {
+          "title": "2026-03-16 · 职业突围备忘录："
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-16.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-23.md",
+      "size": 5375,
+      "sha256": "accbc917c4d6dc94b0fb210a95b73e67a7a710356462aca2bb6d9fc98cd9a022",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-23 · [Demo 2026-03-23] Demo to Yile",
+      "page": {
+        "id": "3d3b5667-a0c6-8126-a92f-d85fec97c449",
+        "url": "https://app.notion.com/p/3d3b5667a0c68126a92fd85fec97c449?pvs=204",
+        "properties": {
+          "title": "2026-03-23 · [Demo 2026-03-23] Demo to Yile"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-23.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [
+          "[Demo 2026-03-23] Demo to Yile"
+        ],
+        "written": true,
+        "heading_format_note": "Raw heading differences were inspected: Markdown escaping or filename autolinks; filename links corrected."
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-25.md",
+      "size": 1382,
+      "sha256": "8c1f8ae6adba393693746ddeec2b2fb87cd16edc85088af88a6ac3255a2d3730",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-25 · 细节致胜，责任肩负",
+      "page": {
+        "id": "3d3b5667-a0c6-8155-961f-fa44d97ffa89",
+        "url": "https://app.notion.com/p/3d3b5667a0c68155961ffa44d97ffa89?pvs=204",
+        "properties": {
+          "title": "2026-03-25 · 细节致胜，责任肩负"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-25.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-26.md",
+      "size": 530,
+      "sha256": "9013bfcaab4d60a242f03088972b03c2340230f720eb9284fe761ad7c38008cf",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-26 · 王者回归",
+      "page": {
+        "id": "3d3b5667-a0c6-8169-b59e-c4af5c68e466",
+        "url": "https://app.notion.com/p/3d3b5667a0c68169b59ec4af5c68e466?pvs=204",
+        "properties": {
+          "title": "2026-03-26 · 王者回归"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-26.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-27.md",
+      "size": 757,
+      "sha256": "8ec467a5ba4064953d7e9db904d81f1897d7270169c9544a5e8c6201fee58313",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-27 · 王煜全视频的一些判断",
+      "page": {
+        "id": "3d3b5667-a0c6-811a-8470-e28dce0a89c8",
+        "url": "https://app.notion.com/p/3d3b5667a0c6811a8470e28dce0a89c8?pvs=204",
+        "properties": {
+          "title": "2026-03-27 · 王煜全视频的一些判断"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-27.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-29.md",
+      "size": 236,
+      "sha256": "2ba2a1ade75730b395e93097b7da2f842d823caebbadfcfe331d5182a00d39ac",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-03-29 · 回到一个独立开发者的状态，之后伺机而动",
+      "page": {
+        "id": "3d3b5667-a0c6-8187-beaf-c52955ec8bbe",
+        "url": "https://app.notion.com/p/3d3b5667a0c68187beafc52955ec8bbe?pvs=204",
+        "properties": {
+          "title": "2026-03-29 · 回到一个独立开发者的状态，之后伺机而动"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/03/2026-03-29.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-01.md",
+      "size": 318,
+      "sha256": "d3edcac8df68bea988c328922d8c220c7bc931dee49ee6247d850daadf31f352",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-04-01 · 商业发展的时候",
+      "page": {
+        "id": "3d3b5667-a0c6-8168-b071-e59161459089",
+        "url": "https://app.notion.com/p/3d3b5667a0c68168b071e59161459089?pvs=204",
+        "properties": {
+          "title": "2026-04-01 · 商业发展的时候"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/04/2026-04-01.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-13.md",
+      "size": 96,
+      "sha256": "3d7c9f5c642eef6f81222640b09366c60fdbbfa68948de1a5812593e2a3b5cac",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-04-13 · 个人记录",
+      "page": {
+        "id": "3d3b5667-a0c6-819a-b04e-e28cd55c887f",
+        "url": "https://app.notion.com/p/3d3b5667a0c6819ab04ee28cd55c887f?pvs=204",
+        "properties": {
+          "title": "2026-04-13 · 个人记录"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/04/2026-04-13.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-18.md",
+      "size": 1755,
+      "sha256": "75523393c1da897b1a9afbfb87cb48bc7d9002d02ca8a6b8ea87d387d34d860d",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-04-18 · 个人记录",
+      "page": {
+        "id": "3d3b5667-a0c6-811d-aaf1-c79e26382463",
+        "url": "https://app.notion.com/p/3d3b5667a0c6811daaf1c79e26382463?pvs=204",
+        "properties": {
+          "title": "2026-04-18 · 个人记录"
+        }
+      },
+      "outgoing": [
+        "src/brain/world/_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security.md",
+        "src/brain/world/people/jon.md",
+        "src/brain/world/projects/vgbt.md",
+        "src/brain/world/people/aaron.md",
+        "src/brain/world/people/justin-anderson.md",
+        "src/brain/world/projects/nova.md",
+        "src/brain/world/people/eric.md",
+        "src/brain/world/projects/check-in.md"
+      ],
+      "check": {
+        "path": "src/brain/journal/2026/04/2026-04-18.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-26.md",
+      "size": 980,
+      "sha256": "437a5743ad5dbd030edb83d97f21389832c7ad57bb8a29ae025470017b4c8688",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-04-26 · 更加坚定的策略",
+      "page": {
+        "id": "3d3b5667-a0c6-81db-aadf-c0e86d35dbe9",
+        "url": "https://app.notion.com/p/3d3b5667a0c681dbaadfc0e86d35dbe9?pvs=204",
+        "properties": {
+          "title": "2026-04-26 · 更加坚定的策略"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/04/2026-04-26.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/05/2026-05-18.md",
+      "size": 527,
+      "sha256": "9e4779d6a3a32260672561674d8eaf0d09f83bd374b46ee97a0294260e8ae462",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-05-18 · AI 时代的革命",
+      "page": {
+        "id": "3d3b5667-a0c6-813c-a171-d2b96501d15d",
+        "url": "https://app.notion.com/p/3d3b5667a0c6813ca171d2b96501d15d?pvs=204",
+        "properties": {
+          "title": "2026-05-18 · AI 时代的革命"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/05/2026-05-18.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-07.md",
+      "size": 1658,
+      "sha256": "d34cdcdef723cbac4700d2fbc1521eb584be232f57227921ea7623a7a044b2c2",
+      "cat": "history",
+      "curated": {
+        "notion_page_id": "3d3b5667-a0c6-81bb-a626-d1dd5631c8b8",
+        "notion_url": "https://app.notion.com/p/3d3b5667a0c681bba626d1dd5631c8b8",
+        "treatment": "curated_summary"
+      },
+      "title": "2026-06-07 · 优化我的工作方式 · 原始长文",
+      "page": {
+        "id": "3d3b5667-a0c6-818f-ba06-f7857102b15e",
+        "url": "https://app.notion.com/p/3d3b5667a0c6818fba06f7857102b15e?pvs=204",
+        "properties": {
+          "title": "2026-06-07 · 优化我的工作方式 · 原始长文"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/06/2026-06-07.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-14.md",
+      "size": 393,
+      "sha256": "357bf5d6049ef8c588ca6ff805573c14c25cd4e37e2b4cdb802a8c16e4cbf0b5",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-06-14 · 我比以往都更加 powerful",
+      "page": {
+        "id": "3d3b5667-a0c6-81f3-9f7e-e7e38dd5b9ff",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f39f7ee7e38dd5b9ff?pvs=204",
+        "properties": {
+          "title": "2026-06-14 · 我比以往都更加 powerful"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/06/2026-06-14.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-15.md",
+      "size": 472,
+      "sha256": "d2838beed3c6edfa3b5be66e88e41935b5587a2c8fd1285e80e0ab83d09082ee",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-06-15 · 建立可以自我循环的系统",
+      "page": {
+        "id": "3d3b5667-a0c6-81c3-bc8e-cafe0bda67ba",
+        "url": "https://app.notion.com/p/3d3b5667a0c681c3bc8ecafe0bda67ba?pvs=204",
+        "properties": {
+          "title": "2026-06-15 · 建立可以自我循环的系统"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/journal/2026/06/2026-06-15.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/life/routine.md",
+      "size": 5339,
+      "sha256": "990fd41fc31c08ab1fa0660bd4a9f49533d8db3ebc1b7e06f19446ea19adb3e9",
+      "cat": "life",
+      "curated": null,
+      "title": "Aaron's Weekly Routine",
+      "page": {
+        "id": "3d3b5667-a0c6-816b-b00c-ea345467e0bf",
+        "url": "https://app.notion.com/p/3d3b5667a0c6816bb00cea345467e0bf?pvs=204",
+        "properties": {
+          "title": "Aaron's Weekly Routine"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/life/routine.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/notes/git-multi-remote.md",
+      "size": 889,
+      "sha256": "fd790bffc9f59c9bee74cb3bba4fb94eb9ff7d2e90d6c48a9415b93eeb099f28",
+      "cat": "context",
+      "curated": null,
+      "title": "Git 多 Remote：协作与同步笔记",
+      "page": {
+        "id": "3d3b5667-a0c6-81cd-956c-d6023ff1dcad",
+        "url": "https://app.notion.com/p/3d3b5667a0c681cd956cd6023ff1dcad?pvs=204",
+        "properties": {
+          "title": "Git 多 Remote：协作与同步笔记"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/notes/git-multi-remote.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/notes/nova-update.md",
+      "size": 289,
+      "sha256": "effae050a0fd510e92822f2fa14e465dd2c7cc837bc7284d1f0ab0e4e68683b1",
+      "cat": "context",
+      "curated": null,
+      "title": "Nova 功能更新笔记",
+      "page": {
+        "id": "3d3b5667-a0c6-81f7-9d94-ddf4a7a19550",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f79d94ddf4a7a19550?pvs=204",
+        "properties": {
+          "title": "Nova 功能更新笔记"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/notes/nova-update.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/notes/private-wealth/hazel.md",
+      "size": 173,
+      "sha256": "e27764055b0404f170591ef70d30d621bc40afeb83c707d94c363d3cda7fca1b",
+      "cat": "context",
+      "curated": null,
+      "title": "Hazel · Private Wealth 平台随记",
+      "page": {
+        "id": "3d3b5667-a0c6-818c-a62f-d05a71657424",
+        "url": "https://app.notion.com/p/3d3b5667a0c6818ca62fd05a71657424?pvs=204",
+        "properties": {
+          "title": "Hazel · Private Wealth 平台随记"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/notes/private-wealth/hazel.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md",
+      "size": 2650,
+      "sha256": "0341f92b5cedd78a355c07eabd5071b53ec4840d9802a3f4f1227e626a74c2c4",
+      "cat": "context",
+      "curated": null,
+      "title": "Private Wealth Hub：单项推进与整体批准分开",
+      "page": {
+        "id": "3d3b5667-a0c6-81d9-9bda-d1cfae24588c",
+        "url": "https://app.notion.com/p/3d3b5667a0c681d99bdad1cfae24588c?pvs=204",
+        "properties": {
+          "title": "Private Wealth Hub：单项推进与整体批准分开"
+        }
+      },
+      "outgoing": [
+        "src/brain/world/_archive/2026-07-02/granola-689f6bff-fb47-4f43-a87a-028740c3e40a-r1.md",
+        "src/brain/world/projects/private-wealth-hub.md"
+      ],
+      "check": {
+        "path": "src/brain/processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/processing/pilot-context.md",
+      "size": 1598,
+      "sha256": "150b183a5fd960521d35ecf7ab0b931158039369d2d2d97ebbe757842e4709d8",
+      "cat": "context",
+      "curated": null,
+      "title": "任务上下文试读",
+      "page": {
+        "id": "3d3b5667-a0c6-8163-917c-f774d072199a",
+        "url": "https://app.notion.com/p/3d3b5667a0c68163917cf774d072199a?pvs=204",
+        "properties": {
+          "title": "任务上下文试读"
+        }
+      },
+      "outgoing": [
+        "src/brain/world/projects/private-wealth-hub.md",
+        "src/brain/processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md",
+        "src/brain/world/_archive/2026-07-02/granola-689f6bff-fb47-4f43-a87a-028740c3e40a-r1.md"
+      ],
+      "check": {
+        "path": "src/brain/processing/pilot-context.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-01-karpathy-microgpt.md",
+      "size": 3540,
+      "sha256": "1b52bc88099db355e7fb6dbfcc90c2fff75b3f9484bbed079387bacac7e30f50",
+      "cat": "reading",
+      "curated": null,
+      "title": "MicroGPT — Andrej Karpathy",
+      "page": {
+        "id": "3d3b5667-a0c6-812a-beaa-ccb2b8d503aa",
+        "url": "https://app.notion.com/p/3d3b5667a0c6812abeaaccb2b8d503aa?pvs=204",
+        "properties": {
+          "title": "MicroGPT — Andrej Karpathy"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/2026/2026-03-01-karpathy-microgpt.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 6,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-03-siliconvalley-101-health-care.md",
+      "size": 142,
+      "sha256": "2b95aa6e3bd50b3e9556b3343dd022446afb47689a550c24207fb55e622d2824",
+      "cat": "reading",
+      "curated": null,
+      "title": "医疗行业与 Claude for Health 随记",
+      "page": {
+        "id": "3d3b5667-a0c6-81c3-9982-d47e69c66e1e",
+        "url": "https://app.notion.com/p/3d3b5667a0c681c39982d47e69c66e1e?pvs=204",
+        "properties": {
+          "title": "医疗行业与 Claude for Health 随记"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/2026/2026-03-03-siliconvalley-101-health-care.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-21-learn-palantir.md",
+      "size": 341,
+      "sha256": "6b017f200ee9ecb286abc00b80f2db7d88ea7319bdcfe0cfed96265de4a5b780",
+      "cat": "reading",
+      "curated": null,
+      "title": "Learn Palantir",
+      "page": {
+        "id": "3d3b5667-a0c6-81b9-9205-d2215e941200",
+        "url": "https://app.notion.com/p/3d3b5667a0c681b99205d2215e941200?pvs=204",
+        "properties": {
+          "title": "Learn Palantir"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/2026/2026-03-21-learn-palantir.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-29-cli-vs-mcp-research.md",
+      "size": 99,
+      "sha256": "8d18a4ee94aa0e17288d0c3c64cbf02504be4e809f0fbebe9f8f80779cf566c7",
+      "cat": "reading",
+      "curated": null,
+      "title": "CLI 与 MCP · 待读链接",
+      "page": {
+        "id": "3d3b5667-a0c6-814d-afe6-e6a91970dcf3",
+        "url": "https://app.notion.com/p/3d3b5667a0c6814dafe6e6a91970dcf3?pvs=204",
+        "properties": {
+          "title": "CLI 与 MCP · 待读链接"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/2026/2026-03-29-cli-vs-mcp-research.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "size": 4957,
+      "sha256": "d6fb0184601ea0122491cf048fa1fae9fc0ddf5a0eeb62b6eea053b90a570e8d",
+      "cat": "reading",
+      "curated": null,
+      "title": "The Complete Guide to Karpathy's Second Brain — Aakash Gupta",
+      "page": {
+        "id": "3d3b5667-a0c6-8113-80db-c93ae5e5f7c6",
+        "url": "https://app.notion.com/p/3d3b5667a0c6811380dbc93ae5e5f7c6?pvs=204",
+        "properties": {
+          "title": "The Complete Guide to Karpathy's Second Brain — Aakash Gupta"
+        }
+      },
+      "outgoing": [
+        "src/brain/world/INDEX.md",
+        "src/brain/reading/2026/2026-03-01-karpathy-microgpt.md"
+      ],
+      "check": {
+        "path": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 1,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-04-19-anthropic-labs-claude-design.md",
+      "size": 6483,
+      "sha256": "b7b110405af8aa0d90be2bf897cff3a410cfd24173c850143a148ec87b259f37",
+      "cat": "reading",
+      "curated": null,
+      "title": "Anthropic Labs + Claude Design — GPT Analysis",
+      "page": {
+        "id": "3d3b5667-a0c6-8188-8ae9-ebd31d7bf9f7",
+        "url": "https://app.notion.com/p/3d3b5667a0c681888ae9ebd31d7bf9f7?pvs=204",
+        "properties": {
+          "title": "Anthropic Labs + Claude Design — GPT Analysis"
+        }
+      },
+      "outgoing": [
+        "src/brain/world/projects/orgnext-mvp.md",
+        "src/brain/world/orgs/mawer.md",
+        "src/brain/reading/2026/2026-03-29-cli-vs-mcp-research.md",
+        "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md"
+      ],
+      "check": {
+        "path": "src/brain/reading/2026/2026-04-19-anthropic-labs-claude-design.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-06-14-nadella-token-capital-frontier-ecosystem.md",
+      "size": 2341,
+      "sha256": "c7ae2e3a471f9dd38a0d5d1a29872af1f464b4af2abfce23d8a905271b843346",
+      "cat": "reading",
+      "curated": null,
+      "title": "Satya Nadella — Token Capital and the Frontier Ecosystem",
+      "page": {
+        "id": "3d3b5667-a0c6-811b-8478-f070f9bad25f",
+        "url": "https://app.notion.com/p/3d3b5667a0c6811b8478f070f9bad25f?pvs=204",
+        "properties": {
+          "title": "Satya Nadella — Token Capital and the Frontier Ecosystem"
+        }
+      },
+      "outgoing": [
+        "src/brain/world/projects/orgnext-mvp.md",
+        "src/brain/world/orgs/mawer.md",
+        "src/brain/world/themes/ai-native-life.md"
+      ],
+      "check": {
+        "path": "src/brain/reading/2026/2026-06-14-nadella-token-capital-frontier-ecosystem.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-06-15-vivek-good-at-research.md",
+      "size": 3634,
+      "sha256": "25728ed9a93cf717bc64a459f5af66e951d6b537e383e6fd9eff979c7f66b7ce",
+      "cat": "reading",
+      "curated": null,
+      "title": "How to be good at research — Vivek",
+      "page": {
+        "id": "3d3b5667-a0c6-812c-887a-dfc4545dff75",
+        "url": "https://app.notion.com/p/3d3b5667a0c6812c887adfc4545dff75?pvs=204",
+        "properties": {
+          "title": "How to be good at research — Vivek"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/2026/2026-06-15-vivek-good-at-research.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/00-Cordis内核与组合层（vendored插件框架+.md",
+      "size": 16522,
+      "sha256": "d922460353e3033a9709fe8cdd040014571510307d6f5082ea42c8bacdf9f868",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "00 · Cordis 内核与组合层",
+      "page": {
+        "id": "3d3b5667-a0c6-8190-aafe-e555cd4b6907",
+        "url": "https://app.notion.com/p/3d3b5667a0c68190aafee555cd4b6907?pvs=204",
+        "properties": {
+          "title": "00 · Cordis 内核与组合层"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/00-Cordis内核与组合层（vendored插件框架+.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 3,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/01-agent主循环与事件模型（turn-step、inbox.md",
+      "size": 20151,
+      "sha256": "e5da063ef25fe058672628183afcdc6d5d6d7356b0c8249ee9e306255baae12a",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "01 · Agent 主循环与事件模型",
+      "page": {
+        "id": "3d3b5667-a0c6-815e-834e-c75dddc22fdf",
+        "url": "https://app.notion.com/p/3d3b5667a0c6815e834ec75dddc22fdf?pvs=204",
+        "properties": {
+          "title": "01 · Agent 主循环与事件模型"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/01-agent主循环与事件模型（turn-step、inbox.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 4,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/02-会话日志作为单一事实源（append-only事件日志、m.md",
+      "size": 17584,
+      "sha256": "568fe6b5c64e20b1c33ab18598c75f591f7c544b39e8f483eba223fb3fec3355",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "02 · 会话日志与单一事实来源",
+      "page": {
+        "id": "3d3b5667-a0c6-8197-bc44-de838a57ba77",
+        "url": "https://app.notion.com/p/3d3b5667a0c68197bc44de838a57ba77?pvs=204",
+        "properties": {
+          "title": "02 · 会话日志与单一事实来源"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/02-会话日志作为单一事实源（append-only事件日志、m.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 3,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/03-工具注册表、执行管线与系统提示词组装（packages-co.md",
+      "size": 20177,
+      "sha256": "f9876aaf4d30b2127616e83d05d3c7a7cfbcb331cf5073fd56ccee8fb2307ea2",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "03 · 工具执行与系统提示词",
+      "page": {
+        "id": "3d3b5667-a0c6-8173-a260-c55e23f7c18a",
+        "url": "https://app.notion.com/p/3d3b5667a0c68173a260c55e23f7c18a?pvs=204",
+        "properties": {
+          "title": "03 · 工具执行与系统提示词"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/03-工具注册表、执行管线与系统提示词组装（packages-co.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 3,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/04-capabilityseam(能力接缝)体系:fs-s.md",
+      "size": 16982,
+      "sha256": "ac2d13f02840da5d2dcfce99baac16100a982d1d76aeb1fe2abbc98515e45dd8",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "04 · 能力接缝与运行环境",
+      "page": {
+        "id": "3d3b5667-a0c6-8126-b32c-feedf21b2739",
+        "url": "https://app.notion.com/p/3d3b5667a0c68126b32cfeedf21b2739?pvs=204",
+        "properties": {
+          "title": "04 · 能力接缝与运行环境"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/04-capabilityseam(能力接缝)体系:fs-s.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 4,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/05-生态兼容层（skill-MCP-hooks桥-.md",
+      "size": 17749,
+      "sha256": "5a3af751fa8bb92d38064e18db953ce3a8f47a0e2a74243793ea662523c5e0ca",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "05 · Skills、MCP 与生态兼容",
+      "page": {
+        "id": "3d3b5667-a0c6-819a-90c8-dd404b4f7d36",
+        "url": "https://app.notion.com/p/3d3b5667a0c6819a90c8dd404b4f7d36?pvs=204",
+        "properties": {
+          "title": "05 · Skills、MCP 与生态兼容"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/05-生态兼容层（skill-MCP-hooks桥-.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [
+          "Skill 是三角色 seam 里的普通插件行，格式上彻底投降给 Claude Code 的 SKILL.md 事实标准",
+          "零配置双读：中立标准（.agents、AGENTS.md）全采，竞品专有标准（CLAUDE.md）降为 fallback"
+        ],
+        "filenameLinksCorrected": 14,
+        "written": true,
+        "heading_format_note": "Raw heading differences were inspected: Markdown escaping or filename autolinks; filename links corrected."
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/06-多agent与运行模式（subagent-workf.md",
+      "size": 21777,
+      "sha256": "1417099da1211438527c82ae5ff18830a291b68b6e607d50b413c4a8367ef63d",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "06 · 多 Agent 与运行模式",
+      "page": {
+        "id": "3d3b5667-a0c6-811f-9780-d0cd953eb24e",
+        "url": "https://app.notion.com/p/3d3b5667a0c6811f9780d0cd953eb24e?pvs=204",
+        "properties": {
+          "title": "06 · 多 Agent 与运行模式"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/06-多agent与运行模式（subagent-workf.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 1,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/07-持久化与状态（session持久化-SQLite、stor.md",
+      "size": 21955,
+      "sha256": "dd2b8e7559b2d6150079b1293ab6e562d52e3614664e20021fa625258a208f8e",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "07 · 持久化、状态与成本",
+      "page": {
+        "id": "3d3b5667-a0c6-8170-848b-ca189ab1d996",
+        "url": "https://app.notion.com/p/3d3b5667a0c68170848bca189ab1d996?pvs=204",
+        "properties": {
+          "title": "07 · 持久化、状态与成本"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/07-持久化与状态（session持久化-SQLite、stor.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 5,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/08-质量基建：测试策略、快照回放、覆盖率闸门、生成器与doc-.md",
+      "size": 15486,
+      "sha256": "d8a3179bbe9cb80c59fd2af10534b8b1c6f32209e529e65f4086aba9031e851d",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "08 · 测试与质量保障",
+      "page": {
+        "id": "3d3b5667-a0c6-8132-b9fb-d74fe71f390b",
+        "url": "https://app.notion.com/p/3d3b5667a0c68132b9fbd74fe71f390b?pvs=204",
+        "properties": {
+          "title": "08 · 测试与质量保障"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/08-质量基建：测试策略、快照回放、覆盖率闸门、生成器与doc-.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 5,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/09-工程过程资产：AgentNotes制度、postmort.md",
+      "size": 19167,
+      "sha256": "960ffe6be6bdcf32dc8ee0ad7aaaf55253e581a4e45737752e3e8f256d2705c0",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "09 · 工程过程与文档",
+      "page": {
+        "id": "3d3b5667-a0c6-811f-897d-d3717847ef00",
+        "url": "https://app.notion.com/p/3d3b5667a0c6811f897dd3717847ef00?pvs=204",
+        "properties": {
+          "title": "09 · 工程过程与文档"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/09-工程过程资产：AgentNotes制度、postmort.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 8,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/10-对外API面：typert类型图RPC、api-BF.md",
+      "size": 17321,
+      "sha256": "06ee8cad12c49c6a7d3e042f86e56a5ff337c2b41e4b230d9d091bb0f2788113",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "10 · API、SDK 与客户端",
+      "page": {
+        "id": "3d3b5667-a0c6-81e5-b5c4-ff7297cbf0fd",
+        "url": "https://app.notion.com/p/3d3b5667a0c681e5b5c4ff7297cbf0fd?pvs=204",
+        "properties": {
+          "title": "10 · API、SDK 与客户端"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/10-对外API面：typert类型图RPC、api-BF.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 1,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/11-cost-critic.md",
+      "size": 16135,
+      "sha256": "ae8cd1b3feba1b4db63903ba746c611d05b3eabdcab6ad1af06edf74a7605576",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "11 · 成本分析",
+      "page": {
+        "id": "3d3b5667-a0c6-817c-b594-cab39d3d40e8",
+        "url": "https://app.notion.com/p/3d3b5667a0c6817cb594cab39d3d40e8?pvs=204",
+        "properties": {
+          "title": "11 · 成本分析"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/11-cost-critic.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 8,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/12-compare-critic.md",
+      "size": 19166,
+      "sha256": "7ceda3b7156a0081931cae6dbeb6b449f7ef2ac67b108639efde094fd866dae6",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "12 · 框架横向比较",
+      "page": {
+        "id": "3d3b5667-a0c6-81ea-82b3-f46559ebfc44",
+        "url": "https://app.notion.com/p/3d3b5667a0c681ea82b3f46559ebfc44?pvs=204",
+        "properties": {
+          "title": "12 · 框架横向比较"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/12-compare-critic.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 7,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/13-orange-book-critic.md",
+      "size": 20414,
+      "sha256": "a2ad7b5a8ecce8ae0e47d853efbd4ef2cf4c53f2992ddc81d9b873fe6bbf89d2",
+      "cat": "deepseek",
+      "curated": null,
+      "title": "13 · 橙皮书阅读与评析",
+      "page": {
+        "id": "3d3b5667-a0c6-81f2-b442-f355c84193d7",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f2b442f355c84193d7?pvs=204",
+        "properties": {
+          "title": "13 · 橙皮书阅读与评析"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/reading/deepseek-harness-teardown/13-orange-book-critic.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 3,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/reviews/weekly/2026-W16.md",
+      "size": 5565,
+      "sha256": "b17aa9245f83e1f8e78bec3dec358c0e8c40f0807b1c4a9b07b917e336967222",
+      "cat": "history",
+      "curated": null,
+      "title": "2026-W16 · Week 2026-W16 Review",
+      "page": {
+        "id": "3d3b5667-a0c6-81aa-bcf5-c6745e786245",
+        "url": "https://app.notion.com/p/3d3b5667a0c681aabcf5c6745e786245?pvs=204",
+        "properties": {
+          "title": "2026-W16 · Week 2026-W16 Review"
+        }
+      },
+      "outgoing": [
+        "src/brain/decisions/2026-04-15-client-facing-ai-lab-pivot.md",
+        "src/brain/decisions/2026-04-13-continuous-ingest-adoption.md"
+      ],
+      "check": {
+        "path": "src/brain/reviews/weekly/2026-W16.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "filenameLinksCorrected": 4,
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    },
+    {
+      "path": "src/brain/tech-learning/2026-08-22-typescript-7-native-toolchain.md",
+      "size": 8673,
+      "sha256": "bf4b61553be89d22f529ffe64f98facee19c38ee5a89cfddb04ec09c1d08eafb",
+      "cat": "reading",
+      "curated": null,
+      "title": "TypeScript 7.0 · Native Toolchain",
+      "page": {
+        "id": "3d3b5667-a0c6-81e7-b8d6-d6b4b91d0573",
+        "url": "https://app.notion.com/p/3d3b5667a0c681e7b8d6d6b4b91d0573?pvs=204",
+        "properties": {
+          "title": "TypeScript 7.0 · Native Toolchain"
+        }
+      },
+      "outgoing": [],
+      "check": {
+        "path": "src/brain/tech-learning/2026-08-22-typescript-7-native-toolchain.md",
+        "source": true,
+        "truncated": false,
+        "unknown": 0,
+        "links": true,
+        "missingHeadings": [],
+        "written": true,
+        "heading_format_note": null
+      },
+      "written": true
+    }
+  ],
+  "unresolved": [
+    {
+      "source": "src/brain/concepts/discounted-cash-flow.md",
+      "target": "time-value-of-money"
+    },
+    {
+      "source": "src/brain/concepts/discounted-cash-flow.md",
+      "target": "free-cash-flow"
+    },
+    {
+      "source": "src/brain/concepts/discounted-cash-flow.md",
+      "target": "weighted-average-cost-of-capital"
+    },
+    {
+      "source": "src/brain/concepts/discounted-cash-flow.md",
+      "target": "terminal-value"
+    },
+    {
+      "source": "src/brain/concepts/discounted-cash-flow.md",
+      "target": "sensitivity-analysis"
+    },
+    {
+      "source": "src/brain/concepts/discounted-cash-flow.md",
+      "target": "margin-of-safety"
+    },
+    {
+      "source": "src/brain/concepts/document-visual-language.md",
+      "target": "pages/document-visual-language.html"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "prompt-engineering"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "context-engineering"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "agent-harness"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "agent-framework"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "model-context-protocol"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "evaluation-harness"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "durable-execution"
+    },
+    {
+      "source": "src/brain/concepts/harness-engineering.md",
+      "target": "capability-security"
+    },
+    {
+      "source": "src/brain/concepts/idempotency.md",
+      "target": "pages/idempotency.html"
+    },
+    {
+      "source": "src/brain/concepts/monte-carlo-simulation.md",
+      "target": "sequence-of-returns-risk"
+    },
+    {
+      "source": "src/brain/concepts/monte-carlo-simulation.md",
+      "target": "sensitivity-analysis"
+    },
+    {
+      "source": "src/brain/concepts/monte-carlo-simulation.md",
+      "target": "stress-testing"
+    },
+    {
+      "source": "src/brain/concepts/monte-carlo-simulation.md",
+      "target": "scenario-analysis"
+    },
+    {
+      "source": "src/brain/concepts/monte-carlo-simulation.md",
+      "target": "model-risk"
+    },
+    {
+      "source": "src/brain/concepts/optimistic-concurrency.md",
+      "target": "pages/optimistic-concurrency.html"
+    },
+    {
+      "source": "src/brain/concepts/paired-randomization-test.md",
+      "target": "pages/paired-randomization-test.html"
+    },
+    {
+      "source": "src/brain/concepts/progressive-disclosure.md",
+      "target": "pages/progressive-disclosure.html"
+    },
+    {
+      "source": "src/brain/concepts/single-source-of-truth.md",
+      "target": "pages/single-source-of-truth.html"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "wikilinks"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "page-name"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "wikilink"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "../../../CLAUDE.md"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "../../goals/"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "../../reviews/"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "../../decisions/"
+    },
+    {
+      "source": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "target": "../../../../CLAUDE.md"
+    },
+    {
+      "source": "src/brain/reviews/weekly/2026-W16.md",
+      "target": "../../goals/current-quarter.md"
+    },
+    {
+      "source": "src/brain/reviews/weekly/2026-W16.md",
+      "target": "../../../inbox/todo.md"
+    },
+    {
+      "source": "src/brain/reviews/weekly/2026-W16.md",
+      "target": "../../../inbox/scratch.md"
+    }
+  ]
+}

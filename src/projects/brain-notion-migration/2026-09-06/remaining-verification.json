@@ -1,0 +1,862 @@
+{
+  "date": "2026-09-06",
+  "files": [
+    {
+      "path": "src/brain/2025-02-19-lenny-boris-cherny-claude-code.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/discounted-cash-flow.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/document-visual-language.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/harness-engineering.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/idempotency.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/monte-carlo-simulation.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/optimistic-concurrency.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/paired-randomization-test.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [
+        "“有 p < 0.05 就可以上线”"
+      ],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/progressive-disclosure.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/concepts/single-source-of-truth.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/decisions/2026-04-13-continuous-ingest-adoption.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/decisions/2026-04-15-client-facing-ai-lab-pivot.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/development-philosophy/distribution-is-a-product-requirement.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/development-philosophy/project-harness-is-ai-autonomy-infrastructure.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/development-philosophy/visibility-is-a-product-requirement.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/02/2026-02-18.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-08.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-09.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-13.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-16.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-23.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [
+        "[Demo 2026-03-23] Demo to Yile"
+      ],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-25.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-26.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-27.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/03/2026-03-29.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-01.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-13.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-18.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-26.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/05/2026-05-18.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-07.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-14.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/journal/2026/06/2026-06-15.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/life/routine.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/notes/git-multi-remote.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/notes/nova-update.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/notes/private-wealth/hazel.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/processing/pilot-context.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-01-karpathy-microgpt.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 6,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-03-siliconvalley-101-health-care.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-21-learn-palantir.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-29-cli-vs-mcp-research.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-04-13-karpathy-second-brain.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 1,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-04-19-anthropic-labs-claude-design.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-06-14-nadella-token-capital-frontier-ecosystem.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/2026/2026-06-15-vivek-good-at-research.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/00-Cordis内核与组合层（vendored插件框架+.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 3,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/01-agent主循环与事件模型（turn-step、inbox.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 4,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/02-会话日志作为单一事实源（append-only事件日志、m.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 3,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/03-工具注册表、执行管线与系统提示词组装（packages-co.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 3,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/04-capabilityseam(能力接缝)体系:fs-s.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 4,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/05-生态兼容层（skill-MCP-hooks桥-.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [
+        "Skill 是三角色 seam 里的普通插件行，格式上彻底投降给 Claude Code 的 SKILL.md 事实标准",
+        "零配置双读：中立标准（.agents、AGENTS.md）全采，竞品专有标准（CLAUDE.md）降为 fallback"
+      ],
+      "filenameLinksCorrected": 14,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/06-多agent与运行模式（subagent-workf.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 1,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/07-持久化与状态（session持久化-SQLite、stor.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 5,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/08-质量基建：测试策略、快照回放、覆盖率闸门、生成器与doc-.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 5,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/09-工程过程资产：AgentNotes制度、postmort.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 8,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/10-对外API面：typert类型图RPC、api-BF.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 1,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/11-cost-critic.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 8,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/12-compare-critic.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 7,
+      "written": true
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/13-orange-book-critic.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 3,
+      "written": true
+    },
+    {
+      "path": "src/brain/reviews/weekly/2026-W16.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "filenameLinksCorrected": 4,
+      "written": true
+    },
+    {
+      "path": "src/brain/tech-learning/2026-08-22-typescript-7-native-toolchain.md",
+      "source": true,
+      "truncated": false,
+      "unknown": 0,
+      "links": true,
+      "missingHeadings": [],
+      "written": true
+    }
+  ],
+  "retained": [
+    {
+      "path": "src/brain/README.md",
+      "size": 3399,
+      "sha256": "37b4fa31b2328ce2cc069ec77d3dd4b7bdc2e5ae60b8f556de546710bda60d12",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/agent-decisions/README.md",
+      "size": 732,
+      "sha256": "798f85075b5c537e166d350c4eb6be50eedb5af7ffaa79bb2f3ec6bf5ae0d8b3",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/agent-decisions/rejected/2026-08-16-no-legacy-video-fallback.md",
+      "size": 1804,
+      "sha256": "9690a445ff0189f772210d756411bde51977beddafa6faae311e30986bc0d5d1",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/concepts/README.md",
+      "size": 5199,
+      "sha256": "c973df0a070e090df233bef21036e70f52a40c8e5452b2433ccb0c59eef7f19a",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/concepts/_template.md",
+      "size": 501,
+      "sha256": "bc04d6ba38f97082aa4b3cff071381d082e74b36749af5a9b8c8a2ba2a374e47",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/concepts/index.html",
+      "size": 25533,
+      "sha256": "75cd4434d8a61526c71108bd3339c69f9995964a45e02239b1289184fdbbadd3",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/discounted-cash-flow.html",
+      "size": 72520,
+      "sha256": "7116fce1a0b9d5b0c71672e0a4788cf1124e5a8e774d90441edf37778415b152",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/document-visual-language.html",
+      "size": 44458,
+      "sha256": "cb99b1b8ec3f71171ff8a7dcdf86422fa18a1c820ef995bf571df81d31a0172c",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/harness-engineering.html",
+      "size": 94746,
+      "sha256": "33ffde455542f070ef2fd4dd55b939ae46c35649787ee591996ce648cd519727",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/idempotency.html",
+      "size": 32569,
+      "sha256": "2411ee8c2545a2745d5985f0a16a3e89fc0a5ad73d650334486f7894a9698afb",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/monte-carlo-simulation.html",
+      "size": 76172,
+      "sha256": "4223fc30e1c77870eecb0cd3c76ef78ca6810db4b167090a698cecb537ea76f1",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/optimistic-concurrency.html",
+      "size": 46818,
+      "sha256": "7d033547a09d313749e298f436926bfc52f22a47464c8f53d315b48f42ff5773",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/paired-randomization-test.html",
+      "size": 40534,
+      "sha256": "c597ebeda974870b921e8d5e9c33120e48476ecd131fe73c628d5e3acccb7871",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/progressive-disclosure.html",
+      "size": 39332,
+      "sha256": "f85dc3960ac6b4507a9ad8c4f1323557ddece8997cb880ca639fb119ddfcd10a",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/concepts/pages/single-source-of-truth.html",
+      "size": 28696,
+      "sha256": "241012c46be71226146d75a915efc93212f8a7129e00e6a1276aa8cba6588a3b",
+      "reason": "保留 repo：交互网页 artifact"
+    },
+    {
+      "path": "src/brain/decisions/README.md",
+      "size": 1588,
+      "sha256": "d17f0c4b8a95e9efa86a4a629d691ce01bf532e5896ad1d835aca593271d759f",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/development-philosophy/README.md",
+      "size": 1388,
+      "sha256": "a88b9df4ae9c3eb8fde9cc519a90ae73c8e0efdaa3c6734177c25bcaea083f16",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/goals/2026.md",
+      "size": 632,
+      "sha256": "f33c74f32ee749ac99e909705ff2a34efa615c6b575f9e6fbb78a2cd41282b49",
+      "reason": "排除：未填写目标模板"
+    },
+    {
+      "path": "src/brain/goals/current-quarter.md",
+      "size": 684,
+      "sha256": "325b62c5faba46bdcb8182dbfa4a03e6880cc8404853477a7ec445b37a9c0bbb",
+      "reason": "排除：未填写目标模板"
+    },
+    {
+      "path": "src/brain/goals/north-star.md",
+      "size": 735,
+      "sha256": "4d3de5b51d5eb8a0983e2507439c9753098129bc26059c890d6a2370ec151d73",
+      "reason": "排除：未填写目标模板"
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-02.md",
+      "size": 2,
+      "sha256": "84a5e715899e1c4b9138530513ebf39462d21e0ef56de8b9658c32619a6158d9",
+      "reason": "排除：空白日记"
+    },
+    {
+      "path": "src/brain/journal/2026/04/2026-04-21.md",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "排除：空白日记"
+    },
+    {
+      "path": "src/brain/logs/cf/2026-04-cf.md",
+      "size": 902,
+      "sha256": "b5e5493c2ced08e9783c1e1f799f14fac6497f37ed59b0986d6588672ae17c52",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/cf/2026-05-cf.md",
+      "size": 358,
+      "sha256": "3f02502854d6f676a2609e4afb38a12f60187eef0ed065fc25b81ade5724016b",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/cf/2026-06-cf.md",
+      "size": 169,
+      "sha256": "1caf2a8ca0c5d01abbb2d035bc596f59de0abdaaac8f97a863e382ac535d4112",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/cf/2026-07-cf.md",
+      "size": 864,
+      "sha256": "dbd54cb9c31d4c82651be34c4290403463ee8a71620efac5eb14395258b0ee58",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/cf/2026-08-cf.md",
+      "size": 307,
+      "sha256": "f6df4c2b5873e4758119bcc5fd3811d88aca518aee5a8ed8089afda9d5a8e61f",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/oc/2026-04-oc.md",
+      "size": 1091,
+      "sha256": "7635508b4b4bc522cbfe89da398331f92780b3167c9398d83be3525b5ac8f4cd",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/oc/2026-05-oc.md",
+      "size": 2053,
+      "sha256": "18c6a6e0bc5609783ba127cd48dbd4711b0e2656b6130d5103d6d5aa488974d4",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/oc/2026-06-oc.md",
+      "size": 19957,
+      "sha256": "881ce699ac79324508d0ebdf16a8fbb068cd27f48d98b81c5a945c49f9282072",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/oc/2026-07-oc.md",
+      "size": 791,
+      "sha256": "d3326efca498a1365492cb52f723826647c871b076f6ae8d20d7fc49f0f14ff9",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/logs/oc/2026-08-oc.md",
+      "size": 874,
+      "sha256": "192128d59189f081ee1eaff3a20ef5ea538d3670b41ed592b0553beb8b1ecfd9",
+      "reason": "保留 repo：工时与运行记录"
+    },
+    {
+      "path": "src/brain/notes/temp.md",
+      "size": 196,
+      "sha256": "a58793632d6e3c8e10444605f9b49e09b9c9e4a740ba06b8a02432e0930e0061",
+      "reason": "排除：临时执行 prompt"
+    },
+    {
+      "path": "src/brain/processing/README.md",
+      "size": 2546,
+      "sha256": "0e7559eb2a64980c8eb48560e7885e12c5ad1c50ed9ffaf11a23c5ad041d9f9f",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/reading/2026/2026-03-30-google-ai-agent/23807_agentspace_ebook_and_promo_fa_zh-cn.pdf",
+      "size": 12626789,
+      "sha256": "e67fc4bf607846e3b6641063923f7811a0e7a57d122d5200f7f62dffa0d9ba02",
+      "reason": "保留 repo：原始参考附件"
+    },
+    {
+      "path": "src/brain/reading/README.md",
+      "size": 564,
+      "sha256": "3d0bd6989390c57e3a227d642400c22fc9de26a53af9fd02a019091a509a722a",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/README.md",
+      "size": 1689,
+      "sha256": "fc3eb24028f32882e3f7f7ad42349462bc6a95f1b8420c27173e7a56175c038d",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/reading/deepseek-harness-teardown/orange-book-full-text.txt",
+      "size": 239302,
+      "sha256": "718eb6fe8caa9dc3e22ee5ca4c1f2b20d694c2d456c1a55de63b5ac094a18bb7",
+      "reason": "保留 repo：原始参考附件"
+    },
+    {
+      "path": "src/brain/reviews/README.md",
+      "size": 1277,
+      "sha256": "ae5418c47f452851abb7f21bdd87fa3ed8b85ce959fef834820bd1b04c429206",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/reviews/monthly/.template.md",
+      "size": 594,
+      "sha256": "f9bbc4f5e6ed4e71a05e23c88a3b91f8d318800cf6bccb86e0447fe6df67ceb7",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/reviews/quarterly/.template.md",
+      "size": 715,
+      "sha256": "8d27605abba73504f1e1fad9e64833f00fee5585373cfe273a28cab439ed43aa",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/reviews/weekly/.template.md",
+      "size": 894,
+      "sha256": "1bfcfd296f003440131477d04f4cb34547048c5c9c380a499625fd112137b0c7",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/tech-learning/README.md",
+      "size": 2454,
+      "sha256": "2c9d2e95d06883e4eead7b2644a46f649dbe60631c2f69523c330a88f8373789",
+      "reason": "保留 repo：目录、模板与工作流说明"
+    },
+    {
+      "path": "src/brain/video-lab/lessons.md",
+      "size": 4414,
+      "sha256": "8c9f5831d7b781a955207fe8b8e42ba55a0e2c739fd12461f1a4802461b100a2",
+      "reason": "保留 repo：工时与运行记录"
+    }
+  ]
+}

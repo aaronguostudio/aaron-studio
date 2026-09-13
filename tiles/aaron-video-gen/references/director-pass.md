@@ -78,6 +78,61 @@ selected visual spine, and can disappear without changing the argument. Record
 why the accepted candidate earned the beat and why alternatives were rejected.
 Never use a semantic accent as evidence.
 
+## Visual Enrichment After Content Approval
+
+When Aaron approves the argument, voice and restraint but asks for richer images
+or layouts, treat this as a visual-only revision. His explicit delegation of
+art direction is sufficient to select a continuation of the approved style;
+do not restart cover exploration or request the same approval again.
+
+1. Preserve the approved renderer, media, narration, script, caption timings and
+   scene boundaries. Record hashes for the locked audio and text. Give the new
+   renderer and outputs versioned paths so the comparison is reproducible.
+2. Find repetition at the **composition** level, not only the template name.
+   Several system-map scenes can legitimately use different registered layouts;
+   several differently named scenes can still repeat the same three-column row.
+3. Write one concrete job for each proposed image: make repeated entry tangible,
+   show people inspecting one draft, or make waiting review work visible. These
+   are examples, not a reusable quota or mandatory object set. Reject images
+   that only restate the topic. Keep generated scenes explicitly illustrative.
+4. Vary the relationship between media and text: an object with side notes, a
+   manuscript with a margin correction, a shared review sheet, or two claims on
+   facing documents. Choose registered geometry first. Preserve the established
+   palette, typography, caption zone and visual restraint.
+5. Give small motion a reading job: draw an underline under a corrected scope,
+   move focus between existing review criteria, or reveal the relation between
+   source and interpretation. Keep the scaffold legible from entry. Do not add
+   drifting cameras, text scaling, character acting or decorative motion merely
+   to create activity. Reuse an image only when returning to it has a story job.
+6. Render representative changed passages before the full film. Compare the same
+   source moments with the prior version, including entry, middle and exit;
+   inspect all remaining changed layouts in the encoded master. A contact sheet
+   supports layout review, not a claim of full playback or headphone listening.
+7. Retain only changes that improve recognition, comprehension or rhythm while
+   preserving the approved argument. Record unresolved author-review status.
+   If asked to improve the skill, capture these demonstrated decision rules;
+   do not promote one film’s illustration count or subject matter into policy.
+
+If the approved soundtrack is reused on an unchanged timeline, verify the final
+encoded audio stream as well as the source file. A visual revision should not
+silently regenerate the voice or alter a previously accepted ending.
+
+## Sound and pauses after approval
+
+When the complaint is repetitive music, flat delivery, or weak integration of
+voice, image and score, use [sound-direction.md](sound-direction.md) to isolate
+the cause and build a bounded listening comparison before replacing the master.
+
+Treat an approved voice track as a stable reference. Fade the **music bus**, keeping narration gain constant; do not fade or normalize the entire mix to make room for an entrance. Music should emerge and recede gradually, without a perceived drop in the speaker's voice. Choose fades and levels by listening, not a universal duration or dB target.
+
+Place sparse music changes at meaningful transitions. Give a pause a story purpose: a completed thought, a visual detail to absorb, or a shift from the interview to personal experience. Do not insert silence mid-phrase or add a hold merely to lengthen the film. Combine a motivated image, restrained motion, and a gentle musical transition when useful.
+
+If adding holds changes the timeline, maintain one time mapping for narration segments, scenes, captions, music cues, and chapter timestamps. Verify they remain aligned in the encoded master. Preserve the previous approved version so the experiment is reversible.
+
+Listen across every changed entrance, exit, and hold, including the final ending. Check aligned speech segments against the approved voice track for unintended gain changes; inspect the final encoded audio for clipping and abrupt transitions. A waveform or contact sheet alone cannot establish that a pause feels natural.
+
+Record music source and reuse evidence when generating or selecting it. Keep author confirmation distinct from independently verified provider/license evidence, carry forward resolved approvals, and investigate only material unresolved gaps.
+
 ## Layout Rule
 
 Do not ask a model to invent page geometry on every scene. Choose a registered

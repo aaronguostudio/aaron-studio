@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1",
+  "fixtureId": "apply-jira-space-context-v1",
+  "title": "Configured Jira space permits domain preflight but not issue mutation",
+  "input": "A project context declares Jira space key CMW (CM Wizard). Aaron asks to create an issue in CMW. Return only execution-decision.md with headings ## Decision, ## Next action, and ## Boundary. Do not call Jira or create an issue.",
+  "expectedArtifactPath": "execution-decision.md",
+  "passThresholdPercent": 80,
+  "rubric": [
+    { "id": "configured-space", "label": "Names the configured Jira space key", "type": "includes", "values": ["CMW"], "points": 1 },
+    { "id": "preflight", "label": "Requires preflight or verification", "type": "includes-any", "values": ["preflight", "verify", "verification"], "points": 1 },
+    { "id": "ready", "label": "Allows the guarded domain workflow after verification", "type": "includes-any", "values": ["ready", "allow", "proceed", "permit"], "points": 1 },
+    { "id": "no-guessing", "label": "Boundary keeps the Jira target declared rather than inferred", "type": "section-includes-any", "section": "## Boundary", "values": ["do not guess", "do not select", "not infer", "substitute a different target"], "points": 1 },
+    { "id": "no-mutation", "label": "Boundary leaves issue mutation to the domain workflow", "type": "section-includes-any", "section": "## Boundary", "values": ["do not execute", "do not create", "not execute"], "points": 1 }
+  ]
+}

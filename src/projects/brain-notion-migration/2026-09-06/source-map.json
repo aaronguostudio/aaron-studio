@@ -1,0 +1,77 @@
+{
+  "date": "2026-09-06",
+  "brain_home": "https://app.notion.com/p/3d3b5667a0c681b08ef6d856eed210ee",
+  "source_root": "src/brain",
+  "mappings": {
+    "src/brain/concepts/single-source-of-truth.md": {
+      "notion_page_id": "3d3b5667-a0c6-81fc-a4b9-efd2ce40836b",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681fca4b9efd2ce40836b",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/optimistic-concurrency.md": {
+      "notion_page_id": "3d3b5667-a0c6-8177-86cd-e1d5f5fa216f",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6817786cde1d5f5fa216f",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/progressive-disclosure.md": {
+      "notion_page_id": "3d3b5667-a0c6-814e-8606-d84fc5b73c5f",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6814e8606d84fc5b73c5f",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/document-visual-language.md": {
+      "notion_page_id": "3d3b5667-a0c6-81c1-8de8-e2ee0211ffd9",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c18de8e2ee0211ffd9",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/paired-randomization-test.md": {
+      "notion_page_id": "3d3b5667-a0c6-815f-b9ba-feeef53f1881",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6815fb9bafeeef53f1881",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/monte-carlo-simulation.md": {
+      "notion_page_id": "3d3b5667-a0c6-811a-94d2-eeee52c2922c",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c6811a94d2eeee52c2922c",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/discounted-cash-flow.md": {
+      "notion_page_id": "3d3b5667-a0c6-8174-bf17-dc8bae010062",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68174bf17dc8bae010062",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/harness-engineering.md": {
+      "notion_page_id": "3d3b5667-a0c6-81ac-896f-d7e61c6a38a3",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ac896fd7e61c6a38a3",
+      "treatment": "merged_curated_summary"
+    },
+    "src/brain/development-philosophy/project-harness-is-ai-autonomy-infrastructure.md": {
+      "notion_page_id": "3d3b5667-a0c6-81ac-896f-d7e61c6a38a3",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ac896fd7e61c6a38a3",
+      "treatment": "merged_curated_summary"
+    },
+    "src/brain/development-philosophy/distribution-is-a-product-requirement.md": {
+      "notion_page_id": "3d3b5667-a0c6-81c7-8651-c6223710b87f",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681c78651c6223710b87f",
+      "treatment": "curated_summary"
+    },
+    "src/brain/journal/2026/06/2026-06-07.md": {
+      "notion_page_id": "3d3b5667-a0c6-81bb-a626-d1dd5631c8b8",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681bba626d1dd5631c8b8",
+      "treatment": "curated_summary"
+    },
+    "src/brain/journal/2026/03/2026-03-09.md": {
+      "notion_page_id": "3d3b5667-a0c6-81ab-9bfb-c286f89ad1c7",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681ab9bfbc286f89ad1c7",
+      "treatment": "curated_summary"
+    },
+    "src/brain/concepts/idempotency.md": {
+      "notion_page_id": "3d3b5667-a0c6-8101-9d37-fffb012a08aa",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c681019d37fffb012a08aa",
+      "treatment": "curated_summary"
+    },
+    "src/brain/development-philosophy/visibility-is-a-product-requirement.md": {
+      "notion_page_id": "3d3b5667-a0c6-8101-b549-e6a6c24c00ce",
+      "notion_url": "https://app.notion.com/p/3d3b5667a0c68101b549e6a6c24c00ce",
+      "treatment": "curated_summary"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+import {readFile,writeFile,mkdir,copyFile} from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const dir=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(dir,'../../../../..');
+const config=JSON.parse(await readFile(path.join(root,'config/aaron-studio.json'),'utf8'));
+const dev=path.resolve(root,config.skillDevRepo);
+const {writeReviewSnapshot,writeEditorialReview}=await import(pathToFileURL(path.join(dev,'packages/core/dist/index.js')).href);
+const now=new Date().toISOString();
+const runDir=path.join(dir,'runs',now.replace(/[:.]/g,'-'));
+await mkdir(runDir,{recursive:true});
+const context=['tiles/blog-brainstorm/SKILL.md','tiles/blog-outline/SKILL.md','tiles/blog-write/SKILL.md','tiles/blog-prose-editor/SKILL.md','tiles/blog-production/references/editorial-system.md','src/content/strategy/blog-writing-language.md','tiles/blog-production/templates/workflow3/editorial-scorecard.md'];
+await writeReviewSnapshot(path.join(dir,'baseline'),'tiles/blog-production/SKILL.md',path.join(runDir,'rule-before.json'),{label:'本轮修改前',context});
+await writeReviewSnapshot(root,'tiles/blog-production/SKILL.md',path.join(runDir,'rule-after.json'),{label:'本轮修改后',context:[...context,'tiles/blog-production/references/editorial-examples.md','tiles/blog-production/references/skilldev-review.md']});
+const history=JSON.parse(await readFile(path.join(dir,'../editorial-cases.json'),'utf8')).cases.slice(0,4);
+const questions=['开头有没有抓住真正的认同？','读者是否先理解任务，再遇到技术名词？','文字是否表达了作者真正喜欢的变化？','结尾是否收住信任、代价与期待？'];
+const titles=['DHH · 作者意图','Astra · 背景','Astra · 写作感受','Astra · 结尾'];
+const cases=[];
+for(const [i,c] of history.entries()){
+ const before=await readFile(path.join(root,c.before),'utf8');const after=await readFile(path.join(root,c.accepted),'utf8');
+ const headings=t=>t.match(/^## .+$/gm)??[];
+ let focus;
+ if(i===0) focus={before:'听完 DHH 和 Lex Fridman',after:'听完 DHH 和 Lex Fridman'};
+ if(i===1) focus={before:headings(before)[0],after:headings(after)[0]};
+ if(i===2) focus={before:headings(before).find(h=>h.includes('写作')),after:headings(after).find(h=>h.includes('文字更自然'))};
+ if(i===3) focus={before:'下一个复杂部署任务',after:'这些体验放在一起'};
+ if(!focus.before||!focus.after||!before.includes(focus.before)||!after.includes(focus.after))throw Error('Missing focus '+c.id);
+ cases.push({id:c.id,title:titles[i],kind:'historical-revision',question:questions[i],focus,before:{artifact:c.before,label:'作者反馈前的历史稿'},after:{artifact:c.accepted,label:'作者认可的版本'},feedback:[{text:c.feedback,source:'author-feedback',reference:'本任务中 Aaron 的反馈摘要；不是新的评审'}],checks:[{label:'对应英文稿的语言扫描',source:'2026-09-07 scanner-replay.json；当前展示为中文稿',before:'无告警（历史工具分数 100）',after:'无告警（历史工具分数 100）'}],decision:{preference:'after',reason:c.feedback,source:'author-reported',recordedAt:now}});
+}
+cases.push({id:'editorial-skill-iteration',title:'Skill · 本轮修改',kind:'skill-change',question:'哪些规则改变了，哪些效果还需要检验？',before:path.relative(root,path.join(runDir,'rule-before.json')),after:path.relative(root,path.join(runDir,'rule-after.json')),feedback:[{text:'作者同意以小迭代同时提高 SkillDev 和 blog skill。本轮集中处理意图、背景、结尾与证据式审查，并保留有效的媒体和发布约束。',source:'reviewer-note',reference:'本轮已授权范围与实现摘要'}],checks:[],decision:{preference:'uncertain',reason:'规则和工具已实现；下一篇新主题的写作表现尚待验证。历史稿件的改进不归因于本轮新规则。',source:'reviewer-note',recordedAt:now}});
+const spec={title:'Blog Production · 第一次共同迭代',limitations:['四组历史稿件早于本轮 skill 修改，只用于校准作者偏好，不能证明新规则导致了旧稿的改善。','模型、原始执行耗时、费用与实际加载轨迹未被这些快照记录；未知项保持未知。','文件捕获时间是本次读取时间，不是原始写作时间。','Skill 版本对照保留了本轮开始前的工作区文件，包括此前已存在的修改。','界面里的选择是评审意见；文件校验只证明文本版本一致。'],cases};
+const specFile=path.join(runDir,'review-spec.json');await writeFile(specFile,JSON.stringify(spec,null,2)+'\n');
+const output=path.join(runDir,'review.json');const review=await writeEditorialReview(root,specFile,output);
+const localDir=path.join(dev,'apps/web/public/editorial-local');await mkdir(localDir,{recursive:true});await copyFile(output,path.join(localDir,'review.json'));
+await writeFile(path.join(dir,'latest.json'),JSON.stringify({builtAt:now,runDir,review:output,spec:specFile,reviewId:review.reviewId,cases:review.cases.length},null,2)+'\n');
+console.log(JSON.stringify({review:output,cases:review.cases.length,localViewer:'http://127.0.0.1:5178/?view=editorial'}));

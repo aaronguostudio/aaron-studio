@@ -1,0 +1,1067 @@
+{
+  "date": "2026-09-06",
+  "root": {
+    "id": "3d3b5667-a0c6-8122-9bd3-d720c779efbf",
+    "url": "https://app.notion.com/p/3d3b5667a0c681229bd3d720c779efbf?pvs=204",
+    "properties": {
+      "title": "World · 我身边的人与关系"
+    }
+  },
+  "categories": {
+    "people": {
+      "id": "3d3b5667-a0c6-811a-bd6d-e28ceb3905c2",
+      "url": "https://app.notion.com/p/3d3b5667a0c6811abd6de28ceb3905c2?pvs=204",
+      "properties": {
+        "title": "人物"
+      }
+    },
+    "orgs": {
+      "id": "3d3b5667-a0c6-8127-a17a-cbcdd8e041b0",
+      "url": "https://app.notion.com/p/3d3b5667a0c68127a17acbcdd8e041b0?pvs=204",
+      "properties": {
+        "title": "组织"
+      }
+    },
+    "projects": {
+      "id": "3d3b5667-a0c6-8120-91ee-e922cdd17022",
+      "url": "https://app.notion.com/p/3d3b5667a0c6812091eee922cdd17022?pvs=204",
+      "properties": {
+        "title": "项目背景"
+      }
+    },
+    "themes": {
+      "id": "3d3b5667-a0c6-818f-99e5-e1dcdcc2400b",
+      "url": "https://app.notion.com/p/3d3b5667a0c6818f99e5e1dcdcc2400b?pvs=204",
+      "properties": {
+        "title": "长期主题"
+      }
+    },
+    "_archive": {
+      "id": "3d3b5667-a0c6-816e-9e12-d978ca4a6e94",
+      "url": "https://app.notion.com/p/3d3b5667a0c6816e9e12d978ca4a6e94?pvs=204",
+      "properties": {
+        "title": "原始记录"
+      }
+    },
+    "guides": {
+      "id": "3d3b5667-a0c6-8116-9542-cf3406e8d91a",
+      "url": "https://app.notion.com/p/3d3b5667a0c681169542cf3406e8d91a?pvs=204",
+      "properties": {
+        "title": "旧目录与说明"
+      }
+    }
+  },
+  "files": [
+    {
+      "path": "src/brain/world/INDEX.md",
+      "sha256": "54662683a2f8f9ce21aa6c0a2ff2350cab830e537a8233267d4de68ecdebbba1",
+      "title": "World Index",
+      "page": {
+        "id": "3d3b5667-a0c6-810d-a5bf-fcd49c58c65c",
+        "url": "https://app.notion.com/p/3d3b5667a0c6810da5bffcd49c58c65c?pvs=204",
+        "properties": {
+          "title": "World Index"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 6915,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/README.md",
+      "sha256": "0118cf0ffc6d4b7eb3cde35c1bfad72cc32d80862bc954a6ea16eff9828aa2bb",
+      "title": "World — Aaron's Digital Twin",
+      "page": {
+        "id": "3d3b5667-a0c6-81d0-9475-d781cfe19657",
+        "url": "https://app.notion.com/p/3d3b5667a0c681d09475d781cfe19657?pvs=204",
+        "properties": {
+          "title": "World — Aaron's Digital Twin"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1928,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/alex-bezos-squiggly-lines.md",
+      "sha256": "31e48b7d4e150b9697d4a2972193688903757757541427aad8bb097bf4d75f11",
+      "title": "Alex's Bezos \"Squiggly Lines\" Share",
+      "page": {
+        "id": "3d3b5667-a0c6-81f2-a912-c1ad312609e0",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f2a912c1ad312609e0?pvs=204",
+        "properties": {
+          "title": "Alex's Bezos \"Squiggly Lines\" Share"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 8131,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/justin-direct-message-aaron-ux.md",
+      "sha256": "32fa36378e4fc1713af919716440c816cfffc9b0f3475e13d8431e54396a50b4",
+      "title": "Justin's Direct Message to Aaron — UX Priority Clarification",
+      "page": {
+        "id": "3d3b5667-a0c6-81cd-82e4-d9a70315b844",
+        "url": "https://app.notion.com/p/3d3b5667a0c681cd82e4d9a70315b844?pvs=204",
+        "properties": {
+          "title": "Justin's Direct Message to Aaron — UX Priority Clarification"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 4336,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/justin-interaction-definition.md",
+      "sha256": "30d12a71fb7a2caf842968f37438d465cbe661e496e5f46bedf621f12c4c5be5",
+      "title": "Justin's Definition of \"Interaction\"",
+      "page": {
+        "id": "3d3b5667-a0c6-8167-96cb-e079433ab74b",
+        "url": "https://app.notion.com/p/3d3b5667a0c6816796cbe079433ab74b?pvs=204",
+        "properties": {
+          "title": "Justin's Definition of \"Interaction\""
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 7087,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/justin-post-retreat-message.md",
+      "sha256": "72628eba44f67e36d1710244cf6d32ff4f7cb8a4607b798a8b8ce4122a64e8a6",
+      "title": "Justin's Post-Retreat Message to Nova Builders",
+      "page": {
+        "id": "3d3b5667-a0c6-81d1-92e4-ce11a5fbc4b0",
+        "url": "https://app.notion.com/p/3d3b5667a0c681d192e4ce11a5fbc4b0?pvs=204",
+        "properties": {
+          "title": "Justin's Post-Retreat Message to Nova Builders"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 11897,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/nova-team-meeting-notes.md",
+      "sha256": "5701bcc0f3cffff78c87fd9ac8a78c64bd3f19e8b58e01804c4975ce7b9575d7",
+      "title": "Nova Team Meeting Notes",
+      "page": {
+        "id": "3d3b5667-a0c6-81fe-a283-c4fad0221fff",
+        "url": "https://app.notion.com/p/3d3b5667a0c681fea283c4fad0221fff?pvs=204",
+        "properties": {
+          "title": "Nova Team Meeting Notes"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 12496,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-09/redis-architecture-discussion.md",
+      "sha256": "80c97d7baa5f573fab264531ccc6e10a876755ba52f858adf95ff37bb459ffa4",
+      "title": "Redis Architecture Discussion — Duncan & Narek",
+      "page": {
+        "id": "3d3b5667-a0c6-8164-88c2-f27331569dca",
+        "url": "https://app.notion.com/p/3d3b5667a0c6816488c2f27331569dca?pvs=204",
+        "properties": {
+          "title": "Redis Architecture Discussion — Duncan & Narek"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 10645,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-18/jon-vgbt-sync-client-portal-db-security.md",
+      "sha256": "fbd250d890d9d6da4cdaf55dc7f4df8a77fbb61677eb13ec7f5b256e3fdb31c5",
+      "title": "Jon 1:1 — VGBT Client Portal + DB Security Planning",
+      "page": {
+        "id": "3d3b5667-a0c6-81ee-8ad8-f10e48c61efc",
+        "url": "https://app.notion.com/p/3d3b5667a0c681ee8ad8f10e48c61efc?pvs=204",
+        "properties": {
+          "title": "Jon 1:1 — VGBT Client Portal + DB Security Planning"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5287,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-04-23/mawer-ai-tools-wealth-platform-exploration.md",
+      "sha256": "3330b2ee12d4ebba69313cadf84fee8a83a163b4d86a85149a163bea2b157a99",
+      "title": "Mawer AI Tools + Private Wealth Platform Exploration",
+      "page": {
+        "id": "3d3b5667-a0c6-8131-8871-fa432374d25c",
+        "url": "https://app.notion.com/p/3d3b5667a0c681318871fa432374d25c?pvs=204",
+        "properties": {
+          "title": "Mawer AI Tools + Private Wealth Platform Exploration"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5721,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-05-04/jon-vgbt-1month-catchup.md",
+      "sha256": "e14acb94d032edc8d0f020e5185e8431f7e4b50b01d21f48d4c0d9629d8ace44",
+      "title": "Jon 1:1 — VGBT 1-Month Catch-Up: MVP Done, Vista Security, CFMA Push",
+      "page": {
+        "id": "3d3b5667-a0c6-812d-a202-d29a98caaba6",
+        "url": "https://app.notion.com/p/3d3b5667a0c6812da202d29a98caaba6?pvs=204",
+        "properties": {
+          "title": "Jon 1:1 — VGBT 1-Month Catch-Up: MVP Done, Vista Security, CFMA Push"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 6142,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-07-02/granola-689f6bff-fb47-4f43-a87a-028740c3e40a-r1.md",
+      "sha256": "ac10a6a03f1e1ecb03d3aece6945698452bc5f515b9dfc9f4315da73a1c52e61",
+      "title": "Private wealth hub — consolidation, prioritization, and roadmap",
+      "page": {
+        "id": "3d3b5667-a0c6-815e-bcda-f484ae3c6995",
+        "url": "https://app.notion.com/p/3d3b5667a0c6815ebcdaf484ae3c6995?pvs=204",
+        "properties": {
+          "title": "Private wealth hub — consolidation, prioritization, and roadmap"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 3669,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/2026-07-17/aaron-blog-ai-brand-sales-agent-contract.md",
+      "sha256": "544edbb96f1faf9d2c631ee8b3b6d9a77a84b041f3d37023d0a8c0f9e5506889",
+      "title": "Aaron Blog AI Brand Sales Agent Contract",
+      "page": {
+        "id": "3d3b5667-a0c6-8140-b234-f54387f9cd3f",
+        "url": "https://app.notion.com/p/3d3b5667a0c68140b234f54387f9cd3f?pvs=204",
+        "properties": {
+          "title": "Aaron Blog AI Brand Sales Agent Contract"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 8509,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/_archive/README.md",
+      "sha256": "8797939eafdc9c7e0ece2913a7696a5c1427efee684fb136bff186a40c79d1d3",
+      "title": "_archive — Evidence Layer",
+      "page": {
+        "id": "3d3b5667-a0c6-813a-9574-f0c958ec51cb",
+        "url": "https://app.notion.com/p/3d3b5667a0c6813a9574f0c958ec51cb?pvs=204",
+        "properties": {
+          "title": "_archive — Evidence Layer"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2908,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/orgs/mawer.md",
+      "sha256": "bc5f3678c251c3dd4ee0c851c19eb0d369cc54cf821ea7dcc45431d1a5b334db",
+      "title": "Mawer — Day Job",
+      "page": {
+        "id": "3d3b5667-a0c6-8141-a63c-f8a760cb12a0",
+        "url": "https://app.notion.com/p/3d3b5667a0c68141a63cf8a760cb12a0?pvs=204",
+        "properties": {
+          "title": "Mawer — Day Job"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 7421,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/orgs/orgnext.md",
+      "sha256": "1e589779867fae3e6a00836647f7e0f2d96fe1d5767aa0f2ab85f6294338f40f",
+      "title": "OrgNext",
+      "page": {
+        "id": "3d3b5667-a0c6-8108-ab51-e6a31affe9da",
+        "url": "https://app.notion.com/p/3d3b5667a0c68108ab51e6a31affe9da?pvs=204",
+        "properties": {
+          "title": "OrgNext"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 3323,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/aaron.md",
+      "sha256": "505c0c60f32d732d3e9aae764f785be385ede966daf58a48157060a85ab2d068",
+      "title": "Aaron Guo",
+      "page": {
+        "id": "3d3b5667-a0c6-8197-b724-d7cfafe23022",
+        "url": "https://app.notion.com/p/3d3b5667a0c68197b724d7cfafe23022?pvs=204",
+        "properties": {
+          "title": "Aaron Guo"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 6648,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/alex.md",
+      "sha256": "69e2d6662d85457ce11fc2a98e531e642451da893319a0021c7cb5ccf73e197a",
+      "title": "Alex",
+      "page": {
+        "id": "3d3b5667-a0c6-8197-9fa5-ff31982ae8b9",
+        "url": "https://app.notion.com/p/3d3b5667a0c681979fa5ff31982ae8b9?pvs=204",
+        "properties": {
+          "title": "Alex"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5735,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/carol-schneider.md",
+      "sha256": "d0f756622de401987cd6f3dfbb7cbeefdfa73744e66f6439ebf46f9d1a359926",
+      "title": "Carol Schneider",
+      "page": {
+        "id": "3d3b5667-a0c6-8170-9d35-f0502ced4aab",
+        "url": "https://app.notion.com/p/3d3b5667a0c681709d35f0502ced4aab?pvs=204",
+        "properties": {
+          "title": "Carol Schneider"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 7342,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/chintan.md",
+      "sha256": "7351cb9c7b3d36a84e44329b1911f8ae0f9e786551ce54197378fcdd1e69a6ab",
+      "title": "Chintan",
+      "page": {
+        "id": "3d3b5667-a0c6-8118-8734-f80dcde6ad72",
+        "url": "https://app.notion.com/p/3d3b5667a0c681188734f80dcde6ad72?pvs=204",
+        "properties": {
+          "title": "Chintan"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1693,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/david-buchanan.md",
+      "sha256": "f0651576c59094fcb13dea28df83050808d1c28a17ff013792a601a56d5f7ad8",
+      "title": "David Buchanan",
+      "page": {
+        "id": "3d3b5667-a0c6-8173-98de-c4a361dfcddc",
+        "url": "https://app.notion.com/p/3d3b5667a0c6817398dec4a361dfcddc?pvs=204",
+        "properties": {
+          "title": "David Buchanan"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 4574,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/duncan-mountford.md",
+      "sha256": "5ceb7b9a44223a449994fe721b66ad140b3f10bc121d64e12142d1254902de64",
+      "title": "Duncan Mountford",
+      "page": {
+        "id": "3d3b5667-a0c6-8115-870e-c2c740978a13",
+        "url": "https://app.notion.com/p/3d3b5667a0c68115870ec2c740978a13?pvs=204",
+        "properties": {
+          "title": "Duncan Mountford"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2315,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/dwight-pratt.md",
+      "sha256": "51f2c6df96a92abfef5f541006de37df68e88fd2bc57a8e6becb8b0e08150aaa",
+      "title": "Dwight Pratt",
+      "page": {
+        "id": "3d3b5667-a0c6-81f3-9721-e6093fc825a3",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f39721e6093fc825a3?pvs=204",
+        "properties": {
+          "title": "Dwight Pratt"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1699,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/eric.md",
+      "sha256": "2a0b9454bad535e2324b744f568b865757cf0684a5c2dab38d0f1eea4ac524c0",
+      "title": "Eric",
+      "page": {
+        "id": "3d3b5667-a0c6-8136-b41a-ec6867c96163",
+        "url": "https://app.notion.com/p/3d3b5667a0c68136b41aec6867c96163?pvs=204",
+        "properties": {
+          "title": "Eric"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 9767,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/grace.md",
+      "sha256": "878f21ce3a79be60641b27af35979a752db06d0cef0a8c40c6c7cfc40972ba7a",
+      "title": "Grace Guo",
+      "page": {
+        "id": "3d3b5667-a0c6-816f-93b0-cc60235e6960",
+        "url": "https://app.notion.com/p/3d3b5667a0c6816f93b0cc60235e6960?pvs=204",
+        "properties": {
+          "title": "Grace Guo"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1515,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/jeff-house.md",
+      "sha256": "54c2bef9bf9b823364d71df6e34b5bec7ac31f15a0e837258466569db8fa3378",
+      "title": "Jeff House",
+      "page": {
+        "id": "3d3b5667-a0c6-81e4-8058-dfd6cd6c5a5b",
+        "url": "https://app.notion.com/p/3d3b5667a0c681e48058dfd6cd6c5a5b?pvs=204",
+        "properties": {
+          "title": "Jeff House"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 6792,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/jon.md",
+      "sha256": "0cd14c1bc409417a9eae6e0c21f4f11b5effcc39dbc4a0bbe341522b5e2ac6e2",
+      "title": "Jon",
+      "page": {
+        "id": "3d3b5667-a0c6-81fe-af51-ecc1b07a9c47",
+        "url": "https://app.notion.com/p/3d3b5667a0c681feaf51ecc1b07a9c47?pvs=204",
+        "properties": {
+          "title": "Jon"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2893,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/justin-anderson.md",
+      "sha256": "dde69c8609d96a689a36dceb2b4df4bc19eab97575fa15dd6dfe0b4b7a0115d2",
+      "title": "Justin Anderson",
+      "page": {
+        "id": "3d3b5667-a0c6-8139-a6f3-f93af488a7e6",
+        "url": "https://app.notion.com/p/3d3b5667a0c68139a6f3f93af488a7e6?pvs=204",
+        "properties": {
+          "title": "Justin Anderson"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 10813,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/keri.md",
+      "sha256": "8abaacd48b37114c3184eddd881a6b2f2a358a47344b7aaebcc52f051c14fe38",
+      "title": "Keri",
+      "page": {
+        "id": "3d3b5667-a0c6-8135-806a-c1a95e45b335",
+        "url": "https://app.notion.com/p/3d3b5667a0c68135806ac1a95e45b335?pvs=204",
+        "properties": {
+          "title": "Keri"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5007,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/kyle.md",
+      "sha256": "01fb21d78d1998c56b076ff3ca8ba96cb3bfc9a1e76ea4a9adebec320ff67f8f",
+      "title": "Kyle",
+      "page": {
+        "id": "3d3b5667-a0c6-8114-a9c2-cb7c3b0ed384",
+        "url": "https://app.notion.com/p/3d3b5667a0c68114a9c2cb7c3b0ed384?pvs=204",
+        "properties": {
+          "title": "Kyle"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1660,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/narek.md",
+      "sha256": "aa899f2626522011f10ca966772dd59e733ef2b3d5be4370bd268e101698671f",
+      "title": "Narek Margaryan",
+      "page": {
+        "id": "3d3b5667-a0c6-812c-9a3b-f4ba106b5d43",
+        "url": "https://app.notion.com/p/3d3b5667a0c6812c9a3bf4ba106b5d43?pvs=204",
+        "properties": {
+          "title": "Narek Margaryan"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5869,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/steven-wittens.md",
+      "sha256": "4db92dc0ab8718240df4bf6184f1170ca18c97087ee0af79dc2fe0e6dd13aca7",
+      "title": "Steven Wittens",
+      "page": {
+        "id": "3d3b5667-a0c6-81b7-86cf-ef5d77e7d8b4",
+        "url": "https://app.notion.com/p/3d3b5667a0c681b786cfef5d77e7d8b4?pvs=204",
+        "properties": {
+          "title": "Steven Wittens"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1473,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/thiago.md",
+      "sha256": "c17482df662fbc59aa642551c1826728689196635ef83c2ff6d08f0dfbf56ab7",
+      "title": "Thiago",
+      "page": {
+        "id": "3d3b5667-a0c6-818a-b02d-d83f39744a5b",
+        "url": "https://app.notion.com/p/3d3b5667a0c6818ab02dd83f39744a5b?pvs=204",
+        "properties": {
+          "title": "Thiago"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5013,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/wilson.md",
+      "sha256": "f1599c2c268d536b2cb065ff9fb08fcb5acba68fa6daf5c1b110262e3e8e56c5",
+      "title": "Wilson",
+      "page": {
+        "id": "3d3b5667-a0c6-810a-82f4-e3e1aac5a127",
+        "url": "https://app.notion.com/p/3d3b5667a0c6810a82f4e3e1aac5a127?pvs=204",
+        "properties": {
+          "title": "Wilson"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 4872,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/people/xiaojun.md",
+      "sha256": "7d6aaeb7e11ac4b5930ff2b90b56f7a8f7bb011d9b56e44ed4acb7af4934c0bc",
+      "title": "Xiaojun",
+      "page": {
+        "id": "3d3b5667-a0c6-81b0-84e5-c63362a453da",
+        "url": "https://app.notion.com/p/3d3b5667a0c681b084e5c63362a453da?pvs=204",
+        "properties": {
+          "title": "Xiaojun"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1397,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/aaronguoblog.md",
+      "sha256": "b8df3883dfee3464c6f5dc92b0a96c94a3c2539b0262660171d6f4c62b2868e9",
+      "title": "AaronGuoBlog · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-8108-a992-c0dd75ce76c9",
+        "url": "https://app.notion.com/p/3d3b5667a0c68108a992c0dd75ce76c9?pvs=204",
+        "properties": {
+          "title": "AaronGuoBlog · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 3370,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/check-in.md",
+      "sha256": "a195aa1dae06d7308535e404e45ac6b09c93a57f08034d9cd11f0e087f488ada",
+      "title": "Check-in — HR 1-1 Tool for Mawer · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-819d-8860-d383534f27bc",
+        "url": "https://app.notion.com/p/3d3b5667a0c6819d8860d383534f27bc?pvs=204",
+        "properties": {
+          "title": "Check-in — HR 1-1 Tool for Mawer · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 6246,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/drumnext.md",
+      "sha256": "88feb8cf4abd8078d958527c1f28478a99fa486ce63771df9d40e93ba3bdd4a5",
+      "title": "DrumNext · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-81d2-bfe7-cfb1c3967953",
+        "url": "https://app.notion.com/p/3d3b5667a0c681d2bfe7cfb1c3967953?pvs=204",
+        "properties": {
+          "title": "DrumNext · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2632,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/hermes-gg.md",
+      "sha256": "552d2f387f60cce410787bcc3012af73d7fdedb3a461626669f3e77cbdb43b43",
+      "title": "Hermes / GG Infrastructure · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-813e-9534-d51ae721c092",
+        "url": "https://app.notion.com/p/3d3b5667a0c6813e9534d51ae721c092?pvs=204",
+        "properties": {
+          "title": "Hermes / GG Infrastructure · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2513,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/nova.md",
+      "sha256": "e7a49498ae1974dfa20dbd1593fa141dbe97df4c694aadbf29f711cda3783c59",
+      "title": "Nova — Mawer Internal AI Platform · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-816a-9a2e-f5e911a64008",
+        "url": "https://app.notion.com/p/3d3b5667a0c6816a9a2ef5e911a64008?pvs=204",
+        "properties": {
+          "title": "Nova — Mawer Internal AI Platform · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 14659,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/orgnext-mvp.md",
+      "sha256": "2b2531ddbf8f80278ac5faf1906f1601924652c68d4fd9dc8c0607387f787ff0",
+      "title": "OrgNext MVP — AI-Native Firm Management · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-81a9-b8b9-dbf7a3b245f0",
+        "url": "https://app.notion.com/p/3d3b5667a0c681a9b8b9dbf7a3b245f0?pvs=204",
+        "properties": {
+          "title": "OrgNext MVP — AI-Native Firm Management · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 6545,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/private-wealth-hub.md",
+      "sha256": "ebf75e194a4c6d9127e8ba7047fda100641c23b033aff4f5246759497ac9400d",
+      "title": "Private Wealth Hub / consolidated reporting · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-8126-bf08-cc78b720e44c",
+        "url": "https://app.notion.com/p/3d3b5667a0c68126bf08cc78b720e44c?pvs=204",
+        "properties": {
+          "title": "Private Wealth Hub / consolidated reporting · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2082,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/signal.md",
+      "sha256": "4c96f9a2f0a7f91b8500133c3372671444ee5713ad46dda33786ab5b395240f1",
+      "title": "Signal — AI-Curated News Aggregator · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-81c8-8723-c10a12c2496d",
+        "url": "https://app.notion.com/p/3d3b5667a0c681c88723c10a12c2496d?pvs=204",
+        "properties": {
+          "title": "Signal — AI-Curated News Aggregator · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 3351,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/vgbt.md",
+      "sha256": "138240b8d44604f24c4ac4697d1eb01896c06cbbb2050a6faaa161de5327780b",
+      "title": "VGBT — Client Portal + Agent Platform · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-81f7-ae10-eb186b8c2c6f",
+        "url": "https://app.notion.com/p/3d3b5667a0c681f7ae10eb186b8c2c6f?pvs=204",
+        "properties": {
+          "title": "VGBT — Client Portal + Agent Platform · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 8079,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/projects/visual-and-sound.md",
+      "sha256": "f8cda473010d566b63c147eb2dcf0d9245464103efd8b1c8d01a3e89fe4dac4e",
+      "title": "Visual and Sound · 历史背景",
+      "page": {
+        "id": "3d3b5667-a0c6-8151-8874-d0ae18d71b50",
+        "url": "https://app.notion.com/p/3d3b5667a0c681518874d0ae18d71b50?pvs=204",
+        "properties": {
+          "title": "Visual and Sound · 历史背景"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2949,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/themes/ai-native-life.md",
+      "sha256": "3154310375ba77c38376c5dc11ae77428a11075798f3498497abbf45bff4638f",
+      "title": "AI-Native Life",
+      "page": {
+        "id": "3d3b5667-a0c6-8116-8798-f615215075f2",
+        "url": "https://app.notion.com/p/3d3b5667a0c681168798f615215075f2?pvs=204",
+        "properties": {
+          "title": "AI-Native Life"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 3022,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/themes/career-trajectory.md",
+      "sha256": "84e4f79e3628f2590121589d9954c07989deadcf1faf41febf9cfc66702b5c39",
+      "title": "Career Trajectory",
+      "page": {
+        "id": "3d3b5667-a0c6-8193-8c9b-f8913cde4448",
+        "url": "https://app.notion.com/p/3d3b5667a0c681938c9bf8913cde4448?pvs=204",
+        "properties": {
+          "title": "Career Trajectory"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2933,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/themes/family.md",
+      "sha256": "44b15bc2cd39f201911f22832e7c886eb4a3c7a0542a75bc038cc5ea63e1d520",
+      "title": "Family",
+      "page": {
+        "id": "3d3b5667-a0c6-8176-8ce2-d16c86ccd425",
+        "url": "https://app.notion.com/p/3d3b5667a0c681768ce2d16c86ccd425?pvs=204",
+        "properties": {
+          "title": "Family"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 1522,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/themes/financial-freedom.md",
+      "sha256": "1903a7f7bb100aa2abff4cd7c77c240206b6dd3f16d510b42c371606cc0cf745",
+      "title": "Financial Freedom",
+      "page": {
+        "id": "3d3b5667-a0c6-812d-aa0b-e9e5453461f0",
+        "url": "https://app.notion.com/p/3d3b5667a0c6812daa0be9e5453461f0?pvs=204",
+        "properties": {
+          "title": "Financial Freedom"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 5584,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/themes/long-termism.md",
+      "sha256": "4d0bb161a01e0c134c784acccee3fdec5c351e43b7508daa95bf29643b51116e",
+      "title": "Long-Termism",
+      "page": {
+        "id": "3d3b5667-a0c6-8124-aff6-d87af31aca2d",
+        "url": "https://app.notion.com/p/3d3b5667a0c68124aff6d87af31aca2d?pvs=204",
+        "properties": {
+          "title": "Long-Termism"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 2224,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    },
+    {
+      "path": "src/brain/world/themes/regulated-financial-ai-career-strategy.md",
+      "sha256": "4432ecc0c0dc68643e25aac52dd14f1461bb194d6a2a5d00d16818ad68331815",
+      "title": "受监管金融 AI 职业升级战略（2026–2029）",
+      "page": {
+        "id": "3d3b5667-a0c6-8156-8759-d0482b70ebd2",
+        "url": "https://app.notion.com/p/3d3b5667a0c681568759d0482b70ebd2?pvs=204",
+        "properties": {
+          "title": "受监管金融 AI 职业升级战略（2026–2029）"
+        }
+      },
+      "check": {
+        "source": true,
+        "length": 18596,
+        "unknown": 0,
+        "truncated": false,
+        "links": true
+      }
+    }
+  ],
+  "unresolved": [
+    {
+      "source": "src/brain/world/README.md",
+      "target": "link"
+    },
+    {
+      "source": "src/brain/world/_archive/2026-07-02/granola-689f6bff-fb47-4f43-a87a-028740c3e40a-r1.md",
+      "target": "../../../processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md"
+    },
+    {
+      "source": "src/brain/world/people/aaron.md",
+      "target": "../../reviews/weekly/2026-W16"
+    },
+    {
+      "source": "src/brain/world/people/eric.md",
+      "target": "../../reviews/weekly/2026-W16"
+    },
+    {
+      "source": "src/brain/world/people/jon.md",
+      "target": "people/drew"
+    },
+    {
+      "source": "src/brain/world/projects/check-in.md",
+      "target": "../../reviews/weekly/2026-W16"
+    },
+    {
+      "source": "src/brain/world/projects/nova.md",
+      "target": "../../reviews/weekly/2026-W16"
+    },
+    {
+      "source": "src/brain/world/projects/private-wealth-hub.md",
+      "target": "../../processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md"
+    },
+    {
+      "source": "src/brain/world/projects/private-wealth-hub.md",
+      "target": "../../processing/changes/2026-07-02-689f6bff-fb47-4f43-a87a-028740c3e40a.md"
+    },
+    {
+      "source": "src/brain/world/projects/vgbt.md",
+      "target": "people/drew"
+    }
+  ]
+}

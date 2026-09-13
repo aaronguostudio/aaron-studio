@@ -52,8 +52,8 @@ When a fixture or a user requests a concise decision artifact, use `## Decision`
 | Situation | Decision | Next action | Boundary |
 |---|---|---|---|
 | Capture a new lesson | `DRAFT PATTERN` | Name the narrow project/tool scope, evidence still needed, and `Confirmation: required before persistence or promotion`. | Do not persist, promote, or execute the underlying domain action. |
-| Apply with matching context | `READY FOR DOMAIN PREFLIGHT` | State the declared target aliases and verified match, then hand off to the domain workflow. | Personal OS does not execute the mutation. |
-| Apply with missing or mismatched context | `BLOCKED — CONTEXT REQUIRED` | Ask for the intended tenant/subscription or other declared target. | Do not guess a target, switch accounts, or execute the operation. |
+| Apply with matching context | `READY FOR DOMAIN PREFLIGHT` | State the declared target aliases (including a Jira space key where relevant) and verified match, then hand off to the domain workflow. | Personal OS does not execute the mutation or substitute a different target. |
+| Apply with missing or mismatched context | `BLOCKED — CONTEXT REQUIRED` | Ask for the intended tenant/subscription, Jira space, or other declared target. | Do not guess a target, switch accounts, select a Jira space, or execute the operation. |
 | Request is outside Personal OS | `ROUTE TO <domain skill>` | Name the relevant domain skill. | Do not capture a Pattern or execute project work through Personal OS. |
 
 These labels are behavioral contracts, not permission to skip the domain skill's own checks.
@@ -76,6 +76,8 @@ The fixtures in `fixtures/` define the initial behavior contract. They contain r
 | `fixtures/capture-azure-incident.yaml` | Capture creates a scoped draft Pattern and requires confirmation before persistence. | aaron-personal-os |
 | `fixtures/apply-azure-context.yaml` | Apply permits only a matching, verified context; it does not execute the domain operation. | aaron-personal-os |
 | `fixtures/missing-context-blocks.yaml` | Missing context asks for the target and forbids guessing or account switching. | aaron-personal-os |
+| `fixtures/apply-jira-space-context.yaml` | Apply names the configured Jira space and hands off without creating or updating an issue. | aaron-personal-os |
+| `fixtures/missing-jira-space-blocks.yaml` | Missing Jira configuration blocks the request and asks for the project Jira space. | aaron-personal-os |
 | `fixtures/unrelated-blog-work-routes-away.yaml` | Unrelated source-led blog work routes to `blog-production` without loading Personal OS context. | aaron-personal-os |
 
 SkillDev adapter fixtures:
@@ -83,6 +85,8 @@ SkillDev adapter fixtures:
 - `fixtures/skilldev/capture-azure-incident.fixture.json`
 - `fixtures/skilldev/apply-azure-context.fixture.json`
 - `fixtures/skilldev/missing-context-blocks.fixture.json`
+- `fixtures/skilldev/apply-jira-space-context.fixture.json`
+- `fixtures/skilldev/missing-jira-space-blocks.fixture.json`
 - `fixtures/skilldev/unrelated-blog-work-routes-away.fixture.json`
 
 ## Handoff

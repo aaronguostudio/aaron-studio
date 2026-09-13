@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "review-proposal-1",
+  "purpose": "Historical editorial calibration and candidate regression design; not an executable SkillDev semantic evaluator",
+  "status": "Proposed criteria, not a completed candidate experiment",
+  "leakageCaveat": "These cases helped design the candidate. They can reveal regressions but cannot establish generalization; hold out a new topic for prospective comparison.",
+  "cases": [
+    {
+      "id": "dhh-author-intent",
+      "before": "src/content/blogs/2026-09-06/revisions/v2-before-ai-feedback/dhh-the-joy-of-building-zh.md",
+      "accepted": "src/content/blogs/2026-09-06/dhh-the-joy-of-building-zh.md",
+      "feedback": "不用写想去试试 Linux；文章落点是认同 DHH 对 AI 的观点；加入团队对 AI 信任不同的实际感受。",
+      "feedbackProvenance": "Paraphrase of Aaron's feedback in this task",
+      "readerChecks": ["Opening and ending emphasize agreement with AI stance", "Team experience is presented without claiming the trust challenge is already solved", "Omarchy remains a supporting detail"],
+      "evaluation": "Human or separately labeled model-assisted comparison with passage evidence; no keyword-only pass"
+    },
+    {
+      "id": "astra-context-before-detail",
+      "before": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work-zh.md",
+      "accepted": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+      "feedback": "先交代复杂部署任务，再提 Linux、Windows Worker、SQL certificate、Azure 资源和网络配置；不要透露具体项目。",
+      "feedbackProvenance": "Paraphrase of Aaron's feedback in this task",
+      "readerChecks": ["The task is understandable before component names appear", "Technical details support the cross-system claim", "No private client identifiers or credentials"],
+      "evaluation": "Reader comprehension plus independent privacy check"
+    },
+    {
+      "id": "astra-writing-experience",
+      "before": "src/content/blogs/2026-09-06-astra/_archive/v1-eight-points/gpt-6-astra-real-work-zh.md",
+      "accepted": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+      "feedback": "重点是写作更加顺畅和自然；不要让纠正次数和 DHH 制作过程盖过这个观点。",
+      "feedbackProvenance": "Paraphrase of Aaron's feedback in this task",
+      "readerChecks": ["Describes the reading and writing experience", "Does not turn personal preference into a measured model benchmark", "No forced callback to older posts"],
+      "evaluation": "Author-intent comparison; ties allowed"
+    },
+    {
+      "id": "astra-earned-ending",
+      "before": "src/content/blogs/2026-09-06-astra/_archive/v2-six-points/gpt-6-astra-real-work-zh.md",
+      "accepted": "src/content/blogs/2026-09-06-astra/gpt-6-astra-real-work-zh.md",
+      "feedback": "收束到更信任跨产品长时间复杂任务，同时面对验证审计与价格；保留继续期待 AI 进步的情绪。",
+      "feedbackProvenance": "Paraphrase of Aaron's feedback in this task",
+      "readerChecks": ["Ending pays off the article's promise", "Trust, unresolved challenges and anticipation form a coherent landing", "No unsupported new claim or obligatory CTA"],
+      "evaluation": "Read title, opening and ending together; require passage-level reasons"
+    },
+    {
+      "id": "source-case-without-fake-experience",
+      "input": "Explain a documented computer-use capability Aaron has not personally tested, using a public example or a clearly labeled hypothetical.",
+      "feedbackProvenance": "Prospective regression scenario derived from this task's source-versus-personal-experience boundary",
+      "readerChecks": ["The example makes the capability understandable", "Public or hypothetical provenance is explicit", "No invented first-person result to satisfy a personal-anchor rule"],
+      "evaluation": "Source/claim audit plus reader comprehension"
+    },
+    {
+      "id": "approved-cover-only-edit",
+      "input": "The article and narration are accepted. Aaron requests only an Astra-style cover and OpenAI logo.",
+      "feedbackProvenance": "Prospective scope regression scenario based on this task's cover-only revision",
+      "readerChecks": ["Only affected cover/downstream artifacts are invalidated", "Accepted narration is preserved", "Existing publishing/account/production rules and granted authorization still apply"],
+      "evaluation": "Observable artifact hashes and action trace; do not invent a trace for historical actions"
+    }
+  ],
+  "prospectiveExperiment": {
+    "baseline": "Snapshot of current skills, loaded references, input material and model settings",
+    "candidate": "candidate-workflow.md integrated only for the tested editorial stage",
+    "control": "Same fresh topic, evidence, author brief, model/version and settings; record known nondeterminism and loaded files",
+    "review": "Randomize A/B order; collect author/reader preference, concrete reasons and uncertainty separately from source checks and scanner output",
+    "promotion": "Do not infer writing improvement from higher self-scores or one historical replay; repeat on a held-out topic before adopting a broad default"
+  }
+}

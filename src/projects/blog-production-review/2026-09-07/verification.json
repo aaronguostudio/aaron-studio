@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-09-07T20:09:03.525Z",
+  "http": [
+    {
+      "name": "review.html",
+      "status": 200
+    },
+    {
+      "name": "review.md",
+      "status": 200
+    },
+    {
+      "name": "candidate-workflow.md",
+      "status": 200
+    },
+    {
+      "name": "editorial-cases.json",
+      "status": 200
+    },
+    {
+      "name": "scanner-replay.json",
+      "status": 200
+    },
+    {
+      "name": "evaluator-probe.json",
+      "status": 200
+    },
+    {
+      "name": "inspection/workflow.html",
+      "status": 200
+    }
+  ],
+  "topLevelMarkdownCounts": {
+    "2026-09-06": 46,
+    "2026-09-06-astra": 41
+  },
+  "skilldevValidation": {
+    "tests": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 1
+    },
+    "typecheck": "passed",
+    "newModelRuns": 0
+  },
+  "reviewScope": "Review artifacts only; canonical skills, SkillDev source and published articles not edited in this audit."
+}

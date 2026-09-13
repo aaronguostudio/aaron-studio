@@ -1,0 +1,1268 @@
+--- a/src/content/strategy/blog-writing-language.md
++++ b/src/content/strategy/blog-writing-language.md
+@@ -2,7 +2,7 @@
+ 
+ ## Purpose
+ 
+-Aaron's blog should read like an operator with lived judgment, not like a generic AI essay generator. The goal is not to fool AI detectors. The goal is to publish work that has concrete experience, sharp claims, natural rhythm, and commercial usefulness.
++Aaron's blog should read like an operator with lived judgment, not like a generic AI essay generator. The goal is not to fool AI detectors. The goal is to publish work with concrete material, clear author judgment and natural rhythm. Commercial usefulness matters when it serves this article's purpose.
+ 
+ Default shape:
+ 
+@@ -97,18 +97,9 @@
+ 
+ ## Aaron voice craft gate
+ 
+-A strong Aaron post usually has:
++Use `tiles/blog-production/references/editorial-system.md` for form-specific editorial judgment. Shared voice qualities are concrete material, enough context for the reader, natural paragraph movement and an ending that completes the author's thought. Personal responses may be reflective; cases may be technical; explainers may rely on public evidence. Do not force all of them into an operating framework or a contrarian commercial thesis.
+ 
+-- a concrete opening: a project, meeting, bottleneck, customer, metric, failure, or workflow change;
+-- a thesis that a smart operator could disagree with;
+-- mechanism: why the shift happens, not only what changed;
+-- lived evidence: first-person experience or specific operational evidence with dates, numbers, systems, teams, or constraints;
+-- commercial value: cost structure, leverage, judgment, product, customers, market, execution, or strategy;
+-- a counterargument or risk so the piece does not read as hype;
+-- section rhythm that mixes short punch lines with longer explanations;
+-- an ending that resolves the central question through a grounded author judgment, implication, changed belief, or useful decision lens.
+-
+-Bad revision adds adjectives. Good revision adds receipts.
++When a revision improves the prose, record the passage and why it works. Select examples for clarity and fidelity to the author's intent, not merely for dates, numbers or first-person keywords.
+ 
+ ### 直接陈述优先于自造标签
+ 
+--- a/tiles/blog-prose-editor/SKILL.md
++++ b/tiles/blog-prose-editor/SKILL.md
+@@ -11,6 +11,7 @@
+ 
+ Read:
+ - the English article and Chinese article
++- `editorial-brief.md` for author intent and form
+ - `argument-memo.md`
+ - `claim-ledger.md`
+ - `canon-alignment.md` when present
+@@ -32,10 +33,10 @@
+ 6. Run the style gates after editing:
+ 
+ ```bash
+-npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
++npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md
+ npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.md --language zh
+ ```
+-7. Hand the polished files back to the editorial scorecard pass. Do not mark `editorial-scorecard.md` as passing merely because the language scanner passes.
++7. Apply the passage-linked review in `tiles/blog-production/references/editorial-system.md`. Treat scanner flags as wording signals; enable personal/story heuristics only where relevant. Record the author-intent and ending judgment, not an aggregate quality score.
+ 
+ ## `prose-polish-review.md` Structure
+ 
+--- a/tiles/blog-write/SKILL.md
++++ b/tiles/blog-write/SKILL.md
+@@ -31,13 +31,9 @@
+ 
+ ### 1. Locate the plan
+ 
+-Use the user's path if provided. Otherwise use the newest blog directory with one of:
+-
+-1. `plan.md`
+-2. `content-plan.md`
+-3. `idea.md`
+-
+-For serious essays using Blog Workflow 3, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, `claim-ledger.md`, `argument-memo.md`, `canon-alignment.md`, and `editorial-scorecard.md` when present. Read `tiles/blog-production/references/editorial-system.md`. Treat these as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
++Use the user's path or the current package established in this task and `package-state.json`. Do not switch posts based on directory recency.
++
++Read the current brief, plan, claim ledger and relevant review records. Load `tiles/blog-production/references/editorial-system.md` for substantial writing or revision; it owns the shared author-intent, form and review contract. Fill only missing information needed for this task rather than requesting approval to choose a lighter workflow.
+ 
+ Read `src/content/strategy/x.md`, `src/content/strategy/blog-writing-language.md`, and `config/aaron-studio.json` if present.
+ 
+@@ -53,17 +49,9 @@
+ 
+ Use recent blog-growth review lessons when drafting or revising. The draft must state the article hypothesis, target audience, expected distribution channel, success metric, and which recent lesson it is applying or intentionally rejecting. If there are no reviews yet, use top-performing content as directional context and mark the lesson source as sparse.
+ 
+-### Aaron's default writing style
+-
+-Use this style unless the user explicitly asks for a diary, literary essay, soft reflection, or another named voice:
+-- Write from an entrepreneur/operator perspective. The piece should deliver insight, point of view, and commercial value.
+-- Start from a concrete business/work observation, then name the underlying shift. Prefer claims like "AI lowers execution cost; judgment becomes more valuable."
+-- Focus on incentives, cost structure, leverage, judgment, customers, markets, product sense, strategy, and decision quality.
+-- Keep poetic phrases grounded. For example, "仰望星空" should mean strategic altitude, cognitive radius, and direction, not romantic mood.
+-- Use structured article paragraphs: each section should usually have 2-3 coherent paragraphs carrying point, mechanism, and implication. Avoid turning the main article into one-sentence slide notes.
+-- Be crisp and direct. Cut soft self-help, intellectual wandering, "AI influencer" cliches, and teacherly "you should" advice.
+-- Chinese should be tighter and more operator-grade; English should be native and concise. Keep natural terms like `AI`, `prompt`, `workflow`, and `context`.
+-- Apply `src/content/strategy/blog-writing-language.md` as the style authority for natural prose, anti-AI writing patterns, and Aaron voice craft.
++### Aaron's writing style
++
++Use `src/content/strategy/blog-writing-language.md` for natural prose and `tiles/blog-production/references/editorial-system.md` for form and reader experience. Preserve the author's stance and feeling. Keep ideas concrete and understandable; commercial claims, fixed section sizes and reusable frameworks depend on the article, not on a universal template.
+ 
+ ### Canonical blog taxonomy
+ 
+@@ -96,7 +84,7 @@
+ 
+ If the user asks for "just the article", write only the article and Chinese version.
+ 
+-### 3. Draft the English article
++### 3. Draft the lead-language article
+ 
+ Use this frontmatter:
+ 
+@@ -116,7 +104,7 @@
+ - Use "I" voice when the plan has personal evidence.
+ - Preserve the plan's thesis but improve phrasing.
+ - Avoid generic AI-influencer language.
+-- For Aaron's default public posts, make the thesis commercially useful and opinionated enough to disagree with.
++- Let the reader understand the author's contribution; choose personal response, case or explanation according to the brief.
+ - Prefer section bodies with coherent paragraphs over many isolated one-line paragraphs.
+ - Sections should be readable without the plan.
+ - Use local image paths only after images already exist; otherwise leave no image placeholders.
+@@ -126,11 +114,11 @@
+ - Keep fact, inference, judgment, and personal observation distinguishable. Do not let prose smooth over an evidence boundary recorded in `claim-ledger.md`.
+ - When claiming that an AI workflow learns or improves recursively, name the human participation still required and show how that judgment becomes a reusable rule, eval, runbook, tool, or product change. A loop in a diagram is not evidence of self-improvement.
+ 
+-For a substantial rewrite, create a structural redraft rather than line-editing the old draft in place. Preserve the prior version in a versioned revision folder or versioned sibling file before replacing the active article. A structural redraft must change at least two of: opening, thesis expression, section sequence, mechanism, counterargument, framework use, or ending.
++For a substantial rewrite, create a structural redraft rather than line-editing the old draft in place. Preserve the prior version in a versioned revision folder or versioned sibling file before replacing the active article. Change the structure where the diagnosis requires it; no minimum number of changes.
+ 
+ ### 3b. Depth revision pass
+ 
+-After the first English draft, do one skeptical editor pass before writing companion assets. Do not wait for Aaron to ask for "more depth."
++After the lead-language draft, review the reader experience before writing companion assets. Do not wait for Aaron to ask for "more depth."
+ 
+ Before this pass, read the blog feedback context when growth env is available:
+ 
+@@ -140,18 +128,7 @@
+ 
+ Use the returned context as editorial memory, not as a command to blindly optimize for old metrics. The draft must explicitly use or reject at least one active lesson or recommended action. If the command cannot run because env or schema is unavailable, continue and record the measurement gap in the workflow notes.
+ 
+-Score the article against this checklist:
+-- **Thesis**: Is the main claim non-obvious, specific, and worth disagreeing with?
+-- **Evidence**: Does it include concrete lived experience, product behavior, market facts, or source-backed examples?
+-- **Mechanism**: Does it explain why the change happens, not only describe what happened?
+-- **Stakes**: Does it make clear what changes for builders, operators, teams, or companies?
+-- **Nuance**: Does it include a counterargument, risk, or limitation?
+-- **Frame**: Does it give readers a reusable operating lens, checklist, or decision model?
+-- **Framework economy**: Is there one primary executable framework? Fold supporting diagnostics into it instead of adding a competing checklist or acronym.
+-- **Ending**: Does the ending advance the thesis instead of adding a generic CTA?
+-- **Reinforcement**: Does it explicitly use or reject a recent blog-growth lesson from `next-brief-context`, and is the success metric measurable in a 24h or 7d postmortem?
+-
+-If any item is weak, revise the article once before continuing. The revision should add substance, not just polish wording. Prefer adding mechanism, examples, counterarguments, and sharper framing over adding more adjectives.
++Apply the shared editorial review in `tiles/blog-production/references/editorial-system.md`: author intent, context and evidence, section contribution, natural voice, and a complete ending. Use the selected article form to decide whether mechanisms, counterarguments or frameworks help. Record the passages and reasons; do not assign an aggregate quality score. Revise only diagnosed weaknesses.
+ 
+ When reporting completion, mention the two or three most important depth fixes made.
+ 
+@@ -168,10 +145,10 @@
+ After the depth revision, run the blog style scanner before writing companion assets:
+ 
+ ```bash
+-npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
+-```
+-
+-Use `src/content/strategy/blog-writing-language.md` to interpret the report. The scanner is a candidate detector, not a final judge, but a failing report means the article needs one revision pass before continuing.
++npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md
++```
++
++Use `src/content/strategy/blog-writing-language.md` to interpret the report. The scanner is a wording-signal detector, not a final judge. Review flags in context and revise genuine problems; use optional personal/story heuristics only when relevant to the form.
+ 
+ Revise for:
+ - concrete lived evidence instead of generic claims;
+@@ -180,7 +157,7 @@
+ - a story payoff: operating rule, implication, or decision lens;
+ - natural sentence rhythm instead of metronomic paragraphs;
+ - plain operator language instead of AI slop vocabulary;
+-- a conclusion that advances the thesis instead of summarizing.
++- a conclusion that completes the expression; brief synthesis, changed judgment or grounded emotion can provide closure.
+ 
+ After creating the Chinese version, run:
+ 
+@@ -207,7 +184,7 @@
+ - required revisions;
+ - revision notes.
+ 
+-Record at least five issues and complete at least one substantive revision before proceeding. A substantive revision changes argument, evidence, structure, rhythm, or the ending. It is not only wording polish.
++Record genuine issues with passage evidence and the effect on the reader. Revise when warranted; no minimum issue count or mandatory revision. A supported no-change result is valid.
+ 
+ ### 3e. Prose Polish Handoff
+ 
+@@ -220,22 +197,17 @@
+ - keep any polish scoped to expression, rhythm, translation tone, hook, transitions, and ending;
+ - do not add new facts or change the argument during prose polish.
+ 
+-### 3f. Editorial Scorecard
+-
+-After prose polish, complete `editorial-scorecard.md` using the weighted rubric in `tiles/blog-production/references/editorial-system.md`.
+-
+-- Cite concrete draft evidence for each score.
+-- Record what was added, cut, reframed, and intentionally kept.
+-- Require 85/100 or higher, with no dimension below 70% of its weight.
+-- If the score fails, revise the weak dimension once and rescore. Do not raise the number without changing the draft.
+-
+-### 4. Draft the Chinese version
+-
+-Create a natural Simplified Chinese adaptation, not a literal translation.
++### 3f. Editorial Review
++
++Complete `editorial-scorecard.md` using the passage-linked review in `tiles/blog-production/references/editorial-system.md`. Record `Review format: evidence-v1`, a concrete `Review evidence:` line and the decision. Keep mechanical checks separate; a quality total is not required. Revise unresolved blockers rather than raising a score.
++
++### 4. Draft the sibling edition
++
++If Chinese led the draft, now write the English edition; otherwise write natural Simplified Chinese. Adapt expression to the language instead of translating literally.
+ 
+ Rules:
+ - Keep technical proper nouns in English when natural.
+-- Preserve examples, argument order, and CTA.
++- Preserve the thesis, claim set and author stance; adapt ordering and transitions naturally.
+ - Translate image alt text if images are present.
+ - Keep frontmatter fields aligned with the English source.
+ 
+@@ -380,7 +352,7 @@
+ - Serious essays have `canon-alignment.md` before final draft acceptance, or a clear reason it was skipped.
+ - Serious essays have `prose-polish-review.md` after red-team revision, or a clear reason it was skipped.
+ - Serious essays have a verified `claim-ledger.md` and a passing `editorial-scorecard.md`.
+-- The English article passed the Anti-AI style gate and Story craft gate (`blog-style-quality.ts --require-personal-anchor --require-story-craft`), or any remaining scanner flags were reviewed and intentionally accepted.
++- Wording scanner flags were reviewed in context; optional personal/story heuristics fit the chosen form. A clean report does not establish writing quality.
+ - The Chinese article passed the Chinese style gate (`blog-style-quality.ts --language zh`), or any remaining scanner flags were reviewed and intentionally accepted.
+ - Distribution files inherit the revised thesis; they must not summarize an earlier, weaker draft.
+ 
+--- a/tiles/blog-production/SKILL.md
++++ b/tiles/blog-production/SKILL.md
+@@ -31,7 +31,7 @@
+ |----------|---------|-----------------|
+ | `idea.md` | Raw idea or seed | manual / muse |
+ | `research-evidence.json` | Versioned canonical sources, transcript provenance, claims, coverage gaps, and privacy state | research-evidence |
+-| `source-intake.md` | Source-first greenlight: primary-source notes, distinctness test, personal experiment, and media proof map | blog-production / blog-brainstorm |
++| `source-intake.md` | Source-first greenlight: primary-source notes, reader promise, evidence path, and media proof map | blog-production / blog-brainstorm |
+ | `memory-reflection.md` | prior-post reflection, internal link candidates, continuity thesis | blog-production / blog-brainstorm |
+ | `editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, kill criteria | blog-brainstorm |
+ | `research-dossier.md` | sources, cases, facts, counterarguments, open questions | blog-brainstorm |
+@@ -44,7 +44,7 @@
+ | `<slug>-zh.md` | Chinese article | blog-write |
+ | `red-team-review.md` | skeptical editorial review and required revisions | blog-write |
+ | `prose-polish-review.md` | EN/ZH prose polish goals, edits, boundaries, validation result | blog-prose-editor |
+-| `editorial-scorecard.md` | editorial contract, weighted final score, and revision delta | blog-production / blog-write |
++| `editorial-scorecard.md` | passage-linked editorial decision, checks, and revision delta | blog-production / blog-write |
+ | `package-state.json` | machine-readable phase, canonical asset pointers, release provenance, and postmortem status | blog-production |
+ | `postmortem.md` | prediction, 24h/7d outcomes, workflow lesson, next experiment | blog-production |
+ | `workflow-retrospective.md` | optional deep-revision summary, durable lessons, lock failures, and next-run protocol | blog-production |
+@@ -90,23 +90,23 @@
+ 
+ - a concise source map: what the source actually says, what it does *not*
+   establish, and the facts that need a separate primary source;
+-- three candidate article angles, each with a reader problem, a one-sentence
+-  Aaron judgment, and the concrete opening it could earn;
++- candidate angles only when the direction is open, with a reader promise,
++  Aaron judgment, and the concrete opening each could earn;
+ - a distinctness test against the last two related posts: name the prior
+   thesis, the belief or decision this post changes, and the sentence that
+   makes it more than "the same thesis with a different example";
+-- a personal-proof plan. If the article has no proprietary data, arrange one
+-  small observed check in an Aaron-owned project before drafting: baseline,
+-  deterministic signal, expected result, and stop condition. Never invent a
+-  personal result or turn a proposed experiment into evidence;
++- an evidence path appropriate to the article's form. Require personal proof
++  only for a claim that depends on an unobserved personal result. Public
++  examples and clearly labeled hypotheses can support a sourced explanation;
++  never invent a personal result or present a planned experiment as evidence;
+ - a media proof map: the 3-5 claims or source moments that could carry a
+   diagram, illustration, demo, or video beat, plus what the visual adds that
+   prose cannot.
+ 
+ End with exactly one decision: `GO`, `HOLD FOR PERSONAL PROOF`, or `KILL`.
+-`GO` requires a distinct operator contribution and an evidence path. `HOLD`
+-is the normal result when a source is timely but Aaron has not yet observed
+-the mechanism himself. `KILL` is a useful result: preserve the source note,
++`GO` requires a clear reader promise and an honest evidence path. Use `HOLD`
++when a central claim specifically needs missing personal proof; a personal
++response or sourced explainer does not need a mandatory experiment. `KILL` is a useful result: preserve the source note,
+ but do not generate an article-shaped package around it.
+ 
+ ### 0. Bootstrap Workflow 3 Artifacts
+@@ -123,13 +123,13 @@
+ 
+ ### 1. Pick the post directory
+ 
+-Use the user's path if provided. Otherwise choose the newest directory under `src/content/blogs/`.
++Use the user's path or the active package from this task and `package-state.json`. Do not choose a different article merely because its directory is newer. If several packages fit and context cannot distinguish them, ask which one.
+ 
+ Read:
+ - `config/aaron-studio.json`
+ - `src/content/strategy/x.md`
+ - `src/content/strategy/blog-writing-language.md`
+-- all files in the chosen post directory
++- `package-state.json`, the current article/brief, and only the current phase's canonical evidence and review records; open archived drafts only for an explicit comparison
+ 
+ Before brainstorm, outline, or writing begins, run or inspect:
+ 
+@@ -143,20 +143,13 @@
+ - one measurement caveat
+ - the current next experiment
+ 
+-### Aaron's default blog style
+-
+-Unless the user explicitly asks for a literary essay, diary, or soft reflection, keep the whole workflow aligned to Aaron's default public writing style:
+-- Entrepreneur/operator perspective, not intellectual essay or self-help.
+-- Lead with a business observation, then name the insight and commercial value.
+-- Prefer crisp claims about incentives, cost structure, leverage, judgment, customers, markets, product, and strategy.
+-- Treat poetic phrases such as "仰望星空" as strategic altitude or cognitive radius, not literary mood.
+-- Keep article sections structured: 2-3 coherent paragraphs per section, not slide-like one-sentence fragments.
+-- Avoid teacherly "you should" energy, AI-influencer cliches, soft emotional wandering, and over-explaining.
+-- Use `src/content/strategy/blog-writing-language.md` as the natural writing and anti-AI style reference.
++### Aaron's voice and article form
++
++Use `references/editorial-system.md` for author intent, article form and review decisions; use `src/content/strategy/blog-writing-language.md` for prose. Keep concrete, natural writing and the author's real judgment. Personal responses, cases and explainers may have different structures; commercial value, a contrarian thesis and a framework are not universal requirements.
+ 
+ ### 2. Detect the next step
+ 
+-Use the first matching missing artifact:
++Resolve the requested phase and current package state first. Fix an upstream failed gate before filling downstream artifacts. The table is a routing aid, not a requirement to generate every listed output; existing authorization and explicit scope take precedence.
+ 
+ | Missing | Next action |
+ |---------|-------------|
+@@ -172,12 +165,12 @@
+ | no `content-plan.md` | use `blog-brainstorm` |
+ | no `plan.md` | use `blog-outline` |
+ | no `<slug>.md` or no `*-zh.md` | use `blog-write` |
+-| no `distribution-plan.md`, `x-post.md`, `linkedin-brief.md`, `facebook-post.md`, or `newsletter-teaser.md` | use `blog-write` package completion |
+ | article exists but fails depth gate | use `blog-write` revision pass |
+ | article exists but no `red-team-review.md` | use `blog-write` red-team revision pass |
+ | article exists but no `prose-polish-review.md` | use `blog-prose-editor` final language polish pass |
+ | article exists but no passing `editorial-scorecard.md` | score the final draft, revise weak dimensions, and record the delta |
+ | article exists but no `canon-note.md` | use `blog-write` canon note pass |
++| article editorial review passes and requested distribution assets are missing | use `blog-write` package completion |
+ | published or ready-to-publish article has no `postmortem.md` | create postmortem template and record prediction |
+ | no `imgs/web/00-cover.webp` | use `blog-illustrate` |
+ | images exist but fail image quality gate | use `blog-illustrate` regeneration pass |
+@@ -210,34 +203,23 @@
+ **Workflow 3 editorial gates** — for serious essays, do not draft until these artifacts exist and are coherent:
+ - for source-led work, `research-evidence.json` passes the `research-evidence` validator and records transcript limitations, unresolved gaps, and privacy state;
+ - for a source-led or recent-topic-overlap essay, `source-intake.md` records a `GO`, the distinctness test, and an honest personal-proof status;
+-- `memory-reflection.md` checks at least three prior posts when relevant and records internal link candidates or explains why no useful connection exists.
+-- `editorial-brief.md` names reader pain, sharp thesis, opening bottleneck, original contribution, authority boundary, evidence needed, counterargument, reusable frame, distribution hook, and kill criteria.
++- `memory-reflection.md` records only useful prior-post connections or why none is needed; no reading quota.
++- `editorial-brief.md` captures author intent, reader promise, form/lead language, material and authority boundary using the shared editorial contract.
+ - `research-dossier.md` contains source-backed evidence, cases, facts, counterarguments, and open questions.
+ - `claim-ledger.md` separates facts, inferences, judgments, and personal observations; records source and verification dates; and ends with `Decision: PASS` only after verification.
+-- `argument-memo.md` maps thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication.
++- `argument-memo.md` explains section jobs, the evidence path and intended landing appropriate to the chosen form; frameworks and counterarguments are included when useful.
+ 
+ If any artifact is missing or weak, stop and run the focused phase instead of drafting.
+ 
+-**Editorial contract gate** — before a serious draft or structural rewrite, write the reader, reader job, one-sentence promise, opening scene or bottleneck, original contribution, scope boundary, and success hypothesis into `editorial-scorecard.md`. Put the article's original judgment in the first 15% and earn the title within the first 150 words. Do not let the article mirror the research dossier or summarize companies one by one.
++**Editorial contract gate** — use the single brief and form-specific standards in `references/editorial-system.md`. Keep the author's intent visible, give examples sufficient context and establish the title's promise early. Do not duplicate the brief in a separate scorecard.
+ 
+ **Canon alignment gate** — before drafting or finalizing a serious essay, create `canon-alignment.md` with `blog-canon-alignment`. It should name prior-post connections, ideas being upgraded, ideas not to force, internal link candidates, and the Aaron judgment that should be present. Alignment must not become self-quotation or ideological flattening.
+ 
+-**Article depth gate** — before illustration, video, or publishing, read the article as a skeptical editor. The article passes only if it has:
+-- a non-obvious thesis that a smart reader could disagree with
+-- concrete personal or market evidence, not only abstract claims
+-- mechanism: why the shift happens, not just that it happens
+-- stakes: why it matters for builders, operators, or companies
+-- at least one counterargument, limitation, or risk
+-- a useful operating frame, checklist, or decision lens
+-- a conclusion that sharpens the thesis rather than repeating it
+-
+-If the article fails any item, run a `blog-write` revision pass before continuing.
+-
+-**Red-team gate** — before final article package, create `red-team-review.md` and record at least five issues across generic prose, unsupported claims, weak structure, unfair counterargument, missing operator judgment, weak ending, or unnecessary paragraphs. Complete at least one substantive revision before moving to media assets.
++**Article depth and red-team review** — apply the passage-linked questions in `references/editorial-system.md`. Record actual blockers and reader losses in `red-team-review.md`, then revise where justified. There is no minimum issue count, mandatory extra rewrite or required operating framework. A clear no-change judgment is valid.
+ 
+ **Prose polish gate** — after red-team revision and before final distribution/media, use `blog-prose-editor` to create `prose-polish-review.md` and make one scoped EN/ZH language pass. This pass may improve hook, rhythm, transitions, section openings, translation tone, and ending, but must not add facts or change the argument.
+ 
+-**Editorial scorecard gate** — after prose polish, score the draft using `editorial-scorecard.md`. Passing requires 85/100 or higher and no dimension below 70% of its weight. Every score needs draft evidence. Record what was added, cut, reframed, and intentionally kept. A score never overrides unsupported claims, a misleading title, broken links, or missing images.
++**Editorial review gate** — after prose polish, record `Review format: evidence-v1`, passage-linked `Review evidence:`, resolved blockers and `Decision: PASS|FAIL|PENDING` in `editorial-scorecard.md`. Follow `references/editorial-system.md`; do not use a total score as proof of quality. Historical numeric records remain readable.
+ 
+ **Production lock gate** — for serious essays, use the three locks defined in `references/editorial-system.md`:
+ - `Argument Lock` before final prose and formal visual planning;
+@@ -251,11 +233,11 @@
+ **Anti-AI style gate and Story craft gate** — before illustration, video, or publishing, run:
+ 
+ ```bash
+-npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
++npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md
+ npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.md --language zh
+ ```
+ 
+-Use the report as an editorial gate for naturalness, Aaron voice, and story craft. Revise through `blog-write` if the article has clustered AI slop vocabulary, weak hook, missing narrative tension, missing story payoff, formulaic contrast, weak rhythm, missing lived evidence, a generic ending, or mechanical Chinese translation tone. A scanner flag can be intentionally accepted only after reading the surrounding section and confirming the phrase is natural in context.
++Use the report as a wording signal alongside a real editorial read, not as a score of naturalness or story quality. Enable personal-anchor/story heuristics only when relevant to the form. Revise through `blog-write` if the article has clustered AI slop vocabulary, weak hook, missing narrative tension, missing story payoff, formulaic contrast, weak rhythm, missing lived evidence, a generic ending, or mechanical Chinese translation tone. A scanner flag can be intentionally accepted only after reading the surrounding section and confirming the phrase is natural in context.
+ 
+ **Reinforcement gate** — before accepting the article package, read the current feedback context when growth env is available:
+ 
+--- a/tiles/blog-outline/SKILL.md
++++ b/tiles/blog-outline/SKILL.md
+@@ -18,7 +18,7 @@
+ 
+ ### 1. Locate the source
+ 
+-Use the user's path if provided. Otherwise inspect the newest blog directory under `src/content/blogs/` and choose the best available source in this order:
++Use the user's path if provided. Otherwise use the active package from this task and `package-state.json`; do not select by recency alone. Choose the relevant source in this order:
+ 
+ 1. `argument-memo.md`
+ 2. `editorial-brief.md`
+@@ -34,23 +34,9 @@
+ 
+ ### 2. Ground in Aaron's voice
+ 
+-Read the 2-3 most recent finished English posts under `src/content/blogs/*/*.md`, skipping `*-zh.md`, `content-plan.md`, `plan*.md`, and social/video files.
++Read `tiles/blog-production/references/editorial-system.md` and `src/content/strategy/blog-writing-language.md`. Use the brief's author intent and article form. If a recurring expression problem needs calibration, read one relevant example from `tiles/blog-production/references/editorial-examples.md`. Read prior posts only when they help the current article; do not force a callback or copy a previous structure.
+ 
+-Extract only reusable style signals:
+-- opening pattern
+-- section rhythm
+-- level of personal detail
+-- CTA style
+-
+-Do not copy private `brain/` content into web tools. If personal context is needed, use local files only.
+-
+-Default public-blog style unless the user explicitly asks otherwise:
+-- Entrepreneur/operator voice with clear commercial value.
+-- Insight-led, not literary, confessional, or teacherly.
+-- Thesis should describe how value moves: cost, leverage, judgment, customers, markets, product, strategy.
+-- "仰望星空" style ideas should be framed as strategic altitude / cognitive radius, not romantic mood.
+-- Prefer structured article sections with 2-3 coherent paragraphs, not one-sentence fragments.
+-- Avoid generic "lifelong learning", "you should", "become better", and AI-influencer language.
++Keep private project context local; never copy private Brain content into web tools.
+ 
+ ### 2b. Build The Argument Memo
+ 
+@@ -63,7 +49,7 @@
+ 
+ ## 核心论点
+ 
+-用一句足够具体、可以被聪明读者反驳的话写清楚。
++写清本篇想表达的判断或变化，不强制反常识或可反驳论点。
+ 
+ ## 为什么现在值得写
+ 
+@@ -80,7 +66,7 @@
+ ## 对读者的启发
+ ```
+ 
+-The memo must map thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication. Distinguish sourced fact from Aaron's inference. If the claim ledger does not support the thesis, revise the thesis before creating `plan.md`.
++Adapt the memo to the selected form in the shared editorial contract; mechanism, counterargument and framework sections are optional when they do not help the reader. Distinguish sourced fact from Aaron's inference. If the claim ledger does not support the thesis, revise the thesis before creating `plan.md`.
+ 
+ ### 3. Build the outline
+ 
+@@ -101,10 +87,10 @@
+ <Opening tension, question, or story moment.>
+ 
+ ## Thesis
+-<One sentence. Specific enough that someone could disagree.>
++<The main judgment or change this article helps the reader understand.>
+ 
+ ## Personal Anchor
+-<The lived experience, project, experiment, or observation that makes this Aaron's piece.>
++<Relevant experience or author stance; public examples remain attributed to their source.>
+ 
+ ## Outline
+ 
+@@ -137,19 +123,19 @@
+ - <only questions that block drafting; omit if none>
+ ```
+ 
+-Prefer 5-7 sections for a 1,500-2,500 word post. Use a tighter 3-section outline for short posts.
++Choose section count and length by the material. Each part must add something; merge repetitive points.
+ 
+-For Aaron's default style, set `Tone` to something like: "Entrepreneurial, crisp, insight-led, commercially useful; no soft self-help, literary emotion, or teacherly advice."
++Set tone from the author's intent and language strategy. Preserve grounded enthusiasm, concern or reflection when it belongs to the article.
+ 
+ ### 4. Quality bar
+ 
+ Before finishing:
+ - The thesis is one sentence.
+-- The personal anchor is concrete.
++- Personal experience, sourced examples and hypothetical illustrations are clearly distinguished.
+ - Every section has a job; no generic filler section.
+ - The plan moves through a reader experience rather than mirroring the research dossier or listing sources company by company.
+ - The original judgment appears in the first 15% and the opening earns the title within roughly 150 words.
+-- The outline names the business value or strategic implication, not only a personal feeling.
++- The outline delivers the selected form's reader promise and preserves the author's attitude.
+ - There are no `TBD`, `TODO`, or placeholder brackets.
+ - If `content-plan.md` exists, `plan.md` preserves its core thesis and CTA.
+ 
+--- a/tiles/blog-brainstorm/SKILL.md
++++ b/tiles/blog-brainstorm/SKILL.md
+@@ -32,15 +32,15 @@
+ | Result | Action |
+ |--------|--------|
+ | Found | Read and apply preferences (expertise areas, audience, tone, brand context). Skip matching questions in Step 2. |
+-| Not found | Proceed with defaults; ask all questions in Step 2. |
++| Not found | Use the current request and ask only for missing context that affects the article. |
+ 
+ **Always read** `src/content/strategy/x.md` for content pillars, rules, and distribution strategy. This grounds the entire brainstorm in the publishing workflow.
+ 
+ ### Step 2: Gather Context
+ 
+-**If the user provides a rough idea or an existing `plan.md`**, read it and use it as the starting point — skip directly to Step 3 with that context.
+-
+-**Otherwise**, use ONE `AskUserQuestion` call (max 4 questions, 2-4 options each):
++**If the user provides a rough idea or an existing `plan.md`**, reuse that context and fill the author-intent brief in Step 2b; do not repeat answered questions.
++
++**Otherwise**, select only unanswered questions that matter from the following prompts. Use the available conversation tool; no fixed questionnaire is required:
+ 
+ | Q | Question | Options |
+ |---|----------|---------|
+@@ -52,22 +52,15 @@
+ 
+ If EXTEND.md provides defaults for some of these, skip those questions.
+ 
+-### Step 2b: Memory Reflection
+-
+-Before web research for a serious essay, inspect at least three prior finished English posts under `src/content/blogs/*/*.md`, skipping `*-zh.md`, planning files, social files, and video files.
+-
+-Write `memory-reflection.md` with:
+-- related past posts and why they matter;
+-- ideas to reuse;
+-- ideas to update;
+-- internal link candidates;
+-- continuity thesis.
+-
+-Do not force internal links. If no useful link exists, state why.
++### Step 2b: Author Intent And Relevant Memory
++
++Read `tiles/blog-production/references/editorial-system.md`. Capture author intent, reader promise, form/lead language and evidence boundaries in the existing `editorial-brief.md`. Ask only for missing details that would materially change the article.
++
++Consult earlier posts only if they help explain a changed idea or provide relevant evidence. In `memory-reflection.md`, record the useful connection or that none is needed; no reading quota or compulsory continuity thesis.
+ 
+ ### Step 3: Research Trending Topics
+ 
+-Perform **6-10 web searches** using `WebSearch` across multiple sources. Always include the current year and month for freshness.
++Research until the current reader promise has sufficient evidence. For time-sensitive work, verify dates and use current sources; do not use a fixed search quota. The following source patterns are options, not required searches.
+ 
+ | Source | Query pattern | Purpose |
+ |--------|--------------|---------|
+@@ -79,7 +72,7 @@
+ | Competitor blogs | `{topic} blog {current_year}` | What others are writing, gaps to fill |
+ | X threads | `{topic} thread {current_month} {current_year}` | High-performing thread structures and hooks |
+ 
+-**For each search, extract:**
++**From relevant results, extract:**
+ - Top 3-5 specific trending sub-topics or discussions
+ - The angle or framing being used
+ - Engagement signals (upvotes, comments, shares if visible)
+@@ -88,7 +81,7 @@
+ 
+ ### Step 4: Present Findings & Brainstorm
+ 
+-Organize findings into **3-5 topic clusters**. Present each as:
++If the direction is still open, organize relevant findings into a few topic clusters. If the author already chose a direction, refine that direction without a new selection round. A cluster can be presented as:
+ 
+ ```
+ ## Topic Cluster: [Theme Name]
+@@ -98,7 +91,7 @@
+ - [Specific thread/article/post with brief summary]
+ - [Another reference point]
+ 
+-**Your angle:** [How this connects to your expertise/experience — use "I built/did/learned" framing]
++**Your angle:** [The author's genuine connection, judgment or useful interpretation; do not invent experience.]
+ **Content potential:** [Why this would resonate — audience interest + personal authority]
+ **Thread potential:** High / Medium / Low — [can this be told as a standalone 5-8 tweet story?]
+ **Pillar:** AI-Native Execution / Product Leadership / Building in Public
+@@ -124,14 +117,9 @@
+ 
+ ```
+ ### Angle A: "[Working Title]"
+-**Hook (first tweet):** [Draft an actual hook using one of these formulas:
+-  - "I [did surprising thing]. Here's what happened:"
+-  - "Most [role] get [topic] wrong. Here's why:"
+-  - "[Number] lessons from [specific experience]:"
+-  - "I spent [time] building [thing]. Here's the breakdown:"
+-  - "Stop [common mistake]. Do this instead:"]
++**Hook:** [Name the subject and offer a concrete, supportable reason to read. Match the author's voice; do not force a formula or an invented first-person experience.]
+ **Unique value:** [What makes this different from existing content]
+-**Personal connection:** [The specific "I did this" story that makes it authentic]
++**Personal connection:** [Genuine experience or author judgment; sourced examples remain attributed]
+ **X distribution:** [Can this become a standalone thread? What's the visual — screenshot, diagram, before/after?]
+ ```
+ 
+@@ -149,19 +137,7 @@
+ - `research-dossier.md`
+ - `claim-ledger.md`
+ 
+-`editorial-brief.md` must include:
+-- reader pain;
+-- reader job to be done and one-sentence promise;
+-- sharp thesis;
+-- concrete opening scene, contradiction, bottleneck, or result;
+-- original contribution beyond the source material;
+-- why Aaron can write this;
+-- authority and scope boundary;
+-- evidence needed;
+-- counterargument;
+-- reusable frame;
+-- distribution hook;
+-- kill criteria.
++`editorial-brief.md` follows the single author-intent and reader-promise contract in `tiles/blog-production/references/editorial-system.md`. Include only the thesis, objections, mechanisms and reusable frames that the chosen form needs. Do not require every article to be a commercial argument.
+ 
+ `research-dossier.md` is an internal review artifact and should be written in Chinese by default. It must include:
+ - 这份材料要回答的问题;
+@@ -203,14 +179,14 @@
+ 
+ ## Voice Check
+ 
+-**Positioning:** Ship with AI, not about AI — builder who ships, not commentator.
+-**Voice rule:** Use "I" not "you should." Share what I did, not what others should do.
+-**This post's personal anchor:** [The specific personal experience/build/result this post is grounded in]
++**Positioning:** A builder sharing real work and considered reactions; the article form follows the current intent.
++**Voice rule:** Preserve the author's stance. First-person experience must be real; source-backed interpretation is also valid.
++**This post's material:** [Real experience, source-backed examples and author judgment, clearly distinguished]
+ 
+ ## Hook / Opening
+ 
+ **Blog hook:** [2-3 sentences — how the blog post opens]
+-**X thread hook (tweet 1):** [Single tweet, max 280 chars, uses a hook formula. Must stop the scroll.]
++**X thread hook (tweet 1):** [A concise, supportable reason to read; match the author's voice.]
+ 
+ ## Core Argument / Thesis
+ 
+@@ -236,7 +212,7 @@
+ ### Conclusion / Call to Action
+ - How to wrap up
+ - What the reader should take away
+-- Blog CTA: newsletter signup
++- Blog CTA: optional if it fits the ending
+ - Thread CTA: [based on cta_rotation — "follow for more", "newsletter link in bio", or "reply with your experience"]
+ 
+ ## Research References
+@@ -250,28 +226,13 @@
+ **Secondary keywords:** [2-3 related terms]
+ **Search intent:** [informational / navigational / commercial]
+ 
+-## Distribution Plan
+-
+-### X Post Brief (publish: [publish_day])
+-**Format:** Single long-form post (X Premium supports up to 25K chars). Standalone value. NO link in main post.
+-**Hook:** [Opening lines — the scroll-stopper. Uses a hook formula.]
+-**Key points:** [3-5 key insights, each as a short paragraph. One idea per paragraph.]
+-**Closing:** [CTA — rotate per cta_rotation field]
+-**Reply with link:** "Full deep dive: [blog URL]" — posted as a reply, NOT in the main post.
+-**Visual:** [What screenshot/diagram/image to include — at least one]
+-
+-### X Standalone Tweet Brief (publish: [publish_day + 2 days])
+-**Format:** Single tweet with image.
+-**The insight:** [Pull ONE surprising or quotable insight from the post]
+-**Image idea:** [Screenshot, diagram, or quote card]
+-
+-### Newsletter / LinkedIn Teaser Brief (publish: [publish_day])
+-**Format:** Short teaser post — same copy works for email newsletter (Beehiiv) and LinkedIn. Plain text, no markdown formatting. Ends with bare blog URL.
+-**Structure:** 3-4 short paragraphs: hook → contrast/insight → supporting data point → CTA line with bare URL.
+-**Link destination:** blog post URL (bare URL on its own line at the end)
+-
+-### Chinese Version
+-**Translate:** Full blog post + X thread
++## Distribution Intent
++
++Name only the requested channels and each reader promise. Use `tiles/blog-write/references/social-distribution.md` when preparing those assets; do not duplicate platform formats or assume one copy fits newsletter and LinkedIn.
++
++## Sibling Edition
++
++Preserve the claim set and author stance across English and Chinese, with natural expression in each.
+ 
+ ## Personal Experience Notes
+ 
+@@ -315,4 +276,4 @@
+ - Content plan references `src/content/strategy/x.md` for content rules and publishing workflow. If the strategy changes, the plan output stays current.
+ - The Distribution Plan section provides briefs, not finished content. Other skills or manual writing turn briefs into final x-teaser.md, newsletter-teaser.md, etc.
+ - CTA rotation should cycle across posts: follow → newsletter → reply → follow → ... Track the last used CTA across content plans to avoid repeating.
+-- Post hooks should use a hook formula from the strategy and stop the scroll in the first few lines.
++- Hooks should give a concrete reason to read and fulfill their promise; formulas are optional aids, not a voice requirement.
+--- a/tiles/blog-production/references/editorial-system.md
++++ b/tiles/blog-production/references/editorial-system.md
+@@ -1,98 +1,113 @@
+ # Blog Production Editorial System
+ 
+-Use this reference for serious essays and substantial rewrites.
++The shared editorial contract for brainstorm, outline, writing and review. Keep
++these decisions here; focused skills own their work, not a competing rubric.
++For language and endings, use `src/content/strategy/blog-writing-language.md`.
+ 
+-## The Editorial Contract
++## Author Intent And Reader Promise
+ 
+-Lock seven decisions before drafting:
++Keep one brief in `editorial-brief.md`:
+ 
+-1. Reader: one primary reader, not a broad audience list.
+-2. Job: the decision, diagnosis, or action the reader needs help with.
+-3. Promise: what the reader will understand or be able to do after reading.
+-4. Opening: one concrete scene, contradiction, bottleneck, result, or timely event with enough evidentiary weight to carry the first claim.
+-5. Contribution: the idea this article adds beyond the source material and Aaron's prior posts.
+-6. Boundary: what the article will not claim and where Aaron lacks direct authority.
+-7. Hypothesis: why this angle should earn qualified reading, sharing, or response.
++- Author intent: a few relevant original phrases, the central attitude or change,
++  and the interesting side topics that should remain peripheral.
++- Reader and promise: who will care, and what makes this article worth reading.
++- Form and lead language: personal response, real-work case, sourced explainer,
++  or a deliberate combination. Draft first in the language that best preserves
++  the author's intent; Chinese and English are sibling editions.
++- Material: the scene, observation or evidence that can carry the promise;
++  distinguish personal experience, public examples, inference and uncertainty.
+ 
+-Write these into `editorial-scorecard.md`. If the contract is vague, do not solve it with more research or more sections.
++Use what the author already provided. Ask only a missing question that would
++materially change the article, such as which moment changed their expectation.
++Do not replace the author's excitement, doubt or preference with a generic
++productivity claim. Read only relevant current inputs; archived drafts are for
++an explicit comparison, not routine context loading.
+ 
+-Concrete does not mean personal. If the article exists because of a current market or product event, name the subject before introducing an analogy. A personal example may move later when it clarifies the mechanism but is too small to establish the thesis.
++## Choose A Shape That Fits
++
++| Form | What earns the reader's attention | Optional, not a universal requirement |
++|---|---|---|
++| Personal response to an interview or reading | The ideas that resonate, a meaningful connection to work or life, the author's resulting attitude | Commercial value, contrarian thesis, operating framework, personal experiment |
++| Real-work case | Task context, constraints, choices, outcome, changed judgment | Measured ROI, dramatic failure, universal claim |
++| Sourced launch or topic explainer | What changed, thoughtful selection, understandable examples, evidence and limits | Personally testing every feature, fixed number of points, fixed recap percentage |
++
++Choose sections by their contribution. Explain the task before naming its
++technical components. Merge sections that repeat one judgment. A source-backed
++example can be concrete without being autobiographical; label hypothetical
++examples and never invent a personal result. Prior posts belong only where they
++help the reader understand evidence or a changed view. No forced callbacks.
+ 
+ ## Evidence Discipline
+ 
+-Use `claim-ledger.md` to separate:
++Maintain `claim-ledger.md` for material claims: fact, inference, judgment or
++personal observation; source and verification dates; authority and freshness
++limits. Prefer primary sources. A vendor claim proves what was announced, not
++neutral customer outcomes. Remove, qualify or narrow unsupported claims.
+ 
+-- fact: directly supported by a cited source;
+-- inference: Aaron's interpretation of facts or patterns;
+-- judgment: an operator conclusion or recommendation;
+-- personal observation: something Aaron directly experienced.
++Hold for personal proof only when the article's claim specifically depends on
++a result the author has not observed. An honest response or sourced explanation
++does not require inventing or performing a personal experiment. Source and
++privacy validation remain necessary where applicable.
+ 
+-Prefer primary sources. Treat vendor announcements as evidence of what the vendor says or does, not neutral proof that the product works. Record source dates and verification dates. Remove a claim when its evidence is weak; do not hide uncertainty in smoother prose.
++## Editorial Review
+ 
+-## Draft Architecture
++Use `editorial-scorecard.md` as the review record; retain its filename for
++existing tools, but use `Review format: evidence-v1` instead of a quality total.
++The package validator checks that a decision and its basis are recorded. It
++does not verify editorial taste or the truth of a self-reported PASS.
+ 
+-A serious operator essay normally needs this movement:
++Separate mechanical checks (sources, numbers, links, privacy, bilingual claims,
++asset state) from passage-linked editorial judgment:
+ 
+-```text
+-concrete bottleneck -> surprising pattern -> thesis -> mechanism -> proof
+--> credible objection -> usable frame -> implication
+-```
++1. Does the title and opening deliver the intended topic and author stance?
++2. Do examples have enough background and support what they are used to claim?
++3. Does each part add something worth continuing for?
++4. Do the author's emotion, reservations and judgment survive the editing?
++5. Do the title, opening and ending form a complete expression?
+ 
+-This is a movement, not a mandatory heading template. Do not mirror the research dossier or list companies one by one. Put the article's original judgment in the first 15% and make the title's promise concrete within the first 150 words.
++Name the passage, its effect on the reader, and the change needed. A genuine
++problem justifies revision; there is no issue quota or mandatory rewrite.
++Record `Decision: PASS` only when material blockers are resolved, with concrete
++`Review evidence:` and known limits. FAIL or PENDING remain valid outcomes.
++Historical numeric scorecards stay readable; never interpret their scores as
++measured writing quality or silently re-score an already approved article.
+ 
+-Use a focus budget:
+-
+-- one main thesis;
+-- one core mechanism;
+-- one reusable frame at most;
+-- five to seven major sections for a 1,600-2,600 word English essay;
+-- source/news recap should normally stay below 20% of the article;
+-- each section must add a new causal step, proof, objection, or decision.
+-
+-## Revision Protocol
+-
+-Do not run repeated unbounded polish passes. Use four distinct passes:
+-
+-1. Structural redraft: change thesis, sequence, evidence, or section jobs.
+-2. Red team: attack assumptions, authority, counterarguments, and unnecessary paragraphs.
+-3. Prose edit: improve rhythm and naturalness without changing facts.
+-4. Package QA: validate frontmatter, links, image paths, artifact state, and stale media.
+-
+-Record what was added, cut, reframed, and intentionally kept in `editorial-scorecard.md`. This delta is the learning signal for the next post.
++The language scanner is a wording signal, not a story or quality judge. Read
++flags in context. A clean scan is not a 100-quality article. Use personal-anchor
++or story-craft heuristics only when relevant to the chosen form; do not distort
++the article to satisfy a keyword rule.
+ 
+ ## Three Production Locks
+ 
+-Use three explicit locks to prevent downstream work from starting against a moving article:
++- **Argument Lock:** the intended contribution, evidence boundaries and section
++  jobs are stable. Final prose and visual planning can proceed.
++- **Article Lock:** sibling editions, title, sequence, image positions and ending
++  are accepted. Final images, audio and video can proceed.
++- **Package Lock:** transformed files, metadata, links, images and browser-rendered
++  pages pass their checks. External publishing follows existing authorization.
+ 
+-1. **Argument Lock:** thesis, claim boundaries, evidence, mechanism, credible objection, and the one primary executable framework are stable. Final prose and formal visual planning may start after this lock.
+-2. **Article Lock:** English and Chinese sibling editions, title, section sequence, image positions, and conclusion are accepted. Final image generation, audio, and video may start after this lock.
+-3. **Package Lock:** transformed blog files, frontmatter, public image paths, internal links, bilingual routes, and browser-rendered pages have passed. External publishing may start after this lock.
++Record locks with canonical file versions or hashes and caveats in the review
++and `package-state.json`. Existing authorization persists; these locks do not
++create a new permission request at every phase. If an upstream file changes,
++invalidate only affected downstream assets. A cover-only revision should not
++regenerate approved narration. Preserve audio review, account verification and
++production provenance requirements.
+ 
+-A passing automated score does not create a lock by itself. Record the lock decision in `editorial-scorecard.md` or `postmortem.md`, including the known caveats. When an upstream artifact changes after a lock, identify every downstream asset that is stale and re-run the relevant gate. The existence of an older image, script, audio file, or video is not evidence that it still matches the article.
++## Learn From Actual Revisions
+ 
+-## Feedback Promotion
++Classify feedback as local sentence, article lesson, reusable principle or
++detectable check. Apply reusable changes in one owning file, removing conflicting
++versions instead of accumulating exceptions. For a relevant recurring issue,
++read one example from `references/editorial-examples.md`; do not imitate all
++examples or load old articles by default.
+ 
+-Every useful correction should be classified before it changes the global workflow:
++For a substantial revision, preserve the original text and compare it with the
++result alongside the author's feedback. When SkillDev is available, use
++`references/skilldev-review.md` for portable snapshots and review bundles; this
++must not become a dependency or a new manual chore for the author.
+ 
+-- local sentence: fix only the article;
+-- article lesson: record it in prose, visual, or editorial review;
+-- reusable rule: update a strategy file or skill when the failure is likely to recur across posts;
+-- automated check: add a test or validator only when the pattern is detectable with acceptable false-positive cost.
+-
+-Do not let recurring failures remain trapped in one draft. Also do not turn every taste preference into a global hard rule. Promotion requires a reusable failure mode, a clear desired behavior, and a specific phase that owns the check.
+-
+-## Scorecard Rules
+-
+-Score the final article against the weighted template. Passing requires at least 85/100 and no dimension below 70% of its weight. Scores must cite specific evidence in the draft. A number without editorial reasoning is not a gate.
+-
+-The scorecard cannot override:
+-
+-- unsupported or stale claims;
+-- a misleading title;
+-- broken links or missing images;
+-- a Chinese version that changes the argument;
+-- an image set that fails visual critique.
+-
+-## Bilingual Rule
+-
+-English and Chinese are sibling editions. Keep the claim set, thesis, and source links aligned, but let sentence order, examples, transitions, and section openings adapt to each language. Do not translate awkward English metaphors merely to preserve symmetry.
++Historical comparisons calibrate judgment. They do not establish that newly
++written rules caused an old improvement. Test a workflow hypothesis on a fresh
++topic with matched materials and model settings; record confounders, preference,
++reasons and uncertainty. Model review assists; it does not replace author choice.
++CTR, retention and subscriptions are separate post-publication observations.
+--- a/tiles/blog-production/scripts/blog-package-quality.test.ts
++++ b/tiles/blog-production/scripts/blog-package-quality.test.ts
+@@ -67,6 +67,16 @@
+       const report = assessBlogPackage({ blogDir: dir, slug, serious: true });
+       expect(report.passed).toBe(true);
+       expect(report.errors).toEqual([]);
++
++      // The new manual record has no quality total, but still needs a decision and basis.
++      writeFileSync(join(dir, "editorial-scorecard.md"), "# Editorial Review\n\nReview format: evidence-v1\nReview evidence: The opening identifies the task; the final paragraph resolves the stated decision with the source limits retained.\nDecision: PASS\n");
++      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).passed).toBe(true);
++      writeFileSync(join(dir, "editorial-scorecard.md"), "Review format: evidence-v1\nReview evidence: PENDING\nDecision: PASS\n");
++      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).errors.join("\n")).toContain("Review evidence is required");
++      writeFileSync(join(dir, "editorial-scorecard.md"), "Review format: evidence-v1\nReview evidence:\nThis unrelated next line is not the evidence field.\nDecision: PASS\n");
++      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).errors.join("\n")).toContain("Review evidence is required");
++      writeFileSync(join(dir, "editorial-scorecard.md"), "Review format: evidence-v1\nReview evidence: Ending still introduces an unsupported claim.\nDecision: FAIL\n");
++      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).passed).toBe(false);
+     } finally {
+       rmSync(dir, { recursive: true, force: true });
+     }
+--- a/tiles/blog-production/scripts/blog-package-quality.ts
++++ b/tiles/blog-production/scripts/blog-package-quality.ts
+@@ -460,8 +460,17 @@
+     const scorecardPath = join(blogDir, "editorial-scorecard.md");
+     if (existsSync(scorecardPath)) {
+       const scorecard = readFileSync(scorecardPath, "utf-8");
+-      const score = Number(scorecard.match(/Final score:\s*(\d+)\s*\/\s*100/i)?.[1] ?? 0);
+-      if (score < 85) errors.push(`Editorial gate: final score is ${score}/100; minimum is 85.`);
++      if (/^Review format:\s*evidence-v1\s*$/mi.test(scorecard)) {
++        // Validate the manual review record, not the quality of the author's judgment.
++        const evidence = scorecard.match(/^Review evidence:[ \t]*([^\r\n]*)$/mi)?.[1]?.trim();
++        if (!evidence || /^(PENDING|TBD|TODO|N\/?A)$/i.test(evidence)) {
++          errors.push("Editorial gate: passage-linked Review evidence is required for evidence-v1.");
++        }
++      } else {
++        // Preserve already recorded gates while new work uses evidence-based review.
++        const score = Number(scorecard.match(/Final score:\s*(\d+)\s*\/\s*100/i)?.[1] ?? 0);
++        if (score < 85) errors.push(`Editorial gate: legacy final score is ${score}/100; minimum is 85. New reviews may use evidence-v1.`);
++      }
+     }
+   }
+ 
+--- a/tiles/blog-production/templates/workflow2/editorial-brief.md
++++ b/tiles/blog-production/templates/workflow2/editorial-brief.md
+@@ -1,35 +1,29 @@
+ # Editorial Brief
+ 
+-## Reader Pain
++## Author Intent
+ 
+-## Reader Job To Be Done
++Relevant original phrases, attitude or changed belief, main focus and peripheral topics:
+ 
+-## One-Sentence Promise
++## Reader And Promise
+ 
+-## Sharp Thesis
++Who will care and what makes this piece worth reading:
+ 
+-## Concrete Opening
++## Article Form And Lead Language
+ 
+-Name one scene, contradiction, bottleneck, result, or decision. Do not open with the topic in general.
++Personal response, real-work case, sourced explainer or a deliberate combination; start in the language that best preserves author intent:
+ 
+-## Original Contribution
++## Material And Opening
+ 
+-State what this article adds beyond the source material and Aaron's prior posts.
++The real scene, observation or evidence that can carry the promise; explain the task before technical components:
+ 
+-## Why Aaron Can Write This
++## Authority And Evidence Boundary
+ 
+-## Authority And Scope Boundary
++Personal experience, public examples, inference and unknowns; missing facts that would change the central claim:
+ 
+-State what Aaron knows directly, what is inferred, and what the article will not claim.
++## Structure And Landing
+ 
+-## Evidence Needed
++What each part adds and where the author's thought should land; mechanisms, counterarguments and frameworks only when useful:
+ 
+-## Counterargument
++## Distribution Hypothesis
+ 
+-## Reusable Frame
+-
+-## Distribution Hook
+-
+-## Success Hypothesis
+-
+-## Kill Criteria
++When relevant, how readers will discover the article and what we might learn after publishing. Keep this separate from editorial quality.
+--- a/tiles/blog-production/templates/workflow2/memory-reflection.md
++++ b/tiles/blog-production/templates/workflow2/memory-reflection.md
+@@ -10,4 +10,4 @@
+ 
+ ## Continuity Thesis
+ 
+-This post extends Aaron's previous writing by:
++Record only a useful connection or changed idea. If none serves this article, say so; do not force continuity or read unrelated posts to fill this template.
+--- a/tiles/blog-production/templates/workflow2/argument-memo.md
++++ b/tiles/blog-production/templates/workflow2/argument-memo.md
+@@ -1,17 +1,15 @@
+ # 论证备忘录
+ 
+-## 核心论点
++依据 editorial-brief.md 的作者意图与文章类型，简洁记录：
+ 
+-## 为什么现在值得写
++## 核心判断与读者承诺
+ 
+-## 机制解释
++## 选用的素材与证据边界
+ 
+-## 证据地图
++## 各部分的作用与顺序
+ 
+-## 需要承认的反方观点
++## 需要解释的背景与取舍
+ 
+-## 对反方的回应
++## 结尾的判断与情绪落点
+ 
+-## 可复用框架
+-
+-## 对读者的启发
++机制、反方与可复用框架只在能帮助本篇读者时加入；不凑齐模板。
+--- a/tiles/blog-production/templates/workflow2/red-team-review.md
++++ b/tiles/blog-production/templates/workflow2/red-team-review.md
+@@ -1,22 +1,19 @@
+ # Red-Team Review
+ 
+-## AI-Like Or Generic Sections
++## Article And Brief Version
+ 
+-## News Summary Without Original Judgment
++## Findings
+ 
+-## Claims That Need Stronger Evidence
++| Passage | What the reader loses | Necessary change or reason to keep |
++|---|---|---|
+ 
+-## Paragraphs To Cut Or Merge
+-
+-## Weak Counterargument Handling
+-
+-## Missing Personal Or Operator Judgment
+-
+-## Ending Quality
+-
+-## Required Revisions
++Check fidelity to the author's intent, context, evidence, section purpose and ending. Record genuine issues, not a required number. A supported no-change outcome is valid.
+ 
+ ## Revision Notes
++
++What changed and why; unsupported new claims must not enter through editing.
++
++## Unresolved Blockers
+ 
+ ## Revision Delta
+ 
+--- a/tiles/blog-production/templates/workflow3/editorial-scorecard.md
++++ b/tiles/blog-production/templates/workflow3/editorial-scorecard.md
+@@ -1,54 +1,42 @@
+-# Editorial Scorecard
++# Editorial Review
+ 
+-## Editorial Contract
++Review format: evidence-v1
+ 
+-- Reader:
+-- Reader's job to be done:
+-- One-sentence promise:
+-- Opening scene or bottleneck:
+-- Original contribution:
+-- Scope boundary:
+-- Success hypothesis:
++## Contract Reference
+ 
+-## Score
++Current editorial-brief.md and canonical article version/hash:
+ 
+-| Dimension | Weight | Score | Evidence in the draft | Required change |
+-|---|---:|---:|---|---|
+-| Hook earns attention and title | 10 | 0 |  |  |
+-| Thesis is specific, original, and arguable | 15 | 0 |  |  |
+-| Mechanism explains why | 15 | 0 |  |  |
+-| Evidence is primary, sufficient, and honest | 15 | 0 |  |  |
+-| Aaron's operator judgment is visible | 10 | 0 |  |  |
+-| Counterargument changes or sharpens the claim | 10 | 0 |  |  |
+-| Reader leaves with a usable decision or framework | 15 | 0 |  |  |
+-| Structure is compressed and every section earns its place | 10 | 0 |  |  |
++## Passage-Linked Findings
+ 
+-Final score: 0/100
++| Concern | Passage / observation | Reader impact | Action or reason to keep |
++|---|---|---|---|
++
++Check author intent, example context, section contribution, voice and ending according to the article's form. Record genuine findings; no issue quota.
++
++## Mechanical Checks
++
++Sources, claims, privacy, links, bilingual consistency and asset state; distinguish PASS, FAIL and unknown. A clean language scan is not proof of quality.
+ 
+ ## Revision Delta
+ 
+-### Added
+-
+-### Cut
+-
+-### Reframed
+-
+-### Intentionally Kept
++What was added, cut, reframed or intentionally kept, and why:
+ 
+ ## Production Locks
+ 
+ - Argument Lock: PENDING
+-  - Evidence:
++  - Evidence and version:
+   - Caveat:
+ - Article Lock: PENDING
+-  - Evidence:
++  - Evidence and version:
+   - Stale downstream assets:
+ - Package Lock: PENDING
+-  - Evidence:
+-  - External publishing authorized: no
++  - Evidence and version:
++  - Existing external publishing authorization:
+ 
+ ## Gate
+ 
+-Pass at 85/100 or higher, with no dimension below 70% of its weight. A passing score does not override factual, link, or image failures.
++Review evidence: PENDING
++
++Name specific passages and why the selected version fulfills the author intent and reader promise. Resolve material blockers before PASS; a script only validates this record, not the truth of the judgment. Preserve existing user authorization.
+ 
+ Decision: PENDING
+--- a/tiles/blog-write/scripts/blog-write-workflow.test.ts
++++ b/tiles/blog-write/scripts/blog-write-workflow.test.ts
+@@ -46,14 +46,7 @@
+     expect(skill).toContain("A loop in a diagram is not evidence of self-improvement");
+   });
+ 
+-  test("limits serious essays to one primary executable framework", () => {
+-    const skill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
+-    const editorialSystem = readFileSync("tiles/blog-production/references/editorial-system.md", "utf-8");
+-
+-    expect(skill).toContain("Framework economy");
+-    expect(skill).toContain("one primary executable framework");
+-    expect(editorialSystem).toContain("one reusable frame at most");
+-  });
++  // Form-specific editorial judgment is checked with real revision cases, not phrase matching.
+ 
+   test("documents methodology label precision review", () => {
+     const strategy = readFileSync("src/content/strategy/blog-writing-language.md", "utf-8");
+@@ -69,7 +62,6 @@
+ 
+     expect(skill).toContain("src/content/strategy/blog-writing-language.md");
+     expect(skill).toContain("blog-style-quality.ts");
+-    expect(skill).toContain("--require-story-craft");
+     expect(skill).toContain("Anti-AI style gate");
+     expect(skill).toContain("Story craft gate");
+   });
+@@ -78,7 +70,6 @@
+     const skill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
+ 
+     expect(skill).toContain("blog-style-quality.ts");
+-    expect(skill).toContain("--require-story-craft");
+     expect(skill).toContain("Anti-AI style gate");
+     expect(skill).toContain("Story craft gate");
+   });
+@@ -95,18 +86,17 @@
+     expect(productionSkill).toContain("Pre-publish evaluation gate");
+   });
+ 
+-  test("requires workflow 2 editorial artifacts in the writing skill", () => {
++  test("retains compatible editorial artifacts in the production orchestrator", () => {
+     const writeSkill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
+     const productionSkill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
+ 
+-    expect(writeSkill).toContain("memory-reflection.md");
+-    expect(writeSkill).toContain("editorial-brief.md");
+-    expect(writeSkill).toContain("research-dossier.md");
+-    expect(writeSkill).toContain("argument-memo.md");
++    expect(productionSkill).toContain("memory-reflection.md");
++    expect(productionSkill).toContain("editorial-brief.md");
++    expect(productionSkill).toContain("research-dossier.md");
++    expect(productionSkill).toContain("argument-memo.md");
+     expect(writeSkill).toContain("red-team-review.md");
+     expect(writeSkill).toContain("canon-note.md");
+     expect(productionSkill).toContain("Workflow 3 editorial gates");
+-    expect(productionSkill).toContain("Red-team gate");
+     expect(productionSkill).toContain("Memory update gate");
+   });
+ 
+@@ -141,7 +131,7 @@
+     expect(productionSkill).toContain("Package integrity gate");
+   });
+ 
+-  test("uses explicit production locks and promotes feedback deliberately", () => {
++  test("retains explicit production locks in the shared contract", () => {
+     const productionSkill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
+     const editorialSystem = readFileSync("tiles/blog-production/references/editorial-system.md", "utf-8");
+ 
+@@ -150,7 +140,5 @@
+     expect(productionSkill).toContain("Article Lock");
+     expect(productionSkill).toContain("Package Lock");
+     expect(editorialSystem).toContain("Three Production Locks");
+-    expect(editorialSystem).toContain("Feedback Promotion");
+-    expect(editorialSystem).toContain("acceptable false-positive cost");
+   });
+ });
+--- /dev/null
++++ b/tiles/blog-production/references/editorial-examples.md
+@@ -0,0 +1,42 @@
++# Editorial Examples
++
++Read only an example matching the current problem. These come from author
++feedback on DHH and Astra drafts in September 2026; they are calibration examples,
++not proof that later skill changes produced the accepted versions.
++
++## Preserve the center: DHH
++
++- Before: “听完 DHH 和 Lex Fridman 的这次采访，我很想去试试 Linux。”
++- Author correction: the point is agreement with his attitude to AI; Omarchy can
++  be admired but should remain peripheral. Include the team's differing trust.
++- Accepted opening: “最打动我的是他谈到 AI 时的兴奋。” The next paragraph connects
++  that response to colleagues who trust AI differently.
++- Lesson: an authentic-sounding personal detail can still be the wrong center.
++  Choose the detail by the author's intent, not by its novelty.
++
++## Context before components: Astra
++
++- Before: introducing Windows Worker before the reader understood the task.
++- Author correction: explain the complex deployment across Linux, Windows,
++  Azure resources, network configuration and SQL certificates, without exposing
++  project identities.
++- Lesson: technical specificity becomes useful after the reader knows what was
++  being achieved. Use only verified details; do not manufacture a dramatic failure.
++
++## Preserve the experience: Astra writing
++
++- Before: writing improvement explained mostly through fewer correction rounds.
++- Author correction: emphasize smoother, more natural writing and reading.
++- Accepted judgment: “我更喜欢和它一起写出来的文字了。” It remains a personal
++  experience, not a quantified benchmark of the model.
++- Lesson: an operational proxy may fail to express what the author values.
++
++## Let the ending land: Astra
++
++- Before: a final deployment plan followed by “一件原本需要我在几个工具之间来回处理的事，终于往前走了。”
++- Author correction: bring together increased trust in long, complex work,
++  verification and audit challenges, price, and anticipation of further progress.
++- Accepted final sentence: “下一次进步，我希望继续在真实工作里感受到它。”
++- Lesson: the ending earns that expectation by first gathering the experience
++  and acknowledging the costs. A compact synthesis can help; neither a fixed
++  number of paragraphs nor an obligatory call to action is the rule.
+--- /dev/null
++++ b/tiles/blog-production/references/skilldev-review.md
+@@ -0,0 +1,45 @@
++# Review A Real Revision With SkillDev
++
++Use this only for a substantial skill/draft revision or an explicit comparison.
++The author should not have to duplicate their feedback or maintain another form.
++If SkillDev is unavailable, preserve the normal versioned draft and review notes
++and continue. It is not a publishing dependency.
++
++Resolve `skillDevRepo` from `config/aaron-studio.json` relative to the Studio root.
++Build its CLI with `npm run build:packages` in that checkout if needed. The CLI
++entrypoint is `packages/cli/dist/cli.js` under the resolved checkout.
++
++## Before A Revision
++
++Use `review-snapshot <artifact>` with `--root <studio-root>`, a new `--out` JSON
++path under the article's revision directory, and a meaningful `--label`.
++Supply repeated `--context <file>` arguments for the actual rule files being
++compared. Model identity is optional; use `--model` only when known.
++
++Snapshots contain the named text files and hashes. They refuse overwrites.
++They record capture time, not execution time, and do not claim the supplied
++rules were all loaded by the runtime. Do not include credentials or irrelevant
++private context. Do not fabricate historical rule versions after the fact.
++
++## After A Revision
++
++Capture the changed version, then prepare the small review spec described in
++SkillDev's `docs/editorial-review.md`. Reuse the author's existing feedback,
++clearly labeling quotation versus paraphrase and its source. Keep editorial
++preference separate from automated checks. Use `historical-revision` for old
++drafts, `skill-change` for rule changes and `controlled-comparison` only for a
++real matched-input experiment with its limitations recorded.
++
++Run `review-pack <spec.json> --root <studio-root> --out <new-review.json>`.
++Import the resulting file in SkillDev's Editorial review view, or place it in
++the checkout's gitignored `apps/web/public/editorial-local/review.json` for the
++local viewer. No model call or publication occurs during capture or packing.
++
++The user can select before/after/tie/uncertain, add a reason and export the
++reviewed JSON. An exported author judgment can inform a later skill correction;
++the interface itself does not rewrite skills or mark a hypothesis proven.
++
++For prospective evidence, use a fresh topic and matched input/model settings.
++Historical accepted articles demonstrate what the author preferred then, not
++that today's updated skill produced them. Unknown timing, costs and execution
++paths stay unknown.
+--- a/config/aaron-studio.json
++++ b/config/aaron-studio.json
+@@ -3,6 +3,7 @@
+   "blogContentRoot": "src/content/blogs",
+   "brainRoot": "src/brain",
+   "tilesRoot": "tiles",
++  "skillDevRepo": "../skilldev/code",
+   "timezone": "America/Edmonton",
+   "blogRepo": "/Users/aaronguo/Work/ag/blog/aaronguoblog",
+   "blogPostsEn": "/Users/aaronguo/Work/ag/blog/aaronguoblog/content/blogs/en",

@@ -4,6 +4,28 @@
   "intensities": ["calm", "structured", "signature"],
   "templates": [
     {
+      "id": "sand-science-longform",
+      "status": "available",
+      "description": "Project-scoped English singing-sands documentary: pressure patterns, experiment sensors, frequency/amplitude comparison, silo stick-slip and granular gripper; also reuses the author-approved sand-science scenes. Explicitly illustrative, not a numerical simulation.",
+      "roles": ["explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["none", "crossfade"],
+      "max_duration_sec": 60,
+      "max_content_items": 5,
+      "fallback": "image-sequence"
+    },
+    {
+      "id": "sand-science-explainer",
+      "status": "prototype",
+      "description": "Singing-sands project: original grain-flow, synchronization analogy, hard-bottom channel, sieve-selection, and dune-layer illustrations. Not a calibrated simulation or generic science template.",
+      "roles": ["explanation"],
+      "intensities": ["structured"],
+      "motion_recipes": ["none"],
+      "max_duration_sec": 30,
+      "max_content_items": 5,
+      "fallback": "image-sequence"
+    },
+    {
       "id": "image-sequence",
       "status": "available",
       "description": "Full-frame evidence or illustration sequence with narration-synced crossfades.",
@@ -141,12 +163,7 @@
       "description": "A bespoke full-frame 3D, shader, or pixel transition scene used as a rare peak.",
       "roles": ["evidence", "explanation", "emphasis"],
       "intensities": ["signature"],
-      "motion_recipes": [
-        "three-d-flip",
-        "pixel-transition",
-        "camera-orbit",
-        "shader-field"
-      ],
+      "motion_recipes": ["three-d-flip", "pixel-transition", "camera-orbit", "shader-field"],
       "max_duration_sec": 25,
       "max_content_items": 12
     },
@@ -171,34 +188,116 @@
       "max_duration_sec": 25,
       "max_content_items": 1,
       "fallback": "image-sequence"
+    },
+    {
+      "id": "chapter-editorial",
+      "status": "available",
+      "description": "Persistent chapter heading and three-item agenda with unboxed list, comparison, flow, illustration or chapter marker. Introduced by code-upstream V4.",
+      "roles": ["evidence", "explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["focus-shift", "connector-draw"],
+      "max_duration_sec": 50,
+      "max_content_items": 10,
+      "prototype_evidence": "src/content/blogs/2026-09-07-code-upstream/video-production/v4/prototype-review.md"
+    },
+    {
+      "id": "minimal-editorial",
+      "status": "available",
+      "description": "One primary message with a short chapter context; statement, image, unframed list, comparison or flow. No persistent agenda or provenance footer.",
+      "roles": ["evidence", "explanation", "emphasis"],
+      "intensities": ["calm", "structured"],
+      "motion_recipes": ["focus-shift", "connector-draw"],
+      "max_duration_sec": 50,
+      "max_content_items": 5,
+      "prototype_evidence": "src/content/blogs/2026-09-07-code-upstream/video-production/v5/prototype-review.md"
     }
   ],
   "motion_recipes": [
-    { "id": "none", "status": "available" },
-    { "id": "crossfade", "status": "available" },
-    { "id": "bridge-reveal", "status": "available" },
-    { "id": "card-build", "status": "available" },
-    { "id": "connector-draw", "status": "available" },
-    { "id": "mask-reveal", "status": "prototype" },
-    { "id": "word-mask", "status": "prototype" },
-    { "id": "focus-shift", "status": "available" },
-    { "id": "count-up", "status": "prototype" },
-    { "id": "stagger", "status": "prototype" },
-    { "id": "highlight-scan", "status": "prototype" },
-    { "id": "compare-wipe", "status": "prototype" },
-    { "id": "path-trace", "status": "prototype" },
-    { "id": "three-d-flip", "status": "experimental" },
-    { "id": "pixel-transition", "status": "experimental" },
-    { "id": "camera-orbit", "status": "experimental" },
-    { "id": "shader-field", "status": "experimental" },
-    { "id": "ambient-cycle", "status": "prototype" },
+    {
+      "id": "none",
+      "status": "available"
+    },
+    {
+      "id": "crossfade",
+      "status": "available"
+    },
+    {
+      "id": "bridge-reveal",
+      "status": "available"
+    },
+    {
+      "id": "card-build",
+      "status": "available"
+    },
+    {
+      "id": "connector-draw",
+      "status": "available"
+    },
+    {
+      "id": "mask-reveal",
+      "status": "prototype"
+    },
+    {
+      "id": "word-mask",
+      "status": "prototype"
+    },
+    {
+      "id": "focus-shift",
+      "status": "available"
+    },
+    {
+      "id": "count-up",
+      "status": "prototype"
+    },
+    {
+      "id": "stagger",
+      "status": "prototype"
+    },
+    {
+      "id": "highlight-scan",
+      "status": "prototype"
+    },
+    {
+      "id": "compare-wipe",
+      "status": "prototype"
+    },
+    {
+      "id": "path-trace",
+      "status": "prototype"
+    },
+    {
+      "id": "three-d-flip",
+      "status": "experimental"
+    },
+    {
+      "id": "pixel-transition",
+      "status": "experimental"
+    },
+    {
+      "id": "camera-orbit",
+      "status": "experimental"
+    },
+    {
+      "id": "shader-field",
+      "status": "experimental"
+    },
+    {
+      "id": "ambient-cycle",
+      "status": "prototype"
+    },
     {
       "id": "semantic-settle",
       "status": "available",
       "loop": false,
       "allowed_easings": ["ease-out"],
-      "duration_sec": [0.3, 0.5],
-      "reference_frames_at_30_fps": [9, 15],
+      "duration_sec": [
+        0.3,
+        0.5
+      ],
+      "reference_frames_at_30_fps": [
+        9,
+        15
+      ],
       "exit_must_be_shorter_than_enter": true,
       "min_translate_px": 8,
       "max_translate_px": 12,
