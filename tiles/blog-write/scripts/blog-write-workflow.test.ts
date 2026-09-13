@@ -46,14 +46,7 @@ describe("blog-write workflow quality gate", () => {
     expect(skill).toContain("A loop in a diagram is not evidence of self-improvement");
   });
 
-  test("limits serious essays to one primary executable framework", () => {
-    const skill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
-    const editorialSystem = readFileSync("tiles/blog-production/references/editorial-system.md", "utf-8");
-
-    expect(skill).toContain("Framework economy");
-    expect(skill).toContain("one primary executable framework");
-    expect(editorialSystem).toContain("one reusable frame at most");
-  });
+  // Form-specific editorial judgment is checked with real revision cases, not phrase matching.
 
   test("documents methodology label precision review", () => {
     const strategy = readFileSync("src/content/strategy/blog-writing-language.md", "utf-8");
@@ -69,7 +62,6 @@ describe("blog-write workflow quality gate", () => {
 
     expect(skill).toContain("src/content/strategy/blog-writing-language.md");
     expect(skill).toContain("blog-style-quality.ts");
-    expect(skill).toContain("--require-story-craft");
     expect(skill).toContain("Anti-AI style gate");
     expect(skill).toContain("Story craft gate");
   });
@@ -78,7 +70,6 @@ describe("blog-write workflow quality gate", () => {
     const skill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
 
     expect(skill).toContain("blog-style-quality.ts");
-    expect(skill).toContain("--require-story-craft");
     expect(skill).toContain("Anti-AI style gate");
     expect(skill).toContain("Story craft gate");
   });
@@ -95,18 +86,17 @@ describe("blog-write workflow quality gate", () => {
     expect(productionSkill).toContain("Pre-publish evaluation gate");
   });
 
-  test("requires workflow 2 editorial artifacts in the writing skill", () => {
+  test("retains compatible editorial artifacts in the production orchestrator", () => {
     const writeSkill = readFileSync("tiles/blog-write/SKILL.md", "utf-8");
     const productionSkill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
 
-    expect(writeSkill).toContain("memory-reflection.md");
-    expect(writeSkill).toContain("editorial-brief.md");
-    expect(writeSkill).toContain("research-dossier.md");
-    expect(writeSkill).toContain("argument-memo.md");
+    expect(productionSkill).toContain("memory-reflection.md");
+    expect(productionSkill).toContain("editorial-brief.md");
+    expect(productionSkill).toContain("research-dossier.md");
+    expect(productionSkill).toContain("argument-memo.md");
     expect(writeSkill).toContain("red-team-review.md");
     expect(writeSkill).toContain("canon-note.md");
     expect(productionSkill).toContain("Workflow 3 editorial gates");
-    expect(productionSkill).toContain("Red-team gate");
     expect(productionSkill).toContain("Memory update gate");
   });
 
@@ -141,7 +131,7 @@ describe("blog-write workflow quality gate", () => {
     expect(productionSkill).toContain("Package integrity gate");
   });
 
-  test("uses explicit production locks and promotes feedback deliberately", () => {
+  test("retains explicit production locks in the shared contract", () => {
     const productionSkill = readFileSync("tiles/blog-production/SKILL.md", "utf-8");
     const editorialSystem = readFileSync("tiles/blog-production/references/editorial-system.md", "utf-8");
 
@@ -150,7 +140,5 @@ describe("blog-write workflow quality gate", () => {
     expect(productionSkill).toContain("Article Lock");
     expect(productionSkill).toContain("Package Lock");
     expect(editorialSystem).toContain("Three Production Locks");
-    expect(editorialSystem).toContain("Feedback Promotion");
-    expect(editorialSystem).toContain("acceptable false-positive cost");
   });
 });

@@ -148,7 +148,7 @@ published: true
 5. Run the local link validator **from the aaron-studio content repo**, where `config/aaron-studio.json` is available:
 
 ```bash
-node scripts/validate-blog-links.mjs \
+node scripts/validate-blog-links.mjs --blog-root <blog-repo> \
   <blog-repo>/content/blogs/en/{number}.{slug}.md \
   <blog-repo>/content/blogs/zh/{number}.{slug}.md
 ```
@@ -163,6 +163,19 @@ The validator must pass before reporting that the local blog copy is ready.
    - internal links resolve in the matching language;
    - there is no horizontal overflow at the checked viewport and no browser console error.
 8. Leave the requested local preview page open and report the post number, slug, image count, link-validation result, browser-QA result, and preview URLs.
+
+### Step 7: Publish from main and verify production
+
+Use the existing publication authorization; do not request it again for the same approved package. If publication is not authorized, leave the validated preview ready for review.
+
+- Confirm the target repository/worktree and PR base are `main`, not `develop`. Preserve unrelated changes. Merge the reviewed content through the repository workflow and record the resulting `main` commit.
+- Production must come from a Git-triggered deployment of that committed `main` revision. Never use local production deploys, manual promotion, or alias swaps.
+- Verify deployment provenance (`git`, branch `main`, expected commit) **and** that the real production domain serves that revision and the expected content in both languages. A merge, passing CI, or deployment READY state alone is insufficient.
+- Record merge/deployment evidence and live URLs in package state. Distinguish merged, deployed, and live-verified states when any step is still pending.
+
+For a cover-only revision, update `image`, `ogImage`, and alt text in both languages; remove a duplicate body cover if present. Check the homepage card, article cover, and share metadata. Preserve approved narration and video unless the requested change affects those deliverables.
+
+When validating an isolated worktree, pass its explicit `--blog-root` above. For growth ingestion use `--root <blog-repo>/content/blogs` so the configured original checkout cannot silently supply stale content.
 
 ### Step 8: Update growth analytics catalog
 
@@ -215,7 +228,7 @@ node scripts/blog-growth.mjs postmortem --slug <slug> --window 7d --dry-run
 ## Notes
 
 - The blog site is a Nuxt 3 app using `@nuxt/content` v3
-- Posts are deployed automatically when pushed to `main` via GitHub Actions
+- Verify the configured Git deployment provider uses `main`; CI success alone does not prove production deployment.
 - Do NOT push to the blog repo unless the user explicitly asks
 - Always set `published: true` unless the user says otherwise
 - Generate a meaningful description from the article content for SEO

@@ -34,6 +34,31 @@ const captionProtectedZone: LayoutRect = {
  * not invent a competing major region.
  */
 export const editorialLayouts = {
+  "minimal-page": {
+    id: "minimal-page",
+    slots: {
+      context: { rect: { x: 112, y: 84, width: 1696, height: 52 }, maxItems: 1 },
+      headline: { rect: { x: 112, y: 202, width: 1696, height: 164 }, maxItems: 2 },
+      body: { rect: { x: 112, y: 414, width: 1696, height: 410 }, maxItems: 4 },
+    },
+  },
+  "minimal-statement": {
+    id: "minimal-statement",
+    slots: {
+      context: { rect: { x: 112, y: 84, width: 1696, height: 52 }, maxItems: 1 },
+      claim: { rect: { x: 176, y: 254, width: 1568, height: 536 }, maxItems: 3 },
+    },
+  },
+  "chapter-page": {
+    id: "chapter-page",
+    slots: {
+      chapter: { rect: { x: 112, y: 112, width: 1696, height: 100 }, maxItems: 1 },
+      headline: { rect: { x: 112, y: 242, width: 1696, height: 112 }, maxItems: 2 },
+      agenda: { rect: { x: 112, y: 410, width: 344, height: 372 }, maxItems: 3 },
+      body: { rect: { x: 520, y: 390, width: 1288, height: 394 }, maxItems: 5 },
+      outcome: { rect: { x: 520, y: 818, width: 1288, height: 66 }, maxItems: 2 },
+    },
+  },
   statement: {
     id: "statement",
     slots: {
@@ -215,6 +240,24 @@ export const rectsOverlap = (a: LayoutRect, b: LayoutRect): boolean =>
 
 export const validateEditorialLayouts = (): string[] => {
   const issues: string[] = [];
+  for (const id of ["minimal-page", "minimal-statement"] as const) {
+    const slots = Object.entries(editorialLayouts[id].slots);
+    for (const [index, [name, slot]] of slots.entries()) {
+      if (rectsOverlap(slot.rect, captionProtectedZone)) issues.push(`${id} ${name} / captions overlap`);
+      if (slot.rect.x < 112 || slot.rect.x + slot.rect.width > 1808) issues.push(`${id} ${name} exceeds horizontal safe area`);
+      for (const [other, next] of slots.slice(index + 1)) {
+        if (rectsOverlap(slot.rect, next.rect)) issues.push(`${id} ${name} / ${other} overlap`);
+      }
+    }
+  }
+  const chapterSlots = Object.entries(editorialLayouts["chapter-page"].slots);
+  for (const [index, [name, slot]] of chapterSlots.entries()) {
+    if (rectsOverlap(slot.rect, captionProtectedZone)) issues.push(`chapter-page ${name} / captions overlap`);
+    if (slot.rect.x < 112 || slot.rect.x + slot.rect.width > 1808) issues.push(`chapter-page ${name} exceeds horizontal safe area`);
+    for (const [other, next] of chapterSlots.slice(index + 1)) {
+      if (rectsOverlap(slot.rect, next.rect)) issues.push(`chapter-page ${name} / ${other} overlap`);
+    }
+  }
   const workflow = editorialLayouts["workflow-gates"].slots;
   const coverHero = editorialLayouts["cover-hero"].slots;
   const splitLoop = editorialLayouts["split-loop"].slots;

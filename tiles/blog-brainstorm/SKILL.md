@@ -32,15 +32,15 @@ test -f "$HOME/.aaron-skills/blog-brainstorm/EXTEND.md" && echo "user"
 | Result | Action |
 |--------|--------|
 | Found | Read and apply preferences (expertise areas, audience, tone, brand context). Skip matching questions in Step 2. |
-| Not found | Proceed with defaults; ask all questions in Step 2. |
+| Not found | Use the current request and ask only for missing context that affects the article. |
 
 **Always read** `src/content/strategy/x.md` for content pillars, rules, and distribution strategy. This grounds the entire brainstorm in the publishing workflow.
 
 ### Step 2: Gather Context
 
-**If the user provides a rough idea or an existing `plan.md`**, read it and use it as the starting point — skip directly to Step 3 with that context.
+**If the user provides a rough idea or an existing `plan.md`**, reuse that context and fill the author-intent brief in Step 2b; do not repeat answered questions.
 
-**Otherwise**, use ONE `AskUserQuestion` call (max 4 questions, 2-4 options each):
+**Otherwise**, select only unanswered questions that matter from the following prompts. Use the available conversation tool; no fixed questionnaire is required:
 
 | Q | Question | Options |
 |---|----------|---------|
@@ -52,22 +52,15 @@ test -f "$HOME/.aaron-skills/blog-brainstorm/EXTEND.md" && echo "user"
 
 If EXTEND.md provides defaults for some of these, skip those questions.
 
-### Step 2b: Memory Reflection
+### Step 2b: Author Intent And Relevant Memory
 
-Before web research for a serious essay, inspect at least three prior finished English posts under `src/content/blogs/*/*.md`, skipping `*-zh.md`, planning files, social files, and video files.
+Read `tiles/blog-production/references/editorial-system.md`. Capture author intent, reader promise, form/lead language and evidence boundaries in the existing `editorial-brief.md`. Ask only for missing details that would materially change the article.
 
-Write `memory-reflection.md` with:
-- related past posts and why they matter;
-- ideas to reuse;
-- ideas to update;
-- internal link candidates;
-- continuity thesis.
-
-Do not force internal links. If no useful link exists, state why.
+Consult earlier posts only if they help explain a changed idea or provide relevant evidence. In `memory-reflection.md`, record the useful connection or that none is needed; no reading quota or compulsory continuity thesis.
 
 ### Step 3: Research Trending Topics
 
-Perform **6-10 web searches** using `WebSearch` across multiple sources. Always include the current year and month for freshness.
+Research until the current reader promise has sufficient evidence. For time-sensitive work, verify dates and use current sources; do not use a fixed search quota. The following source patterns are options, not required searches.
 
 | Source | Query pattern | Purpose |
 |--------|--------------|---------|
@@ -79,7 +72,7 @@ Perform **6-10 web searches** using `WebSearch` across multiple sources. Always 
 | Competitor blogs | `{topic} blog {current_year}` | What others are writing, gaps to fill |
 | X threads | `{topic} thread {current_month} {current_year}` | High-performing thread structures and hooks |
 
-**For each search, extract:**
+**From relevant results, extract:**
 - Top 3-5 specific trending sub-topics or discussions
 - The angle or framing being used
 - Engagement signals (upvotes, comments, shares if visible)
@@ -88,7 +81,7 @@ Perform **6-10 web searches** using `WebSearch` across multiple sources. Always 
 
 ### Step 4: Present Findings & Brainstorm
 
-Organize findings into **3-5 topic clusters**. Present each as:
+If the direction is still open, organize relevant findings into a few topic clusters. If the author already chose a direction, refine that direction without a new selection round. A cluster can be presented as:
 
 ```
 ## Topic Cluster: [Theme Name]
@@ -98,7 +91,7 @@ Organize findings into **3-5 topic clusters**. Present each as:
 - [Specific thread/article/post with brief summary]
 - [Another reference point]
 
-**Your angle:** [How this connects to your expertise/experience — use "I built/did/learned" framing]
+**Your angle:** [The author's genuine connection, judgment or useful interpretation; do not invent experience.]
 **Content potential:** [Why this would resonate — audience interest + personal authority]
 **Thread potential:** High / Medium / Low — [can this be told as a standalone 5-8 tweet story?]
 **Pillar:** AI-Native Execution / Product Leadership / Building in Public
@@ -124,14 +117,9 @@ This is the creative heart of the skill — free-form conversation.
 
 ```
 ### Angle A: "[Working Title]"
-**Hook (first tweet):** [Draft an actual hook using one of these formulas:
-  - "I [did surprising thing]. Here's what happened:"
-  - "Most [role] get [topic] wrong. Here's why:"
-  - "[Number] lessons from [specific experience]:"
-  - "I spent [time] building [thing]. Here's the breakdown:"
-  - "Stop [common mistake]. Do this instead:"]
+**Hook:** [Name the subject and offer a concrete, supportable reason to read. Match the author's voice; do not force a formula or an invented first-person experience.]
 **Unique value:** [What makes this different from existing content]
-**Personal connection:** [The specific "I did this" story that makes it authentic]
+**Personal connection:** [Genuine experience or author judgment; sourced examples remain attributed]
 **X distribution:** [Can this become a standalone thread? What's the visual — screenshot, diagram, before/after?]
 ```
 
@@ -149,19 +137,7 @@ Before `content-plan.md`, write:
 - `research-dossier.md`
 - `claim-ledger.md`
 
-`editorial-brief.md` must include:
-- reader pain;
-- reader job to be done and one-sentence promise;
-- sharp thesis;
-- concrete opening scene, contradiction, bottleneck, or result;
-- original contribution beyond the source material;
-- why Aaron can write this;
-- authority and scope boundary;
-- evidence needed;
-- counterargument;
-- reusable frame;
-- distribution hook;
-- kill criteria.
+`editorial-brief.md` follows the single author-intent and reader-promise contract in `tiles/blog-production/references/editorial-system.md`. Include only the thesis, objections, mechanisms and reusable frames that the chosen form needs. Do not require every article to be a commercial argument.
 
 `research-dossier.md` is an internal review artifact and should be written in Chinese by default. It must include:
 - 这份材料要回答的问题;
@@ -203,14 +179,14 @@ cta_rotation: follow | newsletter | reply
 
 ## Voice Check
 
-**Positioning:** Ship with AI, not about AI — builder who ships, not commentator.
-**Voice rule:** Use "I" not "you should." Share what I did, not what others should do.
-**This post's personal anchor:** [The specific personal experience/build/result this post is grounded in]
+**Positioning:** A builder sharing real work and considered reactions; the article form follows the current intent.
+**Voice rule:** Preserve the author's stance. First-person experience must be real; source-backed interpretation is also valid.
+**This post's material:** [Real experience, source-backed examples and author judgment, clearly distinguished]
 
 ## Hook / Opening
 
 **Blog hook:** [2-3 sentences — how the blog post opens]
-**X thread hook (tweet 1):** [Single tweet, max 280 chars, uses a hook formula. Must stop the scroll.]
+**X thread hook (tweet 1):** [A concise, supportable reason to read; match the author's voice.]
 
 ## Core Argument / Thesis
 
@@ -236,7 +212,7 @@ cta_rotation: follow | newsletter | reply
 ### Conclusion / Call to Action
 - How to wrap up
 - What the reader should take away
-- Blog CTA: newsletter signup
+- Blog CTA: optional if it fits the ending
 - Thread CTA: [based on cta_rotation — "follow for more", "newsletter link in bio", or "reply with your experience"]
 
 ## Research References
@@ -250,28 +226,13 @@ cta_rotation: follow | newsletter | reply
 **Secondary keywords:** [2-3 related terms]
 **Search intent:** [informational / navigational / commercial]
 
-## Distribution Plan
+## Distribution Intent
 
-### X Post Brief (publish: [publish_day])
-**Format:** Single long-form post (X Premium supports up to 25K chars). Standalone value. NO link in main post.
-**Hook:** [Opening lines — the scroll-stopper. Uses a hook formula.]
-**Key points:** [3-5 key insights, each as a short paragraph. One idea per paragraph.]
-**Closing:** [CTA — rotate per cta_rotation field]
-**Reply with link:** "Full deep dive: [blog URL]" — posted as a reply, NOT in the main post.
-**Visual:** [What screenshot/diagram/image to include — at least one]
+Name only the requested channels and each reader promise. Use `tiles/blog-write/references/social-distribution.md` when preparing those assets; do not duplicate platform formats or assume one copy fits newsletter and LinkedIn.
 
-### X Standalone Tweet Brief (publish: [publish_day + 2 days])
-**Format:** Single tweet with image.
-**The insight:** [Pull ONE surprising or quotable insight from the post]
-**Image idea:** [Screenshot, diagram, or quote card]
+## Sibling Edition
 
-### Newsletter / LinkedIn Teaser Brief (publish: [publish_day])
-**Format:** Short teaser post — same copy works for email newsletter (Beehiiv) and LinkedIn. Plain text, no markdown formatting. Ends with bare blog URL.
-**Structure:** 3-4 short paragraphs: hook → contrast/insight → supporting data point → CTA line with bare URL.
-**Link destination:** blog post URL (bare URL on its own line at the end)
-
-### Chinese Version
-**Translate:** Full blog post + X thread
+Preserve the claim set and author stance across English and Chinese, with natural expression in each.
 
 ## Personal Experience Notes
 
@@ -315,4 +276,4 @@ Next steps:
 - Content plan references `src/content/strategy/x.md` for content rules and publishing workflow. If the strategy changes, the plan output stays current.
 - The Distribution Plan section provides briefs, not finished content. Other skills or manual writing turn briefs into final x-teaser.md, newsletter-teaser.md, etc.
 - CTA rotation should cycle across posts: follow → newsletter → reply → follow → ... Track the last used CTA across content plans to avoid repeating.
-- Post hooks should use a hook formula from the strategy and stop the scroll in the first few lines.
+- Hooks should give a concrete reason to read and fulfill their promise; formulas are optional aids, not a voice requirement.

@@ -1,0 +1,7 @@
+{
+  "name": "aaronguo/brain-context",
+  "version": "0.1.0",
+  "summary": "Source-backed meeting change cards and scoped project context for Aaron's Brain.",
+  "private": true,
+  "skills": { "brain-context": { "path": "SKILL.md" } }
+}

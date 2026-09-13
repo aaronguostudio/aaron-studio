@@ -1,0 +1,231 @@
+export const data = {
+  "durationFrames": 6056,
+  "introFrames": 1477,
+  "endStartFrame": 5621,
+  "scenes": [
+    {
+      "id": "science-1",
+      "title": "Hook",
+      "start": 49.233333333333334,
+      "end": 70.36349233333334,
+      "credit": "解释动画 · AI 沙粒插画背景"
+    },
+    {
+      "id": "science-2",
+      "title": "Finding a rhythm",
+      "start": 70.36349233333334,
+      "end": 95.67324333333333,
+      "credit": "同步类比 · 非实验影像"
+    },
+    {
+      "id": "science-3",
+      "title": "A song without a dune",
+      "start": 95.67324333333333,
+      "end": 116.84984233333333,
+      "credit": "实验原理重绘 · Dagois-Bohy 等，2012"
+    },
+    {
+      "id": "science-4",
+      "title": "Sorting the singers",
+      "start": 116.84984233333333,
+      "end": 139.97691733333335,
+      "credit": "筛分原理示意 · Dagois-Bohy 等，2012"
+    },
+    {
+      "id": "science-5",
+      "title": "What remains open",
+      "start": 139.97691733333335,
+      "end": 165.24022833333333,
+      "credit": "实景 · Kurt Moses / NPS · 分层为示意"
+    },
+    {
+      "id": "science-6",
+      "title": "Back to the landscape",
+      "start": 165.24022833333333,
+      "end": 187.36666666666667,
+      "credit": "实景照片 · Kurt Moses / NPS · Eureka Dunes"
+    }
+  ],
+  "captions": [
+    {
+      "start": 49.233333333333334,
+      "end": 51.590333333333334,
+      "text": "那么，到底是什么在振动？",
+      "en": "So what is actually vibrating?"
+    },
+    {
+      "start": 52.54233333333333,
+      "end": 54.30733333333333,
+      "text": "从沙子的滑落开始。",
+      "en": "Start with the avalanche."
+    },
+    {
+      "start": 55.00333333333333,
+      "end": 58.080333333333336,
+      "text": "沙粒滚动、滑行，从彼此身边经过。",
+      "en": "Grains roll and slide past their neighbors."
+    },
+    {
+      "start": 58.40533333333333,
+      "end": 62.608333333333334,
+      "text": "研究者把声音与这种相对运动联系起来。",
+      "en": "Researchers have linked the sound to this relative motion."
+    },
+    {
+      "start": 63.211333333333336,
+      "end": 70.36333333333333,
+      "text": "风能推动沙子，但这并不是风在吹奏一支巨大的笛子。",
+      "en": "The wind can move sand, but it isn't simply blowing across the dune like a giant flute."
+    },
+    {
+      "start": 70.36349233333334,
+      "end": 73.66049233333334,
+      "text": "一种有影响力的解释，是同步。",
+      "en": "One influential explanation is synchronization."
+    },
+    {
+      "start": 74.10149233333334,
+      "end": 76.09849233333333,
+      "text": "想象一群人一起拍手。",
+      "en": "Imagine a crowd clapping."
+    },
+    {
+      "start": 76.60949233333334,
+      "end": 79.41949233333332,
+      "text": "零散的掌声，听起来杂乱无章。",
+      "en": "Scattered claps sound like a jumble."
+    },
+    {
+      "start": 79.93049233333333,
+      "end": 84.81749233333333,
+      "text": "当大家进入共同的节奏，清晰的脉动就出现了。",
+      "en": "When people settle into a shared rhythm, a clear pulse emerges."
+    },
+    {
+      "start": 85.14249233333334,
+      "end": 87.04749233333334,
+      "text": "这只是一个类比。",
+      "en": "The comparison isn't literal."
+    },
+    {
+      "start": 87.48849233333334,
+      "end": 95.67349233333333,
+      "text": "它帮助我们理解：许多沙粒的运动，如何形成持续音，而不只是沙沙声。",
+      "en": "But it helps explain how many moving grains could produce a sustained note, instead of just a rustle."
+    },
+    {
+      "start": 95.67324333333333,
+      "end": 98.07624333333334,
+      "text": "接着，一个实验带来了重要线索。",
+      "en": "Then came a revealing experiment."
+    },
+    {
+      "start": 98.66824333333332,
+      "end": 102.22124333333333,
+      "text": "研究者把会唱歌的沙子，带进了实验室。",
+      "en": "Researchers brought singing sand into the laboratory."
+    },
+    {
+      "start": 103.02224333333334,
+      "end": 107.66624333333334,
+      "text": "他们让沙子沿着倾斜的硬底实验槽滑落。",
+      "en": "They let it avalanche down an inclined channel with a hard bottom."
+    },
+    {
+      "start": 107.98024333333333,
+      "end": 109.08324333333333,
+      "text": "沙子依然发出了声音。",
+      "en": "It still sang."
+    },
+    {
+      "start": 110.01124333333334,
+      "end": 116.85024333333332,
+      "text": "在这些实验条件下，沙子不需要下面有一整座沙丘，也能发声。",
+      "en": "Under those conditions, the moving sand didn't need an entire dune underneath it to make the sound."
+    },
+    {
+      "start": 116.84984233333333,
+      "end": 119.60184233333332,
+      "text": "他们还研究了沙粒的大小。",
+      "en": "They also investigated grain size."
+    },
+    {
+      "start": 120.55384233333332,
+      "end": 125.99884233333333,
+      "text": "粒径混杂的沙子，发出的声音更宽杂、更嘈杂。",
+      "en": "Sand containing a wider mixture of sizes produced a broader, noisier sound."
+    },
+    {
+      "start": 126.68384233333333,
+      "end": 132.97584233333333,
+      "text": "筛出粒径范围更窄的沙子后，音调变得更加明确。",
+      "en": "After sieving that sand into a narrower range of sizes, the note became more clearly defined."
+    },
+    {
+      "start": 134.07884233333334,
+      "end": 136.05284233333333,
+      "text": "改变沙粒，也改变了声音。",
+      "en": "Changing the grains changed the voice."
+    },
+    {
+      "start": 137.00484233333333,
+      "end": 139.9768423333333,
+      "text": "这是一个很有力的线索。",
+      "en": "That is a powerful clue."
+    },
+    {
+      "start": 139.97691733333335,
+      "end": 143.04191733333334,
+      "text": "但研究中，并不只有一种解释。",
+      "en": "But there is more than one explanation in the research."
+    },
+    {
+      "start": 144.20291733333335,
+      "end": 150.83191733333334,
+      "text": "野外研究强调，沙丘内部的分层能够引导并增强振动。",
+      "en": "Field studies have emphasized how layers inside a dune can guide and reinforce vibrations."
+    },
+    {
+      "start": 151.83091733333333,
+      "end": 154.7909173333333,
+      "text": "另一些实验，则强调流动的沙粒。",
+      "en": "Other experiments emphasize the flowing grains."
+    },
+    {
+      "start": 155.9399173333333,
+      "end": 159.27191733333333,
+      "text": "让沙子在实验室里唱歌，回答了一个问题。",
+      "en": "Making sand sing in a lab answers one question."
+    },
+    {
+      "start": 160.57291733333335,
+      "end": 165.23991733333332,
+      "text": "但它没有解决整片山坡轰鸣的每一个细节。",
+      "en": "It doesn't settle every detail of a booming hillside."
+    },
+    {
+      "start": 165.24022833333333,
+      "end": 171.11522833333333,
+      "text": "可以这样理解：滑落让具备条件的沙子运动起来。",
+      "en": "So the useful picture is this: the avalanche sets suitable sand in motion."
+    },
+    {
+      "start": 172.35722833333335,
+      "end": 175.94422833333334,
+      "text": "集体运动，可以把这些运动组织成声音。",
+      "en": "Collective movement can organize that motion into sound."
+    },
+    {
+      "start": 176.43222833333334,
+      "end": 181.55222833333335,
+      "text": "颗粒的性质、沙子的流动，以及周围的条件，都很重要。",
+      "en": "The grain properties, the flow, and the surrounding conditions all matter."
+    },
+    {
+      "start": 182.7942283333333,
+      "end": 186.74222833333334,
+      "text": "微小的东西一起运动，也能让一片风景发声。",
+      "en": "Tiny things moving together can give a landscape a voice."
+    }
+  ]
+};

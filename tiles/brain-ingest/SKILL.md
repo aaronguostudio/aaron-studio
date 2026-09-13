@@ -1,193 +1,61 @@
 ---
 name: brain-ingest
-description: Ingest any raw input — meeting notes, screenshots, emails, messages, articles, file paths — into Aaron's brain (src/brain/). Routes to the right subdir, parses images to text, updates affected world/ nodes, and always confirms before writing. Use when Aaron pastes content with no specified destination, or says "save this", "ingest", "remember this", "put this in the brain".
+description: Capture Aaron's ideas, knowledge, reading notes, and observations into Notion Brain when he says "帮我记下来", "存进 brain", "save this", or "remember this". Retrieve or organize those captures on request. Ordinary conversation is not automatic capture; actionable tasks use notion-task-intake.
 ---
 
 # brain-ingest
 
-The single capture point for Aaron's brain. Removes the "where does this go?" decision.
+Notion is the primary home for new personal knowledge. Use `brainCapture` in [shared config](../../config/aaron-studio.json) for destinations; fetch the live schema before writing. Existing `src/brain/` material is legacy evidence, not a second write target.
 
-## When to invoke
+## Intent and routing
 
-User actions that should trigger this skill:
-- Pastes meeting notes, message screenshots, email content, transcripts
-- Drops a file path or image attachment with no instruction
-- Says "save this", "remember this", "ingest this", "put this in my brain", "存进 brain"
-- Provides any raw evidence about a person, project, org, or topic without saying where to file it
+- An explicit capture request authorizes saving its content to the configured Notion Brain. Do not ask for a second generic confirmation. A pasted file or ordinary conversation without capture intent does not authorize storing it.
+- A vague idea or learning goes to the knowledge inbox, even when it mentions a project. A request to add an actionable task/backlog item goes to [notion-task-intake](../notion-task-intake/SKILL.md); capture does not authorize executing it or scheduling reminders.
+- Granola meeting change cards, project-state review, and cross-project context packs use [brain-context](../brain-context/SKILL.md). That workflow's evidence and promotion rules remain in force; this capture change does not migrate its local baseline.
+- An explicit journal/work-log destination uses the existing Insights location, fetching its live schema first. Daily-log and weekly-review workflows have not been migrated by this skill.
+- Respect an explicit destination, local-only restriction, or request to keep an original. Never silently fall back to local Brain when Notion is unavailable.
 
-If the user gives an explicit destination ("add this to keri's node", "save to reading"), DO NOT invoke this skill — just write directly.
+## Capture
 
-## Hard rules
+1. Read only the supplied material and context necessary to understand it. Parse images with native in-session vision; mark uncertain words/numbers rather than guessing. Do not send source images to a separate OCR service. Save image originals only when requested; text capture does not authorize uploading attachments.
+2. Fetch the configured knowledge data source and Notion enhanced Markdown specification. If the connection or target is unavailable, retain a draft in the response and report **not saved**. Do not create a replacement database or change sharing.
+3. Look for an existing capture by source URL/ID and distinctive title within this knowledge data source. Fetch likely matches before deciding. Same source and same content: return the existing page. Same source with a new observation: append a dated addition while preserving the original. Similar topic alone is not a duplicate; create a related note. Do not overwrite a curated card with raw input.
+4. Create a small readable page under the configured **data source**, using live property names. Default `类型=随手记`, `整理状态=收件箱`, `值得再看=__NO__`; the title can be one sentence. Add `一句话` only if useful. No mandatory classification questions.
+5. Set `原始日期` only when known: today's date for a current thought, the actual source date for older material, otherwise leave blank. Record capture date separately in the body. Keep raw words separate from interpretation, particularly for observations about people or decisions. Do not turn a proposal into a confirmed decision.
+6. Link an existing project only if the source or conversation makes the connection clear. Fetch the Projects Registry schema and matching record; do not infer the project merely from cwd or create a project to store a note. Add relevant knowledge relations only after reading the matched pages, explaining the connection in the body. Unknown relations stay empty and do not block saving. Preserve existing relation values when updating.
+7. Create once and read back the page: check content, inbox status, source/date and intended relations. Return its clickable Notion URL. On an ambiguous write/timeout, query the intended source/title and inspect matches before retrying; never blindly create a second page. If read-back is unavailable, distinguish accepted write from verified save.
 
-1. **Always confirm before any write.** Show the user the parsed content + target file path + node updates. Wait for explicit OK.
-2. **No external APIs for image parsing.** Use the current agent/runtime's native vision only (already in-session). Per the repo agent guide ([AGENTS.md](../../AGENTS.md) / [CLAUDE.md](../../CLAUDE.md)), brain content never leaves the machine.
-3. **One source per ingest.** Never batch. If the user pastes 3 things, run the workflow 3 times.
-4. **Text only by default.** Don't save images to the repo. Parse to text. Add a note in the file: `> Originally captured as image; parsed via native agent vision on YYYY-MM-DD.`
-5. **Image originals (rare):** Only if user explicitly says "keep the original" — save to `~/.aaron-studio-attachments/YYYY-MM-DD/<slug>.<ext>` (outside the repo, not synced) and reference the path in the parsed file.
+Use the current connector schema rather than copying stale argument shapes. Property changes use `update_properties`, not properties attached to a content command. Use native Notion mentions for existing pages. The migration-only `来源路径` field is not required for daily capture; keep source URL/identity in the body. Notion SQL text can be lossy: fetch pages or use faithful rows before repairing rich text.
 
-## Workflow
+A short capture can simply contain the original thought and a source/date line. For longer material, use:
 
-### Step 1: Read the raw
-
-- If text → use directly.
-- If image (path or attachment) → use the Read tool to get vision parse. Extract:
-  - Verbatim quotes (preserve exactly — names, numbers, code).
-  - Speaker / sender if visible.
-  - Timestamp if visible.
-  - Channel / context (Slack channel, email thread, meeting title).
-- If file path → Read it.
-
-### Step 2: Classify destination
-
-Decide which `src/brain/` subdir is the right home. Pick exactly one:
-
-| Type of input | Destination | Filename |
-|--------------|-------------|----------|
-| Observation about a person/org/project (message, screenshot, transcript snippet, behavior signal) | `src/brain/world/_archive/YYYY-MM-DD/` | `<slug>.md` (descriptive: `justin-redis-pushback.md`) |
-| Article, book excerpt, external resource Aaron read | `src/brain/reading/YYYY/` | `YYYY-MM-DD-<slug>.md` |
-| Personal cheatsheet, snippet, how-to | `src/brain/notes/` | `<slug>.md` |
-| Daily reflection, mood, stream-of-consciousness | `src/brain/journal/YYYY/MM/` | `YYYY-MM-DD.md` (append if exists) |
-| Routine, identity-level, lifestyle | `src/brain/life/` | `<slug>.md` |
-| Action item or scratch | `src/inbox/todo.md` or `scratch.md` (append) | n/a |
-
-If unsure between two destinations → ask the user, don't guess.
-
-### Step 3: Draft the file
-
-Write the file content as a markdown buffer (don't save yet):
-
-**Standard frontmatter:**
-```yaml
----
-type: <reading | note | journal | observation | life>
-date: YYYY-MM-DD
-status: active
-tags: [...]
-captured_via: brain-ingest skill
-source: <slack | email | meeting | screenshot | article-url | manual | etc.>
-related:
-  - "[[../../world/people/<name>]]"   # if applicable
-  - "[[../../world/projects/<name>]]" # if applicable
----
-```
-
-**Body sections (for world/_archive entries):**
 ```markdown
-# <Title>
+## 记下来的内容
+<original words, or a clearly labeled faithful summary>
 
-**Date:** YYYY-MM-DD
-**Source:** <where this came from>
-**Captured by:** brain-ingest skill (native vision parse) | manual paste
-**Related:** [[people/X]], [[projects/Y]]
+## 为什么留下它
+<only if supplied or useful; identify agent interpretation>
 
-## Raw Content
-
-<verbatim quote / parse / paste>
-
-## Context
-
-<2-4 sentences: why this matters, what surrounds it, why Aaron shared it now>
+## 来源
+<source link/ID or "Aaron，本次对话"; source date when known; capture date>
 ```
 
-For other destinations, match the existing format in that subdir (read 1 example file first).
+Do not fabricate a source link. Quote only supplied material or a permitted short excerpt; external reading notes should summarize and link. Save authorized Brain content to Notion only, without automatically exporting it to other services or copying unrelated private context.
 
-### Step 4: Identify world/ node impacts
+## Find and organize
 
-If destination is `world/_archive/` OR if the content references a known world entity:
+For older journals, reviews, decisions, reading notes or detailed knowledge sources, search the configured `recordsPageId`; `recordsMigrationMap` maps original source paths to Notion pages. These are historical records; new journals/work logs still use Insights. Existing curated cards link to their full source texts.
 
-- Grep `src/brain/world/` for mentioned names / projects / orgs.
-- For each matched node, draft a 1-3 sentence Observation entry to append:
-  ```markdown
-  - **YYYY-MM-DD** — <observation> (source: [[../_archive/YYYY-MM-DD/<slug>]])
-  ```
-- Identify whether this contradicts existing content in any node. If yes, flag for an ADR in `src/brain/decisions/`.
+For an explicit World/person lookup or update, use `brainCapture.worldPageId` and its category pages; the configured `worldMigrationMap` locates migrated records by source identity. Fetch the current Notion page, append a dated observation with source and interpretation separated, and preserve historical content. Do not write a second local World copy. Generic thoughts still enter the knowledge inbox. This does not change brain-context baseline promotion rules.
 
-### Step 5: Confirm with Aaron — REQUIRED GATE
+For “刚才那条记在哪里” or “找回我记的 X”, query Notion first, then fetch relevant matches and return the page plus the useful excerpt. If necessary, search the corresponding legacy source and identify it as not yet migrated; do not import it as a side effect of retrieval.
 
-Show the user, in this order:
-
-1. **Parsed text** (if from image) — full extracted content. Ask: *"Did I parse this correctly? Any names/numbers/code I should fix?"*
-2. **Target file path** — where you propose to write.
-3. **Draft file content** — the markdown buffer.
-4. **Node updates** — for each affected `world/` node, the proposed Observation entry to append.
-5. **Contradiction flags** — if any.
-
-Then: *"OK to write? (y / edit / cancel)"*
-
-Do not write any file before this confirmation. If the user says "edit", apply the change and re-confirm.
-
-### Step 6: Write
-
-On confirm:
-- Write the new raw file.
-- Append Observation entries to each affected world node (use Edit tool, not Write — preserve existing content).
-- Update the affected node's `Last updated:` field if present.
-- If contradictions flagged: stub an ADR in `src/brain/decisions/YYYY-MM-DD-<slug>.md` and tell the user to fill in the "Why" section.
-
-### Step 7: Verify the audit trail
-
-Per the repo agent guide continuous-ingest rule: confirm the new raw file path is cited in at least one updated node's Observations. If destination was non-`world/`, this step is skipped.
-
-Report back to the user:
-```
-Ingested → src/brain/.../<file>
-Updated → world/people/X.md, world/projects/Y.md
-Flagged → 1 contradiction → src/brain/decisions/YYYY-MM-DD-<slug>.md (needs Why)
-```
+For “整理收件箱”, read candidates, merge true duplicates without losing sources, add clear titles and meaningful relations, and set `已整理` when the content is readable and attributable. This status is editorial, not factual verification. Do not delete or archive ambiguous material based solely on age or brevity; explain specific discard candidates when needed. Capture alone leaves records in the inbox.
 
 ## Examples
 
-### Example 1: Slack screenshot dropped in chat
-
-```
-User: [drops image of a Slack message from Justin]
-
-Skill:
-  1. Reads image via vision tool
-  2. Extracts: "From Justin Anderson, posted in #nova-builders, 2026-04-09:
-     'Dear Nova Builders, I was proud of what the team accomplished...'"
-  3. Classifies → world/_archive/2026-04-09/justin-post-retreat-message.md
-  4. Drafts file with frontmatter + Raw Content + Context sections
-  5. Greps world/ → finds matches: justin-anderson, nova, duncan-mountford, narek
-  6. Drafts Observations for each
-  7. SHOWS ALL OF THE ABOVE TO USER
-  8. User: "looks good, but Alex's name is misspelled — it's Alex not Aleks"
-  9. Skill applies edit, re-confirms
-  10. User: "y"
-  11. Writes file + appends to 4 world nodes
-  12. Reports paths
-```
-
-### Example 2: Pasted article URL + summary
-
-```
-User: just read this https://example.com/post — Karpathy on second brain. Save it.
-
-Skill:
-  1. Treats as reading note (URL + summary intent)
-  2. Classifies → src/brain/reading/2026/2026-04-13-karpathy-second-brain.md
-  3. Drafts using existing reading note format (read prior example first)
-  4. No world/ updates expected (informational)
-  5. Confirms → writes
-```
-
-### Example 3: Quick action item
-
-```
-User: remember to follow up with Keri about the org refactor next week
-
-Skill:
-  1. Classifies → inbox/todo.md (action item)
-  2. Drafts append: "- Follow up with Keri about org refactor (next week)"
-  3. Confirms → appends
-  4. Suggests: "Want me to also add an Observation to world/people/keri.md noting this pending discussion?"
-```
-
-## What this skill does NOT do
-
-- Does not auto-process content without confirmation.
-- Does not write images to the repo.
-- Does not call external APIs.
-- Does not invent destinations — if it can't classify cleanly, it asks.
-- Does not handle batch ingests — one source per invocation.
-- Does not modify [goals/](../../src/brain/goals/), [reviews/](../../src/brain/reviews/), [decisions/](../../src/brain/decisions/) — those are human-authored or generated by the weekly review workflow, not raw capture.
+- “帮我记下来：AI 做得越快，我越需要判断什么值得做。” → one inbox note; add an existing attention-related knowledge relation only after checking its content. No task or reminder.
+- “帮我记下这篇文章” + URL → source-backed reading note in the inbox; if the article cannot be read, save only the supplied URL/words and mark it unread.
+- “给 Aaron Studio 加个任务：做一个沟通模板。” → task-intake, not a knowledge card.
+- Same screenshot submitted again → fetch the existing source match; return it or append only genuinely new information.
+- “只分析这段，不要保存。” → no write.

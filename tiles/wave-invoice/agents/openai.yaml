@@ -1,0 +1,4 @@
+interface:
+  display_name: "Wave Invoice"
+  short_description: "Create client invoices from hours and work evidence"
+  default_prompt: "Use $wave-invoice to prepare a client's monthly invoice from my timesheet, relevant repos, emails and notes, then save it as a Wave draft."

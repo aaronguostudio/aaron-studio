@@ -1,54 +1,42 @@
-# Editorial Scorecard
+# Editorial Review
 
-## Editorial Contract
+Review format: evidence-v1
 
-- Reader:
-- Reader's job to be done:
-- One-sentence promise:
-- Opening scene or bottleneck:
-- Original contribution:
-- Scope boundary:
-- Success hypothesis:
+## Contract Reference
 
-## Score
+Current editorial-brief.md and canonical article version/hash:
 
-| Dimension | Weight | Score | Evidence in the draft | Required change |
-|---|---:|---:|---|---|
-| Hook earns attention and title | 10 | 0 |  |  |
-| Thesis is specific, original, and arguable | 15 | 0 |  |  |
-| Mechanism explains why | 15 | 0 |  |  |
-| Evidence is primary, sufficient, and honest | 15 | 0 |  |  |
-| Aaron's operator judgment is visible | 10 | 0 |  |  |
-| Counterargument changes or sharpens the claim | 10 | 0 |  |  |
-| Reader leaves with a usable decision or framework | 15 | 0 |  |  |
-| Structure is compressed and every section earns its place | 10 | 0 |  |  |
+## Passage-Linked Findings
 
-Final score: 0/100
+| Concern | Passage / observation | Reader impact | Action or reason to keep |
+|---|---|---|---|
+
+Check author intent, example context, section contribution, voice and ending according to the article's form. Record genuine findings; no issue quota.
+
+## Mechanical Checks
+
+Sources, claims, privacy, links, bilingual consistency and asset state; distinguish PASS, FAIL and unknown. A clean language scan is not proof of quality.
 
 ## Revision Delta
 
-### Added
-
-### Cut
-
-### Reframed
-
-### Intentionally Kept
+What was added, cut, reframed or intentionally kept, and why:
 
 ## Production Locks
 
 - Argument Lock: PENDING
-  - Evidence:
+  - Evidence and version:
   - Caveat:
 - Article Lock: PENDING
-  - Evidence:
+  - Evidence and version:
   - Stale downstream assets:
 - Package Lock: PENDING
-  - Evidence:
-  - External publishing authorized: no
+  - Evidence and version:
+  - Existing external publishing authorization:
 
 ## Gate
 
-Pass at 85/100 or higher, with no dimension below 70% of its weight. A passing score does not override factual, link, or image failures.
+Review evidence: PENDING
+
+Name specific passages and why the selected version fulfills the author intent and reader promise. Resolve material blockers before PASS; a script only validates this record, not the truth of the judgment. Preserve existing user authorization.
 
 Decision: PENDING

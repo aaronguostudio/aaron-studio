@@ -11,6 +11,7 @@ Polish the language layer after the argument is stable. This skill improves rhyt
 
 Read:
 - the English article and Chinese article
+- `editorial-brief.md` for author intent and form
 - `argument-memo.md`
 - `claim-ledger.md`
 - `canon-alignment.md` when present
@@ -22,6 +23,7 @@ Use `research-dossier.md` only to verify claims. Do not add new evidence during 
 ## Workflow
 
 1. Diagnose before editing: hook, section rhythm, paragraph movement, jargon, translation tone, generic AI phrasing, weak ending, and title/subtitle fit.
+   Read the opening and final paragraphs together using “结尾要真正收住” in `src/content/strategy/blog-writing-language.md`. Record whether the ending earns the author's judgment and emotion; a punchy last sentence or a passing scanner does not establish closure.
 2. Edit the article files directly when the improvement is clear and low-risk.
 3. Preserve meaning. If a sentence needs a new claim to become stronger, leave a note instead of inventing it.
 4. Keep English and Chinese separate:
@@ -31,10 +33,10 @@ Use `research-dossier.md` only to verify claims. Do not add new evidence during 
 6. Run the style gates after editing:
 
 ```bash
-npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
+npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md
 npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.md --language zh
 ```
-7. Hand the polished files back to the editorial scorecard pass. Do not mark `editorial-scorecard.md` as passing merely because the language scanner passes.
+7. Apply the passage-linked review in `tiles/blog-production/references/editorial-system.md`. Treat scanner flags as wording signals; enable personal/story heuristics only where relevant. Record the author-intent and ending judgment, not an aggregate quality score.
 
 ## `prose-polish-review.md` Structure
 

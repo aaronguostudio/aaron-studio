@@ -1,0 +1,1468 @@
+export const filmData = {
+  "duration": 469.6666666666667,
+  "fps": 30,
+  "audioOffset": 3.0,
+  "scenes": [
+    {
+      "id": "s00",
+      "start": 0.0,
+      "end": 3.0,
+      "kind": "cover",
+      "title": "BUILD WHAT MATTERS",
+      "sub": "AI and the next move for engineers",
+      "nodes": [],
+      "media": "thumbnail.jpg",
+      "facts": [],
+      "sources": [],
+      "rail": "CONCEPTUAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 0.6000000000000001
+    },
+    {
+      "id": "s01",
+      "start": 3.0,
+      "end": 18.0,
+      "kind": "compare",
+      "title": "A judgment from my years at Amazon.",
+      "sub": "A company’s ability to fund roles is different from the need it serves.",
+      "nodes": [
+        "Organizational capacity\nJobs it can afford",
+        "Business need\nValue it must create"
+      ],
+      "media": null,
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s02",
+      "start": 18.0,
+      "end": 30.366666666666667,
+      "kind": "media",
+      "title": "Where does the work\nbecome useful?",
+      "sub": "A career question, made more pressing by stronger execution tools.",
+      "nodes": [],
+      "media": "cover.png",
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s03",
+      "start": 30.366666666666667,
+      "end": 43.7,
+      "kind": "row",
+      "title": "An organization can create its own work.",
+      "sub": "Customer needs may grow much more slowly.",
+      "nodes": [
+        "More layers",
+        "More coordination",
+        "More internal work"
+      ],
+      "media": null,
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s04",
+      "start": 43.7,
+      "end": 58.166666666666664,
+      "kind": "statement",
+      "title": "Hard work can be absorbed internally.",
+      "sub": "That shaped how I read the later restructuring.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s05",
+      "start": 58.166666666666664,
+      "end": 65.76666666666667,
+      "kind": "row",
+      "title": "2024 / Reduce layers.",
+      "sub": "Amazon’s stated organizational priorities.",
+      "nodes": [
+        "Fewer layers",
+        "Fewer unnecessary processes"
+      ],
+      "media": null,
+      "facts": [
+        "amazon-statements"
+      ],
+      "sources": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "rail": "AMAZON · PUBLIC STATEMENTS · 2024 / 2025 / JAN 2026",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s06",
+      "start": 65.76666666666667,
+      "end": 75.16666666666667,
+      "kind": "statement",
+      "title": "2025 / An AI workforce forecast.",
+      "sub": "Andy Jassy expected a smaller total corporate workforce over time.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "amazon-statements"
+      ],
+      "sources": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "rail": "AMAZON · PUBLIC STATEMENTS · 2024 / 2025 / JAN 2026",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s07",
+      "start": 75.16666666666667,
+      "end": 91.43333333333334,
+      "kind": "compare",
+      "title": "2026 / Restructuring continued.",
+      "sub": "An announcement cannot establish an individual’s contribution.",
+      "nodes": [
+        "Public statement\nFewer layers, less bureaucracy",
+        "Interpretation boundary\nNo verdict on a person"
+      ],
+      "media": null,
+      "facts": [
+        "amazon-statements"
+      ],
+      "sources": [
+        "amazon-structure-2024",
+        "amazon-ai-2025",
+        "amazon-roles-2026"
+      ],
+      "rail": "AMAZON · PUBLIC STATEMENTS · 2024 / 2025 / JAN 2026",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s08",
+      "start": 91.43333333333334,
+      "end": 98.13333333333334,
+      "kind": "statement",
+      "title": "Cheaper execution changes the calculation.",
+      "sub": "My interpretation: it accelerates organizational reassessment.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s09",
+      "start": 98.13333333333334,
+      "end": 115.83333333333333,
+      "kind": "media",
+      "title": "Invest in the work\naround the code.",
+      "sub": "Customers. Product choices. Work that reaches use.",
+      "nodes": [],
+      "media": "cover.png",
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s10",
+      "start": 115.83333333333333,
+      "end": 127.36666666666666,
+      "kind": "compare",
+      "title": "Two ways implementation is changing.",
+      "sub": "Their own practices, with human judgment still involved.",
+      "nodes": [
+        "Boris Cherny\nAI writes; he reviews",
+        "Simon Willison\nTry alternative prototypes"
+      ],
+      "media": null,
+      "facts": [
+        "practitioner-examples"
+      ],
+      "sources": [
+        "boris-video",
+        "simon-video"
+      ],
+      "rail": "BORIS CHERNY / SIMON WILLISON · PERSONAL PRACTICES",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s11",
+      "start": 127.36666666666666,
+      "end": 145.33333333333334,
+      "kind": "statement",
+      "title": "What deserves the effort?",
+      "sub": "Cheaper trials give us room to ask a better question.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "practitioner-examples"
+      ],
+      "sources": [
+        "boris-video",
+        "simon-video"
+      ],
+      "rail": "BORIS CHERNY / SIMON WILLISON · PERSONAL PRACTICES",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s12",
+      "start": 145.33333333333334,
+      "end": 157.3,
+      "kind": "row",
+      "title": "1 / Learn an industry deeply.",
+      "sub": "The business gives the feature its meaning.",
+      "nodes": [
+        "Who uses it?",
+        "Who pays?",
+        "Who bears the risk?"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s13",
+      "start": 157.3,
+      "end": 169.43333333333334,
+      "kind": "compare",
+      "title": "Payroll is more than a calculation.",
+      "sub": "Kent Beck’s example: visible functionality and broader responsibility.",
+      "nodes": [
+        "Visible feature\nCalculate an amount",
+        "Business context\nObligations behind it"
+      ],
+      "media": null,
+      "facts": [
+        "payroll-example"
+      ],
+      "sources": [
+        "kent-video"
+      ],
+      "rail": "KENT BECK × GERGELY OROSZ · INTERVIEW PARAPHRASE",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s14",
+      "start": 169.43333333333334,
+      "end": 180.6,
+      "kind": "statement",
+      "title": "Notice needs before they become tickets.",
+      "sub": "Build that understanding across real projects.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s15",
+      "start": 180.6,
+      "end": 194.23333333333332,
+      "kind": "row",
+      "title": "2 / Spend time with customers.",
+      "sub": "Our document tool is a hypothetical example.",
+      "nodes": [
+        "A beautiful demo",
+        "Accurate-looking fields"
+      ],
+      "media": null,
+      "facts": [
+        "hypothetical-tool"
+      ],
+      "sources": [],
+      "rail": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s16",
+      "start": 194.23333333333332,
+      "end": 214.2,
+      "kind": "media",
+      "title": "Watch the pause.",
+      "sub": "An exception. A missing confirmation. A result they do not trust.",
+      "nodes": [],
+      "media": "customer.png",
+      "facts": [
+        "hypothetical-tool"
+      ],
+      "sources": [],
+      "rail": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s17",
+      "start": 214.2,
+      "end": 226.0,
+      "kind": "row",
+      "title": "Follow the exception.",
+      "sub": "Let the user show the current workflow.",
+      "nodes": [
+        "Who checks?",
+        "How is it corrected?",
+        "What must keep working?"
+      ],
+      "media": null,
+      "facts": [
+        "hypothetical-tool"
+      ],
+      "sources": [],
+      "rail": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s18",
+      "start": 226.0,
+      "end": 238.6,
+      "kind": "statement",
+      "title": "Observation changes the next feature.",
+      "sub": "Use some of the saved time to go back and learn.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "hypothetical-tool"
+      ],
+      "sources": [],
+      "rail": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s19",
+      "start": 238.6,
+      "end": 250.93333333333334,
+      "kind": "media",
+      "title": "3 / Practice product decisions.",
+      "sub": "Use cheaper implementation to compare possibilities.",
+      "nodes": [],
+      "media": "alternatives.png",
+      "facts": [
+        "prototype-practice"
+      ],
+      "sources": [
+        "simon-video"
+      ],
+      "rail": "WILLISON: ALTERNATIVES + USABILITY ADVICE · ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s20",
+      "start": 250.93333333333334,
+      "end": 267.76666666666665,
+      "kind": "compare",
+      "title": "Two approaches. One user task.",
+      "sub": "Watch hesitation and task completion before choosing.",
+      "nodes": [
+        "Approach A\nVerify every item",
+        "Approach B\nHighlight exceptions"
+      ],
+      "media": null,
+      "facts": [
+        "hypothetical-tool"
+      ],
+      "sources": [],
+      "rail": "HYPOTHETICAL DOCUMENT TOOL · NOT AN OBSERVED RESULT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s21",
+      "start": 267.76666666666665,
+      "end": 276.26666666666665,
+      "kind": "statement",
+      "title": "What should this experiment answer?",
+      "sub": "Write the question before building.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s22",
+      "start": 276.26666666666665,
+      "end": 294.46666666666664,
+      "kind": "row",
+      "title": "A basis for choosing.",
+      "sub": "Product judgment grows through repeated decisions.",
+      "nodes": [
+        "What belongs?",
+        "What can wait?",
+        "What does the business require?"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s23",
+      "start": 294.46666666666664,
+      "end": 302.1,
+      "kind": "statement",
+      "title": "4 / Test commercial value.",
+      "sub": "A useful product still asks someone to change.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s24",
+      "start": 302.1,
+      "end": 308.8666666666667,
+      "kind": "row",
+      "title": "Adoption has a cost.",
+      "sub": "Include the change the customer must make.",
+      "nodes": [
+        "Money",
+        "Learning",
+        "Integration",
+        "Trust"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        6.267,
+        6.267
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s25",
+      "start": 308.8666666666667,
+      "end": 325.23333333333335,
+      "kind": "media",
+      "title": "Why would\nsomeone switch?",
+      "sub": "A working prototype gives the conversation substance.",
+      "nodes": [],
+      "media": "customer.png",
+      "facts": [],
+      "sources": [],
+      "rail": "CONCEPTUAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s26",
+      "start": 325.23333333333335,
+      "end": 335.03333333333336,
+      "kind": "row",
+      "title": "Take the idea into the market.",
+      "sub": "Concrete commitments teach more than vague enthusiasm.",
+      "nodes": [
+        "Try it?",
+        "Integrate it?",
+        "Budget for it?"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s27",
+      "start": 335.03333333333336,
+      "end": 352.3333333333333,
+      "kind": "compare",
+      "title": "Revisit what was once too expensive.",
+      "sub": "Let contact with the market shape what continues.",
+      "nodes": [
+        "Cost estimate\nModels, upkeep, support",
+        "Customer evidence\nTime, adoption, alternatives"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s28",
+      "start": 352.3333333333333,
+      "end": 365.06666666666666,
+      "kind": "statement",
+      "title": "5 / Follow the project into use.",
+      "sub": "Microsoft Digital: faster individuals did not initially mean a faster team.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "microsoft-practice"
+      ],
+      "sources": [
+        "microsoft"
+      ],
+      "rail": "MICROSOFT DIGITAL · SEPT 3, 2026 · ORGANIZATIONAL SELF-REPORT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s29",
+      "start": 365.06666666666666,
+      "end": 381.8,
+      "kind": "flow",
+      "title": "Connect the work.",
+      "sub": "Business intent and acceptance criteria belong in shared understanding.",
+      "nodes": [
+        "Intent",
+        "Shared specification",
+        "Acceptance"
+      ],
+      "media": null,
+      "facts": [
+        "microsoft-practice"
+      ],
+      "sources": [
+        "microsoft"
+      ],
+      "rail": "MICROSOFT DIGITAL · PARAPHRASE, NOT INDEPENDENT BENCHMARK",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s30",
+      "start": 381.8,
+      "end": 392.8,
+      "kind": "flow",
+      "title": "Make completion meaningful.",
+      "sub": "Follow the work through the user’s first real attempt.",
+      "nodes": [
+        "Agree on goal",
+        "Check failures",
+        "Help them start",
+        "Return for feedback"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        10.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s31",
+      "start": 392.8,
+      "end": 405.8666666666667,
+      "kind": "statement",
+      "title": "I am more willing to carry a whole task.",
+      "sub": "One cross-system reporting task; verified in development.",
+      "nodes": [],
+      "media": null,
+      "facts": [
+        "report-experience"
+      ],
+      "sources": [],
+      "rail": "AARON’S EXPERIENCE · DEVELOPMENT VERIFICATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s32",
+      "start": 405.8666666666667,
+      "end": 411.8,
+      "kind": "statement",
+      "title": "Make the result trustworthy.",
+      "sub": "Engineering experience has a place in the whole delivery.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s33",
+      "start": 411.8,
+      "end": 424.46666666666664,
+      "kind": "compare",
+      "title": "Keep ability connected to real needs.",
+      "sub": "The judgment from Amazon still shapes my choices.",
+      "nodes": [
+        "An organization\nCan provide a role",
+        "My responsibility\nKeep learning what is useful"
+      ],
+      "media": null,
+      "facts": [
+        "author-judgment"
+      ],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s34",
+      "start": 424.46666666666664,
+      "end": 438.2,
+      "kind": "flow",
+      "title": "Let each project build your judgment.",
+      "sub": "A customer, a product choice, a result in use.",
+      "nodes": [
+        "Understand",
+        "Choose",
+        "Deliver",
+        "Learn"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        7,
+        11
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s35",
+      "start": 438.2,
+      "end": 447.46666666666664,
+      "kind": "statement",
+      "title": "What will you understand in ten years?",
+      "sub": "I want a deeper understanding of what people need.",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s36",
+      "start": 447.46666666666664,
+      "end": 453.43333333333334,
+      "kind": "row",
+      "title": "Begin with the next project.",
+      "sub": "Capability grows through contact and follow-through.",
+      "nodes": [
+        "A conversation",
+        "A product experiment",
+        "A complete project"
+      ],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "AARON GUO · PERSONAL JUDGMENT",
+      "tension": false,
+      "cues": [
+        0.5,
+        3,
+        5.467
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s37",
+      "start": 453.43333333333334,
+      "end": 464.6666666666667,
+      "kind": "media",
+      "title": "Make things you care about.",
+      "sub": "Things someone else actually needs.",
+      "nodes": [],
+      "media": "used.png",
+      "facts": [],
+      "sources": [],
+      "rail": "CONCEPTUAL ILLUSTRATION",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    },
+    {
+      "id": "s38",
+      "start": 464.6666666666667,
+      "end": 469.6666666666667,
+      "kind": "end",
+      "title": "AARON GUO",
+      "sub": "AI-NATIVE BUILDER · Human-first thinker",
+      "nodes": [],
+      "media": null,
+      "facts": [],
+      "sources": [],
+      "rail": "",
+      "tension": false,
+      "cues": [
+        0.5
+      ],
+      "detailCue": 1.0
+    }
+  ],
+  "captions": [
+    {
+      "start": 3.0,
+      "end": 5.868,
+      "text": "Years ago, while working at Amazon,"
+    },
+    {
+      "start": 6.425,
+      "end": 8.608,
+      "text": "I had already reached a conclusion."
+    },
+    {
+      "start": 9.803,
+      "end": 13.159,
+      "text": "A company can afford a lot of desirable jobs without"
+    },
+    {
+      "start": 13.228,
+      "end": 16.363,
+      "text": "needing a team of that size to create its business"
+    },
+    {
+      "start": 16.444000000000003,
+      "end": 19.893,
+      "text": "value. That judgment stayed with me."
+    },
+    {
+      "start": 21.1,
+      "end": 23.654,
+      "text": "And as AI takes on more implementation,"
+    },
+    {
+      "start": 24.06,
+      "end": 27.833,
+      "text": "I think engineers should pay closer attention to where their"
+    },
+    {
+      "start": 27.903,
+      "end": 33.720107,
+      "text": "work becomes useful. Organizations can grow around management layers,"
+    },
+    {
+      "start": 33.952107,
+      "end": 37.261107,
+      "text": "departmental interests, and internal politics."
+    },
+    {
+      "start": 37.853107,
+      "end": 42.787107,
+      "text": "Coordination expands. The customer's problem may barely change."
+    },
+    {
+      "start": 43.716107,
+      "end": 48.000107,
+      "text": "Someone can work very hard while their abilities are absorbed"
+    },
+    {
+      "start": 48.128107,
+      "end": 51.089107,
+      "text": "by work the organization created for itself."
+    },
+    {
+      "start": 52.389107,
+      "end": 58.171107000000006,
+      "text": "So Amazon's later restructuring and layoffs didn't surprise me."
+    },
+    {
+      "start": 58.170613,
+      "end": 62.744613,
+      "text": "In twenty twenty-four, Amazon announced plans to reduce layers and"
+    },
+    {
+      "start": 62.884613,
+      "end": 67.063613,
+      "text": "unnecessary processes. The following year,"
+    },
+    {
+      "start": 67.272613,
+      "end": 71.405613,
+      "text": "Andy Jassy said he expected AI efficiency to reduce its"
+    },
+    {
+      "start": 71.47561300000001,
+      "end": 74.54061300000001,
+      "text": "total corporate workforce over time."
+    },
+    {
+      "start": 75.167613,
+      "end": 80.426613,
+      "text": "Its January twenty twenty-six layoff announcement again emphasized fewer layers"
+    },
+    {
+      "start": 80.496613,
+      "end": 86.266613,
+      "text": "and less bureaucracy. Those statements describe an organization changing."
+    },
+    {
+      "start": 87.078613,
+      "end": 91.42161300000001,
+      "text": "They cannot tell us what any individual contributed."
+    },
+    {
+      "start": 91.421588,
+      "end": 96.158588,
+      "text": "My interpretation is that cheaper execution accelerates a reassessment that"
+    },
+    {
+      "start": 96.228588,
+      "end": 100.117588,
+      "text": "was already needed. For the next five to ten years,"
+    },
+    {
+      "start": 100.500588,
+      "end": 103.832588,
+      "text": "I want to invest more in understanding customers,"
+    },
+    {
+      "start": 104.157588,
+      "end": 108.906588,
+      "text": "making product decisions, and carrying worthwhile work into use."
+    },
+    {
+      "start": 109.289588,
+      "end": 113.701588,
+      "text": "Stronger implementation tools give engineers room to take on more"
+    },
+    {
+      "start": 113.782588,
+      "end": 118.83297999999999,
+      "text": "of that responsibility. Boris Cherny has described having Claude Code"
+    },
+    {
+      "start": 118.86798,
+      "end": 121.81698,
+      "text": "write his code while he continues reviewing it."
+    },
+    {
+      "start": 122.62898,
+      "end": 126.55297999999999,
+      "text": "Simon Willison describes quickly trying several prototypes."
+    },
+    {
+      "start": 127.36598,
+      "end": 130.50098,
+      "text": "These are particular practitioners' experiences."
+    },
+    {
+      "start": 131.80198,
+      "end": 135.21498,
+      "text": "What interests me is how they change our allocation of"
+    },
+    {
+      "start": 135.30798,
+      "end": 139.40598,
+      "text": "time. Once you can try an idea more cheaply,"
+    },
+    {
+      "start": 139.91698,
+      "end": 145.33898,
+      "text": "deciding which idea deserves the effort becomes more valuable."
+    },
+    {
+      "start": 145.338322,
+      "end": 148.647322,
+      "text": "The first place I'd invest is a business domain."
+    },
+    {
+      "start": 149.23932200000002,
+      "end": 151.10832200000002,
+      "text": "Learn who uses a product,"
+    },
+    {
+      "start": 151.689322,
+      "end": 156.054322,
+      "text": "who pays, and who bears the consequences when it fails."
+    },
+    {
+      "start": 157.308322,
+      "end": 161.66232200000002,
+      "text": "Kent Beck used payroll to illustrate how much responsibility sits"
+    },
+    {
+      "start": 161.731322,
+      "end": 164.47132200000001,
+      "text": "behind apparently simple functionality."
+    },
+    {
+      "start": 165.423322,
+      "end": 168.488322,
+      "text": "Calculating an amount is only part of the work."
+    },
+    {
+      "start": 169.429322,
+      "end": 173.307322,
+      "text": "Keep learning those obligations through actual projects."
+    },
+    {
+      "start": 174.259322,
+      "end": 178.76332200000002,
+      "text": "Over time, you'll notice needs that haven't reached a requirements"
+    },
+    {
+      "start": 178.833322,
+      "end": 182.722213,
+      "text": "document. Then get closer to customers."
+    },
+    {
+      "start": 183.895213,
+      "end": 187.12221300000002,
+      "text": "Imagine a tool that processes business documents."
+    },
+    {
+      "start": 187.51721300000003,
+      "end": 189.44421300000002,
+      "text": "This is a hypothetical example."
+    },
+    {
+      "start": 190.304213,
+      "end": 193.24121300000002,
+      "text": "The demonstration extracts every field beautifully."
+    },
+    {
+      "start": 194.239213,
+      "end": 196.155213,
+      "text": "But when you watch someone work,"
+    },
+    {
+      "start": 196.782213,
+      "end": 198.61621300000002,
+      "text": "you discover where they pause:"
+    },
+    {
+      "start": 199.220213,
+      "end": 202.970213,
+      "text": "an unusual document, a missing confirmation,"
+    },
+    {
+      "start": 203.57421300000001,
+      "end": 205.39721300000002,
+      "text": "a result they don't trust."
+    },
+    {
+      "start": 206.51121300000003,
+      "end": 209.85521300000002,
+      "text": "That pause can tell you more about the next feature"
+    },
+    {
+      "start": 210.02921300000003,
+      "end": 214.209213,
+      "text": "than another hour polishing the demo."
+    },
+    {
+      "start": 214.208707,
+      "end": 216.600707,
+      "text": "Ask the person to show you how they handle that"
+    },
+    {
+      "start": 216.646707,
+      "end": 219.049707,
+      "text": "case today. Who checks it?"
+    },
+    {
+      "start": 219.653707,
+      "end": 221.38370700000002,
+      "text": "How do they correct a mistake?"
+    },
+    {
+      "start": 221.987707,
+      "end": 225.179707,
+      "text": "What must continue working in their existing system?"
+    },
+    {
+      "start": 225.992707,
+      "end": 230.172707,
+      "text": "You may discover that exception handling deserves attention first."
+    },
+    {
+      "start": 230.683707,
+      "end": 233.516707,
+      "text": "Use some of the time AI saves to have that"
+    },
+    {
+      "start": 233.574707,
+      "end": 238.589707,
+      "text": "conversation, and come back after delivery to see what changed."
+    },
+    {
+      "start": 238.589659,
+      "end": 241.271659,
+      "text": "The third investment is product judgment."
+    },
+    {
+      "start": 242.28165900000002,
+      "end": 245.77665900000002,
+      "text": "Willison says he often tries three design approaches."
+    },
+    {
+      "start": 246.646659,
+      "end": 250.071659,
+      "text": "He also advocates watching real people use the software."
+    },
+    {
+      "start": 250.93065900000002,
+      "end": 253.05565900000002,
+      "text": "For our imagined document tool,"
+    },
+    {
+      "start": 253.194659,
+      "end": 256.584659,
+      "text": "compare two approaches: verify every item,"
+    },
+    {
+      "start": 257.095659,
+      "end": 259.150659,
+      "text": "or highlight only the exceptions."
+    },
+    {
+      "start": 259.661659,
+      "end": 261.681659,
+      "text": "Build enough to answer the question."
+    },
+    {
+      "start": 262.192659,
+      "end": 265.38565900000003,
+      "text": "Then watch where a user hesitates and whether they can"
+    },
+    {
+      "start": 265.466659,
+      "end": 267.753659,
+      "text": "finish the original task."
+    },
+    {
+      "start": 267.753922,
+      "end": 271.00492199999997,
+      "text": "Before building, write down what you need to learn."
+    },
+    {
+      "start": 272.176922,
+      "end": 275.543922,
+      "text": "Afterward, ask whether the attempt answered it."
+    },
+    {
+      "start": 276.275922,
+      "end": 279.073922,
+      "text": "This is how product judgment develops:"
+    },
+    {
+      "start": 279.711922,
+      "end": 281.98792199999997,
+      "text": "choosing what belongs, what can wait,"
+    },
+    {
+      "start": 282.71892199999996,
+      "end": 286.074922,
+      "text": "and which complexity the business actually requires."
+    },
+    {
+      "start": 286.770922,
+      "end": 288.907922,
+      "text": "AI can propose alternatives."
+    },
+    {
+      "start": 289.417922,
+      "end": 292.517922,
+      "text": "Your contact with the work gives you a basis for"
+    },
+    {
+      "start": 292.575922,
+      "end": 297.24287,
+      "text": "choosing among them. The fourth investment is commercial judgment."
+    },
+    {
+      "start": 297.90486999999996,
+      "end": 301.31786999999997,
+      "text": "A useful product still asks someone to change."
+    },
+    {
+      "start": 302.09587,
+      "end": 303.57086999999996,
+      "text": "Money is one cost."
+    },
+    {
+      "start": 303.88387,
+      "end": 308.07487,
+      "text": "Migration, learning, integration, and trust matter too."
+    },
+    {
+      "start": 308.85287,
+      "end": 312.46387,
+      "text": "Understand why the customer's existing approach has survived."
+    },
+    {
+      "start": 313.76487,
+      "end": 317.49187,
+      "text": "Then test whether your improvement is worth that disruption."
+    },
+    {
+      "start": 318.79186999999996,
+      "end": 322.59987,
+      "text": "A working prototype gives you something concrete to discuss with"
+    },
+    {
+      "start": 322.65787,
+      "end": 327.02253,
+      "text": "a potential customer. Would they spend time trying it?"
+    },
+    {
+      "start": 327.44053,
+      "end": 329.40253,
+      "text": "Would they discuss an integration?"
+    },
+    {
+      "start": 329.83253,
+      "end": 331.26053,
+      "text": "Who controls the budget,"
+    },
+    {
+      "start": 331.57353,
+      "end": 333.96553,
+      "text": "and where do they look for alternatives?"
+    },
+    {
+      "start": 335.03353,
+      "end": 338.07553,
+      "text": "Include model usage, maintenance,"
+    },
+    {
+      "start": 338.22653,
+      "end": 340.16553,
+      "text": "and support in your estimate."
+    },
+    {
+      "start": 341.22153000000003,
+      "end": 346.06353,
+      "text": "Cheaper development gives some previously expensive ideas another chance."
+    },
+    {
+      "start": 347.36353,
+      "end": 350.41653,
+      "text": "Contact with the market tells you which ones deserve to"
+    },
+    {
+      "start": 350.49853,
+      "end": 355.246997,
+      "text": "continue. Finally, take a project through a complete cycle."
+    },
+    {
+      "start": 356.26799700000004,
+      "end": 362.23599700000005,
+      "text": "Microsoft Digital reported that faster individual development initially failed to"
+    },
+    {
+      "start": 362.316997,
+      "end": 368.09899700000005,
+      "text": "improve team productivity. It later brought business intent and acceptance"
+    },
+    {
+      "start": 368.145997,
+      "end": 371.09399700000006,
+      "text": "criteria into a shared specification."
+    },
+    {
+      "start": 371.90699700000005,
+      "end": 374.17099700000006,
+      "text": "That's an organizational account,"
+    },
+    {
+      "start": 374.49599700000005,
+      "end": 376.922997,
+      "text": "but it highlights something practical:"
+    },
+    {
+      "start": 377.734997,
+      "end": 381.809997,
+      "text": "progress depends on the connections across the work."
+    },
+    {
+      "start": 381.81033900000006,
+      "end": 383.15733900000004,
+      "text": "Agree on the goal."
+    },
+    {
+      "start": 383.51733900000005,
+      "end": 387.47633900000005,
+      "text": "Connect the systems. Check real failure cases."
+    },
+    {
+      "start": 388.13733900000005,
+      "end": 389.74033900000006,
+      "text": "Help the user get started,"
+    },
+    {
+      "start": 389.77433900000005,
+      "end": 392.01533900000004,
+      "text": "and return to learn what happened."
+    },
+    {
+      "start": 392.79333900000006,
+      "end": 396.58933900000005,
+      "text": "I recently used AI on a reporting task across several"
+    },
+    {
+      "start": 396.65933900000005,
+      "end": 399.86333900000005,
+      "text": "systems and verified it in development."
+    },
+    {
+      "start": 401.16433900000004,
+      "end": 404.56533900000005,
+      "text": "It made me more willing to take on complete tasks."
+    },
+    {
+      "start": 405.86633900000004,
+      "end": 411.81033900000006,
+      "text": "Engineering experience helps make the result something others can trust."
+    },
+    {
+      "start": 411.81052000000005,
+      "end": 415.46752000000004,
+      "text": "The judgment I reached at Amazon still matters to me."
+    },
+    {
+      "start": 416.04852000000005,
+      "end": 419.02052000000003,
+      "text": "A role can be provided by an organization."
+    },
+    {
+      "start": 419.92552000000006,
+      "end": 423.79152000000005,
+      "text": "My abilities need an ongoing connection to real needs."
+    },
+    {
+      "start": 424.45352,
+      "end": 427.93752000000006,
+      "text": "Each project is a chance to strengthen that connection:"
+    },
+    {
+      "start": 428.59852000000006,
+      "end": 430.72352000000006,
+      "text": "understand a customer more deeply,"
+    },
+    {
+      "start": 431.32752000000005,
+      "end": 433.24252000000007,
+      "text": "make a better product choice,"
+    },
+    {
+      "start": 433.9395200000001,
+      "end": 436.71452000000005,
+      "text": "and learn what it takes for someone to adopt the"
+    },
+    {
+      "start": 436.78352000000007,
+      "end": 440.78938800000003,
+      "text": "result. If AI can handle much more work in five"
+    },
+    {
+      "start": 440.85838800000005,
+      "end": 444.99138800000003,
+      "text": "or ten years, I want to understand more about what"
+    },
+    {
+      "start": 445.03838800000005,
+      "end": 446.37338800000003,
+      "text": "people need by then."
+    },
+    {
+      "start": 447.47638800000004,
+      "end": 451.11038800000006,
+      "text": "That growth can begin with the next conversation and the"
+    },
+    {
+      "start": 451.191388,
+      "end": 457.04338800000005,
+      "text": "next project. Stronger tools make me optimistic about what engineers"
+    },
+    {
+      "start": 457.124388,
+      "end": 461.025388,
+      "text": "can attempt. I want to use that opportunity to make"
+    },
+    {
+      "start": 461.071388,
+      "end": 464.65938800000004,
+      "text": "things I care about that someone else actually needs."
+    }
+  ]
+};

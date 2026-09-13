@@ -1,6 +1,6 @@
 ---
 name: yt-publish
-description: Upload a finished video to YouTube with title, description, tags, and thumbnail. Supports resumable uploads and privacy control. Requires OAuth2 authentication (one-time setup). Use when user asks to "upload to YouTube", "publish video", "push to YouTube", "upload video", or "make video public".
+description: Upload a finished video to YouTube with title, description, tags, and thumbnail. Supports resumable uploads and privacy control. Requires OAuth2 authentication for the intended channel. Use when user asks to "upload to YouTube", "publish video", "push to YouTube", "upload video", or "make video public".
 ---
 
 # YouTube Publish
@@ -30,8 +30,8 @@ npx -y bun ${SKILL_DIR}/../../scripts/youtube-auth.ts --check
 
 | Result | Action |
 |--------|--------|
-| `AUTHENTICATED` | Proceed to Step 2 |
-| `TOKEN_EXPIRED` | Auto-refresh: `npx -y bun ${SKILL_DIR}/../../scripts/youtube-auth.ts --refresh`, then proceed |
+| `AUTHENTICATED` | Verify the intended channel and required capabilities below |
+| `TOKEN_EXPIRED` | Auto-refresh: `npx -y bun ${SKILL_DIR}/../../scripts/youtube-auth.ts --refresh`, then re-check channel identity |
 | `NOT_AUTHENTICATED` | Guide user through setup (see Setup section below) |
 
 **OAuth2 Setup (one-time):**
@@ -58,11 +58,18 @@ Then run the interactive setup:
 npx -y bun ${SKILL_DIR}/../../scripts/youtube-auth.ts --setup
 ```
 
-This opens a browser URL for Google consent. The user pastes the authorization code back into the terminal.
+The script prints a Google consent URL and starts a local callback listener. The user completes consent in the correct browser profile; the browser returns to the loopback callback automatically. Keep the listener running. A callback page alone is not proof that token exchange succeeded: require CLI success and an authenticated channel read-back.
+
+Before uploading:
+
+- Read `channels.list(part=snippet,mine=true)` with the active token and compare channel ID and handle with the intended destination. Email, browser profile name, and `AUTHENTICATED` alone do not establish the channel.
+- If automatic browser opening chooses the wrong profile, give the printed consent link to the user to open in the correct profile. Do not repeatedly open the wrong account. Never include tokens or client secrets in handoff text.
+- On `invalid_grant`, stop retrying refresh and run consent again only when needed. Refresh does not add permissions.
+- Decide whether selectable captions are part of delivery **before consent**. The current setup script does not request `youtube.force-ssl`; caption insertion requires that scope (or the applicable partner scope). Add the required scope to the setup request before reauthorization when captions are required; do not claim upload authentication proves caption access. Check the [official caption insertion requirements](https://developers.google.com/youtube/v3/docs/captions/insert). Burned-in subtitles and selectable caption tracks are separate deliverables.
 
 ### Step 2: Load Video and Metadata
 
-**Find the video project directory.** If the user specifies a path, use it. Otherwise, look for the most recent `src/videos/*/final.mp4` file.
+**Find the video project directory.** If the user specifies a path, use it. Otherwise, read the package state and use its approved canonical video pointer. Never choose a version by modification time or assume `video.mp4` / `final.mp4` is the latest approved render. Record the selected path, duration, and SHA-256 before uploading.
 
 Required files:
 - `src/videos/YYYY-MM-DD-{slug}/final.mp4` — the video
@@ -101,13 +108,7 @@ Thumbnail: [yes/no]
 File: final.mp4 ([size] MB, [duration])
 ```
 
-Use `AskUserQuestion`:
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Ready to upload? | Upload as unlisted (recommended — review before making public), Upload as public (immediately visible), Edit metadata first, Cancel |
-
-If "Edit metadata first", let the user describe what to change, update `metadata.yaml`, and re-confirm.
+If the user has already approved publication of this package, continue within that authorization. Otherwise present the concrete preview and ask for approval. A request to draft social copy does not authorize posting it. Revisit approval only for a material change outside the approved scope.
 
 ### Step 4: Upload
 
@@ -121,59 +122,31 @@ npx -y bun ${SKILL_DIR}/../../scripts/youtube-upload.ts \
 
 Report progress: the upload script will print progress and the final YouTube URL.
 
-### Step 5: Post-Upload
+### Step 5: Finalize and Verify
 
-Report the result:
+Persist the returned video ID and URL in package state immediately. After a timeout or ambiguous upload result, inspect that video or the channel before retrying; avoid creating a duplicate upload. The script uses the resumable protocol but does not persist a resumable checkpoint across restarts.
 
-```
-Upload Complete!
-
-URL: https://youtu.be/{video-id}
-Status: unlisted
-Title: "[Video Title]"
-
-The video is processing on YouTube. It may take a few minutes before it's fully available.
-```
-
-If the video was uploaded as unlisted, ask:
-
-Use `AskUserQuestion`:
-
-| Q | Question | Options |
-|---|----------|---------|
-| Q1 | Make the video public now? | Make public now, Keep unlisted for now — I'll review first |
-
-If making public:
+When public publication is already authorized, finalize without asking again:
 
 ```bash
 npx -y bun ${SKILL_DIR}/../../scripts/youtube-upload.ts --make-public {video-id}
 ```
 
+Read back the actual video through the API and check the public watch page. Verify channel ID, title, description links, processing status, privacy, and custom thumbnail. CLI success or a requested privacy value is not evidence of public availability. Report processing or access restrictions as pending rather than complete.
+
+Verify caption delivery separately. If selectable captions were promised, confirm the track exists; if only burned-in captions are present, record that limitation explicitly. The upload CLI does not insert caption tracks. Resolve any applicable synthetic-media disclosure using the current platform requirements before finalizing metadata.
+
+Record the canonical file/hash, channel ID, video ID, verified privacy/processing state, caption status, and URL in package state. Update the blog video link through the normal `main` publishing workflow when in scope.
+
 ### Step 6: Cross-Promotion (Optional)
 
-After successful upload, suggest cross-promotion:
+Prepare requested LinkedIn or other social drafts from the approved article and actual published URL. Send or publish only when explicitly authorized. Keep drafts distinct from published channel posts in distribution records.
 
-```
-Video published! You can now promote it:
-
-- /baoyu-post-to-x — Share on X/Twitter with the YouTube link
-- Manually share on LinkedIn, newsletter, etc.
-```
-
-**Print final summary:**
-
-```
-YouTube Publish Complete!
-
-URL: https://youtu.be/{video-id}
-Status: [public/unlisted]
-Title: "[Video Title]"
-```
+Report the URL and verified state, plus any remaining delivery limitation.
 
 ## Notes
 
 - Always default to "unlisted" for initial upload — this lets the user review the video on YouTube before making it public.
-- The upload uses YouTube's resumable upload protocol, which handles large files and can resume interrupted uploads.
 - Thumbnail upload requires the YouTube account to be verified (phone verification).
 - Category "28" is "Science & Technology" — can be changed in metadata.yaml.
 - Blog links in YouTube descriptions should use `utm_source=youtube`,

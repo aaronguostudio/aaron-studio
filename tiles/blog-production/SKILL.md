@@ -31,7 +31,7 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 |----------|---------|-----------------|
 | `idea.md` | Raw idea or seed | manual / muse |
 | `research-evidence.json` | Versioned canonical sources, transcript provenance, claims, coverage gaps, and privacy state | research-evidence |
-| `source-intake.md` | Source-first greenlight: primary-source notes, distinctness test, personal experiment, and media proof map | blog-production / blog-brainstorm |
+| `source-intake.md` | Source-first greenlight: primary-source notes, reader promise, evidence path, and media proof map | blog-production / blog-brainstorm |
 | `memory-reflection.md` | prior-post reflection, internal link candidates, continuity thesis | blog-production / blog-brainstorm |
 | `editorial-brief.md` | reader pain, sharp thesis, evidence need, counterargument, kill criteria | blog-brainstorm |
 | `research-dossier.md` | sources, cases, facts, counterarguments, open questions | blog-brainstorm |
@@ -44,7 +44,7 @@ Each post lives in `src/content/blogs/YYYY-MM-DD/`.
 | `<slug>-zh.md` | Chinese article | blog-write |
 | `red-team-review.md` | skeptical editorial review and required revisions | blog-write |
 | `prose-polish-review.md` | EN/ZH prose polish goals, edits, boundaries, validation result | blog-prose-editor |
-| `editorial-scorecard.md` | editorial contract, weighted final score, and revision delta | blog-production / blog-write |
+| `editorial-scorecard.md` | passage-linked editorial decision, checks, and revision delta | blog-production / blog-write |
 | `package-state.json` | machine-readable phase, canonical asset pointers, release provenance, and postmortem status | blog-production |
 | `postmortem.md` | prediction, 24h/7d outcomes, workflow lesson, next experiment | blog-production |
 | `workflow-retrospective.md` | optional deep-revision summary, durable lessons, lock failures, and next-run protocol | blog-production |
@@ -90,23 +90,23 @@ bypass platform bot checks. Then write `source-intake.md` with:
 
 - a concise source map: what the source actually says, what it does *not*
   establish, and the facts that need a separate primary source;
-- three candidate article angles, each with a reader problem, a one-sentence
-  Aaron judgment, and the concrete opening it could earn;
+- candidate angles only when the direction is open, with a reader promise,
+  Aaron judgment, and the concrete opening each could earn;
 - a distinctness test against the last two related posts: name the prior
   thesis, the belief or decision this post changes, and the sentence that
   makes it more than "the same thesis with a different example";
-- a personal-proof plan. If the article has no proprietary data, arrange one
-  small observed check in an Aaron-owned project before drafting: baseline,
-  deterministic signal, expected result, and stop condition. Never invent a
-  personal result or turn a proposed experiment into evidence;
+- an evidence path appropriate to the article's form. Require personal proof
+  only for a claim that depends on an unobserved personal result. Public
+  examples and clearly labeled hypotheses can support a sourced explanation;
+  never invent a personal result or present a planned experiment as evidence;
 - a media proof map: the 3-5 claims or source moments that could carry a
   diagram, illustration, demo, or video beat, plus what the visual adds that
   prose cannot.
 
 End with exactly one decision: `GO`, `HOLD FOR PERSONAL PROOF`, or `KILL`.
-`GO` requires a distinct operator contribution and an evidence path. `HOLD`
-is the normal result when a source is timely but Aaron has not yet observed
-the mechanism himself. `KILL` is a useful result: preserve the source note,
+`GO` requires a clear reader promise and an honest evidence path. Use `HOLD`
+when a central claim specifically needs missing personal proof; a personal
+response or sourced explainer does not need a mandatory experiment. `KILL` is a useful result: preserve the source note,
 but do not generate an article-shaped package around it.
 
 ### 0. Bootstrap Workflow 3 Artifacts
@@ -123,13 +123,13 @@ Read `tiles/blog-production/references/editorial-system.md` for serious essays a
 
 ### 1. Pick the post directory
 
-Use the user's path if provided. Otherwise choose the newest directory under `src/content/blogs/`.
+Use the user's path or the active package from this task and `package-state.json`. Do not choose a different article merely because its directory is newer. If several packages fit and context cannot distinguish them, ask which one.
 
 Read:
 - `config/aaron-studio.json`
 - `src/content/strategy/x.md`
 - `src/content/strategy/blog-writing-language.md`
-- all files in the chosen post directory
+- `package-state.json`, the current article/brief, and only the current phase's canonical evidence and review records; open archived drafts only for an explicit comparison
 
 Before brainstorm, outline, or writing begins, run or inspect:
 
@@ -143,20 +143,13 @@ Use the result to name:
 - one measurement caveat
 - the current next experiment
 
-### Aaron's default blog style
+### Aaron's voice and article form
 
-Unless the user explicitly asks for a literary essay, diary, or soft reflection, keep the whole workflow aligned to Aaron's default public writing style:
-- Entrepreneur/operator perspective, not intellectual essay or self-help.
-- Lead with a business observation, then name the insight and commercial value.
-- Prefer crisp claims about incentives, cost structure, leverage, judgment, customers, markets, product, and strategy.
-- Treat poetic phrases such as "仰望星空" as strategic altitude or cognitive radius, not literary mood.
-- Keep article sections structured: 2-3 coherent paragraphs per section, not slide-like one-sentence fragments.
-- Avoid teacherly "you should" energy, AI-influencer cliches, soft emotional wandering, and over-explaining.
-- Use `src/content/strategy/blog-writing-language.md` as the natural writing and anti-AI style reference.
+Use `references/editorial-system.md` for author intent, article form and review decisions; use `src/content/strategy/blog-writing-language.md` for prose. Keep concrete, natural writing and the author's real judgment. Personal responses, cases and explainers may have different structures; commercial value, a contrarian thesis and a framework are not universal requirements.
 
 ### 2. Detect the next step
 
-Use the first matching missing artifact:
+Resolve the requested phase and current package state first. Fix an upstream failed gate before filling downstream artifacts. The table is a routing aid, not a requirement to generate every listed output; existing authorization and explicit scope take precedence.
 
 | Missing | Next action |
 |---------|-------------|
@@ -172,12 +165,12 @@ Use the first matching missing artifact:
 | no `content-plan.md` | use `blog-brainstorm` |
 | no `plan.md` | use `blog-outline` |
 | no `<slug>.md` or no `*-zh.md` | use `blog-write` |
-| no `distribution-plan.md`, `x-post.md`, `linkedin-brief.md`, `facebook-post.md`, or `newsletter-teaser.md` | use `blog-write` package completion |
 | article exists but fails depth gate | use `blog-write` revision pass |
 | article exists but no `red-team-review.md` | use `blog-write` red-team revision pass |
 | article exists but no `prose-polish-review.md` | use `blog-prose-editor` final language polish pass |
 | article exists but no passing `editorial-scorecard.md` | score the final draft, revise weak dimensions, and record the delta |
 | article exists but no `canon-note.md` | use `blog-write` canon note pass |
+| article editorial review passes and requested distribution assets are missing | use `blog-write` package completion |
 | published or ready-to-publish article has no `postmortem.md` | create postmortem template and record prediction |
 | no `imgs/web/00-cover.webp` | use `blog-illustrate` |
 | images exist but fail image quality gate | use `blog-illustrate` regeneration pass |
@@ -187,7 +180,7 @@ Use the first matching missing artifact:
 | `youtube-script.md` fails video adaptation gate | use `blog-write` video adaptation pass |
 | passing script exists but no `audio-generation-manifest.json` | run `aaron-video-gen --audio-only` with the default Aaron voice profile |
 | narration exists but `audio-generation.md` is not approved | stop for human listening review before rendering |
-| `youtube-script.md` has too few image references | use `aaron-video-gen` visual enrichment workflow before rendering |
+| video repeats the same composition or lacks meaningful scene media | use `aaron-video-gen` director enrichment pass; preserve approved narration and compare selected beats before full rendering |
 | no `video.mp4` but narration is approved | use `aaron-video-gen` rendering workflow |
 | article ready but not copied to blog repo | use `publish-to-blog` |
 | `video.mp4` ready and user wants upload | use `yt-publish` |
@@ -210,34 +203,23 @@ Run these gates before moving downstream. Do not rely on the user to discover qu
 **Workflow 3 editorial gates** — for serious essays, do not draft until these artifacts exist and are coherent:
 - for source-led work, `research-evidence.json` passes the `research-evidence` validator and records transcript limitations, unresolved gaps, and privacy state;
 - for a source-led or recent-topic-overlap essay, `source-intake.md` records a `GO`, the distinctness test, and an honest personal-proof status;
-- `memory-reflection.md` checks at least three prior posts when relevant and records internal link candidates or explains why no useful connection exists.
-- `editorial-brief.md` names reader pain, sharp thesis, opening bottleneck, original contribution, authority boundary, evidence needed, counterargument, reusable frame, distribution hook, and kill criteria.
+- `memory-reflection.md` records only useful prior-post connections or why none is needed; no reading quota.
+- `editorial-brief.md` captures author intent, reader promise, form/lead language, material and authority boundary using the shared editorial contract.
 - `research-dossier.md` contains source-backed evidence, cases, facts, counterarguments, and open questions.
 - `claim-ledger.md` separates facts, inferences, judgments, and personal observations; records source and verification dates; and ends with `Decision: PASS` only after verification.
-- `argument-memo.md` maps thesis -> why now -> mechanism -> evidence -> counterargument -> reusable frame -> implication.
+- `argument-memo.md` explains section jobs, the evidence path and intended landing appropriate to the chosen form; frameworks and counterarguments are included when useful.
 
 If any artifact is missing or weak, stop and run the focused phase instead of drafting.
 
-**Editorial contract gate** — before a serious draft or structural rewrite, write the reader, reader job, one-sentence promise, opening scene or bottleneck, original contribution, scope boundary, and success hypothesis into `editorial-scorecard.md`. Put the article's original judgment in the first 15% and earn the title within the first 150 words. Do not let the article mirror the research dossier or summarize companies one by one.
+**Editorial contract gate** — use the single brief and form-specific standards in `references/editorial-system.md`. Keep the author's intent visible, give examples sufficient context and establish the title's promise early. Do not duplicate the brief in a separate scorecard.
 
 **Canon alignment gate** — before drafting or finalizing a serious essay, create `canon-alignment.md` with `blog-canon-alignment`. It should name prior-post connections, ideas being upgraded, ideas not to force, internal link candidates, and the Aaron judgment that should be present. Alignment must not become self-quotation or ideological flattening.
 
-**Article depth gate** — before illustration, video, or publishing, read the article as a skeptical editor. The article passes only if it has:
-- a non-obvious thesis that a smart reader could disagree with
-- concrete personal or market evidence, not only abstract claims
-- mechanism: why the shift happens, not just that it happens
-- stakes: why it matters for builders, operators, or companies
-- at least one counterargument, limitation, or risk
-- a useful operating frame, checklist, or decision lens
-- a conclusion that sharpens the thesis rather than repeating it
-
-If the article fails any item, run a `blog-write` revision pass before continuing.
-
-**Red-team gate** — before final article package, create `red-team-review.md` and record at least five issues across generic prose, unsupported claims, weak structure, unfair counterargument, missing operator judgment, weak ending, or unnecessary paragraphs. Complete at least one substantive revision before moving to media assets.
+**Article depth and red-team review** — apply the passage-linked questions in `references/editorial-system.md`. Record actual blockers and reader losses in `red-team-review.md`, then revise where justified. There is no minimum issue count, mandatory extra rewrite or required operating framework. A clear no-change judgment is valid.
 
 **Prose polish gate** — after red-team revision and before final distribution/media, use `blog-prose-editor` to create `prose-polish-review.md` and make one scoped EN/ZH language pass. This pass may improve hook, rhythm, transitions, section openings, translation tone, and ending, but must not add facts or change the argument.
 
-**Editorial scorecard gate** — after prose polish, score the draft using `editorial-scorecard.md`. Passing requires 85/100 or higher and no dimension below 70% of its weight. Every score needs draft evidence. Record what was added, cut, reframed, and intentionally kept. A score never overrides unsupported claims, a misleading title, broken links, or missing images.
+**Editorial review gate** — after prose polish, record `Review format: evidence-v1`, passage-linked `Review evidence:`, resolved blockers and `Decision: PASS|FAIL|PENDING` in `editorial-scorecard.md`. Follow `references/editorial-system.md`; do not use a total score as proof of quality. Historical numeric records remain readable.
 
 **Production lock gate** — for serious essays, use the three locks defined in `references/editorial-system.md`:
 - `Argument Lock` before final prose and formal visual planning;
@@ -251,11 +233,11 @@ Record each decision and its caveats in `editorial-scorecard.md` or `postmortem.
 **Anti-AI style gate and Story craft gate** — before illustration, video, or publishing, run:
 
 ```bash
-npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
+npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md
 npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>-zh.md --language zh
 ```
 
-Use the report as an editorial gate for naturalness, Aaron voice, and story craft. Revise through `blog-write` if the article has clustered AI slop vocabulary, weak hook, missing narrative tension, missing story payoff, formulaic contrast, weak rhythm, missing lived evidence, a generic ending, or mechanical Chinese translation tone. A scanner flag can be intentionally accepted only after reading the surrounding section and confirming the phrase is natural in context.
+Use the report as a wording signal alongside a real editorial read, not as a score of naturalness or story quality. Enable personal-anchor/story heuristics only when relevant to the form. Revise through `blog-write` if the article has clustered AI slop vocabulary, weak hook, missing narrative tension, missing story payoff, formulaic contrast, weak rhythm, missing lived evidence, a generic ending, or mechanical Chinese translation tone. A scanner flag can be intentionally accepted only after reading the surrounding section and confirming the phrase is natural in context.
 
 **Reinforcement gate** — before accepting the article package, read the current feedback context when growth env is available:
 
@@ -301,7 +283,7 @@ Record candidate IDs and the selected ID in `distribution-plan.md`, `video-treat
 - at least 3 places where the video adds something beyond the article;
 - retention beats every 20-35 seconds;
 - no obvious repeated filler phrases such as "right", "you know", "basically", or repeated "what's interesting is";
-- an ending that lands a payoff instead of summarizing the article.
+- an ending that connects the story to Aaron's judgment and gives the final thought room to land. Brief synthesis and grounded emotion are welcome; avoid a point-by-point recap or a forced CTA. Apply “结尾要真正收住” in `src/content/strategy/blog-writing-language.md` to both article and narration.
 
 When the seed is an interview or another creator's video, the companion video
 must not be a recap with new narration. Its brief must name the source's
@@ -331,7 +313,7 @@ The gate passes only when:
 
 When evaluating a new voice or model, compare the same locked 45-60 second script under blind labels. Do not generate the full narration until Aaron selects a winner. Do not render video while `audio-generation.md` is pending.
 
-**Video richness gate** — before rendering, count unique image assets referenced by `youtube-script.md`. A video longer than 4 minutes should normally use 20-30 total images with `[IMAGE:]` switches about every 15-20 seconds. If it only reuses the blog illustrations, generate video-only `sNN-MM-*.png` images and update the script first.
+**Video richness gate** — assess narrative and composition variety, not an image quota. Use `tiles/aaron-video-gen/references/director-pass.md` to inspect whether a person, object, source artifact, manuscript, or comparison would make a specific spoken idea easier to understand. Pair selected scene media with native typeset explanations inside registered layouts; an additional full-frame still is not automatically richer. If the user has approved the content and voice, preserve the narration, script, captions, and timing during a visual-only revision. Record each changed beat’s narrative job and fallback, render representative passages, compare them with the prior version, and inspect the encoded result before the full render. Retain the approved baseline and keep generated illustrations distinct from factual evidence.
 
 **Taxonomy gate** — before publishing, every public article must include exactly one `category` from:
 - `ai-native-systems`
@@ -345,6 +327,10 @@ Use `tags` only for 2-4 specific search keywords. Do not invent ad hoc category 
 **Memory update gate** — before publishing a serious essay, create or update `canon-note.md` with canonical idea, reusable frame, claims added, claims updated, internal link map, and future branches. Add useful internal links to the article only when they help the reader.
 
 **Publishing gate** — before external side effects, verify the blog repo build passes and the target artifacts are present. The local blog copy must also pass browser-rendered QA in both languages: correct title and route, cover plus lazy-loaded body images, working language switch, no broken internal links, no horizontal overflow, and no console errors. Push, YouTube upload, LinkedIn posting, and other external posts require explicit user approval unless already clearly authorized in the active thread.
+
+Publication verification follows `publish-to-blog` and `yt-publish`: check the intended YouTube channel and caption capabilities before upload; verify production provenance on `main` and the actual public destinations before marking the package published. Carry forward existing explicit authorization. Record incomplete deliverables separately instead of treating upload success as package completion.
+
+Scope revisions to their dependencies. Cover, share-image, or link-only edits require the affected web/social checks; they do not automatically invalidate approved narration. Spoken-content or pacing edits require audio, scene, caption, and chapter alignment checks. Use the director-pass sound guidance for music or pause changes.
 
 **Package integrity gate** — before illustration handoff, publishing, or reporting a serious package complete, run:
 

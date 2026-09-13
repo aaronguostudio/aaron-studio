@@ -31,13 +31,9 @@ Draft the article and companion distribution files from a writing plan. This ski
 
 ### 1. Locate the plan
 
-Use the user's path if provided. Otherwise use the newest blog directory with one of:
+Use the user's path or the current package established in this task and `package-state.json`. Do not switch posts based on directory recency.
 
-1. `plan.md`
-2. `content-plan.md`
-3. `idea.md`
-
-For serious essays using Blog Workflow 3, also read `memory-reflection.md`, `editorial-brief.md`, `research-dossier.md`, `claim-ledger.md`, `argument-memo.md`, `canon-alignment.md`, and `editorial-scorecard.md` when present. Read `tiles/blog-production/references/editorial-system.md`. Treat these as editorial source material. If they are missing for a serious essay, report the gap and ask whether to continue with the lighter workflow.
+Read the current brief, plan, claim ledger and relevant review records. Load `tiles/blog-production/references/editorial-system.md` for substantial writing or revision; it owns the shared author-intent, form and review contract. Fill only missing information needed for this task rather than requesting approval to choose a lighter workflow.
 
 Read `src/content/strategy/x.md`, `src/content/strategy/blog-writing-language.md`, and `config/aaron-studio.json` if present.
 
@@ -53,17 +49,9 @@ node scripts/blog-growth.mjs next-brief-context --limit 5
 
 Use recent blog-growth review lessons when drafting or revising. The draft must state the article hypothesis, target audience, expected distribution channel, success metric, and which recent lesson it is applying or intentionally rejecting. If there are no reviews yet, use top-performing content as directional context and mark the lesson source as sparse.
 
-### Aaron's default writing style
+### Aaron's writing style
 
-Use this style unless the user explicitly asks for a diary, literary essay, soft reflection, or another named voice:
-- Write from an entrepreneur/operator perspective. The piece should deliver insight, point of view, and commercial value.
-- Start from a concrete business/work observation, then name the underlying shift. Prefer claims like "AI lowers execution cost; judgment becomes more valuable."
-- Focus on incentives, cost structure, leverage, judgment, customers, markets, product sense, strategy, and decision quality.
-- Keep poetic phrases grounded. For example, "仰望星空" should mean strategic altitude, cognitive radius, and direction, not romantic mood.
-- Use structured article paragraphs: each section should usually have 2-3 coherent paragraphs carrying point, mechanism, and implication. Avoid turning the main article into one-sentence slide notes.
-- Be crisp and direct. Cut soft self-help, intellectual wandering, "AI influencer" cliches, and teacherly "you should" advice.
-- Chinese should be tighter and more operator-grade; English should be native and concise. Keep natural terms like `AI`, `prompt`, `workflow`, and `context`.
-- Apply `src/content/strategy/blog-writing-language.md` as the style authority for natural prose, anti-AI writing patterns, and Aaron voice craft.
+Use `src/content/strategy/blog-writing-language.md` for natural prose and `tiles/blog-production/references/editorial-system.md` for form and reader experience. Preserve the author's stance and feeling. Keep ideas concrete and understandable; commercial claims, fixed section sizes and reusable frameworks depend on the article, not on a universal template.
 
 ### Canonical blog taxonomy
 
@@ -96,7 +84,7 @@ Default package:
 
 If the user asks for "just the article", write only the article and Chinese version.
 
-### 3. Draft the English article
+### 3. Draft the lead-language article
 
 Use this frontmatter:
 
@@ -116,21 +104,21 @@ Writing rules:
 - Use "I" voice when the plan has personal evidence.
 - Preserve the plan's thesis but improve phrasing.
 - Avoid generic AI-influencer language.
-- For Aaron's default public posts, make the thesis commercially useful and opinionated enough to disagree with.
+- Let the reader understand the author's contribution; choose personal response, case or explanation according to the brief.
 - Prefer section bodies with coherent paragraphs over many isolated one-line paragraphs.
 - Sections should be readable without the plan.
 - Use local image paths only after images already exist; otherwise leave no image placeholders.
-- End with a sharp implication or CTA from the plan/content-plan; avoid vague motivational endings.
+- Give the ending enough room to connect the evidence to the author's judgment and bring the piece to a close. A brief synthesis, changed belief or grounded emotion can carry the payoff; a CTA is optional. Apply “结尾要真正收住” in `src/content/strategy/blog-writing-language.md`.
 - Put the article's original judgment in the first 15%. Do not make readers finish a news recap before discovering the point.
 - Do not structure the article as one company or source per section. Sources prove the argument; they are not the argument.
 - Keep fact, inference, judgment, and personal observation distinguishable. Do not let prose smooth over an evidence boundary recorded in `claim-ledger.md`.
 - When claiming that an AI workflow learns or improves recursively, name the human participation still required and show how that judgment becomes a reusable rule, eval, runbook, tool, or product change. A loop in a diagram is not evidence of self-improvement.
 
-For a substantial rewrite, create a structural redraft rather than line-editing the old draft in place. Preserve the prior version in a versioned revision folder or versioned sibling file before replacing the active article. A structural redraft must change at least two of: opening, thesis expression, section sequence, mechanism, counterargument, framework use, or ending.
+For a substantial rewrite, create a structural redraft rather than line-editing the old draft in place. Preserve the prior version in a versioned revision folder or versioned sibling file before replacing the active article. Change the structure where the diagnosis requires it; no minimum number of changes.
 
 ### 3b. Depth revision pass
 
-After the first English draft, do one skeptical editor pass before writing companion assets. Do not wait for Aaron to ask for "more depth."
+After the lead-language draft, review the reader experience before writing companion assets. Do not wait for Aaron to ask for "more depth."
 
 Before this pass, read the blog feedback context when growth env is available:
 
@@ -140,18 +128,7 @@ node scripts/blog-growth.mjs next-brief-context --limit 5
 
 Use the returned context as editorial memory, not as a command to blindly optimize for old metrics. The draft must explicitly use or reject at least one active lesson or recommended action. If the command cannot run because env or schema is unavailable, continue and record the measurement gap in the workflow notes.
 
-Score the article against this checklist:
-- **Thesis**: Is the main claim non-obvious, specific, and worth disagreeing with?
-- **Evidence**: Does it include concrete lived experience, product behavior, market facts, or source-backed examples?
-- **Mechanism**: Does it explain why the change happens, not only describe what happened?
-- **Stakes**: Does it make clear what changes for builders, operators, teams, or companies?
-- **Nuance**: Does it include a counterargument, risk, or limitation?
-- **Frame**: Does it give readers a reusable operating lens, checklist, or decision model?
-- **Framework economy**: Is there one primary executable framework? Fold supporting diagnostics into it instead of adding a competing checklist or acronym.
-- **Ending**: Does the ending advance the thesis instead of adding a generic CTA?
-- **Reinforcement**: Does it explicitly use or reject a recent blog-growth lesson from `next-brief-context`, and is the success metric measurable in a 24h or 7d postmortem?
-
-If any item is weak, revise the article once before continuing. The revision should add substance, not just polish wording. Prefer adding mechanism, examples, counterarguments, and sharper framing over adding more adjectives.
+Apply the shared editorial review in `tiles/blog-production/references/editorial-system.md`: author intent, context and evidence, section contribution, natural voice, and a complete ending. Use the selected article form to decide whether mechanisms, counterarguments or frameworks help. Record the passages and reasons; do not assign an aggregate quality score. Revise only diagnosed weaknesses.
 
 When reporting completion, mention the two or three most important depth fixes made.
 
@@ -168,10 +145,10 @@ If the article is not yet in the published blog repo, run the same command with 
 After the depth revision, run the blog style scanner before writing companion assets:
 
 ```bash
-npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md --require-personal-anchor --require-story-craft
+npx -y bun tiles/blog-write/scripts/blog-style-quality.ts <blog-dir>/<slug>.md
 ```
 
-Use `src/content/strategy/blog-writing-language.md` to interpret the report. The scanner is a candidate detector, not a final judge, but a failing report means the article needs one revision pass before continuing.
+Use `src/content/strategy/blog-writing-language.md` to interpret the report. The scanner is a wording-signal detector, not a final judge. Review flags in context and revise genuine problems; use optional personal/story heuristics only when relevant to the form.
 
 Revise for:
 - concrete lived evidence instead of generic claims;
@@ -180,7 +157,7 @@ Revise for:
 - a story payoff: operating rule, implication, or decision lens;
 - natural sentence rhythm instead of metronomic paragraphs;
 - plain operator language instead of AI slop vocabulary;
-- a conclusion that advances the thesis instead of summarizing.
+- a conclusion that completes the expression; brief synthesis, changed judgment or grounded emotion can provide closure.
 
 After creating the Chinese version, run:
 
@@ -207,7 +184,7 @@ It must include:
 - required revisions;
 - revision notes.
 
-Record at least five issues and complete at least one substantive revision before proceeding. A substantive revision changes argument, evidence, structure, rhythm, or the ending. It is not only wording polish.
+Record genuine issues with passage evidence and the effect on the reader. Revise when warranted; no minimum issue count or mandatory revision. A supported no-change result is valid.
 
 ### 3e. Prose Polish Handoff
 
@@ -220,22 +197,17 @@ After the red-team revision and before final distribution/media:
 - keep any polish scoped to expression, rhythm, translation tone, hook, transitions, and ending;
 - do not add new facts or change the argument during prose polish.
 
-### 3f. Editorial Scorecard
+### 3f. Editorial Review
 
-After prose polish, complete `editorial-scorecard.md` using the weighted rubric in `tiles/blog-production/references/editorial-system.md`.
+Complete `editorial-scorecard.md` using the passage-linked review in `tiles/blog-production/references/editorial-system.md`. Record `Review format: evidence-v1`, a concrete `Review evidence:` line and the decision. Keep mechanical checks separate; a quality total is not required. Revise unresolved blockers rather than raising a score.
 
-- Cite concrete draft evidence for each score.
-- Record what was added, cut, reframed, and intentionally kept.
-- Require 85/100 or higher, with no dimension below 70% of its weight.
-- If the score fails, revise the weak dimension once and rescore. Do not raise the number without changing the draft.
+### 4. Draft the sibling edition
 
-### 4. Draft the Chinese version
-
-Create a natural Simplified Chinese adaptation, not a literal translation.
+If Chinese led the draft, now write the English edition; otherwise write natural Simplified Chinese. Adapt expression to the language instead of translating literally.
 
 Rules:
 - Keep technical proper nouns in English when natural.
-- Preserve examples, argument order, and CTA.
+- Preserve the thesis, claim set and author stance; adapt ordering and transitions naturally.
 - Translate image alt text if images are present.
 - Keep frontmatter fields aligned with the English source.
 
@@ -380,7 +352,7 @@ Before finishing:
 - Serious essays have `canon-alignment.md` before final draft acceptance, or a clear reason it was skipped.
 - Serious essays have `prose-polish-review.md` after red-team revision, or a clear reason it was skipped.
 - Serious essays have a verified `claim-ledger.md` and a passing `editorial-scorecard.md`.
-- The English article passed the Anti-AI style gate and Story craft gate (`blog-style-quality.ts --require-personal-anchor --require-story-craft`), or any remaining scanner flags were reviewed and intentionally accepted.
+- Wording scanner flags were reviewed in context; optional personal/story heuristics fit the chosen form. A clean report does not establish writing quality.
 - The Chinese article passed the Chinese style gate (`blog-style-quality.ts --language zh`), or any remaining scanner flags were reviewed and intentionally accepted.
 - Distribution files inherit the revised thesis; they must not summarize an earlier, weaker draft.
 

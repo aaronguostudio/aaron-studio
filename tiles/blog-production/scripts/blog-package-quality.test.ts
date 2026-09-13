@@ -67,6 +67,16 @@ describe("blog package quality", () => {
       const report = assessBlogPackage({ blogDir: dir, slug, serious: true });
       expect(report.passed).toBe(true);
       expect(report.errors).toEqual([]);
+
+      // The new manual record has no quality total, but still needs a decision and basis.
+      writeFileSync(join(dir, "editorial-scorecard.md"), "# Editorial Review\n\nReview format: evidence-v1\nReview evidence: The opening identifies the task; the final paragraph resolves the stated decision with the source limits retained.\nDecision: PASS\n");
+      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).passed).toBe(true);
+      writeFileSync(join(dir, "editorial-scorecard.md"), "Review format: evidence-v1\nReview evidence: PENDING\nDecision: PASS\n");
+      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).errors.join("\n")).toContain("Review evidence is required");
+      writeFileSync(join(dir, "editorial-scorecard.md"), "Review format: evidence-v1\nReview evidence:\nThis unrelated next line is not the evidence field.\nDecision: PASS\n");
+      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).errors.join("\n")).toContain("Review evidence is required");
+      writeFileSync(join(dir, "editorial-scorecard.md"), "Review format: evidence-v1\nReview evidence: Ending still introduces an unsupported claim.\nDecision: FAIL\n");
+      expect(assessBlogPackage({ blogDir: dir, slug, serious: true }).passed).toBe(false);
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

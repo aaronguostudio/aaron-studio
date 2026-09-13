@@ -1,35 +1,29 @@
 # Editorial Brief
 
-## Reader Pain
+## Author Intent
 
-## Reader Job To Be Done
+Relevant original phrases, attitude or changed belief, main focus and peripheral topics:
 
-## One-Sentence Promise
+## Reader And Promise
 
-## Sharp Thesis
+Who will care and what makes this piece worth reading:
 
-## Concrete Opening
+## Article Form And Lead Language
 
-Name one scene, contradiction, bottleneck, result, or decision. Do not open with the topic in general.
+Personal response, real-work case, sourced explainer or a deliberate combination; start in the language that best preserves author intent:
 
-## Original Contribution
+## Material And Opening
 
-State what this article adds beyond the source material and Aaron's prior posts.
+The real scene, observation or evidence that can carry the promise; explain the task before technical components:
 
-## Why Aaron Can Write This
+## Authority And Evidence Boundary
 
-## Authority And Scope Boundary
+Personal experience, public examples, inference and unknowns; missing facts that would change the central claim:
 
-State what Aaron knows directly, what is inferred, and what the article will not claim.
+## Structure And Landing
 
-## Evidence Needed
+What each part adds and where the author's thought should land; mechanisms, counterarguments and frameworks only when useful:
 
-## Counterargument
+## Distribution Hypothesis
 
-## Reusable Frame
-
-## Distribution Hook
-
-## Success Hypothesis
-
-## Kill Criteria
+When relevant, how readers will discover the article and what we might learn after publishing. Keep this separate from editorial quality.

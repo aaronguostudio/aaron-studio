@@ -10,4 +10,4 @@
 
 ## Continuity Thesis
 
-This post extends Aaron's previous writing by:
+Record only a useful connection or changed idea. If none serves this article, say so; do not force continuity or read unrelated posts to fill this template.

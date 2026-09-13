@@ -24,6 +24,8 @@ Treat these as current hints, not a substitute for live fetch:
 
 Always fetch the Tasks Tracker and Projects Registry databases before creating or updating pages. If a fixed ID fails, search Notion for the database title and fetch the database result.
 
+For a personal thought or learning without a task/backlog request, use [brain-ingest](../brain-ingest/SKILL.md) to capture it in the knowledge inbox. A vague idea is not automatically an execution task.
+
 ## Workflow
 
 1. Confirm Notion tools are available. If not, ask Aaron to connect the Notion app and stop.
@@ -165,6 +167,6 @@ User: "Add a task under image-dock: gallery should support filtering by aspect r
 
 Action: create task with `Project Ref=["https://app.notion.com/p/394b5667a0c681a19498fa330d79b343"]`, `Project=image-dock`, `Repo Path=/Users/aaronguo/Work/lab/images-stock`, `Agent Mode=Auto PR OK`, `Agent Status=Unreviewed`, likely `Agent Scope=S`, and clear acceptance criteria. Do not start implementation.
 
-User: "Remember this vague idea: AI reading coach."
+User: "Add this vague idea to my task backlog: AI reading coach."
 
 Action: create a lightweight task with `Project=idea`, `Priority=Low`, `Agent Scope=Unknown`, `Agent Status=Needs clarification`, and questions about target user, output format, and success criteria.

@@ -1,7 +1,7 @@
 {
   "name": "aaronguo/brain-ingest",
-  "version": "0.1.0",
-  "summary": "Captures raw inputs into Aaron's brain with privacy-preserving local routing.",
+  "version": "0.2.0",
+  "summary": "Capture and retrieve personal knowledge in Notion Brain with source-aware inbox routing.",
   "private": true,
   "skills": {
     "brain-ingest": {

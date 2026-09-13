@@ -460,8 +460,17 @@ export function assessBlogPackage(options: PackageQualityOptions): PackageQualit
     const scorecardPath = join(blogDir, "editorial-scorecard.md");
     if (existsSync(scorecardPath)) {
       const scorecard = readFileSync(scorecardPath, "utf-8");
-      const score = Number(scorecard.match(/Final score:\s*(\d+)\s*\/\s*100/i)?.[1] ?? 0);
-      if (score < 85) errors.push(`Editorial gate: final score is ${score}/100; minimum is 85.`);
+      if (/^Review format:\s*evidence-v1\s*$/mi.test(scorecard)) {
+        // Validate the manual review record, not the quality of the author's judgment.
+        const evidence = scorecard.match(/^Review evidence:[ \t]*([^\r\n]*)$/mi)?.[1]?.trim();
+        if (!evidence || /^(PENDING|TBD|TODO|N\/?A)$/i.test(evidence)) {
+          errors.push("Editorial gate: passage-linked Review evidence is required for evidence-v1.");
+        }
+      } else {
+        // Preserve already recorded gates while new work uses evidence-based review.
+        const score = Number(scorecard.match(/Final score:\s*(\d+)\s*\/\s*100/i)?.[1] ?? 0);
+        if (score < 85) errors.push(`Editorial gate: legacy final score is ${score}/100; minimum is 85. New reviews may use evidence-v1.`);
+      }
     }
   }
 

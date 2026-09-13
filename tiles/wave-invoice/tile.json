@@ -1,0 +1,7 @@
+{
+  "name": "aaronguo/wave-invoice",
+  "version": "0.1.0",
+  "summary": "Client and month scoped invoice preparation and Wave execution for Aaron's Personal OS.",
+  "private": true,
+  "skills": { "wave-invoice": { "path": "SKILL.md" } }
+}

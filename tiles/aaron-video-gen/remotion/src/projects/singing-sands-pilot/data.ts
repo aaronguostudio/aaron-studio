@@ -1,0 +1,131 @@
+export const filmData = {
+  "duration": 74,
+  "captions": [
+    {
+      "start": 5,
+      "end": 7.833,
+      "text": "这低沉的轰鸣，来自一座沙丘。",
+      "en": "That low rumble is a sand dune."
+    },
+    {
+      "start": 8.785,
+      "end": 10.793,
+      "text": "你听到的是一段真实录音，",
+      "en": "You're hearing a real recording from"
+    },
+    {
+      "start": 10.886,
+      "end": 13.348,
+      "text": "录制于美国大沙丘国家公园。",
+      "en": "Great Sand Dunes National Park."
+    },
+    {
+      "start": 14.044,
+      "end": 15.437,
+      "text": "仔细看表面：",
+      "en": "Watch the surface:"
+    },
+    {
+      "start": 15.762,
+      "end": 18.375,
+      "text": "沙子正在滑落。",
+      "en": "the sand is sliding."
+    },
+    {
+      "start": 18.375,
+      "end": 20.593,
+      "text": "在某些沙丘上，沙子成片滑落，",
+      "en": "On some dunes, an avalanche"
+    },
+    {
+      "start": 20.651,
+      "end": 23.298,
+      "text": "会发出持续、低沉的声音。",
+      "en": "produces a deep, sustained note."
+    },
+    {
+      "start": 24.11,
+      "end": 26.641,
+      "text": "像远处的飞机，",
+      "en": "It can resemble a distant airplane,"
+    },
+    {
+      "start": 27.082,
+      "end": 29.544,
+      "text": "也像管风琴最低沉的音符。",
+      "en": "or the lowest pipes of an organ."
+    },
+    {
+      "start": 30.24,
+      "end": 33.653,
+      "text": "整片山坡，都在发声。",
+      "en": "A whole hillside, making sound."
+    },
+    {
+      "start": 33.653,
+      "end": 37.264,
+      "text": "但不是随便一堆沙子都能这样。",
+      "en": "But this isn't something every pile of sand can do."
+    },
+    {
+      "start": 37.867,
+      "end": 41.165,
+      "text": "在尤里卡沙丘，沙子需要足够干燥。",
+      "en": "At Eureka Dunes, the sand needs to be dry."
+    },
+    {
+      "start": 41.966,
+      "end": 44.601,
+      "text": "有了湿气，轰鸣就停止了。",
+      "en": "Add moisture, and the booming stops."
+    },
+    {
+      "start": 45.402,
+      "end": 49.21,
+      "text": "环境条件，和沙子的运动同样重要。",
+      "en": "The conditions matter as much as the movement."
+    },
+    {
+      "start": 49.211,
+      "end": 52.276,
+      "text": "研究者提出过不同的解释，",
+      "en": "Researchers have proposed different explanations"
+    },
+    {
+      "start": 52.346,
+      "end": 54.528,
+      "text": "试图弄清声音如何持续。",
+      "en": "for how the sound is sustained."
+    },
+    {
+      "start": 55.039,
+      "end": 56.769,
+      "text": "我们能看见沙子滑落，",
+      "en": "We can watch the avalanche."
+    },
+    {
+      "start": 57.21,
+      "end": 59.381,
+      "text": "解释它的声音，却更难。",
+      "en": "Explaining its voice is harder."
+    },
+    {
+      "start": 59.532,
+      "end": 60.554,
+      "text": "再听一次。",
+      "en": "Listen again."
+    },
+    {
+      "start": 60.937,
+      "end": 63.526,
+      "text": "一片我们以为寂静的风景，",
+      "en": "A landscape we think of as silent,"
+    },
+    {
+      "start": 63.7,
+      "end": 65.465,
+      "text": "正让我们听见它。",
+      "en": "making itself heard."
+    }
+  ]
+};
