@@ -154,15 +154,25 @@ node scripts/validate-blog-links.mjs \
 ```
 
 The validator must pass before reporting that the local blog copy is ready.
-6. Start or reuse the blog dev server. Reuse an existing process only after confirming it belongs to the target blog repo and returns a healthy page; restart a stale process rather than accepting a cached 500 response.
-7. Run browser-rendered QA for both public routes:
+6. Run the catalog-integrity guard from the blog repository before any preview or production handoff:
+
+```bash
+pnpm verify:blog-catalog
+```
+
+This guard must pass. It verifies that every published English article has the
+same-numbered Chinese article and that the Writing archive query has a limit
+large enough to load the entire published catalog. Never treat a working direct
+article URL as proof that the article is discoverable from the archive.
+7. Start or reuse the blog dev server. Reuse an existing process only after confirming it belongs to the target blog repo and returns a healthy page; restart a stale process rather than accepting a cached 500 response.
+8. Run browser-rendered QA for both public routes:
    - the expected H1, description, category, and language switch render;
    - the cover appears once and is not duplicated in the Markdown body;
    - every body image loads after normal lazy-loading scroll and has non-zero natural dimensions;
    - the expected section count and table/framework content render;
    - internal links resolve in the matching language;
    - there is no horizontal overflow at the checked viewport and no browser console error.
-8. Leave the requested local preview page open and report the post number, slug, image count, link-validation result, browser-QA result, and preview URLs.
+9. Leave the requested local preview page open and report the post number, slug, image count, link-validation result, catalog-integrity result, browser-QA result, and preview URLs.
 
 ### Step 8: Update growth analytics catalog
 
