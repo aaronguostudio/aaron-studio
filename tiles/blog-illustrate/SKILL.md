@@ -170,7 +170,7 @@ Read the full article. Identify:
 - **Blog title** (from frontmatter `title:`)
 - **Thumbnail title language** — Aaron usually publishes and distributes the main article in English. If the blog date dir contains an English article for the same slug (`<slug>.md`, not `*-zh.md`), default the thumbnail headline to that English article's title even when the current article path is Chinese. Use a Chinese headline only when no English article exists or Aaron explicitly asks for a Chinese thumbnail. Use bilingual only when Aaron explicitly asks for bilingual or when the distribution target is clearly bilingual.
 
-**Design the thumbnail headline** — split the title into 3 lines for visual impact:
+**Design the thumbnail headline.** Default (2026-09-30): a 2-4 word hook plus, for news posts, the subject's logo, shared by the blog cover and the YouTube thumbnail (see Notes). The 3-line title split below is the fallback when no short hook exists:
 
 | Line | Role | Style | Example |
 |------|------|-------|---------|
@@ -321,7 +321,10 @@ Do not compress, insert, or promote an image until `visual-critique.md` records 
 Future integration may connect blog images with `/Users/aaronguo/Work/lab/images-stock` for search, import, and publish-to-stock workflows. This is optional. Blog illustration must still run with local artifacts when image stock is unavailable.
 
 - Cover style can differ from content illustrations — atmospheric/editorial covers often work better than matching the content style exactly
-- `00-cover.png` = clean (no text) → blog header. `00-cover-thumbnail.png` = title overlay → YouTube thumbnail. Two separate files, both always generated.
+- `00-cover.png` = clean art, kept as the source. The published blog cover and the YouTube thumbnail are the same composition (Aaron, 2026-09-30): that art plus a 2-4 word hook set deterministically (PIL, never by the image model), not the full title, because the site already prints the title under the card and as the H1.
+- Ship per-language covers: the EN and ZH articles each set their own `image`/`ogImage`. Prefer a language-neutral hook (numbers, symbols); otherwise make a ZH variant with a heavy CJK face that matches the Latin weight. Export the YouTube thumbnail (1280×720) from the EN composition.
+- Keep hook text and logos inside the central 80% width (site cards crop differently from YouTube) and check both at 320×180.
+- For a news or hot-topic post, include the subject company's logo (e.g. the OpenAI blossom before the hook) as an editorial identifier: monochrome in the cover ink, provenance file in `imgs/evidence/`, no partnership claim. Aaron wants it for click-through.
 - Built-in generation does not require `OPENAI_API_KEY`. On the explicit baoyu CLI path, prefer its OpenAI provider for thumbnail text; record any `codex-cli` fallback in `generation-manifest.md` and inspect text carefully.
 - If `cwebp` is not installed: `brew install webp`
 - Quality default is 82. Use 90 for photos, 75 for diagrams/infographics

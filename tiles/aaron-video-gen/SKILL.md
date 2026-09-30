@@ -89,6 +89,22 @@ Treat the following as production constraints, not as optional style notes:
 - For a `cover-hero`, the article title, subtitle, and Aaron brand lockup must
   all be visible at frame zero. The background may move gently, but the viewer
   must not wait for identity or the central promise to animate in.
+- Give the film a short breath before speech: the cover-hero holds for a
+  2.2-second lead-in, the score enters first, and the first narration word
+  lands at about 2.2 s. No captions during the lead-in. This is not a logo or
+  slogan intro; those stay out because they cost early retention.
+- Pace narration for about 150 wpm. With `aaron-pvc-identity-v1`, trim pauses
+  inside silence (in-sentence gaps capped near 0.42 s, section gaps near
+  0.8 s) and apply `atempo` 1.10 to the approved take before visual timing is
+  locked; keep the untouched take and remap word timings.
+- A blog companion film ships with music. When no approved, rights-cleared
+  library track fits, generate an original Eleven Music score on the paid plan
+  (composition plan cut on chapter boundaries, manifest with rights), mixed
+  about 20 LU under the voice. Silence needs an explicit author choice.
+- Where the argument has one core mechanism, consider one or two 3D explainer
+  scenes (`ledger-3d-explainer` / `granular-3d-explainer`) for that beat
+  instead of another typographic layout. Keep them explanatory and labeled
+  conceptual; do not add decorative generated clips.
 - Select a registered layout before writing a scene. Long display titles own
   one full-width reading axis; supporting copy moves below the title rather
   than forcing a two-column wrap.
