@@ -1,0 +1,17 @@
+CLAUDE CODE 2026-08-31..2026-09-30 active days 26
+  claude-opus-5              $    6,559  read=9.96B w5=26M w1=89M out=20.8M  read_share=76%
+  claude-opus-5-5            $    1,879  read=5.46B w5=33M w1=53M out=10.1M  read_share=58%
+  claude-sonnet-5            $      362  read=1.31B w5=38M w1=0M out=0.5M  read_share=72%
+  claude-fable-5-1           $      567  read=0.64B w5=11M w1=9M out=1.8M  read_share=28%
+  claude-haiku-4-5-20251001  $       10  read=0.06B w5=3M w1=0M out=0.0M  read_share=62%
+  claude-opus-4-8            $        6  read=0.01B w5=0M w1=0M out=0.0M  read_share=67%
+  TOTAL $9,383
+CODEX 2026-08-31..2026-09-30 active days 30
+  gpt-6-astra    $   3,105  in=2.42B cached=2.38B out=6.3M read_share=77%
+     same Astra tokens at gpt-6.1-sol: $383 (12%)
+  gpt-5.6-sol    $     443  in=0.80B cached=0.78B out=1.8M read_share=70%
+  gpt-5.6-terra  $     216  in=0.74B cached=0.72B out=2.0M read_share=67%
+  gpt-6-sol      $      39  in=0.15B cached=0.14B out=0.4M read_share=72%
+  gpt-5.5        $      73  in=0.08B cached=0.07B out=0.4M read_share=50%
+  gpt-6-luna     $       0  in=0.00B cached=0.00B out=0.0M read_share=50%
+  TOTAL $3,876

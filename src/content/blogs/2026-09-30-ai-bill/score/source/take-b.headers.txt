@@ -1,0 +1,17 @@
+HTTP/2 200 
+date: Wed, 30 Sep 2026 16:17:55 GMT
+server: uvicorn
+song-id: tFBYz0s3dooLUorq3Va5
+content-length: 97912320
+content-type: audio/pcm
+vary: Accept-Language
+access-control-allow-origin: *
+access-control-allow-headers: *
+access-control-allow-methods: POST, PATCH, OPTIONS, DELETE, GET, PUT
+access-control-max-age: 600
+strict-transport-security: max-age=1800;
+x-trace-id: de0a6e564a3b8ae409be8d187eab5f25
+x-region: us-central1
+via: 1.1 google
+alt-svc: h3=":443"; ma=2592000
+

@@ -1,0 +1,458 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "ai-bill-2026-09-30",
+  "topic": "OpenAI Pro 200 halved; Aaron's own AI bill vs Claude Max; subscriptions becoming API-dollar budgets",
+  "created_at": "2026-09-30T18:00:00+00:00",
+  "status": "partial",
+  "producer": {
+    "skill": "research-evidence",
+    "skill_version": "0.1.0",
+    "run_id": "ai-bill-2026-09-30-v1"
+  },
+  "sources": [
+    {
+      "id": "email",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/aaronguo/aaron-studio/blob/main/src/content/blogs/2026-09-30-ai-bill/imgs/evidence/openai-pro-email-zh.png",
+      "title": "OpenAI email to Aaron: Dot, Pro 500, Pro 200 adjustment (Chinese)",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "local_artifact",
+      "author_name": "OpenAI",
+      "displayed_published_at": "2026-09-29",
+      "limitations": [
+        "Personal copy of a vendor email; the Chinese localization is OpenAI's."
+      ]
+    },
+    {
+      "id": "tibo-reopen",
+      "type": "x_post",
+      "canonical_url": "https://x.com/thsottiaux/status/2104823812042940713",
+      "title": "Tibo: re-opening Pro $200 with new usage calculation",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Thibault Sottiaux",
+      "author_handle": "thsottiaux",
+      "displayed_published_at": "2026-09-28",
+      "limitations": [
+        "Text read from search-result rendering of the post; X page not fetched directly. Metrics not recorded."
+      ]
+    },
+    {
+      "id": "openai-pricing",
+      "type": "web",
+      "canonical_url": "https://developers.openai.com/api/docs/pricing",
+      "title": "OpenAI API pricing",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "OpenAI",
+      "limitations": [
+        "Live price sheet; gpt-5.6-sol is promo pricing through 2026-11-21. Retrieved via fetch summary quoting table rows."
+      ]
+    },
+    {
+      "id": "anthropic-pricing",
+      "type": "web",
+      "canonical_url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "title": "Anthropic API pricing",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Anthropic",
+      "limitations": [
+        "Live price sheet; retrieved as full markdown."
+      ]
+    },
+    {
+      "id": "claude-plans",
+      "type": "web",
+      "canonical_url": "https://claude.com/pricing",
+      "title": "Claude plans and pricing",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Anthropic",
+      "limitations": [
+        "Plan pages describe relative multipliers; exact token allowances unpublished. Retrieved via fetch summary."
+      ]
+    },
+    {
+      "id": "tnw",
+      "type": "web",
+      "canonical_url": "https://thenextweb.com/news/openai-devday-pro-200-usage-cut-pro-500-plan",
+      "title": "OpenAI halves Pro 200 usage and launches a $500 ChatGPT plan at DevDay",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "The Next Web",
+      "displayed_published_at": "2026-09-29",
+      "limitations": [
+        "Secondary news report."
+      ]
+    },
+    {
+      "id": "techcrunch-sol",
+      "type": "web",
+      "canonical_url": "https://techcrunch.com/2026/09/29/openai-launches-gpt-6-1-sol-says-it-nearly-matches-gpt-6-astra-and-costs-less/",
+      "title": "OpenAI launches GPT-6.1 Sol",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "TechCrunch",
+      "displayed_published_at": "2026-09-29",
+      "limitations": [
+        "'Nearly matches Astra' is OpenAI's claim as reported, not independently tested."
+      ]
+    },
+    {
+      "id": "kingy",
+      "type": "web",
+      "canonical_url": "https://kingy.ai/news/chatgpt-pro-200-usage-cut/",
+      "title": "OpenAI Halves What the $200 ChatGPT Pro Plan Buys",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Kingy AI",
+      "displayed_published_at": "2026-09-29",
+      "limitations": [
+        "Secondary analysis; its per-model math and the reported Tibo 'Agreed' reply are not independently verified."
+      ]
+    },
+    {
+      "id": "hn-reopen",
+      "type": "hn",
+      "canonical_url": "https://news.ycombinator.com/item?id=49889306",
+      "title": "OpenAI: Tomorrow we are re-opening the Pro $200 subscription",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Hacker News",
+      "displayed_published_at": "2026-09-28",
+      "metrics": {
+        "replies": 90
+      },
+      "limitations": [
+        "Read via fetch summary; 74 points / 90 comments at retrieval; quotes are short and attributed to usernames as displayed."
+      ]
+    },
+    {
+      "id": "forum-caps",
+      "type": "web",
+      "canonical_url": "https://community.openai.com/t/200-chatgpt-pro-20x-hard-usage-limits-appeared-without-advance-notice/1400674",
+      "title": "$200 ChatGPT Pro 20x - Hard usage limits appeared without advance notice",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "OpenAI Developer Community",
+      "limitations": [
+        "User forum thread; 10 replies at retrieval."
+      ]
+    },
+    {
+      "id": "x-miu",
+      "type": "x_post",
+      "canonical_url": "https://x.com/miu21590/status/2104936394577637476",
+      "title": "The math isn't as bad as people make it sound",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_api",
+      "author_handle": "miu21590",
+      "displayed_published_at": "2026-09-29",
+      "metrics": {
+        "likes": 125,
+        "reposts": 5,
+        "replies": 62
+      },
+      "limitations": [
+        "Community estimate (~$14k to ~$7k API-equivalent; Claude Max ~$8k); methodology not shown. Metrics are a time-bounded observation."
+      ]
+    },
+    {
+      "id": "x-horwitz",
+      "type": "x_post",
+      "canonical_url": "https://x.com/gabriel_horwitz/status/2105017036803854485",
+      "title": "OpenAI just finished DevDay 2026 and I'm underwhelmed",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_api",
+      "author_handle": "gabriel_horwitz",
+      "displayed_published_at": "2026-09-29",
+      "metrics": {
+        "likes": 7,
+        "replies": 4
+      },
+      "limitations": [
+        "Single user opinion; the '10 hours before keynote' timing is his account."
+      ]
+    },
+    {
+      "id": "x-karp",
+      "type": "x_post",
+      "canonical_url": "https://x.com/AndrewKarp11/status/2105039022469079449",
+      "title": "Why would anyone want Pro 500 if Pro 100 was good enough",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_api",
+      "author_handle": "AndrewKarp11",
+      "displayed_published_at": "2026-09-29",
+      "limitations": [
+        "Single user opinion; low engagement."
+      ]
+    },
+    {
+      "id": "x-fourdrinier",
+      "type": "x_post",
+      "canonical_url": "https://x.com/SFourdrinier/status/2105103835610190164",
+      "title": "Underwhelming: pay for more and more",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_api",
+      "author_handle": "SFourdrinier",
+      "displayed_published_at": "2026-09-30",
+      "metrics": {
+        "likes": 45
+      },
+      "limitations": [
+        "Single user opinion."
+      ]
+    },
+    {
+      "id": "x-melvynx",
+      "type": "x_post",
+      "canonical_url": "https://x.com/melvynx/status/2105105255554052225",
+      "title": "AI subscriptions are becoming the new cloud bill",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_api",
+      "author_handle": "melvynx",
+      "displayed_published_at": "2026-09-30",
+      "limitations": [
+        "Single user framing; low engagement. Aaron's thesis was formed independently in this session but the phrase overlaps; attribute if used verbatim."
+      ]
+    },
+    {
+      "id": "local-bill",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/aaronguo/aaron-studio/blob/main/src/content/blogs/2026-09-30-ai-bill/evidence/ai-bill-output-2026-09-30.txt",
+      "title": "Aaron's 30-day Claude Code + Codex usage priced at API list rates",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "local_artifact",
+      "limitations": [
+        "One Mac only; other machines, Codex cloud tasks and ChatGPT Work are excluded, so Codex figures are a lower bound. Cache-write TTL split taken from logs where present."
+      ]
+    },
+    {
+      "id": "local-peaks",
+      "type": "operator_artifact",
+      "canonical_url": "https://github.com/aaronguo/aaron-studio/blob/main/src/content/blogs/2026-09-30-ai-bill/evidence/codex-weekly-peaks-2026-09-30.txt",
+      "title": "Aaron's Codex weekly quota peaks from session logs",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "local_artifact",
+      "limitations": [
+        "used_percent is account-level as reported by Codex in each session; reset dates shifted during September."
+      ]
+    },
+    {
+      "id": "canon-local",
+      "type": "web",
+      "canonical_url": "https://www.aaronguo.com/blogs/local-crossover-point",
+      "title": "I Stopped Renting Intelligence",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Aaron Guo",
+      "displayed_published_at": "2026-08-21",
+      "limitations": [
+        "Aaron's prior post; route to be confirmed at publish."
+      ]
+    },
+    {
+      "id": "canon-astra",
+      "type": "web",
+      "canonical_url": "https://www.aaronguo.com/blogs/gpt-6-astra-real-work",
+      "title": "I Put GPT-6 Astra Into Real Work",
+      "retrieved_at": "2026-09-30T18:00:00+00:00",
+      "access_method": "public_web",
+      "author_name": "Aaron Guo",
+      "displayed_published_at": "2026-09-06",
+      "limitations": [
+        "Aaron's prior post; route to be confirmed at publish."
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "c-pro200-cut",
+      "kind": "source_fact",
+      "text": "From 2026-10-30 Pro 200 ChatGPT Work and Codex usage drops from 20x to 10x Plus; GPT-6 Pro chat from 200 to 100 messages/week; price unchanged; current limits kept through 2026-10-29.",
+      "source_ids": [
+        "email",
+        "tnw"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "c-credits",
+      "kind": "source_fact",
+      "text": "Existing Pro 200 subscribers get a one-time 62,500 usage credits (US$2,500) expiring 2026-12-31.",
+      "source_ids": [
+        "email"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Whether credits require an active subscription is not stated in the email."
+    },
+    {
+      "id": "c-no5h",
+      "kind": "source_fact",
+      "text": "OpenAI commits not to bring back the 5-hour usage limit.",
+      "source_ids": [
+        "email",
+        "tibo-reopen"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "c-halfapi",
+      "kind": "source_fact",
+      "text": "Tibo: the new calculation nets out at half the dollar in API spend compared with the old Pro $200 plan.",
+      "source_ids": [
+        "tibo-reopen",
+        "hn-reopen"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Wording from the post as rendered in search results."
+    },
+    {
+      "id": "c-pro500",
+      "kind": "source_fact",
+      "text": "Pro 500 costs $500/month with 25x Plus usage and is the only Pro tier with Ultrafast (up to 300 tokens/s in Codex).",
+      "source_ids": [
+        "tnw"
+      ],
+      "verification_status": "verified",
+      "confidence": "medium",
+      "notes": "Secondary report of OpenAI's launch."
+    },
+    {
+      "id": "c-linear",
+      "kind": "inference",
+      "text": "Plus (1x/$20), Pro 100 (5x/$100), new Pro 200 (10x/$200) and Pro 500 (25x/$500) all price usage at $20 per 1x; the old Pro 200 (20x/$200) was the only volume discount.",
+      "source_ids": [
+        "email",
+        "tnw"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Arithmetic on published multipliers; Pro 100 multiplier from OpenAI help pages as reported."
+    },
+    {
+      "id": "c-sol-price",
+      "kind": "source_fact",
+      "text": "GPT-6.1 Sol API: $2 input, $0.10 cached input, $10 output per 1M tokens; GPT-6 Astra: $10, $1.00, $50.",
+      "source_ids": [
+        "openai-pricing",
+        "techcrunch-sol"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "c-opus-cache",
+      "kind": "source_fact",
+      "text": "Claude Opus 5.5 cache hits cost 0.05x input ($0.20/M); Fable 5.1 cache hits 0.025x ($0.25/M); other Claude models 0.1x.",
+      "source_ids": [
+        "anthropic-pricing"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "c-bill",
+      "kind": "operator_observation",
+      "text": "Aaron's 30 days (2026-08-31..09-29) on one Mac price at about $9,400 of Claude Code usage and about $3,900 of Codex usage at API list rates.",
+      "source_ids": [
+        "local-bill"
+      ],
+      "verification_status": "verified",
+      "confidence": "medium",
+      "notes": "Lower bound for Codex; subscription tier on Claude is Max (tier not verified locally)."
+    },
+    {
+      "id": "c-cacheshare",
+      "kind": "operator_observation",
+      "text": "Cache reads are 58-77% of the priced cost for each main model in Aaron's agentic coding usage.",
+      "source_ids": [
+        "local-bill"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "c-astra-sol",
+      "kind": "operator_observation",
+      "text": "The same Astra tokens priced at GPT-6.1 Sol cost about 12% as much ($3,105 vs $383).",
+      "source_ids": [
+        "local-bill",
+        "openai-pricing"
+      ],
+      "verification_status": "verified",
+      "confidence": "high",
+      "notes": "Price comparison only; does not establish Sol can do the same work."
+    },
+    {
+      "id": "c-peaks",
+      "kind": "operator_observation",
+      "text": "In September, Aaron's Pro account weekly Codex meter reached 99-100% in five windows; a second Pro 100 account reached 95-96%.",
+      "source_ids": [
+        "local-peaks"
+      ],
+      "verification_status": "verified",
+      "confidence": "high"
+    },
+    {
+      "id": "c-community",
+      "kind": "inference",
+      "text": "Community reaction concentrated on timing and framing (cut announced the night before DevDay; 'just say you're cutting limits in half'), on switching to Claude, and on a minority view that the math is less bad than claimed.",
+      "source_ids": [
+        "hn-reopen",
+        "x-horwitz",
+        "x-miu",
+        "kingy",
+        "x-karp",
+        "x-fourdrinier"
+      ],
+      "verification_status": "partial",
+      "confidence": "medium",
+      "notes": "Reddit not collected (SSL failure); <48h of reaction; low engagement on most X posts."
+    },
+    {
+      "id": "c-forecast",
+      "kind": "inference",
+      "text": "Aaron forecasts that coding subscriptions will increasingly be expressed as visible API-dollar budgets and that price competition moves to cache-read and speed tiers.",
+      "source_ids": [
+        "tibo-reopen",
+        "openai-pricing",
+        "anthropic-pricing"
+      ],
+      "verification_status": "unverified",
+      "confidence": "medium",
+      "notes": "Forecast; label as Aaron's inference in copy."
+    }
+  ],
+  "coverage": {
+    "discovery_methods": [
+      "last30days engine (X, YouTube)",
+      "web search",
+      "official pricing pages",
+      "local session logs"
+    ],
+    "unresolved_gaps": [
+      "Reddit and GitHub collection failed (Python SSL certificate error)",
+      "OpenAI help center page returned 403",
+      "X posts not fetched directly; text from engine/search rendering",
+      "YouTube transcripts unavailable (0/4)",
+      "Reaction window under 48 hours"
+    ],
+    "notes": [
+      "Local usage analysis covers one Mac; figures are for illustration of one heavy user, not a benchmark."
+    ]
+  },
+  "privacy": {
+    "api_keys_added": false,
+    "cookie_values_persisted": false,
+    "account_mutations": false,
+    "notes": [
+      "Local logs contain client project paths and multiple account identifiers; only aggregate numbers may be published. No paths, account IDs or client names in public copy."
+    ]
+  }
+}

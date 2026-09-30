@@ -1,0 +1,16 @@
+limit buckets: {('pro', 'codex', 'primary'): 29591, (None, 'codex_bengalfox', 'secondary'): 158, ('prolite', 'codex', 'primary'): 2337, ('plus', 'codex', 'secondary'): 85, ('pro', 'codex_bengalfox', 'secondary'): 797, (None, 'codex', 'primary'): 14}
+('pro', 'codex', 'primary', '09-06') 99%
+('pro', 'codex', 'primary', '09-13') 59%
+('pro', 'codex', 'primary', '09-14') 99%
+('pro', 'codex', 'primary', '09-15') 99%
+('pro', 'codex', 'primary', '09-19') 100%
+('pro', 'codex', 'primary', '09-26') 100%
+('pro', 'codex', 'primary', '10-03') 18%
+('prolite', 'codex', 'primary', '09-27') 95%
+('prolite', 'codex', 'primary', '09-30') 96%
+('prolite', 'gpt-6-astra') 145.8 140.0 0.48
+('prolite', 'gpt-6-sol') 45.4 44.1 0.12
+('prolite', 'gpt-5.6-terra') 41.6 39.6 0.15
+('prolite', 'gpt-5.6-sol') 18.7 16.9 0.08
+('prolite', 'gpt-5.5') 11.6 10.9 0.06
+('prolite', 'gpt-6-luna') 2.5 2.3 0.01

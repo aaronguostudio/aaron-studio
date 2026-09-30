@@ -1,0 +1,324 @@
+{
+  "composition_plan": {
+    "chunks": [
+      {
+        "text": "[Cold Open]\n{very quiet light tension: a sparse muted soft-mallet pluck repeating one note in steady eighth notes over a low warm pad on an unresolved suspended chord; no melody}",
+        "duration_ms": 24050,
+        "positive_styles": [
+          "instrumental only",
+          "restrained modern documentary underscore",
+          "steady 82 BPM",
+          "D major tonal center, suspended and unresolved",
+          "muted soft-mallet pluck pulse in eighth notes",
+          "warm low analog pad",
+          "dark warm tone, soft high end",
+          "sparse and spacious, background for a speaking voice"
+        ],
+        "negative_styles": [
+          "vocals",
+          "choir",
+          "humming",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "trailer hits",
+          "orchestral crescendo",
+          "vinyl crackle",
+          "lo-fi hip hop",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[What Changed]\n{soft felt piano enters with slow simple low-register chords under the same soft pluck pulse; steady, neutral, gently forward-moving; no melody that competes with speech}",
+        "duration_ms": 83240,
+        "positive_styles": [
+          "instrumental only",
+          "restrained modern documentary underscore",
+          "steady 82 BPM",
+          "D major, same key throughout",
+          "soft felt piano chords in the low-middle register",
+          "muted soft-mallet pluck pulse in eighth notes",
+          "warm low analog pad",
+          "neutral, analytical, forward motion"
+        ],
+        "negative_styles": [
+          "vocals",
+          "choir",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "orchestral crescendo",
+          "vinyl crackle",
+          "lo-fi hip hop",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Reaction]\n{same bed, slightly lighter: the pad thins, the piano plays fewer notes, the soft pluck pulse continues unchanged}",
+        "duration_ms": 40840,
+        "positive_styles": [
+          "instrumental only",
+          "same palette and groove as before",
+          "steady 82 BPM",
+          "D major, same key",
+          "lighter texture, fewer piano notes",
+          "muted soft-mallet pluck pulse continues",
+          "airy and calm"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "vinyl crackle",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[The Bill]\n{focused, a touch more weight: a warm low bass note under each slow piano chord change; the pluck pulse stays steady and quiet}",
+        "duration_ms": 57480,
+        "positive_styles": [
+          "instrumental only",
+          "same palette and groove",
+          "steady 82 BPM",
+          "D major, same key",
+          "warm low bass notes added",
+          "soft felt piano chords",
+          "muted soft-mallet pluck pulse",
+          "focused and attentive"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "orchestral crescendo",
+          "vinyl crackle",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[The Re-read]\n{the one gentle lift: a short repeating four-note felt-piano figure cycles like a loop over the pulse; harmony opens warmly to the major chord; still quiet, no crescendo}",
+        "duration_ms": 62500,
+        "positive_styles": [
+          "instrumental only",
+          "same palette and groove",
+          "steady 82 BPM",
+          "D major, same key",
+          "short repeating felt-piano ostinato figure",
+          "gentle harmonic lift, warm and clear",
+          "muted soft-mallet pluck pulse",
+          "a quiet sense of realization"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "big crescendo",
+          "orchestral strings",
+          "vinyl crackle",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Price Table]\n{pared back: the repeating figure drops away; only the soft pluck pulse and the low pad remain, focused and still}",
+        "duration_ms": 31660,
+        "positive_styles": [
+          "instrumental only",
+          "same palette",
+          "steady 82 BPM",
+          "D major, same key",
+          "minimal texture, pulse and pad only",
+          "focused and still"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "vinyl crackle",
+          "melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Model Beats Vendor]\n{steady: soft felt piano chords return, even and patient, over the continuing pluck pulse and pad}",
+        "duration_ms": 53610,
+        "positive_styles": [
+          "instrumental only",
+          "same palette and groove",
+          "steady 82 BPM",
+          "D major, same key",
+          "soft felt piano chords in the low-middle register",
+          "muted soft-mallet pluck pulse",
+          "warm low analog pad",
+          "steady and even"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "orchestral crescendo",
+          "vinyl crackle",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Decisions]\n{calm and grounded: longer sustained piano chords in a lower register, warm low pad, the pluck pulse a little softer}",
+        "duration_ms": 65380,
+        "positive_styles": [
+          "instrumental only",
+          "same palette",
+          "steady 82 BPM",
+          "D major, same key",
+          "long sustained low piano chords",
+          "softer pluck pulse",
+          "warm low analog pad",
+          "calm and grounded"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "orchestral crescendo",
+          "vinyl crackle",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Price Your Own Bill]\n{light and practical: the pluck pulse slightly more present, a few gentle piano notes in the middle register, easy unhurried movement}",
+        "duration_ms": 47440,
+        "positive_styles": [
+          "instrumental only",
+          "same palette and groove",
+          "steady 82 BPM",
+          "D major, same key",
+          "light gentle felt piano notes",
+          "muted soft-mallet pluck pulse",
+          "practical, light, easy"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "vinyl crackle",
+          "bright lead melody",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[Ending]\n{warm resolve: the repeating piano figure returns once, softly; harmony settles on the D major tonic; the pulse thins and slows its presence}",
+        "duration_ms": 37870,
+        "positive_styles": [
+          "instrumental only",
+          "same palette",
+          "steady 82 BPM",
+          "D major, resolving to the tonic",
+          "soft felt piano figure returns",
+          "warm low analog pad",
+          "warm, settled resolution"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drum kit",
+          "beats",
+          "kick drum",
+          "snare",
+          "hi-hats",
+          "cinematic swell",
+          "riser",
+          "big finale",
+          "vinyl crackle",
+          "key change",
+          "tempo change"
+        ],
+        "context_adherence": "high"
+      },
+      {
+        "text": "[End Card]\n{soft tail: one held warm D major chord on piano and pad, fading gently toward silence}",
+        "duration_ms": 5930,
+        "positive_styles": [
+          "instrumental only",
+          "single sustained warm chord",
+          "D major",
+          "soft decay",
+          "gentle fade to silence"
+        ],
+        "negative_styles": [
+          "vocals",
+          "drums",
+          "new melody",
+          "abrupt ending",
+          "swell"
+        ],
+        "context_adherence": "high"
+      }
+    ]
+  },
+  "model_id": "music_v2"
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "slug": "ai-subscription-cloud-bill",
+  "date": "2026-09-30",
+  "phase": "video_public_blog_followup_pr_open",
+  "artifacts": {
+    "article_en": "ai-subscription-cloud-bill.md",
+    "article_zh": "ai-subscription-cloud-bill-zh.md",
+    "research": "research-evidence.json",
+    "script": "youtube-script.md",
+    "audio": {
+      "canonical": "audio-paced-1.10.mp3",
+      "sha256": "04a4d63d2b6505a842672f98e96538ee33f98dedc4c976de9ab8b815ec4f4b33",
+      "source": "audio.mp3",
+      "timeline": "audio-timeline-paced-1.10.json",
+      "duration_seconds": 504.0,
+      "technical_qa": "pass",
+      "human_listening": "Aaron approved take-1 voice; chose pause trim + 1.10x after two samples (2026-09-30)",
+      "status": "approved"
+    },
+    "video": {
+      "canonical": "video-v3.mp4",
+      "sha256": "8876a3d3631f355886e711bc73845db61aeea8705f29da04c25bcb431e4c2841",
+      "duration_seconds": 512.2,
+      "alternate": "video-v3-nomusic.mp4",
+      "previous": "video.mp4 (v1, 565 s, uploaded unlisted as N8wNuTkWcBM)",
+      "loudness": "-14.0 LUFS, -1.5 dBTP",
+      "audits": "director/evidence/storyboard/preflight --production PASS",
+      "3d": "ledger-3d-explainer promoted to available after Aaron's prototype approval",
+      "status": "public (author approved v3)",
+      "lead_in": "2.2 s (score first, voice at 2.20 s)"
+    },
+    "illustrations": {
+      "cover": "imgs/web/00-cover.webp",
+      "thumbnail": "imgs/thumbnail-youtube.jpg (logo + $200 \u2192 HALF)",
+      "body": [
+        "imgs/web/02-codex-meter.webp",
+        "imgs/web/03-bill-by-model.webp",
+        "imgs/web/04-cache-read-price.webp",
+        "imgs/web/05-model-vs-vendor.webp"
+      ],
+      "video_only": [
+        "imgs/charts/01-price-per-unit.png"
+      ],
+      "status": "editorial_pass",
+      "cover_en": "imgs/web/00-cover-hook-en.webp",
+      "cover_zh": "imgs/web/00-cover-hook-zh.webp",
+      "logo_provenance": "imgs/evidence/openai-logo-provenance.json",
+      "cover_status": "author-requested hook+logo covers; blog swap staged on branch claude/ai-bill-cover-video"
+    },
+    "music": {
+      "canonical": "score/score-master.wav",
+      "manifest": "score/score-manifest.json",
+      "rights": "cleared (paid ElevenLabs plan confirmed by Aaron)",
+      "author_listening": "approved"
+    }
+  },
+  "locks": {
+    "argument": "author_approved (2026-09-30 checkpoint)",
+    "article": "author_approved (2026-09-30 checkpoint); body chart positions added after lock per imgs/outline.md, no text change",
+    "package": "pass for blog (link validator, catalog, build, DOM QA, live verify); video pending"
+  },
+  "authorization": {
+    "blog": "Aaron: open PR to aaronguoblog main and merge to publish",
+    "youtube": "Aaron: upload to @ai-native-builder unlisted; make public only after Aaron checks",
+    "social": "drafts only"
+  },
+  "release": {
+    "blog_url": "https://www.aaronguo.com/blogs/ai-subscription-cloud-bill",
+    "youtube_url": "https://youtu.be/ZNBf81c0kus",
+    "blog_url_zh": "https://www.aaronguo.com/zh/blogs/ai-subscription-cloud-bill",
+    "blog_post_number": 34,
+    "blog_pr": "https://github.com/aaronguostudio/aaronguoblog/pull/23",
+    "blog_base": "main",
+    "production_main_commit": "3620b9d6e69be57cfb09921a47c5991699dfec9b",
+    "vercel_production_deploy": "success (git, main, 3620b9d)",
+    "live_verified": "2026-09-30: EN/ZH 200 with correct titles, 5 images decode, archive lists post, og tags set, no console errors, no redirect",
+    "youtube_video_id": "ZNBf81c0kus",
+    "youtube_channel_id": "UC00lw_bsmcXk7Dxuk_QqBTg",
+    "youtube_privacy": "public",
+    "youtube_uploaded_at": "2026-09-30",
+    "youtube_processing": "processing at upload read-back",
+    "captions": "burned-in phrase captions only; no selectable caption track",
+    "superseded_uploads": [
+      {
+        "video_id": "N8wNuTkWcBM",
+        "version": "v1",
+        "status": "deleted 2026-09-30 at Aaron's explicit request"
+      },
+      {
+        "video_id": "Y7ri0GBivBo",
+        "version": "v2",
+        "status": "deleted 2026-09-30 at Aaron's explicit request"
+      }
+    ],
+    "youtube_public_verified": "2026-09-30: API public/processed; embeddable+publicStatsViewable set true after upload defaulted false; oEmbed 200",
+    "blog_followup_pr": "https://github.com/aaronguostudio/aaronguoblog/pull/24 (youtube embed + per-language hook covers)"
+  },
+  "postmortem": "prediction pending"
+}

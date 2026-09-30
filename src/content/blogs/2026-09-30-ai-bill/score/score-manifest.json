@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "title": "AI Bill \u2014 original editorial score",
+  "created_for": {
+    "film": "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill.",
+    "package": "src/content/blogs/2026-09-30-ai-bill",
+    "narration": "audio-paced-1.10.mp3 (503.988 s, sha256 1b467bbcdef2898115059319921d3b2eae3474ef584552662ab6a74cf807c7e7)",
+    "timeline": "audio-timeline-paced-1.10.json",
+    "end_card_sec": [
+      504.07,
+      510.0
+    ]
+  },
+  "decision": {
+    "date": "2026-09-30",
+    "by": "Aaron",
+    "choice": "generate an original Eleven Music score",
+    "prior_library_search": "asset-decision-log.md 'Music decision' (2026-09-30): no approved or rights-cleared bed in the asset library"
+  },
+  "status": "candidate \u2014 awaiting Aaron's listening approval and plan-tier confirmation; not used in any render yet",
+  "provider": "ElevenLabs \u2014 Eleven Music API",
+  "endpoint": "POST https://api.elevenlabs.io/v1/music?output_format=pcm_48000",
+  "model": "music_v2",
+  "model_choice_note": "music_v2 chosen over music_v2_5 because the Eleven Music Model-Specific Terms (last updated 26 May 2026) name v1 and v2 explicitly; same model as the 2026-08-02 and 2026-08-19 scores.",
+  "mode": "composition_plan (11 chunks aligned to the narration section boundaries; seed not supported with a plan)",
+  "output_format": "pcm_48000 = headerless signed 16-bit little-endian, stereo, 48 kHz (verified: 97,912,320 bytes = 509.96 s stereo; mono/float interpretations decode as noise)",
+  "direction": {
+    "palette": "restrained modern documentary bed: soft felt piano (low-middle register), light plucked/soft-mallet eighth-note pulse, warm low pad",
+    "tempo_key": "prompted 82 BPM, D major throughout",
+    "exclusions": [
+      "vocals",
+      "choir",
+      "drum kit / beats",
+      "cinematic swells, risers, trailer hits",
+      "lo-fi vinyl crackle",
+      "bright lead melody",
+      "key or tempo change"
+    ],
+    "speech_clearance": "1-4 kHz kept light; no lead line in the voice range"
+  },
+  "generations": [
+    {
+      "take": "take-a",
+      "selected": true,
+      "song_id": "h9knWPMmeFOInQpXa3kV",
+      "requested_at": "2026-09-30T16:15:09Z",
+      "plan": "composition-plan.json",
+      "plan_sha256": "4410464e0ecbd4758bb19423d4148924437772bd250e1e5e43819bab79883e42",
+      "request_body": "source/take-a.request.json",
+      "response_headers": "source/take-a.headers.txt",
+      "x_trace_id": "e94e2af4a7ffbdfdda9800cc40582fe6",
+      "raw_pcm_sha256": "7a19bf7d17e3afd375b98141da3909661295f05a318e1ad1967571e3be765d90",
+      "raw_bytes": 97912320,
+      "raw_duration_sec": 509.96,
+      "lossless_copy": {
+        "path": "source/take-a.flac",
+        "sha256": "00a5d63b9f25adb44e23c9905ca3a9a3f50f4576a3c28ff02f7be7973e815ef1",
+        "decoded_pcm_matches_raw": true
+      },
+      "raw_measurements": {
+        "integrated_lufs": -25.0,
+        "lra_lu": 2.2,
+        "true_peak_dbtp": -10.0
+      }
+    },
+    {
+      "take": "take-b",
+      "selected": false,
+      "song_id": "tFBYz0s3dooLUorq3Va5",
+      "requested_at": "2026-09-30T16:17:55Z",
+      "plan": "composition-plan-b.json",
+      "plan_sha256": "411203ab960397d9d38e57bc3ed38c8c2667b956378f2cb1c51eb6aa9f498e27",
+      "raw_pcm_sha256": "e6a7334424ce563ce2e33bb284dd32fdd9597949f018f9df1b28d63e0399a28b",
+      "lossless_copy": {
+        "path": "source/take-b.flac",
+        "sha256": "4f23c0df7c4db1c01f3c7664fcf7037efafff162fe78a2ffc38c83fd20ee2825"
+      },
+      "rejected_because": "cold open near-silent (0-6.6 s below -55 dB, section at -45 LUFS), darker than take A (nothing above ~3 kHz), -29.1 LUFS overall"
+    },
+    {
+      "take": "take-c",
+      "selected": false,
+      "song_id": "dgz8ADKOKDh0Pvz9yH6M",
+      "requested_at": "2026-09-30T16:19:59Z",
+      "plan": "composition-plan-c.json",
+      "plan_sha256": "3c5bdd1ee6b0ebdeb39504aad198425dd0f13b4845f749d02127191c43b344b2",
+      "raw_pcm_sha256": "f92b02033fe3cb75c642b25be9b4351c4092da3100e634468064eb07bfb60d17",
+      "lossless_copy": {
+        "path": "source/take-c.flac",
+        "sha256": "dbf950c3cbd4f5a7967fccf0f5ad6574ad293591446e34bb403daec162de6f68"
+      },
+      "rejected_because": "first 29.7 s digital silence (cold-open chunk not rendered); large struck-chord swells every ~5.9 s (LRA 13.5 LU), which is not a steady bed"
+    },
+    {
+      "take": "bandwidth-probe",
+      "selected": false,
+      "song_id": "plUvgAhi1H7SM8Wk1DNt",
+      "requested_at": "2026-09-30T16:19Z",
+      "note": "12 s prompt-mode test ('bright airy felt piano with glockenspiel shimmer') to confirm pcm_48000 is not band-limited; it carried content to 12-20 kHz. Audio discarded."
+    }
+  ],
+  "stitching": {
+    "stitched": false,
+    "note": "Single continuous generation; no crossfades. Section changes happen inside the model at the chunk boundaries below, so key and tempo stay continuous.",
+    "chunk_boundaries_sec": [
+      24.05,
+      107.29,
+      148.13,
+      205.61,
+      268.11,
+      299.77,
+      353.38,
+      418.76,
+      466.2,
+      504.07
+    ]
+  },
+  "sections": [
+    {
+      "chunk": 1,
+      "label": "Cold Open",
+      "start_sec": 0.0,
+      "end_sec": 24.05,
+      "duration_ms": 24050,
+      "intent": "light tension, sparse pulse (cold open: the meter hit 100%, the email)",
+      "master_lufs_i": -28.4,
+      "master_true_peak_dbtp": -14.8
+    },
+    {
+      "chunk": 2,
+      "label": "What Changed",
+      "start_sec": 24.05,
+      "end_sec": 107.29,
+      "duration_ms": 83240,
+      "intent": "steady, neutral, forward motion (what changed / $20 per unit)",
+      "master_lufs_i": -21.8,
+      "master_true_peak_dbtp": -8.8
+    },
+    {
+      "chunk": 3,
+      "label": "Reaction",
+      "start_sec": 107.29,
+      "end_sec": 148.13,
+      "duration_ms": 40840,
+      "intent": "same bed, slightly lighter (community reaction)",
+      "master_lufs_i": -22.0,
+      "master_true_peak_dbtp": -9.8
+    },
+    {
+      "chunk": 4,
+      "label": "The Bill",
+      "start_sec": 148.13,
+      "end_sec": 205.61,
+      "duration_ms": 57480,
+      "intent": "focus, a touch more weight (my 30-day bill)",
+      "master_lufs_i": -21.8,
+      "master_true_peak_dbtp": -8.6
+    },
+    {
+      "chunk": 5,
+      "label": "The Re-read",
+      "start_sec": 205.61,
+      "end_sec": 268.11,
+      "duration_ms": 62500,
+      "intent": "the one gentle lift; repeating loop-like figure (the re-read reveal)",
+      "master_lufs_i": -21.5,
+      "master_true_peak_dbtp": -9.1
+    },
+    {
+      "chunk": 6,
+      "label": "Price Table",
+      "start_sec": 268.11,
+      "end_sec": 299.77,
+      "duration_ms": 31660,
+      "intent": "focused, pared back (cache-read price table)",
+      "master_lufs_i": -22.0,
+      "master_true_peak_dbtp": -10.0
+    },
+    {
+      "chunk": 7,
+      "label": "Model Beats Vendor",
+      "start_sec": 299.77,
+      "end_sec": 353.38,
+      "duration_ms": 53610,
+      "intent": "steady (model beats vendor)",
+      "master_lufs_i": -22.0,
+      "master_true_peak_dbtp": -9.2
+    },
+    {
+      "chunk": 8,
+      "label": "Decisions",
+      "start_sec": 353.38,
+      "end_sec": 418.76,
+      "duration_ms": 65380,
+      "intent": "calm, grounded (decisions + what comes next)",
+      "master_lufs_i": -21.8,
+      "master_true_peak_dbtp": -7.0
+    },
+    {
+      "chunk": 9,
+      "label": "Price Your Own Bill",
+      "start_sec": 418.76,
+      "end_sec": 466.2,
+      "duration_ms": 47440,
+      "intent": "light, practical (price your own bill)",
+      "master_lufs_i": -22.1,
+      "master_true_peak_dbtp": -8.2
+    },
+    {
+      "chunk": 10,
+      "label": "Ending",
+      "start_sec": 466.2,
+      "end_sec": 504.07,
+      "duration_ms": 37870,
+      "intent": "warm resolve (ending)",
+      "master_lufs_i": -23.6,
+      "master_true_peak_dbtp": -8.4
+    },
+    {
+      "chunk": 11,
+      "label": "End Card",
+      "start_sec": 504.07,
+      "end_sec": 510.0,
+      "duration_ms": 5930,
+      "intent": "soft tail into the brand end card",
+      "master_lufs_i": -44.7,
+      "master_true_peak_dbtp": -34.0
+    }
+  ],
+  "post_processing": {
+    "chain": "volume=+3.0 dB; 50 ms fade-in; pad 40 ms of silence to 24,480,000 samples; qsin fade-out 504.5-510.0 s; triangular dither to s16",
+    "command": "ffmpeg -i source/take-a.flac -af \"volume=3.0dB,afade=t=in:st=0:d=0.05,apad=whole_len=24480000,afade=t=out:st=504.5:d=5.5:curve=qsin,atrim=end_sample=24480000,aresample=48000:osf=s16:dither_method=triangular\" -ar 48000 -ac 2 -c:a pcm_s16le score-master.wav",
+    "eq": "none; the take is already light in 1-4 kHz (see qa.band_levels)"
+  },
+  "master": {
+    "path": "score-master.wav",
+    "sha256": "9f32f68ec4627af1e2291fbff54ed416daff58e6c166c6f76a0b7294090aae4a",
+    "size_bytes": 97920078,
+    "codec": "pcm_s16le",
+    "sample_rate_hz": 48000,
+    "channels": 2,
+    "samples": 24480000,
+    "duration_sec": 510.0,
+    "integrated_lufs": -22.0,
+    "loudness_range_lu": 2.2,
+    "true_peak_dbtp": -7.0,
+    "sample_peak_dbfs": -7.03,
+    "ducking": "unducked; duck under narration at mix time"
+  },
+  "qa": {
+    "clipping": "none (sample peak -7.03 dBFS, true peak -7.0 dBTP)",
+    "silence_gaps_below_-55dB_0.75s": [
+      [
+        506.594125,
+        510.0
+      ]
+    ],
+    "silence_note": "Only the end-card tail (506.6-510.0 s) falls below -55 dB. The score enters ~0.8 s after frame 0 (rises from the noise floor to -46 dBFS RMS by 1.5 s).",
+    "section_changes": "Across every chunk boundary except 466.2 s, 0.5 s RMS stays within the bed's normal 2-4 dB fluctuation. The only jumps of 6 dB or more are the fade-in at 0-1.5 s and the 466 s breath.",
+    "breath_at_466s": "At the ending boundary the bed breathes: a smooth ~4 s dip (465.4-469.5 s) to -46 dBFS RMS at 467.2 s (about 19 dB below the bed), then rebuilds by 470 s. Not a silence gap and not a cut. It lands on the narration's section change into 'A Bill I Can Finally Read'. Listen at 460-475 s before approving.",
+    "tempo": "The onset-envelope autocorrelation gives the same periodicities (~1.09 s and ~0.35 s) in all ten sections, so there is no tempo drift. The exact BPM was not verified against the prompted 82.",
+    "key": "Pitch-class energy is centered on D, with A as the fifth, in all ten sections (D 64-91%, A 8-31%, with F#/G colour). There is no key change.",
+    "band_levels_mean_db": {
+      "40-250Hz": -25.9,
+      "250-500Hz": -34.0,
+      "500-1000Hz": -39.6,
+      "1-2kHz": -48.6,
+      "2-3kHz": -67.7,
+      "3-4kHz": -82.5,
+      "above_4kHz": "at noise floor (about -90)"
+    },
+    "band_note": "Very dark spectrum: the 1-4 kHz speech band is 20-55 dB below the low end, so there is no masking risk. The trade-off is that there is almost nothing above 4 kHz, so soloed it reads warm and muffled rather than airy.",
+    "stereo": "side (L-R) energy -31.3 dB vs mid -26.6 dB on raw take: genuinely stereo",
+    "vocals_drums": "Plan chunks contain no lyric lines, only bracketed section names and brace directions. Nothing above 4 kHz means no cymbal or hi-hat energy. Vocal absence was not machine-verified; confirm by ear.",
+    "cold_open": "The cold open sits at -28.4 LUFS, 6 LU under the bed, and rises from about -46 to about -29 dBFS RMS over 2-20 s. That makes it a sparse, quiet entrance that joins the steady bed at 24 s.",
+    "section_dynamics": "The mid-film sections span only -21.5 to -22.1 LUFS; the re-read is the loudest at -21.5. Energy shifts are textural rather than level-based, which suits a bed that must never compete with the voice."
+  },
+  "audition": {
+    "path": "audition-under-voice-60s.mp3",
+    "sha256": "30434d91cc77f908ac53d2adc7432ccb89799b4e5eb7671034f082d0f96b5f9e",
+    "window_sec": [
+      200,
+      260
+    ],
+    "format": "MP3 192 kbps, 48 kHz stereo, 60.0 s",
+    "mix": "narration unchanged (mono, center, -14.6 LUFS in stereo); score at fixed -13.1 dB = -34.6 LUFS, i.e. 20 LU under the voice; 0.5 s fade-in and 1 s fade-out",
+    "result_integrated_lufs": -14.9,
+    "result_true_peak_dbtp": -1.8,
+    "covers": "end of '30-day bill' into 'the re-read' lift (205.6 s)"
+  },
+  "rights": {
+    "status": "cleared",
+    "plan_tier": "paid (Creator or higher), confirmed by Aaron 2026-09-30",
+    "tier_evidence": "ElevenLabs documents the Music API as available to paid subscribers. Four music generations succeeded with this key on 2026-09-30, and earlier reviews (2026-08-03) recorded a paid plan. Both are consistent with a paid tier, but neither proves it.",
+    "terms": "Eleven Music Model-Specific Terms, last updated 26 May 2026 (https://elevenlabs.io/eleven-music-model-specific-terms); cover Music Models v1 and v2",
+    "what_terms_allow": {
+      "media_rights_all_self_serve_tiers": "All online and offline commercial use permitted, except film, TV, radio and Studio Games. A monetized YouTube explainer is online commercial use, so it is allowed on Free through Business.",
+      "attribution": "Free plan only: must credit Eleven Music wherever the output is published. Paid plans: no attribution required.",
+      "streaming_rights": "Distribution on third-party music streaming platforms: prohibited on Free and Starter; allowed on Creator and above. Not relevant to a YouTube video.",
+      "music_libraries_repositories": "Prohibited on all self-serve tiers. Do not upload this score to a stock/music library. The private asset-library catalog is internal indexing, not distribution.",
+      "plan_change": "Output keeps the rights of the plan in effect when it was created.",
+      "content_id": "Not addressed by the terms. Do not register this score with YouTube Content ID."
+    },
+    "action_needed": "Aaron: confirm the active plan on the ElevenLabs Subscription page. On any paid plan, publication on monetized YouTube is covered with no credit needed. If the account is Free, add 'Music: Eleven Music' to the description.",
+    "not_a_paid_tier_flag": "cannot confirm \u2014 flagged until Aaron checks",
+    "attribution_required": false,
+    "author_listening": "Aaron approved the score after two under-voice auditions (2026-09-30): 'Works, use it'"
+  },
+  "asset_library": {
+    "policy": "suggest",
+    "scope": "generic",
+    "kind": "music",
+    "intended_status": "candidate",
+    "registered": "Asset Inbox (src/content/asset-library/inbox.jsonl), pending review; catalog scanRoots cover only src/content/music-visualizer"
+  },
+  "generated_by": "Claude Code agent, 2026-09-30",
+  "tooling": {
+    "generator": "generate-score.sh",
+    "analysis": "ffmpeg ebur128 / astats / silencedetect / band filters"
+  }
+}

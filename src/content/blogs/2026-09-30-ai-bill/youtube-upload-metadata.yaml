@@ -1,0 +1,48 @@
+title: OpenAI Halved My $200 Plan. So I Priced My Own AI Bill.
+description: |
+  OpenAI is cutting ChatGPT Pro 200 from 20x to 10x Plus usage on October 30, and says the new plan "will net out at half the dollar in API spend." So I pulled 30 days of my own Codex and Claude Code logs and priced every token at API list price.
+
+  What I found:
+  - Both $200 plans are heavily subsidized: about $9,400 of list-price work in Claude Code, about $3,600 in Codex before its weekly meter hit 100%.
+  - Output tokens were a small slice. Cache reads, the agent re-reading its own context, were 58-78% of the cost.
+  - Picking the model moved my bill more than picking the vendor: the same Astra tokens at GPT-6.1 Sol cost about 12% as much.
+
+  These are list-price equivalents from one machine, not what I paid, and not a benchmark.
+
+  Read the article: https://www.aaronguo.com/blogs/ai-subscription-cloud-bill?utm_source=youtube&utm_medium=video&utm_campaign=ai-subscription-cloud-bill&utm_content=description
+  中文版: https://www.aaronguo.com/zh/blogs/ai-subscription-cloud-bill
+
+  CHAPTERS
+  0:00 The meter hit 100%
+  0:26 What actually changed
+  1:08 $20 per unit: the bulk discount is gone
+  1:49 "Five words": the reaction
+  2:30 My 30-day bill at API list price
+  3:27 The re-read: where the money goes
+  4:30 The price that matters: cache reads
+  5:02 Model beats vendor
+  5:55 What I'm doing before Oct 29
+  6:25 What comes next
+  7:01 Price your own bill in four steps
+  7:48 A bill I can finally read
+
+  Sources: OpenAI and Anthropic official API pricing (Sept 30, 2026), OpenAI's Pro plan email (Sept 29, 2026), Tibo (Codex) on X, Hacker News discussion. Community estimates are labeled as such. Forecasts are my own inference.
+
+  Narration uses an AI voice based on my own voice. Original score made with Eleven Music. 3D scenes are conceptual illustrations, not to scale; charts are made from my own usage data.
+tags:
+  - ChatGPT Pro
+  - Claude Max
+  - Codex
+  - Claude Code
+  - OpenAI pricing
+  - AI coding cost
+  - GPT-6.1 Sol
+  - GPT-6 Astra
+  - Opus 5.5
+  - prompt caching
+  - AI subscription
+  - developer tools
+  - Aaron Guo
+category: 28
+language: en
+privacy: unlisted

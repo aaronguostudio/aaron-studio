@@ -1,0 +1,4 @@
+# Large audio kept locally only (hashes are recorded in the manifests).
+.splice-raw.wav
+score/score-master.wav
+score/source/*.flac

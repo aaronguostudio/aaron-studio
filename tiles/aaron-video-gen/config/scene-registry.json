@@ -26,6 +26,28 @@
       "fallback": "image-sequence"
     },
     {
+      "id": "granular-3d-explainer",
+      "status": "prototype",
+      "description": "Singing-sands 3D scenes: an instanced-grain cutaway showing layer shear with a velocity profile, and a hard-bottom channel redraw (lab run; method run with layered sand, gate, microphone and acceleration sensor), rendered with @remotion/three plus synchronous depth-of-field and bloom post-processing. Deterministic illustrative kinematics, not a granular simulation.",
+      "roles": ["explanation"],
+      "intensities": ["structured", "signature"],
+      "motion_recipes": ["camera-orbit", "path-trace", "highlight-scan"],
+      "max_duration_sec": 30,
+      "max_content_items": 5,
+      "fallback": "image-sequence"
+    },
+    {
+      "id": "ledger-3d-explainer",
+      "status": "available",
+      "description": "Promoted to available on 2026-09-30 after Aaron reviewed the 54 s prototype (video-v2-prototype-3d-scored.mp4, 2026-09-30-ai-bill package) and approved both scenes as they are. Ledger-palette 3D explainer scenes (AiBillFilm v2): a thermal-receipt cold open whose amber cache-read line runs off the paper beside a weekly-meter bar set, and an agent-loop page stack re-read by an amber scan beam each turn, with a time-lapse. @remotion/three with synchronous depth of field, restrained bloom above a 1.0 threshold and neutral tone mapping; warm paper world, graphite objects, amber reserved for cache reads. Deterministic conceptual kinematics, not to scale; 2D overlays carry the title, labels and data.",
+      "roles": ["explanation", "emphasis"],
+      "intensities": ["structured", "signature"],
+      "motion_recipes": ["focus-shift", "highlight-scan", "path-trace"],
+      "max_duration_sec": 30,
+      "max_content_items": 5,
+      "fallback": "minimal-editorial"
+    },
+    {
       "id": "image-sequence",
       "status": "available",
       "description": "Full-frame evidence or illustration sequence with narration-synced crossfades.",
@@ -255,7 +277,8 @@
     },
     {
       "id": "highlight-scan",
-      "status": "prototype"
+      "status": "available",
+      "note": "Promoted 2026-09-30: exercised in the ledger-3d-explainer prototype (AiBillFilm v2) that Aaron reviewed and approved as is."
     },
     {
       "id": "compare-wipe",
@@ -263,7 +286,8 @@
     },
     {
       "id": "path-trace",
-      "status": "prototype"
+      "status": "available",
+      "note": "Promoted 2026-09-30: exercised in the ledger-3d-explainer prototype (AiBillFilm v2) that Aaron reviewed and approved as is."
     },
     {
       "id": "three-d-flip",

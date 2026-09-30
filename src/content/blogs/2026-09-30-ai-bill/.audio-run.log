@@ -1,0 +1,78 @@
+
+[parse] Reading script: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/youtube-script.md
+[parse] Found 11 slides in "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill."
+[parse] Found [HOOK] section (320 chars)
+[audit] PASS -> /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/youtube-script-audit.md
+[images] Skipped for --audio-only
+
+[rewrite] Making narration conversational...
+  Slide 0: "The Sentence That Matters"
+    569 → 569 chars (+0%)
+  Slide 1: "Twenty Dollars Per Unit"
+    575 → 575 chars (+0%)
+  Slide 2: "Five Words"
+    572 → 572 chars (+0%)
+  Slide 3: "My Thirty"
+    824 → 824 chars (+0%)
+  Slide 4: "The Re"
+    879 → 879 chars (+0%)
+  Slide 5: "The Price That Matters"
+    449 → 449 chars (+0%)
+  Slide 6: "Model Beats Vendor"
+    769 → 769 chars (+0%)
+  Slide 7: "Before October Twenty"
+    390 → 390 chars (+0%)
+  Slide 8: "What Comes Next"
+    517 → 517 chars (+0%)
+  Slide 9: "Price Your Own Bill"
+    671 → 671 chars (+0%)
+  Slide 10: "A Bill I Can Finally Read"
+    581 → 581 chars (+0%)
+[audio] Final spoken transcript → /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-transcript.md
+
+[tts] Generating narration with elevenlabs (voice: R2DWp7zZuWmGxk3r8GIA, profile: aaron-pvc-identity-v1)
+  Slide 0: "The Sentence That Matters" (569 chars)
+    → 50.6s
+  Slide 1: "Twenty Dollars Per Unit" (575 chars)
+    → 48.4s
+  Slide 2: "Five Words" (572 chars)
+    → 46.9s
+  Slide 3: "My Thirty" (824 chars)
+    → 66.6s
+  Slide 4: "The Re" (879 chars)
+    → 71.2s
+  Slide 5: "The Price That Matters" (449 chars)
+    → 35.9s
+  Slide 6: "Model Beats Vendor" (769 chars)
+    → 61.6s
+  Slide 7: "Before October Twenty" (390 chars)
+    → 36.2s
+  Slide 8: "What Comes Next" (517 chars)
+    → 41.4s
+  Slide 9: "Price Your Own Bill" (671 chars)
+    → 53.8s
+  Slide 10: "A Bill I Can Finally Read" (581 chars)
+    → 44.5s
+
+[tts] Generating hook narration...
+  Hook (320 chars)
+    → 26.9s
+
+[audio] Concatenating narration → /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/.video-gen-tmp/narration-full.mp3
+[audio] Preserved raw narration -> /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-raw.mp3
+[audio] Normalizing review copy and running QA...
+
+✅ Audio generated: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio.mp3
+   Raw: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-raw.mp3
+   Opening 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-sample-60s.mp3
+   Middle 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-sample-middle-60s.mp3
+   Late 60s sample: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-sample-late-60s.mp3
+   Transcript: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-transcript.md
+   Manifest: /Users/aaronguo/Work/ag/aaron-studio/src/content/blogs/2026-09-30-ai-bill/audio-generation-manifest.json
+   Voice profile: aaron-pvc-identity-v1
+   Voice ID: R2DWp7zZuWmGxk3r8GIA
+   Model: eleven_multilingual_v2
+   Size: 13.4 MB
+   Duration: ~584s
+   Loudness: -16.64 LUFS, -1.56 dBTP
+   Long silences: 0

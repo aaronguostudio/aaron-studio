@@ -1,0 +1,1803 @@
+{
+  "schema_version": 1,
+  "title": "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill.",
+  "duration_sec": 512.2,
+  "fps": 30,
+  "direction": {
+    "name": "Receipt Ledger Editorial (inherits ledger-editorial-v1) · v3: two 3D scenes and a 2.2 s lead-in",
+    "style_family_id": "receipt-ledger-editorial-v1",
+    "visual_spine": "Porcelain field (#F6F4EF, the article charts' ground), graphite ink, serif claims, sans explanation, monospace receipt rows with dotted leaders that append and are never erased; one accent, receipt amber, reserved for cache reads / the re-read; tension by ink strike and stamp; charts appear only as framed exhibits with appending margin notes; the approved receipt cover bookends the film.",
+    "motion_density": "restrained",
+    "music_strategy": "continuous",
+    "treatment": "video-treatment.md",
+    "references": [
+      {
+        "id": "ledger-editorial-v1",
+        "url": "src/content/blogs/2026-08-19/video-v3.mp4",
+        "borrow": "Append-only mono ledger rows, porcelain field, serif claims, header rail with appending chapter marker, phrase captions, one accent with one meaning, quiet brand end card.",
+        "avoid": "Cyan/coral palette, the ink punctuation page, generated metaphor stills, and its 44/3 cascade as a stock effect."
+      },
+      {
+        "id": "article-cover-receipt",
+        "url": "src/content/blogs/2026-09-30-ai-bill/imgs/00-cover.png",
+        "borrow": "The amber line item that runs off the receipt: reused as the film's one signature motion at the cache-read reveal.",
+        "avoid": "Holding the cover full-frame behind narration beyond the opening and closing bookends."
+      },
+      {
+        "id": "school-fair-stall-process",
+        "url": "tiles/aaron-video-gen/remotion/src/projects/school-fair-stall/index.tsx",
+        "borrow": "Project-scoped composition with a Python data builder that derives scenes and captions from locked word timings.",
+        "avoid": "Illustration-led field-note layouts; this film is typography- and evidence-led."
+      }
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01-cold-open-3d",
+      "title": "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill.",
+      "start_sec": 0.0,
+      "end_sec": 26.266,
+      "role": "emphasis",
+      "template": "ledger-3d-explainer",
+      "intensity": "structured",
+      "purpose": "Cold open made physical: the meter caps out five times, the email halves the plan, then the bill prints and one amber line item runs off the paper across the frame (the cover, in 3D).",
+      "entry_mode": "meaningful",
+      "entry_visual": "3D desk at frame zero: six graphite weekly-meter bars beside a thermal receipt printer, with the title, one-line promise and AARON GUO · AI-NATIVE BUILDER overlaid and legible.",
+      "first_change_sec": 0.1,
+      "motion_recipes": [
+        "focus-shift",
+        "path-trace"
+      ],
+      "content": [
+        "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill.",
+        "One heavy user's 30-day AI coding bill, priced line by line at API list.",
+        "AARON GUO · AI-NATIVE BUILDER",
+        "Codex weekly meter: 99 / 59 / 99 / 99 / 100 / 100%",
+        "Conceptual · not to scale"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "3D desk at frame zero: six graphite weekly-meter bars beside a thermal receipt printer, with the title, one-line promise and AARON GUO · AI-NATIVE BUILDER overlaid and legible.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.1,
+          "visual": "lead-in: slow camera drift, printer idle light pulsing, score enters; no voice yet",
+          "action": "drift"
+        },
+        {
+          "at_sec": 2.2,
+          "visual": "first narration word; drift hands over to the meter framing",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.8,
+          "visual": "weekly-meter bars begin filling toward the 100% cap line",
+          "action": "fill"
+        },
+        {
+          "at_sec": 7.82,
+          "visual": "fifth capped bar touches the cap; 5 OF 6 WEEKS label",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 9.88,
+          "visual": "title block clears; email row settles; camera drifts toward the printer",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 15.72,
+          "visual": "20× struck to 10× on the email row",
+          "action": "strike"
+        },
+        {
+          "at_sec": 17.06,
+          "visual": "printer starts feeding paper; grey line items print",
+          "action": "print"
+        },
+        {
+          "at_sec": 19.05,
+          "visual": "line items keep printing; focus on the receipt",
+          "action": "print"
+        },
+        {
+          "at_sec": 22.9,
+          "visual": "one amber line item prints and starts extending off the paper",
+          "action": "overflow",
+          "motion": {
+            "recipe": "path-trace",
+            "purpose": "emphasize",
+            "duration_sec": 3.9,
+            "easing": "ease-in",
+            "loop": false,
+            "translate_px": 0,
+            "rotation_deg": 0,
+            "continuity_anchor": "The receipt stays in place on the desk; only the amber line item grows, right along the desk and out of frame (the article cover).",
+            "why_not_static": "The line that keeps extending is the thesis: one item is bigger than the bill."
+          }
+        },
+        {
+          "at_sec": 24.04,
+          "visual": "amber line crosses the frame edge; camera settles wide",
+          "action": "overflow"
+        }
+      ],
+      "assets": [],
+      "music_cue": "score heard first: a lead-in from its own opening texture from 0.3 s, voice at 2.2 s; the voice-aligned score then continues ~20 dB under the narration",
+      "fallback_template": "image-sequence",
+      "prototype_review": "video-v2-prototype-3d-scored.mp4 approved by Aaron 2026-09-30"
+    },
+    {
+      "id": "s04-plan-terms",
+      "title": "Here's what changed.",
+      "start_sec": 26.266,
+      "end_sec": 46.906,
+      "role": "evidence",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "The plan terms are the factual base of the film; ledger rows let each term land as it is spoken.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif title Here's what changed. with the empty receipt table rule visible.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "PRO 200 · CODEX + CHATGPT WORK · 20× → 10× PLUS",
+        "PRICE · $200 / MONTH · UNCHANGED",
+        "EXISTING SUBSCRIBERS · OLD LIMITS THROUGH OCT 29",
+        "ONE-TIME CREDITS · WORTH $2,500 · EXPIRE DEC 31"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif title Here's what changed. with the empty receipt table rule visible.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.13,
+          "visual": "allowance row appends at 20×",
+          "action": "append"
+        },
+        {
+          "at_sec": 4.33,
+          "visual": "20× struck, 10× appended",
+          "action": "strike"
+        },
+        {
+          "at_sec": 8.32,
+          "visual": "price row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 9.91,
+          "visual": "grace-period row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 13.91,
+          "visual": "credits row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s05-tibo-quote",
+      "title": "“will net out at half the dollar in API spend”",
+      "start_sec": 46.906,
+      "end_sec": 60.951,
+      "role": "evidence",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "The sourced sentence that reframes the plan as API dollars; attributed exactly.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Attribution rows (TIBO · LEADS CODEX · POST ON X · 2026-09-28) visible at cut; quote space reserved.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "the new plan “will net out at half the dollar in API spend.”",
+        "Tibo (Thibault Sottiaux), leads Codex · post on X · 2026-09-28"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Attribution rows (TIBO · LEADS CODEX · POST ON X · 2026-09-28) visible at cut; quote space reserved.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.69,
+          "visual": "attribution row gains ink focus",
+          "action": "focus"
+        },
+        {
+          "at_sec": 8.0,
+          "visual": "quotation settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 9.12,
+          "visual": "API spend underlined",
+          "action": "focus"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s06-the-unit",
+      "title": "The unit is now the API dollar.",
+      "start_sec": 60.951,
+      "end_sec": 68.196,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Names the frame the rest of the film prices in.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif statement The unit is now the API dollar. visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "The unit is now the API dollar.",
+        "Your subscription is a prepaid budget, measured in API dollars."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif statement The unit is now the API dollar. visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.1,
+          "visual": "explanation line settles",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s07-per-unit",
+      "title": "Every tier: $20 per unit.",
+      "start_sec": 68.196,
+      "end_sec": 97.376,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Native ledger makes the flat $20-per-1× rate and the lost $10 discount readable row by row.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Price-list table header (TIER · PRICE · × PLUS · PER 1×) and serif lead visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Plus · $20 · 1× · $20",
+        "Pro 100 · $100 · 5× · $20",
+        "Pro 200 from Oct 30 · $200 · 10× · $20",
+        "Pro 500 · $500 · 25× · $20",
+        "Pro 200 until Oct 29 · $200 · 20× · $10"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Price-list table header (TIER · PRICE · × PLUS · PER 1×) and serif lead visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.8,
+          "visual": "Plus row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 6.06,
+          "visual": "Pro 100 row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 8.66,
+          "visual": "new Pro 200 row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 11.94,
+          "visual": "Pro 500 row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 15.16,
+          "visual": "per-unit column bolds; EVERY TIER · $20 label",
+          "action": "focus"
+        },
+        {
+          "at_sec": 17.96,
+          "visual": "old Pro 200 row appends below the rule",
+          "action": "append"
+        },
+        {
+          "at_sec": 23.3,
+          "visual": "$10 cell boxed",
+          "action": "focus"
+        },
+        {
+          "at_sec": 25.32,
+          "visual": "old row struck: the discount going away",
+          "action": "strike"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s08-flat-rate",
+      "title": "A flat rate, with a premium for performance.",
+      "start_sec": 97.376,
+      "end_sec": 109.511,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Closes the pricing argument with the cloud-pricing analogy.",
+      "entry_mode": "meaningful",
+      "entry_visual": "PRO 500 · $500 · 25× · $20 PER 1× row visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "PRO 500 · $500 · 25× PLUS · $20 PER 1×",
+        "A flat rate, with a premium for performance.",
+        "That's how cloud providers price."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "PRO 500 · $500 · 25× · $20 PER 1× row visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.59,
+          "visual": "HIGHER CEILING · ULTRAFAST row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 5.76,
+          "visual": "serif statement lands",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 9.09,
+          "visual": "cloud line settles",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s09-five-words",
+      "title": "“Five words.”",
+      "start_sec": 109.511,
+      "end_sec": 128.473,
+      "role": "evidence",
+      "template": "minimal-editorial",
+      "intensity": "calm",
+      "purpose": "Stages the community reaction as an exact, attributed quotation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif lead The reaction was about delivery. with the Hacker News source row visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "“Simply say ‘we're cutting limits in half.’ Five words.”",
+        "Hacker News commenter · 2026-09-28",
+        "Several replies: already moved to Claude Opus 5.5"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif lead The reaction was about delivery. with the Hacker News source row visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.85,
+          "visual": "timing row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 11.01,
+          "visual": "quotation settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 13.97,
+          "visual": "Five words. gains ink weight",
+          "action": "focus"
+        },
+        {
+          "at_sec": 15.27,
+          "visual": "switching row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s10-other-side",
+      "title": "The other side, in API dollars.",
+      "start_sec": 128.473,
+      "end_sec": 150.352,
+      "role": "evidence",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Shows the contrarian math as a clearly labeled, unverified estimate; both sides now argue in API dollars.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Label ONE X USER'S ESTIMATE · API VALUE PER MONTH with an empty three-row ledger visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "One X user's estimate · API value / month",
+        "Old Pro 200 ≈ $14k · New Pro 200 ≈ $7k · Claude Max ≈ $8k",
+        "Unverified · methodology not shown"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Label ONE X USER'S ESTIMATE · API VALUE PER MONTH with an empty three-row ledger visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4.67,
+          "visual": "old Pro 200 ≈ $14k row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 7.41,
+          "visual": "new Pro 200 ≈ $7k row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 8.82,
+          "visual": "Claude Max ≈ $8k row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 10.66,
+          "visual": "their verdict 'barely a difference' settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 12.14,
+          "visual": "UNVERIFIED stamp",
+          "action": "stamp"
+        },
+        {
+          "at_sec": 13.79,
+          "visual": "serif line: both sides argue in API dollars",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 18.01,
+          "visual": "SO I PULLED MY OWN row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s11-my-setup",
+      "title": "What I pay, and how I priced it.",
+      "start_sec": 150.352,
+      "end_sec": 169.833,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Establishes method and the honesty labels before any personal number appears.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Receipt header MY SETUP · 30 DAYS with the first subscription row visible at cut.",
+      "first_change_sec": 0.2,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "ChatGPT Pro $200 / mo · Claude Max $200 / mo",
+        "Session logs on disk · tokens per turn",
+        "30 days · main machine · every token × API list price"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Receipt header MY SETUP · 30 DAYS with the first subscription row visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.2,
+          "visual": "ChatGPT Pro row",
+          "action": "append"
+        },
+        {
+          "at_sec": 3.25,
+          "visual": "Claude Max row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 5.28,
+          "visual": "daily-use row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 9.52,
+          "visual": "session-log row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 14.33,
+          "visual": "method row appends; honesty label",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s12-totals",
+      "title": "≈ $9,400 vs ≈ $3,600",
+      "start_sec": 169.833,
+      "end_sec": 177.563,
+      "role": "evidence",
+      "template": "minimal-editorial",
+      "intensity": "structured",
+      "purpose": "The two totals are the film's first personal evidence; typeset large with the list-price label.",
+      "entry_mode": "meaningful",
+      "entry_visual": "CLAUDE CODE label and the ≈ $9,400 total settle within 0.4s of the cut; honesty label visible.",
+      "first_change_sec": 0.15,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Claude Code ≈ $9,400",
+        "Codex, Pro account ≈ $3,600",
+        "API list price, not what I paid · one machine"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "CLAUDE CODE label and the ≈ $9,400 total settle within 0.4s of the cut; honesty label visible.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.15,
+          "visual": "Claude Code ≈ $9,400 settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 4.06,
+          "visual": "Codex ≈ $3,600 settles",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "image-sequence"
+    },
+    {
+      "id": "s13-meter-exhibit",
+      "title": "My Codex weekly meter, September",
+      "start_sec": 177.563,
+      "end_sec": 184.794,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Shows the ceiling being hit; the chart says it faster than rows.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Weekly-meter chart exhibit (graphite) with source label visible after a 0.4s crossfade.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Exhibit · Codex weekly meter · Pro account",
+        "Five of six windows at 99–100%"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Weekly-meter chart exhibit (graphite) with source label visible after a 0.4s crossfade.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "exhibit label settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 2.85,
+          "visual": "FIVE OF SIX AT 99–100% label appends",
+          "action": "append"
+        }
+      ],
+      "assets": [
+        "imgs/charts/02-codex-meter.png"
+      ],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s14-caveats",
+      "title": "Two caveats.",
+      "start_sec": 184.794,
+      "end_sec": 196.35,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Keeps the personal numbers honest in one breath.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif Two caveats. with numbered rule visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "01 · API list price — what the work would have cost, not what I paid",
+        "02 · One machine — so Codex is a floor",
+        "One heavy user's receipt, not a benchmark."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif Two caveats. with numbered rule visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.56,
+          "visual": "caveat 01 appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 5.75,
+          "visual": "caveat 02 appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 8.58,
+          "visual": "serif line lands",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s15-which-meter",
+      "title": "Which meter runs out first?",
+      "start_sec": 196.35,
+      "end_sec": 207.827,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Turns the totals into the decision question that frames the verdict.",
+      "entry_mode": "meaningful",
+      "entry_visual": "BOTH PLANS · HEAVILY SUBSIDIZED row visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Both plans are heavily subsidized.",
+        "The question is which meter runs out first.",
+        "For me: Codex — the one getting cut in half."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "BOTH PLANS · HEAVILY SUBSIDIZED row visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.28,
+          "visual": "serif question lands",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 6.68,
+          "visual": "answer row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s16-line-items",
+      "title": "I split the bill by line item.",
+      "start_sec": 207.827,
+      "end_sec": 220.614,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Sets up the reveal: the viewer expects output to be the big line.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Raised receipt with four line items (fresh input, cache writes, cache reads, output) visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Fresh input · Cache writes · Cache reads · Output",
+        "I expected output to be the big cost.",
+        "Astra output: $50 per 1M — a small slice."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Raised receipt with four line items (fresh input, cache writes, cache reads, output) visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.32,
+          "visual": "line items gain ink",
+          "action": "focus"
+        },
+        {
+          "at_sec": 4.36,
+          "visual": "OUTPUT row highlighted as the expected cost",
+          "action": "focus"
+        },
+        {
+          "at_sec": 7.71,
+          "visual": "ASTRA OUTPUT · $50 / 1M note appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 11.42,
+          "visual": "output bar resolves small",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s17-the-reveal",
+      "title": "The big number was cache reads.",
+      "start_sec": 220.614,
+      "end_sec": 230.421,
+      "role": "explanation",
+      "template": "system-map",
+      "intensity": "structured",
+      "purpose": "Signature beat: the amber cache-read line overflows the receipt exactly like the cover, then the three shares append.",
+      "entry_mode": "bridge",
+      "entry_visual": "Same receipt continues without a cut; the CACHE READS row turns amber within 0.2s.",
+      "first_change_sec": 0.2,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Cache reads: the big number",
+        "GPT-6 Astra 78% · Claude Opus 5 76% · Claude Opus 5.5 58%",
+        "share of each model's list-price cost"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Same receipt continues without a cut; the CACHE READS row turns amber within 0.2s.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.2,
+          "visual": "CACHE READS row turns amber; bar overflows the paper to the frame edge",
+          "action": "overflow",
+          "motion": {
+            "recipe": "focus-shift",
+            "purpose": "emphasize",
+            "duration_sec": 1.4,
+            "easing": "ease-in-out",
+            "loop": false,
+            "translate_px": 0,
+            "rotation_deg": 0,
+            "continuity_anchor": "Same receipt, same CACHE READS row as s16; the bar echoes the amber line on the cover.",
+            "why_not_static": "The reveal is the film's thesis: the one line that runs off the bill. Growth from the row to the frame edge carries that."
+          }
+        },
+        {
+          "at_sec": 2.39,
+          "visual": "GPT-6 ASTRA · 78% appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 4.84,
+          "visual": "CLAUDE OPUS 5 · 76% appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 7.38,
+          "visual": "CLAUDE OPUS 5.5 · 58% appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s18-reread-3d",
+      "title": "The re-read: every turn scans the whole stack",
+      "start_sec": 230.421,
+      "end_sec": 255.703,
+      "role": "explanation",
+      "template": "ledger-3d-explainer",
+      "intensity": "signature",
+      "purpose": "Signature beat: the agent loop made physical. Each turn adds a thin page and an amber scan beam re-reads the entire stack bottom to top, so every sweep is longer; the time-lapse and the ≈17 billion figure make the volume physical.",
+      "entry_mode": "meaningful",
+      "entry_visual": "3D desk with the repo-context page stack in focus and the title An agent doesn't answer once. It runs a loop. overlaid at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift",
+        "highlight-scan"
+      ],
+      "content": [
+        "repo context · tool call · result · think · go again",
+        "every turn re-reads the whole stack (amber = cache reads)",
+        "turn counter and pages re-read so far (conceptual)",
+        "≈ 17 billion tokens re-read from cache · Claude Code · 30 days",
+        "Conceptual · not to scale"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "3D desk with the repo-context page stack in focus and the title An agent doesn't answer once. It runs a loop. overlaid at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.4,
+          "visual": "loop label; stack scaffold sharpens",
+          "action": "focus"
+        },
+        {
+          "at_sec": 4.62,
+          "visual": "REPO CONTEXT stack highlighted",
+          "action": "focus"
+        },
+        {
+          "at_sec": 6.22,
+          "visual": "thin TOOL CALL page drops on top",
+          "action": "append"
+        },
+        {
+          "at_sec": 7.2,
+          "visual": "thin RESULT page drops on top",
+          "action": "append"
+        },
+        {
+          "at_sec": 8.18,
+          "visual": "THINK label pulses beside the stack",
+          "action": "focus"
+        },
+        {
+          "at_sec": 8.65,
+          "visual": "GO AGAIN label; turn counter reads 01",
+          "action": "focus"
+        },
+        {
+          "at_sec": 9.62,
+          "visual": "first amber scan beam sweeps the whole stack bottom to top",
+          "action": "scan",
+          "motion": {
+            "recipe": "highlight-scan",
+            "purpose": "explain",
+            "duration_sec": 1.8,
+            "easing": "linear",
+            "loop": false,
+            "translate_px": 0,
+            "rotation_deg": 0,
+            "continuity_anchor": "The page stack stays fixed; the amber beam travels bottom to top at a constant pages-per-second rate, so a taller stack takes longer.",
+            "why_not_static": "The cost is the repetition: each turn re-reads everything below it, and a growing sweep makes that visible."
+          }
+        },
+        {
+          "at_sec": 13.05,
+          "visual": "turns 2-3: pages drop, each sweep a little longer; CACHED row",
+          "action": "scan"
+        },
+        {
+          "at_sec": 16.92,
+          "visual": "time-lapse: turns accelerate, stack grows, camera pulls back",
+          "action": "scan"
+        },
+        {
+          "at_sec": 18.88,
+          "visual": "stack glows under continuous re-reads",
+          "action": "scan"
+        },
+        {
+          "at_sec": 22.28,
+          "visual": "≈ 17 billion resolves over the stack",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "system-map",
+      "prototype_review": "video-v2-prototype-3d-scored.mp4 approved by Aaron 2026-09-30"
+    },
+    {
+      "id": "s20-astra-callback",
+      "title": "Carrying the whole job means re-reading it.",
+      "start_sec": 255.703,
+      "end_sec": 270.331,
+      "role": "explanation",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Image-rich reset and self-callback: the capability praised three weeks ago is what the bill is made of.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Framed cover of the earlier post (I Put GPT-6 Astra to Work, 2026-09-06) with its source label visible after a 0.4s crossfade.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "From my post · I Put GPT-6 Astra to Work · 2026-09-06",
+        "Carrying the whole job means re-reading it, hundreds of times.",
+        "The capability I praised is exactly what the bill is made of."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Framed cover of the earlier post (I Put GPT-6 Astra to Work, 2026-09-06) with its source label visible after a 0.4s crossfade.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "source label settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 6.55,
+          "visual": "serif line lands with re-reading in amber",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 10.4,
+          "visual": "second serif line lands",
+          "action": "reveal"
+        }
+      ],
+      "assets": [
+        "../2026-09-06-astra/imgs/00-cover-v3-launch-style.png"
+      ],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s21-cache-price",
+      "title": "The price that matters is the cache-read price.",
+      "start_sec": 270.331,
+      "end_sec": 301.99,
+      "role": "evidence",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Native price rows isolate the cache-read column; the 5× bracket lands on the spoken comparison.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Price table header (MODEL · INPUT · CACHE READ · OUTPUT, per 1M tokens) and serif lead visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "GPT-6 Astra · $10 · $1.00 · $50",
+        "Claude Opus 5 · $5 · $0.50 · $25",
+        "Claude Fable 5.1 · $10 · $0.25 · $50",
+        "Claude Opus 5.5 · $4 · $0.20 · $20",
+        "GPT-6.1 Sol · $2 · $0.10 · $10",
+        "Astra cache reads = 5× Opus 5.5"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Price table header (MODEL · INPUT · CACHE READ · OUTPUT, per 1M tokens) and serif lead visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 5.27,
+          "visual": "cache-read column turns amber; input/output dim",
+          "action": "focus"
+        },
+        {
+          "at_sec": 7.42,
+          "visual": "Astra row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 10.61,
+          "visual": "Opus 5 row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 13.16,
+          "visual": "Fable 5.1 row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 15.74,
+          "visual": "Opus 5.5 row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 17.71,
+          "visual": "GPT-6.1 Sol row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 20.43,
+          "visual": "WHERE SEPTEMBER'S PRICE CUTS LANDED label",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 25.74,
+          "visual": "5× bracket draws between Astra and Opus 5.5",
+          "action": "draw"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s22-verdict",
+      "title": "For my September workload: Claude Max.",
+      "start_sec": 301.99,
+      "end_sec": 309.431,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "States the verdict plainly before the evidence exhibit.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif question Which plan is the better deal? visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Which plan is the better deal?",
+        "For my September workload: Claude Max.",
+        "By more than I expected."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif question Which plan is the better deal? visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.6,
+          "visual": "answer lands",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 5.36,
+          "visual": "qualifier settles",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s23-bill-exhibit",
+      "title": "30 days of AI coding, priced at API list",
+      "start_sec": 309.431,
+      "end_sec": 319.218,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "The full bill as evidence: both totals and the amber cache-read share of every big bar.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Bill-by-model chart exhibit (amber = cache reads) visible after a 0.4s crossfade.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Exhibit · 30 days at API list · by model",
+        "Same $200 each · ≈ $9,400 vs ≈ $3,600 of work"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Bill-by-model chart exhibit (amber = cache reads) visible after a 0.4s crossfade.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "exhibit label settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 7.88,
+          "visual": "BEFORE THE METER CAPPED OUT label appends",
+          "action": "append"
+        }
+      ],
+      "assets": [
+        "imgs/charts/03-bill-by-model.png"
+      ],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s24-the-model",
+      "title": "It wasn't the vendor. It was the model.",
+      "start_sec": 319.218,
+      "end_sec": 324.339,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "A short pivot that sets up the repricing exhibit.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Label THE BIGGER LEVER IN MY LOGS visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "The bigger lever in my logs",
+        "It wasn't the vendor.",
+        "It was the model."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Label THE BIGGER LEVER IN MY LOGS visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.66,
+          "visual": "first line lands",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 3.98,
+          "visual": "second line lands",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s25-repricing",
+      "title": "Picking the model moved my bill more than picking the vendor",
+      "start_sec": 324.339,
+      "end_sec": 342.427,
+      "role": "evidence",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Two before/after pairs on one scale prove the model lever.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Model-vs-vendor chart exhibit (graphite) with source label visible after a 0.4s crossfade.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Exhibit · same tokens, repriced",
+        "Astra tokens at GPT-6.1 Sol ≈ 12% · Opus 5 at Opus 5.5 ≈ half",
+        "Price only — quality not compared"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Model-vs-vendor chart exhibit (graphite) with source label visible after a 0.4s crossfade.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "exhibit label settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 10.59,
+          "visual": "≈ 12% label appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 12.01,
+          "visual": "OPUS 5 → OPUS 5.5 ≈ HALF label appends",
+          "action": "append"
+        }
+      ],
+      "assets": [
+        "imgs/charts/05-model-vs-vendor.png"
+      ],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s26-openai-bet",
+      "title": "That's OpenAI's bet with this plan.",
+      "start_sec": 342.427,
+      "end_sec": 355.605,
+      "role": "explanation",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "Names the bet and marks the Sol quality question as untested.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Label OPENAI'S BET and serif lead visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Move the work to the cheaper model, and the halved allowance covers the same work.",
+        "Can Sol do the work I've been giving Astra?",
+        "Untested · a hypothesis"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Label OPENAI'S BET and serif lead visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.52,
+          "visual": "serif statement lands",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 8.0,
+          "visual": "question row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 10.44,
+          "visual": "UNTESTED stamp",
+          "action": "stamp"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s27-three-moves",
+      "title": "What I'm doing before October 29",
+      "start_sec": 355.605,
+      "end_sec": 385.674,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "The three decisions as a checklist the viewer can copy.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif title and three empty numbered slots (01 02 03) visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "01 Claude Max stays my main tool",
+        "02 Keep Pro 200 through Dec 31 to use the credits · not buying Pro 500",
+        "03 October: a week of Codex on GPT-6.1 Sol, watching the meter"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif title and three empty numbered slots (01 02 03) visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.93,
+          "visual": "move 01 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 6.39,
+          "visual": "move 02 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 12.0,
+          "visual": "NOT BUYING PRO 500 sub-row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 13.85,
+          "visual": "same-unit-price reason appends to the sub-row",
+          "action": "append"
+        },
+        {
+          "at_sec": 19.07,
+          "visual": "move 03 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 26.22,
+          "visual": "IF SOL CARRIES IT, 10× MAY BE ENOUGH sub-row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s28-guesses",
+      "title": "What comes next",
+      "start_sec": 385.674,
+      "end_sec": 414.542,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Forecasts typeset as clearly labeled inferences.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif title What comes next with three empty numbered slots visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "My inferences, not anything either company has said",
+        "01 The 20× language fades; the dollar budget becomes visible",
+        "02 The price war moves to what agents consume: cheaper cache reads, a premium for speed",
+        "03 Heavy-user subsidies keep shrinking"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif title What comes next with three empty numbered slots visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.82,
+          "visual": "INFERENCES label settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 5.85,
+          "visual": "guess 01 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 10.65,
+          "visual": "conversion sub-row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 13.05,
+          "visual": "guess 02 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 16.56,
+          "visual": "cheaper cache reads in amber",
+          "action": "focus"
+        },
+        {
+          "at_sec": 18.06,
+          "visual": "premium-for-speed chip appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 19.74,
+          "visual": "guess 03 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 22.69,
+          "visual": "exchange-rate dial sub-row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s29-prepaid",
+      "title": "A prepaid API budget, not an unlimited pass.",
+      "start_sec": 414.542,
+      "end_sec": 420.983,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The practical rule of the forecast chapter.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif line Plan as if your subscription is a prepaid API budget visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Plan as if your subscription is a prepaid API budget,",
+        "not an unlimited pass."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif line Plan as if your subscription is a prepaid API budget visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 4.36,
+          "visual": "second line lands",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s30-price-your-own",
+      "title": "Price your own bill in four steps",
+      "start_sec": 420.983,
+      "end_sec": 448.992,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Adds the walkthrough the article only gestures at, including one worked multiplication.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif title and four numbered step slots visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "01 Find the logs",
+        "02 Pull four numbers per model",
+        "03 Multiply by list price",
+        "04 Find your biggest line"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif title and four numbered step slots visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 2.91,
+          "visual": "step 01 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 4.23,
+          "visual": "CODEX: SESSION FILES sub-row",
+          "action": "append"
+        },
+        {
+          "at_sec": 9.69,
+          "visual": "CLAUDE CODE: PROJECT LOGS sub-row",
+          "action": "append"
+        },
+        {
+          "at_sec": 13.57,
+          "visual": "TOKENS PER TURN sub-row",
+          "action": "append"
+        },
+        {
+          "at_sec": 15.48,
+          "visual": "step 02 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 17.29,
+          "visual": "four number chips; cache reads amber",
+          "action": "append"
+        },
+        {
+          "at_sec": 21.01,
+          "visual": "step 03 fills with the worked example",
+          "action": "append"
+        },
+        {
+          "at_sec": 24.0,
+          "visual": "step 04 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 26.12,
+          "visual": "FOR ME: THE RE-READ in amber",
+          "action": "focus"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s31-habits",
+      "title": "Then three habits",
+      "start_sec": 448.992,
+      "end_sec": 468.422,
+      "role": "explanation",
+      "template": "chapter-editorial",
+      "intensity": "structured",
+      "purpose": "Turns the bill into working habits.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif title Then three habits with three empty slots visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Route by task, not loyalty",
+        "Treat context as a cost",
+        "Stay portable"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif title Then three habits with three empty slots visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.63,
+          "visual": "habit 01 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 3.67,
+          "visual": "habit 02 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 5.62,
+          "visual": "stale-context sub-row appends",
+          "action": "append"
+        },
+        {
+          "at_sec": 11.29,
+          "visual": "habit 03 fills",
+          "action": "append"
+        },
+        {
+          "at_sec": 13.31,
+          "visual": "pricing-decision sub-row appends",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s32-meter-callback",
+      "title": "What was 100% worth?",
+      "start_sec": 468.422,
+      "end_sec": 475.124,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Returns to the cold open: the meter that capped out, now with a known unit.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The weekly-meter exhibit returns (graphite) after a 0.4s crossfade.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Five times at 100%",
+        "What was 100% worth?"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The weekly-meter exhibit returns (graphite) after a 0.4s crossfade.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.5,
+          "visual": "FIVE TIMES AT 100% label settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 3.75,
+          "visual": "WHAT WAS 100% WORTH? label appends",
+          "action": "append"
+        }
+      ],
+      "assets": [
+        "imgs/charts/02-codex-meter.png"
+      ],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s33-read-the-bill",
+      "title": "Now I know the unit. I've read the bill.",
+      "start_sec": 475.124,
+      "end_sec": 488.585,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The emotional turn: clarity after irritation.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif Now I know the unit. visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "Now I know the unit. I've read the bill.",
+        "I'm not angry about the change.",
+        "The timing was clumsy."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif Now I know the unit. visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 1.74,
+          "visual": "second clause lands",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 3.51,
+          "visual": "not-angry line settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 5.3,
+          "visual": "timing line settles",
+          "action": "append"
+        },
+        {
+          "at_sec": 9.88,
+          "visual": "plain-words line settles",
+          "action": "append"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s34-exchange-rate",
+      "title": "A published exchange rate is more honest than a magic multiple.",
+      "start_sec": 488.585,
+      "end_sec": 494.465,
+      "role": "emphasis",
+      "template": "editorial-statement",
+      "intensity": "structured",
+      "purpose": "The judgment the film lands on.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Serif line A subscription with a published exchange rate visible at cut.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "focus-shift"
+      ],
+      "content": [
+        "A subscription with a published exchange rate",
+        "is more honest than a magic multiple."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Serif line A subscription with a published exchange rate visible at cut.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 3.54,
+          "visual": "second line lands",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s35-final",
+      "title": "Reading yours is now part of the job.",
+      "start_sec": 494.465,
+      "end_sec": 507.2,
+      "role": "emphasis",
+      "template": "image-sequence",
+      "intensity": "calm",
+      "purpose": "Bookend: the bill image returns while the final three sentences land verbatim; captions and chrome step back.",
+      "entry_mode": "meaningful",
+      "entry_visual": "The approved receipt cover returns with the first closing line visible after a 0.4s crossfade.",
+      "first_change_sec": 0.3,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "Engineers learned to read cloud bills because the bill decided what they could build.",
+        "AI coding bills are becoming that same kind of document.",
+        "Reading yours is now part of the job."
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "The approved receipt cover returns with the first closing line visible after a 0.4s crossfade.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.3,
+          "visual": "first closing line settles",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 5.79,
+          "visual": "second line lands; first dims",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 9.29,
+          "visual": "final line lands",
+          "action": "reveal"
+        }
+      ],
+      "assets": [
+        "imgs/00-cover.png"
+      ],
+      "music_cue": "original score bed, ducked ~20 dB under the narration",
+      "fallback_template": "minimal-editorial"
+    },
+    {
+      "id": "s36-end-card",
+      "title": "AARON GUO",
+      "start_sec": 507.2,
+      "end_sec": 512.2,
+      "role": "emphasis",
+      "template": "brand-end-card",
+      "intensity": "calm",
+      "purpose": "Quiet brand close after the argument resolves; no captions or chapter chrome.",
+      "entry_mode": "meaningful",
+      "entry_visual": "Soft-mark logo, AARON GUO and AI-NATIVE BUILDER · HUMAN-FIRST THINKER fade up on porcelain.",
+      "first_change_sec": 0.1,
+      "motion_recipes": [
+        "crossfade"
+      ],
+      "content": [
+        "AARON GUO",
+        "AI-NATIVE BUILDER · HUMAN-FIRST THINKER",
+        "aaronguo.com"
+      ],
+      "beats": [
+        {
+          "at_sec": 0,
+          "visual": "Soft-mark logo, AARON GUO and AI-NATIVE BUILDER · HUMAN-FIRST THINKER fade up on porcelain.",
+          "action": "hold"
+        },
+        {
+          "at_sec": 0.0,
+          "visual": "soft-mark and name fade up",
+          "action": "reveal"
+        },
+        {
+          "at_sec": 0.7,
+          "visual": "identity line settles",
+          "action": "reveal"
+        }
+      ],
+      "assets": [],
+      "music_cue": "score resolves and fades to silence inside the file",
+      "fallback_template": "minimal-editorial"
+    }
+  ]
+}

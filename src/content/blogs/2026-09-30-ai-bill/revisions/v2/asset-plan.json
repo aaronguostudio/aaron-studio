@@ -1,0 +1,661 @@
+{
+  "schema_version": 1,
+  "title": "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill.",
+  "duration_sec": 510.0,
+  "aspect_ratio": "16:9",
+  "visual_spine_id": "receipt-ledger-editorial-v1",
+  "asset_library": {
+    "queries": [
+      "calm editorial instrumental bed, patient, precise, no vocals, 9-10 minutes (music, approved+candidate)",
+      "editorial score bed piano cello (music, approved only)",
+      "calm (music, rights owned or licensed)"
+    ],
+    "selected_asset_ids": []
+  },
+  "beats": [
+    {
+      "id": "s01-cold-open-3d",
+      "start_sec": 0.0,
+      "end_sec": 24.066,
+      "copy": "OpenAI Halved My $200 Plan. So I Priced My Own AI Bill. / One heavy user's 30-day AI coding bill, priced line by line at API list. / AARON GUO · AI-NATIVE BUILDER",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-meter",
+        "f-cut",
+        "f-bill"
+      ],
+      "source_ids": [
+        "local-peaks",
+        "email",
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original @remotion/three scene (Aaron Studio): meter bars use the Pro-account weekly peaks (claim C11); the printer and receipt are conceptual. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "2D cover-hero, email and priced-every-token scenes (s01-s03 of v1, rendered with build-data.py --no-3d)."
+    },
+    {
+      "id": "s04-plan-terms",
+      "start_sec": 24.066,
+      "end_sec": 44.706,
+      "copy": "PRO 200 · CODEX + CHATGPT WORK · 20× → 10× PLUS / PRICE · $200 / MONTH · UNCHANGED / EXISTING SUBSCRIBERS · OLD LIMITS THROUGH OCT 29",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-cut",
+        "f-credits"
+      ],
+      "source_ids": [
+        "email",
+        "tnw"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Source: OpenAI email 2026-09-29 (C1, C2). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static four-row ledger."
+    },
+    {
+      "id": "s05-tibo-quote",
+      "start_sec": 44.706,
+      "end_sec": 58.751,
+      "copy": "the new plan “will net out at half the dollar in API spend.” / Tibo (Thibault Sottiaux), leads Codex · post on X · 2026-09-28",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-tibo"
+      ],
+      "source_ids": [
+        "tibo-reopen"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Exact quotation from Tibo's X post (claim C4). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static quote card with attribution."
+    },
+    {
+      "id": "s06-the-unit",
+      "start_sec": 58.751,
+      "end_sec": 65.996,
+      "copy": "The unit is now the API dollar. / Your subscription is a prepaid budget, measured in API dollars.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-tibo"
+      ],
+      "source_ids": [
+        "tibo-reopen"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s07-per-unit",
+      "start_sec": 65.996,
+      "end_sec": 95.176,
+      "copy": "Plus · $20 · 1× · $20 / Pro 100 · $100 · 5× · $20 / Pro 200 from Oct 30 · $200 · 10× · $20",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-per-unit"
+      ],
+      "source_ids": [
+        "email",
+        "tnw"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Arithmetic from plan multipliers (C1, C5, C6). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Chart imgs/charts/01-price-per-unit.png as a static exhibit."
+    },
+    {
+      "id": "s08-flat-rate",
+      "start_sec": 95.176,
+      "end_sec": 107.311,
+      "copy": "PRO 500 · $500 · 25× PLUS · $20 PER 1× / A flat rate, with a premium for performance. / That's how cloud providers price.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-pro500"
+      ],
+      "source_ids": [
+        "tnw"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Pro 500 terms per TNW (C5). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s09-five-words",
+      "start_sec": 107.311,
+      "end_sec": 126.273,
+      "copy": "“Simply say ‘we're cutting limits in half.’ Five words.” / Hacker News commenter · 2026-09-28 / Several replies: already moved to Claude Opus 5.5",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-timing",
+        "f-hn"
+      ],
+      "source_ids": [
+        "x-horwitz",
+        "hn-reopen"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Exact quotation from the Hacker News thread (C12). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static quote card."
+    },
+    {
+      "id": "s10-other-side",
+      "start_sec": 126.273,
+      "end_sec": 148.152,
+      "copy": "One X user's estimate · API value / month / Old Pro 200 ≈ $14k · New Pro 200 ≈ $7k · Claude Max ≈ $8k / Unverified · methodology not shown",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-miu"
+      ],
+      "source_ids": [
+        "x-miu"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Community estimate attributed to one X user (C13); labeled unverified. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static three-row ledger with the unverified label."
+    },
+    {
+      "id": "s11-my-setup",
+      "start_sec": 148.152,
+      "end_sec": 167.633,
+      "copy": "ChatGPT Pro $200 / mo · Claude Max $200 / mo / Session logs on disk · tokens per turn / 30 days · main machine · every token × API list price",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-setup"
+      ],
+      "source_ids": [
+        "aaron-account",
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene; numbers from the author's own session logs priced at API list (evidence/ai-bill-output-2026-09-30.txt). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static setup ledger."
+    },
+    {
+      "id": "s12-totals",
+      "start_sec": 167.633,
+      "end_sec": 175.363,
+      "copy": "Claude Code ≈ $9,400 / Codex, Pro account ≈ $3,600 / API list price, not what I paid · one machine",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-bill"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene; numbers from the author's own session logs priced at API list (evidence/ai-bill-output-2026-09-30.txt). Claim C8. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Chart imgs/charts/03-bill-by-model.png."
+    },
+    {
+      "id": "s13-meter-exhibit",
+      "start_sec": 175.363,
+      "end_sec": 182.594,
+      "copy": "Exhibit · Codex weekly meter · Pro account / Five of six windows at 99–100%",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-meter"
+      ],
+      "source_ids": [
+        "local-peaks"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Chart rendered from the author's Codex session logs (charts/render_charts.py; claim C11). Shown desaturated so amber keeps one meaning. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Typeset six-row meter ledger.",
+      "asset_path": "imgs/charts/02-codex-meter.png"
+    },
+    {
+      "id": "s14-caveats",
+      "start_sec": 182.594,
+      "end_sec": 194.15,
+      "copy": "01 · API list price — what the work would have cost, not what I paid / 02 · One machine — so Codex is a floor / One heavy user's receipt, not a benchmark.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-bill"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static caveat card."
+    },
+    {
+      "id": "s15-which-meter",
+      "start_sec": 194.15,
+      "end_sec": 205.627,
+      "copy": "Both plans are heavily subsidized. / The question is which meter runs out first. / For me: Codex — the one getting cut in half.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-meter",
+        "f-cut"
+      ],
+      "source_ids": [
+        "local-peaks",
+        "email"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s16-line-items",
+      "start_sec": 205.627,
+      "end_sec": 218.414,
+      "copy": "Fresh input · Cache writes · Cache reads · Output / I expected output to be the big cost. / Astra output: $50 per 1M — a small slice.",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-prices",
+        "f-cache-share"
+      ],
+      "source_ids": [
+        "openai-pricing",
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static four-line receipt."
+    },
+    {
+      "id": "s17-the-reveal",
+      "start_sec": 218.414,
+      "end_sec": 228.221,
+      "copy": "Cache reads: the big number / GPT-6 Astra 78% · Claude Opus 5 76% · Claude Opus 5.5 58% / share of each model's list-price cost",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-cache-share"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene; numbers from the author's own session logs priced at API list (evidence/ai-bill-output-2026-09-30.txt). Claim C9; Astra 78% on the Pro account. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Chart imgs/charts/03-bill-by-model.png."
+    },
+    {
+      "id": "s18-reread-3d",
+      "start_sec": 228.221,
+      "end_sec": 253.503,
+      "copy": "repo context · tool call · result · think · go again / every turn re-reads the whole stack (amber = cache reads) / turn counter and pages re-read so far (conceptual)",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-17b"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original @remotion/three scene (Aaron Studio). Page counts and turn counter are conceptual; only the ≈17 billion figure is data (claim f-17b, one machine). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "2D loop system-map and 17-billion statement (s18-s19 of v1, rendered with build-data.py --no-3d)."
+    },
+    {
+      "id": "s20-astra-callback",
+      "start_sec": 253.503,
+      "end_sec": 268.131,
+      "copy": "From my post · I Put GPT-6 Astra to Work · 2026-09-06 / Carrying the whole job means re-reading it, hundreds of times. / The capability I praised is exactly what the bill is made of.",
+      "visual_role": "explanation",
+      "asset_type": "generated-still",
+      "fact_ids": [
+        "f-astra-post"
+      ],
+      "source_ids": [
+        "astra-post"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Aaron's own published article cover (generated illustration, 2026-09-06 package); shown as a labeled callback, not evidence. Implemented in the project-scoped Remotion composition.",
+      "rights": "generated",
+      "fallback": "Typeset callback card without the image.",
+      "asset_path": "../2026-09-06-astra/imgs/00-cover-v3-launch-style.png"
+    },
+    {
+      "id": "s21-cache-price",
+      "start_sec": 268.131,
+      "end_sec": 299.79,
+      "copy": "GPT-6 Astra · $10 · $1.00 · $50 / Claude Opus 5 · $5 · $0.50 · $25 / Claude Fable 5.1 · $10 · $0.25 · $50",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-prices"
+      ],
+      "source_ids": [
+        "openai-pricing",
+        "anthropic-pricing"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Official list prices retrieved 2026-09-30 (C7, C14). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Chart imgs/charts/04-cache-read-price.png as a static exhibit."
+    },
+    {
+      "id": "s22-verdict",
+      "start_sec": 299.79,
+      "end_sec": 307.231,
+      "copy": "Which plan is the better deal? / For my September workload: Claude Max. / By more than I expected.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-bill"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s23-bill-exhibit",
+      "start_sec": 307.231,
+      "end_sec": 317.018,
+      "copy": "Exhibit · 30 days at API list · by model / Same $200 each · ≈ $9,400 vs ≈ $3,600 of work",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-bill",
+        "f-cache-share"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Chart rendered from the author's session logs and official list prices (charts/render_charts.py; C8, C9). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Typeset totals card.",
+      "asset_path": "imgs/charts/03-bill-by-model.png"
+    },
+    {
+      "id": "s24-the-model",
+      "start_sec": 317.018,
+      "end_sec": 322.139,
+      "copy": "The bigger lever in my logs / It wasn't the vendor. / It was the model.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-repricing"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s25-repricing",
+      "start_sec": 322.139,
+      "end_sec": 340.227,
+      "copy": "Exhibit · same tokens, repriced / Astra tokens at GPT-6.1 Sol ≈ 12% · Opus 5 at Opus 5.5 ≈ half / Price only — quality not compared",
+      "visual_role": "evidence",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-repricing"
+      ],
+      "source_ids": [
+        "local-bill",
+        "openai-pricing",
+        "anthropic-pricing"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Chart rendered from the author's session logs and official list prices (C10). Shown desaturated so amber keeps one meaning. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Typeset repricing rows.",
+      "asset_path": "imgs/charts/05-model-vs-vendor.png"
+    },
+    {
+      "id": "s26-openai-bet",
+      "start_sec": 340.227,
+      "end_sec": 353.405,
+      "copy": "Move the work to the cheaper model, and the halved allowance covers the same work. / Can Sol do the work I've been giving Astra? / Untested · a hypothesis",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-repricing"
+      ],
+      "source_ids": [
+        "local-bill"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s27-three-moves",
+      "start_sec": 353.405,
+      "end_sec": 383.474,
+      "copy": "01 Claude Max stays my main tool / 02 Keep Pro 200 through Dec 31 to use the credits · not buying Pro 500 / 03 October: a week of Codex on GPT-6.1 Sol, watching the meter",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-decisions",
+        "f-credits"
+      ],
+      "source_ids": [
+        "aaron-account",
+        "email"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static three-row checklist."
+    },
+    {
+      "id": "s28-guesses",
+      "start_sec": 383.474,
+      "end_sec": 412.342,
+      "copy": "My inferences, not anything either company has said / 01 The 20× language fades; the dollar budget becomes visible / 02 The price war moves to what agents consume: cheaper cache reads, a premium for speed",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-forecast"
+      ],
+      "source_ids": [
+        "aaron-account"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Labeled forecast (C15). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static three-row list."
+    },
+    {
+      "id": "s29-prepaid",
+      "start_sec": 412.342,
+      "end_sec": 418.783,
+      "copy": "Plan as if your subscription is a prepaid API budget, / not an unlimited pass.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-forecast"
+      ],
+      "source_ids": [
+        "aaron-account"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s30-price-your-own",
+      "start_sec": 418.783,
+      "end_sec": 446.792,
+      "copy": "01 Find the logs / 02 Pull four numbers per model / 03 Multiply by list price",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-worked-example"
+      ],
+      "source_ids": [
+        "local-bill",
+        "anthropic-pricing"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Worked example from the author's Opus 5 cache reads (9.96B tokens × $0.50 / 1M). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static four-step list."
+    },
+    {
+      "id": "s31-habits",
+      "start_sec": 446.792,
+      "end_sec": 466.222,
+      "copy": "Route by task, not loyalty / Treat context as a cost / Stay portable",
+      "visual_role": "explanation",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-decisions"
+      ],
+      "source_ids": [
+        "aaron-account"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static three-row list."
+    },
+    {
+      "id": "s32-meter-callback",
+      "start_sec": 466.222,
+      "end_sec": 472.924,
+      "copy": "Five times at 100% / What was 100% worth?",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-meter"
+      ],
+      "source_ids": [
+        "local-peaks"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Same chart as the earlier meter exhibit (C11). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Typeset meter ledger.",
+      "asset_path": "imgs/charts/02-codex-meter.png"
+    },
+    {
+      "id": "s33-read-the-bill",
+      "start_sec": 472.924,
+      "end_sec": 486.385,
+      "copy": "Now I know the unit. I've read the bill. / I'm not angry about the change. / The timing was clumsy.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [
+        "aaron-account"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s34-exchange-rate",
+      "start_sec": 486.385,
+      "end_sec": 492.265,
+      "copy": "A subscription with a published exchange rate / is more honest than a magic multiple.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [
+        "f-tibo"
+      ],
+      "source_ids": [
+        "tibo-reopen"
+      ],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Original typeset scene (Remotion), Aaron Studio. Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static statement card."
+    },
+    {
+      "id": "s35-final",
+      "start_sec": 492.265,
+      "end_sec": 505.0,
+      "copy": "Engineers learned to read cloud bills because the bill decided what they could build. / AI coding bills are becoming that same kind of document. / Reading yours is now part of the job.",
+      "visual_role": "emphasis",
+      "asset_type": "generated-still",
+      "fact_ids": [],
+      "source_ids": [],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Approved article cover imgs/00-cover.png with typeset lines (verbatim narration). Implemented in the project-scoped Remotion composition.",
+      "rights": "generated",
+      "fallback": "Typeset closing lines on porcelain.",
+      "asset_path": "imgs/00-cover.png"
+    },
+    {
+      "id": "s36-end-card",
+      "start_sec": 505.0,
+      "end_sec": 510.0,
+      "copy": "AARON GUO / AI-NATIVE BUILDER · HUMAN-FIRST THINKER / aaronguo.com",
+      "visual_role": "emphasis",
+      "asset_type": "generated-layout",
+      "fact_ids": [],
+      "source_ids": [],
+      "usage_role": "primary",
+      "status": "ready",
+      "provenance": "Aaron brand end card (assets/aaron-logo-assets/ag-logo.png). Implemented in the project-scoped Remotion composition.",
+      "rights": "owned",
+      "fallback": "Static brand card."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+measured_I=-30.71:measured_TP=-3.79:measured_LRA=6.00:measured_thresh=-41.31:offset=1.17
