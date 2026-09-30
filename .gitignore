@@ -44,3 +44,8 @@ credentials/
 .cache/asset-library/
 # Python
 __pycache__/
+
+# Render audio intermediates can exceed GitHub's 100 MB file limit; keep them local.
+**/video-production/**/*.wav
+src/content/videos/*/film-mix*.wav
+src/content/blogs/*/music-score/score-stitched.wav
