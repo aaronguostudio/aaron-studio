@@ -11,6 +11,9 @@
  *   npx -y bun youtube-auth.ts --setup
  *   npx -y bun youtube-auth.ts --check
  *   npx -y bun youtube-auth.ts --refresh
+ *
+ * Set YOUTUBE_PROFILE (e.g. visual-and-sound) to keep a separate token per channel.
+ * Without it, the original youtube-tokens.json is used.
  */
 
 import { execFile } from "child_process";
@@ -23,7 +26,11 @@ loadAllEnvFiles();
 
 const homeDir = process.env.HOME || process.env.USERPROFILE || "";
 const TOKENS_DIR = join(homeDir, ".aaron-skills", "aaron-yt-pipeline");
-const TOKENS_PATH = join(TOKENS_DIR, "youtube-tokens.json");
+const PROFILE = (process.env.YOUTUBE_PROFILE || "").trim();
+if (PROFILE && !/^[a-z0-9-]+$/.test(PROFILE)) {
+  throw new Error(`YOUTUBE_PROFILE must be lowercase letters, digits or dashes: ${PROFILE}`);
+}
+const TOKENS_PATH = join(TOKENS_DIR, PROFILE ? `youtube-tokens-${PROFILE}.json` : "youtube-tokens.json");
 
 const GOOGLE_OAUTH_AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_OAUTH_TOKEN_URL = "https://oauth2.googleapis.com/token";
@@ -166,7 +173,7 @@ async function check(): Promise<void> {
     const channel = data.items?.[0]?.snippet;
     console.log("AUTHENTICATED");
     if (channel) {
-      console.log(`Channel: ${channel.title}`);
+      console.log(`Channel: ${channel.title}${channel.customUrl ? ` (${channel.customUrl})` : ""}`);
     }
   } else if (res.status === 401) {
     console.log("TOKEN_EXPIRED");
@@ -210,6 +217,21 @@ async function refresh(): Promise<void> {
 
   saveTokens(tokens);
   console.log("Token refreshed successfully.");
+}
+
+/**
+ * The channel the active token belongs to. Callers compare it with the intended destination,
+ * because several channels can share one Google login.
+ */
+export async function getAuthenticatedChannel(): Promise<{ id: string; title: string; handle: string }> {
+  const accessToken = await getAccessToken();
+  const res = await fetch("https://www.googleapis.com/youtube/v3/channels?part=snippet&mine=true", {
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  if (!res.ok) throw new Error(`Channel lookup failed (${res.status}): ${await res.text()}`);
+  const item = (await res.json()).items?.[0];
+  if (!item) throw new Error("The active token has no YouTube channel.");
+  return { id: item.id, title: item.snippet.title, handle: (item.snippet.customUrl || "").toLowerCase() };
 }
 
 /**

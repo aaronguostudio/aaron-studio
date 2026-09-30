@@ -14,7 +14,7 @@ import { existsSync, readFileSync, statSync, createReadStream } from "fs";
 import { execFileSync } from "child_process";
 import { resolve } from "path";
 import { loadAllEnvFiles } from "./shared/env";
-import { getAccessToken } from "./youtube-auth";
+import { getAccessToken, getAuthenticatedChannel } from "./youtube-auth";
 
 loadAllEnvFiles();
 
@@ -33,6 +33,7 @@ interface VideoMetadata {
   language: string;
   privacy: string;
   publishAt?: string; // ISO 8601 datetime for scheduled publishing
+  containsSyntheticMedia?: boolean; // YouTube's altered or synthetic content disclosure
 }
 
 function parseMetadataYaml(content: string): VideoMetadata {
@@ -111,6 +112,7 @@ function parseMetadataYaml(content: string): VideoMetadata {
     language: meta.language || "en",
     privacy: meta.privacy || "unlisted",
     publishAt: meta.publishAt || undefined,
+    containsSyntheticMedia: meta.contains_synthetic_media === undefined ? undefined : meta.contains_synthetic_media === "true",
   };
 }
 
@@ -134,7 +136,12 @@ async function initiateUpload(
     status: {
       privacyStatus: metadata.publishAt ? "private" : metadata.privacy,
       selfDeclaredMadeForKids: false,
+      // Set explicitly: without them the channel default made a 2026-09-30 upload
+      // non-embeddable, which breaks the blog's video embed.
+      embeddable: true,
+      publicStatsViewable: true,
       ...(metadata.publishAt ? { publishAt: metadata.publishAt } : {}),
+      ...(metadata.containsSyntheticMedia === undefined ? {} : { containsSyntheticMedia: metadata.containsSyntheticMedia }),
     },
   };
 
@@ -283,12 +290,23 @@ function parseArgs(): Record<string, string> {
     else if (arg === "--schedule") args.schedule = argv[++i]; // ISO 8601 datetime
     else if (arg === "--make-public") args.makePublic = argv[++i]; // video ID
     else if (arg === "--set-thumbnail") args.setThumbnail = argv[++i]; // video ID
+    else if (arg === "--expect-handle") args.expectHandle = argv[++i]; // e.g. @visual-and-sound
   }
   return args;
 }
 
+// Refuse to act when the token belongs to a different channel than the caller intends.
+async function assertChannel(expectHandle?: string): Promise<void> {
+  const channel = await getAuthenticatedChannel();
+  console.log(`[upload] Authenticated channel: ${channel.title} ${channel.handle} (${channel.id})`);
+  if (expectHandle && channel.handle !== expectHandle.toLowerCase()) {
+    throw new Error(`Channel mismatch: token is for ${channel.handle || channel.title}, expected ${expectHandle}. Nothing was uploaded.`);
+  }
+}
+
 async function main() {
   const args = parseArgs();
+  await assertChannel(args.expectHandle);
 
   // Handle --make-public subcommand
   if (args.makePublic) {
