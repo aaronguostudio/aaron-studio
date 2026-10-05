@@ -1,6 +1,6 @@
 ---
 name: paste-ready-update
-description: Use when someone wants a message, status update, release note, handoff or how-to with screenshots that they will paste into Teams, Slack, Outlook, Gmail, WeChat, WeCom or a document for another person (a manager, client or colleague). Typical requests are "an easy copy-paste message with screenshots", "write Jon an update with these screenshots" or "容易 copy paste 的英语+截图 message". It also applies when they only ask for "a message for X", the screenshots are already in the conversation, and the message will be pasted somewhere.
+description: Use when someone wants a message, status update, release note, handoff or how-to with screenshots that they will paste into Teams, Slack, Outlook, Gmail, WeChat, WeCom or a document for another person (a manager, client or colleague). Typical requests are "an easy copy-paste message with screenshots", "write Sam an update with these screenshots" or "容易 copy paste 的英语+截图 message". It also applies when they only ask for "a message for X", the screenshots are already in the conversation, and the message will be pasted somewhere.
 ---
 
 # Paste-ready update
