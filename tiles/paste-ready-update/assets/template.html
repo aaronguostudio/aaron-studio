@@ -48,7 +48,7 @@
   }
   .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px 48px; display: grid; gap: 16px; }
   .bar {
-    position: sticky; top: 0; z-index: 2;
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2;
     display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px;
     background: var(--paper); padding: 14px 0 12px; border-bottom: 1px solid var(--rule);
   }
@@ -78,6 +78,10 @@
   .shot img { display: block; max-width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; }
   .shot figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-top: 6px; color: var(--muted); font-size: 13px; }
   .note { color: var(--muted); font-size: 13px; margin: 0; }
+  .video h2 { font-size: 15px; font-weight: 600; margin: 0 0 10px; }
+  .video video { display: block; width: 100%; height: auto; border: 1px solid var(--rule); border-radius: 6px; background: #000; margin-bottom: 10px; }
+  .video a { color: var(--accent); }
+  .video code { font: 13px/1.4 ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
 </style>
 <!-- body -->
 <div class="wrap">
@@ -97,6 +101,7 @@
 {{MESSAGE}}
     </div>
   </article>
+  {{VIDEO}}
   <p class="note">Nothing on this page is sent anywhere. The buttons only put the message on your clipboard.</p>
 </div>
 <script type="application/json" id="plain-text">{{PLAIN_JSON}}</script>

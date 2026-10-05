@@ -104,6 +104,18 @@ Aaron
   - `**bold**`, `*italic*`, `` `code` ``, `[links](https://…)`, `> quotes`.
   - `![caption](path)` on its own line, with the path relative to `message.md`.
 - **Copy text** copies the message without the screenshots and without placeholders, so nothing stray gets sent. The page shows where each screenshot goes.
+- `video: <path>` in the front matter adds a walkthrough video to the page. It is shown on the page but not copied; the user attaches it.
+
+## Walkthrough video (optional)
+
+Offer a short walkthrough video only when both are true:
+
+- the change is visible in the UI;
+- the current project's `package.json` has a `demo:capture` script.
+
+Backend and infrastructure updates stay text-only.
+
+Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data, so some environments need the user's go-ahead for every run.
 
 ## Delivering
 

@@ -18,6 +18,7 @@ import base64
 import html
 import io
 import json
+import os
 import re
 import sys
 from dataclasses import dataclass, field
@@ -315,7 +316,30 @@ def render(blocks: List[Block], base: Path, max_width: int, warnings: List[str])
     return "\n".join(html_parts), "\n\n".join(plain_parts).strip() + "\n"
 
 
-def build(message_path: Path, fragment: bool = False, max_width: int = 1600):
+def video_block(meta, message_dir: Path, out_dir: Path, fragment: bool) -> str:
+    """The walkthrough video, shown on the page but never copied: a browser cannot copy a video."""
+    name = meta.get("video")
+    if not name:
+        return ""
+    path = (message_dir / name).resolve()
+    if not path.is_file():
+        raise BuildError("video not found: %s" % path)
+    if path.suffix.lower() not in (".mp4", ".webm", ".mov"):
+        raise BuildError("video must be .mp4, .webm or .mov: %s" % path)
+    # A host that publishes the page with its files serves the video next to it, by name.
+    src = path.name if fragment else Path(os.path.relpath(path, out_dir.resolve())).as_posix()
+    # Hosts that wrap pages (the fragment case) also block download links, so offer one only locally.
+    download = "" if fragment else ' <a href="%s" download>Download it</a>.' % html.escape(src)
+    return (
+        '<section class="sheet video">\n'
+        "  <h2>Walkthrough video</h2>\n"
+        '  <video controls preload="metadata" src="%s"></video>\n'
+        '  <p class="note">Attach <code>%s</code> (%.1f MB) to the message yourself; a browser cannot copy a video.%s</p>\n'
+        "</section>" % (html.escape(src), html.escape(path.name), path.stat().st_size / 1e6, download)
+    )
+
+
+def build(message_path: Path, fragment: bool = False, max_width: int = 1600, out_path: Optional[Path] = None):
     text = message_path.read_text(encoding="utf-8")
     meta, lines = split_front_matter(text)
     blocks = parse(lines)
@@ -339,6 +363,7 @@ def build(message_path: Path, fragment: bool = False, max_width: int = 1600):
         "{{MESSAGE}}": message_html,
         "{{PLAIN_JSON}}": json.dumps(plain, ensure_ascii=False).replace("</", "<\\/"),
         "{{RICH_BUTTON}}": "" if not figures else '<button type="button" id="copy-rich">Copy text + screenshots</button>',
+        "{{VIDEO}}": video_block(meta, message_path.parent, (out_path or message_path).parent, fragment),
     }
     # One pass, so text inside the message that looks like a placeholder is never expanded.
     fill = re.compile("|".join(re.escape(k) for k in values))
@@ -364,16 +389,17 @@ def main(argv=None) -> int:
     parser.add_argument("--fragment", action="store_true", help="omit <!doctype>/<html>/<head>/<body> for hosts that wrap pages")
     parser.add_argument("--max-image-width", type=int, default=1600, help="scale wider screenshots down when Pillow is installed (0 = never)")
     args = parser.parse_args(argv)
+    out = args.out or args.message.with_suffix(".html")
     try:
-        page, plain, figures, warnings = build(args.message, args.fragment, args.max_image_width)
+        page, plain, figures, warnings = build(args.message, args.fragment, args.max_image_width, out)
     except (BuildError, OSError) as err:
         print("error: %s" % err, file=sys.stderr)
         return 1
-    out = args.out or args.message.with_suffix(".html")
     out.write_text(page, encoding="utf-8")
     words = len(re.findall(r"\w+", plain))
-    print("wrote %s (%s): %d KB, %d screenshot%s, %d words" % (
-        out, "fragment" if args.fragment else "document", len(page.encode()) // 1024, figures, "" if figures == 1 else "s", words))
+    print("wrote %s (%s): %d KB, %d screenshot%s, %d words%s" % (
+        out, "fragment" if args.fragment else "document", len(page.encode()) // 1024, figures, "" if figures == 1 else "s", words,
+        ", 1 video" if "<video " in page else ""))
     for w in warnings:
         print("warning: %s" % w, file=sys.stderr)
     return 0

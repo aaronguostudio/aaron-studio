@@ -98,6 +98,24 @@ class BuildPageTest(unittest.TestCase):
         page, _, _, _ = self.build("![](shots/one.png)\n")
         self.assertIn('id="copy-rich"', page)
 
+    def test_walkthrough_video_is_shown_but_never_copied(self):
+        (self.dir / "run").mkdir()
+        (self.dir / "run" / "walkthrough.mp4").write_bytes(b"\x00" * 2048)
+        message = "---\nvideo: run/walkthrough.mp4\n---\nHi\n"
+        page, plain, _, _ = self.build(message, out_path=self.dir / "out" / "page.html")
+        self.assertIn('<video controls preload="metadata" src="../run/walkthrough.mp4">', page)
+        copied = page.split('<div id="message">')[1].split("</article>")[0]
+        self.assertNotIn("<video", copied)
+        self.assertNotIn("walkthrough", plain)
+        self.assertIn('href="../run/walkthrough.mp4" download', page)
+        page, _, _, _ = self.build(message, fragment=True)
+        self.assertIn('src="walkthrough.mp4"', page)
+        self.assertNotIn(" download", page)  # wrapped hosts block download links
+
+    def test_missing_video_is_an_error(self):
+        with self.assertRaises(build_page.BuildError):
+            self.build("---\nvideo: nope.mp4\n---\nHi\n")
+
 
 if __name__ == "__main__":
     unittest.main()

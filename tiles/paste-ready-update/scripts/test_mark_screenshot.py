@@ -1,5 +1,6 @@
 """Tests for mark_screenshot.py (skipped when Pillow is missing)."""
 
+import json
 import sys
 import tempfile
 import unittest
@@ -35,6 +36,36 @@ class MarkScreenshotTest(unittest.TestCase):
     def test_rejects_an_inverted_rectangle(self):
         with self.assertRaises(Exception):
             mark_screenshot.parse_rect("50,50,10,10")
+
+    def test_steps_boxes_scale_from_viewport_to_image_pixels(self):
+        # A 2x screenshot of a 200x150 viewport: the recorded box doubles.
+        steps = self.dir / "steps.json"
+        later = {"tMs": 2, "x": 10, "y": 10, "box": {"x": 5, "y": 5, "w": 10, "h": 10}}
+        steps.write_text(json.dumps([{"id": "save", "clicks": [{"tMs": 1, "x": 60, "y": 45, "box": {"x": 50, "y": 40, "w": 20, "h": 10}}, later]}]))
+        (self.dir / "capture.json").write_text(json.dumps({"viewport": {"w": 200, "h": 150}}))
+        boxes = mark_screenshot.boxes_from_steps(steps, "save", "2", 400)
+        self.assertEqual(boxes, [((100, 80, 140, 100), "2")])  # the first click only: the shot shows it
+        self.assertEqual(len(mark_screenshot.boxes_from_steps(steps, "save", "2", 400, "all")), 2)
+        with self.assertRaises(ValueError):
+            mark_screenshot.boxes_from_steps(steps, "nope", None, 400)
+
+    def test_auto_crop_frames_the_boxes_and_stays_inside_the_image(self):
+        crop, _ = mark_screenshot.auto_crop([((20, 20, 60, 40), None)], (1440, 900), margin=100, min_size=(760, 475))
+        x0, y0, x1, y1 = crop
+        self.assertEqual((x0, y0), (0, 0))  # pushed back inside the image
+        self.assertEqual((x1 - x0, y1 - y0), (760, 475))
+        self.assertTrue(x0 <= 20 and x1 >= 60 and y0 <= 20 and y1 >= 40)
+        self.assertIsNone(mark_screenshot.auto_crop([], (1440, 900)))
+
+    def test_cli_marks_a_step_from_its_capture(self):
+        steps = self.dir / "steps.json"
+        steps.write_text(json.dumps([{"id": "open", "clicks": [{"tMs": 1, "x": 210, "y": 160, "box": {"x": 200, "y": 150, "w": 20, "h": 20}}]}]))
+        out = self.dir / "marked.png"
+        rc = mark_screenshot.main([str(self.src), str(out), "--steps", str(steps), "--step", "open", "--label", "1", "--crop", "auto"])
+        self.assertEqual(rc, 0)
+        with Image.open(out) as im:
+            self.assertEqual(im.size, (400, 300))  # the image is smaller than the minimum crop
+            self.assertIn(mark_screenshot.RED, [im.getpixel((210, y)) for y in range(140, 151)])
 
 
 if __name__ == "__main__":
