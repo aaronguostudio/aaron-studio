@@ -68,7 +68,7 @@ Check every step id against `steps.json`; the renderer refuses an unknown one.
 
 - **Steps.** The captions in `steps.json` are a ready draft of the numbered steps; tighten them for the reader.
 - **Chapters.** Add a short section after the steps, for example "Walkthrough video (1:42, attached)", with the lines of `chapters.txt` as a list.
-- **Front matter.** Add `video: <path to walkthrough.mp4>`.
-  - The page shows the player and reminds the user to attach the file. A browser cannot copy a video, so the copy buttons leave it out.
-  - When publishing with `--fragment`, publish the mp4 beside the page under its file name.
+- **Front matter.** Add `video: <path to walkthrough.mp4> | <label>`. Add one line per video when the message attaches several, for example `| Concise, 2:02` and `| Conversational, 2:57`.
+  - The page shows a player per video and reminds the user to attach each file. A browser cannot copy a video, so the copy buttons leave them out.
+  - When publishing with `--fragment`, publish each mp4 beside the page under its file name. If a host limits file size, publish a re-encoded copy and give the user the full-quality file to attach.
 - **Reply.** Give the mp4's path, and tell the user to attach it to the message in Teams, Outlook or Slack after pasting the text.

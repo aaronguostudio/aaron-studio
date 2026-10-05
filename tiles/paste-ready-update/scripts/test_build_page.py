@@ -3,6 +3,8 @@
 import base64
 import json
 import re
+import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -111,6 +113,31 @@ class BuildPageTest(unittest.TestCase):
         page, _, _, _ = self.build(message, fragment=True)
         self.assertIn('src="walkthrough.mp4"', page)
         self.assertNotIn(" download", page)  # wrapped hosts block download links
+
+    def test_several_videos_each_get_a_player_and_a_label(self):
+        for name in ("concise.mp4", "talk.mp4"):
+            (self.dir / name).write_bytes(b"\x00" * 2048)
+        message = "---\nvideo: concise.mp4 | Concise, 2:02\nvideo: talk.mp4 | Conversational, 2:57\n---\nHi\n"
+        page, plain, _, _ = self.build(message, fragment=True)
+        self.assertEqual(page.count("<video "), 2)
+        self.assertLess(page.index('src="concise.mp4"'), page.index('src="talk.mp4"'))
+        self.assertIn("<h3>Concise, 2:02</h3>", page)
+        self.assertIn("<h3>Conversational, 2:57</h3>", page)
+        self.assertIn("Videos to attach", page)
+        self.assertIn("<code>talk.mp4</code>", page)
+        copied = page.split('<div id="message">')[1].split("</article>")[0]
+        self.assertNotIn("<video", copied)
+        self.assertNotIn("concise", plain)
+
+    @unittest.skipIf(shutil.which("ffmpeg") is None, "needs ffmpeg")
+    def test_a_video_shows_a_frame_from_its_start_instead_of_black(self):
+        video = self.dir / "clip.mp4"
+        subprocess.run(
+            ["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "color=c=white:s=64x48:d=3", "-pix_fmt", "yuv420p", str(video)],
+            check=True,
+        )
+        page, _, _, _ = self.build("---\nvideo: clip.mp4\n---\nHi\n", fragment=True)
+        self.assertIn('poster="data:image/jpeg;base64,', page)
 
     def test_missing_video_is_an_error(self):
         with self.assertRaises(build_page.BuildError):

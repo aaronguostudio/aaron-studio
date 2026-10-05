@@ -104,7 +104,7 @@ Aaron
   - `**bold**`, `*italic*`, `` `code` ``, `[links](https://…)`, `> quotes`.
   - `![caption](path)` on its own line, with the path relative to `message.md`.
 - **Copy text** copies the message without the screenshots and without placeholders, so nothing stray gets sent. The page shows where each screenshot goes.
-- `video: <path>` in the front matter adds a walkthrough video to the page. It is shown on the page but not copied; the user attaches it.
+- `video: <path> | <label>` in the front matter adds a video to the page; the label is optional. Repeat the line for several videos, for example the same demo in two styles. Each gets its own player, with a frame from its start as the preview when ffmpeg is installed. Videos are shown but never copied, so the user attaches each one.
 
 ## Walkthrough video (optional)
 

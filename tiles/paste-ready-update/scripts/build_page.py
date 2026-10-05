@@ -20,6 +20,8 @@ import io
 import json
 import os
 import re
+import shutil
+import subprocess
 import sys
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -88,7 +90,11 @@ def split_front_matter(text: str):
                 for line in lines[1:end]:
                     if ":" in line:
                         key, value = line.split(":", 1)
-                        meta[key.strip().lower()] = value.strip()
+                        key, value = key.strip().lower(), value.strip()
+                        meta[key] = value
+                        # `video:` may repeat: one player per video, in order.
+                        if key == "video":
+                            meta.setdefault("videos", []).append(value)
                 return meta, lines[end + 1 :]
     return meta, lines
 
@@ -316,27 +322,50 @@ def render(blocks: List[Block], base: Path, max_width: int, warnings: List[str])
     return "\n".join(html_parts), "\n\n".join(plain_parts).strip() + "\n"
 
 
-def video_block(meta, message_dir: Path, out_dir: Path, fragment: bool) -> str:
-    """The walkthrough video, shown on the page but never copied: a browser cannot copy a video."""
-    name = meta.get("video")
-    if not name:
+def poster_of(path: Path) -> str:
+    """A frame 1.5 s in, so a player whose video fades in from black does not sit black (needs ffmpeg)."""
+    if shutil.which("ffmpeg") is None:
         return ""
-    path = (message_dir / name).resolve()
-    if not path.is_file():
-        raise BuildError("video not found: %s" % path)
-    if path.suffix.lower() not in (".mp4", ".webm", ".mov"):
-        raise BuildError("video must be .mp4, .webm or .mov: %s" % path)
-    # A host that publishes the page with its files serves the video next to it, by name.
-    src = path.name if fragment else Path(os.path.relpath(path, out_dir.resolve())).as_posix()
-    # Hosts that wrap pages (the fragment case) also block download links, so offer one only locally.
-    download = "" if fragment else ' <a href="%s" download>Download it</a>.' % html.escape(src)
-    return (
-        '<section class="sheet video">\n'
-        "  <h2>Walkthrough video</h2>\n"
-        '  <video controls preload="metadata" src="%s"></video>\n'
-        '  <p class="note">Attach <code>%s</code> (%.1f MB) to the message yourself; a browser cannot copy a video.%s</p>\n'
-        "</section>" % (html.escape(src), html.escape(path.name), path.stat().st_size / 1e6, download)
-    )
+    try:
+        frame = subprocess.run(
+            ["ffmpeg", "-v", "error", "-ss", "1.5", "-i", str(path), "-frames:v", "1", "-vf", "scale='min(960,iw)':-2",
+             "-f", "image2pipe", "-vcodec", "mjpeg", "-q:v", "5", "-"],
+            capture_output=True, check=True, timeout=60,
+        ).stdout
+    except (subprocess.SubprocessError, OSError):
+        return ""
+    return "data:image/jpeg;base64," + base64.b64encode(frame).decode("ascii") if frame else ""
+
+
+def video_block(meta, message_dir: Path, out_dir: Path, fragment: bool) -> str:
+    """The videos (`video: path | label`, repeatable), shown on the page but never copied: a browser
+    cannot copy a video, so the sender attaches each one."""
+    entries = meta.get("videos") or []
+    if not entries:
+        return ""
+    players = []
+    for entry in entries:
+        name, _, label = entry.partition("|")
+        name, label = name.strip(), label.strip()
+        path = (message_dir / name).resolve()
+        if not path.is_file():
+            raise BuildError("video not found: %s" % path)
+        if path.suffix.lower() not in (".mp4", ".webm", ".mov"):
+            raise BuildError("video must be .mp4, .webm or .mov: %s" % path)
+        # A host that publishes the page with its files serves the video next to it, by name.
+        src = path.name if fragment else Path(os.path.relpath(path, out_dir.resolve())).as_posix()
+        # Hosts that wrap pages (the fragment case) also block download links, so offer one only locally.
+        download = "" if fragment else ' <a href="%s" download>Download it</a>.' % html.escape(src)
+        poster = poster_of(path)
+        players.append(
+            ("  <h3>%s</h3>\n" % html.escape(label) if label else "")
+            + '  <video controls preload="metadata"%s src="%s"></video>\n'
+            % (' poster="%s"' % poster if poster else "", html.escape(src))
+            + '  <p class="note">Attach <code>%s</code> (%.1f MB) to the message yourself; a browser cannot copy a video.%s</p>\n'
+            % (html.escape(path.name), path.stat().st_size / 1e6, download)
+        )
+    title = "Videos to attach" if len(players) > 1 else "Walkthrough video"
+    return '<section class="sheet video">\n  <h2>%s</h2>\n%s</section>' % (title, "".join(players))
 
 
 def build(message_path: Path, fragment: bool = False, max_width: int = 1600, out_path: Optional[Path] = None):
@@ -399,7 +428,7 @@ def main(argv=None) -> int:
     words = len(re.findall(r"\w+", plain))
     print("wrote %s (%s): %d KB, %d screenshot%s, %d words%s" % (
         out, "fragment" if args.fragment else "document", len(page.encode()) // 1024, figures, "" if figures == 1 else "s", words,
-        ", 1 video" if "<video " in page else ""))
+        (", %d video%s" % (page.count("<video "), "" if page.count("<video ") == 1 else "s")) if "<video " in page else ""))
     for w in warnings:
         print("warning: %s" % w, file=sys.stderr)
     return 0
