@@ -1,0 +1,7 @@
+{
+  "name": "aaronguo/paste-ready-update",
+  "version": "0.1.0",
+  "summary": "Write a message with screenshots for someone else and build one page with copy buttons for Teams, Slack, email or WeCom.",
+  "private": true,
+  "skills": { "paste-ready-update": { "path": "SKILL.md" } }
+}

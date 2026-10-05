@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paste-ready Update"
+  short_description: "Message and screenshots on one page with copy buttons"
+  default_prompt: "Use $paste-ready-update to write an update for <person> with these screenshots that I can paste into <Teams, Outlook, Slack, ...>."

@@ -47,6 +47,17 @@ A symlink at `.baoyu-skills/.env` is tracked in the repo so all skills share the
 | `baoyu-image-gen` | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | AI image generation (OpenAI, Google, DashScope) |
 | `aaron-video-gen` | local (`tiles/`) | Generate YouTube videos from script + slide images |
 | `publish-to-blog` | local (`tiles/`) | Publish blog posts |
+| `paste-ready-update` | local (`tiles/`), global | Write a message with screenshots for someone else and build one page with copy buttons for Teams, Slack, email or WeCom |
+
+## Cross-project skills
+
+`paste-ready-update` is for every project and every agent, so it is linked into the global skill folders of Claude Code, Codex and the shared `~/.agents/skills` (read by Codex, Gemini CLI and Copilot CLI):
+
+```bash
+for d in ~/.agents/skills ~/.claude/skills ~/.codex/skills; do ln -sfn "$PWD/tiles/paste-ready-update" "$d/paste-ready-update"; done
+```
+
+For claude.ai, zip the `tiles/paste-ready-update` folder and upload it in claude.ai's Skills settings. Its scripts need Python 3; Pillow is optional and only used to mark screenshots.
 
 ## Blog workflow
 
