@@ -149,6 +149,23 @@
           img.setAttribute('height', String(Math.round(h * width / w)));
         }
       });
+      // Chat editors such as Teams flatten <figure> and <figcaption>, which puts the caption on the
+      // picture's line. Plain paragraphs keep the picture and its caption on lines of their own.
+      clone.querySelectorAll('figure').forEach(function (figure) {
+        var parts = document.createDocumentFragment();
+        var picture = document.createElement('p');
+        picture.appendChild(figure.querySelector('img'));
+        parts.appendChild(picture);
+        var caption = (figure.querySelector('figcaption') || {}).textContent || '';
+        if (caption.trim()) {
+          var line = document.createElement('p');
+          var em = document.createElement('em');
+          em.textContent = caption.trim();
+          line.appendChild(em);
+          parts.appendChild(line);
+        }
+        figure.replaceWith(parts);
+      });
       return '<div>' + clone.innerHTML + '</div>';
     }
     // Any screenshot format goes to the clipboard as PNG, the one image type every clipboard accepts.
