@@ -141,6 +141,26 @@ else
   fail "research evidence contract tests fail"
 fi
 
+printf '\n== Paste-ready updates and walkthrough videos ==\n'
+if python3 -m unittest discover -s tiles/paste-ready-update/scripts -p 'test_*.py'; then
+  pass "paste-ready-update builder tests pass"
+else
+  fail "paste-ready-update builder tests fail"
+fi
+
+if npx -y bun test tiles/aaron-video-gen/scripts/walkthrough/ scripts/work-leak-check.test.ts; then
+  pass "walkthrough renderer and leak-check tests pass"
+else
+  fail "walkthrough renderer and leak-check tests fail"
+fi
+
+# Needs the local, gitignored .work-denylist; a missing list fails rather than passing.
+if npx -y bun scripts/work-leak-check.ts; then
+  pass "generic tools carry no client-work identifiers"
+else
+  fail "generic tools carry client-work identifiers, or .work-denylist is missing"
+fi
+
 printf '\n'
 if [ "$failures" -gt 0 ]; then
   printf '%s validation failure(s)\n' "$failures"

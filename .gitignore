@@ -49,3 +49,6 @@ __pycache__/
 **/video-production/**/*.wav
 src/content/videos/*/film-mix*.wav
 src/content/blogs/*/music-score/score-stitched.wav
+
+# Local list of client-work identifiers for scripts/work-leak-check.ts. Never commit it.
+.work-denylist

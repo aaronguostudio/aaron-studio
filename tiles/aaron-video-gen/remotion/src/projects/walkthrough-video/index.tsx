@@ -1,0 +1,230 @@
+// WalkthroughVideo: turns a capture folder (a screen recording plus steps.json) into a silent,
+// captioned walkthrough with a drawn cursor and fast-forwarded waits.
+//
+// Render with the folder as the public dir, so the composition never sees a path:
+//   npx remotion render src/projects/walkthrough-video/index.tsx WalkthroughVideo <run>/walkthrough.mp4 \
+//     --public-dir=<run> --codec=h264 --muted
+// Prefer ../../../scripts/walkthrough/render-walkthrough.ts, which validates first and writes chapters.txt.
+import React from "react";
+import {
+  AbsoluteFill,
+  Composition,
+  Img,
+  OffthreadVideo,
+  Sequence,
+  interpolate,
+  registerRoot,
+  staticFile,
+  useCurrentFrame,
+  type CalculateMetadataFunction,
+} from "remotion";
+import {
+  CAPTION_BAND,
+  FPS,
+  buildTimeline,
+  calibrate,
+  cursorAt,
+  stepAtFrame,
+  validateCapture,
+  type Capture,
+  type CursorState,
+  type Step,
+  type Timeline,
+} from "./timeline";
+
+const C = {
+  bg: "#11151c",
+  band: "#161b24",
+  ink: "#f2f4f8",
+  muted: "#9aa3b4",
+  accent: "#3d7bf0",
+  sans: "-apple-system, 'Helvetica Neue', Arial, sans-serif",
+};
+
+// calibrationMs comes from the render CLI, which measured it from the capture's sync flash.
+type Props = { capture: Capture | null; steps: Step[]; timeline: Timeline | null; calibrationMs?: number };
+
+const fade = (frame: number, total: number) =>
+  interpolate(frame, [0, 10, total - 10, total], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+const Card: React.FC<{ total: number; children: React.ReactNode }> = ({ total, children }) => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ background: C.bg, alignItems: "center", justifyContent: "center", fontFamily: C.sans }}>
+      <div style={{ opacity: fade(frame, total), textAlign: "center", maxWidth: "75%" }}>{children}</div>
+    </AbsoluteFill>
+  );
+};
+
+const TitleCard: React.FC<{ capture: Capture; total: number }> = ({ capture, total }) => (
+  <Card total={total}>
+    <div style={{ color: C.ink, fontSize: 64, fontWeight: 650, lineHeight: 1.15 }}>{capture.title}</div>
+    {capture.subtitle ? <div style={{ color: C.muted, fontSize: 30, marginTop: 22 }}>{capture.subtitle}</div> : null}
+    <div style={{ color: C.muted, fontSize: 20, marginTop: 40, letterSpacing: 1 }}>
+      Recorded {capture.startedAt.slice(0, 10)} · no audio
+    </div>
+  </Card>
+);
+
+const EndCard: React.FC<{ capture: Capture; total: number }> = ({ capture, total }) => (
+  <Card total={total}>
+    <div style={{ color: C.muted, fontSize: 26, letterSpacing: 2, textTransform: "uppercase" }}>End of walkthrough</div>
+    <div style={{ color: C.ink, fontSize: 44, marginTop: 18 }}>{capture.title}</div>
+  </Card>
+);
+
+const Cursor: React.FC<{ state: CursorState }> = ({ state }) => {
+  if (!state.visible) return null;
+  const ring = state.ripple;
+  return (
+    <>
+      {ring !== null ? (
+        <div
+          style={{
+            position: "absolute",
+            left: state.x,
+            top: state.y,
+            width: 2 * interpolate(ring, [0, 1], [10, 38]),
+            height: 2 * interpolate(ring, [0, 1], [10, 38]),
+            marginLeft: -interpolate(ring, [0, 1], [10, 38]),
+            marginTop: -interpolate(ring, [0, 1], [10, 38]),
+            borderRadius: "50%",
+            border: `4px solid ${C.accent}`,
+            opacity: 1 - ring,
+          }}
+        />
+      ) : null}
+      <svg width={28} height={36} viewBox="0 0 28 36" style={{ position: "absolute", left: state.x - 3, top: state.y - 2 }}>
+        <path d="M3 2 L3 29 L10 22.5 L14.5 33 L19 31 L14.6 20.8 L24 20.8 Z" fill="#ffffff" stroke="#111111" strokeWidth={2} strokeLinejoin="round" />
+      </svg>
+    </>
+  );
+};
+
+const CaptionBand: React.FC<{ top: number; width: number; caption: string; position: string }> = ({ top, width, caption, position }) => (
+  <div
+    style={{
+      position: "absolute",
+      left: 0,
+      top,
+      width,
+      height: CAPTION_BAND,
+      background: C.band,
+      display: "flex",
+      alignItems: "center",
+      gap: 24,
+      padding: "0 40px",
+      boxSizing: "border-box",
+      fontFamily: C.sans,
+    }}
+  >
+    <div style={{ color: C.muted, fontSize: 22, minWidth: 64, fontVariantNumeric: "tabular-nums" }}>{position}</div>
+    <div style={{ color: C.ink, fontSize: 34, lineHeight: 1.2 }}>{caption}</div>
+  </div>
+);
+
+const SpeedBadge: React.FC<{ speed: number; right: number }> = ({ speed, right }) => (
+  <div
+    style={{
+      position: "absolute",
+      top: 24,
+      right,
+      padding: "8px 16px",
+      borderRadius: 999,
+      background: "rgba(17, 21, 28, 0.82)",
+      color: C.ink,
+      fontFamily: C.sans,
+      fontSize: 24,
+      fontWeight: 600,
+    }}
+  >
+    ▶▶ {speed}× faster
+  </div>
+);
+
+export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline }) => {
+  const frame = useCurrentFrame();
+  if (!capture || !timeline) return <AbsoluteFill style={{ background: C.bg }} />;
+  const { w, h } = capture.viewport;
+  const videoEnd = timeline.titleFrames + timeline.videoFrames;
+  const inVideo = frame >= timeline.titleFrames && frame < videoEnd;
+  const segment = stepAtFrame(timeline, frame);
+  // During a gap between steps, show the step that comes next.
+  const stepIndex =
+    segment?.step ?? timeline.segments.find((s) => s.fromFrame >= (segment?.fromFrame ?? 0) && s.step !== null)?.step ?? null;
+  const step = stepIndex !== null ? steps[stepIndex] : undefined;
+
+  return (
+    <AbsoluteFill style={{ background: C.bg }}>
+      <Sequence durationInFrames={timeline.titleFrames}>
+        <TitleCard capture={capture} total={timeline.titleFrames} />
+      </Sequence>
+      {timeline.segments.map((s) => (
+        <Sequence key={`${s.fromFrame}`} from={s.fromFrame} durationInFrames={s.frames}>
+          <div style={{ position: "absolute", left: 0, top: 0, width: w, height: h, overflow: "hidden" }}>
+            {s.still ? (
+              <Img src={staticFile(s.still)} style={{ width: w, height: h }} />
+            ) : (
+              <OffthreadVideo
+                src={staticFile("video.webm")}
+                trimBefore={Math.round((s.srcStartMs * FPS) / 1000)}
+                playbackRate={s.speed}
+                muted
+                style={{ width: w, height: h }}
+              />
+            )}
+          </div>
+        </Sequence>
+      ))}
+      {inVideo ? (
+        <>
+          <Cursor state={cursorAt(timeline, steps, capture.viewport, frame)} />
+          {segment && segment.speed > 1 ? <SpeedBadge speed={segment.speed} right={24} /> : null}
+          <CaptionBand top={h} width={w} caption={step?.caption ?? ""} position={stepIndex !== null ? `${stepIndex + 1}/${steps.length}` : ""} />
+        </>
+      ) : null}
+      <Sequence from={videoEnd} durationInFrames={timeline.endFrames}>
+        <EndCard capture={capture} total={timeline.endFrames} />
+      </Sequence>
+    </AbsoluteFill>
+  );
+};
+
+const readJson = async <T,>(name: string): Promise<T> => {
+  const response = await fetch(staticFile(name));
+  if (!response.ok) throw new Error(`The capture folder has no ${name}`);
+  return (await response.json()) as T;
+};
+
+// Everything comes from the capture folder at render time, and a capture that is not valid
+// (for example a failed walk) never renders.
+const calculateMetadata: CalculateMetadataFunction<Props> = async ({ props }) => {
+  const capture = await readJson<Capture>("capture.json");
+  const raw = await readJson<Step[]>("steps.json");
+  const problems = validateCapture(capture, raw);
+  if (problems.length) throw new Error(`Capture refused:\n- ${problems.join("\n- ")}`);
+  const steps = calibrate(raw, props.calibrationMs ?? capture.calibrationMs ?? 0);
+  const timeline = buildTimeline(steps);
+  return {
+    durationInFrames: timeline.durationInFrames,
+    fps: FPS,
+    width: capture.viewport.w,
+    height: capture.viewport.h + CAPTION_BAND,
+    props: { capture, steps, timeline },
+  };
+};
+
+const Root: React.FC = () => (
+  <Composition
+    id="WalkthroughVideo"
+    component={WalkthroughVideo}
+    durationInFrames={FPS}
+    fps={FPS}
+    width={1440}
+    height={900 + CAPTION_BAND}
+    defaultProps={{ capture: null, steps: [], timeline: null } as Props}
+    calculateMetadata={calculateMetadata}
+  />
+);
+
+registerRoot(Root);
