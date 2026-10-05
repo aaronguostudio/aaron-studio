@@ -4,6 +4,8 @@ import {
   MAX_SPEED,
   READ_MAX_MS,
   READ_MIN_MS,
+  TITLE_MS,
+  END_MS,
   buildTimeline,
   calibrate,
   chapters,
@@ -152,5 +154,21 @@ describe("reading time", () => {
     expect(hold.frames + play.frames).toBe(5 * FPS);
     const [still] = buildTimeline(steps.slice(2), { minStepMs: () => 4000 }).segments;
     expect(still).toMatchObject({ still: "shots/03-done.png", frames: 4 * FPS });
+  });
+});
+
+describe("cards", () => {
+  const raw = { minStepMs: () => 0 };
+
+  test("an opening and a closing line lengthen the title and end cards, never shorten them", () => {
+    const long = buildTimeline(steps, { ...raw, titleMs: 6000, endMs: 4000 });
+    expect(long.titleFrames).toBe(6 * FPS);
+    expect(long.endFrames).toBe(4 * FPS);
+    expect(long.segments[0].fromFrame).toBe(6 * FPS);
+    expect(chapters(long, steps).split("\n")[0]).toBe("0:06  Open the form");
+
+    const short = buildTimeline(steps, { ...raw, titleMs: 1000, endMs: 1000 });
+    expect(short.titleFrames).toBe((TITLE_MS / 1000) * FPS);
+    expect(short.endFrames).toBe((END_MS / 1000) * FPS);
   });
 });

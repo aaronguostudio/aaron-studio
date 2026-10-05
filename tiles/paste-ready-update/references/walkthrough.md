@@ -37,7 +37,24 @@ npx -y bun "$SKILL/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts"
 
 - It writes `walkthrough.mp4` and `chapters.txt` into the run folder.
 - It refuses a capture that did not pass.
-- Add `--narrate` only when the user asks for a voice-over. It speaks each step in the user's own cloned voice (ElevenLabs), costs API credits, and labels the video "AI narration". Its key setup is in `aaron-video-gen/references/walkthrough-capture.md`.
+- Add a voice-over only when the user asks for one. It speaks in the user's own cloned voice (ElevenLabs), costs API credits, and labels the video "AI narration". Its key setup is in `aaron-video-gen/references/walkthrough-capture.md`. Two styles:
+  - **Concise** (`--narrate`): the voice reads the captions. Short and official.
+  - **Conversational** (`--script <run>/narration.conversational.json`): it sounds like a person giving the demo. Write the script as below, show it to the user, and render only after they approve it.
+
+### Writing a conversational script
+
+The format is in `aaron-video-gen/references/walkthrough-capture.md` (Narration). Write it the way the user would talk while sharing their screen with this reader:
+
+- **Open with who and what, in one line:** "Hi Sam, here's the new order screen, start to finish."
+- **Say why, and point at the screen:** "Notice the address is already filled in, so there's nothing to type here." Explain what a step achieves, not only which button it is.
+- **Tie the steps together:** "Now that the order is saved, let's open it." Use first person and "let's".
+- **Group quick clicks:** give one line to a run of small steps and leave the rest silent. A person never narrates every click.
+- **Keep each line to one or two sentences, about 30 words at most.** A step stays on screen until its line ends, so long lines make a long video.
+- **Waits are a chance to explain:** a fast-forwarded wait can carry a slightly longer line about what the system is doing.
+- **Say only what the screen shows or the update says.** No numbers or claims the reader cannot see, and no names the message itself would not use.
+- **Close with the result and an offer:** "And that's the order shipped, with nothing left to do. Happy to walk through it live."
+
+Check every step id against `steps.json`; the renderer refuses an unknown one.
 - If the renderer is not there (this skill was installed on its own), skip the video and say so. The screenshots still work.
 
 ## 4. Put it in the message

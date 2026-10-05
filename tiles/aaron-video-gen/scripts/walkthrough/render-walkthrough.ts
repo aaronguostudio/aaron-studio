@@ -9,7 +9,19 @@
 import { execFileSync, spawnSync } from "child_process";
 import { existsSync, readFileSync, realpathSync, writeFileSync } from "fs";
 import { dirname, join, resolve, sep } from "path";
-import { elevenLabs, loadApiKey, loadVoiceProfile, narrate, stepMinMs, type NarrationClip } from "./narration";
+import {
+  cardMinMs,
+  elevenLabs,
+  loadApiKey,
+  loadScript,
+  loadVoiceProfile,
+  narrate,
+  stepMinMs,
+  WALKTHROUGH_SPEED,
+  withSpeed,
+  type NarrationClip,
+  type NarrationScript,
+} from "./narration";
 import {
   buildTimeline,
   calibrate,
@@ -63,8 +75,10 @@ export type Prepared = {
   calibrationMs: number;
   calibrationSource: "argument" | "capture.json" | "sync flash" | "none";
   steps: Step[];
-  stepMinMs?: number[];
-};
+} & Timing;
+
+// The least times narration asks for: per step, and for the title and end cards.
+export type Timing = { stepMinMs?: number[]; titleMs?: number; endMs?: number };
 
 // The capture clock and the recording's first frame drift apart by a few hundred ms (the
 // screencast starts after the page does). A capture can mark the moment its page turned from
@@ -98,7 +112,7 @@ export function prepare(
   outArg?: string,
   roots = repoRoots(),
   calibrationArg?: number,
-  stepMinMs?: number[],
+  timing: Timing = {},
 ): Prepared {
   const run = resolve(runArg);
   const out = resolve(outArg ?? join(run, "walkthrough.mp4"));
@@ -123,7 +137,12 @@ export function prepare(
     if (detected !== null) [calibrationMs, calibrationSource] = [detected, "sync flash"];
   }
   const steps = calibrate(raw, calibrationMs);
-  const timeline = buildTimeline(steps, stepMinMs ? { minStepMs: (_s, i) => stepMinMs[i] ?? 0 } : {});
+  const { stepMinMs: mins, titleMs, endMs } = timing;
+  const timeline = buildTimeline(steps, {
+    ...(mins ? { minStepMs: (_s: Step, i: number) => mins[i] ?? 0 } : {}),
+    titleMs,
+    endMs,
+  });
   return {
     run,
     out,
@@ -133,8 +152,17 @@ export function prepare(
     calibrationMs,
     calibrationSource,
     steps,
-    stepMinMs,
+    ...timing,
   };
+}
+
+// A conversational script names the run's people and work, so it stays with the run, never here.
+export function readScript(path: string, steps: Step[], roots = repoRoots()): NarrationScript {
+  const full = resolve(path);
+  if (insideAny(full, roots)) {
+    throw new RenderRefusal(`The script ${full} is inside this repo. Keep it in the run folder.`);
+  }
+  return loadScript(full, steps);
 }
 
 export type Args = {
@@ -144,11 +172,17 @@ export type Args = {
   calibrationMs?: number;
   narrate: boolean;
   voiceProfile?: string;
+  script?: string;
+  speed?: number;
 };
 
 export function parseArgs(argv: string[]): Args {
   const valueOf = (flag: string) => (argv.indexOf(flag) >= 0 ? argv[argv.indexOf(flag) + 1] : undefined);
-  const taken = new Set(["--out", "--calibration-ms", "--voice-profile"].map((f) => argv.indexOf(f) + 1).filter((i) => i > 0));
+  const taken = new Set(
+    ["--out", "--calibration-ms", "--voice-profile", "--script", "--speed"]
+      .map((f) => argv.indexOf(f) + 1)
+      .filter((i) => i > 0),
+  );
   const run = argv.find((a, i) => !a.startsWith("--") && !taken.has(i));
   const calibration = valueOf("--calibration-ms");
   return {
@@ -156,16 +190,18 @@ export function parseArgs(argv: string[]): Args {
     out: valueOf("--out"),
     dryRun: argv.includes("--dry-run"),
     calibrationMs: calibration === undefined ? undefined : Number(calibration),
-    narrate: argv.includes("--narrate"),
+    narrate: argv.includes("--narrate") || valueOf("--script") !== undefined,
     voiceProfile: valueOf("--voice-profile"),
+    script: valueOf("--script"),
+    speed: valueOf("--speed") === undefined ? undefined : Number(valueOf("--speed")),
   };
 }
 
 async function main(argv: string[]): Promise<number> {
-  const { run, out, dryRun, calibrationMs, narrate: withVoice, voiceProfile } = parseArgs(argv);
+  const { run, out, dryRun, calibrationMs, narrate: withVoice, voiceProfile, script: scriptArg, speed } = parseArgs(argv);
   if (!run || (calibrationMs !== undefined && !Number.isFinite(calibrationMs))) {
     console.error(
-      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate [--voice-profile <id>]] [--calibration-ms <n>] [--dry-run]",
+      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--calibration-ms <n>] [--dry-run]",
     );
     return 2;
   }
@@ -182,12 +218,25 @@ async function main(argv: string[]): Promise<number> {
   }
   let clips: NarrationClip[] = [];
   if (withVoice) {
-    const profile = loadVoiceProfile(voiceProfile);
+    let script: NarrationScript | undefined;
+    let profile: ReturnType<typeof loadVoiceProfile>;
+    try {
+      // Read before any voice is made, so a bad script or speed costs nothing.
+      script = scriptArg ? readScript(scriptArg, prepared.steps, roots) : undefined;
+      profile = withSpeed(loadVoiceProfile(voiceProfile), speed ?? WALKTHROUGH_SPEED);
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+      return 3;
+    }
     const key = loadApiKey(roots.map((root) => join(root, ".env")));
-    clips = await narrate(prepared.run, prepared.steps, profile, elevenLabs(key));
+    clips = await narrate(prepared.run, prepared.steps, profile, elevenLabs(key), undefined, script);
     const source = prepared.calibrationSource;
-    prepared = { ...prepare(run, out, roots, prepared.calibrationMs, stepMinMs(prepared.steps, clips)), calibrationSource: source };
-    console.log(`voice:    ${profile.name}, ${clips.length} clips in ${join(prepared.run, "narration")}`);
+    const timing = { stepMinMs: stepMinMs(prepared.steps, clips), ...cardMinMs(clips) };
+    prepared = { ...prepare(run, out, roots, prepared.calibrationMs, timing), calibrationSource: source };
+    const style = script ? `conversational script ${resolve(scriptArg!)}` : "captions";
+    console.log(
+      `voice:    ${profile.name} at ${profile.voice_settings.speed}×, ${clips.length} clips (${style}) in ${join(prepared.run, "narration")}`,
+    );
   }
   writeFileSync(prepared.chaptersPath, prepared.chaptersText);
   console.log(`chapters: ${prepared.chaptersPath}`);
@@ -203,7 +252,13 @@ async function main(argv: string[]): Promise<number> {
       "WalkthroughVideo",
       prepared.out,
       `--public-dir=${prepared.run}`,
-      `--props=${JSON.stringify({ calibrationMs: prepared.calibrationMs, stepMinMs: prepared.stepMinMs, narration: clips })}`,
+      `--props=${JSON.stringify({
+        calibrationMs: prepared.calibrationMs,
+        stepMinMs: prepared.stepMinMs,
+        titleMs: prepared.titleMs,
+        endMs: prepared.endMs,
+        narration: clips,
+      })}`,
       "--codec=h264",
       "--crf=20",
       "--pixel-format=yuv420p",

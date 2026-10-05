@@ -66,6 +66,10 @@ export type TimelineOptions = {
   // The least time each step stays on screen, in output ms. Defaults to the time it takes to read
   // the caption; narration passes the length of the step's voice clip instead.
   minStepMs?: (step: Step, index: number) => number;
+  // The least time the title and end cards stay up, for an opening or closing narration line.
+  // Never shorter than TITLE_MS and END_MS.
+  titleMs?: number;
+  endMs?: number;
 };
 
 // Time to notice a caption and read it, as subtitles are timed: 0.8 s to notice it, then about
@@ -184,7 +188,7 @@ export function buildTimeline(steps: Step[], options: TimelineOptions = {}): Tim
   });
 
   // Frame positions come from cumulative milliseconds, so rounding never drifts.
-  const titleFrames = msToFrames(TITLE_MS);
+  const titleFrames = msToFrames(Math.max(TITLE_MS, options.titleMs ?? 0));
   let outMs = 0;
   const segments: Segment[] = [];
   for (const piece of pieces) {
@@ -196,7 +200,7 @@ export function buildTimeline(steps: Step[], options: TimelineOptions = {}): Tim
     segments.push({ ...segment, fromFrame, frames });
   }
   const videoFrames = msToFrames(outMs);
-  const endFrames = msToFrames(END_MS);
+  const endFrames = msToFrames(Math.max(END_MS, options.endMs ?? 0));
   return { fps: FPS, titleFrames, endFrames, videoFrames, durationInFrames: titleFrames + videoFrames + endFrames, segments };
 }
 

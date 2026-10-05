@@ -15,7 +15,7 @@ Any tool that drives an app can produce the folder. This side never knows which 
 ## Render
 
 ```bash
-npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate [--voice-profile <id>]] [--dry-run]
+npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--dry-run]
 ```
 
 - It validates the folder first and refuses a capture whose `status` is not `passed`. A failed walk gets no video.
@@ -30,13 +30,33 @@ Every step stays on screen long enough to read its caption: `readingMs = 800 + 5
 
 - A short action step holds its first frame until the caption has been up that long, then plays.
 - A wait is fast-forwarded, but never so fast that it ends before its caption is read.
-- A narrated step stays up for its clip plus 0.4 s, if that is longer.
+- A narration line and a 0.4 s pause must fit in its step plus the silent steps after it. The voice plays on while those steps are clicked through, and the time is shared by their reading times. In the concise style every step has its own line, so each step simply stays up for its clip.
 
 ## Narration
 
-`--narrate` speaks each step's `narration`, or its caption when it has none, in an ElevenLabs voice from `config/voice-profiles.json` (the default profile unless `--voice-profile` names another).
+Two styles, both in an ElevenLabs voice from `config/voice-profiles.json` (the default profile unless `--voice-profile` names another):
 
-- The clips are cached in `<run>/narration/NN-<hash>.mp3`, keyed by voice, settings and text. A re-render calls the API only for steps whose words changed.
+- **Concise** (`--narrate`): each step's `narration`, or its caption when it has none. Short and official.
+- **Conversational** (`--script <file>`, which implies `--narrate`): a script written for the run, so the video sounds like a person giving the demo. The captions on screen stay the short step titles.
+
+```json
+{
+  "intro": "Hi, here's a quick tour of the new form.",
+  "steps": {
+    "open": "Let's start by opening the form. Notice it already knows who you are.",
+    "save": "I'll save it now. This takes a few seconds, so I've sped it up."
+  },
+  "outro": "That's all it takes. Happy to walk through it live."
+}
+```
+
+- `intro` plays over the title card and `outro` over the end card. The cards stay up as long as their line.
+- `steps` maps step ids to lines. A step without a line stays silent, so one line can cover several quick clicks.
+- A line for a step id the capture does not have is refused, before any voice is made.
+- The script is run material: keep it in the run folder (`narration.conversational.json`). One inside this repo is refused.
+
+- Walkthroughs speak at 1.15× by default, a little faster than the profile's long-form pace. `--speed` sets another speed from 0.7 to 1.2 (ElevenLabs' own setting, so the voice is not pitch-shifted). The profile itself is unchanged.
+- The clips are cached in `<run>/narration/`, keyed by voice, settings (speed included) and text. A re-render calls the API only for lines whose words or voice settings changed.
 - The key comes from the macOS Keychain (`security add-generic-password -s elevenlabs-api-key -a "$USER" -w`), else from `ELEVENLABS_API_KEY` in this repo's gitignored `.env`. It is never printed.
 - The title card and the caption band say "AI narration". The voice is a clone, so the video says so.
 - Narrate only when the person whose voice it is asked for it.

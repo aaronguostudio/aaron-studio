@@ -5,11 +5,15 @@ import { join } from "path";
 import { readingMs, type Step } from "../../remotion/src/projects/walkthrough-video/timeline";
 import {
   NARRATION_PAD_MS,
+  WALKTHROUGH_SPEED,
+  cardMinMs,
   loadApiKey,
+  loadScript,
   loadVoiceProfile,
   narrate,
   narrationText,
   stepMinMs,
+  withSpeed,
   type VoiceProfile,
 } from "./narration";
 
@@ -90,7 +94,7 @@ describe("narrate", () => {
 
     const first = await narrate(run, steps, profile, synthesize, probe);
     expect(said).toEqual(["Open the form", "Then save it."]);
-    expect(first.map((c) => [c.step, c.ms, c.text])).toEqual([
+    expect(first.map((c) => [c.at, c.ms, c.text])).toEqual([
       [0, 1500, "Open the form"],
       [1, 4200, "Then save it."],
     ]);
@@ -116,8 +120,90 @@ describe("narrate", () => {
 describe("stepMinMs", () => {
   test("a step stays up for its reading time or its clip and a pause, whichever is longer", () => {
     const steps = [step("Open the form"), step("Save it")];
-    const clips = [{ step: 1, file: "narration/02-x.mp3", ms: 5000, text: "Save it" }];
+    const clips = [{ at: 1, file: "narration/02-x.mp3", ms: 5000, text: "Save it" }];
     expect(stepMinMs(steps, clips)).toEqual([readingMs("Open the form"), 5000 + NARRATION_PAD_MS]);
     expect(stepMinMs(steps)).toEqual([readingMs("Open the form"), readingMs("Save it")]);
+  });
+});
+
+describe("conversational script", () => {
+  const steps = [step("Open the form", { id: "open" }), step("Save it", { id: "save" }), step("Saved", { id: "done" })];
+  const write = (body: unknown) => {
+    const path = join(tmp(), "script.json");
+    writeFileSync(path, JSON.stringify(body));
+    return path;
+  };
+
+  test("reads an opening line, lines by step id and a closing line; a blank line is silence", () => {
+    const script = loadScript(
+      write({ intro: "  Hi, a quick tour.  ", steps: { open: "Let's open the form.", save: "  " }, outro: "That's it." }),
+      steps,
+    );
+    expect(script).toEqual({ intro: "Hi, a quick tour.", steps: { open: "Let's open the form." }, outro: "That's it." });
+  });
+
+  test("refuses a line for a step the capture does not have, and a script that is not one", () => {
+    expect(() => loadScript(write({ steps: { open: "x", nope: "y", gone: "z" } }), steps)).toThrow(
+      /no step "nope", "gone"/,
+    );
+    expect(() => loadScript(write({ steps: ["x"] }), steps)).toThrow(/steps must map step ids to lines/);
+    expect(() => loadScript(write({ intro: 3, steps: {} }), steps)).toThrow(/intro must be text/);
+  });
+
+  test("speaks the script instead of the captions: steps without a line stay silent", async () => {
+    const run = tmp();
+    const said: string[] = [];
+    const synthesize = async (text: string) => {
+      said.push(text);
+      return new TextEncoder().encode(text);
+    };
+    const probe = (path: string) => (path.includes("intro") ? 3000 : path.includes("outro") ? 2500 : 4000);
+    const clips = await narrate(run, steps, profile, synthesize, probe, {
+      intro: "Hi, a quick tour.",
+      steps: { save: "Now we save it, and it takes a moment." },
+      outro: "That's it.",
+    });
+    expect(said).toEqual(["Hi, a quick tour.", "Now we save it, and it takes a moment.", "That's it."]);
+    expect(clips.map((c) => [c.at, c.ms])).toEqual([
+      ["intro", 3000],
+      [1, 4000],
+      ["outro", 2500],
+    ]);
+    expect(clips[0].file).toMatch(/^narration\/intro-[0-9a-f]{12}\.mp3$/);
+    expect(clips[2].file).toMatch(/^narration\/outro-[0-9a-f]{12}\.mp3$/);
+    // "Saved" has no line, so the save line's 4.4 s is shared by "Save it" and "Saved".
+    expect(stepMinMs(steps, clips)).toEqual([readingMs("Open the form"), 2200, 2200]);
+    expect(cardMinMs(clips)).toEqual({ titleMs: 3000 + NARRATION_PAD_MS, endMs: 2500 + NARRATION_PAD_MS });
+    expect(cardMinMs([])).toEqual({ titleMs: 0, endMs: 0 });
+  });
+
+  test("a line plays on over the silent steps after it: its time is shared, so the clicks happen as it is said", () => {
+    const three = [step("Open the form", { id: "a" }), step("Save it", { id: "b" }), step("Saved", { id: "c" })];
+    // Each caption reads in 2 s; the line and its pause take 9 s, shared evenly by reading time.
+    const clip = { at: 0, file: "narration/01-x.mp3", ms: 9000 - NARRATION_PAD_MS, text: "x" };
+    expect(stepMinMs(three, [clip])).toEqual([3000, 3000, 3000]);
+    // A later line starts its own group.
+    const next = { at: 2, file: "narration/03-x.mp3", ms: 1000, text: "y" };
+    expect(stepMinMs(three, [{ ...clip, ms: 6000 - NARRATION_PAD_MS }, next])).toEqual([3000, 3000, 2000]);
+    // Silent steps before the first line only need their reading time.
+    expect(stepMinMs(three, [{ ...clip, at: 1, ms: 6000 - NARRATION_PAD_MS }])).toEqual([2000, 3000, 3000]);
+  });
+});
+
+describe("speaking speed", () => {
+  test("walkthroughs speak a little faster than the profile, and any speed ElevenLabs takes can be asked for", () => {
+    expect(WALKTHROUGH_SPEED).toBe(1.15);
+    expect(withSpeed(profile, 1.15).voice_settings).toEqual({ stability: 0.5, speed: 1.15 });
+    expect(profile.voice_settings).toEqual({ stability: 0.5 });
+    expect(() => withSpeed(profile, 1.3)).toThrow(/between 0.7 and 1.2/);
+    expect(() => withSpeed(profile, Number.NaN)).toThrow(/between 0.7 and 1.2/);
+  });
+
+  test("another speed makes new clips", async () => {
+    const run = tmp();
+    const synthesize = async (text: string) => new TextEncoder().encode(text);
+    const [a] = await narrate(run, [step("Open the form")], withSpeed(profile, 1.0), synthesize, () => 1000);
+    const [b] = await narrate(run, [step("Open the form")], withSpeed(profile, 1.1), synthesize, () => 1000);
+    expect(a.file).not.toBe(b.file);
   });
 });

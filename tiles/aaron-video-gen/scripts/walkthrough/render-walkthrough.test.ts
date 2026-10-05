@@ -2,7 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { mkdtempSync, mkdirSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { join, resolve } from "path";
-import { RenderRefusal, detectSyncOffset, insideAny, parseArgs, prepare, repoRoots } from "./render-walkthrough";
+import { RenderRefusal, detectSyncOffset, insideAny, parseArgs, prepare, readScript, repoRoots } from "./render-walkthrough";
 import { SKEW_MS, fixtureSteps, makeFixture } from "./make-fixture";
 
 function captureFolder(overrides: Record<string, unknown> = {}): string {
@@ -55,6 +55,36 @@ describe("parseArgs", () => {
     expect(parseArgs(["/run", "--out", "/x.mp4"])).toMatchObject({ run: "/run", out: "/x.mp4", dryRun: false });
     expect(parseArgs(["--out", "/x.mp4", "/run", "--dry-run"])).toMatchObject({ run: "/run", out: "/x.mp4", dryRun: true });
     expect(parseArgs(["--calibration-ms", "-250", "/run"])).toMatchObject({ run: "/run", calibrationMs: -250 });
+  });
+});
+
+describe("conversational script", () => {
+  test("--script takes a path and implies --narrate", () => {
+    expect(parseArgs(["/run", "--script", "/s.json"])).toMatchObject({ run: "/run", script: "/s.json", narrate: true });
+    expect(parseArgs(["--script", "/s.json", "/run"])).toMatchObject({ run: "/run", narrate: true });
+    expect(parseArgs(["/run"])).toMatchObject({ script: undefined, narrate: false });
+  });
+
+  test("--speed takes a number, and is left to the default otherwise", () => {
+    expect(parseArgs(["/run", "--narrate", "--speed", "1.15"])).toMatchObject({ run: "/run", speed: 1.15 });
+    expect(parseArgs(["--speed", "0.9", "/run"])).toMatchObject({ run: "/run", speed: 0.9 });
+    expect(parseArgs(["/run"]).speed).toBeUndefined();
+  });
+
+  test("a script inside this repo is refused: it is run material", () => {
+    const roots = repoRoots();
+    const inRepo = join(roots[roots.length - 1], "tiles", "x", "script.json");
+    expect(() => readScript(inRepo, fixtureSteps, roots)).toThrow(RenderRefusal);
+    const outside = join(captureFolder(), "narration.conversational.json");
+    writeFileSync(outside, JSON.stringify({ intro: "Hi.", steps: { open: "Let's open it." } }));
+    expect(readScript(outside, fixtureSteps, roots)).toEqual({ intro: "Hi.", steps: { open: "Let's open it." } });
+  });
+
+  test("an opening line lengthens the title card, and the chapters follow", () => {
+    const run = captureFolder();
+    expect(prepare(run, undefined, repoRoots(), undefined, { titleMs: 6000 }).chaptersText.split("\n")[0]).toBe(
+      "0:06  Open the form",
+    );
   });
 });
 

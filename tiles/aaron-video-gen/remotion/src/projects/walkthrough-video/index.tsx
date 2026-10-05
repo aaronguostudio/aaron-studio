@@ -45,8 +45,9 @@ const C = {
   sans: "-apple-system, 'Helvetica Neue', Arial, sans-serif",
 };
 
-// One voice clip per step, a file in the capture folder (written by the render CLI).
-type Clip = { step: number; file: string; ms: number };
+// A voice clip in the capture folder (written by the render CLI): over a step, or over the title
+// or end card.
+type Clip = { at: number | "intro" | "outro"; file: string; ms: number };
 
 // calibrationMs comes from the render CLI, which measured it from the capture's sync flash;
 // stepMinMs and narration come from it too when the walkthrough is narrated.
@@ -56,6 +57,8 @@ type Props = {
   timeline: Timeline | null;
   calibrationMs?: number;
   stepMinMs?: number[];
+  titleMs?: number;
+  endMs?: number;
   narration?: Clip[];
 };
 
@@ -210,13 +213,19 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, na
         </Sequence>
       ))}
       {narration.map((clip) => {
-        // Each clip starts with its step's first segment, which lasts at least as long as the clip.
-        const first = timeline.segments.find((s) => s.step === clip.step);
-        return first ? (
-          <Sequence key={clip.file} from={first.fromFrame}>
+        // A step's clip starts with its first segment, a card's with the card; each lasts at least
+        // as long as its clip.
+        const from =
+          clip.at === "intro"
+            ? 0
+            : clip.at === "outro"
+              ? videoEnd
+              : timeline.segments.find((s) => s.step === clip.at)?.fromFrame;
+        return from === undefined ? null : (
+          <Sequence key={clip.file} from={from}>
             <Audio src={staticFile(clip.file)} />
           </Sequence>
-        ) : null;
+        );
       })}
       {inVideo ? (
         <>
@@ -254,6 +263,8 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({ props }) =>
   const steps = calibrate(raw, props.calibrationMs ?? capture.calibrationMs ?? 0);
   const timeline = buildTimeline(steps, {
     minStepMs: (step, i) => props.stepMinMs?.[i] ?? readingMs(step.caption),
+    titleMs: props.titleMs,
+    endMs: props.endMs,
   });
   return {
     durationInFrames: timeline.durationInFrames,
