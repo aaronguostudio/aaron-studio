@@ -1,14 +1,17 @@
-// WalkthroughVideo: turns a capture folder (a screen recording plus steps.json) into a silent,
-// captioned walkthrough with a drawn cursor and fast-forwarded waits.
+// WalkthroughVideo: turns a capture folder (a screen recording plus steps.json) into a captioned
+// walkthrough with a drawn cursor and fast-forwarded waits, silent or with one AI-narrated clip per step.
 //
 // Render with the folder as the public dir, so the composition never sees a path:
 //   npx remotion render src/projects/walkthrough-video/index.tsx WalkthroughVideo <run>/walkthrough.mp4 \
 //     --public-dir=<run> --codec=h264 --muted
-// Prefer ../../../scripts/walkthrough/render-walkthrough.ts, which validates first and writes chapters.txt.
+// Prefer ../../../scripts/walkthrough/render-walkthrough.ts, which validates first, writes chapters.txt
+// and, with --narrate, makes the voice clips and passes them in as props.
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   Composition,
+  Freeze,
   Img,
   OffthreadVideo,
   Sequence,
@@ -24,6 +27,7 @@ import {
   buildTimeline,
   calibrate,
   cursorAt,
+  readingMs,
   stepAtFrame,
   validateCapture,
   type Capture,
@@ -41,8 +45,19 @@ const C = {
   sans: "-apple-system, 'Helvetica Neue', Arial, sans-serif",
 };
 
-// calibrationMs comes from the render CLI, which measured it from the capture's sync flash.
-type Props = { capture: Capture | null; steps: Step[]; timeline: Timeline | null; calibrationMs?: number };
+// One voice clip per step, a file in the capture folder (written by the render CLI).
+type Clip = { step: number; file: string; ms: number };
+
+// calibrationMs comes from the render CLI, which measured it from the capture's sync flash;
+// stepMinMs and narration come from it too when the walkthrough is narrated.
+type Props = {
+  capture: Capture | null;
+  steps: Step[];
+  timeline: Timeline | null;
+  calibrationMs?: number;
+  stepMinMs?: number[];
+  narration?: Clip[];
+};
 
 const fade = (frame: number, total: number) =>
   interpolate(frame, [0, 10, total - 10, total], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -56,12 +71,12 @@ const Card: React.FC<{ total: number; children: React.ReactNode }> = ({ total, c
   );
 };
 
-const TitleCard: React.FC<{ capture: Capture; total: number }> = ({ capture, total }) => (
+const TitleCard: React.FC<{ capture: Capture; total: number; narrated: boolean }> = ({ capture, total, narrated }) => (
   <Card total={total}>
     <div style={{ color: C.ink, fontSize: 64, fontWeight: 650, lineHeight: 1.15 }}>{capture.title}</div>
     {capture.subtitle ? <div style={{ color: C.muted, fontSize: 30, marginTop: 22 }}>{capture.subtitle}</div> : null}
     <div style={{ color: C.muted, fontSize: 20, marginTop: 40, letterSpacing: 1 }}>
-      Recorded {capture.startedAt.slice(0, 10)} · no audio
+      Recorded {capture.startedAt.slice(0, 10)} · {narrated ? "AI narration" : "no audio"}
     </div>
   </Card>
 );
@@ -101,7 +116,13 @@ const Cursor: React.FC<{ state: CursorState }> = ({ state }) => {
   );
 };
 
-const CaptionBand: React.FC<{ top: number; width: number; caption: string; position: string }> = ({ top, width, caption, position }) => (
+const CaptionBand: React.FC<{ top: number; width: number; caption: string; position: string; narrated: boolean }> = ({
+  top,
+  width,
+  caption,
+  position,
+  narrated,
+}) => (
   <div
     style={{
       position: "absolute",
@@ -119,7 +140,8 @@ const CaptionBand: React.FC<{ top: number; width: number; caption: string; posit
     }}
   >
     <div style={{ color: C.muted, fontSize: 22, minWidth: 64, fontVariantNumeric: "tabular-nums" }}>{position}</div>
-    <div style={{ color: C.ink, fontSize: 34, lineHeight: 1.2 }}>{caption}</div>
+    <div style={{ color: C.ink, fontSize: 34, lineHeight: 1.2, flex: 1 }}>{caption}</div>
+    {narrated ? <div style={{ color: C.muted, fontSize: 18, letterSpacing: 1, whiteSpace: "nowrap" }}>AI narration</div> : null}
   </div>
 );
 
@@ -142,7 +164,7 @@ const SpeedBadge: React.FC<{ speed: number; right: number }> = ({ speed, right }
   </div>
 );
 
-export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline }) => {
+export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, narration = [] }) => {
   const frame = useCurrentFrame();
   if (!capture || !timeline) return <AbsoluteFill style={{ background: C.bg }} />;
   const { w, h } = capture.viewport;
@@ -153,17 +175,28 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline }) 
   const stepIndex =
     segment?.step ?? timeline.segments.find((s) => s.fromFrame >= (segment?.fromFrame ?? 0) && s.step !== null)?.step ?? null;
   const step = stepIndex !== null ? steps[stepIndex] : undefined;
+  const narrated = narration.length > 0;
 
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Sequence durationInFrames={timeline.titleFrames}>
-        <TitleCard capture={capture} total={timeline.titleFrames} />
+        <TitleCard capture={capture} total={timeline.titleFrames} narrated={narrated} />
       </Sequence>
       {timeline.segments.map((s) => (
         <Sequence key={`${s.fromFrame}`} from={s.fromFrame} durationInFrames={s.frames}>
           <div style={{ position: "absolute", left: 0, top: 0, width: w, height: h, overflow: "hidden" }}>
             {s.still ? (
               <Img src={staticFile(s.still)} style={{ width: w, height: h }} />
+            ) : s.freeze ? (
+              // A short step held on its first frame while its caption is read.
+              <Freeze frame={0}>
+                <OffthreadVideo
+                  src={staticFile("video.webm")}
+                  trimBefore={Math.round((s.srcStartMs * FPS) / 1000)}
+                  muted
+                  style={{ width: w, height: h }}
+                />
+              </Freeze>
             ) : (
               <OffthreadVideo
                 src={staticFile("video.webm")}
@@ -176,11 +209,26 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline }) 
           </div>
         </Sequence>
       ))}
+      {narration.map((clip) => {
+        // Each clip starts with its step's first segment, which lasts at least as long as the clip.
+        const first = timeline.segments.find((s) => s.step === clip.step);
+        return first ? (
+          <Sequence key={clip.file} from={first.fromFrame}>
+            <Audio src={staticFile(clip.file)} />
+          </Sequence>
+        ) : null;
+      })}
       {inVideo ? (
         <>
           <Cursor state={cursorAt(timeline, steps, capture.viewport, frame)} />
           {segment && segment.speed > 1 ? <SpeedBadge speed={segment.speed} right={24} /> : null}
-          <CaptionBand top={h} width={w} caption={step?.caption ?? ""} position={stepIndex !== null ? `${stepIndex + 1}/${steps.length}` : ""} />
+          <CaptionBand
+            top={h}
+            width={w}
+            caption={step?.caption ?? ""}
+            position={stepIndex !== null ? `${stepIndex + 1}/${steps.length}` : ""}
+            narrated={narrated}
+          />
         </>
       ) : null}
       <Sequence from={videoEnd} durationInFrames={timeline.endFrames}>
@@ -204,13 +252,15 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({ props }) =>
   const problems = validateCapture(capture, raw);
   if (problems.length) throw new Error(`Capture refused:\n- ${problems.join("\n- ")}`);
   const steps = calibrate(raw, props.calibrationMs ?? capture.calibrationMs ?? 0);
-  const timeline = buildTimeline(steps);
+  const timeline = buildTimeline(steps, {
+    minStepMs: (step, i) => props.stepMinMs?.[i] ?? readingMs(step.caption),
+  });
   return {
     durationInFrames: timeline.durationInFrames,
     fps: FPS,
     width: capture.viewport.w,
     height: capture.viewport.h + CAPTION_BAND,
-    props: { capture, steps, timeline },
+    props: { capture, steps, timeline, narration: props.narration ?? [] },
   };
 };
 
@@ -222,7 +272,7 @@ const Root: React.FC = () => (
     fps={FPS}
     width={1440}
     height={900 + CAPTION_BAND}
-    defaultProps={{ capture: null, steps: [], timeline: null } as Props}
+    defaultProps={{ capture: null, steps: [], timeline: null, narration: [] } as Props}
     calculateMetadata={calculateMetadata}
   />
 );

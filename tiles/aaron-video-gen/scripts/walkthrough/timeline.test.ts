@@ -2,11 +2,14 @@ import { describe, expect, test } from "bun:test";
 import {
   FPS,
   MAX_SPEED,
+  READ_MAX_MS,
+  READ_MIN_MS,
   buildTimeline,
   calibrate,
   chapters,
   cursorAt,
   sourceMsToFrame,
+  readingMs,
   speedFor,
   validateCapture,
   type Capture,
@@ -52,8 +55,10 @@ describe("validateCapture", () => {
   });
 });
 
+const raw = { minStepMs: () => 0 };
+
 describe("buildTimeline", () => {
-  const timeline = buildTimeline(steps);
+  const timeline = buildTimeline(steps, raw);
 
   test("fast-forwards waits and long gaps, plays actions at normal speed", () => {
     expect(speedFor(16000, true)).toBe(8);
@@ -90,7 +95,7 @@ describe("buildTimeline", () => {
 });
 
 describe("mapping and chapters", () => {
-  const timeline = buildTimeline(steps);
+  const timeline = buildTimeline(steps, raw);
 
   test("a recorded moment maps to the output frame, through fast-forward", () => {
     expect(sourceMsToFrame(timeline, 2500)).toBe(timeline.titleFrames + Math.round(1.5 * FPS));
@@ -109,5 +114,43 @@ describe("mapping and chapters", () => {
     const at = cursorAt(timeline, steps, capture.viewport, clickFrame);
     expect(at).toMatchObject({ x: 100, y: 200, ripple: 0 });
     expect(cursorAt(timeline, steps, capture.viewport, 0).visible).toBe(false);
+  });
+});
+
+describe("reading time", () => {
+  test("a caption stays up long enough to read, within bounds", () => {
+    expect(readingMs("Open the form")).toBe(READ_MIN_MS);
+    expect(readingMs("Make the sweep a transfer to the sweep account")).toBe(800 + 55 * 46);
+    expect(readingMs(Array(40).fill("word").join(" "))).toBe(READ_MAX_MS);
+  });
+
+  test("a short action holds its first frame before the action plays", () => {
+    const quick: Step[] = [
+      { id: "open", caption: "Open the form", kind: "action", startMs: 1000, endMs: 1600, clicks: [{ tMs: 1400, x: 1, y: 1 }], shot: null },
+    ];
+    const timeline = buildTimeline(quick);
+    const [hold, play] = timeline.segments;
+    expect(hold).toMatchObject({ srcStartMs: 1000, srcEndMs: 1000, freeze: true, step: 0 });
+    expect(play).toMatchObject({ srcStartMs: 1000, srcEndMs: 1600, speed: 1, step: 0 });
+    expect(hold.frames + play.frames).toBe(Math.round((READ_MIN_MS * FPS) / 1000));
+    // The click lands after the hold, so the reader sees the caption first.
+    expect(sourceMsToFrame(timeline, 1400)).toBe(play.fromFrame + Math.round(0.4 * FPS));
+  });
+
+  test("a wait is fast-forwarded no faster than its caption can be read", () => {
+    const wait: Step[] = [
+      { id: "w", caption: "Wait while the statement is read, filed and matched", kind: "wait", startMs: 0, endMs: 16000, clicks: [], shot: null },
+    ];
+    const [seg] = buildTimeline(wait).segments;
+    expect(seg.speed).toBe(4); // 8x would show its caption for 2 s, under the 3.6 s it needs
+    expect(16000 / seg.speed).toBeGreaterThanOrEqual(readingMs(wait[0].caption));
+  });
+
+  test("a step's own minimum wins, for example a voice clip's length", () => {
+    const [hold, play] = buildTimeline(steps.slice(0, 1), { minStepMs: () => 5000 }).segments;
+    expect(hold.freeze).toBe(true);
+    expect(hold.frames + play.frames).toBe(5 * FPS);
+    const [still] = buildTimeline(steps.slice(2), { minStepMs: () => 4000 }).segments;
+    expect(still).toMatchObject({ still: "shots/03-done.png", frames: 4 * FPS });
   });
 });

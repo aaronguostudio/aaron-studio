@@ -9,6 +9,7 @@
 import { execFileSync, spawnSync } from "child_process";
 import { existsSync, readFileSync, realpathSync, writeFileSync } from "fs";
 import { dirname, join, resolve, sep } from "path";
+import { elevenLabs, loadApiKey, loadVoiceProfile, narrate, stepMinMs, type NarrationClip } from "./narration";
 import {
   buildTimeline,
   calibrate,
@@ -61,6 +62,8 @@ export type Prepared = {
   seconds: number;
   calibrationMs: number;
   calibrationSource: "argument" | "capture.json" | "sync flash" | "none";
+  steps: Step[];
+  stepMinMs?: number[];
 };
 
 // The capture clock and the recording's first frame drift apart by a few hundred ms (the
@@ -90,7 +93,13 @@ export function detectSyncOffset(video: string, syncMs: number): number | null {
   return null;
 }
 
-export function prepare(runArg: string, outArg?: string, roots = repoRoots(), calibrationArg?: number): Prepared {
+export function prepare(
+  runArg: string,
+  outArg?: string,
+  roots = repoRoots(),
+  calibrationArg?: number,
+  stepMinMs?: number[],
+): Prepared {
   const run = resolve(runArg);
   const out = resolve(outArg ?? join(run, "walkthrough.mp4"));
   if (insideAny(run, roots)) throw new RenderRefusal(`The capture folder ${run} is inside this repo. Keep captures outside it.`);
@@ -114,7 +123,7 @@ export function prepare(runArg: string, outArg?: string, roots = repoRoots(), ca
     if (detected !== null) [calibrationMs, calibrationSource] = [detected, "sync flash"];
   }
   const steps = calibrate(raw, calibrationMs);
-  const timeline = buildTimeline(steps);
+  const timeline = buildTimeline(steps, stepMinMs ? { minStepMs: (_s, i) => stepMinMs[i] ?? 0 } : {});
   return {
     run,
     out,
@@ -123,32 +132,62 @@ export function prepare(runArg: string, outArg?: string, roots = repoRoots(), ca
     seconds: timeline.durationInFrames / timeline.fps,
     calibrationMs,
     calibrationSource,
+    steps,
+    stepMinMs,
   };
 }
 
-export function parseArgs(argv: string[]): { run?: string; out?: string; dryRun: boolean; calibrationMs?: number } {
+export type Args = {
+  run?: string;
+  out?: string;
+  dryRun: boolean;
+  calibrationMs?: number;
+  narrate: boolean;
+  voiceProfile?: string;
+};
+
+export function parseArgs(argv: string[]): Args {
   const valueOf = (flag: string) => (argv.indexOf(flag) >= 0 ? argv[argv.indexOf(flag) + 1] : undefined);
-  const taken = new Set(["--out", "--calibration-ms"].map((f) => argv.indexOf(f) + 1).filter((i) => i > 0));
+  const taken = new Set(["--out", "--calibration-ms", "--voice-profile"].map((f) => argv.indexOf(f) + 1).filter((i) => i > 0));
   const run = argv.find((a, i) => !a.startsWith("--") && !taken.has(i));
   const calibration = valueOf("--calibration-ms");
-  return { run, out: valueOf("--out"), dryRun: argv.includes("--dry-run"), calibrationMs: calibration === undefined ? undefined : Number(calibration) };
+  return {
+    run,
+    out: valueOf("--out"),
+    dryRun: argv.includes("--dry-run"),
+    calibrationMs: calibration === undefined ? undefined : Number(calibration),
+    narrate: argv.includes("--narrate"),
+    voiceProfile: valueOf("--voice-profile"),
+  };
 }
 
-function main(argv: string[]): number {
-  const { run, out, dryRun, calibrationMs } = parseArgs(argv);
+async function main(argv: string[]): Promise<number> {
+  const { run, out, dryRun, calibrationMs, narrate: withVoice, voiceProfile } = parseArgs(argv);
   if (!run || (calibrationMs !== undefined && !Number.isFinite(calibrationMs))) {
-    console.error("usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--calibration-ms <n>] [--dry-run]");
+    console.error(
+      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate [--voice-profile <id>]] [--calibration-ms <n>] [--dry-run]",
+    );
     return 2;
   }
+  const roots = repoRoots();
   let prepared: Prepared;
   try {
-    prepared = prepare(run, out, repoRoots(), calibrationMs);
+    prepared = prepare(run, out, roots, calibrationMs);
   } catch (error) {
     if (error instanceof RenderRefusal) {
       console.error(error.message);
       return 3;
     }
     throw error;
+  }
+  let clips: NarrationClip[] = [];
+  if (withVoice) {
+    const profile = loadVoiceProfile(voiceProfile);
+    const key = loadApiKey(roots.map((root) => join(root, ".env")));
+    clips = await narrate(prepared.run, prepared.steps, profile, elevenLabs(key));
+    const source = prepared.calibrationSource;
+    prepared = { ...prepare(run, out, roots, prepared.calibrationMs, stepMinMs(prepared.steps, clips)), calibrationSource: source };
+    console.log(`voice:    ${profile.name}, ${clips.length} clips in ${join(prepared.run, "narration")}`);
   }
   writeFileSync(prepared.chaptersPath, prepared.chaptersText);
   console.log(`chapters: ${prepared.chaptersPath}`);
@@ -157,7 +196,20 @@ function main(argv: string[]): number {
   if (dryRun) return 0;
   const result = spawnSync(
     "npx",
-    ["remotion", "render", ENTRY, "WalkthroughVideo", prepared.out, `--public-dir=${prepared.run}`, `--props=${JSON.stringify({ calibrationMs: prepared.calibrationMs })}`, "--codec=h264", "--crf=20", "--pixel-format=yuv420p", "--muted", "--log=error"],
+    [
+      "remotion",
+      "render",
+      ENTRY,
+      "WalkthroughVideo",
+      prepared.out,
+      `--public-dir=${prepared.run}`,
+      `--props=${JSON.stringify({ calibrationMs: prepared.calibrationMs, stepMinMs: prepared.stepMinMs, narration: clips })}`,
+      "--codec=h264",
+      "--crf=20",
+      "--pixel-format=yuv420p",
+      ...(clips.length ? ["--audio-codec=aac"] : ["--muted"]),
+      "--log=error",
+    ],
     { cwd: REMOTION_DIR, stdio: "inherit" },
   );
   if (result.status !== 0) {
@@ -168,4 +220,4 @@ function main(argv: string[]): number {
   return 0;
 }
 
-if (import.meta.main) process.exit(main(process.argv.slice(2)));
+if (import.meta.main) process.exit(await main(process.argv.slice(2)));

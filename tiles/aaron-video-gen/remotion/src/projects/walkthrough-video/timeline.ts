@@ -58,7 +58,24 @@ export type Segment = {
   step: number | null;
   // A still image shown instead of the recording (a result step with no recorded duration).
   still?: string;
+  // The recording held on its frame at srcStartMs, so a short step stays up long enough.
+  freeze?: boolean;
 };
+
+export type TimelineOptions = {
+  // The least time each step stays on screen, in output ms. Defaults to the time it takes to read
+  // the caption; narration passes the length of the step's voice clip instead.
+  minStepMs?: (step: Step, index: number) => number;
+};
+
+// Time to notice a caption and read it, as subtitles are timed: 0.8 s to notice it, then about
+// 18 characters a second, within bounds.
+export const READ_MIN_MS = 2000;
+export const READ_MAX_MS = 6000;
+
+export function readingMs(caption: string): number {
+  return Math.min(READ_MAX_MS, Math.max(READ_MIN_MS, Math.round(800 + 55 * caption.trim().length)));
+}
 
 export type Timeline = {
   fps: number;
@@ -131,7 +148,8 @@ export function speedFor(durationMs: number, fastForward: boolean): number {
 
 const msToFrames = (ms: number) => Math.round((ms * FPS) / 1000);
 
-export function buildTimeline(steps: Step[]): Timeline {
+export function buildTimeline(steps: Step[], options: TimelineOptions = {}): Timeline {
+  const minStepMs = options.minStepMs ?? ((step: Step) => readingMs(step.caption));
   type Piece = Omit<Segment, "fromFrame" | "frames"> & { outMs: number };
   const pieces: Piece[] = [];
   let cursor = steps[0]?.startMs ?? 0;
@@ -142,12 +160,25 @@ export function buildTimeline(steps: Step[]): Timeline {
       pieces.push({ srcStartMs: cursor, srcEndMs: step.startMs, speed, step: null, outMs: gap / speed });
     }
     const duration = step.endMs - step.startMs;
+    const minMs = Math.max(0, minStepMs(step, i));
     if (duration === 0) {
       // Nothing recorded for this step: hold its shot (the result) as a still.
-      if (step.shot) pieces.push({ srcStartMs: step.startMs, srcEndMs: step.endMs, speed: 1, step: i, still: step.shot, outMs: RESULT_HOLD_MS });
+      if (step.shot) {
+        pieces.push({ srcStartMs: step.startMs, srcEndMs: step.endMs, speed: 1, step: i, still: step.shot, outMs: Math.max(RESULT_HOLD_MS, minMs) });
+      } else if (minMs > 0) {
+        pieces.push({ srcStartMs: step.startMs, srcEndMs: step.startMs, speed: 1, step: i, freeze: true, outMs: minMs });
+      }
     } else {
-      const speed = speedFor(duration, step.kind === "wait");
-      pieces.push({ srcStartMs: step.startMs, srcEndMs: step.endMs, speed, step: i, outMs: duration / speed });
+      let speed = speedFor(duration, step.kind === "wait");
+      // Fast-forward no faster than the caption can be read.
+      if (duration / speed < minMs) speed = Math.max(1, Math.floor(duration / minMs));
+      const shown = duration / speed;
+      // Still too short at normal speed: hold the step's first frame first, so the caption is read
+      // before the action happens.
+      if (shown < minMs) {
+        pieces.push({ srcStartMs: step.startMs, srcEndMs: step.startMs, speed: 1, step: i, freeze: true, outMs: minMs - shown });
+      }
+      pieces.push({ srcStartMs: step.startMs, srcEndMs: step.endMs, speed, step: i, outMs: shown });
     }
     cursor = Math.max(cursor, step.endMs);
   });

@@ -1,6 +1,6 @@
 # Walkthrough capture folder (contract version 1)
 
-`WalkthroughVideo` turns a capture folder into a short, silent walkthrough video:
+`WalkthroughVideo` turns a capture folder into a short walkthrough video:
 
 - a title card;
 - the screen recording, with a caption band for each step;
@@ -8,19 +8,38 @@
 - waits fast-forwarded behind an "N× faster" badge;
 - an end card.
 
+It is silent by default. With `--narrate`, each step also gets a voice clip (see Narration).
+
 Any tool that drives an app can produce the folder. This side never knows which app it was.
 
 ## Render
 
 ```bash
-npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--dry-run]
+npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate [--voice-profile <id>]] [--dry-run]
 ```
 
 - It validates the folder first and refuses a capture whose `status` is not `passed`. A failed walk gets no video.
-- It writes `walkthrough.mp4` (H.264, yuv420p, silent) and `chapters.txt` (`m:ss  Caption` per step, in output time) into the run folder.
+- It writes `walkthrough.mp4` (H.264, yuv420p; AAC audio only when narrated) and `chapters.txt` (`m:ss  Caption` per step, in output time) into the run folder.
 - It refuses a run folder or an output inside this repo. Captures are someone else's material; they never enter the content pipelines here.
 - `--dry-run` validates and writes `chapters.txt` without rendering.
 - To test without a real capture, build a synthetic one: `npx -y bun tiles/aaron-video-gen/scripts/walkthrough/make-fixture.ts <empty folder outside the repo>`.
+
+## Pacing
+
+Every step stays on screen long enough to read its caption: `readingMs = 800 + 55 ms per character`, between 2 and 6 seconds (about 18 characters a second, the usual subtitle rate).
+
+- A short action step holds its first frame until the caption has been up that long, then plays.
+- A wait is fast-forwarded, but never so fast that it ends before its caption is read.
+- A narrated step stays up for its clip plus 0.4 s, if that is longer.
+
+## Narration
+
+`--narrate` speaks each step's `narration`, or its caption when it has none, in an ElevenLabs voice from `config/voice-profiles.json` (the default profile unless `--voice-profile` names another).
+
+- The clips are cached in `<run>/narration/NN-<hash>.mp3`, keyed by voice, settings and text. A re-render calls the API only for steps whose words changed.
+- The key comes from the macOS Keychain (`security add-generic-password -s elevenlabs-api-key -a "$USER" -w`), else from `ELEVENLABS_API_KEY` in this repo's gitignored `.env`. It is never printed.
+- The title card and the caption band say "AI narration". The voice is a clone, so the video says so.
+- Narrate only when the person whose voice it is asked for it.
 
 ## Folder
 
@@ -80,7 +99,7 @@ npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run>
 - The video starts at the first step. Anything recorded before it (sign-in, the sync flash, page loads) is left out.
 - `kind` takes one of two values:
   - `action` plays at normal speed.
-  - `wait` (server work) is fast-forwarded to about two seconds on screen, at most 16×.
+  - `wait` (server work) is fast-forwarded to about two seconds on screen, at most 16×, and never shorter than its caption's reading time (see Pacing).
 - Gaps between steps longer than 1.5 s are fast-forwarded too.
 - Each click is logged just before it happens. Its fields are viewport CSS px:
   - `x`, `y` are the centre of the element;
@@ -89,3 +108,4 @@ npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run>
 - The last step is a result step with no clicks. When it has no duration, its shot is held for two seconds.
 - `shot` may be `null`. A shot path must stay inside the folder.
 - Captions are the reader's words: short and plain.
+- `narration` is optional: what the voice says for the step when it should differ from the caption.

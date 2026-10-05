@@ -1,8 +1,8 @@
 # Walkthrough video
 
 The project's own capture command drives the app, records the screen and writes a capture folder.
-The renderer that ships beside this skill turns that folder into a silent, captioned mp4 plus
-chapters. The message stays the main thing; the video is an attachment.
+The renderer that ships beside this skill turns that folder into a captioned mp4 plus chapters,
+silent unless the user asks for narration. The message stays the main thing; the video is an attachment.
 
 ## 1. Find the capture command
 
@@ -37,6 +37,7 @@ npx -y bun "$SKILL/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts"
 
 - It writes `walkthrough.mp4` and `chapters.txt` into the run folder.
 - It refuses a capture that did not pass.
+- Add `--narrate` only when the user asks for a voice-over. It speaks each step in the user's own cloned voice (ElevenLabs), costs API credits, and labels the video "AI narration". Its key setup is in `aaron-video-gen/references/walkthrough-capture.md`.
 - If the renderer is not there (this skill was installed on its own), skip the video and say so. The screenshots still work.
 
 ## 4. Put it in the message
