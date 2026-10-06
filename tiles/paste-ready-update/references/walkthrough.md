@@ -1,21 +1,50 @@
 # Walkthrough video
 
-The project's own capture command drives the app, records the screen and writes a capture folder.
+A capture drives the app, records the screen and writes a capture folder. The tool that does it depends on the project:
+the demo-capture engine when the project has an adapter, the project's own `demo:capture` script when it has none,
+and with neither there is no video (step 1).
 The renderer that ships beside this skill turns that folder into a captioned mp4 plus chapters,
 silent unless the user asks for narration. The message stays the main thing; the video is an attachment.
 
 ## 1. Find the capture command
 
-- Look for a `demo:capture` script in the current project's root `package.json`.
-  - If there is none, there is no video. Don't build one.
-- Run it with the project's package manager (`pnpm`, `npm` or `yarn`, going by the lockfile): `pnpm demo:capture --list`.
-  - Show the user the walks it lists.
-  - Ask which walk and which environment.
-  - The command's `--help` tells you its options and guards. Follow them.
-- An environment that writes to shared or production systems needs the user's go-ahead in chat for that run.
-  - Get it every run, even if they approved an earlier one.
-  - Never add a confirmation flag on your own.
-- The first run of an environment may open a browser for the user to sign in. Never type credentials.
+Look in this order, and use the first that applies:
+
+1. **Adapter.** Walk up from the working directory, looking for `demo-capture/config.mjs`. The first directory that has one is the project. The walk stops at `$HOME`: it checks `$HOME` itself and never looks above it. A working directory outside `$HOME` is checked alone, with no walk up.
+
+   ```bash
+   d=$PWD; case "$d/" in "$HOME"/*) up=1 ;; *) up=0 ;; esac
+   while [ ! -f "$d/demo-capture/config.mjs" ]; do
+     if [ "$up" = 0 ] || [ "$d" = "$HOME" ] || [ "$d" = / ]; then d=; break; fi
+     d=$(dirname "$d")
+   done; echo "${d:-no adapter}"
+   ```
+
+   - The engine is the `demo-capture` tile beside this skill's real directory. The skill is usually reached through a symlink, so resolve that first. Shell variables do not carry over between commands, so set `$SKILL` in each command that uses it. `<project>` is the directory the loop printed:
+
+     ```bash
+     SKILL=$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' <skill-dir>)
+     node "$SKILL/../demo-capture/scripts/cli.mjs" --project <project> --list
+     ```
+
+   - If there is no `$SKILL/../demo-capture`, there is no video. Say so; the screenshots still work.
+   - Exit codes: 0 captured; 1 the walk failed (both leave a run folder, which step 2 reads); 2 refused (nothing was captured, and stderr says why as `demo-capture: <reason>`; tell the user in plain words).
+   - If the engine says its dependency is missing, ask the user before running `npm ci` in `$SKILL/../demo-capture`. Never run `npx playwright install`: Chromium comes from the machine's Playwright cache.
+2. **Legacy.** Otherwise, a `demo:capture` script in the project's root `package.json` keeps its own flow. Run it with the project's package manager (`pnpm`, `npm` or `yarn`, going by the lockfile): `pnpm demo:capture --list`.
+3. **Neither.** There is no video. Don't build one. The text and screenshots still work.
+
+Then:
+
+- Show the user the walks it lists, and ask which walk and which environment. The engine's `--list` shows each walk as `read-only` or `writes`, and the go-ahead each environment needs.
+- The command's `--help` tells you its options and guards. Follow them. The engine's flags and rules are also in `$SKILL/../demo-capture/SKILL.md`.
+- **Go-ahead.** Add a go-ahead flag only after the user's go-ahead in chat for that run. Get it every run, even if they approved an earlier one. Never add a go-ahead flag on your own, even when a refusal names it. With the engine, the rule follows the environment:
+  - A production environment: every walk run needs `--prod-go-ahead`. That one flag also covers a walk that writes; there is no second flag in production. When you ask, say whether the walk writes.
+  - Any other environment follows its `writeGoAhead`. Where the config sets it, a walk that writes needs `--write-go-ahead`. Where it does not, no go-ahead is needed.
+  - `sign-in` needs no go-ahead, even in production: nothing is recorded, and a person drives it.
+  - A legacy command has no `writeGoAhead`: an environment that writes to shared or production systems needs the go-ahead.
+- **Sign-in is the person's.** Never type credentials and never ask for them. Before any run that may open a sign-in window, tell the person that one may open and that they need to be at the machine.
+  - With the engine, a window opens on the first run of an environment, on `sign-in` (it signs in and records nothing), and on a run whose saved session has expired, which only shows once the run starts. It waits up to 10 minutes. If nobody signs in by then, or the window is closed, the run exits 2.
+  - A legacy command may open one on the first run of an environment.
 
 ## 2. Run it and read the result
 

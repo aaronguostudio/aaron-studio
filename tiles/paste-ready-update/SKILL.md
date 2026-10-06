@@ -111,11 +111,11 @@ Aaron
 Offer a short walkthrough video only when both are true:
 
 - the change is visible in the UI;
-- the current project's `package.json` has a `demo:capture` script.
+- the project has a capture: a `demo-capture/config.mjs` in the working directory or a parent of it (up to `$HOME`, never above it), or else a `demo:capture` script in its root `package.json` (see step 1 of [references/walkthrough.md](references/walkthrough.md)).
 
 Backend and infrastructure updates stay text-only.
 
-Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data, so some environments need the user's go-ahead for every run.
+Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data. Get the user's go-ahead in chat before each run that needs one, even if they approved an earlier run: every production run (a walk that writes included), and, in any other environment whose config sets `writeGoAhead`, each walk that writes. Signing in needs none: the person does it, never you, and you warn them first. Step 1 of the reference has the details, including the rule for a legacy command.
 
 ## Delivering
 
