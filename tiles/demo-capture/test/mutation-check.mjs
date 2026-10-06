@@ -451,7 +451,7 @@ export const MUTANTS = [
   m('session', 'pollMs = 250,', 'pollMs = 1,', 'session.test'),
   m('session', 'browserType.launch({ headless: false })', 'browserType.launch({ headless: true })', 'session.test'),
   m('session', 'browser.newContext({ viewport: null })', 'browser.newContext({})', 'session.test'),
-  m('session', 'await page.goto(`${baseUrl}${signInPath}`)', 'await page.goto(baseUrl)', 'session.test'),
+  m('session', 'await page.goto(`${baseUrl}${signInPath}`, { timeout', 'await page.goto(baseUrl, { timeout', 'session.test'),
   m('session', ".catch(() => undefined)", '', 'session.test'),
   m('session', 'origin: new URL(baseUrl).origin', 'origin: baseUrl', 'session.test'),
   m('session', '    await saveState(context, statePath)\n', '', 'session.test'),
@@ -461,6 +461,18 @@ export const MUTANTS = [
   m('session', '  await dropState()\n', '', 'session.test'),
   m('session', '  await resetRunDir()\n', '', 'session.test'),
   m('session', 'if (second.signedOut)\n    throw', 'if (false)\n    throw', 'session.test'),
+  // session.mjs, the final review's fixes: the sign-in page's timeout and refusal, and what a
+  // signed-out attempt's guard found
+  m('session', '`${baseUrl}${signInPath}`, { timeout: SIGN_IN_PAGE_TIMEOUT_MS }', '`${baseUrl}${signInPath}`, {}', 'session.test'),
+  m('session', 'export const SIGN_IN_PAGE_TIMEOUT_MS = 90_000', 'export const SIGN_IN_PAGE_TIMEOUT_MS = 30_000', 'session.test'),
+  m('session', 'throw new CaptureRefusal(`The sign-in page did not load (', 'throw error\n      throw new CaptureRefusal(`The sign-in page did not load (', 'session.test'),
+  m('session', "did not load (${String(error?.message ?? error).split('\\n')[0]})", 'did not load (${String(error?.message ?? error)})', 'session.test'),
+  m('session', "(violations.length ? ` Its guard also found: ${violations.join(' ')}` : '')", "('')", 'session.test'),
+  m('session', "(violations.length ? ` Its guard also found: ${violations.join(' ')}` : '')", "(` Its guard also found: ${violations.join(' ')}`)", 'session.test'),
+  m('session', "${violations.join(' ')}", "${violations.join('')}", 'session.test'),
+  m('session', 'const alsoFound = ({ violations = [] })', 'const alsoFound = ({ violations })', 'session.test'),
+  m('session', 'Opening the sign-in window again.${alsoFound(first)}`', 'Opening the sign-in window again.`', 'session.test'),
+  m('session', 'then run sign-in.${alsoFound(second)}`', 'then run sign-in.`', 'session.test'),
 
   // readOnlyAllowed: the optional contract field for non-reads that change no data. project.mjs checks
   // its rules, cli.mjs hands them to the guard and names the field in the learning report, and

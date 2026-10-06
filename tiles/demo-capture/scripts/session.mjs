@@ -10,6 +10,9 @@ export const SIGN_IN_TIMEOUT_MS = 10 * 60_000
 // Signed in means: on the app's own origin, and isSignedOut has said false for this long. A
 // redirect chain passes through signed-in-looking URLs for a moment.
 export const SIGNED_IN_STABLE_MS = 3000
+// How long the sign-in page may take to load: a freshly deployed app can be slow to answer its
+// first request after a cold start, and a recording gives its start page as long.
+export const SIGN_IN_PAGE_TIMEOUT_MS = 90_000
 
 export class SignedOut extends Error {
   constructor() {
@@ -121,7 +124,11 @@ export async function signIn({ browserType, baseUrl, signInPath, isSignedOut, st
   try {
     const context = await browser.newContext({ viewport: null })
     const page = await context.newPage()
-    await page.goto(`${baseUrl}${signInPath}`)
+    try {
+      await page.goto(`${baseUrl}${signInPath}`, { timeout: SIGN_IN_PAGE_TIMEOUT_MS })
+    } catch (error) {
+      throw new CaptureRefusal(`The sign-in page did not load (${String(error?.message ?? error).split('\n')[0]}).`)
+    }
     log(
       `A browser window is open at ${baseUrl}${signInPath}. Sign in there yourself; nothing is typed for you. Waiting up to ${SIGN_IN_TIMEOUT_MS / 60_000} minutes.`
     )
@@ -134,6 +141,10 @@ export async function signIn({ browserType, baseUrl, signInPath, isSignedOut, st
   }
 }
 
+// A signed-out attempt is thrown away, and with it what its guard found ({ signedOut, violations },
+// as record() returns it): that is said rather than lost.
+const alsoFound = ({ violations = [] }) => (violations.length ? ` Its guard also found: ${violations.join(' ')}` : '')
+
 // One run: sign in first when there is no state; record; when the recording found the session
 // signed out, delete the state, start the run folder afresh, sign in and record once more. A
 // second signed-out stops. There is no loop.
@@ -141,12 +152,12 @@ export async function runWithSession({ stateExists, promptSignIn, record, dropSt
   if (!(await stateExists())) await promptSignIn()
   const first = await record()
   if (!first.signedOut) return first
-  log('Sign-in needed: the saved session is signed out. Opening the sign-in window again.')
+  log(`Sign-in needed: the saved session is signed out. Opening the sign-in window again.${alsoFound(first)}`)
   await dropState()
   await resetRunDir()
   await promptSignIn()
   const second = await record()
   if (second.signedOut)
-    throw new CaptureRefusal('Still signed out after signing in again. Check the account, then run sign-in.')
+    throw new CaptureRefusal(`Still signed out after signing in again. Check the account, then run sign-in.${alsoFound(second)}`)
   return second
 }

@@ -271,6 +271,34 @@ test('signIn still saves the session when the page never goes idle', async () =>
   assert.equal(calls.at(-1), 'close')
 })
 
+test('signIn gives the sign-in page 90 s to load, as a run gives its start page', async () => {
+  const { page, browserType } = fakeBrowserType()
+  const options = []
+  page.goto = async (url, given) => options.push(given)
+  const state = join(tempDir('session-'), 'state.json')
+  await signIn({ browserType, baseUrl: ORIGIN, signInPath: '/login', isSignedOut, statePath: state, log: () => {}, wait: async () => {} })
+  assert.deepEqual(options, [{ timeout: 90_000 }])
+})
+
+test('a sign-in page that does not load is a refusal with the first line of why, and the browser is closed', async () => {
+  const { calls, page, browserType } = fakeBrowserType()
+  page.goto = async () => {
+    throw new Error('page.goto: net::ERR_CONNECTION_REFUSED at https://app.example.com/login\nCall log:\n  - navigating to "https://app.example.com/login"')
+  }
+  const state = join(tempDir('session-'), 'state.json')
+  const logs = []
+  await assert.rejects(
+    signIn({ browserType, baseUrl: ORIGIN, signInPath: '/login', isSignedOut, statePath: state, log: (line) => logs.push(line), wait: async () => {} }),
+    (e) =>
+      e instanceof CaptureRefusal &&
+      e.message === 'The sign-in page did not load (page.goto: net::ERR_CONNECTION_REFUSED at https://app.example.com/login).'
+  )
+  assert.equal(calls.at(-1), 'close')
+  // Nobody is told to sign in at a window that shows nothing.
+  assert.deepEqual(logs, [])
+  assert.equal(await hasState(state), false)
+})
+
 test('signIn closes the browser even when nobody signs in', async () => {
   const { calls, browserType } = fakeBrowserType()
   const state = join(tempDir('session-'), 'state.json')
@@ -325,6 +353,28 @@ test('signed out once: the state is deleted, the person signs in, and the walk i
     'sign-in',
     'record'
   ])
+})
+
+test('what the guard found in a signed-out attempt is said when the attempt is thrown away, not lost', async () => {
+  const violations = ["GET tracker.example.net/a was refused: tracker.example.net is not in this environment's hosts.", 'The walk opened a second tab.']
+  const s = sessionSteps({ results: [{ signedOut: true, violations }, { capture: 'second' }] })
+  assert.deepEqual(await runWithSession(s.deps), { capture: 'second' })
+  assert.equal(
+    s.calls[2],
+    "log Sign-in needed: the saved session is signed out. Opening the sign-in window again. Its guard also found: GET tracker.example.net/a was refused: tracker.example.net is not in this environment's hosts. The walk opened a second tab."
+  )
+  // An attempt whose guard found nothing says nothing more.
+  const quiet = sessionSteps({ results: [{ signedOut: true, violations: [] }, { capture: 'second' }] })
+  await runWithSession(quiet.deps)
+  assert.equal(quiet.calls[2], 'log Sign-in needed: the saved session is signed out. Opening the sign-in window again.')
+  // The second attempt's findings end the refusal that stops the run.
+  const twice = sessionSteps({ results: [{ signedOut: true, violations: [] }, { signedOut: true, violations: ['The walk opened a second tab.'] }] })
+  await assert.rejects(
+    runWithSession(twice.deps),
+    (e) =>
+      e instanceof CaptureRefusal &&
+      e.message === 'Still signed out after signing in again. Check the account, then run sign-in. Its guard also found: The walk opened a second tab.'
+  )
 })
 
 test('signed out twice stops the run; there is no loop', async () => {
