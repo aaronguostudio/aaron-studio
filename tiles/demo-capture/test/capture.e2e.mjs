@@ -43,13 +43,22 @@ const renderDryRun = (dir) => run('npx', ['-y', 'bun', RENDERER, dir, '--dry-run
 const outDir = (name) => join(root, 'out', name)
 const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'))
 
-// The requests the fixture received since `before` (a hostCounts() snapshot), by Host header. The
-// fixture counts what reached it, so this is what got past the browser's own DNS rules.
-function receivedSince(before) {
+// The requests the fixture received since `snapshot` (a hostCounts() snapshot), by Host header. The
+// fixture counts what reached it, so this is what got past the browser's own DNS rules. These
+// deltas rely on the tests in this file running one at a time (node:test's default within a file).
+function receivedSince(snapshot) {
   const seen = {}
   for (const [host, count] of Object.entries(app.hostCounts()))
-    if (count > (before[host] ?? 0)) seen[host] = count - (before[host] ?? 0)
+    if (count > (snapshot[host] ?? 0)) seen[host] = count - (snapshot[host] ?? 0)
   return seen
+}
+
+// The redirect walks end their one step when the hop has ended (about 100 ms here), not when the
+// wait's 10 s timeout runs out. The guard's verdict wins over the walk's own error, so a timeout
+// would not change the capture's failure; it would only show as a slow step, which this catches.
+async function assertLeaveEndedOnTheHop(dir) {
+  const leave = (await readJson(join(dir, 'steps.json'))).find((step) => step.id === 'leave')
+  assert.ok(leave.endMs - leave.startMs < 5000, `the leave step took ${leave.endMs - leave.startMs} ms`)
 }
 
 // The renderer's own validator refuses a capture that did not pass: exit 3, and it says why.
@@ -162,13 +171,14 @@ test('a walk that declares writes may post', async () => {
 // their Host header, so these tests settle what each layer really does, not what it should do.
 //
 // Observed here (Chromium 1234 from Playwright 1.62.1, macOS, headless): with the rules on, a
-// redirect to localhost or to an IP literal ([::1]) never reaches the server (the browser's own
-// error is net::ERR_NAME_NOT_RESOLVED, asserted below for the literal). The browser does not
-// resolve localhost by itself, and IP literals do not skip the rules; that is why a listed IP
-// literal has to be excluded by name. With no rules (--learn-hosts) both reach the server.
+// redirect to localhost or to an IP literal ([::1]) never reaches the server. Neither is exempt
+// from `MAP * ~NOTFOUND` (the browser's own error is net::ERR_NAME_NOT_RESOLVED, asserted below
+// for the literal), and listing one brings it back: EXCLUDE localhost and EXCLUDE ::1, asserted
+// below. That is why a listed IP literal has to be excluded by name. With no rules
+// (--learn-hosts) both reach the server.
 
 test('a redirect to an unlisted host fails with the host lock sentence, and never reaches that host', async () => {
-  const before = app.hostCounts()
+  const snapshot = app.hostCounts()
   const result = await runCapture(['--env', 'local', '--walk', 'redirects-to-localhost', '--out', outDir('redirect')])
   assert.equal(result.code, 1, result.output)
   const sentence = "GET localhost/logo.svg was refused: localhost is not in this environment's hosts."
@@ -178,55 +188,74 @@ test('a redirect to an unlisted host fails with the host lock sentence, and neve
   assert.equal(capture.failedStep, 'leave')
   assert.equal(capture.failure, sentence)
   assert.doesNotMatch(capture.failure, /ERR_|Timeout/)
-  const seen = receivedSince(before)
+  await assertLeaveEndedOnTheHop(outDir('redirect'))
+  const seen = receivedSince(snapshot)
   assert.ok(seen[`127.0.0.1:${app.port}`] >= 1, 'the link that redirects was reached')
   assert.equal(seen[`localhost:${app.port}`], undefined, `a request with Host localhost reached the server: ${JSON.stringify(seen)}`)
   await assertRendererRefuses(outDir('redirect'))
 })
 
 test('--learn-hosts follows the redirect, names localhost, and the request then does reach the server', async () => {
-  const before = app.hostCounts()
+  const snapshot = app.hostCounts()
   const result = await runCapture(['--env', 'local', '--walk', 'redirects-to-localhost', '--learn-hosts', '--out', outDir('redirect-learn')])
   assert.equal(result.code, 0, result.output)
   assert.match(result.output, /Hosts the walk used that are not in environments\.local\.hosts:\n {2}localhost\n/)
   const capture = await readJson(join(outDir('redirect-learn'), 'capture.json'))
   assert.equal(capture.failure, 'Learning run, no video.')
+  await assertLeaveEndedOnTheHop(outDir('redirect-learn'))
   // The contrast with the test above: without the rules the same hop gets through.
-  assert.ok(receivedSince(before)[`localhost:${app.port}`] >= 1, 'a learning run lets the redirect through')
+  assert.ok(receivedSince(snapshot)[`localhost:${app.port}`] >= 1, 'a learning run lets the redirect through')
   await assertRendererRefuses(outDir('redirect-learn'))
 })
 
 test('a redirect to an IP literal that is not listed is refused the same way: the rules cover IP literals', async (t) => {
   if (!app.ipv6) return t.skip('this machine does not answer on [::1]')
-  const before = app.hostCounts()
+  const snapshot = app.hostCounts()
   const result = await runCapture(['--env', 'local', '--walk', 'redirects-to-loopback6', '--out', outDir('literal')])
   assert.equal(result.code, 1, result.output)
   const capture = await readJson(join(outDir('literal'), 'capture.json'))
   assert.equal(capture.failedStep, 'leave')
   assert.equal(capture.failure, "GET [::1]/logo.svg was refused: [::1] is not in this environment's hosts.")
-  const seen = receivedSince(before)
+  await assertLeaveEndedOnTheHop(outDir('literal'))
+  const seen = receivedSince(snapshot)
   assert.equal(seen[`[::1]:${app.port}`], undefined, `a request with Host [::1] reached the server: ${JSON.stringify(seen)}`)
   const learn = await runCapture(['--env', 'local', '--walk', 'redirects-to-loopback6', '--learn-hosts', '--out', outDir('literal-learn')])
   assert.equal(learn.code, 0, learn.output)
   assert.match(learn.output, /Hosts the walk used that are not in environments\.local\.hosts:\n {2}\[::1\]\n/)
+  await assertLeaveEndedOnTheHop(outDir('literal-learn'))
   // The server does answer on [::1]; only the rules kept the first run from it.
-  assert.ok(receivedSince(before)[`[::1]:${app.port}`] >= 1, 'a learning run reaches [::1]')
+  assert.ok(receivedSince(snapshot)[`[::1]:${app.port}`] >= 1, 'a learning run reaches [::1]')
 })
+
+// A real browser started with the rules launchArgs writes for `hosts`, sent to `url`: 'loaded', or
+// the first line of why it was not.
+async function visitWithRules(hosts, url) {
+  const browser = await chromium.launch({ args: launchArgs({ hosts, learning: false }) })
+  try {
+    const page = await browser.newPage()
+    const response = await page.goto(url)
+    return response?.ok() ? 'loaded' : `status ${response?.status()}`
+  } catch (error) {
+    return String(error.message).split('\n')[0]
+  } finally {
+    await browser.close()
+  }
+}
 
 test('launchArgs excludes a listed IPv6 literal by its bare address, not by its brackets', async (t) => {
   if (!app.ipv6) return t.skip('this machine does not answer on [::1]')
-  const visit = async (hosts) => {
-    const browser = await chromium.launch({ args: launchArgs({ hosts, learning: false }) })
-    try {
-      const page = await browser.newPage()
-      await page.goto(`http://[::1]:${app.port}/logo.svg`)
-      return 'loaded'
-    } catch (error) {
-      return String(error.message).split('\n')[0]
-    } finally {
-      await browser.close()
-    }
-  }
-  assert.equal(await visit(['[::1]']), 'loaded')
-  assert.match(await visit(['127.0.0.1']), /net::ERR_NAME_NOT_RESOLVED/)
+  const url = `http://[::1]:${app.port}/logo.svg`
+  assert.equal(await visitWithRules(['[::1]'], url), 'loaded')
+  assert.match(await visitWithRules(['127.0.0.1'], url), /net::ERR_NAME_NOT_RESOLVED/)
+})
+
+// A dev-server adapter will list localhost: the rules must let that name through, and only when it
+// is listed.
+test('launchArgs lets a listed localhost through, and an unlisted one stays refused', async () => {
+  const snapshot = app.hostCounts()
+  assert.equal(await visitWithRules(['localhost'], `http://localhost:${app.port}/`), 'loaded')
+  assert.ok(receivedSince(snapshot)[`localhost:${app.port}`] >= 1, 'the listed localhost reached the server')
+  const refusedSnapshot = app.hostCounts()
+  assert.match(await visitWithRules(['127.0.0.1'], `http://localhost:${app.port}/`), /net::ERR_NAME_NOT_RESOLVED/)
+  assert.equal(receivedSince(refusedSnapshot)[`localhost:${app.port}`], undefined)
 })
