@@ -27,10 +27,12 @@ The person you are working for pastes the message and sends it. You never send i
    - A full-window screenshot is unreadable at chat width. When the reader is not technical, crop each screenshot to the part that matters and mark what to click, numbered like the steps. Leave the originals untouched:
 
      ```bash
-     python3 <skill-dir>/scripts/mark_screenshot.py shot.png --info
-     python3 <skill-dir>/scripts/mark_screenshot.py shot.png shot-marked.png --crop x0,y0,x1,y1 --box x0,y0,x1,y1:1
+     python3 "<skill-dir>/scripts/mark_screenshot.py" "<shot.png>" --info
+     mkdir -p "<out-dir>/shots"
+     python3 "<skill-dir>/scripts/mark_screenshot.py" "<shot.png>" "<out-dir>/shots/<shot>-marked.png" --crop x0,y0,x1,y1 --box x0,y0,x1,y1:1
      ```
 
+     - The marked copy goes in `<out-dir>/shots/` (see step 4), not in the working directory, which is often a repo.
      - Running it with `--info` prints the image size.
      - Coordinates are pixels of the original image.
      - Look at the output and adjust the coordinates once if a box misses its target.

@@ -33,6 +33,8 @@ Look in this order, and use the first that applies:
      - `sign-in --project "<project>" --env <env>`: the person signs in; nothing is recorded.
      - `--project "<project>" --env <env> --walk <walk> [--set key=value]`: record the walk.
 
+   - Start the CLI as a background command (or with a timeout of at least 15 minutes) and wait for it to exit before reading the run folder. A walk takes minutes, and a sign-in waits up to 10.
+
    - If there is no `$SKILL/../demo-capture`, there is no video. Say so; the screenshots still work.
    - Exit codes: 0 captured; 1 the walk failed, or an unexpected engine error, which prints a stack trace and may leave no `capture.json`; 2 refused (nothing was captured, and stderr says why as `demo-capture: <reason>`). Step 2 says what to do with each.
    - If the engine says its dependency is missing, ask the user before running `npm ci --prefix "$SKILL/../demo-capture"`. Never run `npx playwright install`: Chromium comes from the machine's Playwright cache.
@@ -57,12 +59,12 @@ Then:
 What to do depends on how the command ended (step 1 lists the exit codes):
 
 - **Exit 2 (the engine refused):** nothing was captured, so there is no `capture.json`. Stop the capture. Tell the person the `demo-capture: <reason>` sentence from stderr in plain words, and ask whether they want to retry (giving the go-ahead, if a missing one was the reason) or send the update without the video.
-- **Any other run:** the command prints its run folder. Read `capture.json` there:
+- **Any other run:** the command prints `Run folder: <folder>` as soon as it makes the folder, so a run that crashed later still names it, and `Captured: <folder>` or `FAILED: <folder>` at the end. Read `capture.json` there:
   - **`status: "passed"`:** go on.
   - **`status: "failed"`:** there is no video. Tell the user which step failed (`failedStep`, `failure`) in plain words. Then either write the message without the video (say the walkthrough will follow) or ask them which they want.
   - **No `capture.json`:** the engine hit an unexpected error, which is not a refusal. Report the error output to the person and do not guess at the cause.
 
-Never move a run folder into a repo.
+Never move or copy a run folder, or anything in it, into a repo.
 
 ## 3. Render
 
