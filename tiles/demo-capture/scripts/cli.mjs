@@ -131,10 +131,14 @@ async function launchBrowser(chromium, options) {
 // The browser's own DNS rules: while recording, no name resolves except the environment's hosts.
 // This is the backstop behind the route guard, for what the route handler never sees: the hops of
 // a redirect and the sockets of workers. The route guard stays the first line of defence, and the
-// only one that judges a request by its method as well as its host. UNVERIFIED until the Task 8
-// end-to-end run settles it: whether these rules also cover an IP literal such as 127.0.0.1 (the
-// plan assumes the resolver is never asked about one). Nothing here depends on the answer, because
-// every listed host, an IP literal included, is excluded from the rule.
+// only one that judges a request by its method as well as its host. Observed in
+// test/capture.e2e.mjs (Chromium 1234 from Playwright 1.62.1, macOS): the rules cover IP literals
+// too, so the resolver is asked about them and the plan's assumption that it never is was wrong.
+// With the rules on, a redirect to [::1] fails inside the browser with ERR_NAME_NOT_RESOLVED and
+// never reaches the server, and so does one to localhost, which the browser does not resolve by
+// itself either. That is why every listed host, an IP literal included, is excluded from the
+// rule, and why an IPv6 literal is excluded by its bare address (EXCLUDE ::1 works; EXCLUDE
+// [::1] does not).
 // A learning run (--learn-hosts) must let unlisted hosts load, to list them, so it gets no rules.
 // The names are the entries without their port, each once, in the order first listed. An entry is
 // read by the guard's own parser, so what the guard lists is what the browser can resolve.
