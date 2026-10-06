@@ -157,3 +157,271 @@ test('RunGuard.fail records a reason against the current step', () => {
   guard.fail('The walk opened a second tab.')
   assert.throws(() => guard.assertClean(), (e) => e.step === 'open' && e.message === 'The walk opened a second tab.')
 })
+
+// ---- Fix round 1: redirect hops, ports, a checked policy, no unanswered request, schemes ----
+
+// A request as Playwright hands it to context.on('request'): redirectedFrom() is the request that
+// redirected to it, and null for a first request.
+const hop = (method, url, { from = {}, body = null } = {}) => ({
+  method: () => method,
+  url: () => url,
+  redirectedFrom: () => from,
+  postData: () => body
+})
+
+// An unhandled rejection only surfaces after the microtasks drain, so wait one macrotask.
+async function withoutUnhandledRejections(run) {
+  const seen = []
+  const listener = (reason) => seen.push(reason)
+  process.on('unhandledRejection', listener)
+  try {
+    await run()
+    await new Promise((resolve) => setImmediate(resolve))
+  } finally {
+    process.off('unhandledRejection', listener)
+  }
+  assert.deepEqual(seen, [])
+}
+
+test('a redirect hop to an unlisted host fails the run, naming the step it happened in', () => {
+  let step = 'open'
+  const guard = new RunGuard(policy(), { currentStep: () => step })
+  guard.handleRedirectHop(hop('GET', 'https://app.example.com/home'))
+  assert.doesNotThrow(() => guard.assertClean())
+  step = 'sign-in'
+  guard.handleRedirectHop(hop('GET', 'https://tracker.example.net/pixel?id=1'))
+  assert.throws(
+    () => guard.assertClean(),
+    (e) =>
+      e instanceof CaptureRefusal &&
+      e.step === 'sign-in' &&
+      e.message === "GET tracker.example.net/pixel was refused: tracker.example.net is not in this environment's hosts."
+  )
+})
+
+test('a redirect hop to a read the project lists as writing, or a non-read, fails the run', () => {
+  const forbidden = [{ method: 'GET', url: /\/items\?mode=recount/ }]
+  const toForbidden = new RunGuard(policy({ forbidden }))
+  toForbidden.handleRedirectHop(hop('GET', 'https://app.example.com/items?mode=recount'))
+  assert.throws(() => toForbidden.assertClean(), /GET app\.example\.com\/items was refused: the project lists it as a read that writes\./)
+  const toWrite = new RunGuard(policy())
+  toWrite.handleRedirectHop(hop('POST', 'https://app.example.com/items'))
+  assert.throws(() => toWrite.assertClean(), /POST app\.example\.com\/items was refused: this walk is read-only\./)
+})
+
+test('a request that is not a redirect hop is left to the route handler', () => {
+  const guard = new RunGuard(policy())
+  guard.handleRedirectHop(hop('GET', 'https://tracker.example.net/', { from: null }))
+  assert.doesNotThrow(() => guard.assertClean())
+})
+
+test('a redirect hop hands its body to the rules', () => {
+  const allowed = [{ method: 'POST', url: /\/brief$/, body: /^\{"date":"[\d-]+"\}$/ }]
+  const plain = new RunGuard(policy({ allowed }))
+  plain.handleRedirectHop(hop('POST', 'https://app.example.com/brief', { body: '{"date":"2026-10-05"}' }))
+  assert.doesNotThrow(() => plain.assertClean())
+  const refresh = new RunGuard(policy({ allowed }))
+  refresh.handleRedirectHop(hop('POST', 'https://app.example.com/brief', { body: '{"date":"2026-10-05","refresh":true}' }))
+  assert.throws(() => refresh.assertClean(), /POST app\.example\.com\/brief was refused/)
+})
+
+test('while learning, a redirect hop to an unlisted host is listed and the run does not fail', () => {
+  const guard = new RunGuard(policy({ learning: true }))
+  guard.handleRedirectHop(hop('GET', 'https://fonts.example.org/a.woff2'))
+  assert.doesNotThrow(() => guard.assertClean())
+  assert.deepEqual(guard.learned(), { unlisted: ['fonts.example.org'], refused: [] })
+})
+
+test('a redirect hop the guard cannot read fails the run instead of throwing', () => {
+  const guard = new RunGuard(policy())
+  const broken = { method: () => 'GET', url: () => 'https://app.example.com/x?token=abc', redirectedFrom: () => ({}), postData: () => { throw new Error('no body') } }
+  assert.doesNotThrow(() => guard.handleRedirectHop(broken))
+  assert.throws(() => guard.assertClean(), (e) => e.message === 'guard error on GET app.example.com/x')
+})
+
+test('a hosts entry with a port matches that exact host and port, and one without matches any port', () => {
+  const local = policy({ hosts: ['127.0.0.1:4100'] })
+  assert.equal(classifyRequest(get('http://127.0.0.1:4100/x'), local).action, 'continue')
+  const other = classifyRequest(get('http://127.0.0.1:4200/x'), local)
+  assert.equal(other.action, 'abort')
+  assert.equal(other.kind, 'host')
+  assert.equal(other.reason, "GET 127.0.0.1/x was refused: 127.0.0.1:4200 is not in this environment's hosts.")
+  // No explicit port in the URL means the scheme's default, which a port-less URL reports as ''.
+  assert.equal(classifyRequest(get('http://127.0.0.1/x'), local).action, 'abort')
+  assert.equal(classifyRequest(get('https://app.example.com:8443/x'), policy()).action, 'continue')
+  assert.equal(classifyRequest(get('wss://cdn.example.com:9443/live'), policy()).action, 'continue')
+})
+
+test('a hosts entry naming a default port matches a URL that leaves the port out', () => {
+  const secure = policy({ hosts: ['app.example.com:443', 'plain.example.com:80'] })
+  for (const url of ['https://app.example.com/x', 'https://app.example.com:443/x', 'wss://app.example.com/live', 'http://plain.example.com/x', 'ws://plain.example.com/live'])
+    assert.equal(classifyRequest(get(url), secure).action, 'continue', url)
+  for (const url of ['http://app.example.com/x', 'ws://app.example.com/live', 'https://plain.example.com/x', 'https://app.example.com:8443/x'])
+    assert.equal(classifyRequest(get(url), secure).action, 'abort', url)
+})
+
+test('while learning, another port of a port-restricted host is unlisted and the listed port is listed', () => {
+  const learning = policy({ hosts: ['127.0.0.1:4100'], learning: true })
+  const verdict = classifyRequest(get('http://127.0.0.1:4200/x'), learning)
+  assert.deepEqual([verdict.action, verdict.kind, verdict.host], ['continue', 'unlisted', '127.0.0.1'])
+  assert.equal(classifyRequest(get('http://127.0.0.1:4100/x'), learning).kind, 'listed')
+})
+
+test('the host list is lower-cased, trimmed and stripped of a trailing dot', async () => {
+  const guard = new RunGuard(policy({ hosts: ['  APP.Example.com.  ', 'Cdn.Example.com.:8443'] }))
+  for (const url of ['https://app.example.com/a', 'https://cdn.example.com:8443/b']) {
+    const route = fakeRoute('GET', url)
+    await guard.handleRoute(route)
+    assert.deepEqual(route.calls, ['continue'], url)
+  }
+  const wrongPort = fakeRoute('GET', 'https://cdn.example.com:9443/b')
+  await guard.handleRoute(wrongPort)
+  assert.deepEqual(wrongPort.calls, ['abort blockedbyclient'])
+  assert.deepEqual(classifyRequest(get('https://app.example.com/'), policy({ hosts: [' APP.Example.com. '] })).action, 'continue')
+})
+
+test('RunGuard refuses a policy that is not usable, rather than guarding with it', () => {
+  const refused = (extra, pattern) =>
+    assert.throws(() => new RunGuard(policy(extra)), (e) => e instanceof CaptureRefusal && pattern.test(e.message), JSON.stringify(extra))
+  for (const hosts of [undefined, null, 'app.example.com', {}, [''], ['  '], ['.'], [42], [null], ['app.example.com', ''], ['bad host'], ['https://app.example.com'], ['app.example.com/path'], ['user@app.example.com'], ['*.example.com'], ['app.example.com:0'], ['app.example.com:65536'], ['app.example.com:'], [':8443'], ['app..example.com']])
+    refused({ hosts }, /hosts/)
+  for (const readOnly of [undefined, null, 'true', 1, 0, {}]) refused({ readOnly }, /readOnly/)
+  for (const learning of [null, 'yes', 1, 0, {}]) refused({ learning }, /learning/)
+  refused({ readOnly: false, learning: true }, /read-only|readOnly/)
+  refused({ forbidden: 'oops' }, /forbidden/)
+  refused({ allowed: {} }, /allowed/)
+  for (const nothing of [undefined, null, 'policy', 42])
+    assert.throws(() => new RunGuard(nothing), (e) => e instanceof CaptureRefusal, String(nothing))
+})
+
+test('RunGuard accepts a usable policy, including the defaults and an empty host list', () => {
+  assert.doesNotThrow(() => new RunGuard({ hosts: ['app.example.com'], readOnly: true }))
+  assert.doesNotThrow(() => new RunGuard({ hosts: ['app.example.com', '127.0.0.1:4100', '[::1]:4100', 'localhost'], readOnly: false, learning: false }))
+  assert.doesNotThrow(() => new RunGuard({ hosts: [], readOnly: true, learning: true }))
+})
+
+test('a policy changed after the guard was built does not change the guard', async () => {
+  const given = policy()
+  const guard = new RunGuard(given)
+  given.readOnly = false
+  given.hosts.push('tracker.example.net')
+  const post = fakeRoute('POST', 'https://app.example.com/items')
+  await guard.handleRoute(post)
+  assert.deepEqual(post.calls, ['abort blockedbyclient'])
+  const tracker = fakeRoute('GET', 'https://tracker.example.net/')
+  await guard.handleRoute(tracker)
+  assert.deepEqual(tracker.calls, ['abort blockedbyclient'])
+})
+
+test('a check that throws still aborts the route and fails the run, without the query or body', async () => {
+  const unreadableBody = fakeRoute('POST', 'https://app.example.com/items?token=abc')
+  unreadableBody.request = () => ({ method: () => 'POST', url: () => 'https://app.example.com/items?token=abc', postData: () => { throw new Error('no body') } })
+  const guard = new RunGuard(policy())
+  await guard.handleRoute(unreadableBody)
+  assert.deepEqual(unreadableBody.calls, ['abort blockedbyclient'])
+  assert.throws(() => guard.assertClean(), (e) => e instanceof CaptureRefusal && e.message === 'guard error on POST app.example.com/items')
+
+  const stubbed = new RunGuard(policy(), { currentStep: () => 'open' })
+  stubbed.check = () => { throw new Error('boom') }
+  const route = fakeRoute('GET', 'https://app.example.com/list')
+  await stubbed.handleRoute(route)
+  assert.deepEqual(route.calls, ['abort blockedbyclient'])
+  assert.throws(() => stubbed.assertClean(), (e) => e.step === 'open' && e.message === 'guard error on GET app.example.com/list')
+
+  const odd = new RunGuard(policy())
+  const unknown = fakeRoute(undefined, 'https://app.example.com/list')
+  await odd.handleRoute(unknown)
+  assert.deepEqual(unknown.calls, ['abort blockedbyclient'])
+  assert.throws(() => odd.assertClean(), (e) => e.message === 'guard error on (unknown request)')
+})
+
+test('a guard error fails a learning run too: the guard could not judge the request', async () => {
+  const guard = new RunGuard(policy({ learning: true }))
+  guard.check = () => { throw new Error('boom') }
+  const route = fakeRoute('GET', 'https://fonts.example.org/a.woff2')
+  await guard.handleRoute(route)
+  assert.deepEqual(route.calls, ['abort blockedbyclient'])
+  assert.throws(() => guard.assertClean(), /guard error on GET fonts\.example\.org\/a\.woff2/)
+})
+
+test('a route or socket that cannot be answered neither rejects nor leaves an unhandled rejection', async () => {
+  await withoutUnhandledRejections(async () => {
+    const guard = new RunGuard(policy())
+    const gone = (method, url, over = {}) => ({ ...fakeRoute(method, url), abort: async () => { throw new Error('page closed') }, continue: async () => { throw new Error('page closed') }, ...over })
+    await guard.handleRoute(gone('POST', 'https://app.example.com/items'))
+    await guard.handleRoute(gone('GET', 'https://app.example.com/list'))
+    await guard.handleRoute(gone('POST', 'https://app.example.com/items', { abort: () => { throw new Error('sync') } }))
+    await guard.handleRoute(gone('GET', 'https://app.example.com/list', { continue: () => { throw new Error('sync') } }))
+    guard.handleWebSocket({ url: () => 'wss://push.example.net/hub', close: async () => { throw new Error('closed') }, connectToServer: () => {} })
+    guard.handleWebSocket({ url: () => 'wss://push.example.net/hub', close: () => { throw new Error('sync') }, connectToServer: () => {} })
+  })
+})
+
+test('RunGuard closes a WebSocket it cannot judge or connect, and fails the run', () => {
+  const calls = []
+  const socket = (over) => ({ url: () => 'wss://app.example.com/hub', close: () => calls.push('close'), connectToServer: () => calls.push('connect'), ...over })
+  const unreadable = new RunGuard(policy())
+  unreadable.handleWebSocket(socket({ url: () => { throw new Error('no url') } }))
+  assert.deepEqual(calls, ['close'])
+  assert.throws(() => unreadable.assertClean(), (e) => e.message === 'guard error on (unknown request)')
+  calls.length = 0
+  const unconnectable = new RunGuard(policy())
+  unconnectable.handleWebSocket(socket({ connectToServer: () => { throw new Error('refused') } }))
+  assert.deepEqual(calls, ['close'])
+  assert.throws(() => unconnectable.assertClean(), (e) => e.message === 'guard error on GET app.example.com/hub')
+})
+
+test('a currentStep that throws does not stop a violation being recorded', () => {
+  const guard = new RunGuard(policy(), { currentStep: () => { throw new Error('no step') } })
+  guard.fail('The walk opened a second tab.')
+  assert.throws(() => guard.assertClean(), (e) => e.step === null && e.message === 'The walk opened a second tab.')
+})
+
+test('only data, blob and about pages are local; every other scheme is refused, naming only the scheme', () => {
+  for (const url of ['data:text/html,hi', 'blob:https://app.example.com/1', 'about:blank'])
+    assert.equal(classifyRequest(get(url), policy()).kind, 'local', url)
+  const ftp = classifyRequest(get('ftp://user:secret@files.example.net/a.txt?token=abc#frag'), policy())
+  assert.deepEqual([ftp.action, ftp.kind], ['abort', 'scheme'])
+  assert.equal(ftp.reason, 'A request with the ftp: scheme was refused.')
+  for (const url of ['file:///tmp/a.html', 'javascript:alert(1)', 'chrome-extension://abc/page.html', 'filesystem:https://app.example.com/temporary/a']) {
+    for (const readOnly of [true, false]) {
+      const verdict = classifyRequest(get(url), policy({ readOnly }))
+      assert.equal(verdict.action, 'abort', url)
+      assert.equal(verdict.kind, 'scheme', url)
+      assert.match(verdict.reason, /^A request with the [a-z-]+: scheme was refused\.$/, url)
+    }
+  }
+})
+
+test('a refused scheme is aborted and fails the run, and while learning it is listed as refused', async () => {
+  const guard = new RunGuard(policy())
+  const route = fakeRoute('GET', 'ftp://files.example.net/a.txt?token=abc')
+  await guard.handleRoute(route)
+  assert.deepEqual(route.calls, ['abort blockedbyclient'])
+  assert.throws(() => guard.assertClean(), (e) => e.message === 'A request with the ftp: scheme was refused.')
+  const learning = new RunGuard(policy({ learning: true }))
+  await learning.handleRoute(fakeRoute('GET', 'ftp://files.example.net/a.txt'))
+  assert.doesNotThrow(() => learning.assertClean())
+  assert.deepEqual(learning.learned(), { unlisted: [], refused: ['(ftp: URL)'] })
+})
+
+test('refusal text carries the method, host and path, and nothing else of the URL', () => {
+  assert.equal(describeRequest('GET', 'https://user:secret@app.example.com/a?token=abc#frag'), 'GET app.example.com/a')
+  const verdict = classifyRequest(get('https://user:secret@tracker.example.net/a?token=abc#frag'), policy())
+  assert.equal(verdict.reason, "GET tracker.example.net/a was refused: tracker.example.net is not in this environment's hosts.")
+})
+
+test('while learning, an allowed non-read to an unlisted host is listed as unlisted and not sent', async () => {
+  const allowed = [{ method: 'POST', url: /\/session\/token$/ }]
+  const learning = policy({ learning: true, allowed })
+  const verdict = classifyRequest({ method: 'POST', url: 'https://other.example.org/session/token' }, learning)
+  assert.deepEqual([verdict.action, verdict.kind, verdict.host], ['abort', 'unlisted', 'other.example.org'])
+  // On a listed host the same request is still allowed.
+  assert.equal(classifyRequest({ method: 'POST', url: 'https://app.example.com/session/token' }, learning).action, 'continue')
+  const guard = new RunGuard(learning)
+  const route = fakeRoute('POST', 'https://other.example.org/session/token')
+  await guard.handleRoute(route)
+  assert.deepEqual(route.calls, ['abort blockedbyclient'])
+  assert.doesNotThrow(() => guard.assertClean())
+  assert.deepEqual(guard.learned(), { unlisted: ['other.example.org'], refused: ['POST other.example.org/session/token'] })
+})
