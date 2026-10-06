@@ -58,7 +58,7 @@ require_agent_skill() {
 }
 
 printf '== Workflow tiles ==\n'
-for skill in aaron-personal-os wave-invoice blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen brain-ingest brain-context daily-log notion-task-intake weekly-review; do
+for skill in aaron-personal-os wave-invoice blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen demo-capture brain-ingest brain-context daily-log notion-task-intake weekly-review; do
   require_skill "tiles/$skill"
 done
 
@@ -152,6 +152,13 @@ if npx -y bun test tiles/aaron-video-gen/scripts/walkthrough/ scripts/work-leak-
   pass "walkthrough renderer and leak-check tests pass"
 else
   fail "walkthrough renderer and leak-check tests fail"
+fi
+
+# Unit tests only: they need no install. The end-to-end test runs with `npm test` in the tile.
+if node --test tiles/demo-capture/test/*.test.mjs; then
+  pass "demo-capture engine unit tests pass"
+else
+  fail "demo-capture engine unit tests fail"
 fi
 
 # Needs the local, gitignored .work-denylist; a missing list fails rather than passing.

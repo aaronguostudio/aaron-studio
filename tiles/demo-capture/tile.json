@@ -1,0 +1,11 @@
+{
+  "name": "aaronguo/demo-capture",
+  "version": "0.1.0",
+  "summary": "Record scripted walkthroughs of any web app into a capture folder for the walkthrough renderer; each project brings only its demo-capture/ adapter.",
+  "private": true,
+  "skills": {
+    "demo-capture": {
+      "path": "SKILL.md"
+    }
+  }
+}
