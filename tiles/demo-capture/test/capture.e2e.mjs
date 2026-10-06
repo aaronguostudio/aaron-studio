@@ -294,3 +294,44 @@ test('--learn-hosts lists the non-read the config does not allow, and says what 
   assert.match(result.output, /Requests refused because the walk is read-only:\n {2}POST 127\.0\.0\.1\/beacon\n/)
   assert.match(result.output, /readOnlyAllowed, once a person approves it\./)
 })
+
+// A 307 makes the browser send the same method and body to the new URL before the guard hears of it.
+test('a post that a redirect sends on to a URL no rule allows fails the run, and the failure says it was sent', async () => {
+  const before = app.requests().length
+  const result = await runCapture(['--env', 'local', '--walk', 'sends-redirected-post', '--out', outDir('redirected')])
+  assert.equal(result.code, 1, result.output)
+  const capture = await readJson(join(outDir('redirected'), 'capture.json'))
+  assert.equal(capture.failedStep, 'redirect')
+  assert.equal(capture.failure, 'POST 127.0.0.1/items was sent by a redirect the guard cannot stop: this walk is read-only.')
+  // It was sent: the server has the POST, with its body.
+  const posts = receivedFrom(before).filter((request) => request.method === 'POST' && request.path !== '/beacon')
+  assert.deepEqual(posts, [
+    { method: 'POST', path: '/bounce-post', body: '{"page":"home"}' },
+    { method: 'POST', path: '/items', body: '{"page":"home"}' }
+  ])
+})
+
+test('a post that a redirect sends to an unlisted host is refused by the browser, and reaches nothing', async () => {
+  const before = app.requests().length
+  const result = await runCapture(['--env', 'local', '--walk', 'sends-redirected-post-by-name', '--out', outDir('redirected-by-name')])
+  assert.equal(result.code, 1, result.output)
+  const capture = await readJson(join(outDir('redirected-by-name'), 'capture.json'))
+  assert.equal(capture.failedStep, 'redirect')
+  assert.equal(capture.failure, "POST localhost/items was refused: localhost is not in this environment's hosts.")
+  assert.deepEqual(app.requests().slice(before).filter((request) => request.host.startsWith('localhost')), [])
+})
+
+test('--learn-hosts lists the host a redirected post reached as unlisted, not refused, and fails the run', async () => {
+  const before = app.requests().length
+  const result = await runCapture(['--env', 'local', '--walk', 'sends-redirected-post-by-name', '--learn-hosts', '--out', outDir('redirected-learn')])
+  assert.equal(result.code, 1, result.output)
+  assert.match(result.output, /Hosts the walk used that are not in environments\.local\.hosts:\n {2}localhost\n/)
+  assert.doesNotMatch(result.output, /Requests refused/)
+  assert.match(
+    result.output,
+    /The walk stopped early, so these lists may be incomplete: POST localhost\/items was sent by a redirect the guard cannot stop: localhost is not in this environment's hosts\./
+  )
+  // It was sent for real, with its body: the learning run could not stop it.
+  const reached = app.requests().slice(before).filter((request) => request.host.startsWith('localhost'))
+  assert.deepEqual(reached.map(({ method, path, body }) => ({ method, path, body })), [{ method: 'POST', path: '/items', body: '{"page":"home"}' }])
+})

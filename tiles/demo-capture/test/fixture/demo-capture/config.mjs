@@ -19,7 +19,10 @@ export default {
   // the engine must still refuse a ping with no body.
   readOnlyAllowed: [
     { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/beacon/, body: /\{"page":"[a-z]+"\}/ },
-    { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/ping/, body: /^$/ }
+    { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/ping/, body: /^$/ },
+    // These two answer with a 307, so the browser sends the same POST on to /items. One endpoint per rule.
+    { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/bounce-post/, body: /\{"page":"[a-z]+"\}/ },
+    { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/bounce-post-localhost/, body: /\{"page":"[a-z]+"\}/ }
   ],
   sameTabLinks: true,
   setup: async ({ page }) => {

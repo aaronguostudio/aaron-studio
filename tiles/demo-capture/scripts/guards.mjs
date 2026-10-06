@@ -135,6 +135,9 @@ export function assertTypable(inputType) {
 // HEAD and OPTIONS cannot change data, and browsers send OPTIONS by themselves (CORS preflight).
 const READS = new Set(['GET', 'HEAD', 'OPTIONS'])
 
+// What a failure says of a request the guard saw only after the browser had sent it (a redirect hop).
+const SENT_BY_REDIRECT = 'was sent by a redirect the guard cannot stop'
+
 // Pages the browser builds itself, with no network behind them. Every scheme that is neither one
 // of these nor in NETWORK_PORTS (file:, ftp: and the rest) is refused.
 const LOCAL_SCHEMES = new Set(['data:', 'blob:', 'about:'])
@@ -205,9 +208,10 @@ export function matchesRule(rule, { method, url, body }, { whole = false } = {})
 //   forbidden  readOnlyForbidden rules: reads that write
 //   allowed    non-read rules a read-only walk may send because they change no data. Each rule's
 //              url and body must match the whole URL and the whole body (see matchesRule)
-//   learning   --learn-hosts: unlisted hosts are let through and remembered. A non-read is never
-//              sent to an unlisted host, even when `allowed` lists it: the host is remembered and
-//              the request is aborted.
+//   learning   --learn-hosts: unlisted hosts are let through and remembered. A first request that is
+//              a non-read is never sent to an unlisted host, even when `allowed` lists it: the host
+//              is remembered and the request is aborted. (A redirect hop that keeps the method, a
+//              307 or a 308, is already on the wire when the guard sees it: see RunGuard.)
 // `kind`: local (a page the browser builds itself), scheme (not http, https, ws or wss), listed,
 // unlisted, host (refused: not in the list), write, forbidden, unreadable.
 export function classifyRequest(request, { hosts, readOnly, forbidden = [], allowed = [], learning = false }) {
@@ -244,9 +248,11 @@ export function classifyRequest(request, { hosts, readOnly, forbidden = [], allo
     return { action: 'abort', kind: 'write', host, where, reason: `${where} was refused: this walk is read-only.` }
   if (!listed) {
     if (learning) {
-      // A non-read only gets here when `allowed` lists it: the host is remembered, nothing is sent.
+      // A non-read only gets here when `allowed` lists it (or, for judgeHop, whatever it lists): the
+      // host is remembered, and a first request is not sent. A hop is judged by this same line, but
+      // it was sent already: see judgeHop.
       if (!isRead)
-        return { action: 'abort', kind: 'unlisted', host, where, reason: `${where} was refused: ${named} is not in this environment's hosts.` }
+        return { action: 'abort', kind: 'unlisted', host, named, where, reason: `${where} was refused: ${named} is not in this environment's hosts.` }
       return { action: 'continue', kind: 'unlisted', host, where }
     }
     return { action: 'abort', kind: 'host', host, where, reason: `${where} was refused: ${named} is not in this environment's hosts.` }
@@ -294,10 +300,14 @@ function nameOf(read) {
 //
 // The caller wires three handlers: handleRoute from context.route, handleWebSocket from
 // context.routeWebSocket, and handleRedirectHop from context.on('request'). A route handler sees
-// only the first URL of a request, never the hops of a redirect, so handleRedirectHop classifies
-// each hop the same way. A hop is already on the wire when the 'request' event fires, so it can
-// only be recorded, never aborted: the run fails at the next assertClean(), and stopping the
-// connection itself is the job of a rule at the network layer, not of this class.
+// only the first URL of a request, never the hops of a redirect, so handleRedirectHop judges each
+// hop too. A hop is already on the wire when the 'request' event fires, so it can only be recorded,
+// never aborted: the run fails at the next assertClean(), and stopping the connection itself is the
+// job of a rule at the network layer, not of this class. That matters most for a non-read: a 307 or
+// 308 makes the browser send the same method and body to the new URL, so a request that a rule
+// allowed can be sent on to a URL no rule allows, or, in a learning run, to any host. Only the rule
+// that allowed the first request keeps that from doing harm, which is why an allowed rule names one
+// endpoint and one body (see matchesRule).
 //
 // No request or socket is left unanswered and nothing throws into the page: one the guard cannot
 // judge is aborted or closed and recorded as a violation ("guard error on ..."), also while
@@ -369,17 +379,46 @@ export class RunGuard {
     }
   }
 
-  // For every request the context reports: a hop of a redirect (redirectedFrom() is set) is
-  // classified like any request and recorded when denied; a first request was already judged by
-  // handleRoute and is left alone. It cannot abort, so it returns nothing.
+  // For every request the context reports: a hop of a redirect (redirectedFrom() is set) is judged
+  // and recorded; a first request was already judged by handleRoute and is left alone. It cannot
+  // abort, so it returns nothing.
   handleRedirectHop(request) {
     try {
       if (!request.redirectedFrom()) return
       const body = typeof request.postData === 'function' ? request.postData() : null
-      this.check({ method: request.method(), url: request.url(), body })
+      this.judgeHop({ method: request.method(), url: request.url(), body })
     } catch {
       this.fail(`guard error on ${nameOf(() => describeRequest(request.method(), request.url()))}`)
     }
+  }
+
+  // A hop is judged by the host lock first, and only then by the project's rules, and it is never
+  // called "refused" when it was sent:
+  //   - an unlisted host: outside learning the browser's resolver has already refused the name, so
+  //     the hop is "refused". While learning the name resolved and the hop was sent: the host is
+  //     listed as unlisted (not as refused), and a non-read fails the run, because it reached a host
+  //     that nothing allowed. A scheme or URL the guard cannot read is refused by the browser itself.
+  //   - a listed host: a forbidden request, or a non-read no allowed rule matches, was sent. The run
+  //     fails with that, also while learning.
+  judgeHop(hop) {
+    const lock = classifyRequest(hop, { ...this.policy, readOnly: false, forbidden: [], allowed: [] })
+    if (lock.kind === 'local') return
+    if (lock.kind === 'unlisted') {
+      this.unlisted.add(lock.host)
+      if (lock.action === 'abort') {
+        this.fail(`${lock.where} ${SENT_BY_REDIRECT}: ${lock.named} is not in this environment's hosts.`)
+        return
+      }
+    } else if (lock.action === 'abort') {
+      if (this.policy.learning) this.refused.add(lock.where)
+      else this.fail(lock.reason)
+      return
+    }
+    if (!this.policy.readOnly) return
+    if (this.policy.forbidden.some((rule) => matchesRule(rule, hop)))
+      this.fail(`${lock.where} ${SENT_BY_REDIRECT}: the project lists it as a read that writes.`)
+    else if (!READS.has(hop.method.toUpperCase()) && !this.policy.allowed.some((rule) => matchesRule(rule, hop, { whole: true })))
+      this.fail(`${lock.where} ${SENT_BY_REDIRECT}: this walk is read-only.`)
   }
 
   assertClean() {

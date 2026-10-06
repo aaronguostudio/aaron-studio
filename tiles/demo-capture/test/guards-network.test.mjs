@@ -203,10 +203,10 @@ test('a redirect hop to a read the project lists as writing, or a non-read, fail
   const forbidden = [{ method: 'GET', url: /\/items\?mode=recount/ }]
   const toForbidden = new RunGuard(policy({ forbidden }))
   toForbidden.handleRedirectHop(hop('GET', 'https://app.example.com/items?mode=recount'))
-  assert.throws(() => toForbidden.assertClean(), /GET app\.example\.com\/items was refused: the project lists it as a read that writes\./)
+  assert.throws(() => toForbidden.assertClean(), /GET app\.example\.com\/items was sent by a redirect the guard cannot stop: the project lists it as a read that writes\./)
   const toWrite = new RunGuard(policy())
   toWrite.handleRedirectHop(hop('POST', 'https://app.example.com/items'))
-  assert.throws(() => toWrite.assertClean(), /POST app\.example\.com\/items was refused: this walk is read-only\./)
+  assert.throws(() => toWrite.assertClean(), /POST app\.example\.com\/items was sent by a redirect the guard cannot stop: this walk is read-only\./)
 })
 
 test('a request that is not a redirect hop is left to the route handler', () => {
@@ -222,7 +222,7 @@ test('a redirect hop hands its body to the rules', () => {
   assert.doesNotThrow(() => plain.assertClean())
   const refresh = new RunGuard(policy({ allowed }))
   refresh.handleRedirectHop(hop('POST', 'https://app.example.com/brief', { body: '{"date":"2026-10-05","refresh":true}' }))
-  assert.throws(() => refresh.assertClean(), /POST app\.example\.com\/brief was refused/)
+  assert.throws(() => refresh.assertClean(), /POST app\.example\.com\/brief was sent by a redirect the guard cannot stop: this walk is read-only\./)
 })
 
 test('while learning, a redirect hop to an unlisted host is listed and the run does not fail', () => {
@@ -545,10 +545,10 @@ test('a redirect hop without a readable body fails the run when the rule has a b
     const rules = policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body }] })
     const withNull = new RunGuard(rules)
     withNull.handleRedirectHop(hop('POST', BEACON, { body: null }))
-    assert.throws(() => withNull.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./, `${body} with a null body`)
+    assert.throws(() => withNull.assertClean(), /POST app\.example\.com\/beacon was sent by a redirect the guard cannot stop: this walk is read-only\./, `${body} with a null body`)
     const without = new RunGuard(rules)
     without.handleRedirectHop(noPostData(BEACON))
-    assert.throws(() => without.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./, `${body} without postData`)
+    assert.throws(() => without.assertClean(), /POST app\.example\.com\/beacon was sent by a redirect the guard cannot stop: this walk is read-only\./, `${body} without postData`)
   }
   // A rule without a body pattern lets the same hop through, and a read body goes through a permissive pattern.
   const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }] }))
@@ -737,4 +737,131 @@ test('matching the whole text is only for allowed rules: a forbidden rule is sea
   assert.equal(classifyRequest(post('https://app.example.com/items/7/archive'), policy({ forbidden })).kind, 'forbidden')
   const allowed = [{ method: 'POST', url: /\/items/ }]
   assert.equal(classifyRequest(post('https://app.example.com/items/7/archive'), policy({ allowed })).kind, 'write')
+})
+
+// ---- A redirect hop is already on the wire ----
+//
+// A 307 or 308 makes the browser send the same method and the same body to the new URL, and it does
+// so before the guard hears of the hop. The guard can record a hop, not stop it, so it never says a
+// hop was "refused" when it was sent. Outside learning the browser's resolver still refuses a host
+// that is not listed, and that stays "refused".
+
+const SENT = 'was sent by a redirect the guard cannot stop'
+const TOKEN_RULE = { method: 'POST', url: /https:\/\/app\.example\.com\/session\/token/ }
+const hopsFor = (rules) => {
+  const guard = new RunGuard(rules)
+  return { guard, hop: (method, url, extra) => guard.handleRedirectHop(hop(method, url, extra)) }
+}
+const failureOf = (guard) => {
+  try {
+    guard.assertClean()
+  } catch (error) {
+    return error.message
+  }
+  return null
+}
+
+test('a non-read hop that no rule allows fails the run, and says it was sent, not refused', () => {
+  const rules = policy({ allowed: [TOKEN_RULE] })
+  const toItems = hopsFor(rules)
+  toItems.hop('POST', 'https://app.example.com/items', { body: '{"name":"x"}' })
+  assert.equal(failureOf(toItems.guard), `POST app.example.com/items ${SENT}: this walk is read-only.`)
+  // A hop to a URL a rule does allow is fine, and so is one the rule's body does not mention.
+  const toToken = hopsFor(rules)
+  toToken.hop('POST', 'https://app.example.com/session/token')
+  assert.equal(failureOf(toToken.guard), null)
+  // The rule's method is part of it.
+  const put = hopsFor(rules)
+  put.hop('PUT', 'https://app.example.com/session/token')
+  assert.equal(failureOf(put.guard), `PUT app.example.com/session/token ${SENT}: this walk is read-only.`)
+  // A rule is read as for a first request: its url and body must match the whole URL and body.
+  const partial = hopsFor(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/session\/token/ }] }))
+  partial.hop('POST', 'https://app.example.com/session/token/revoke-all')
+  assert.equal(failureOf(partial.guard), `POST app.example.com/session/token/revoke-all ${SENT}: this walk is read-only.`)
+  // A hop of a walk that declares writes is not judged by the rules at all.
+  const writes = hopsFor(policy({ readOnly: false, allowed: [TOKEN_RULE], forbidden: [{ method: 'POST', url: /items/ }] }))
+  writes.hop('POST', 'https://app.example.com/items')
+  assert.equal(failureOf(writes.guard), null)
+})
+
+test('a forbidden read hop fails the run with what happened, and a forbidden rule beats an allowed one', () => {
+  const forbidden = [{ method: 'GET', url: /\/items\?mode=recount/ }]
+  const read = hopsFor(policy({ forbidden }))
+  read.hop('GET', 'https://app.example.com/items?mode=recount')
+  assert.equal(failureOf(read.guard), `GET app.example.com/items ${SENT}: the project lists it as a read that writes.`)
+  const both = hopsFor(policy({ forbidden: [{ method: 'POST', url: /session\/token/ }], allowed: [TOKEN_RULE] }))
+  both.hop('POST', 'https://app.example.com/session/token')
+  assert.equal(failureOf(both.guard), `POST app.example.com/session/token ${SENT}: the project lists it as a read that writes.`)
+})
+
+test('a non-read hop to an unlisted host is refused outside learning, whatever the rules say about the method', () => {
+  // The browser's own resolver refuses an unlisted name, so here "refused" is true, and the host is
+  // what the sentence names: not the read-only rule, which the request would also break.
+  const expected = "POST tracker.example.net/items was refused: tracker.example.net is not in this environment's hosts."
+  const plain = hopsFor(policy())
+  plain.hop('POST', 'https://tracker.example.net/items')
+  assert.equal(failureOf(plain.guard), expected)
+  const allowed = hopsFor(policy({ allowed: [{ method: 'POST', url: /.*/ }] }))
+  allowed.hop('POST', 'https://tracker.example.net/items')
+  assert.equal(failureOf(allowed.guard), expected)
+  const forbidden = hopsFor(policy({ forbidden: [{ method: 'POST', url: /items/ }] }))
+  forbidden.hop('POST', 'https://tracker.example.net/items')
+  assert.equal(failureOf(forbidden.guard), expected)
+})
+
+test('while learning, a non-read hop to an unlisted host is listed as unlisted, never as refused, and fails the run', () => {
+  const sentTo = "POST tracker.example.net/items was sent by a redirect the guard cannot stop: tracker.example.net is not in this environment's hosts."
+  for (const allowed of [[], [{ method: 'POST', url: /.*/ }]]) {
+    const learning = hopsFor(policy({ learning: true, allowed }))
+    learning.hop('POST', 'https://tracker.example.net/items', { body: '{"name":"x"}' })
+    assert.deepEqual(learning.guard.learned(), { unlisted: ['tracker.example.net'], refused: [] })
+    assert.equal(failureOf(learning.guard), sentTo)
+  }
+  // A listed host on another port is named with its port.
+  const port = hopsFor(policy({ learning: true, hosts: ['app.example.com:8443'] }))
+  port.hop('POST', 'https://app.example.com/items')
+  assert.equal(failureOf(port.guard), "POST app.example.com/items was sent by a redirect the guard cannot stop: app.example.com:443 is not in this environment's hosts.")
+  // A read hop to an unlisted host is listed too, and the run goes on.
+  const read = hopsFor(policy({ learning: true }))
+  read.hop('GET', 'https://tracker.example.net/pixel')
+  assert.deepEqual(read.guard.learned(), { unlisted: ['tracker.example.net'], refused: [] })
+  assert.equal(failureOf(read.guard), null)
+  // A first request, which the guard can stop, is still listed as refused, as before.
+  const first = new RunGuard(policy({ learning: true }))
+  first.check({ method: 'POST', url: 'https://tracker.example.net/items' })
+  assert.deepEqual(first.learned(), { unlisted: [], refused: ['POST tracker.example.net/items'] })
+})
+
+test('while learning, a non-read hop to a listed host that no rule allows fails the run instead of being listed as refused', () => {
+  const learning = hopsFor(policy({ learning: true, allowed: [TOKEN_RULE] }))
+  learning.hop('POST', 'https://app.example.com/items')
+  assert.deepEqual(learning.guard.learned(), { unlisted: [], refused: [] })
+  assert.equal(failureOf(learning.guard), `POST app.example.com/items ${SENT}: this walk is read-only.`)
+  const allowed = hopsFor(policy({ learning: true, allowed: [TOKEN_RULE] }))
+  allowed.hop('POST', 'https://app.example.com/session/token')
+  assert.equal(failureOf(allowed.guard), null)
+  const forbidden = hopsFor(policy({ learning: true, forbidden: [{ method: 'GET', url: /recount/ }] }))
+  forbidden.hop('GET', 'https://app.example.com/items?mode=recount')
+  assert.deepEqual(forbidden.guard.learned(), { unlisted: [], refused: [] })
+  assert.equal(failureOf(forbidden.guard), `GET app.example.com/items ${SENT}: the project lists it as a read that writes.`)
+  // A forbidden read to an unlisted host: the host is listed, and the forbidden read is the failure.
+  const both = hopsFor(policy({ learning: true, forbidden: [{ method: 'GET', url: /recount/ }] }))
+  both.hop('GET', 'https://tracker.example.net/items?mode=recount')
+  assert.deepEqual(both.guard.learned(), { unlisted: ['tracker.example.net'], refused: [] })
+  assert.equal(failureOf(both.guard), `GET tracker.example.net/items ${SENT}: the project lists it as a read that writes.`)
+})
+
+test('a hop to a scheme the guard refuses, or to a page the browser builds, is judged on its own', () => {
+  // Nothing is sent to these: the browser refuses a scheme it cannot fetch, and a data: page has no network.
+  const outside = hopsFor(policy())
+  outside.hop('GET', 'ftp://app.example.com/file')
+  assert.equal(failureOf(outside.guard), 'A request with the ftp: scheme was refused.')
+  const learning = hopsFor(policy({ learning: true }))
+  learning.hop('GET', 'ftp://app.example.com/file')
+  assert.deepEqual(learning.guard.learned(), { unlisted: [], refused: ['(ftp: URL)'] })
+  assert.equal(failureOf(learning.guard), null)
+  const local = hopsFor(policy({ allowed: [] }))
+  local.hop('POST', 'data:text/plain,hello')
+  assert.equal(failureOf(local.guard), null)
+  assert.deepEqual(local.guard.learned(), { unlisted: [], refused: [] })
 })

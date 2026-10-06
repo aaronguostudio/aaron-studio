@@ -22,11 +22,14 @@ const SIGN_IN = page(
 <button type="submit">Sign in</button></form>`
 )
 
-// ?beacon=1 posts a beacon on load, and offers two buttons: one posts a beacon with a body the
-// config does not allow, the other posts a ping with no body at all.
+// ?beacon=1 posts a beacon on load, and offers buttons: one posts a beacon with a body the config
+// does not allow, one posts a ping with no body at all, and two post to a route that redirects with
+// a 307, which the browser follows with the same method and body.
 const BEACONS = `<script>fetch('/beacon', { method: 'POST', body: JSON.stringify({ page: 'home' }) })</script>
 <button type="button" onclick="fetch('/beacon', { method: 'POST', body: JSON.stringify({ page: 'home', extra: true }) })">Send odd beacon</button>
-<button type="button" onclick="fetch('/ping', { method: 'POST' })">Send empty ping</button>`
+<button type="button" onclick="fetch('/ping', { method: 'POST' })">Send empty ping</button>
+<button type="button" onclick="fetch('/bounce-post', { method: 'POST', body: JSON.stringify({ page: 'home' }) })">Send redirected post</button>
+<button type="button" onclick="fetch('/bounce-post-localhost', { method: 'POST', body: JSON.stringify({ page: 'home' }) })">Send redirected post by name</button>`
 
 // ?outside=1 adds an image from another host (localhost), for the host lock. The two links lead
 // to routes that answer with a redirect to another host, for the hops the route guard cannot see.
@@ -87,6 +90,10 @@ export async function startFixture() {
     if (url.pathname === '/home')
       return send(200, home(port(), { outside: url.searchParams.has('outside'), beacon: url.searchParams.has('beacon') }))
     if (url.pathname === '/beacon' || url.pathname === '/ping') return send(204, '')
+    // A 307 keeps the method and the body: the browser sends the same POST to the new URL. The second
+    // goes to another name for this machine, which the fixture adapter does not list.
+    if (url.pathname === '/bounce-post') return send(307, '', { location: '/items' })
+    if (url.pathname === '/bounce-post-localhost') return send(307, '', { location: `http://localhost:${port()}/items` })
     if (url.pathname === '/details') return send(200, DETAILS)
     if (url.pathname === '/items') return send(200, '{"ok":true}', { 'content-type': 'application/json' })
     return send(404, page('Not found', ''))

@@ -319,6 +319,26 @@ export const MUTANTS = [
 
   // guards.mjs, handleRedirectHop: a hop is judged like any request; a first request is left to handleRoute
   m('guards', 'if (!request.redirectedFrom()) return', 'if (false) return', 'guards-network.test'),
+  m('guards', 'this.judgeHop({ method: request.method(), url: request.url(), body })', 'this.check({ method: request.method(), url: request.url(), body })', 'guards-network.test'),
+
+  // guards.mjs, judgeHop: a hop was sent before the guard saw it, so it is never "refused" unless the browser refused it
+  m('guards', 'classifyRequest(hop, { ...this.policy, readOnly: false, forbidden: [], allowed: [] })', 'classifyRequest(hop, this.policy)', 'guards-network.test'),
+  m('guards', "if (lock.kind === 'local') return", 'if (false) return', 'guards-network.test'),
+  m('guards', 'this.unlisted.add(lock.host)', '', 'guards-network.test'),
+  m('guards', "      if (lock.action === 'abort') {\n        this.fail(", "      if (false) {\n        this.fail(", 'guards-network.test'),
+  m('guards', '${lock.named} is not in this environment', '${lock.host} is not in this environment', 'guards-network.test'),
+  m('guards', "kind: 'unlisted', host, named, where, reason", "kind: 'unlisted', host, where, reason", 'guards-network.test'),
+  m('guards', "} else if (lock.action === 'abort') {", '} else if (false) {', 'guards-network.test'),
+  m('guards', 'if (this.policy.learning) this.refused.add(lock.where)\n      else this.fail(lock.reason)', 'this.fail(lock.reason)', 'guards-network.test'),
+  m('guards', 'if (this.policy.learning) this.refused.add(lock.where)\n      else this.fail(lock.reason)', 'this.refused.add(lock.where)', 'guards-network.test'),
+  m('guards', 'if (!this.policy.readOnly) return', '', 'guards-network.test'),
+  m('guards', 'if (this.policy.forbidden.some((rule) => matchesRule(rule, hop)))', 'if (false)', 'guards-network.test'),
+  m('guards', 'if (this.policy.forbidden.some((rule) => matchesRule(rule, hop)))', 'if (this.policy.forbidden.some((rule) => matchesRule(rule, hop, { whole: true })))', 'guards-network.test'),
+  m('guards', 'else if (!READS.has(hop.method.toUpperCase()) && ', 'else if (', 'guards-network.test'),
+  m('guards', '!this.policy.allowed.some((rule) => matchesRule(rule, hop, { whole: true }))', '!this.policy.allowed.some((rule) => matchesRule(rule, hop))', 'guards-network.test'),
+  m('guards', "const SENT_BY_REDIRECT = 'was sent by a redirect the guard cannot stop'", "const SENT_BY_REDIRECT = 'was refused'", 'guards-network.test'),
+  m('guards', '${lock.where} ${SENT_BY_REDIRECT}: this walk is read-only.', '${lock.where} ${SENT_BY_REDIRECT}: the project lists it as a read that writes.', 'guards-network.test'),
+  m('guards', '${lock.where} ${SENT_BY_REDIRECT}: the project lists it as a read that writes.', '${lock.where} ${SENT_BY_REDIRECT}: this walk is read-only.', 'guards-network.test'),
   m('guards', "const body = typeof request.postData === 'function' ? request.postData() : null", "const body = ''", 'guards-network.test'),
   m('guards', "const body = typeof request.postData === 'function' ? request.postData() : null", 'const body = null', 'guards-network.test'),
   m('guards', "request.postData() : null", "request.postData() : ''", 'guards-network.test'),
