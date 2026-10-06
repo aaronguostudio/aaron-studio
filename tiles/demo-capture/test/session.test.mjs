@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { mkdtempSync } from 'node:fs'
-import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises'
+import { chmod, link, mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { test } from 'node:test'
@@ -47,6 +47,7 @@ test('sessions live in ~/.demo-capture/<name>/<env>/, and a test can move the ro
 test('the session folder is 0700 even when it already exists', async () => {
   const dir = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev')
   await mkdir(dir, { recursive: true, mode: 0o755 })
+  await chmod(dir, 0o755)
   await ensurePrivateDir(dir)
   assert.equal(await mode(dir), 0o700)
 })
@@ -66,11 +67,59 @@ test('saveState writes the storage state, with IndexedDB, as a 0600 file in a 07
   assert.deepEqual(await readdir(join(state, '..')), ['state.json'])
   // A second save replaces it and keeps the mode.
   await writeFile(state, '{}', { mode: 0o644 })
+  await chmod(state, 0o644)
   await saveState(context, state)
   assert.equal(await mode(state), 0o600)
   await deleteState(state)
   assert.equal(await hasState(state), false)
   await deleteState(state)
+})
+
+test('saveState is private whatever the umask says', async () => {
+  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const context = { storageState: async () => ({ cookies: [], origins: [] }) }
+  const before = process.umask(0)
+  try {
+    await saveState(context, state)
+  } finally {
+    process.umask(before)
+  }
+  assert.equal(await mode(join(state, '..')), 0o700)
+  // The folders created on the way (the project's, which also holds its runs) are private too.
+  assert.equal(await mode(join(state, '..', '..')), 0o700)
+  assert.equal(await mode(state), 0o600)
+})
+
+// An orphaned temporary file holds live cookies, so no save and no delete may leave one.
+test('a stale temporary file is replaced by a fresh 0600 one, never written through', async () => {
+  const root = mkdtempSync(join(tmpdir(), 'session-'))
+  const state = join(root, 'my-app', 'dev', 'state.json')
+  const context = { storageState: async () => ({ cookies: [{ name: 's' }], origins: [] }) }
+  await ensurePrivateDir(join(state, '..'))
+  await writeFile(`${state}.tmp`, 'stale', { mode: 0o644 })
+  await chmod(`${state}.tmp`, 0o644)
+  // A second name for the stale file's inode: if the save wrote through it, it would change.
+  const alias = join(root, 'alias')
+  await link(`${state}.tmp`, alias)
+  await saveState(context, state)
+  assert.equal(await mode(state), 0o600)
+  assert.deepEqual(JSON.parse(await readFile(state, 'utf8')), { cookies: [{ name: 's' }], origins: [] })
+  assert.deepEqual(await readdir(join(state, '..')), ['state.json'])
+  assert.equal(await readFile(alias, 'utf8'), 'stale')
+  assert.equal(await mode(alias), 0o644)
+})
+
+test('deleteState also removes a leftover temporary file', async () => {
+  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  await ensurePrivateDir(join(state, '..'))
+  await writeFile(state, '{}', { mode: 0o600 })
+  await writeFile(`${state}.tmp`, '{}', { mode: 0o600 })
+  await deleteState(state)
+  assert.deepEqual(await readdir(join(state, '..')), [])
+  // A crashed save leaves only the temporary file.
+  await writeFile(`${state}.tmp`, '{}', { mode: 0o600 })
+  await deleteState(state)
+  assert.deepEqual(await readdir(join(state, '..')), [])
 })
 
 test('signed in means on the app origin and not signed out', () => {
@@ -129,15 +178,15 @@ test('sign-in gives up after its timeout, or when the window is closed', async (
 })
 
 // A browser type whose browser, context and page only record what they are asked.
-function fakeBrowserType() {
+function fakeBrowserType(savedState = { cookies: [], origins: [] }) {
   const calls = []
   const page = {
     goto: async (url) => calls.push(`goto ${url}`),
     waitForLoadState: async () => calls.push('networkidle')
   }
-  const context = { newPage: async () => page, storageState: async () => ({ cookies: [], origins: [] }) }
+  const context = { newPage: async () => page, storageState: async () => savedState }
   const browser = {
-    newContext: async (options) => (calls.push(`context ${options.viewport.width}x${options.viewport.height}`), context),
+    newContext: async (options) => (calls.push(`context viewport=${options.viewport}`), context),
     close: async () => calls.push('close')
   }
   return { calls, page, browserType: { launch: async (options) => (calls.push(`launch headless=${options.headless}`), browser) } }
@@ -157,7 +206,8 @@ test('signIn opens a visible browser at the sign-in page, waits for the person, 
     log: (line) => logs.push(line),
     wait: async (p, options) => (waited = { p, options })
   })
-  assert.deepEqual(calls, ['launch headless=false', 'context 1440x900', `goto ${ORIGIN}/app/login`, 'networkidle', 'close'])
+  // viewport null: the person's window fits their screen; only the recording uses 1440x900.
+  assert.deepEqual(calls, ['launch headless=false', 'context viewport=null', `goto ${ORIGIN}/app/login`, 'networkidle', 'close'])
   assert.equal(waited.p, page)
   assert.deepEqual(waited.options, { origin: ORIGIN, isSignedOut })
   assert.equal(await mode(state), 0o600)
@@ -233,4 +283,36 @@ test('SignedOut is its own kind of error, so a run can tell it from a walk failu
   assert.ok(!(e instanceof CaptureRefusal))
   assert.equal(e.name, 'SignedOut')
   assert.match(e.message, /Sign-in needed: the saved session is signed out/)
+})
+
+test('the saved state never reaches a log line or an error message', async () => {
+  const SENTINEL = 'sentinel-cookie-value-4f1d9c'
+  const saved = { cookies: [{ name: 's', value: SENTINEL }], origins: [] }
+  const { browserType } = fakeBrowserType(saved)
+  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const lines = []
+  const messages = []
+  const log = (line) => lines.push(String(line))
+  const attempt = { browserType, baseUrl: ORIGIN, signInPath: '/login', isSignedOut, statePath: state, log }
+  // Sign-in succeeds and saves; the walk is signed out twice, so the run stops with an error.
+  await assert.rejects(
+    runWithSession({
+      stateExists: () => hasState(state),
+      promptSignIn: () => signIn({ ...attempt, wait: async () => {} }),
+      record: async () => ({ signedOut: true }),
+      dropState: () => deleteState(state),
+      resetRunDir: async () => {},
+      log
+    }),
+    (e) => (messages.push(e.message), e instanceof CaptureRefusal)
+  )
+  // Sign-in itself gives up.
+  await assert.rejects(
+    signIn({ ...attempt, wait: async () => { throw new CaptureRefusal('Nobody finished signing in within 10 minutes.') } }),
+    (e) => (messages.push(e.message), e instanceof CaptureRefusal)
+  )
+  // The sentinel really went through the save, so the absence below means something.
+  assert.ok((await readFile(state, 'utf8')).includes(SENTINEL))
+  assert.ok(lines.length >= 4 && messages.length === 2)
+  for (const text of [...lines, ...messages]) assert.ok(!text.includes(SENTINEL), text)
 })

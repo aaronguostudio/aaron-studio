@@ -5,7 +5,6 @@ import { chmod, mkdir, rename, rm, stat, writeFile } from 'node:fs/promises'
 import { homedir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { CaptureRefusal } from './guards.mjs'
-import { VIEWPORT } from './recorder.mjs'
 
 export const SIGN_IN_TIMEOUT_MS = 10 * 60_000
 // Signed in means: on the app's own origin, and isSignedOut has said false for this long. A
@@ -51,18 +50,29 @@ export async function hasState(statePath) {
   }
 }
 
+// The temporary file has one fixed name (the run lock allows a single writer), so a leftover
+// from a crashed save is replaced by the next save and removed by deleteState. It holds live
+// cookies, so it is never kept under a name nobody will look for.
+const tempPathOf = (statePath) => `${statePath}.tmp`
+
 // Written to a private temporary file, then renamed: the state is never readable by others,
-// not even for a moment, and a crash never leaves half a file.
+// not even for a moment, and a crashed process never leaves half a file. There is no fsync
+// before the rename, so a power loss can still lose the new state; the next run signs in again.
 export async function saveState(context, statePath) {
   await ensurePrivateDir(dirname(statePath))
   const state = await context.storageState({ indexedDB: true })
-  const temp = `${statePath}.${process.pid}.tmp`
+  const temp = tempPathOf(statePath)
+  // writeFile's mode applies only when it creates the file, so start from no file at all.
+  await rm(temp, { force: true })
   await writeFile(temp, JSON.stringify(state), { mode: 0o600 })
   await chmod(temp, 0o600)
   await rename(temp, statePath)
 }
 
-export const deleteState = (statePath) => rm(statePath, { force: true })
+export async function deleteState(statePath) {
+  await rm(tempPathOf(statePath), { force: true })
+  await rm(statePath, { force: true })
+}
 
 export function isSignedInAt(url, { origin, isSignedOut }) {
   try {
@@ -109,7 +119,7 @@ export async function waitUntilSignedIn(
 export async function signIn({ browserType, baseUrl, signInPath, isSignedOut, statePath, log = console.log, wait = waitUntilSignedIn }) {
   const browser = await browserType.launch({ headless: false })
   try {
-    const context = await browser.newContext({ viewport: VIEWPORT })
+    const context = await browser.newContext({ viewport: null })
     const page = await context.newPage()
     await page.goto(`${baseUrl}${signInPath}`)
     log(
