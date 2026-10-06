@@ -4,38 +4,53 @@
 //
 //   node test/mutation-check.mjs          (npm run mutation-check)
 //
+// Only one check runs at a time per checkout (a lock file in the temporary folder): two at once
+// would restore each other's mutated files and leave the source broken.
+//
 // Before any mutant runs, each one is checked to apply once and to leave source that parses (a
 // mutant that does not parse would be "caught" by the load error and prove nothing), and every
-// test file the mutants name is run once on the unmutated tree (a red environment or a timeout
-// would otherwise count as a kill). A run past 60 s (a mutant that makes a loop endless) counts
-// as caught.
+// test file the mutants name is run once on the unmutated tree (a red environment would otherwise
+// count as a kill). That run's length sets the time a mutant gets: three times as long, never less
+// than 15 s. A mutant that runs out of time is a failure of the check, unless it is marked
+// `endless: true` because it makes a loop that never ends, and the timeout is how it is caught.
 //
 // MUTANTS is exported for tools that read the list; importing this file runs nothing.
 //
 // Left out on purpose, because no test can tell them apart from the original (each was run to
 // confirm that every test file still passes):
 //   host = parsed.hostname.toLowerCase()    URL already lowercases host names.
-//   await chmod(temp, 0o600) alone          saveState removes any old temporary file first, so
-//                                           writeFile's mode already gives the new file 0600.
 //   writeFile's { mode: 0o600 } alone       the chmod after it gives 0600; only the instant between
 //                                           the two differs, which no test can see. The pair (mode
-//                                           and chmod together) is covered as one mutant.
+//                                           and chmod together) is one mutant, and chmod alone is
+//                                           another, killed under a umask that strips the mode.
 //   if (!config.revision) return 'unknown'  the try/catch below it answers the same.
 //   `?? ''` after request.postData()        matchesRule reads a null body as ''.
 //   body = '' in matchesRule's parameters   String(body ?? '') reads undefined as ''.
 //   rule.body === undefined || ...          searching a string for undefined matches at once, so a
 //                                           rule with no body matches any body.
 //   let connect = false in handleWebSocket  the catch sets it to false as well.
+//   if (up === probe) return null           in enclosingRepo's walk up to an existing folder: the
+//                                           root always exists on POSIX, so the walk never gets
+//                                           that far. (The same test with !== is a mutant.)
 import { spawn, spawnSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const TILE = resolve(import.meta.dirname, '..')
-const MUTANT_TIMEOUT_MS = 60_000
+const MIN_MUTANT_TIMEOUT_MS = 15_000
 const BASELINE_TIMEOUT_MS = 180_000
-const m = (module, find, replace, testFile) => ({ file: `scripts/${module}.mjs`, find, replace, test: `test/${testFile}.mjs` })
+// `endless: true` marks a mutant that makes a loop that never ends: the test file never finishes,
+// and the timeout is what catches it. On any other mutant a timeout is a failure of the check.
+const m = (module, find, replace, testFile, { endless = false } = {}) => ({
+  file: `scripts/${module}.mjs`,
+  find,
+  replace,
+  test: `test/${testFile}.mjs`,
+  endless
+})
 
 export const MUTANTS = [
   // project.mjs: config, environment, rule and walk validation; loading; params; environments; --list
@@ -51,6 +66,11 @@ export const MUTANTS = [
   m('project', "typeof config.name !== 'string' || !NAME.test(config.name)", "typeof config.name !== 'string'", 'project.test'),
   m('project', 'Object.keys(config.environments).length === 0', 'false', 'project.test'),
   m('project', "!NAME.test(name) || name === 'runs'", '!NAME.test(name)', 'project.test'),
+  m('project', 'export const NAME = /^[a-z0-9-]+$/', 'export const NAME = /^[a-z0-9-]+/', 'project.test'),
+  m('project', 'export const NAME = /^[a-z0-9-]+$/', 'export const NAME = /[a-z0-9-]+$/', 'project.test'),
+  m('project', 'export const NAME = /^[a-z0-9-]+$/', 'export const NAME = /^[a-z0-9-]*$/', 'project.test'),
+  m('project', 'const PARAM = /^[A-Za-z][A-Za-z0-9_-]*$/', 'const PARAM = /^[A-Za-z][A-Za-z0-9_-]*/', 'project.test'),
+  m('project', 'const PARAM = /^[A-Za-z][A-Za-z0-9_-]*$/', 'const PARAM = /[A-Za-z][A-Za-z0-9_-]*$/', 'project.test'),
   m('project', 'if (!isObject(env)) return', 'if (false) return', 'project.test'),
   m('project', 'problems.push(...unknownFields(env, ENV_FIELDS, `${at}: `))', '', 'project.test'),
   m('project', 'if (!url) problems.push(', 'if (false) problems.push(', 'project.test'),
@@ -142,6 +162,7 @@ export const MUTANTS = [
   m('project', "${walk.writes ? 'writes   ' : 'read-only'}", "${'read-only'}", 'project.test'),
   m('project', 'if (walk.description) lines.push(', 'if (false) lines.push(', 'project.test'),
   m('project', 'const gate = env.production', 'const gate = false', 'project.test'),
+  m('project', 'Math.max(4, ...walks.map', 'Math.max(0, ...walks.map', 'project.test'),
   m('project', ': env.writeGoAhead\n', ': false\n', 'project.test'),
   m('project', 'if (params.length) {', 'if (false) {', 'project.test'),
   m('project', 'Object.entries(config.params ?? {})', 'Object.entries(config.params)', 'project.test'),
@@ -174,6 +195,8 @@ export const MUTANTS = [
   m('guards', 'return `${method.toUpperCase()} ${parsed.hostname}${parsed.pathname}`', 'return `${method} ${parsed.hostname}${parsed.pathname}`', 'guards-network.test'),
   m('guards', 'return `${method.toUpperCase()} ${parsed.hostname}${parsed.pathname}`', 'return `${method.toUpperCase()} ${parsed.host}${parsed.pathname}`', 'guards-network.test'),
   m('guards', 'if (rule.method.toUpperCase() !== method.toUpperCase()) return false', '', 'guards-network.test'),
+  m('guards', 'rule.method.toUpperCase() !== method.toUpperCase()', 'rule.method !== method.toUpperCase()', 'project.test'),
+  m('guards', 'rule.method.toUpperCase() !== method.toUpperCase()', 'rule.method.toUpperCase() !== method', 'guards-network.test'),
   m('guards', 'if (url.search(rule.url) < 0) return false', '', 'guards-network.test'),
   m('guards', 'url.search(rule.url) < 0', '!rule.url.test(url)', 'guards-network.test'),
   m('guards', "return rule.body === undefined || String(body ?? '').search(rule.body) >= 0", 'return true', 'guards-network.test'),
@@ -287,7 +310,11 @@ export const MUTANTS = [
 
   // guards.mjs, the outside-repo check and the run lock
   m('guards', 'while (!existsSync(probe)) {', 'while (false) {', 'guards-files.test'),
+  m('guards', 'if (up === probe) return null', 'if (up !== probe) return null', 'guards-files.test'),
   m('guards', 'for (let dir = realpathSync(probe); ; dir = dirname(dir))', 'for (let dir = probe; ; dir = dirname(dir))', 'guards-files.test'),
+  m('guards', 'if (dirname(dir) === dir) return null', 'if (dirname(dir) === dir) return dir', 'guards-files.test'),
+  m('guards', 'if (dirname(dir) === dir) return null', 'if (dirname(dir) !== dir) return null', 'guards-files.test'),
+  m('guards', '    if (dirname(dir) === dir) return null\n', '', 'guards-files.test', { endless: true }),
   m('guards', "if (existsSync(join(dir, '.git'))) return dir", 'if (false) return dir', 'guards-files.test'),
   m('guards', 'if (repo)\n    throw new CaptureRefusal(', 'if (false)\n    throw new CaptureRefusal(', 'guards-files.test'),
   m('guards', "return error.code === 'EPERM'", 'return false', 'guards-files.test'),
@@ -317,6 +344,7 @@ export const MUTANTS = [
   m('session', 'await mkdir(dir, { recursive: true, mode: 0o700 })', 'await mkdir(dir, { recursive: true })', 'session.test'),
   m('session', '`${statePath}.tmp`', '`${statePath}.temp`', 'session.test'),
   m('session', 'await rm(temp, { force: true })\n', '', 'session.test'),
+  m('session', 'await chmod(temp, 0o600)\n', '', 'session.test'),
   m('session', 'await writeFile(temp, JSON.stringify(state), { mode: 0o600 })\n  await chmod(temp, 0o600)', 'await writeFile(temp, JSON.stringify(state))', 'session.test'),
   m('session', 'context.storageState({ indexedDB: true })', 'context.storageState()', 'session.test'),
   m('session', 'await rename(temp, statePath)', '', 'session.test'),
@@ -330,7 +358,10 @@ export const MUTANTS = [
   m('session', '} else {\n      since = null\n    }', '} else {\n    }', 'session.test'),
   m('session', 'if (at - since >= stableMs) return', 'if (at - since >= 0) return', 'session.test'),
   m('session', 'since ??= at', 'since = at', 'session.test'),
-  m('session', 'if (at >= deadline)', 'if (false)', 'session.test'),
+  m('session', 'if (at >= deadline)', 'if (false)', 'session.test', { endless: true }),
+  m('session', '    now = Date.now,\n', '    now = () => 0,\n', 'session.test'),
+  m('session', 'sleep = (ms) => new Promise((done) => setTimeout(done, ms))', 'sleep = () => Promise.resolve()', 'session.test'),
+  m('session', 'pollMs = 250,', 'pollMs = 1,', 'session.test'),
   m('session', 'browserType.launch({ headless: false })', 'browserType.launch({ headless: true })', 'session.test'),
   m('session', 'browser.newContext({ viewport: null })', 'browser.newContext({})', 'session.test'),
   m('session', 'await page.goto(`${baseUrl}${signInPath}`)', 'await page.goto(baseUrl)', 'session.test'),
@@ -347,10 +378,17 @@ export const MUTANTS = [
 
 // `node --test <file>` in a process group of its own, so a timeout or an interrupt ends the test
 // process that node --test started as well, and nothing is left running behind a mutant.
-function runTestFile(testFile, timeoutMs, onStop) {
+// Resolves to { code, timedOut, errored, output }; `errored` means the run did not end the way a
+// passing or failing test does (it could not start, or something other than us killed it).
+function runTestFile(tile, testFile, timeoutMs, onStop) {
+  // Run from inside a test, node --test would take this one for a part of its parent's run and
+  // report nothing, so the variable that says so is left out.
+  const env = { ...process.env }
+  delete env.NODE_TEST_CONTEXT
   return new Promise((done) => {
-    const child = spawn(process.execPath, ['--test', join(TILE, testFile)], {
-      cwd: TILE,
+    const child = spawn(process.execPath, ['--test', join(tile, testFile)], {
+      cwd: tile,
+      env,
       detached: true,
       stdio: ['ignore', 'pipe', 'pipe']
     })
@@ -360,7 +398,9 @@ function runTestFile(testFile, timeoutMs, onStop) {
     }
     child.stdout.on('data', keep)
     child.stderr.on('data', keep)
+    let stopped = false
     const stop = () => {
+      stopped = true
       try {
         process.kill(-child.pid, 'SIGKILL')
       } catch {
@@ -376,15 +416,74 @@ function runTestFile(testFile, timeoutMs, onStop) {
     child.on('error', (error) => {
       clearTimeout(timer)
       onStop(null)
-      done({ code: 1, timedOut: false, output: String(error) })
+      done({ code: null, timedOut: false, errored: true, output: String(error) })
     })
-    child.on('exit', stop)
-    child.on('close', (code) => {
+    child.on('exit', () => {
+      // Whatever the test left running in the group goes with it.
+      try {
+        process.kill(-child.pid, 'SIGKILL')
+      } catch {
+        // Nothing is left.
+      }
+    })
+    child.on('close', (code, signal) => {
       clearTimeout(timer)
       onStop(null)
-      done({ code: code ?? 1, timedOut, output })
+      // A signal we did not send (a timeout and an interrupt are ours) is not a test failing.
+      const errored = code === null && !stopped
+      done({ code, timedOut, errored, output: errored ? `${output}\nended by ${signal}` : output })
     })
   })
+}
+
+const pidAlive = (pid) => {
+  try {
+    process.kill(pid, 0)
+    return true
+  } catch (error) {
+    return error.code === 'EPERM'
+  }
+}
+
+// One lock file per checkout, in the temporary folder, keyed by the checkout's real path.
+export const checkLockPath = (tile = TILE) =>
+  join(tmpdir(), `demo-capture-mutation-check-${createHash('sha256').update(realpathSync(tile)).digest('hex').slice(0, 16)}.lock`)
+
+// Two checks at once would each mutate the same files and restore what the other had already
+// mutated, leaving the source broken. A check starts only while it holds this lock. Returns the
+// function that releases it, which removes the lock only while it still holds this pid. As with the
+// engine's run lock, two checks that start at the same instant against a stale lock can both
+// proceed; the lock is meant for two checks started by a person or a script a moment apart.
+export function acquireCheckLock(lockPath = checkLockPath(), { pid = process.pid, isAlive = pidAlive } = {}) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      writeFileSync(lockPath, String(pid), { flag: 'wx', mode: 0o600 })
+      return () => {
+        try {
+          if (readFileSync(lockPath, 'utf8') === String(pid)) rmSync(lockPath, { force: true })
+        } catch {
+          // Already gone.
+        }
+      }
+    } catch (error) {
+      if (error.code !== 'EEXIST') throw error
+      let text = ''
+      try {
+        text = readFileSync(lockPath, 'utf8')
+      } catch {
+        // It went away between the write and the read; the next attempt takes it.
+      }
+      const holder = Number(text.trim())
+      if (Number.isInteger(holder) && holder > 0 && isAlive(holder))
+        throw new Error(
+          `Another mutation check (pid ${holder}) is using these files; wait for it to finish, or delete the lock file ${lockPath} if no check is running.`
+        )
+      // The last attempt never removes the file: it may be another check's fresh lock.
+      if (attempt === 1) break
+      rmSync(lockPath, { force: true })
+    }
+  }
+  throw new Error('Could not take the mutation-check lock; try again.')
 }
 
 const occurrences = (text, find) => text.split(find).length - 1
@@ -392,8 +491,19 @@ const labelOf = (mutant, i) => `#${String(i + 1).padStart(3)} ${mutant.file}: ${
 const seconds = (ms) => (ms / 1000).toFixed(1)
 
 // Runs every mutant and returns the exit code: 0 when all were caught, 1 otherwise.
-export async function runMutationCheck(mutants = MUTANTS) {
-  const started = Date.now()
+// `tile` is the folder the mutants' files and test files are under; the options exist for the tests of
+// this runner, which run it over a small folder of their own.
+export async function runMutationCheck(
+  mutants = MUTANTS,
+  { tile = TILE, lockPath = checkLockPath(tile), log = console.log, minTimeoutMs = MIN_MUTANT_TIMEOUT_MS } = {}
+) {
+  let release
+  try {
+    release = acquireCheckLock(lockPath)
+  } catch (error) {
+    log(error.message)
+    return 1
+  }
   let stopping = false
   let stopCurrent = null
   let applied = null
@@ -405,11 +515,27 @@ export async function runMutationCheck(mutants = MUTANTS) {
     stopping = true
     stopCurrent?.()
   }
-  for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP']) process.on(signal, interrupt)
-  // A last resort for an exit nobody planned: a file is never left mutated.
-  process.on('exit', () => {
+  // A last resort for an exit nobody planned: the running test ends, a file is never left mutated,
+  // and the lock is never left held.
+  const atExit = () => {
+    stopCurrent?.()
     if (applied) writeFileSync(applied.path, applied.original)
-  })
+    release()
+  }
+  const signals = ['SIGINT', 'SIGTERM', 'SIGHUP']
+  for (const signal of signals) process.on(signal, interrupt)
+  process.on('exit', atExit)
+  try {
+    return await check(mutants, log, { tile, minTimeoutMs, onStop, isStopping: () => stopping, setApplied: (value) => (applied = value) })
+  } finally {
+    for (const signal of signals) process.off(signal, interrupt)
+    process.off('exit', atExit)
+    release()
+  }
+}
+
+async function check(mutants, log, { tile, minTimeoutMs, onStop, isStopping, setApplied }) {
+  const started = Date.now()
 
   // 1. Every text to break occurs exactly once and the mutated source still parses, before any
   // time is spent on tests.
@@ -417,7 +543,7 @@ export async function runMutationCheck(mutants = MUTANTS) {
   const scratch = mkdtempSync(join(tmpdir(), 'mutation-check-'))
   try {
     for (const [i, mutant] of mutants.entries()) {
-      const original = readFileSync(join(TILE, mutant.file), 'utf8')
+      const original = readFileSync(join(tile, mutant.file), 'utf8')
       const count = occurrences(original, mutant.find)
       if (count !== 1) {
         unapplied.push(`${labelOf(mutant, i)}\n      the text to break occurs ${count} times, not once`)
@@ -425,66 +551,74 @@ export async function runMutationCheck(mutants = MUTANTS) {
       }
       const parsed = join(scratch, 'mutant.mjs')
       writeFileSync(parsed, original.split(mutant.find).join(mutant.replace))
-      const check = spawnSync(process.execPath, ['--check', parsed], { encoding: 'utf8' })
-      if (check.status !== 0)
-        unapplied.push(`${labelOf(mutant, i)}\n      the mutated source does not parse: ${check.stderr.split('\n').find((line) => /Error/.test(line))}`)
+      const parse = spawnSync(process.execPath, ['--check', parsed], { encoding: 'utf8' })
+      if (parse.status !== 0)
+        unapplied.push(`${labelOf(mutant, i)}\n      the mutated source does not parse: ${(parse.stderr ?? String(parse.error)).split('\n').find((line) => /Error/.test(line))}`)
     }
   } finally {
     rmSync(scratch, { recursive: true, force: true })
   }
   if (unapplied.length) {
-    console.log(unapplied.join('\n'))
-    console.log(`${unapplied.length} of ${mutants.length} mutants did not apply; nothing was run.`)
+    log(unapplied.join('\n'))
+    log(`${unapplied.length} of ${mutants.length} mutants did not apply; nothing was run.`)
     return 1
   }
 
-  // 2. Every test file the mutants name passes on the unmutated tree.
+  // 2. Every test file the mutants name passes on the unmutated tree. How long it took sets the
+  // time a mutant gets: three times as long, and never less than 15 s.
+  const caps = new Map()
   for (const testFile of new Set(mutants.map((mutant) => mutant.test))) {
     const at = Date.now()
-    const result = await runTestFile(testFile, BASELINE_TIMEOUT_MS, onStop)
-    if (stopping) {
-      console.log('Interrupted; every file is restored.')
+    const result = await runTestFile(tile, testFile, BASELINE_TIMEOUT_MS, onStop)
+    if (isStopping()) {
+      log('Interrupted; every file is restored.')
       return 1
     }
-    if (result.code !== 0) {
-      console.log(
+    if (result.errored || result.code !== 0) {
+      log(
         `${testFile} fails on the unmutated tree${result.timedOut ? ` (it did not finish in ${BASELINE_TIMEOUT_MS / 1000} s)` : ''}, so no mutant can be judged by it. Fix it first.\n${result.output}`
       )
       return 1
     }
-    console.log(`baseline ${testFile} passes unmutated (${seconds(Date.now() - at)} s)`)
+    const took = Date.now() - at
+    caps.set(testFile, Math.max(minTimeoutMs, 3 * took))
+    log(`baseline ${testFile} passes unmutated (${seconds(took)} s; a mutant gets ${seconds(caps.get(testFile))} s)`)
   }
 
-  // 3. Every mutant makes its test file fail.
+  // 3. Every mutant makes its test file fail. A run that ends any other way is not a kill: a timeout
+  // proves something only for a mutant marked endless, which is meant to make a loop that never ends.
   let failures = 0
   for (const [i, mutant] of mutants.entries()) {
-    if (stopping) break
-    const path = join(TILE, mutant.file)
+    const path = join(tile, mutant.file)
     const original = readFileSync(path, 'utf8')
-    applied = { path, original }
+    setApplied({ path, original })
     writeFileSync(path, original.split(mutant.find).join(mutant.replace))
     let result
     try {
-      // A mutant that makes a loop endless is caught by the timeout.
-      result = await runTestFile(mutant.test, MUTANT_TIMEOUT_MS, onStop)
+      result = await runTestFile(tile, mutant.test, caps.get(mutant.test), onStop)
     } finally {
       writeFileSync(path, original)
-      applied = null
+      setApplied(null)
     }
-    if (stopping) break
-    const killed = result.code !== 0
-    console.log(`${killed ? 'killed  ' : 'SURVIVED'} ${labelOf(mutant, i)}`)
-    if (!killed) failures++
+    if (isStopping()) break
+    let verdict
+    if (result.errored) verdict = 'ERRORED '
+    else if (result.timedOut) verdict = mutant.endless ? 'killed (timed out)' : 'TIMED OUT'
+    else verdict = result.code !== 0 ? 'killed  ' : 'SURVIVED'
+    log(`${verdict} ${labelOf(mutant, i)}`)
+    if (result.errored) log(`      ${result.output.trim().split('\n').at(-1)}`)
+    if (verdict === 'TIMED OUT') log(`      the test file did not finish in ${seconds(caps.get(mutant.test))} s`)
+    if (!verdict.startsWith('killed')) failures++
   }
-  console.log(`Took ${seconds(Date.now() - started)} s.`)
-  console.log(
-    stopping
+  log(`Took ${seconds(Date.now() - started)} s.`)
+  log(
+    isStopping()
       ? 'Interrupted; every file is restored.'
       : failures
-        ? `${failures} of ${mutants.length} mutants survived or did not apply.`
+        ? `${failures} of ${mutants.length} mutants survived, timed out, errored or did not apply.`
         : `All ${mutants.length} mutants were caught.`
   )
-  return failures || stopping ? 1 : 0
+  return failures || isStopping() ? 1 : 0
 }
 
 if (process.argv[1] && realpathSync(process.argv[1]) === realpathSync(fileURLToPath(import.meta.url)))
