@@ -260,22 +260,32 @@ test('launchArgs lets a listed localhost through, and an unlisted one stays refu
   assert.equal(receivedSince(refusedSnapshot)[`localhost:${app.port}`], undefined)
 })
 
+// What the fixture received since `before` (a requests().length), as { method, path, body }.
+const receivedFrom = (before) => app.requests().slice(before).map(({ method, path, body }) => ({ method, path, body }))
+
 test('readOnlyAllowed lets a listed non-read through, only with a body that matches', async () => {
+  const before = app.requests().length
   const result = await runCapture(['--env', 'local', '--walk', 'sends-beacons', '--out', outDir('beacons')])
   assert.equal(result.code, 1, result.output)
   const capture = await readJson(join(outDir('beacons'), 'capture.json'))
   // The beacon the page posts on load matches the rule, so the run got to its first step.
   assert.equal(capture.failedStep, 'odd')
   assert.equal(capture.failure, 'POST 127.0.0.1/beacon was refused: this walk is read-only.')
+  // The server got the load beacon with its body, and not the odd one.
+  assert.deepEqual(receivedFrom(before).filter((request) => request.path === '/beacon'), [
+    { method: 'POST', path: '/beacon', body: '{"page":"home"}' }
+  ])
   await assertRendererRefuses(outDir('beacons'))
 })
 
 test('a body pattern that matches the empty string still refuses a request with no body', async () => {
+  const before = app.requests().length
   const result = await runCapture(['--env', 'local', '--walk', 'sends-empty-ping', '--out', outDir('ping')])
   assert.equal(result.code, 1, result.output)
   const capture = await readJson(join(outDir('ping'), 'capture.json'))
   assert.equal(capture.failedStep, 'ping')
   assert.equal(capture.failure, 'POST 127.0.0.1/ping was refused: this walk is read-only.')
+  assert.deepEqual(receivedFrom(before).filter((request) => request.path === '/ping'), [], 'the ping never reached the server')
 })
 
 test('--learn-hosts lists the non-read the config does not allow, and says what to do about it', async () => {

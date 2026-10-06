@@ -1,7 +1,9 @@
 // The fixture app for the end-to-end test, served on 127.0.0.1: a sign-in form that takes the
 // test values below, a home page and a details page. Test data only. It also counts the requests
 // it receives by their Host header, so a test can tell which names the browser really reached,
-// and when the machine allows it, it answers on [::1] too (the same port), for the same reason.
+// keeps a log of every request (method, host, path and body), so a test can tell what really got
+// through to the server, and when the machine allows it, it answers on [::1] too (the same port),
+// for the same reason.
 import { createServer } from 'node:http'
 
 export const FIXTURE_LOGIN = Object.freeze({ username: 'demo-user', password: 'fixture-password' })
@@ -59,10 +61,13 @@ const listens = (server, port, host) =>
 
 export async function startFixture() {
   const hostCounts = new Map()
+  const requests = []
   const handle = async (req, res) => {
     const host = String(req.headers.host ?? '(none)').toLowerCase()
     hostCounts.set(host, (hostCounts.get(host) ?? 0) + 1)
     const url = new URL(req.url, 'http://fixture.invalid')
+    const body = await readBody(req)
+    requests.push({ method: req.method, host, path: url.pathname, body })
     const send = (status, body, headers = {}) => {
       res.writeHead(status, { 'content-type': 'text/html; charset=utf-8', ...headers })
       res.end(body)
@@ -74,7 +79,7 @@ export async function startFixture() {
     if (url.pathname === '/bounce-loopback6') return send(302, '', { location: `http://[::1]:${port()}/logo.svg` })
     if (url.pathname === '/login' && req.method === 'GET') return send(200, SIGN_IN)
     if (url.pathname === '/login' && req.method === 'POST') {
-      const form = new URLSearchParams(await readBody(req))
+      const form = new URLSearchParams(body)
       const ok = form.get('username') === FIXTURE_LOGIN.username && form.get('password') === FIXTURE_LOGIN.password
       return send(303, '', ok ? { location: '/home', 'set-cookie': 'session=ok; HttpOnly; Path=/; SameSite=Lax' } : { location: '/login' })
     }
@@ -100,6 +105,8 @@ export async function startFixture() {
     ipv6,
     // The requests received so far, by Host header ("localhost:4100"), as a plain object copy.
     hostCounts: () => Object.fromEntries(hostCounts),
+    // Every request received so far, in order, as { method, host, path, body } copies.
+    requests: () => requests.map((request) => ({ ...request })),
     close: () =>
       Promise.all(
         servers.map(
