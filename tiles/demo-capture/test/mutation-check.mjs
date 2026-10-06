@@ -4,8 +4,9 @@
 //
 //   node test/mutation-check.mjs          (npm run mutation-check)
 //
-// Only one check runs at a time per checkout (a lock file in the temporary folder): two at once
-// would restore each other's mutated files and leave the source broken.
+// Only one check runs at a time per checkout (test/.mutation-check.lock, which git ignores): two at
+// once would restore each other's mutated files and leave the source broken. The lock is in the
+// checkout, not the temporary folder, because two shells can have different temporary folders.
 //
 // Before any mutant runs, each one is checked to apply once and to leave source that parses (a
 // mutant that does not parse would be "caught" by the load error and prove nothing), and every
@@ -33,7 +34,6 @@
 //                                           root always exists on POSIX, so the walk never gets
 //                                           that far. (The same test with !== is a mutant.)
 import { spawn, spawnSync } from 'node:child_process'
-import { createHash } from 'node:crypto'
 import { mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
@@ -445,9 +445,9 @@ const pidAlive = (pid) => {
   }
 }
 
-// One lock file per checkout, in the temporary folder, keyed by the checkout's real path.
-export const checkLockPath = (tile = TILE) =>
-  join(tmpdir(), `demo-capture-mutation-check-${createHash('sha256').update(realpathSync(tile)).digest('hex').slice(0, 16)}.lock`)
+// The lock file is in the checkout it protects, so it is the same file for every shell that can
+// reach those files, whatever its temporary folder. Git ignores it (see the tile's .gitignore).
+export const checkLockPath = (tile = TILE) => join(tile, 'test', '.mutation-check.lock')
 
 // Two checks at once would each mutate the same files and restore what the other had already
 // mutated, leaving the source broken. A check starts only while it holds this lock. Returns the

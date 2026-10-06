@@ -82,15 +82,59 @@ test('the default liveness check asks the process table: this process and one it
   assert.equal(existsSync(lock), false)
 })
 
-test('the lock file is in the temporary folder and belongs to one checkout, however it is reached', () => {
+// The lock protects the checkout's files, so it lives in the checkout: two shells can have different
+// temporary folders, and a lock kept there would let a second check run over the first one's mutants.
+test('the lock file is in the checkout test folder, whatever the temporary folder is', () => {
   const a = tempDir('check-tile-')
-  const b = tempDir('check-tile-')
   const link = join(tempDir('check-tile-'), 'link')
   symlinkSync(a, link)
-  assert.equal(dirname(checkLockPath(a)), tmpdir())
-  assert.equal(checkLockPath(a), checkLockPath(a))
-  assert.equal(checkLockPath(link), checkLockPath(a))
-  assert.notEqual(checkLockPath(a), checkLockPath(b))
+  assert.equal(checkLockPath(a), join(a, 'test', '.mutation-check.lock'))
+  assert.equal(checkLockPath(), join(dirname(fileURLToPath(import.meta.url)), '.mutation-check.lock'))
+  // Reached through a link it is the same file.
+  mkdirSync(join(a, 'test'))
+  const release = acquireCheckLock(checkLockPath(a))
+  assert.equal(existsSync(checkLockPath(link)), true)
+  release()
+  assert.equal(existsSync(checkLockPath(a)), false)
+})
+
+test('two checks in shells with different temporary folders refuse each other', { timeout: 20000 }, async () => {
+  const tile = sandbox()
+  const otherTmp = tempDir('check-tmp-')
+  const holder = acquireCheckLock(checkLockPath(tile))
+  const here = fileURLToPath(new URL('./mutation-check.mjs', import.meta.url))
+  const script = `
+    import { tmpdir } from 'node:os'
+    import { acquireCheckLock, checkLockPath } from ${JSON.stringify(here)}
+    let outcome
+    try {
+      acquireCheckLock(checkLockPath(${JSON.stringify(tile)}))
+      outcome = 'ran'
+    } catch (error) {
+      outcome = error.message
+    }
+    console.log(JSON.stringify({ tmp: tmpdir(), outcome }))`
+  const out = await new Promise((done) => {
+    let text = ''
+    const child = spawn(process.execPath, ['--input-type=module', '-e', script], {
+      env: { ...process.env, TMPDIR: otherTmp },
+      stdio: ['ignore', 'pipe', 'inherit']
+    })
+    child.stdout.on('data', (chunk) => (text += chunk))
+    child.on('close', () => done(JSON.parse(text)))
+  })
+  holder()
+  assert.notEqual(out.tmp, tmpdir())
+  assert.equal(out.tmp, otherTmp)
+  assert.match(out.outcome, new RegExp(`^Another mutation check \\(pid ${process.pid}\\)`))
+  assert.ok(out.outcome.includes(checkLockPath(tile)))
+})
+
+test('the lock file of this checkout is ignored by git, so it never shows in git status', (t) => {
+  const folder = dirname(checkLockPath())
+  const inside = spawnSync('git', ['-C', folder, 'rev-parse', '--is-inside-work-tree'], { encoding: 'utf8' })
+  if (inside.status !== 0) return t.skip('not inside a git working tree')
+  assert.equal(spawnSync('git', ['-C', folder, 'check-ignore', '--quiet', checkLockPath()]).status, 0)
 })
 
 test('two checks started at once: exactly one runs, the other is refused', { timeout: 20000 }, async () => {
@@ -183,8 +227,9 @@ test('a mutant its test catches is killed, one it does not catch survives, and t
   assert.equal(code, 1)
   assert.match(text, /^killed +#  1 scripts\/target\.mjs: export const value/m)
   assert.match(text, /^SURVIVED #  2 scripts\/target\.mjs: export const other/m)
-  assert.match(text, /2 mutants survived|1 of 2 mutants survived, timed out, errored or did not apply\./)
+  assert.match(text, /^1 of 2 mutants survived, timed out, errored or did not apply\.$/m)
   assert.equal(readFileSync(join(tile, 'scripts/target.mjs'), 'utf8'), TARGET)
+  assert.equal(existsSync(checkLockPath(tile)), false)
   const caught = await run(sandbox(), [BREAK])
   assert.equal(caught.code, 0)
   assert.equal(caught.lines.at(-1), 'All 1 mutants were caught.')
