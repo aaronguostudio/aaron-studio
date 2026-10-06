@@ -73,6 +73,9 @@ test('every refusal exits 2 with one plain sentence, before any browser opens', 
     [['--project', PROJECT, '--env', 'stage', '--walk', 'adds-item'], /This walk writes, and stage needs a go-ahead/],
     [['--project', PROJECT, '--env', 'local', '--walk', 'adds-item', '--learn-hosts'], /--learn-hosts runs read-only walks only/],
     [['--project', PROJECT, '--env', 'live', '--walk', 'tour', '--prod-go-ahead', '--learn-hosts'], /--learn-hosts is refused on live/],
+    // A learning run that can never happen is refused for that, before any go-ahead is asked for.
+    [['--project', PROJECT, '--env', 'live', '--walk', 'tour', '--learn-hosts'], /--learn-hosts is refused on live/],
+    [['--project', PROJECT, '--env', 'stage', '--walk', 'adds-item', '--learn-hosts'], /--learn-hosts runs read-only walks only/],
     [['--project', PROJECT, '--env', 'local', '--walk', 'tour', '--out', join(base, 'repo', 'run')], /The run folder .* is inside the git working tree/],
     [['--project', PROJECT, '--env', 'local', '--walk', 'tour', '--out', notEmpty], /is not empty; pick another --out/]
   ]

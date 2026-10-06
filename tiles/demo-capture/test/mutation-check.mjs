@@ -189,6 +189,8 @@ export const MUTANTS = [
   m('guards', "if (walk.writes) throw new CaptureRefusal('--learn-hosts runs read-only", "if (false) throw new CaptureRefusal('--learn-hosts runs read-only", 'guards-args.test'),
   m('guards', 'if (env.production)\n    throw new CaptureRefusal(`--learn-hosts is refused', 'if (false)\n    throw new CaptureRefusal(`--learn-hosts is refused', 'guards-args.test'),
   m('guards', "String(inputType ?? '').toLowerCase() === 'password'", "String(inputType ?? '') === 'password'", 'guards-args.test'),
+  m('guards', 'else if (out[a.slice(2)] !== undefined) throw new CaptureRefusal(`${a} is given twice`)', 'else if (false) throw new CaptureRefusal(`${a} is given twice`)', 'guards-args.test'),
+  m('guards', "  --help, -h        print this text\n", '', 'guards-args.test'),
   m('guards', "const READS = new Set(['GET', 'HEAD', 'OPTIONS'])", "const READS = new Set(['GET'])", 'guards-network.test'),
   m('guards', '${parsed.hostname}${parsed.pathname}`', '${parsed.hostname}${parsed.pathname}${parsed.search}`', 'guards-network.test'),
   m('guards', 'return `${method.toUpperCase()} ${parsed.hostname}${parsed.pathname}`', 'return `${method} ${parsed.hostname}${parsed.pathname}`', 'guards-network.test'),

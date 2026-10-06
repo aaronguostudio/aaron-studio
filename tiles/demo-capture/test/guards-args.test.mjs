@@ -76,6 +76,18 @@ test('--set takes key=value, splits at the first =, and refuses a key given twic
 test('the usage names every flag', () => {
   for (const flag of ['--project', '--env', '--walk', '--set', '--out', '--headed', '--learn-hosts', '--prod-go-ahead', '--write-go-ahead', 'sign-in', '--list'])
     assert.ok(usageText().includes(flag), flag)
+  // --help and -h have a line of their own, as every other flag does.
+  assert.match(usageText(), /\n {2}--help, -h {8}print this text\n/)
+})
+
+test('a value flag given twice is refused, so the last one never quietly wins', () => {
+  for (const flag of ['--project', '--env', '--walk', '--out'])
+    refuses(() => parseArgs(['--env', 'dev', '--walk', 'w', flag, 'a', flag, 'b']), new RegExp(`^${flag} is given twice$`))
+  refuses(() => parseArgs(['--env', 'dev', '--env', 'live', '--walk', 'w']), /--env is given twice/)
+  refuses(() => parseArgs(['sign-in', '--env', 'dev', '--env', 'live']), /--env is given twice/)
+  // The same value twice is still twice; --set has its own rule (a key given twice).
+  refuses(() => parseArgs(['--env', 'dev', '--env', 'dev', '--walk', 'w']), /--env is given twice/)
+  assert.deepEqual(parseArgs(['--env', 'dev', '--walk', 'w', '--set', 'a=1', '--set', 'b=2']).set, { a: '1', b: '2' })
 })
 
 test('production needs --prod-go-ahead on every run; other environments do not', () => {

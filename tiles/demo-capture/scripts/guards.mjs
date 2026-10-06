@@ -1,6 +1,6 @@
 // The rules of the demo-capture engine: arguments, the go-ahead gates, the network policy (host
-// lock and read-only), the password refusal, the outside-repo check and the run lock. All but the
-// last two are synchronous and browser-free, so node:test proves every refusal.
+// lock and read-only), the password refusal, the outside-repo check and the run lock. None needs a
+// browser, and all but the run lock are synchronous, so node:test proves every refusal.
 //
 // A capture is a presentation tool, not a test: it drives a real app to record a walkthrough. It
 // is never test evidence.
@@ -35,6 +35,7 @@ export function usageText() {
                     person's go-ahead in chat for this run.
   --write-go-ahead  needed for a walk that writes, where the environment sets writeGoAhead. An
                     agent adds it only after the person's go-ahead in chat for this run.
+  --help, -h        print this text
 
 The first run of an environment opens a browser for a person to sign in; nothing is typed for
 them. The session is kept in ~/.demo-capture/<project>/<env>/, outside every repo, and reused.`
@@ -82,6 +83,8 @@ export function parseArgs(argv) {
       const value = rest[++i]
       if (value === undefined || value.startsWith('--')) throw new CaptureRefusal(`${a} needs a value`)
       if (a === '--set') out.set = parseSet(value, out.set)
+      // A second value would quietly win ("--env dev --env live" runs on live), so it is refused.
+      else if (out[a.slice(2)] !== undefined) throw new CaptureRefusal(`${a} is given twice`)
       else out[a.slice(2)] = value
     } else if (a === '--list') list = true
     else if (a === '--help' || a === '-h') help = true

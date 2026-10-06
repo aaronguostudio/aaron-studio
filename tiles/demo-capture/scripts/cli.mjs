@@ -389,9 +389,10 @@ export async function main(
     }
     const walk = await loadWalk(project, args.walk)
     const params = resolveParams(config.params, args.set)
+    // A learning run that is refused anyway is refused first, so nobody is asked for a go-ahead for it.
+    if (args.learnHosts) assertLearnable(env, walk)
     assertProdGoAhead(env, args.prodGoAhead)
     assertWriteGoAhead(env, walk, args.writeGoAhead)
-    if (args.learnHosts) assertLearnable(env, walk)
     const runDir = resolve(args.out ?? defaultRunDir(root, config.name, walk.name))
     assertOutsideRepos(runDir, 'The run folder')
     // Recovering from a signed-out run empties the run folder, so it must never hold the session.
