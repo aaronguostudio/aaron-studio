@@ -478,3 +478,84 @@ test('a redirect hop whose request cannot report a body is still judged', () => 
     (e) => e.message === "GET tracker.example.net/pixel was refused: tracker.example.net is not in this environment's hosts."
   )
 })
+
+// ---- A body pattern needs a body that was read ----
+//
+// Playwright reports a request with no body, and one whose body it cannot read, the same way:
+// postData() is null. A rule with a body pattern must never match either, whatever the pattern:
+// "^$" and ".*" match the empty string, and would otherwise let an unreadable body through.
+
+const BEACON = 'https://app.example.com/beacon'
+// Patterns that match the empty string, and so match a body that was never read if it becomes ''.
+const MATCHES_EMPTY = [/^$/, /.*/, /^/]
+
+test('a rule with a body pattern never matches a request without a readable body', () => {
+  for (const body of MATCHES_EMPTY) {
+    const rule = { method: 'POST', url: /\/beacon$/, body }
+    assert.equal(matchesRule(rule, { method: 'POST', url: BEACON }), false, `${body} against a missing body`)
+    assert.equal(matchesRule(rule, { method: 'POST', url: BEACON, body: undefined }), false, `${body} against undefined`)
+    assert.equal(matchesRule(rule, { method: 'POST', url: BEACON, body: null }), false, `${body} against null`)
+    // The guard refuses it as a write: the rule did not allow it.
+    for (const given of [undefined, null]) {
+      const verdict = classifyRequest({ method: 'POST', url: BEACON, body: given }, policy({ allowed: [rule] }))
+      assert.deepEqual([verdict.action, verdict.kind], ['abort', 'write'], `${body} against ${given}`)
+    }
+  }
+})
+
+test('a rule without a body pattern still matches a request without a body', () => {
+  const rule = { method: 'POST', url: /\/beacon$/ }
+  assert.equal(matchesRule(rule, { method: 'POST', url: BEACON }), true)
+  assert.equal(matchesRule(rule, { method: 'POST', url: BEACON, body: null }), true)
+  assert.equal(classifyRequest({ method: 'POST', url: BEACON, body: null }, policy({ allowed: [rule] })).action, 'continue')
+})
+
+test('an empty string is a body that was read, and a body pattern is tried on it', () => {
+  assert.equal(matchesRule({ method: 'POST', url: /\/beacon$/, body: /^$/ }, { method: 'POST', url: BEACON, body: '' }), true)
+  assert.equal(matchesRule({ method: 'POST', url: /\/beacon$/, body: /^\{/ }, { method: 'POST', url: BEACON, body: '' }), false)
+})
+
+test('a body pattern is tried on a body that was read, even a permissive one', () => {
+  for (const body of MATCHES_EMPTY)
+    assert.equal(matchesRule({ method: 'POST', url: /\/beacon$/, body }, { method: 'POST', url: BEACON, body: '{"page":"home"}' }), body.source !== '^$', String(body))
+})
+
+test('RunGuard aborts a route whose body is null when the rule has a body pattern', async () => {
+  for (const body of MATCHES_EMPTY) {
+    const guard = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body }] }))
+    const route = fakeRoute('POST', BEACON, null)
+    await guard.handleRoute(route)
+    assert.deepEqual(route.calls, ['abort blockedbyclient'], String(body))
+    assert.throws(() => guard.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./)
+  }
+  // The same request goes through a rule that has no body pattern, and a read body goes through a permissive one.
+  const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/ }] }))
+  const open = fakeRoute('POST', BEACON, null)
+  await bodiless.handleRoute(open)
+  assert.deepEqual(open.calls, ['continue'])
+  const permissive = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body: /.*/ }] }))
+  const read = fakeRoute('POST', BEACON, '{"page":"home"}')
+  await permissive.handleRoute(read)
+  assert.deepEqual(read.calls, ['continue'])
+})
+
+test('a redirect hop without a readable body fails the run when the rule has a body pattern', () => {
+  const noPostData = (url) => ({ method: () => 'POST', url: () => url, redirectedFrom: () => ({}) })
+  for (const body of MATCHES_EMPTY) {
+    const rules = policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body }] })
+    const withNull = new RunGuard(rules)
+    withNull.handleRedirectHop(hop('POST', BEACON, { body: null }))
+    assert.throws(() => withNull.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./, `${body} with a null body`)
+    const without = new RunGuard(rules)
+    without.handleRedirectHop(noPostData(BEACON))
+    assert.throws(() => without.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./, `${body} without postData`)
+  }
+  // A rule without a body pattern lets the same hop through, and a read body goes through a permissive pattern.
+  const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/ }] }))
+  bodiless.handleRedirectHop(hop('POST', BEACON, { body: null }))
+  bodiless.handleRedirectHop(noPostData(BEACON))
+  assert.doesNotThrow(() => bodiless.assertClean())
+  const permissive = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body: /.*/ }] }))
+  permissive.handleRedirectHop(hop('POST', BEACON, { body: '{"page":"home"}' }))
+  assert.doesNotThrow(() => permissive.assertClean())
+})

@@ -25,10 +25,6 @@
 //                                           and chmod together) is one mutant, and chmod alone is
 //                                           another, killed under a umask that strips the mode.
 //   if (!config.revision) return 'unknown'  the try/catch below it answers the same.
-//   `?? ''` after request.postData()        matchesRule reads a null body as ''.
-//   body = '' in matchesRule's parameters   String(body ?? '') reads undefined as ''.
-//   rule.body === undefined || ...          searching a string for undefined matches at once, so a
-//                                           rule with no body matches any body.
 //   let connect = false in handleWebSocket  the catch sets it to false as well.
 //   if (up === probe) return null           in enclosingRepo's walk up to an existing folder: the
 //                                           root always exists on POSIX, so the walk never gets
@@ -199,7 +195,10 @@ export const MUTANTS = [
   m('guards', 'rule.method.toUpperCase() !== method.toUpperCase()', 'rule.method.toUpperCase() !== method', 'guards-network.test'),
   m('guards', 'if (url.search(rule.url) < 0) return false', '', 'guards-network.test'),
   m('guards', 'url.search(rule.url) < 0', '!rule.url.test(url)', 'guards-network.test'),
-  m('guards', "return rule.body === undefined || String(body ?? '').search(rule.body) >= 0", 'return true', 'guards-network.test'),
+  m('guards', "return typeof body === 'string' && body.search(rule.body) >= 0", 'return true', 'guards-network.test'),
+  m('guards', "return typeof body === 'string' && body.search(rule.body) >= 0", "return String(body ?? '').search(rule.body) >= 0", 'guards-network.test'),
+  m('guards', "return typeof body === 'string' && body.search(rule.body) >= 0", 'return body.search(rule.body) >= 0', 'guards-network.test'),
+  m('guards', 'if (rule.body === undefined) return true\n', '', 'guards-network.test'),
 
   // guards.mjs, host:port matching and the host entries a policy may hold
   m('guards', 'entry.host === host && (entry.port === null || entry.port === port)', 'entry.host === host', 'guards-network.test'),
@@ -282,8 +281,9 @@ export const MUTANTS = [
 
   // guards.mjs, handleRoute: a request is always answered, and one the guard cannot judge is aborted
   m('guards', 'let send = false', 'let send = true', 'guards-network.test'),
-  m('guards', "body: request.postData() ?? '' }) === 'continue'", "body: request.postData() ?? '' }) !== 'continue'", 'guards-network.test'),
-  m('guards', "body: request.postData() ?? ''", "body: ''", 'guards-network.test'),
+  m('guards', "body: request.postData() }) === 'continue'", "body: request.postData() }) !== 'continue'", 'guards-network.test'),
+  m('guards', 'body: request.postData() })', "body: '' })", 'guards-network.test'),
+  m('guards', 'body: request.postData() })', "body: request.postData() ?? '' })", 'guards-network.test'),
   m('guards', '      this.fail(\n        `guard error on ${nameOf(() => {\n          const request = route.request()\n          return describeRequest(request.method(), request.url())\n        })}`\n      )\n', '', 'guards-network.test'),
   m('guards', "await (send ? route.continue() : route.abort('blockedbyclient'))", 'await route.continue()', 'guards-network.test'),
   m('guards', "await (send ? route.continue() : route.abort('blockedbyclient'))", "await route.abort('blockedbyclient')", 'guards-network.test'),
@@ -304,7 +304,10 @@ export const MUTANTS = [
 
   // guards.mjs, handleRedirectHop: a hop is judged like any request; a first request is left to handleRoute
   m('guards', 'if (!request.redirectedFrom()) return', 'if (false) return', 'guards-network.test'),
-  m('guards', "const body = typeof request.postData === 'function' ? request.postData() ?? '' : ''", "const body = ''", 'guards-network.test'),
+  m('guards', "const body = typeof request.postData === 'function' ? request.postData() : null", "const body = ''", 'guards-network.test'),
+  m('guards', "const body = typeof request.postData === 'function' ? request.postData() : null", 'const body = null', 'guards-network.test'),
+  m('guards', "request.postData() : null", "request.postData() : ''", 'guards-network.test'),
+  m('guards', "request.postData() : null", "request.postData() ?? '' : null", 'guards-network.test'),
   m('guards', "typeof request.postData === 'function' ? request.postData()", 'true ? request.postData()', 'guards-network.test'),
   m('guards', '      this.fail(`guard error on ${nameOf(() => describeRequest(request.method(), request.url()))}`)\n', '', 'guards-network.test'),
 

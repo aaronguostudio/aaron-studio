@@ -173,11 +173,16 @@ export function describeRequest(method, url) {
 }
 
 // A { method, url, body? } rule: the method matches exactly, `url` (a RegExp) is found in the
-// full URL, and `body`, when the rule has one, is found in the request body.
-export function matchesRule(rule, { method, url, body = '' }) {
+// full URL, and `body`, when the rule has one, is found in the request body. A rule with a body
+// pattern needs a body that was read: a request with no body, or one the browser could not read
+// (both arrive as null), never matches it, however permissive the pattern ("^$" and ".*" match the
+// empty string). An empty string is a body that was read. A request without a body needs a rule
+// without a body pattern.
+export function matchesRule(rule, { method, url, body }) {
   if (rule.method.toUpperCase() !== method.toUpperCase()) return false
   if (url.search(rule.url) < 0) return false
-  return rule.body === undefined || String(body ?? '').search(rule.body) >= 0
+  if (rule.body === undefined) return true
+  return typeof body === 'string' && body.search(rule.body) >= 0
 }
 
 // What the network guard does with one request. `policy`:
@@ -318,7 +323,7 @@ export class RunGuard {
     let send = false
     try {
       const request = route.request()
-      send = this.check({ method: request.method(), url: request.url(), body: request.postData() ?? '' }) === 'continue'
+      send = this.check({ method: request.method(), url: request.url(), body: request.postData() }) === 'continue'
     } catch {
       this.fail(
         `guard error on ${nameOf(() => {
@@ -358,7 +363,7 @@ export class RunGuard {
   handleRedirectHop(request) {
     try {
       if (!request.redirectedFrom()) return
-      const body = typeof request.postData === 'function' ? request.postData() ?? '' : ''
+      const body = typeof request.postData === 'function' ? request.postData() : null
       this.check({ method: request.method(), url: request.url(), body })
     } catch {
       this.fail(`guard error on ${nameOf(() => describeRequest(request.method(), request.url()))}`)
