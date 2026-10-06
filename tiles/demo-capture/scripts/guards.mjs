@@ -128,3 +128,102 @@ export function assertTypable(inputType) {
   if (String(inputType ?? '').toLowerCase() === 'password')
     throw new CaptureRefusal('Typing into a password field is refused: sign-in is always done by a person.')
 }
+
+// HEAD and OPTIONS cannot change data, and browsers send OPTIONS by themselves (CORS preflight).
+const READS = new Set(['GET', 'HEAD', 'OPTIONS'])
+
+// "POST api.example.com/items": the method, host and path. Never the query or the body, which
+// can hold ids and tokens.
+export function describeRequest(method, url) {
+  try {
+    const parsed = new URL(url)
+    return `${method.toUpperCase()} ${parsed.hostname}${parsed.pathname}`
+  } catch {
+    return `${method.toUpperCase()} (unreadable URL)`
+  }
+}
+
+// A { method, url, body? } rule: the method matches exactly, `url` (a RegExp) is found in the
+// full URL, and `body`, when the rule has one, is found in the request body.
+export function matchesRule(rule, { method, url, body = '' }) {
+  if (rule.method.toUpperCase() !== method.toUpperCase()) return false
+  if (url.search(rule.url) < 0) return false
+  return rule.body === undefined || String(body ?? '').search(rule.body) >= 0
+}
+
+// What the network guard does with one request. `policy`:
+//   hosts      the environment's hosts; any other host is refused
+//   readOnly   the walk declares writes: false
+//   forbidden  readOnlyForbidden rules: reads that write
+//   allowed    non-GET rules a read-only walk may send because they change no data
+//   learning   --learn-hosts: unlisted hosts are let through and remembered
+export function classifyRequest(request, { hosts, readOnly, forbidden = [], allowed = [], learning = false }) {
+  let host
+  try {
+    const parsed = new URL(request.url)
+    if (!/^(https?|wss?):$/.test(parsed.protocol)) return { action: 'continue', kind: 'local' }
+    host = parsed.hostname.toLowerCase()
+  } catch {
+    return { action: 'abort', kind: 'unreadable', host: null, where: '(unreadable URL)', reason: 'A request with an unreadable URL was refused.' }
+  }
+  const where = describeRequest(request.method, request.url)
+  const verb = request.method.toUpperCase()
+  if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))
+    return { action: 'abort', kind: 'forbidden', host, where, reason: `${where} was refused: the project lists it as a read that writes.` }
+  if (readOnly && !READS.has(verb) && !allowed.some((rule) => matchesRule(rule, request)))
+    return { action: 'abort', kind: 'write', host, where, reason: `${where} was refused: this walk is read-only.` }
+  if (!hosts.includes(host)) {
+    if (learning) return { action: 'continue', kind: 'unlisted', host, where }
+    return { action: 'abort', kind: 'host', host, where, reason: `${where} was refused: ${host} is not in this environment's hosts.` }
+  }
+  return { action: 'continue', kind: 'listed', host, where }
+}
+
+// Applies classifyRequest to every request and WebSocket of a recording context. A refusal is
+// aborted at once and fails the run at the next check (before each step, and at the end). While
+// learning, refusals are aborted and listed, and the walk goes on.
+export class RunGuard {
+  constructor(policy, { currentStep = () => null } = {}) {
+    this.policy = policy
+    this.currentStep = currentStep
+    this.violations = []
+    this.unlisted = new Set()
+    this.refused = new Set()
+  }
+
+  check(request) {
+    const verdict = classifyRequest(request, this.policy)
+    if (verdict.kind === 'unlisted') this.unlisted.add(verdict.host)
+    if (verdict.action === 'abort') {
+      if (this.policy.learning) this.refused.add(verdict.where)
+      else this.fail(verdict.reason)
+    }
+    return verdict.action
+  }
+
+  fail(reason) {
+    this.violations.push({ reason, step: this.currentStep() })
+  }
+
+  async handleRoute(route) {
+    const request = route.request()
+    const action = this.check({ method: request.method(), url: request.url(), body: request.postData() ?? '' })
+    if (action === 'abort') return route.abort('blockedbyclient').catch(() => undefined)
+    return route.continue().catch(() => undefined)
+  }
+
+  // A WebSocket opens with a GET (the upgrade), so it is a read.
+  handleWebSocket(ws) {
+    if (this.check({ method: 'GET', url: ws.url() }) === 'abort') return ws.close()
+    ws.connectToServer()
+  }
+
+  assertClean() {
+    const first = this.violations[0]
+    if (first) throw new CaptureRefusal(first.reason, { step: first.step })
+  }
+
+  learned() {
+    return { unlisted: [...this.unlisted].sort(), refused: [...this.refused].sort() }
+  }
+}
