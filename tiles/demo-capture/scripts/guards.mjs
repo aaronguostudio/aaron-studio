@@ -133,7 +133,7 @@ export function assertTypable(inputType) {
 }
 
 // HEAD and OPTIONS cannot change data, and browsers send OPTIONS by themselves (CORS preflight).
-const READS = new Set(['GET', 'HEAD', 'OPTIONS'])
+export const READS = new Set(['GET', 'HEAD', 'OPTIONS'])
 
 // What a failure says of a request the guard saw only after the browser had sent it (a redirect hop).
 const SENT_BY_REDIRECT = 'was sent by a redirect the guard cannot stop'

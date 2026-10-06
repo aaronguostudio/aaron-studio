@@ -4,7 +4,7 @@ import { existsSync } from 'node:fs'
 import { readdir } from 'node:fs/promises'
 import { join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { CaptureRefusal } from './guards.mjs'
+import { CaptureRefusal, READS } from './guards.mjs'
 
 export const CONTRACT = 1
 export const NAME = /^[a-z0-9-]+$/
@@ -59,18 +59,26 @@ function httpUrl(value) {
   }
 }
 
-function ruleProblems(rules, where, fields) {
+// `allowed` is true for readOnlyAllowed, whose rules may carry a body pattern and name only a method that
+// can change data. The y flag is refused in any rule: a sticky pattern would match only at the start.
+function ruleProblems(rules, where, fields, { allowed = false } = {}) {
   if (rules === undefined) return []
-  if (!Array.isArray(rules)) return [`${where} must be a list of { method, url } rules`]
+  if (!Array.isArray(rules)) return [`${where} must be a list of { method, url${allowed ? ', body?' : ''} } rules`]
   return rules.flatMap((rule, i) => {
     const at = `${where}[${i}]`
     if (!isObject(rule)) return [`${at} must be an object`]
     const problems = unknownFields(rule, fields, `${at}: `)
     if (!isText(rule.method)) problems.push(`${at}.method must be an HTTP method`)
     else if (!HTTP_METHODS.has(rule.method.toUpperCase())) problems.push(`${at}.method must be an HTTP method`)
+    else if (allowed && READS.has(rule.method.toUpperCase()))
+      problems.push(
+        `${at}.method ${rule.method.toUpperCase()} needs no allowed rule: a read is never refused for being a read, and a readOnlyAllowed rule never lifts a readOnlyForbidden one`
+      )
     if (!(rule.url instanceof RegExp)) problems.push(`${at}.url must be a regular expression`)
+    else if (rule.url.sticky) problems.push(`${at}.url must not have the y (sticky) flag`)
     if (rule.body !== undefined && !(rule.body instanceof RegExp))
       problems.push(`${at}.body must be a regular expression`)
+    else if (rule.body?.sticky) problems.push(`${at}.body must not have the y (sticky) flag`)
     return problems
   })
 }
@@ -128,7 +136,7 @@ export function configProblems(config) {
       }
   }
   problems.push(...ruleProblems(config.readOnlyForbidden, 'readOnlyForbidden', FORBIDDEN_RULE_FIELDS))
-  problems.push(...ruleProblems(config.readOnlyAllowed, 'readOnlyAllowed', ALLOWED_RULE_FIELDS))
+  problems.push(...ruleProblems(config.readOnlyAllowed, 'readOnlyAllowed', ALLOWED_RULE_FIELDS, { allowed: true }))
   if (!optional(config.sameTabLinks, isBoolean)) problems.push('sameTabLinks must be true or false')
   for (const hook of ['setup', 'beforeStep', 'revision'])
     if (!optional(config[hook], isFunction)) problems.push(`${hook} must be a function`)
