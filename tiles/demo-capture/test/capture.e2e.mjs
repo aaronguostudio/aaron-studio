@@ -40,7 +40,8 @@ function run(command, args, env = {}) {
 const runCapture = (args) =>
   run(process.execPath, [CLI, '--project', PROJECT, ...args], { DEMO_CAPTURE_HOME: root, DEMO_CAPTURE_FIXTURE_URL: app.url })
 const renderDryRun = (dir) => run('npx', ['-y', 'bun', RENDERER, dir, '--dry-run'])
-const outDir = (name) => join(root, 'out', name)
+// Inside the capture folder, a run folder belongs under the project's runs.
+const outDir = (name) => join(root, 'fixture-app', 'runs', name)
 // What the fixture received since `before` (a requests().length), as { method, path, body }.
 const receivedFrom = (before) => app.requests().slice(before).map(({ method, path, body }) => ({ method, path, body }))
 const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'))
