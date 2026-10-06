@@ -409,7 +409,9 @@ function pidAlive(pid) {
 }
 
 // One run per project and environment: a session's tokens can rotate on use, so two runs sharing
-// it would sign each other out. Returns the function that releases the lock.
+// it would sign each other out. Returns the function that releases the lock. The lock is best
+// effort: two runs that start at the same instant against a stale lock can both proceed, which is
+// accepted for a single-user CLI.
 export async function acquireRunLock(lockPath, { pid = process.pid, isAlive = pidAlive } = {}) {
   await mkdir(dirname(lockPath), { recursive: true, mode: 0o700 })
   for (let attempt = 0; attempt < 2; attempt++) {
@@ -420,7 +422,11 @@ export async function acquireRunLock(lockPath, { pid = process.pid, isAlive = pi
       if (error.code !== 'EEXIST') throw error
       const holder = Number((await readFile(lockPath, 'utf8').catch(() => '')).trim())
       if (Number.isInteger(holder) && holder > 0 && isAlive(holder))
-        throw new CaptureRefusal(`Another run (pid ${holder}) is using this session; wait for it to finish.`)
+        throw new CaptureRefusal(
+          `Another run (pid ${holder}) is using this session; wait for it to finish, or delete the lock file ${lockPath} if no run is going.`
+        )
+      // The last attempt never removes the file: it may be another run's fresh lock.
+      if (attempt === 1) break
       await rm(lockPath, { force: true })
     }
   }

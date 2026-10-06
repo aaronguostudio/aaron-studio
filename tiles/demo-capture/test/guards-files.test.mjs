@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict'
-import { mkdirSync, mkdtempSync, realpathSync, symlinkSync, writeFileSync } from 'node:fs'
-import { readFile, stat } from 'node:fs/promises'
+import { mkdirSync, mkdtempSync, readFileSync, realpathSync, symlinkSync, writeFileSync } from 'node:fs'
+import fsPromises, { readFile, stat } from 'node:fs/promises'
+import { syncBuiltinESMExports } from 'node:module'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { test } from 'node:test'
 import { CaptureRefusal, acquireRunLock, assertOutsideRepos, enclosingRepo } from '../scripts/guards.mjs'
 
@@ -42,7 +43,13 @@ test('the run lock admits one run, refuses a live holder, and takes over from a 
   const release = await acquireRunLock(lock, { pid: 111, isAlive: () => true })
   assert.equal(await readFile(lock, 'utf8'), '111')
   assert.equal((await stat(lock)).mode & 0o777, 0o600)
+  assert.equal((await stat(dirname(lock))).mode & 0o777, 0o700)
   await rejects(acquireRunLock(lock, { pid: 222, isAlive: (pid) => pid === 111 }), /Another run \(pid 111\) is using this session/)
+  // The refusal names the lock file, so a leftover lock (a recycled pid after a reboot) can be found.
+  await assert.rejects(
+    acquireRunLock(lock, { pid: 222, isAlive: (pid) => pid === 111 }),
+    (e) => e instanceof CaptureRefusal && e.message.includes(lock)
+  )
   const takeover = await acquireRunLock(lock, { pid: 333, isAlive: () => false })
   assert.equal(await readFile(lock, 'utf8'), '333')
   await takeover()
@@ -68,4 +75,27 @@ test('the run lock treats a process it may not signal as alive', async () => {
   const release = await acquireRunLock(lock)
   assert.equal(await readFile(lock, 'utf8'), String(process.pid))
   await release()
+})
+
+test('the last attempt gives up without deleting a lock another run has just taken', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'lock-'))
+  const lock = join(dir, 'lock')
+  writeFileSync(lock, '555')
+  // A seam, not a timing trick: right after the stale lock is removed, a competing run takes the
+  // lock, which is what the second write then finds. node:test runs each file in its own process.
+  const realRm = fsPromises.rm
+  let removals = 0
+  fsPromises.rm = async (...args) => {
+    await realRm(...args)
+    if (++removals === 1) writeFileSync(lock, '999')
+  }
+  syncBuiltinESMExports()
+  try {
+    await rejects(acquireRunLock(lock, { pid: 222, isAlive: () => false }), /Could not take the run lock/)
+  } finally {
+    fsPromises.rm = realRm
+    syncBuiltinESMExports()
+  }
+  assert.equal(removals, 1)
+  assert.equal(readFileSync(lock, 'utf8'), '999')
 })
