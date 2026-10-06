@@ -23,36 +23,44 @@ Look in this order, and use the first that applies:
    - The engine is the `demo-capture` tile beside this skill's real directory. The skill is usually reached through a symlink, so resolve that first. Shell variables do not carry over between commands, so set `$SKILL` in each command that uses it. `<project>` is the directory the loop printed:
 
      ```bash
-     SKILL=$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' <skill-dir>)
-     node "$SKILL/../demo-capture/scripts/cli.mjs" --project <project> --list
+     SKILL=$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' "<skill-dir>")
+     node "$SKILL/../demo-capture/scripts/cli.mjs" <arguments>
      ```
 
+     The `<arguments>`, one command at a time:
+
+     - `--project "<project>" --list`: the walks, the environments and the go-ahead each one needs.
+     - `sign-in --project "<project>" --env <env>`: the person signs in; nothing is recorded.
+     - `--project "<project>" --env <env> --walk <walk> [--set key=value]`: record the walk.
+
    - If there is no `$SKILL/../demo-capture`, there is no video. Say so; the screenshots still work.
-   - Exit codes: 0 captured; 1 the walk failed (both leave a run folder, which step 2 reads); 2 refused (nothing was captured, and stderr says why as `demo-capture: <reason>`; tell the user in plain words).
-   - If the engine says its dependency is missing, ask the user before running `npm ci` in `$SKILL/../demo-capture`. Never run `npx playwright install`: Chromium comes from the machine's Playwright cache.
-2. **Legacy.** Otherwise, a `demo:capture` script in the project's root `package.json` keeps its own flow. Run it with the project's package manager (`pnpm`, `npm` or `yarn`, going by the lockfile): `pnpm demo:capture --list`.
+   - Exit codes: 0 captured; 1 the walk failed, or an unexpected engine error, which prints a stack trace and may leave no `capture.json`; 2 refused (nothing was captured, and stderr says why as `demo-capture: <reason>`). Step 2 says what to do with each.
+   - If the engine says its dependency is missing, ask the user before running `npm ci --prefix "$SKILL/../demo-capture"`. Never run `npx playwright install`: Chromium comes from the machine's Playwright cache.
+2. **Legacy.** Otherwise, a `demo:capture` script in the current project's root `package.json` keeps its own flow. Run it with the project's package manager (`pnpm`, `npm` or `yarn`, going by the lockfile): `pnpm demo:capture --list`.
 3. **Neither.** There is no video. Don't build one. The text and screenshots still work.
 
 Then:
 
 - Show the user the walks it lists, and ask which walk and which environment. The engine's `--list` shows each walk as `read-only` or `writes`, and the go-ahead each environment needs.
 - The command's `--help` tells you its options and guards. Follow them. The engine's flags and rules are also in `$SKILL/../demo-capture/SKILL.md`.
-- **Go-ahead.** Add a go-ahead flag only after the user's go-ahead in chat for that run. Get it every run, even if they approved an earlier one. Never add a go-ahead flag on your own, even when a refusal names it. With the engine, the rule follows the environment:
+- **Go-ahead.** Add a confirmation or go-ahead flag only after the user's go-ahead in chat for that run. Get it every run, even if they approved an earlier one. Never add a confirmation or go-ahead flag on your own, even when a refusal names it. With the engine, the rule follows the environment:
   - A production environment: every walk run needs `--prod-go-ahead`. That one flag also covers a walk that writes; there is no second flag in production. When you ask, say whether the walk writes.
   - Any other environment follows its `writeGoAhead`. Where the config sets it, a walk that writes needs `--write-go-ahead`. Where it does not, no go-ahead is needed.
   - `sign-in` needs no go-ahead, even in production: nothing is recorded, and a person drives it.
-  - A legacy command has no `writeGoAhead`: an environment that writes to shared or production systems needs the go-ahead.
-- **Sign-in is the person's.** Never type credentials and never ask for them. Before any run that may open a sign-in window, tell the person that one may open and that they need to be at the machine.
-  - With the engine, a window opens on the first run of an environment, on `sign-in` (it signs in and records nothing), and on a run whose saved session has expired, which only shows once the run starts. It waits up to 10 minutes. If nobody signs in by then, or the window is closed, the run exits 2.
+  - A legacy command has no `writeGoAhead`: an environment that writes to shared or production systems needs the user's go-ahead for that run, before you add the command's confirmation flag.
+- **Sign-in is the person's.** Never type credentials and never ask for them. Warn the person before every run or `sign-in`, unless you know the session is fresh, since an expired session only shows once the run starts: tell them a sign-in window may open and that they need to be at the machine.
+  - With the engine, a window opens on the first run of an environment, on `sign-in` (it signs in and records nothing), and on a run whose saved session has expired. It waits up to 10 minutes. If nobody signs in by then, or the window is closed, the run exits 2.
   - A legacy command may open one on the first run of an environment.
 
 ## 2. Run it and read the result
 
-The command prints its run folder. Read `capture.json` there:
+What to do depends on how the command ended (step 1 lists the exit codes):
 
-- **Exit 2 (the engine refused):** nothing was captured, so there is no `capture.json`. Report the `demo-capture: <reason>` sentence from stderr to the person in plain words, and stop there.
-- **`status: "passed"`:** go on.
-- **`status: "failed"`:** there is no video. Tell the user which step failed (`failedStep`, `failure`) in plain words. Then either write the message without the video (say the walkthrough will follow) or ask them which they want.
+- **Exit 2 (the engine refused):** nothing was captured, so there is no `capture.json`. Stop the capture. Tell the person the `demo-capture: <reason>` sentence from stderr in plain words, and ask whether they want to retry (giving the go-ahead, if a missing one was the reason) or send the update without the video.
+- **Any other run:** the command prints its run folder. Read `capture.json` there:
+  - **`status: "passed"`:** go on.
+  - **`status: "failed"`:** there is no video. Tell the user which step failed (`failedStep`, `failure`) in plain words. Then either write the message without the video (say the walkthrough will follow) or ask them which they want.
+  - **No `capture.json`:** the engine hit an unexpected error, which is not a refusal. Report the error output to the person and do not guess at the cause.
 
 Never move a run folder into a repo.
 
@@ -61,8 +69,8 @@ Never move a run folder into a repo.
 The renderer lives beside this skill's real directory. The skill is usually reached through a symlink, so resolve that first:
 
 ```bash
-SKILL=$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' <skill-dir>)
-npx -y bun "$SKILL/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts" <run>
+SKILL=$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' "<skill-dir>")
+npx -y bun "$SKILL/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts" "<run>"
 ```
 
 - It writes `walkthrough.mp4` and `chapters.txt` into the run folder.
@@ -89,12 +97,15 @@ Check every step id against `steps.json`; the renderer refuses an unknown one.
 
 ## 4. Put it in the message
 
-- **Keep it outside every repo.** When the screenshots or the video come from a capture run, `message.md`, its marked screenshot copies and the mp4 stay outside every repo, because they show real screens. The session scratchpad or a temp folder is fine; a repo is not.
-- **Screenshots.** Each step's `shots/NN-<id>.png` shows the screen just before the step's first click. Mark that click from the recorded box instead of guessing coordinates; a step's later clicks happen in dialogs the shot does not show. Write the marked copies next to `message.md`:
+- **Keep it outside every repo.** When the screenshots or the video come from a capture run, `message.md`, its marked screenshot copies, the mp4 and the built page (which inlines the same screens) all stay outside every repo, because they show real screens.
+  - After step 1 the working directory is usually the project's repo, so a relative path such as `shots/03-save.png` or `--out page.html` would land inside it.
+  - Pick `<out-dir>`, an absolute path outside every repo: the session scratchpad or a temp folder is fine; a repo is not. Write `message.md` and the marked copies there, and give `build_page.py` an `--out` under it. Running the build from that folder works too.
+- **Screenshots.** Each step's `shots/NN-<id>.png` shows the screen just before the step's first click. Mark that click from the recorded box instead of guessing coordinates; a step's later clicks happen in dialogs the shot does not show. Write the marked copies next to `message.md` (the script does not create the folder):
 
   ```bash
-  python3 <skill-dir>/scripts/mark_screenshot.py <run>/shots/03-save.png shots/03-save.png \
-    --steps <run>/steps.json --step save --label 3 --crop auto
+  mkdir -p "<out-dir>/shots"
+  python3 "<skill-dir>/scripts/mark_screenshot.py" "<run>/shots/03-save.png" "<out-dir>/shots/03-save.png" \
+    --steps "<run>/steps.json" --step save --label 3 --crop auto
   ```
 
 - **Steps.** The captions in `steps.json` are a ready draft of the numbered steps; tighten them for the reader.

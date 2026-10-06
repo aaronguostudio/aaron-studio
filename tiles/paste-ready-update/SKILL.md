@@ -35,12 +35,14 @@ The person you are working for pastes the message and sends it. You never send i
      - Coordinates are pixels of the original image.
      - Look at the output and adjust the coordinates once if a box misses its target.
      - The script needs Pillow. Without it, use the screenshot unmarked.
-3. **Write `message.md`** in the shape and format below.
+3. **Write `message.md`** in `<out-dir>` (see step 4), in the shape and format below.
 4. **Build the page:**
 
    ```bash
-   python3 <skill-dir>/scripts/build_page.py message.md --out <short-name>.html
+   python3 "<skill-dir>/scripts/build_page.py" "<out-dir>/message.md" --out "<out-dir>/<short-name>.html"
    ```
+
+   `<out-dir>` is the folder that holds `message.md` and its `shots/`. When the page holds capture output (screenshots or a video from a walkthrough capture), `<out-dir>` must be an absolute path outside every repo: the working directory is often a project repo, and the page inlines real screens. See step 4 of [references/walkthrough.md](references/walkthrough.md).
 
    The script embeds the screenshots, so the page works anywhere. A missing screenshot stops the build; fix it, don't drop it. The script prints the page size, screenshot count and word count. The copy buttons come from a tested template, so check the text and the screenshots rather than clicking the buttons.
 5. **Deliver it** (see Delivering).
@@ -111,7 +113,7 @@ Aaron
 Offer a short walkthrough video only when both are true:
 
 - the change is visible in the UI;
-- the project has a capture: a `demo-capture/config.mjs` in the working directory or a parent of it (up to `$HOME`, never above it), or else a `demo:capture` script in its root `package.json` (see step 1 of [references/walkthrough.md](references/walkthrough.md)).
+- the project has a capture: a `demo-capture/config.mjs` in the working directory or a parent of it (up to `$HOME`, never above it), or else a `demo:capture` script in the current project's root `package.json` (see step 1 of [references/walkthrough.md](references/walkthrough.md)).
 
 Backend and infrastructure updates stay text-only.
 
