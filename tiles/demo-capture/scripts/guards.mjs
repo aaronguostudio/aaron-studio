@@ -357,15 +357,15 @@ function nameOf(read) {
 //
 // The caller wires four handlers: handleRoute from context.route, handleWebSocket from
 // context.routeWebSocket, handleRedirectHop from context.on('request'), and handleFinished from
-// context.on('requestfinished'). A route handler sees
-// only the first URL of a request, never the hops of a redirect, so handleRedirectHop judges each
-// hop too. A hop is already on the wire when the 'request' event fires, so it can only be recorded,
-// never aborted: the run fails at the next assertClean(), and stopping the connection itself is the
-// job of a rule at the network layer, not of this class. That matters most for a non-read: a 307 or
-// 308 makes the browser send the same method and body to the new URL, so a request that a rule
-// allowed can be sent on to a URL no rule allows, or, in a learning run, to any host. Only the rule
-// that allowed the first request keeps that from doing harm, which is why an allowed rule names one
-// endpoint and one body (see matchesRule).
+// context.on('requestfinished'). A route handler sees only the first URL of a request, never the
+// hops of a redirect, so handleRedirectHop judges each hop too. A hop is already on the wire when
+// the 'request' event fires, so it can only be recorded, never aborted: the run fails at the next
+// assertClean(), and stopping the connection itself is the job of a rule at the network layer, not
+// of this class. That matters most for a non-read: a 307 or 308 makes the browser send the same
+// method and body to the new URL, so a request that a rule allowed can be sent on to a URL no rule
+// allows, or, in a learning run, to any host. Only the rule that allowed the first request keeps
+// that from doing harm, which is why an allowed rule names one endpoint and one body (see
+// matchesRule).
 //
 // No request or socket is left unanswered and nothing throws into the page: one the guard cannot
 // judge is aborted or closed and recorded as a violation ("guard error on ..."), also while
