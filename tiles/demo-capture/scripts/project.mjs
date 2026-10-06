@@ -30,6 +30,9 @@ const FORBIDDEN_RULE_FIELDS = new Set(['method', 'url'])
 // typo or a stray space would never match a request, and a read that writes would go through.
 const HTTP_METHODS = new Set(['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'])
 const WALKS_HOLD_WALKS = 'walks/ holds only walks; put shared helpers in a subfolder such as walks/lib/'
+// A path whose second character is a slash or a backslash names another host: browsers read a
+// backslash as a slash in an http(s) URL, so /\host is protocol-relative just like //host.
+const OTHER_HOST_PATH = /^\/[/\\]/
 
 const isObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v)
 const isText = (v) => typeof v === 'string' && v.trim() !== ''
@@ -108,7 +111,7 @@ export function configProblems(config) {
       problems.push(...environmentProblems(name, env))
   if (typeof config.signInPath !== 'string' || !config.signInPath.startsWith('/'))
     problems.push('signInPath must be a path starting with /')
-  if (typeof config.signInPath === 'string' && config.signInPath.startsWith('//'))
+  if (typeof config.signInPath === 'string' && OTHER_HOST_PATH.test(config.signInPath))
     problems.push('signInPath must not start with // (that is a link to another host)')
   if (!isFunction(config.isSignedOut)) problems.push('isSignedOut must be a function of the page URL')
   if (config.params !== undefined) {
@@ -135,7 +138,7 @@ export function walkProblems(walk) {
   if (!optional(walk.writes, isBoolean)) problems.push('writes must be true or false')
   if (!optional(walk.startPath, (v) => typeof v === 'string' && v.startsWith('/')))
     problems.push('startPath must be a path starting with /')
-  if (typeof walk.startPath === 'string' && walk.startPath.startsWith('//'))
+  if (typeof walk.startPath === 'string' && OTHER_HOST_PATH.test(walk.startPath))
     problems.push('startPath must not start with // (that is a link to another host)')
   if (!isFunction(walk.run)) problems.push('run must be an async function')
   return problems

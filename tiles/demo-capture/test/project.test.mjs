@@ -171,12 +171,17 @@ test('a readOnlyForbidden method is a real HTTP method in any letter case, since
   assert.equal(matchesRule({ method: 'GTE', url: /x/ }, request), false)
 })
 
-test('signInPath cannot start with //, which is a link to another host', () => {
+// Browsers read a backslash as a slash in an http(s) URL, so /\host is as much a link to another
+// host as //host is. Only the second character matters; later slashes and backslashes are fine.
+test('signInPath cannot start with // or /\\, which is a link to another host', () => {
   const protocolRelative = ['signInPath must not start with // (that is a link to another host)']
   assert.deepEqual(problemsWith({ signInPath: '//other.example.com/login' }), protocolRelative)
   assert.deepEqual(problemsWith({ signInPath: '//' }), protocolRelative)
+  assert.deepEqual(problemsWith({ signInPath: '/\\evil.example.com' }), protocolRelative)
+  assert.deepEqual(problemsWith({ signInPath: '/\\' }), protocolRelative)
   assert.deepEqual(problemsWith({ signInPath: '/' }), [])
   assert.deepEqual(problemsWith({ signInPath: '/a//b' }), [])
+  assert.deepEqual(problemsWith({ signInPath: '/a\\b' }), [])
 })
 
 test('a walk needs a title and a run function; the rest is optional and checked', () => {
@@ -192,7 +197,14 @@ test('a walk needs a title and a run function; the rest is optional and checked'
   assert.deepEqual(walkProblems({ title: 'T', startPath: '//other.example.com/home', run }), [
     'startPath must not start with // (that is a link to another host)'
   ])
+  assert.deepEqual(walkProblems({ title: 'T', startPath: '/\\evil.example.com', run }), [
+    'startPath must not start with // (that is a link to another host)'
+  ])
+  assert.deepEqual(walkProblems({ title: 'T', startPath: '/\\', run }), [
+    'startPath must not start with // (that is a link to another host)'
+  ])
   assert.deepEqual(walkProblems({ title: 'T', startPath: '/a//b', run }), [])
+  assert.deepEqual(walkProblems({ title: 'T', startPath: '/a\\b', run }), [])
   assert.deepEqual(walkProblems({ title: 'T' }), ['run must be an async function'])
   assert.deepEqual(walkProblems({ title: 'T', run, steps: [] }), ['unknown field "steps"'])
 })
