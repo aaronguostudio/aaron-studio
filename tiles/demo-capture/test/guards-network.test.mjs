@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { CaptureRefusal, RunGuard, classifyRequest, describeRequest, matchesRule, parseHostEntry } from '../scripts/guards.mjs'
+import { CaptureRefusal, RunGuard, classifyRequest, describeNonRead, describeRequest, matchesRule, parseHostEntry } from '../scripts/guards.mjs'
 
 const policy = (extra = {}) => ({ hosts: ['app.example.com', 'cdn.example.com'], readOnly: true, ...extra })
 const get = (url) => ({ method: 'GET', url })
@@ -133,8 +133,10 @@ test('RunGuard closes a WebSocket to an unlisted host and connects a listed one'
 
 test('a learning RunGuard never fails: it lists unlisted hosts and refused requests', async () => {
   const guard = new RunGuard(policy({ learning: true }))
-  // Two unlisted hosts and two refused requests, each fed out of sorted order, so that only
+  // Three unlisted hosts and two refused requests, each fed out of sorted order, so that only
   // learned()'s own sorting can produce the order asserted below. fonts is seen twice: one entry.
+  // A refused non-read is listed with its scheme, port and query names, so a rule can be written
+  // for its whole URL, and its host (beacon) is listed although only a refused request reached it.
   await guard.handleRoute(fakeRoute('GET', 'https://zeta.example.org/z.woff2'))
   await guard.handleRoute(fakeRoute('GET', 'https://fonts.example.org/a.woff2'))
   await guard.handleRoute(fakeRoute('GET', 'https://fonts.example.org/b.woff2'))
@@ -147,8 +149,8 @@ test('a learning RunGuard never fails: it lists unlisted hosts and refused reque
   assert.deepEqual(del.calls, ['abort blockedbyclient'])
   assert.doesNotThrow(() => guard.assertClean())
   assert.deepEqual(guard.learned(), {
-    unlisted: ['fonts.example.org', 'zeta.example.org'],
-    refused: ['DELETE app.example.com/session', 'POST beacon.example.org/b']
+    unlisted: ['beacon.example.org', 'fonts.example.org', 'zeta.example.org'],
+    refused: ['DELETE https://app.example.com/session?id=… (no body)', 'POST https://beacon.example.org/b?id=… (no body)']
   })
 })
 
@@ -428,7 +430,7 @@ test('while learning, an allowed non-read to an unlisted host is listed as unlis
   await guard.handleRoute(route)
   assert.deepEqual(route.calls, ['abort blockedbyclient'])
   assert.doesNotThrow(() => guard.assertClean())
-  assert.deepEqual(guard.learned(), { unlisted: ['other.example.org'], refused: ['POST other.example.org/session/token'] })
+  assert.deepEqual(guard.learned(), { unlisted: ['other.example.org'], refused: ['POST https://other.example.org/session/token (no body)'] })
 })
 
 // ---- Mutation check: branches no test pinned until a mutant survived ----
@@ -526,7 +528,13 @@ test('RunGuard aborts a route whose body is null when the rule has a body patter
     const route = fakeRoute('POST', BEACON, null)
     await guard.handleRoute(route)
     assert.deepEqual(route.calls, ['abort blockedbyclient'], String(body))
-    assert.throws(() => guard.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./)
+    // The rule matches the whole URL, so the refusal says that its body pattern is what failed.
+    assert.throws(
+      () => guard.assertClean(),
+      (e) =>
+        e.message ===
+        'POST app.example.com/beacon was refused: this walk is read-only (readOnlyAllowed[0] has a body pattern, and this request has no readable body).'
+    )
   }
   // The same request goes through a rule that has no body pattern, and a read body goes through a permissive one.
   const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }] }))
@@ -826,10 +834,11 @@ test('while learning, a non-read hop to an unlisted host is listed as unlisted, 
   read.hop('GET', 'https://tracker.example.net/pixel')
   assert.deepEqual(read.guard.learned(), { unlisted: ['tracker.example.net'], refused: [] })
   assert.equal(failureOf(read.guard), null)
-  // A first request, which the guard can stop, is still listed as refused, as before.
+  // A first request, which the guard can stop, is still listed as refused, as before, and its host
+  // is listed as one the walk used.
   const first = new RunGuard(policy({ learning: true }))
   first.check({ method: 'POST', url: 'https://tracker.example.net/items' })
-  assert.deepEqual(first.learned(), { unlisted: [], refused: ['POST tracker.example.net/items'] })
+  assert.deepEqual(first.learned(), { unlisted: ['tracker.example.net'], refused: ['POST https://tracker.example.net/items (no body)'] })
 })
 
 test('while learning, a non-read hop to a listed host that no rule allows fails the run instead of being listed as refused', () => {
@@ -864,4 +873,181 @@ test('a hop to a scheme the guard refuses, or to a page the browser builds, is j
   local.hop('POST', 'data:text/plain,hello')
   assert.equal(failureOf(local.guard), null)
   assert.deepEqual(local.guard.learned(), { unlisted: [], refused: [] })
+})
+
+// ---- What a refusal says, so that a whole-URL rule can be learned ----
+//
+// An allowed rule matches the whole URL and the whole body, so a rule written for the path alone
+// allows nothing. The refusal says which rule came close, by its index; a learning run lists each
+// refused non-read with what a rule has to match (scheme, host, port, path, query names) and whether
+// it has a body. Neither ever shows a query value or the body.
+
+test('a refused non-read is described by scheme, host, path and query names, never a value or the body', () => {
+  assert.equal(
+    describeNonRead({ method: 'post', url: 'https://app.example.com/hub/negotiate?negotiateVersion=1', body: null }),
+    'POST https://app.example.com/hub/negotiate?negotiateVersion=… (no body)'
+  )
+  assert.equal(
+    describeNonRead({ method: 'PUT', url: 'http://127.0.0.1:4100/items?token=SECRET-VALUE&id=7#SECRET-FRAGMENT', body: '{"secret":"BODY-VALUE"}' }),
+    'PUT http://127.0.0.1:4100/items?token=…&id=… (with a body)'
+  )
+  // A part of the query without "=" could be a value by itself, so it is left out too, and so is
+  // the userinfo. An empty body is a body that was read.
+  assert.equal(
+    describeNonRead({ method: 'POST', url: 'https://user:SECRET-PASSWORD@app.example.com/a?SECRET-BARE&&x=', body: '' }),
+    'POST https://app.example.com/a?…&x=… (with a body)'
+  )
+  assert.equal(describeNonRead({ method: 'POST', url: 'https://app.example.com/a?' }), 'POST https://app.example.com/a (no body)')
+  assert.equal(describeNonRead({ method: 'POST', url: 'not a url' }), 'POST (unreadable URL)')
+})
+
+test('a learning list never holds a query value or a body', async () => {
+  const guard = new RunGuard(policy({ learning: true }))
+  await guard.handleRoute(fakeRoute('POST', 'https://app.example.com/items?token=SECRET-VALUE&session=SECRET-ID', '{"password":"SECRET-BODY"}'))
+  const listed = JSON.stringify(guard.learned())
+  assert.match(listed, /POST https:\/\/app\.example\.com\/items\?token=…&session=… \(with a body\)/)
+  assert.doesNotMatch(listed, /SECRET/)
+})
+
+test('a refused non-read names the allowed rule that came close, and never the query or the body', () => {
+  const allowed = [
+    // Another method: never named.
+    { method: 'PUT', url: /https:\/\/app\.example\.com\/session\/token/ },
+    // Matches a part of the URL only.
+    { method: 'POST', url: /\/session\/token/ },
+    // Matches the whole URL, with a body pattern.
+    { method: 'post', url: /https:\/\/app\.example\.com\/brief/, body: /\{"date":"[\d-]+"\}/ }
+  ]
+  const reason = (url, body) => classifyRequest({ method: 'POST', url, body }, policy({ allowed })).reason
+  assert.equal(
+    reason('https://app.example.com/session/token?token=SECRET', null),
+    'POST app.example.com/session/token was refused: this walk is read-only (readOnlyAllowed[1] matches part of this URL but not all of it).'
+  )
+  assert.equal(
+    reason('https://app.example.com/brief', '{"date":"2026-10-05","secret":"SECRET"}'),
+    'POST app.example.com/brief was refused: this walk is read-only (readOnlyAllowed[2] matches this URL but not its body).'
+  )
+  assert.equal(
+    reason('https://app.example.com/brief', null),
+    'POST app.example.com/brief was refused: this walk is read-only (readOnlyAllowed[2] has a body pattern, and this request has no readable body).'
+  )
+  // No rule of the method comes close, or there are no rules: the sentence is as before.
+  assert.equal(reason('https://app.example.com/items', null), 'POST app.example.com/items was refused: this walk is read-only.')
+  assert.equal(
+    classifyRequest({ method: 'PUT', url: 'https://app.example.com/items/session/token' }, policy({ allowed: allowed.slice(1) })).reason,
+    'PUT app.example.com/items/session/token was refused: this walk is read-only.'
+  )
+})
+
+test('the rule that matches the whole URL is named before one that matches a part of it, and the first of each kind', () => {
+  const reason = (allowed, body) => classifyRequest({ method: 'POST', url: 'https://app.example.com/brief', body }, policy({ allowed })).reason
+  const part = { method: 'POST', url: /\/brief/ }
+  const whole = { method: 'POST', url: /https:\/\/app\.example\.com\/brief/, body: /x/ }
+  assert.match(reason([part, whole], 'y'), /\(readOnlyAllowed\[1\] matches this URL but not its body\)\.$/)
+  assert.match(reason([whole, part], 'y'), /\(readOnlyAllowed\[0\] matches this URL but not its body\)\.$/)
+  assert.match(reason([part, part], 'y'), /\(readOnlyAllowed\[0\] matches part of this URL but not all of it\)\.$/)
+  assert.match(reason([whole, { ...whole, body: /z/ }], 'y'), /\(readOnlyAllowed\[0\] matches this URL/)
+})
+
+test('a learning run lists the rule that came close with the request it refused', async () => {
+  const allowed = [{ method: 'POST', url: /\/beacon/ }]
+  const guard = new RunGuard(policy({ learning: true, allowed }))
+  await guard.handleRoute(fakeRoute('POST', 'https://app.example.com/beacon?page=SECRET', '{}'))
+  assert.deepEqual(guard.learned().refused, [
+    'POST https://app.example.com/beacon?page=… (with a body) (readOnlyAllowed[0] matches part of this URL but not all of it)'
+  ])
+})
+
+test('only a learning run lists the hosts the walk used; elsewhere an unlisted host fails the run', () => {
+  const guard = new RunGuard(policy())
+  guard.check({ method: 'POST', url: 'https://tracker.example.net/items' })
+  guard.check(get('https://fonts.example.org/a.woff2'))
+  assert.deepEqual(guard.learned(), { unlisted: [], refused: [] })
+  assert.throws(() => guard.assertClean(), /tracker\.example\.net\/items was refused: this walk is read-only\./)
+  // While learning, a host reached only by a forbidden read is listed too.
+  const learning = new RunGuard(policy({ learning: true, forbidden: [{ method: 'GET', url: /recount/ }] }))
+  learning.check(get('https://tracker.example.net/items?mode=recount'))
+  assert.deepEqual(learning.learned(), { unlisted: ['tracker.example.net'], refused: ['GET tracker.example.net/items'] })
+})
+
+test('the guard keeps frozen copies of its lists: the caller cannot change them, and they cannot be changed', async () => {
+  const forbidden = []
+  const allowed = []
+  const hosts = ['app.example.com']
+  const guard = new RunGuard({ hosts, readOnly: true, forbidden, allowed })
+  forbidden.push({ method: 'GET', url: /home/ })
+  allowed.push({ method: 'POST', url: /.*/ })
+  hosts.push('tracker.example.net')
+  const home = fakeRoute('GET', 'https://app.example.com/home')
+  await guard.handleRoute(home)
+  assert.deepEqual(home.calls, ['continue'])
+  const post = fakeRoute('POST', 'https://app.example.com/items')
+  await guard.handleRoute(post)
+  assert.deepEqual(post.calls, ['abort blockedbyclient'])
+  for (const list of ['hosts', 'forbidden', 'allowed']) assert.equal(Object.isFrozen(guard.policy[list]), true, list)
+  assert.equal(Object.isFrozen(guard.policy), true)
+  // The caller's own lists are left as they were.
+  for (const list of [hosts, forbidden, allowed]) assert.equal(Object.isFrozen(list), false)
+})
+
+// ---- A request the route guard never judged ----
+//
+// A walk's own page.route runs before the engine's context.route, so a walk that answers a route
+// itself (route.continue) sends the request without the guard. Such a request still finishes, and
+// the guard hears of that: a first request it never judged fails the run.
+
+// A request that is the same object every time the route is asked for it, as Playwright's is.
+const requestOf = (method, url, { from = null, body = null } = {}) => ({
+  method: () => method,
+  url: () => url,
+  postData: () => body,
+  redirectedFrom: () => from
+})
+const routeFor = (request) => {
+  const calls = []
+  return { calls, request: () => request, abort: async (code) => calls.push(`abort ${code}`), continue: async () => calls.push('continue') }
+}
+const UNGUARDED = 'A request went out without the guard: the walk handled it with its own route'
+
+test('a request that finishes without having been judged fails the run, naming the step and the request', async () => {
+  let step = 'look'
+  const guard = new RunGuard(policy(), { currentStep: () => step })
+  const judged = requestOf('GET', 'https://app.example.com/list?token=SECRET')
+  await guard.handleRoute(routeFor(judged))
+  guard.handleFinished(judged)
+  assert.doesNotThrow(() => guard.assertClean())
+  step = 'send'
+  guard.handleFinished(requestOf('POST', 'https://app.example.com/items?token=SECRET', { body: 'SECRET' }))
+  assert.throws(
+    () => guard.assertClean(),
+    (e) => e instanceof CaptureRefusal && e.step === 'send' && e.message === `${UNGUARDED} (POST app.example.com/items).`
+  )
+})
+
+test('a redirect hop finishes unjudged by the route guard, which is how it should be', () => {
+  const guard = new RunGuard(policy())
+  guard.handleFinished(requestOf('GET', 'https://app.example.com/next', { from: {} }))
+  assert.doesNotThrow(() => guard.assertClean())
+})
+
+test('a request the route guard refused or could not judge counts as judged', async () => {
+  const guard = new RunGuard(policy({ learning: true }))
+  const refused = requestOf('POST', 'https://app.example.com/items')
+  await guard.handleRoute(routeFor(refused))
+  const broken = { ...requestOf('POST', 'https://app.example.com/items'), postData: () => { throw new Error('no body') } }
+  await guard.handleRoute(routeFor(broken))
+  guard.handleFinished(refused)
+  assert.deepEqual(guard.violations.map((v) => v.reason), ['guard error on POST app.example.com/items'])
+  guard.handleFinished(broken)
+  assert.equal(guard.violations.length, 1)
+})
+
+test('a request nobody judged fails a learning run too, and one the guard cannot read is a guard error', () => {
+  const learning = new RunGuard(policy({ learning: true }))
+  learning.handleFinished(requestOf('GET', 'https://fonts.example.org/a.woff2'))
+  assert.throws(() => learning.assertClean(), (e) => e.message === `${UNGUARDED} (GET fonts.example.org/a.woff2).`)
+  const guard = new RunGuard(policy())
+  const unreadable = { method: () => 'GET', url: () => 'https://app.example.com/x?token=SECRET', redirectedFrom: () => { throw new Error('gone') } }
+  assert.doesNotThrow(() => guard.handleFinished(unreadable))
+  assert.throws(() => guard.assertClean(), (e) => e.message === 'guard error on GET app.example.com/x')
 })

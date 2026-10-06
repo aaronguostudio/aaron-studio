@@ -511,6 +511,8 @@ const BEACON = 'http://127.0.0.1:9/beacon'
 // here so that the host lock, not the rule, is what refuses a beacon to an unlisted one.
 const allowBeacon = { method: 'POST', url: /https?:\/\/[a-z0-9.]+(?::\d+)?\/beacon/, body: /\{"page":"[a-z]+"\}/ }
 const REFUSED_BEACON = 'POST 127.0.0.1/beacon was refused: this walk is read-only.'
+// The same refusal when the allowed rule matched the URL: it names the rule, and that its body failed.
+const REFUSED_BEACON_BODY = 'POST 127.0.0.1/beacon was refused: this walk is read-only (readOnlyAllowed[0] matches this URL but not its body).'
 
 // Sends each [method, url, body] through the route handler the run installed, in one step, and
 // returns what the browser was told for each.
@@ -543,7 +545,7 @@ test('readOnlyAllowed reaches the guard: a listed non-read is sent, one that doe
   const odd = await sendThrough(config, [['POST', BEACON, '{"page":"home","extra":true}']])
   assert.deepEqual(odd.told, ['abort blockedbyclient'])
   assert.equal(odd.capture.failedStep, 'send')
-  assert.equal(odd.capture.failure, REFUSED_BEACON)
+  assert.equal(odd.capture.failure, REFUSED_BEACON_BODY)
   // The method is part of the rule: a PUT to the same URL, with the same body, is still refused.
   const put = await sendThrough(config, [['PUT', BEACON, '{"page":"home"}']])
   assert.deepEqual(put.told, ['abort blockedbyclient'])
@@ -563,7 +565,10 @@ test('a body pattern that matches the empty string does not allow a request with
   const ping = 'http://127.0.0.1:9/ping'
   const bodiless = await sendThrough(config, [['POST', ping, null]])
   assert.deepEqual(bodiless.told, ['abort blockedbyclient'])
-  assert.equal(bodiless.capture.failure, 'POST 127.0.0.1/ping was refused: this walk is read-only.')
+  assert.equal(
+    bodiless.capture.failure,
+    'POST 127.0.0.1/ping was refused: this walk is read-only (readOnlyAllowed[0] has a body pattern, and this request has no readable body).'
+  )
   // A rule without a body pattern is how a bodiless request is allowed.
   const open = await sendThrough({ readOnlyAllowed: [{ method: 'POST', url: /http:\/\/127\.0\.0\.1:9\/ping/ }] }, [['POST', ping, null]])
   assert.deepEqual(open.told, ['continue'])
@@ -603,7 +608,9 @@ test('a learning run lists what it refused and says what a person can do about i
   assert.equal(withRefusals.code, 0, withRefusals.output)
   assert.match(
     withRefusals.output,
-    new RegExp(`Requests refused because the walk is read-only:\n {2}POST 127\\.0\\.0\\.1/items\n {2}PUT 127\\.0\\.0\\.1/items\n${hint.replace(/\./g, '\\.')}\nAdd a host to the config only after a person approves it\\.`)
+    new RegExp(
+      `Requests refused because the walk is read-only:\n {2}POST http://127\\.0\\.0\\.1:9/items \\(with a body\\)\n {2}PUT http://127\\.0\\.0\\.1:9/items \\(with a body\\)\n${hint.replace(/\./g, '\\.')}\nAdd a host to the config only after a person approves it\\.`
+    )
   )
   const quiet = await runMain(fakeChromium(), ['--learn-hosts'])
   assert.equal(quiet.code, 0, quiet.output)

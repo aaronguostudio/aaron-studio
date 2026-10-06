@@ -270,7 +270,8 @@ test('readOnlyAllowed lets a listed non-read through, only with a body that matc
   const capture = await readJson(join(outDir('beacons'), 'capture.json'))
   // The beacon the page posts on load matches the rule, so the run got to its first step.
   assert.equal(capture.failedStep, 'odd')
-  assert.equal(capture.failure, 'POST 127.0.0.1/beacon was refused: this walk is read-only.')
+  // The rule matched the URL, so the refusal names it and says that the body is what did not match.
+  assert.equal(capture.failure, 'POST 127.0.0.1/beacon was refused: this walk is read-only (readOnlyAllowed[0] matches this URL but not its body).')
   // The server got the load beacon with its body, and not the odd one.
   assert.deepEqual(receivedFrom(before).filter((request) => request.path === '/beacon'), [
     { method: 'POST', path: '/beacon', body: '{"page":"home"}' }
@@ -284,14 +285,24 @@ test('a body pattern that matches the empty string still refuses a request with 
   assert.equal(result.code, 1, result.output)
   const capture = await readJson(join(outDir('ping'), 'capture.json'))
   assert.equal(capture.failedStep, 'ping')
-  assert.equal(capture.failure, 'POST 127.0.0.1/ping was refused: this walk is read-only.')
+  assert.equal(
+    capture.failure,
+    'POST 127.0.0.1/ping was refused: this walk is read-only (readOnlyAllowed[1] has a body pattern, and this request has no readable body).'
+  )
   assert.deepEqual(receivedFrom(before).filter((request) => request.path === '/ping'), [], 'the ping never reached the server')
 })
 
 test('--learn-hosts lists the non-read the config does not allow, and says what to do about it', async () => {
   const result = await runCapture(['--env', 'local', '--walk', 'sends-beacons', '--learn-hosts', '--out', outDir('learn-beacons')])
   assert.equal(result.code, 0, result.output)
-  assert.match(result.output, /Requests refused because the walk is read-only:\n {2}POST 127\.0\.0\.1\/beacon\n/)
+  // Listed with what a whole-URL rule has to match, the rule that came close, and none of the body.
+  assert.ok(
+    result.output.includes(
+      `Requests refused because the walk is read-only:\n  POST ${app.url}/beacon (with a body) (readOnlyAllowed[0] matches this URL but not its body)\n`
+    ),
+    result.output
+  )
+  assert.doesNotMatch(result.output, /extra/)
   assert.match(result.output, /readOnlyAllowed, once a person approves it\./)
 })
 

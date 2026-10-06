@@ -141,6 +141,9 @@ export const READS = new Set(['GET', 'HEAD', 'OPTIONS'])
 // What a failure says of a request the guard saw only after the browser had sent it (a redirect hop).
 const SENT_BY_REDIRECT = 'was sent by a redirect the guard cannot stop'
 
+// What a failure says of a request that finished without the route guard judging it.
+const UNGUARDED = 'A request went out without the guard: the walk handled it with its own route'
+
 // Pages the browser builds itself, with no network behind them. Every scheme that is neither one
 // of these nor in NETWORK_PORTS (file:, ftp: and the rest) is refused.
 const LOCAL_SCHEMES = new Set(['data:', 'blob:', 'about:'])
@@ -178,6 +181,26 @@ export function describeRequest(method, url) {
   }
 }
 
+// "POST https://app.example.com/hub/negotiate?negotiateVersion=… (no body)": how a learning run lists
+// a non-read it refused. A readOnlyAllowed rule must match the whole URL, so this shows what that
+// takes: the scheme, the host with its port, the path and the names of the query parameters. It never
+// shows a query value, a part of the query without "=" (which could be a value by itself), the
+// userinfo, the fragment or the body; only whether there is a body that was read.
+export function describeNonRead({ method, url, body }) {
+  try {
+    const parsed = new URL(url)
+    const names = parsed.search
+      .slice(1)
+      .split('&')
+      .filter(Boolean)
+      .map((part) => (part.includes('=') ? `${part.slice(0, part.indexOf('='))}=…` : '…'))
+    const query = names.length ? `?${names.join('&')}` : ''
+    return `${method.toUpperCase()} ${parsed.protocol}//${parsed.host}${parsed.pathname}${query} (${typeof body === 'string' ? 'with a body' : 'no body'})`
+  } catch {
+    return `${method.toUpperCase()} (unreadable URL)`
+  }
+}
+
 // `pattern` as a RegExp that matches only the whole text: ^(?:pattern)$. The g, m and y flags are
 // dropped. "m" would let ^ and $ match at any line of the text, so a pattern could match one line of
 // a bigger body; g and y make a RegExp remember where it stopped.
@@ -202,6 +225,23 @@ export function matchesRule(rule, { method, url, body }, { whole = false } = {})
   return typeof body === 'string' && found(rule.body, body)
 }
 
+// Why no readOnlyAllowed rule allowed a non-read that one of them comes close to, as the end of a
+// refusal: " (readOnlyAllowed[2] matches part of this URL but not all of it)". Only rules of the
+// request's own method count. A rule whose url matches the whole URL is named first, since only its
+// body pattern can have failed; else the first rule whose url is found in a part of the URL. Empty
+// when no rule comes that close. It names a rule by its index, and never the query or the body.
+function nearMiss(allowed, request) {
+  const index = (test) =>
+    allowed.findIndex((rule) => rule.method.toUpperCase() === request.method.toUpperCase() && test(rule))
+  const whole = index((rule) => wholeOf(rule.url).test(request.url))
+  if (whole >= 0)
+    return typeof request.body === 'string'
+      ? ` (readOnlyAllowed[${whole}] matches this URL but not its body)`
+      : ` (readOnlyAllowed[${whole}] has a body pattern, and this request has no readable body)`
+  const part = index((rule) => request.url.search(rule.url) >= 0)
+  return part >= 0 ? ` (readOnlyAllowed[${part}] matches part of this URL but not all of it)` : ''
+}
+
 // What the network guard does with one request. `policy`:
 //   hosts      the environment's hosts; any other host is refused. An entry is "hostname" or
 //              "hostname:port". An entry with a port matches only that host on that port; an
@@ -216,7 +256,10 @@ export function matchesRule(rule, { method, url, body }, { whole = false } = {})
 //              is remembered and the request is aborted. (A redirect hop that keeps the method, a
 //              307 or a 308, is already on the wire when the guard sees it: see RunGuard.)
 // `kind`: local (a page the browser builds itself), scheme (not http, https, ws or wss), listed,
-// unlisted, host (refused: not in the list), write, forbidden, unreadable.
+// unlisted, host (refused: not in the list), write, forbidden, unreadable. Every verdict a learning
+// run can get that has a host also says whether the host is `listed`, and an aborted one says how
+// the learning run lists it, in `shown`: a non-read as describeNonRead does (with the rule that came
+// close, for a write), a read as its `where`. (A `host` verdict is never a learning run's.)
 export function classifyRequest(request, { hosts, readOnly, forbidden = [], allowed = [], learning = false }) {
   let host
   let port
@@ -240,33 +283,37 @@ export function classifyRequest(request, { hosts, readOnly, forbidden = [], allo
   const where = describeRequest(request.method, request.url)
   const verb = request.method.toUpperCase()
   const isRead = READS.has(verb)
+  const shown = (hint = '') => (isRead ? where : `${describeNonRead(request)}${hint}`)
   const entries = hosts.map(parseHostEntry).filter(Boolean)
   const listed = entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))
   // A host that is listed, but not on this port, is named with its port so the refusal is not
   // mistaken for a typo.
   const named = entries.some((entry) => entry.host === host) ? `${host}:${port}` : host
   if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))
-    return { action: 'abort', kind: 'forbidden', host, where, reason: `${where} was refused: the project lists it as a read that writes.` }
-  if (readOnly && !isRead && !allowed.some((rule) => matchesRule(rule, request, { whole: true })))
-    return { action: 'abort', kind: 'write', host, where, reason: `${where} was refused: this walk is read-only.` }
+    return { action: 'abort', kind: 'forbidden', host, listed, where, shown: shown(), reason: `${where} was refused: the project lists it as a read that writes.` }
+  if (readOnly && !isRead && !allowed.some((rule) => matchesRule(rule, request, { whole: true }))) {
+    const hint = nearMiss(allowed, request)
+    return { action: 'abort', kind: 'write', host, listed, where, shown: shown(hint), reason: `${where} was refused: this walk is read-only${hint}.` }
+  }
   if (!listed) {
     if (learning) {
       // A non-read only gets here when `allowed` lists it (or, for judgeHop, whatever it lists): the
       // host is remembered, and a first request is not sent. A hop is judged by this same line, but
       // it was sent already: see judgeHop.
       if (!isRead)
-        return { action: 'abort', kind: 'unlisted', host, named, where, reason: `${where} was refused: ${named} is not in this environment's hosts.` }
-      return { action: 'continue', kind: 'unlisted', host, where }
+        return { action: 'abort', kind: 'unlisted', host, listed, named, where, shown: shown(), reason: `${where} was refused: ${named} is not in this environment's hosts.` }
+      return { action: 'continue', kind: 'unlisted', host, listed, where }
     }
     return { action: 'abort', kind: 'host', host, where, reason: `${where} was refused: ${named} is not in this environment's hosts.` }
   }
-  return { action: 'continue', kind: 'listed', host, where }
+  return { action: 'continue', kind: 'listed', host, listed, where }
 }
 
-// The policy a RunGuard guards with: checked, copied (so the caller cannot change it afterwards)
-// and with the host list normalised. A policy that is not usable is refused rather than guarded
-// with: a missing readOnly would read as false and let writes through, and a bad hosts list would
-// guard nothing. The messages never repeat a hosts entry, which could hold credentials.
+// The policy a RunGuard guards with: checked, with the host list normalised, and copied and frozen,
+// lists included, so neither the caller nor anything else can change it afterwards. A policy that is
+// not usable is refused rather than guarded with: a missing readOnly would read as false and let
+// writes through, and a bad hosts list would guard nothing. The messages never repeat a hosts entry,
+// which could hold credentials.
 function checkedPolicy(policy) {
   if (policy === null || typeof policy !== 'object' || Array.isArray(policy))
     throw new CaptureRefusal('The network policy is missing.')
@@ -285,7 +332,14 @@ function checkedPolicy(policy) {
     throw new CaptureRefusal('Learning hosts runs read-only walks only, so the network policy cannot set learning without readOnly.')
   if (!Array.isArray(forbidden)) throw new CaptureRefusal('The network policy needs forbidden to be a list of rules.')
   if (!Array.isArray(allowed)) throw new CaptureRefusal('The network policy needs allowed to be a list of rules.')
-  return { ...policy, hosts: normalised, readOnly, learning, forbidden, allowed }
+  return Object.freeze({
+    ...policy,
+    hosts: Object.freeze(normalised),
+    readOnly,
+    learning,
+    forbidden: Object.freeze([...forbidden]),
+    allowed: Object.freeze([...allowed])
+  })
 }
 
 // The name of a request for a "guard error" message, or a stand-in when even that cannot be read.
@@ -301,8 +355,9 @@ function nameOf(read) {
 // aborted at once and fails the run at the next check (before each step, and at the end). While
 // learning, refusals are aborted and listed, and the walk goes on.
 //
-// The caller wires three handlers: handleRoute from context.route, handleWebSocket from
-// context.routeWebSocket, and handleRedirectHop from context.on('request'). A route handler sees
+// The caller wires four handlers: handleRoute from context.route, handleWebSocket from
+// context.routeWebSocket, handleRedirectHop from context.on('request'), and handleFinished from
+// context.on('requestfinished'). A route handler sees
 // only the first URL of a request, never the hops of a redirect, so handleRedirectHop judges each
 // hop too. A hop is already on the wire when the 'request' event fires, so it can only be recorded,
 // never aborted: the run fails at the next assertClean(), and stopping the connection itself is the
@@ -315,6 +370,13 @@ function nameOf(read) {
 // No request or socket is left unanswered and nothing throws into the page: one the guard cannot
 // judge is aborted or closed and recorded as a violation ("guard error on ..."), also while
 // learning. The constructor refuses a policy it cannot trust (see checkedPolicy).
+//
+// handleFinished is a tripwire for a walk that answers a route itself: a walk's page.route runs
+// before the engine's context.route, and its route.continue() sends the request without the guard.
+// Every first request the route guard sees is remembered (by object: Playwright hands over the same
+// request each time), and one that finishes without having been seen fails the run. Only finished
+// requests count. A request the browser blocks before sending it (a Content-Security-Policy refusal)
+// fails without ever reaching a route handler, so a failed request proves nothing.
 export class RunGuard {
   constructor(policy, { currentStep = () => null } = {}) {
     this.policy = checkedPolicy(policy)
@@ -322,13 +384,15 @@ export class RunGuard {
     this.violations = []
     this.unlisted = new Set()
     this.refused = new Set()
+    this.judged = new WeakSet()
   }
 
   check(request) {
     const verdict = classifyRequest(request, this.policy)
-    if (verdict.kind === 'unlisted') this.unlisted.add(verdict.host)
+    // While learning, every host the walk tried is named, also one that only refused requests reached.
+    if (this.policy.learning && verdict.listed === false) this.unlisted.add(verdict.host)
     if (verdict.action === 'abort') {
-      if (this.policy.learning) this.refused.add(verdict.where)
+      if (this.policy.learning) this.refused.add(verdict.shown ?? verdict.where)
       else this.fail(verdict.reason)
     }
     return verdict.action
@@ -348,6 +412,7 @@ export class RunGuard {
     let send = false
     try {
       const request = route.request()
+      this.judged.add(request)
       send = this.check({ method: request.method(), url: request.url(), body: request.postData() }) === 'continue'
     } catch {
       this.fail(
@@ -422,6 +487,17 @@ export class RunGuard {
       this.fail(`${lock.where} ${SENT_BY_REDIRECT}: the project lists it as a read that writes.`)
     else if (!READS.has(hop.method.toUpperCase()) && !this.policy.allowed.some((rule) => matchesRule(rule, hop, { whole: true })))
       this.fail(`${lock.where} ${SENT_BY_REDIRECT}: this walk is read-only.`)
+  }
+
+  // For every request the context reports finished (see the class comment). A redirect hop is left
+  // to handleRedirectHop, which judged it when it started.
+  handleFinished(request) {
+    try {
+      if (request.redirectedFrom() || this.judged.has(request)) return
+      this.fail(`${UNGUARDED} (${describeRequest(request.method(), request.url())}).`)
+    } catch {
+      this.fail(`guard error on ${nameOf(() => describeRequest(request.method(), request.url()))}`)
+    }
   }
 
   assertClean() {

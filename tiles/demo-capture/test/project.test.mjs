@@ -31,7 +31,8 @@ const valid = () => ({
   isSignedOut: (url) => new URL(url).pathname.startsWith('/login'),
   params: { centre: { default: 'Main', describe: 'which site the demo uses' } },
   readOnlyForbidden: [{ method: 'GET', url: /\/items\?mode=recount/ }],
-  readOnlyAllowed: [{ method: 'POST', url: /\/session\/token$/ }],
+  // An allowed rule matches the whole URL, so its pattern spells the scheme, host and path.
+  readOnlyAllowed: [{ method: 'POST', url: /https:\/\/dev\.example\.com\/session\/token/ }],
   sameTabLinks: true,
   setup: async () => {},
   beforeStep: async () => {},
@@ -428,8 +429,13 @@ test('walk, project, environment and param names must match from end to end, and
 })
 
 test('readOnlyAllowed takes { method, url, body? } rules; a forbidden rule takes no body', () => {
-  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /\/session\/token$/ }] }), [])
-  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /\/brief$/, body: /^\{"date":"[\d-]+"\}$/ }] }), [])
+  // Whole-URL patterns: a rule for the path alone would be valid too, but could never match a URL.
+  const token = { method: 'POST', url: /https:\/\/dev\.example\.com\/session\/token/ }
+  const brief = { method: 'POST', url: /https:\/\/dev\.example\.com\/brief\?date=\d{8}/, body: /\{"date":"[\d-]+"\}/ }
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [token] }), [])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [brief] }), [])
+  assert.equal(matchesRule(token, { method: 'POST', url: 'https://dev.example.com/session/token' }, { whole: true }), true)
+  assert.equal(matchesRule(brief, { method: 'POST', url: 'https://dev.example.com/brief?date=20261005', body: '{"date":"2026-10-05"}' }, { whole: true }), true)
   assert.deepEqual(problemsWith({ readOnlyAllowed: 'POST /session/token' }), ['readOnlyAllowed must be a list of { method, url, body? } rules'])
   assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /x/, body: '{}' }] }), ['readOnlyAllowed[0].body must be a regular expression'])
   assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: '/x' }] }), ['readOnlyAllowed[0].url must be a regular expression'])
