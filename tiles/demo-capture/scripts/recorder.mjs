@@ -1,7 +1,9 @@
-// tiles/demo-capture/scripts/recorder.mjs
-// Writes a capture folder, contract version 1 (../../aaron-video-gen/references/walkthrough-capture.md):
+// The recorder: it writes a capture folder, contract version 1
+// (../../aaron-video-gen/references/walkthrough-capture.md):
 //
-//   <run>/capture.json   manifest: walk, env, title, viewport, status, sync (the black-to-white flash)
+//   <run>/capture.json   version, then the manifest cli.mjs builds (walk, env, title, subtitle when
+//                        the walk has a description, appRevision, startedAt, viewport, sync: the
+//                        black-to-white flash), then status, and failedStep and failure when it failed
 //   <run>/video.webm     the Playwright recording, exactly viewport-sized (saved by cli.mjs)
 //   <run>/steps.json     ordered steps: caption, kind, times, clicks (centre + box), shot
 //   <run>/shots/NN-<id>.png
@@ -21,6 +23,17 @@ export const VIEWPORT = Object.freeze({ width: 1440, height: 900 })
 
 const round = (n) => Math.round(n)
 
+// A step id becomes part of a file name (shots/NN-<id>.png), so it is a plain word.
+const STEP_ID = /^[A-Za-z0-9_-]+$/
+
+// The type of the field that has the focus ('' when it is not an input), looked for inside shadow
+// roots too. Runs in the page.
+function focusedFieldType() {
+  let element = document.activeElement
+  while (element?.shadowRoot?.activeElement) element = element.shadowRoot.activeElement
+  return element?.tagName === 'INPUT' ? String(element.type) : ''
+}
+
 export class Recorder {
   // minClickGapMs paces the clicks, so the cursor drawn later has time to travel between them.
   constructor({ page, runDir, now = () => performance.now(), minClickGapMs = 700 }) {
@@ -33,6 +46,7 @@ export class Recorder {
     this.steps = []
     this.ids = new Set()
     this.current = null
+    this.inStep = false
     this.attempting = null
     this.beforeStep = async () => {}
   }
@@ -47,28 +61,38 @@ export class Recorder {
     return round(this.now() - this.t0)
   }
 
-  // Runs fn as one step. A guard set with onBeforeStep runs first, so every step re-checks it.
+  // Runs fn as one step. A guard set with onBeforeStep runs first, so every step re-checks it. One
+  // step runs at a time: a step started inside another, or before another has finished, is refused
+  // before its id is used.
   async step(id, caption, kind, fn) {
+    if (typeof id !== 'string' || !STEP_ID.test(id))
+      throw new Error(`step ${JSON.stringify(id)}: a step id is letters, digits, - and _ only`)
     if (kind !== 'action' && kind !== 'wait')
       throw new Error(`step ${id}: kind must be action or wait`)
+    if (this.inStep) throw new Error(`step ${id}: steps cannot be nested`)
     if (this.ids.has(id)) throw new Error(`step ${id}: step ids must be unique within a walk`)
     this.ids.add(id)
-    // Named before the guard runs, so a refusal is reported against the step it stopped.
-    this.attempting = id
-    await this.beforeStep(id)
-    const index = this.steps.length + 1
-    const step = { id, caption, kind, startMs: this.ms(), endMs: 0, clicks: [], shot: null }
-    this.steps.push(step)
-    this.current = step
-    const shotPath = `shots/${String(index).padStart(2, '0')}-${id}.png`
-    // Taken now and kept in memory; replaced by the pre-click shot if the step clicks anything.
-    this.pending = { path: shotPath, buffer: await this.page.screenshot() }
+    this.inStep = true
     try {
-      return await fn(this)
+      // Named before the guard runs, so a refusal is reported against the step it stopped.
+      this.attempting = id
+      await this.beforeStep(id)
+      const index = this.steps.length + 1
+      const step = { id, caption, kind, startMs: this.ms(), endMs: 0, clicks: [], shot: null }
+      this.steps.push(step)
+      this.current = step
+      const shotPath = `shots/${String(index).padStart(2, '0')}-${id}.png`
+      // Taken now and kept in memory; replaced by the pre-click shot if the step clicks anything.
+      this.pending = { path: shotPath, buffer: await this.page.screenshot() }
+      try {
+        return await fn(this)
+      } finally {
+        step.endMs = Math.max(step.startMs, this.ms())
+        if (!step.shot) await this.writeShot(this.pending.path, this.pending.buffer)
+        this.current = null
+      }
     } finally {
-      step.endMs = Math.max(step.startMs, this.ms())
-      if (!step.shot) await this.writeShot(this.pending.path, this.pending.buffer)
-      this.current = null
+      this.inStep = false
     }
   }
 
@@ -105,11 +129,14 @@ export class Recorder {
   }
 
   // Click a field, then type into it at a pace a viewer can follow. Never a password field:
-  // sign-in is always done by a person.
+  // sign-in is always done by a person. The field is checked before the click, and the field that
+  // has the focus after it, because the click can focus a field the locator does not name: a
+  // label's, or one inside a component.
   async type(locator, text) {
     if (!this.current) throw new Error('type() outside a step')
     assertTypable(await locator.evaluate((el) => (el.tagName === 'INPUT' ? String(el.type) : '')))
     await this.click(locator)
+    assertTypable(await this.page.evaluate(focusedFieldType))
     await locator.pressSequentially(text, { delay: 35 })
   }
 
