@@ -50,6 +50,7 @@ Then:
 
 The command prints its run folder. Read `capture.json` there:
 
+- **Exit 2 (the engine refused):** nothing was captured, so there is no `capture.json`. Report the `demo-capture: <reason>` sentence from stderr to the person in plain words, and stop there.
 - **`status: "passed"`:** go on.
 - **`status: "failed"`:** there is no video. Tell the user which step failed (`failedStep`, `failure`) in plain words. Then either write the message without the video (say the walkthrough will follow) or ask them which they want.
 
@@ -88,6 +89,7 @@ Check every step id against `steps.json`; the renderer refuses an unknown one.
 
 ## 4. Put it in the message
 
+- **Keep it outside every repo.** When the screenshots or the video come from a capture run, `message.md`, its marked screenshot copies and the mp4 stay outside every repo, because they show real screens. The session scratchpad or a temp folder is fine; a repo is not.
 - **Screenshots.** Each step's `shots/NN-<id>.png` shows the screen just before the step's first click. Mark that click from the recorded box instead of guessing coordinates; a step's later clicks happen in dialogs the shot does not show. Write the marked copies next to `message.md`:
 
   ```bash
