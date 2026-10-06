@@ -75,6 +75,14 @@ test('saveState writes the storage state, with IndexedDB, as a 0600 file in a 07
   await deleteState(state)
 })
 
+test('hasState is true for a file only: not for a missing path, not for a folder', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'session-'))
+  assert.equal(await hasState(join(dir, 'state.json')), false)
+  assert.equal(await hasState(dir), false)
+  await writeFile(join(dir, 'state.json'), '{}')
+  assert.equal(await hasState(join(dir, 'state.json')), true)
+})
+
 test('saveState is private whatever the umask says', async () => {
   const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
   const context = { storageState: async () => ({ cookies: [], origins: [] }) }
@@ -212,6 +220,17 @@ test('signIn opens a visible browser at the sign-in page, waits for the person, 
   assert.deepEqual(waited.options, { origin: ORIGIN, isSignedOut })
   assert.equal(await mode(state), 0o600)
   assert.match(logs[0], /Sign in there yourself; nothing is typed for you/)
+})
+
+test('signIn still saves the session when the page never goes idle', async () => {
+  const { calls, page, browserType } = fakeBrowserType()
+  page.waitForLoadState = async () => {
+    throw new Error('Timeout 30000ms exceeded.')
+  }
+  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  await signIn({ browserType, baseUrl: ORIGIN, signInPath: '/login', isSignedOut, statePath: state, log: () => {}, wait: async () => {} })
+  assert.equal(await hasState(state), true)
+  assert.equal(calls.at(-1), 'close')
 })
 
 test('signIn closes the browser even when nobody signs in', async () => {

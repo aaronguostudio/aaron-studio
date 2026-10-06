@@ -146,6 +146,7 @@ test('params, rules, flags and hooks have their shapes', () => {
   assert.deepEqual(problemsWith({ params: { '1st': { default: '', describe: 'x' } } }), [
     'params.1st: names start with a letter and use letters, digits, - or _'
   ])
+  assert.deepEqual(problemsWith({ params: { centre: null } }), ['params.centre must be { default: string, describe: string }'])
   assert.deepEqual(problemsWith({ readOnlyForbidden: { method: 'GET' } }), ['readOnlyForbidden must be a list of { method, url } rules'])
   assert.deepEqual(problemsWith({ readOnlyForbidden: ['GET /items'] }), ['readOnlyForbidden[0] must be an object'])
   assert.deepEqual(problemsWith({ readOnlyForbidden: [{ method: 'GET', url: '/items' }] }), ['readOnlyForbidden[0].url must be a regular expression'])
@@ -253,6 +254,11 @@ test('loadConfig finds demo-capture/config.mjs and refuses a missing, broken or 
   )
 })
 
+test('a config that fails to load is refused with the first line of the error only', async () => {
+  const project = projectWith({ 'config.mjs': "throw new Error('first line\\nsecond line with detail')" })
+  await rejects(loadConfig(project), /^demo-capture\/config\.mjs did not load: first line$/)
+})
+
 test('walks are the .mjs files in walks/, loaded by name and checked', async () => {
   const project = projectWith({
     'config.mjs': CONFIG,
@@ -275,6 +281,8 @@ test('walks are the .mjs files in walks/, loaded by name and checked', async () 
   assert.deepEqual((await loadWalks(project)).map((walk) => walk.name), ['add-item', 'tour'])
   await rejects(loadWalk(project, 'nope'), /unknown walk "nope"; --list shows the walks/)
   await rejects(loadWalk(project, '../config'), /walk names are lowercase letters, digits and dashes, not "\.\.\/config"/)
+  // A name that is not text is refused as a name, not looked up as the walk "5".
+  await rejects(loadWalk(project, 5), /walk names are lowercase letters, digits and dashes, not "5"/)
   assert.deepEqual(await walkNames(projectWith({ 'config.mjs': CONFIG })), [])
 })
 
@@ -311,6 +319,7 @@ test('shared helpers belong in a subfolder of walks/; a stray file in walks/ is 
 test('params take their defaults unless --set gives a value; an undeclared param is refused', () => {
   const declared = valid().params
   assert.deepEqual(resolveParams(declared, {}), { centre: 'Main' })
+  assert.deepEqual(resolveParams(declared), { centre: 'Main' })
   assert.ok(Object.isFrozen(resolveParams(declared, {})))
   assert.deepEqual(resolveParams(declared, { centre: 'North' }), { centre: 'North' })
   assert.deepEqual(resolveParams(declared, { centre: '' }), { centre: '' })

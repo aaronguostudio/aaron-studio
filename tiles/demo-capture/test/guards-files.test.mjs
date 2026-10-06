@@ -99,3 +99,41 @@ test('the last attempt gives up without deleting a lock another run has just tak
   assert.equal(removals, 1)
   assert.equal(readFileSync(lock, 'utf8'), '999')
 })
+
+test('the run lock folder and file are private whatever the umask says', async () => {
+  const lock = join(mkdtempSync(join(tmpdir(), 'lock-')), 'project', 'env', 'lock')
+  const before = process.umask(0)
+  let release
+  try {
+    release = await acquireRunLock(lock, { pid: 111, isAlive: () => true })
+  } finally {
+    process.umask(before)
+  }
+  assert.equal((await stat(lock)).mode & 0o777, 0o600)
+  assert.equal((await stat(dirname(lock))).mode & 0o777, 0o700)
+  // The folders made on the way are private too.
+  assert.equal((await stat(dirname(dirname(lock)))).mode & 0o777, 0o700)
+  await release()
+})
+
+test('a lock file that cannot be written, for a reason other than already existing, is reported as it is', async () => {
+  const lock = join(mkdtempSync(join(tmpdir(), 'lock-')), 'lock')
+  const realWrite = fsPromises.writeFile
+  let writes = 0
+  // A seam: the disk refuses the write. Such a failure is not a stale lock to take over.
+  fsPromises.writeFile = async () => {
+    writes++
+    throw Object.assign(new Error('read-only file system'), { code: 'EROFS' })
+  }
+  syncBuiltinESMExports()
+  try {
+    await assert.rejects(
+      acquireRunLock(lock, { pid: 222, isAlive: () => false }),
+      (e) => !(e instanceof CaptureRefusal) && e.code === 'EROFS'
+    )
+  } finally {
+    fsPromises.writeFile = realWrite
+    syncBuiltinESMExports()
+  }
+  assert.equal(writes, 1)
+})

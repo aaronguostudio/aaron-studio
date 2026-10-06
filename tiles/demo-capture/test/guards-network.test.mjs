@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { CaptureRefusal, RunGuard, classifyRequest, describeRequest, matchesRule } from '../scripts/guards.mjs'
+import { CaptureRefusal, RunGuard, classifyRequest, describeRequest, matchesRule, parseHostEntry } from '../scripts/guards.mjs'
 
 const policy = (extra = {}) => ({ hosts: ['app.example.com', 'cdn.example.com'], readOnly: true, ...extra })
 const get = (url) => ({ method: 'GET', url })
@@ -290,8 +290,13 @@ test('RunGuard refuses a policy that is not usable, rather than guarding with it
   refused({ readOnly: false, learning: true }, /read-only|readOnly/)
   refused({ forbidden: 'oops' }, /forbidden/)
   refused({ allowed: {} }, /allowed/)
-  for (const nothing of [undefined, null, 'policy', 42])
-    assert.throws(() => new RunGuard(nothing), (e) => e instanceof CaptureRefusal, String(nothing))
+  // Whatever is not an object of fields, an array included, is "missing", with its own sentence.
+  for (const nothing of [undefined, null, 'policy', 42, [], ['app.example.com']])
+    assert.throws(
+      () => new RunGuard(nothing),
+      (e) => e instanceof CaptureRefusal && e.message === 'The network policy is missing.',
+      String(nothing)
+    )
 })
 
 test('RunGuard accepts a usable policy, including the defaults and an empty host list', () => {
@@ -424,4 +429,51 @@ test('while learning, an allowed non-read to an unlisted host is listed as unlis
   assert.deepEqual(route.calls, ['abort blockedbyclient'])
   assert.doesNotThrow(() => guard.assertClean())
   assert.deepEqual(guard.learned(), { unlisted: ['other.example.org'], refused: ['POST other.example.org/session/token'] })
+})
+
+// ---- Mutation check: branches no test pinned until a mutant survived ----
+
+test('a hosts entry the guard cannot read matches nothing, and does not stop the readable ones matching', () => {
+  const mixed = policy({ hosts: ['bad host', null, 'app.example.com'] })
+  assert.equal(classifyRequest(get('https://app.example.com/x'), mixed).action, 'continue')
+  assert.equal(classifyRequest(get('https://tracker.example.net/x'), mixed).kind, 'host')
+  assert.equal(classifyRequest(get('https://app.example.com/x'), policy({ hosts: ['bad host'] })).kind, 'host')
+})
+
+test('ports 1 to 65535 are valid in a hosts entry, written with or without leading zeros', () => {
+  assert.deepEqual(parseHostEntry('app.example.com:1'), { host: 'app.example.com', port: '1' })
+  assert.deepEqual(parseHostEntry('app.example.com:65535'), { host: 'app.example.com', port: '65535' })
+  assert.deepEqual(parseHostEntry('app.example.com:08443'), { host: 'app.example.com', port: '8443' })
+  assert.equal(parseHostEntry('app.example.com:0'), null)
+  assert.equal(parseHostEntry('app.example.com:65536'), null)
+  // The written form and the URL's form meet at the same port.
+  const edges = policy({ hosts: ['a.example.com:1', 'b.example.com:65535', 'c.example.com:08443'] })
+  for (const url of ['http://a.example.com:1/x', 'http://b.example.com:65535/x', 'https://c.example.com:8443/x'])
+    assert.equal(classifyRequest(get(url), edges).action, 'continue', url)
+  for (const url of ['http://a.example.com:2/x', 'http://b.example.com:65534/x', 'https://c.example.com:844/x'])
+    assert.equal(classifyRequest(get(url), edges).action, 'abort', url)
+})
+
+test('a run fails with the first violation, although later ones are recorded as well', () => {
+  let step = 'open'
+  const guard = new RunGuard(policy(), { currentStep: () => step })
+  guard.fail('The walk opened a second tab.')
+  step = 'save'
+  guard.fail('The walk opened a third tab.')
+  assert.throws(
+    () => guard.assertClean(),
+    (e) => e instanceof CaptureRefusal && e.step === 'open' && e.message === 'The walk opened a second tab.'
+  )
+})
+
+test('a redirect hop whose request cannot report a body is still judged', () => {
+  const noBody = (url) => ({ method: () => 'GET', url: () => url, redirectedFrom: () => ({}) })
+  const guard = new RunGuard(policy())
+  guard.handleRedirectHop(noBody('https://app.example.com/home'))
+  assert.doesNotThrow(() => guard.assertClean())
+  guard.handleRedirectHop(noBody('https://tracker.example.net/pixel'))
+  assert.throws(
+    () => guard.assertClean(),
+    (e) => e.message === "GET tracker.example.net/pixel was refused: tracker.example.net is not in this environment's hosts."
+  )
 })

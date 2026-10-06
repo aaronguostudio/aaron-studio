@@ -105,3 +105,12 @@ test('typing into a password field is refused, in any case', () => {
   refuses(() => assertTypable('PASSWORD'), /password field is refused/)
   for (const type of ['text', 'search', 'email', '', undefined]) assert.doesNotThrow(() => assertTypable(type))
 })
+
+test('a CaptureRefusal is named, and carries the step it stopped, which is null when unknown', () => {
+  const plain = new CaptureRefusal('Stopped.')
+  assert.equal(plain.name, 'CaptureRefusal')
+  assert.equal(plain.message, 'Stopped.')
+  assert.equal(plain.step, null)
+  assert.equal(new CaptureRefusal('Stopped.', { step: 'open' }).step, 'open')
+  assert.ok(plain instanceof Error)
+})
