@@ -35,32 +35,33 @@ npx -y bun "$ENGINE/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts
 | `--prod-go-ahead`, `--write-go-ahead` | see Go-ahead |
 | `--help`, `-h` | print the usage |
 
+- A first run of an environment, `sign-in`, and a run whose saved session has expired open a sign-in window. Warn the person before you run any of them (see Sign-in is always the person's).
 - A run prints its folder, `~/.demo-capture/<project>/runs/<yyyymmdd-hhmmss>-<walk>/` unless `--out` set another (`<project>` is the config's `name`): `Captured: <folder>` when it passed, `FAILED: <folder>` with the step and the reason when it did not. Read `capture.json` there:
-  - `status: "passed"`: render it.
+  - `status: "passed"`: render it. The renderer writes `<run folder>/walkthrough.mp4` and `<run folder>/chapters.txt` (`chapters.txt` goes beside the mp4, so beside a `--out` file of the renderer's too). The video is silent unless `--narrate` is passed (`--script` narrates too); narration is described in `../aaron-video-gen/references/walkthrough-capture.md`.
   - `status: "failed"`: the renderer refuses any capture that is not passed, so there is no video to send, though the folder may still hold a raw `video.webm`. Say which step failed (`failedStep`, null when it failed before the first step) and why (`failure`), in plain words.
 - Exit codes:
   - 0: captured. A `--learn-hosts` run that reached the end of its walk also exits 0, even though its `capture.json` says `failed`.
   - 1: the walk failed. A `--learn-hosts` run that stopped early also exits 1, and its lists may be incomplete.
-  - 2: refused. Nothing was captured, and the reason is one plain sentence on stderr: bad arguments, a missing go-ahead, a held run lock, a browser that will not start, a sign-in that did not finish.
+  - 2: refused. Nothing was captured, and stderr says why as `demo-capture: <reason>`. It is usually one plain sentence: a missing go-ahead, a held run lock, a browser that will not start, a sign-in that did not finish. Bad arguments add the usage text, and an invalid config or walk prints a bulleted list of its problems.
 - If the CLI says its dependency is missing, ask the user before running `npm ci` in `$ENGINE`. Chromium comes from the machine's Playwright cache; never run `npx playwright install`.
 
 ## Rules
 
-- **Sign-in is always the person's.** The first run of an environment, `sign-in`, and a run that finds the saved session signed out each open a visible browser at the app's sign-in page, and the person signs in there. Never type credentials and never ask for them. Signed in means the page is back on the app's own origin and `isSignedOut` has been false for 3 seconds; it gives up after 10 minutes. After a signed-out run the engine deletes the old session, empties the run folder, and records the walk again from the start. The session is kept in `~/.demo-capture/<project>/<env>/state.json` (folder 0700, file 0600), outside every repo. Never print, copy or upload it.
+- **Sign-in is always the person's.** The first run of an environment, `sign-in`, and a run that finds the saved session signed out each open a visible browser at the app's sign-in page, and the person signs in there. Never type credentials and never ask for them. Before you run any of them, warn the person that a sign-in window may open and that they need to be at the machine: it waits up to 10 minutes, and if nobody signs in in that time, or the window is closed, the run exits 2. Signed in means the page is back on the app's own origin and `isSignedOut` has been false for 3 seconds. After a signed-out run the engine deletes the old session, empties the run folder, and records the walk again from the start. The session is kept in `~/.demo-capture/<project>/<env>/state.json` (folder 0700, file 0600), outside every repo. Never print, copy or upload it.
 - **Go-ahead.** Add a go-ahead flag only after the person's go-ahead in chat for that run, every run, even if they approved an earlier one.
   - A production environment needs `--prod-go-ahead` on every walk run. That one flag also covers a walk that writes: there is no second flag in production. When you ask for it, say whether the walk writes (`--list` shows it).
   - In another environment whose config sets `writeGoAhead: true`, a walk that writes needs `--write-go-ahead`.
   - `sign-in` needs no go-ahead, even in production: nothing is recorded, and a person drives it.
   - `--learn-hosts` is refused on a production environment and for a walk that writes.
 - **Hosts.** Every request must go to a host in the environment's `hosts`; any other request fails the run.
-  - Outside learning runs, the browser's resolver refuses every name that is not in `hosts`. That includes IP literals such as `127.0.0.1` and `localhost`. List every host the app uses, exactly as it appears in URLs: the app's own, its API, its asset and font hosts, its identity provider.
+  - Outside learning runs, the browser's resolver refuses every name that is not in `hosts`. That includes IP literals such as `127.0.0.1` and `localhost`. The list must hold every host the app uses, exactly as it appears in URLs: the app's own, its API, its asset and font hosts, its identity provider. Propose a missing host to the person, and add it to the config only after they approve it.
   - In contract 1, `hosts` entries are bare host names with no port. A bare name matches any port.
-  - A redirect to an unlisted identity-provider host fails the run as a host-lock violation. List the provider's host. `--learn-hosts` finds it when the walk passes through the provider during the recording. If the provider only shows up because the saved session expired, the person runs `sign-in` first, and the learning run then never visits the provider, so it cannot list it. The sign-in window itself is not host-locked, so a sign-in that works does not show that the provider is listed.
+  - A redirect to an unlisted identity-provider host fails the run as a host-lock violation, and the failure names the host (`<host> is not in this environment's hosts`). Propose the provider's host to the person, and add it only after they approve it. `--learn-hosts` also finds it when the walk passes through the provider during the recording. If the provider only shows up because the saved session expired, the session is signed in again before the walk is recorded, and the learning run then never visits the provider, so it cannot list it. The sign-in window itself is not host-locked, so a sign-in that works does not show that the provider is listed.
   - `--learn-hosts` runs a read-only walk with the lock lifted for reads. It lists the hosts the walk used that are not in `hosts`, and the requests it refused because the walk is read-only. Its `capture.json` says `failed` ("Learning run, no video."), so there is nothing to render. For its exit code, see Exit codes.
   - Add a host to the config only after the person approves it.
 - **Read-only walks** (`writes: false`, the default) may only read: GET, HEAD and OPTIONS. Any other method fails the run, and so does a read the project lists in `readOnlyForbidden`. This covers the whole run, `setup` and `beforeStep` included.
 - **One run at a time** per project and environment; `sign-in` takes the same lock. A second run is refused (exit 2) and told which lock file to delete if no run is going: `~/.demo-capture/<project>/<env>/lock`. Wait for the other run, or check that none is going and then delete that file. A lock left by a run that died is cleared by the next run.
-- **Run folders stay outside every repo.** They show real screens: never move one into a repo.
+- **Run folders stay outside every repo.** They show real screens: never move or copy a run folder, or anything in it (video, screenshots), into a repo.
 
 ## Add a project
 
@@ -104,4 +105,4 @@ export default {
 
 ## Develop
 
-In this tile: `npm ci`, then `npm run test:unit`, `npm run test:e2e` (needs ffprobe and npx) or `npm test` for both, and `npm run mutation-check`. `DEMO_CAPTURE_HOME` replaces `~/.demo-capture`; the tests use it.
+In this tile: `npm ci` (ask the user first, as under Run it), then `npm run test:unit`, `npm run test:e2e` (needs ffprobe and npx) or `npm test` for both, and `npm run mutation-check`. `DEMO_CAPTURE_HOME` replaces `~/.demo-capture`; the tests use it.
