@@ -4,6 +4,9 @@
 //
 // A capture is a presentation tool, not a test: it drives a real app to record a walkthrough. It
 // is never test evidence.
+import { existsSync, realpathSync } from 'node:fs'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { dirname, join, resolve } from 'node:path'
 
 // A refusal fails the run with one plain sentence. `step` names the step it stopped, when known.
 export class CaptureRefusal extends Error {
@@ -370,4 +373,56 @@ export class RunGuard {
   learned() {
     return { unlisted: [...this.unlisted].sort(), refused: [...this.refused].sort() }
   }
+}
+
+// The git working tree holding `path` (the directory with a .git entry), or null. Walks up from
+// the closest existing parent, through symlinks.
+export function enclosingRepo(path) {
+  let probe = resolve(path)
+  while (!existsSync(probe)) {
+    const up = dirname(probe)
+    if (up === probe) return null
+    probe = up
+  }
+  for (let dir = realpathSync(probe); ; dir = dirname(dir)) {
+    if (existsSync(join(dir, '.git'))) return dir
+    if (dirname(dir) === dir) return null
+  }
+}
+
+// Run folders hold real screens and session folders hold sign-ins: neither ever enters a repo.
+export function assertOutsideRepos(path, what) {
+  const repo = enclosingRepo(path)
+  if (repo)
+    throw new CaptureRefusal(
+      `${what} ${resolve(path)} is inside the git working tree ${repo}. Captures and sessions live outside every repo.`
+    )
+}
+
+function pidAlive(pid) {
+  try {
+    process.kill(pid, 0)
+    return true
+  } catch (error) {
+    return error.code === 'EPERM'
+  }
+}
+
+// One run per project and environment: a session's tokens can rotate on use, so two runs sharing
+// it would sign each other out. Returns the function that releases the lock.
+export async function acquireRunLock(lockPath, { pid = process.pid, isAlive = pidAlive } = {}) {
+  await mkdir(dirname(lockPath), { recursive: true, mode: 0o700 })
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      await writeFile(lockPath, String(pid), { flag: 'wx', mode: 0o600 })
+      return () => rm(lockPath, { force: true })
+    } catch (error) {
+      if (error.code !== 'EEXIST') throw error
+      const holder = Number((await readFile(lockPath, 'utf8').catch(() => '')).trim())
+      if (Number.isInteger(holder) && holder > 0 && isAlive(holder))
+        throw new CaptureRefusal(`Another run (pid ${holder}) is using this session; wait for it to finish.`)
+      await rm(lockPath, { force: true })
+    }
+  }
+  throw new CaptureRefusal('Could not take the run lock; try again.')
 }
