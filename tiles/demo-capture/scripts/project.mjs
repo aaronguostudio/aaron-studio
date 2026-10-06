@@ -26,6 +26,10 @@ const CONFIG_FIELDS = new Set([
 const ENV_FIELDS = new Set(['url', 'production', 'hosts', 'writeGoAhead'])
 const WALK_FIELDS = new Set(['title', 'description', 'writes', 'startPath', 'run'])
 const FORBIDDEN_RULE_FIELDS = new Set(['method', 'url'])
+// The guard compares methods case-insensitively, so a rule method is any letter case of these. A
+// typo or a stray space would never match a request, and a read that writes would go through.
+const HTTP_METHODS = new Set(['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'])
+const WALKS_HOLD_WALKS = 'walks/ holds only walks; put shared helpers in a subfolder such as walks/lib/'
 
 const isObject = (v) => v !== null && typeof v === 'object' && !Array.isArray(v)
 const isText = (v) => typeof v === 'string' && v.trim() !== ''
@@ -39,6 +43,9 @@ const unknownFields = (value, known, where) =>
     .map((key) => `${where}unknown field "${key}"`)
 
 function httpUrl(value) {
+  // The URL parser trims the ends and drops tabs and newlines inside, and coerces a non-string, so
+  // the value as written would reach baseUrl and --list with whatever it kept.
+  if (typeof value !== 'string' || /\s/.test(value)) return null
   try {
     const url = new URL(value)
     return url.protocol === 'http:' || url.protocol === 'https:' ? url : null
@@ -55,6 +62,7 @@ function ruleProblems(rules, where, fields) {
     if (!isObject(rule)) return [`${at} must be an object`]
     const problems = unknownFields(rule, fields, `${at}: `)
     if (!isText(rule.method)) problems.push(`${at}.method must be an HTTP method`)
+    else if (!HTTP_METHODS.has(rule.method.toUpperCase())) problems.push(`${at}.method must be an HTTP method`)
     if (!(rule.url instanceof RegExp)) problems.push(`${at}.url must be a regular expression`)
     return problems
   })
@@ -69,6 +77,9 @@ function environmentProblems(name, env) {
   problems.push(...unknownFields(env, ENV_FIELDS, `${at}: `))
   const url = httpUrl(env.url)
   if (!url) problems.push(`${at}.url must be an http(s) URL`)
+  // A bare ? or # leaves search and hash empty, so the written URL is checked for them too.
+  if (url && (url.username || url.password || /[?#]/.test(env.url)))
+    problems.push(`${at}.url must have no credentials, query or fragment`)
   if (!isBoolean(env.production)) problems.push(`${at}.production must be true or false`)
   if (!optional(env.writeGoAhead, isBoolean)) problems.push(`${at}.writeGoAhead must be true or false`)
   if (!Array.isArray(env.hosts) || env.hosts.length === 0) {
@@ -97,6 +108,8 @@ export function configProblems(config) {
       problems.push(...environmentProblems(name, env))
   if (typeof config.signInPath !== 'string' || !config.signInPath.startsWith('/'))
     problems.push('signInPath must be a path starting with /')
+  if (typeof config.signInPath === 'string' && config.signInPath.startsWith('//'))
+    problems.push('signInPath must not start with // (that is a link to another host)')
   if (!isFunction(config.isSignedOut)) problems.push('isSignedOut must be a function of the page URL')
   if (config.params !== undefined) {
     if (!isObject(config.params)) problems.push('params must be an object')
@@ -122,6 +135,8 @@ export function walkProblems(walk) {
   if (!optional(walk.writes, isBoolean)) problems.push('writes must be true or false')
   if (!optional(walk.startPath, (v) => typeof v === 'string' && v.startsWith('/')))
     problems.push('startPath must be a path starting with /')
+  if (typeof walk.startPath === 'string' && walk.startPath.startsWith('//'))
+    problems.push('startPath must not start with // (that is a link to another host)')
   if (!isFunction(walk.run)) problems.push('run must be an async function')
   return problems
 }
@@ -162,6 +177,8 @@ export async function loadWalk(projectDir, name) {
   if (!existsSync(file)) throw new CaptureRefusal(`unknown walk "${name}"; --list shows the walks`)
   const walk = await importDefault(file, `walks/${name}.mjs`)
   const problems = walkProblems(walk)
+  // A file with no default export is most likely a shared helper put where only walks go.
+  if (!isObject(walk)) problems.push(WALKS_HOLD_WALKS)
   if (problems.length) throw new CaptureRefusal(`walks/${name}.mjs is not a valid walk:\n- ${problems.join('\n- ')}`)
   return Object.freeze({
     name,
@@ -175,7 +192,14 @@ export async function loadWalk(projectDir, name) {
 
 export async function loadWalks(projectDir) {
   const walks = []
-  for (const name of await walkNames(projectDir)) walks.push(await loadWalk(projectDir, name))
+  for (const name of await walkNames(projectDir)) {
+    // loadWalk refuses a name like this too, but its message is about --walk, not about the file.
+    if (!NAME.test(name))
+      throw new CaptureRefusal(
+        `walks/${name}.mjs is not a walk: walk file names are lowercase letters, digits and dashes. ${WALKS_HOLD_WALKS}`
+      )
+    walks.push(await loadWalk(projectDir, name))
+  }
   return walks
 }
 
@@ -211,12 +235,22 @@ export function selectEnvironment(config, name) {
   })
 }
 
+// What `promise` settles to, or `fallback` once `ms` have passed. The timer is cleared either way,
+// so a hook that answers at once does not keep the process alive for the rest of the wait.
+function withTimeout(promise, ms, fallback) {
+  let timer
+  const timeout = new Promise((resolve) => {
+    timer = setTimeout(resolve, ms, fallback)
+  })
+  return Promise.race([promise, timeout]).finally(() => clearTimeout(timer))
+}
+
 // The adapter's revision hook, stored as capture.json appRevision; 'unknown' when it has none,
-// throws, or answers nothing.
-export async function appRevision(config, baseUrl) {
+// throws, answers nothing, or has not answered within timeoutMs.
+export async function appRevision(config, baseUrl, { timeoutMs = 10000 } = {}) {
   if (!config.revision) return 'unknown'
   try {
-    const value = await config.revision({ baseUrl })
+    const value = await withTimeout(config.revision({ baseUrl }), timeoutMs, undefined)
     return isText(value) ? value.trim() : 'unknown'
   } catch {
     return 'unknown'

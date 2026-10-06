@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
-import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { test } from 'node:test'
-import { CaptureRefusal } from '../scripts/guards.mjs'
+import { after, test } from 'node:test'
+import { CaptureRefusal, matchesRule } from '../scripts/guards.mjs'
 import {
   appRevision,
   configProblems,
@@ -102,6 +102,34 @@ test('host names with an empty label are refused', () => {
     ])
 })
 
+test('host names with digits, underscores and dots are accepted, each as the environment own host', () => {
+  const hosts = ['127.0.0.1', 'localhost', 'api_v2.example.com']
+  for (const url of ['http://127.0.0.1:4100', 'http://localhost:4100', 'http://api_v2.example.com'])
+    assert.deepEqual(envProblems({ url, production: false, hosts }), [])
+})
+
+test('an environment URL is a plain http(s) address: no whitespace, credentials, query or fragment', () => {
+  for (const url of [
+    ' https://dev.example.com',
+    'https://dev.example.com ',
+    'https://dev.example.com\n',
+    'https://dev.exa\tmple.com',
+    ['https://dev.example.com']
+  ])
+    assert.deepEqual(envProblems({ ...devEnv(), url }), ['environments.dev.url must be an http(s) URL'])
+  for (const url of [
+    'https://u:pw@dev.example.com',
+    'https://u@dev.example.com',
+    'https://:pw@dev.example.com',
+    'https://dev.example.com/?a=1',
+    'https://dev.example.com/#top',
+    'https://dev.example.com/?',
+    'https://dev.example.com/#'
+  ])
+    assert.deepEqual(envProblems({ ...devEnv(), url }), ['environments.dev.url must have no credentials, query or fragment'])
+  assert.deepEqual(envProblems({ ...devEnv(), url: 'https://dev.example.com/app/' }), [])
+})
+
 test('environment names follow the project name rule and never shadow the runs folder', () => {
   assert.deepEqual(problemsWith({ environments: { Dev: devEnv() } }), [
     'environments.Dev: environment names are lowercase letters, digits and dashes, and not "runs"'
@@ -128,6 +156,29 @@ test('params, rules, flags and hooks have their shapes', () => {
     assert.deepEqual(problemsWith({ [hook]: 'later' }), [`${hook} must be a function`])
 })
 
+test('a readOnlyForbidden method is a real HTTP method in any letter case, since the guard ignores case', () => {
+  const methodProblems = (method) => problemsWith({ readOnlyForbidden: [{ method, url: /x/ }] })
+  const notAMethod = ['readOnlyForbidden[0].method must be an HTTP method']
+  for (const method of ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE', 'get', 'Post'])
+    assert.deepEqual(methodProblems(method), [])
+  for (const method of ['GTE', 'GET ', ' GET', 'GET /items', 5, null]) assert.deepEqual(methodProblems(method), notAMethod)
+  assert.deepEqual(problemsWith({ readOnlyForbidden: [{ url: /x/ }] }), notAMethod)
+  // A lower-case rule method is what the guard matches against an upper-case request; one with a
+  // stray space or a typo can never match, so a read that writes would go through.
+  const request = { method: 'GET', url: 'https://api.example.com/x' }
+  assert.equal(matchesRule({ method: 'get', url: /x/ }, request), true)
+  assert.equal(matchesRule({ method: 'GET ', url: /x/ }, request), false)
+  assert.equal(matchesRule({ method: 'GTE', url: /x/ }, request), false)
+})
+
+test('signInPath cannot start with //, which is a link to another host', () => {
+  const protocolRelative = ['signInPath must not start with // (that is a link to another host)']
+  assert.deepEqual(problemsWith({ signInPath: '//other.example.com/login' }), protocolRelative)
+  assert.deepEqual(problemsWith({ signInPath: '//' }), protocolRelative)
+  assert.deepEqual(problemsWith({ signInPath: '/' }), [])
+  assert.deepEqual(problemsWith({ signInPath: '/a//b' }), [])
+})
+
 test('a walk needs a title and a run function; the rest is optional and checked', () => {
   const run = async () => {}
   assert.deepEqual(walkProblems({ title: 'Tour', run }), [])
@@ -138,13 +189,28 @@ test('a walk needs a title and a run function; the rest is optional and checked'
   assert.deepEqual(walkProblems({ title: 'T', description: '', run }), ['description must be a non-empty string'])
   assert.deepEqual(walkProblems({ title: 'T', writes: 'no', run }), ['writes must be true or false'])
   assert.deepEqual(walkProblems({ title: 'T', startPath: 'home', run }), ['startPath must be a path starting with /'])
+  assert.deepEqual(walkProblems({ title: 'T', startPath: '//other.example.com/home', run }), [
+    'startPath must not start with // (that is a link to another host)'
+  ])
+  assert.deepEqual(walkProblems({ title: 'T', startPath: '/a//b', run }), [])
   assert.deepEqual(walkProblems({ title: 'T' }), ['run must be an async function'])
   assert.deepEqual(walkProblems({ title: 'T', run, steps: [] }), ['unknown field "steps"'])
 })
 
+// Every temp folder a test makes is removed when this file's tests are done.
+const tempDirs = []
+const tempDir = (prefix) => {
+  const dir = mkdtempSync(join(tmpdir(), prefix))
+  tempDirs.push(dir)
+  return dir
+}
+after(() => {
+  for (const dir of tempDirs) rmSync(dir, { recursive: true, force: true })
+})
+
 // A project folder in the temp dir, with these files under demo-capture/.
 function projectWith(files) {
-  const dir = mkdtempSync(join(tmpdir(), 'project-'))
+  const dir = tempDir('project-')
   for (const [path, text] of Object.entries(files)) {
     const full = join(dir, 'demo-capture', path)
     mkdirSync(dirname(full), { recursive: true })
@@ -167,7 +233,7 @@ const WALK = (fields) => `export default { ${fields}, async run() {} }\n`
 test('loadConfig finds demo-capture/config.mjs and refuses a missing, broken or invalid one', async () => {
   const project = projectWith({ 'config.mjs': CONFIG })
   assert.equal((await loadConfig(project)).name, 'my-app')
-  await rejects(loadConfig(mkdtempSync(join(tmpdir(), 'empty-'))), /has no demo-capture\/config\.mjs; pass --project/)
+  await rejects(loadConfig(tempDir('empty-')), /has no demo-capture\/config\.mjs; pass --project/)
   await rejects(loadConfig(projectWith({ 'config.mjs': 'export default {' })), /demo-capture\/config\.mjs did not load/)
   await rejects(
     loadConfig(projectWith({ 'config.mjs': 'export default { contract: 1 }' })),
@@ -192,6 +258,7 @@ test('walks are the .mjs files in walks/, loaded by name and checked', async () 
     startPath: '/',
     run: 'function'
   })
+  assert.ok(Object.isFrozen(tour))
   assert.equal((await loadWalk(project, 'add-item')).writes, true)
   assert.deepEqual((await loadWalks(project)).map((walk) => walk.name), ['add-item', 'tour'])
   await rejects(loadWalk(project, 'nope'), /unknown walk "nope"; --list shows the walks/)
@@ -209,9 +276,30 @@ test('a broken or invalid walk is refused with its file name', async () => {
   await rejects(loadWalk(project, 'untitled'), /walks\/untitled\.mjs is not a valid walk:\n- title must be/)
 })
 
+test('shared helpers belong in a subfolder of walks/; a stray file in walks/ is refused with where to put it', async () => {
+  const tour = ['walks/tour.mjs', WALK("title: 'Tour'")]
+  const helper = 'export const x = 1'
+  const where = /walks\/ holds only walks; put shared helpers in a subfolder such as walks\/lib\//
+  const withLib = projectWith({ 'config.mjs': CONFIG, [tour[0]]: tour[1], 'walks/lib/helper.mjs': helper })
+  assert.deepEqual(await walkNames(withLib), ['tour'])
+  assert.deepEqual((await loadWalks(withLib)).map((walk) => walk.name), ['tour'])
+  // A helper with a walk-style name and no default export.
+  const unnamed = projectWith({ 'config.mjs': CONFIG, [tour[0]]: tour[1], 'walks/helpers.mjs': helper })
+  await rejects(loadWalks(unnamed), /walks\/helpers\.mjs is not a valid walk:\n- it must export default an object\n- walks\//)
+  await rejects(loadWalks(unnamed), where)
+  // A helper whose file name could never be a walk name.
+  const odd = projectWith({ 'config.mjs': CONFIG, [tour[0]]: tour[1], 'walks/_shared.mjs': helper })
+  await rejects(loadWalks(odd), /walks\/_shared\.mjs is not a walk: .*lowercase letters, digits and dashes/)
+  await rejects(loadWalks(odd), where)
+  // A real walk with a mistake gets no hint about helpers.
+  const untitled = projectWith({ 'config.mjs': CONFIG, 'walks/untitled.mjs': WALK('writes: false') })
+  await assert.rejects(loadWalks(untitled), (e) => e instanceof CaptureRefusal && !where.test(e.message))
+})
+
 test('params take their defaults unless --set gives a value; an undeclared param is refused', () => {
   const declared = valid().params
   assert.deepEqual(resolveParams(declared, {}), { centre: 'Main' })
+  assert.ok(Object.isFrozen(resolveParams(declared, {})))
   assert.deepEqual(resolveParams(declared, { centre: 'North' }), { centre: 'North' })
   assert.deepEqual(resolveParams(declared, { centre: '' }), { centre: '' })
   assert.deepEqual(resolveParams(undefined, {}), {})
@@ -225,6 +313,8 @@ test('--env must name a declared environment; production always needs a write go
   assert.throws(() => selectEnvironment(config, 'uat'), /unknown --env "uat"; this project declares dev, prod/)
   assert.throws(() => selectEnvironment(config, 'toString'), /unknown --env "toString"/)
   const dev = selectEnvironment(config, 'dev')
+  assert.ok(Object.isFrozen(dev))
+  assert.ok(Object.isFrozen(dev.hosts))
   assert.deepEqual({ ...dev, hosts: [...dev.hosts] }, {
     name: 'dev',
     url: 'https://dev.example.com',
@@ -250,6 +340,25 @@ test('the revision hook is optional and never breaks a run', async () => {
   assert.equal(await appRevision({ revision: async () => '' }, 'x'), 'unknown')
   assert.equal(await appRevision({ revision: async () => 42 }, 'x'), 'unknown')
   assert.equal(await appRevision({ revision: async () => { throw new Error('offline') } }, 'x'), 'unknown')
+})
+
+test('a revision hook that never settles, or settles too late, answers unknown instead of hanging the run', async () => {
+  const never = { revision: () => new Promise(() => {}) }
+  assert.equal(await appRevision(never, 'x', { timeoutMs: 50 }), 'unknown')
+  const late = { revision: () => new Promise((resolve) => setTimeout(resolve, 300, 'v9')) }
+  assert.equal(await appRevision(late, 'x', { timeoutMs: 20 }), 'unknown')
+  const quick = { revision: () => new Promise((resolve) => setTimeout(resolve, 10, 'v9')) }
+  assert.equal(await appRevision(quick, 'x', { timeoutMs: 2000 }), 'v9')
+  assert.equal(await appRevision(quick, 'x'), 'v9') // the default wait is longer than a hook's round trip
+})
+
+test('the revision timer is cleared, so a fast hook does not keep the process alive', async () => {
+  const timers = () => process.getActiveResourcesInfo().filter((resource) => resource === 'Timeout').length
+  const before = timers()
+  assert.equal(await appRevision({ revision: async () => 'v1' }, 'x'), 'v1')
+  assert.equal(timers(), before)
+  assert.equal(await appRevision({ revision: async () => { throw new Error('offline') } }, 'x'), 'unknown')
+  assert.equal(timers(), before)
 })
 
 test('--list shows each walk with whether it writes, the environments with their gates, and the params', () => {
