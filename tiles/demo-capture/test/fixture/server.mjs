@@ -20,9 +20,15 @@ const SIGN_IN = page(
 <button type="submit">Sign in</button></form>`
 )
 
+// ?beacon=1 posts a beacon on load, and offers two buttons: one posts a beacon with a body the
+// config does not allow, the other posts a ping with no body at all.
+const BEACONS = `<script>fetch('/beacon', { method: 'POST', body: JSON.stringify({ page: 'home' }) })</script>
+<button type="button" onclick="fetch('/beacon', { method: 'POST', body: JSON.stringify({ page: 'home', extra: true }) })">Send odd beacon</button>
+<button type="button" onclick="fetch('/ping', { method: 'POST' })">Send empty ping</button>`
+
 // ?outside=1 adds an image from another host (localhost), for the host lock. The two links lead
 // to routes that answer with a redirect to another host, for the hops the route guard cannot see.
-const home = (port, { outside }) =>
+const home = (port, { outside, beacon }) =>
   page(
     'Home',
     `<label>Search <input name="q"></label>
@@ -30,7 +36,8 @@ const home = (port, { outside }) =>
 <button type="button" onclick="fetch('/items', { method: 'POST' })">Add item</button>
 <button type="button" onclick="fetch('/items?mode=recount')">Recount</button>
 <p><a href="/bounce-localhost">Visit partner</a> <a href="/bounce-loopback6">Visit partner by IPv6</a></p>
-${outside ? `<img alt="Partner logo" src="http://localhost:${port}/logo.svg" width="40" height="40">` : ''}`
+${outside ? `<img alt="Partner logo" src="http://localhost:${port}/logo.svg" width="40" height="40">` : ''}
+${beacon ? BEACONS : ''}`
   )
 
 const DETAILS = page('Details', '<p>Three items are in the list.</p>')
@@ -72,7 +79,9 @@ export async function startFixture() {
       return send(303, '', ok ? { location: '/home', 'set-cookie': 'session=ok; HttpOnly; Path=/; SameSite=Lax' } : { location: '/login' })
     }
     if (!/(?:^|;\s*)session=ok(?:;|$)/.test(req.headers.cookie ?? '')) return send(302, '', { location: '/login' })
-    if (url.pathname === '/home') return send(200, home(port(), { outside: url.searchParams.has('outside') }))
+    if (url.pathname === '/home')
+      return send(200, home(port(), { outside: url.searchParams.has('outside'), beacon: url.searchParams.has('beacon') }))
+    if (url.pathname === '/beacon' || url.pathname === '/ping') return send(204, '')
     if (url.pathname === '/details') return send(200, DETAILS)
     if (url.pathname === '/items') return send(200, '{"ok":true}', { 'content-type': 'application/json' })
     return send(404, page('Not found', ''))

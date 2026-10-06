@@ -31,6 +31,7 @@ const valid = () => ({
   isSignedOut: (url) => new URL(url).pathname.startsWith('/login'),
   params: { centre: { default: 'Main', describe: 'which site the demo uses' } },
   readOnlyForbidden: [{ method: 'GET', url: /\/items\?mode=recount/ }],
+  readOnlyAllowed: [{ method: 'POST', url: /\/session\/token$/ }],
   sameTabLinks: true,
   setup: async () => {},
   beforeStep: async () => {},
@@ -49,7 +50,8 @@ const devEnv = () => ({ url: 'https://dev.example.com', production: false, hosts
 test('a complete config has no problems; the optional fields may be left out', () => {
   assert.deepEqual(configProblems(valid()), [])
   const minimal = valid()
-  for (const key of ['params', 'readOnlyForbidden', 'sameTabLinks', 'setup', 'beforeStep', 'revision']) delete minimal[key]
+  for (const key of ['params', 'readOnlyForbidden', 'readOnlyAllowed', 'sameTabLinks', 'setup', 'beforeStep', 'revision'])
+    delete minimal[key]
   assert.deepEqual(configProblems(minimal), [])
 })
 
@@ -423,4 +425,43 @@ test('walk, project, environment and param names must match from end to end, and
       [`params.${key}: names start with a letter and use letters, digits, - or _`],
       JSON.stringify(key)
     )
+})
+
+test('readOnlyAllowed takes { method, url, body? } rules; a forbidden rule takes no body', () => {
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /\/session\/token$/ }] }), [])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /\/brief$/, body: /^\{"date":"[\d-]+"\}$/ }] }), [])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: 'POST /session/token' }), ['readOnlyAllowed must be a list of { method, url } rules'])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /x/, body: '{}' }] }), ['readOnlyAllowed[0].body must be a regular expression'])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: '/x' }] }), ['readOnlyAllowed[0].url must be a regular expression'])
+  assert.deepEqual(problemsWith({ readOnlyForbidden: [{ method: 'GET', url: /x/, body: /y/ }] }), ['readOnlyForbidden[0]: unknown field "body"'])
+})
+
+test('a readOnlyAllowed rule is checked like a forbidden one: an object, a real method, a pattern, no stray field', () => {
+  const allowed = (rule) => problemsWith({ readOnlyAllowed: [rule] })
+  assert.deepEqual(problemsWith({ readOnlyAllowed: undefined }), [])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [] }), [])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: { method: 'POST' } }), ['readOnlyAllowed must be a list of { method, url } rules'])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: ['POST /x'] }), ['readOnlyAllowed[0] must be an object'])
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [null] }), ['readOnlyAllowed[0] must be an object'])
+  assert.deepEqual(allowed({ method: 'POST', url: /x/, why: 'y' }), ['readOnlyAllowed[0]: unknown field "why"'])
+  // A method is a real HTTP method in any letter case; a typo would never match, so the request
+  // the project meant to allow would be refused.
+  const notAMethod = ['readOnlyAllowed[0].method must be an HTTP method']
+  for (const method of ['POST', 'post', 'Put', 'PATCH', 'DELETE', 'GET', 'OPTIONS']) assert.deepEqual(allowed({ method, url: /x/ }), [])
+  for (const method of ['PSOT', 'POST ', ' POST', 'POST /x', '', 5, null]) assert.deepEqual(allowed({ method, url: /x/ }), notAMethod)
+  assert.deepEqual(allowed({ url: /x/ }), notAMethod)
+  assert.deepEqual(allowed({ method: 'POST' }), ['readOnlyAllowed[0].url must be a regular expression'])
+  assert.deepEqual(allowed({ method: 'POST', url: /x/, body: null }), ['readOnlyAllowed[0].body must be a regular expression'])
+  assert.deepEqual(allowed({ method: 'POST', url: /x/, body: undefined }), [])
+  // Every problem of a rule is named, and a later rule is numbered.
+  assert.deepEqual(problemsWith({ readOnlyAllowed: [{ method: 'POST', url: /x/ }, { method: 'PSOT', url: '/x', body: 'y' }] }), [
+    'readOnlyAllowed[1].method must be an HTTP method',
+    'readOnlyAllowed[1].url must be a regular expression',
+    'readOnlyAllowed[1].body must be a regular expression'
+  ])
+  // A config that names both lists is checked for both.
+  assert.deepEqual(
+    problemsWith({ readOnlyForbidden: [{ method: 'GET', url: '/x' }], readOnlyAllowed: [{ method: 'POST', url: '/y' }] }),
+    ['readOnlyForbidden[0].url must be a regular expression', 'readOnlyAllowed[0].url must be a regular expression']
+  )
 })

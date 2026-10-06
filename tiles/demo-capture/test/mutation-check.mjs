@@ -25,6 +25,7 @@
 //                                           and chmod together) is one mutant, and chmod alone is
 //                                           another, killed under a umask that strips the mode.
 //   if (!config.revision) return 'unknown'  the try/catch below it answers the same.
+//   `?? []` after config.readOnlyAllowed    checkedPolicy defaults a missing list the same way.
 //   let connect = false in handleWebSocket  the catch sets it to false as well.
 //   if (up === probe) return null           in enclosingRepo's walk up to an existing folder: the
 //                                           root always exists on POSIX, so the walk never gets
@@ -376,7 +377,29 @@ export const MUTANTS = [
   m('session', 'if (!first.signedOut) return first', 'return first', 'session.test'),
   m('session', '  await dropState()\n', '', 'session.test'),
   m('session', '  await resetRunDir()\n', '', 'session.test'),
-  m('session', 'if (second.signedOut)\n    throw', 'if (false)\n    throw', 'session.test')
+  m('session', 'if (second.signedOut)\n    throw', 'if (false)\n    throw', 'session.test'),
+
+  // readOnlyAllowed: the optional contract field for non-reads that change no data. project.mjs checks
+  // its rules, cli.mjs hands them to the guard and names the field in the learning report, and
+  // guards.mjs applies them (its body-pattern branches are with matchesRule and the two hand-offs above).
+  m('project', "  'readOnlyAllowed',\n", '', 'project.test'),
+  m('project', "problems.push(...ruleProblems(config.readOnlyAllowed, 'readOnlyAllowed', ALLOWED_RULE_FIELDS))", '', 'project.test'),
+  m('project', "ruleProblems(config.readOnlyAllowed, 'readOnlyAllowed', ALLOWED_RULE_FIELDS)", "ruleProblems(config.readOnlyForbidden, 'readOnlyAllowed', ALLOWED_RULE_FIELDS)", 'project.test'),
+  m('project', "ruleProblems(config.readOnlyAllowed, 'readOnlyAllowed', ALLOWED_RULE_FIELDS)", "ruleProblems(config.readOnlyAllowed, 'readOnlyForbidden', ALLOWED_RULE_FIELDS)", 'project.test'),
+  m('project', "'readOnlyAllowed', ALLOWED_RULE_FIELDS))", "'readOnlyAllowed', FORBIDDEN_RULE_FIELDS))", 'project.test'),
+  m('project', "'readOnlyForbidden', FORBIDDEN_RULE_FIELDS))", "'readOnlyForbidden', ALLOWED_RULE_FIELDS))", 'project.test'),
+  m('project', "const ALLOWED_RULE_FIELDS = new Set(['method', 'url', 'body'])", "const ALLOWED_RULE_FIELDS = new Set(['method', 'url'])", 'project.test'),
+  m('project', 'if (rule.body !== undefined && !(rule.body instanceof RegExp))', 'if (false)', 'project.test'),
+  m('project', 'if (rule.body !== undefined && !(rule.body instanceof RegExp))', 'if (!(rule.body instanceof RegExp))', 'project.test'),
+  m('cli', 'allowed: config.readOnlyAllowed ?? [],', '', 'capture.e2e'),
+  m('cli', 'allowed: config.readOnlyAllowed ?? [],', '', 'cli-record.test'),
+  m('cli', 'allowed: config.readOnlyAllowed ?? [],', 'allowed: config.readOnlyForbidden ?? [],', 'cli-record.test'),
+  m('cli', "          'A non-read that changes no data may go in readOnlyAllowed, once a person approves it. ' +\n", '', 'cli-record.test'),
+  m('cli', "          'A read listed in readOnlyForbidden stays refused.'", "          ''", 'cli-record.test'),
+  m('guards', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)) && !allowed.some((rule) => matchesRule(rule, request)))', 'guards-network.test'),
+  m('guards', ' && !allowed.some((rule) => matchesRule(rule, request)))', ' && !allowed.some((rule) => matchesRule({ ...rule, method: request.method }, request)))', 'guards-network.test'),
+  m('guards', 'const listed = entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))', 'const listed = allowed.some((rule) => matchesRule(rule, request)) || entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))', 'guards-network.test'),
+  m('guards', 'body: request.postData() })', "body: request.postData() ?? '' })", 'capture.e2e')
 ]
 
 // `node --test <file>` in a process group of its own, so a timeout or an interrupt ends the test

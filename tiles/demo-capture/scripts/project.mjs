@@ -18,6 +18,7 @@ const CONFIG_FIELDS = new Set([
   'isSignedOut',
   'params',
   'readOnlyForbidden',
+  'readOnlyAllowed',
   'sameTabLinks',
   'setup',
   'beforeStep',
@@ -26,6 +27,7 @@ const CONFIG_FIELDS = new Set([
 const ENV_FIELDS = new Set(['url', 'production', 'hosts', 'writeGoAhead'])
 const WALK_FIELDS = new Set(['title', 'description', 'writes', 'startPath', 'run'])
 const FORBIDDEN_RULE_FIELDS = new Set(['method', 'url'])
+const ALLOWED_RULE_FIELDS = new Set(['method', 'url', 'body'])
 // The guard compares methods case-insensitively, so a rule method is any letter case of these. A
 // typo or a stray space would never match a request, and a read that writes would go through.
 const HTTP_METHODS = new Set(['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'PATCH', 'DELETE'])
@@ -67,6 +69,8 @@ function ruleProblems(rules, where, fields) {
     if (!isText(rule.method)) problems.push(`${at}.method must be an HTTP method`)
     else if (!HTTP_METHODS.has(rule.method.toUpperCase())) problems.push(`${at}.method must be an HTTP method`)
     if (!(rule.url instanceof RegExp)) problems.push(`${at}.url must be a regular expression`)
+    if (rule.body !== undefined && !(rule.body instanceof RegExp))
+      problems.push(`${at}.body must be a regular expression`)
     return problems
   })
 }
@@ -124,6 +128,7 @@ export function configProblems(config) {
       }
   }
   problems.push(...ruleProblems(config.readOnlyForbidden, 'readOnlyForbidden', FORBIDDEN_RULE_FIELDS))
+  problems.push(...ruleProblems(config.readOnlyAllowed, 'readOnlyAllowed', ALLOWED_RULE_FIELDS))
   if (!optional(config.sameTabLinks, isBoolean)) problems.push('sameTabLinks must be true or false')
   for (const hook of ['setup', 'beforeStep', 'revision'])
     if (!optional(config[hook], isFunction)) problems.push(`${hook} must be a function`)

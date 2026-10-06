@@ -259,3 +259,28 @@ test('launchArgs lets a listed localhost through, and an unlisted one stays refu
   assert.match(await visitWithRules(['127.0.0.1'], `http://localhost:${app.port}/`), /net::ERR_NAME_NOT_RESOLVED/)
   assert.equal(receivedSince(refusedSnapshot)[`localhost:${app.port}`], undefined)
 })
+
+test('readOnlyAllowed lets a listed non-read through, only with a body that matches', async () => {
+  const result = await runCapture(['--env', 'local', '--walk', 'sends-beacons', '--out', outDir('beacons')])
+  assert.equal(result.code, 1, result.output)
+  const capture = await readJson(join(outDir('beacons'), 'capture.json'))
+  // The beacon the page posts on load matches the rule, so the run got to its first step.
+  assert.equal(capture.failedStep, 'odd')
+  assert.equal(capture.failure, 'POST 127.0.0.1/beacon was refused: this walk is read-only.')
+  await assertRendererRefuses(outDir('beacons'))
+})
+
+test('a body pattern that matches the empty string still refuses a request with no body', async () => {
+  const result = await runCapture(['--env', 'local', '--walk', 'sends-empty-ping', '--out', outDir('ping')])
+  assert.equal(result.code, 1, result.output)
+  const capture = await readJson(join(outDir('ping'), 'capture.json'))
+  assert.equal(capture.failedStep, 'ping')
+  assert.equal(capture.failure, 'POST 127.0.0.1/ping was refused: this walk is read-only.')
+})
+
+test('--learn-hosts lists the non-read the config does not allow, and says what to do about it', async () => {
+  const result = await runCapture(['--env', 'local', '--walk', 'sends-beacons', '--learn-hosts', '--out', outDir('learn-beacons')])
+  assert.equal(result.code, 0, result.output)
+  assert.match(result.output, /Requests refused because the walk is read-only:\n {2}POST 127\.0\.0\.1\/beacon\n/)
+  assert.match(result.output, /readOnlyAllowed, once a person approves it\./)
+})

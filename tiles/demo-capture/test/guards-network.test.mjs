@@ -559,3 +559,69 @@ test('a redirect hop without a readable body fails the run when the rule has a b
   permissive.handleRedirectHop(hop('POST', BEACON, { body: '{"page":"home"}' }))
   assert.doesNotThrow(() => permissive.assertClean())
 })
+
+// ---- readOnlyAllowed: what an allowed rule can and cannot do ----
+
+const post = (url, body) => ({ method: 'POST', url, body })
+
+test('an allowed rule allows its own method only, in any letter case', () => {
+  const allowed = [{ method: 'post', url: /\/beacon$/ }]
+  assert.equal(classifyRequest(post(BEACON), policy({ allowed })).action, 'continue')
+  for (const method of ['PUT', 'PATCH', 'DELETE']) {
+    const verdict = classifyRequest({ method, url: BEACON }, policy({ allowed }))
+    assert.deepEqual([verdict.action, verdict.kind], ['abort', 'write'], method)
+  }
+})
+
+test('an allowed rule is no way past the host lock, however its pattern matches', async () => {
+  const loose = [{ method: 'POST', url: /./ }]
+  for (const url of [
+    'https://tracker.example.net/beacon',
+    'https://app.example.com@tracker.example.net/beacon',
+    'https://app.example.com.tracker.example.net/beacon',
+    'https://tracker.example.net/beacon?next=https://app.example.com/beacon'
+  ]) {
+    const verdict = classifyRequest(post(url), policy({ allowed: loose }))
+    assert.deepEqual([verdict.action, verdict.kind], ['abort', 'host'], url)
+    const guard = new RunGuard(policy({ allowed: loose }))
+    const route = fakeRoute('POST', url)
+    await guard.handleRoute(route)
+    assert.deepEqual(route.calls, ['abort blockedbyclient'], url)
+    const hopped = new RunGuard(policy({ allowed: loose }))
+    hopped.handleRedirectHop(hop('POST', url))
+    assert.throws(() => hopped.assertClean(), /is not in this environment's hosts\./, url)
+  }
+  // Learning lists the host and still sends nothing to it.
+  const learning = classifyRequest(post('https://tracker.example.net/beacon'), policy({ allowed: loose, learning: true }))
+  assert.deepEqual([learning.action, learning.kind, learning.host], ['abort', 'unlisted', 'tracker.example.net'])
+})
+
+test('a forbidden rule wins over an allowed one, for a request, a route and a redirect hop', async () => {
+  const allowed = [{ method: 'POST', url: /\/beacon$/ }]
+  const forbidden = [{ method: 'POST', url: /\/beacon$/ }]
+  const verdict = classifyRequest(post(BEACON), policy({ allowed, forbidden }))
+  assert.deepEqual([verdict.action, verdict.kind], ['abort', 'forbidden'])
+  const guard = new RunGuard(policy({ allowed, forbidden }))
+  const route = fakeRoute('POST', BEACON)
+  await guard.handleRoute(route)
+  assert.deepEqual(route.calls, ['abort blockedbyclient'])
+  assert.throws(() => guard.assertClean(), /POST app\.example\.com\/beacon was refused: the project lists it as a read that writes\./)
+  const hopped = new RunGuard(policy({ allowed, forbidden }))
+  hopped.handleRedirectHop(hop('POST', BEACON))
+  assert.throws(() => hopped.assertClean(), /the project lists it as a read that writes\./)
+  // A read the project both allows and forbids is forbidden too: the forbidden list is checked first.
+  const read = [{ method: 'GET', url: /\/recount$/ }]
+  const forbiddenRead = classifyRequest(get('https://app.example.com/recount'), policy({ allowed: read, forbidden: read }))
+  assert.deepEqual([forbiddenRead.action, forbiddenRead.kind], ['abort', 'forbidden'])
+})
+
+test('allowed rules change nothing for a walk that declares writes, and a forbidden rule still does not apply', () => {
+  const allowed = [{ method: 'POST', url: /\/beacon$/ }]
+  const writes = policy({ readOnly: false, allowed })
+  assert.equal(classifyRequest(post('https://app.example.com/items'), writes).action, 'continue')
+  assert.equal(classifyRequest(post(BEACON), writes).action, 'continue')
+  assert.equal(classifyRequest(post('https://tracker.example.net/beacon'), writes).kind, 'host')
+  // Without the read-only flag the rules are not consulted, so a listed host is the only gate.
+  const forbidden = [{ method: 'POST', url: /\/beacon$/ }]
+  assert.equal(classifyRequest(post(BEACON), policy({ readOnly: false, allowed, forbidden })).action, 'continue')
+})

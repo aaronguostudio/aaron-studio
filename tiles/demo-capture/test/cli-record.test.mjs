@@ -31,7 +31,8 @@ const CACHE_SENTENCE = "Playwright's browsers come from the machine's cache; do 
 //   stateError   what context.storageState rejects with
 //   launchError  what chromium.launch rejects with
 // A test can also set fake.duringGoto, fake.duringState and fake.duringClose (async functions) to make
-// something happen while the page navigates, the session is saved, or the context closes.
+// something happen while the page navigates, the session is saved, or the context closes. The
+// handler the run installed with context.route is fake.routeHandler; fakeRoute() makes a route for it.
 function fakeChromium({ videoSaved = true, stateError, launchError } = {}) {
   const fake = {
     launches: [],
@@ -69,7 +70,9 @@ function fakeChromium({ videoSaved = true, stateError, launchError } = {}) {
     video: () => video
   }
   const context = {
-    async route() {},
+    async route(_matcher, handler) {
+      fake.routeHandler = handler
+    },
     async routeWebSocket() {},
     async addInitScript() {},
     on(event, handler) {
@@ -116,6 +119,16 @@ const fakeRequest = (url, from = null) => ({
   url: () => url,
   postData: () => null
 })
+// A route as the context hands it to the handler: what it was told to do is in `calls`.
+const fakeRoute = (method, url, body = null) => {
+  const calls = []
+  return {
+    calls,
+    request: () => ({ method: () => method, url: () => url, postData: () => body }),
+    abort: async (code) => calls.push(`abort ${code}`),
+    continue: async () => calls.push('continue')
+  }
+}
 const NOT_LISTED = "GET elsewhere.example.net/next was refused: elsewhere.example.net is not in this environment's hosts."
 const NAME_NOT_RESOLVED = 'page.goto: net::ERR_NAME_NOT_RESOLVED at http://127.0.0.1:9/home?token=abc'
 
@@ -444,13 +457,13 @@ test('the failure line keeps the first line only, with every URL in it cut down 
 
 // The whole command on the fixture project, a saved session and a fake browser: what record() says
 // has to come out of main() as an exit code and lines on the screen.
-async function runMain(fake) {
+async function runMain(fake, extraArgs = []) {
   const root = mkdtempSync(join(tmpdir(), 'demo-capture-record-main-'))
   const session = sessionPaths(root, 'fixture-app', 'local')
   mkdirSync(session.dir, { recursive: true })
   writeFileSync(session.state, '{}')
   const lines = []
-  const code = await main(['--project', join(import.meta.dirname, 'fixture'), '--env', 'local', '--walk', 'outside-host'], {
+  const code = await main(['--project', join(import.meta.dirname, 'fixture'), '--env', 'local', '--walk', 'outside-host', ...extraArgs], {
     root,
     chromium: fake.chromium,
     log: (line) => lines.push(line),
@@ -489,4 +502,108 @@ test('main reports the violation, not the navigation error it caused, and prints
     /\n {2}before the first step: GET elsewhere\.example\.net\/next was refused: elsewhere\.example\.net is not in this environment's hosts\./
   )
   assert.doesNotMatch(output, /token|ERR_NAME_NOT_RESOLVED/)
+})
+
+// ---- readOnlyAllowed: the config's list reaches the guard that judges every request ----
+
+const BEACON = 'http://127.0.0.1:9/beacon'
+const allowBeacon = { method: 'POST', url: /\/beacon$/, body: /^\{"page":"[a-z]+"\}$/ }
+const REFUSED_BEACON = 'POST 127.0.0.1/beacon was refused: this walk is read-only.'
+
+// Sends each [method, url, body] through the route handler the run installed, in one step, and
+// returns what the browser was told for each.
+async function sendThrough(config, requests, { walk } = {}) {
+  const fake = fakeChromium()
+  const told = []
+  const { result } = await go(fake, {
+    config,
+    walk: {
+      ...walk,
+      run: async ({ rec }) => {
+        await rec.step('send', 'Send requests', 'action', async () => {
+          for (const [method, url, body] of requests) {
+            const route = fakeRoute(method, url, body)
+            await fake.routeHandler(route)
+            told.push(...route.calls)
+          }
+        })
+      }
+    }
+  })
+  return { told, capture: result.capture }
+}
+
+test('readOnlyAllowed reaches the guard: a listed non-read is sent, one that does not match is refused', async () => {
+  const config = { readOnlyAllowed: [allowBeacon] }
+  const ok = await sendThrough(config, [['POST', BEACON, '{"page":"home"}']])
+  assert.deepEqual(ok.told, ['continue'])
+  assert.equal(ok.capture.status, 'passed')
+  const odd = await sendThrough(config, [['POST', BEACON, '{"page":"home","extra":true}']])
+  assert.deepEqual(odd.told, ['abort blockedbyclient'])
+  assert.equal(odd.capture.failedStep, 'send')
+  assert.equal(odd.capture.failure, REFUSED_BEACON)
+  // The method is part of the rule: a PUT to the same URL, with the same body, is still refused.
+  const put = await sendThrough(config, [['PUT', BEACON, '{"page":"home"}']])
+  assert.deepEqual(put.told, ['abort blockedbyclient'])
+  assert.equal(put.capture.failure, 'PUT 127.0.0.1/beacon was refused: this walk is read-only.')
+})
+
+test('without readOnlyAllowed every non-read of a read-only walk is refused', async () => {
+  const none = await sendThrough({}, [['POST', BEACON, '{"page":"home"}']])
+  assert.deepEqual(none.told, ['abort blockedbyclient'])
+  assert.equal(none.capture.failure, REFUSED_BEACON)
+  const empty = await sendThrough({ readOnlyAllowed: [] }, [['POST', BEACON, '{"page":"home"}']])
+  assert.deepEqual(empty.told, ['abort blockedbyclient'])
+})
+
+test('a body pattern that matches the empty string does not allow a request without a body', async () => {
+  const config = { readOnlyAllowed: [{ method: 'POST', url: /\/ping$/, body: /^$/ }] }
+  const ping = 'http://127.0.0.1:9/ping'
+  const bodiless = await sendThrough(config, [['POST', ping, null]])
+  assert.deepEqual(bodiless.told, ['abort blockedbyclient'])
+  assert.equal(bodiless.capture.failure, 'POST 127.0.0.1/ping was refused: this walk is read-only.')
+  // A rule without a body pattern is how a bodiless request is allowed.
+  const open = await sendThrough({ readOnlyAllowed: [{ method: 'POST', url: /\/ping$/ }] }, [['POST', ping, null]])
+  assert.deepEqual(open.told, ['continue'])
+})
+
+test('readOnlyForbidden wins over readOnlyAllowed, and the host lock still applies', async () => {
+  const both = await sendThrough({ readOnlyAllowed: [allowBeacon], readOnlyForbidden: [{ method: 'POST', url: /\/beacon$/ }] }, [
+    ['POST', BEACON, '{"page":"home"}']
+  ])
+  assert.deepEqual(both.told, ['abort blockedbyclient'])
+  assert.equal(both.capture.failure, 'POST 127.0.0.1/beacon was refused: the project lists it as a read that writes.')
+  const elsewhere = await sendThrough({ readOnlyAllowed: [allowBeacon] }, [['POST', 'https://tracker.example.net/beacon', '{"page":"home"}']])
+  assert.deepEqual(elsewhere.told, ['abort blockedbyclient'])
+  assert.equal(elsewhere.capture.failure, "POST tracker.example.net/beacon was refused: tracker.example.net is not in this environment's hosts.")
+})
+
+test('readOnlyAllowed changes nothing for a walk that declares writes', async () => {
+  // The allowed rule matches nothing here: a write walk is not gated by it, nor by its absence.
+  const config = { readOnlyAllowed: [allowBeacon] }
+  const post = await sendThrough(config, [['POST', 'http://127.0.0.1:9/items', '{"name":"x"}']], { walk: { writes: true } })
+  assert.deepEqual(post.told, ['continue'])
+  assert.equal(post.capture.status, 'passed')
+  // The host lock is the same too: an allowed rule is no way to an unlisted host.
+  const elsewhere = await sendThrough(config, [['POST', 'https://tracker.example.net/beacon', '{"page":"home"}']], { walk: { writes: true } })
+  assert.deepEqual(elsewhere.told, ['abort blockedbyclient'])
+})
+
+test('a learning run lists what it refused and says what a person can do about it, only when it refused something', async () => {
+  const hint =
+    'A non-read that changes no data may go in readOnlyAllowed, once a person approves it. A read listed in readOnlyForbidden stays refused.'
+  const refusing = fakeChromium()
+  refusing.duringGoto = async () => {
+    await refusing.routeHandler(fakeRoute('POST', 'http://127.0.0.1:9/items', '{}'))
+    await refusing.routeHandler(fakeRoute('PUT', 'http://127.0.0.1:9/items', '{}'))
+  }
+  const withRefusals = await runMain(refusing, ['--learn-hosts'])
+  assert.equal(withRefusals.code, 0, withRefusals.output)
+  assert.match(
+    withRefusals.output,
+    new RegExp(`Requests refused because the walk is read-only:\n {2}POST 127\\.0\\.0\\.1/items\n {2}PUT 127\\.0\\.0\\.1/items\n${hint.replace(/\./g, '\\.')}\nAdd a host to the config only after a person approves it\\.`)
+  )
+  const quiet = await runMain(fakeChromium(), ['--learn-hosts'])
+  assert.equal(quiet.code, 0, quiet.output)
+  assert.doesNotMatch(quiet.output, /readOnlyAllowed|Requests refused/)
 })

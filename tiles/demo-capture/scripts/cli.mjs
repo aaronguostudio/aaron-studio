@@ -186,6 +186,7 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
       hosts: env.hosts,
       readOnly: !walk.writes,
       forbidden: config.readOnlyForbidden ?? [],
+      allowed: config.readOnlyAllowed ?? [],
       learning: learnHosts
     },
     { currentStep: () => rec?.attempting ?? null }
@@ -316,7 +317,11 @@ function report({ capture, learned }, { runDir, env, learnHosts, log }) {
       log(`Hosts the walk used that are not in environments.${env.name}.hosts:\n${learned.unlisted.map((h) => `  ${h}`).join('\n')}`)
     else log(`Every host the walk used is already in environments.${env.name}.hosts.`)
     if (learned.refused.length)
-      log(`Requests refused because the walk is read-only:\n${learned.refused.map((r) => `  ${r}`).join('\n')}`)
+      log(
+        `Requests refused because the walk is read-only:\n${learned.refused.map((r) => `  ${r}`).join('\n')}\n` +
+          'A non-read that changes no data may go in readOnlyAllowed, once a person approves it. ' +
+          'A read listed in readOnlyForbidden stays refused.'
+      )
     log('Add a host to the config only after a person approves it.')
     if (!complete) log(`The walk stopped early, so these lists may be incomplete: ${capture.failure}`)
     return complete ? 0 : 1
