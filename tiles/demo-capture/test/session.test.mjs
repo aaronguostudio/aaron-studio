@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
-import { mkdtempSync } from 'node:fs'
+import { mkdtempSync, rmSync } from 'node:fs'
 import { chmod, link, mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { test } from 'node:test'
+import { after, test } from 'node:test'
 import { CaptureRefusal } from '../scripts/guards.mjs'
 import {
   SIGNED_IN_STABLE_MS,
@@ -21,6 +21,17 @@ import {
   SignedOut,
   waitUntilSignedIn
 } from '../scripts/session.mjs'
+
+// Every temp folder a test makes is removed when this file's tests are done.
+const tempDirs = []
+const tempDir = (prefix) => {
+  const dir = mkdtempSync(join(tmpdir(), prefix))
+  tempDirs.push(dir)
+  return dir
+}
+after(() => {
+  for (const dir of tempDirs) rmSync(dir, { recursive: true, force: true })
+})
 
 const rejects = (promise, pattern) =>
   assert.rejects(promise, (e) => e instanceof CaptureRefusal && pattern.test(e.message))
@@ -45,7 +56,7 @@ test('sessions live in ~/.demo-capture/<name>/<env>/, and a test can move the ro
 })
 
 test('the session folder is 0700 even when it already exists', async () => {
-  const dir = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev')
+  const dir = join(tempDir('session-'), 'my-app', 'dev')
   await mkdir(dir, { recursive: true, mode: 0o755 })
   await chmod(dir, 0o755)
   await ensurePrivateDir(dir)
@@ -53,7 +64,7 @@ test('the session folder is 0700 even when it already exists', async () => {
 })
 
 test('saveState writes the storage state, with IndexedDB, as a 0600 file in a 0700 folder', async () => {
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
   const asked = []
   const context = { storageState: async (options) => (asked.push(options), { cookies: [{ name: 's' }], origins: [] }) }
   assert.equal(await hasState(state), false)
@@ -76,7 +87,7 @@ test('saveState writes the storage state, with IndexedDB, as a 0600 file in a 07
 })
 
 test('hasState is true for a file only: not for a missing path, not for a folder', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'session-'))
+  const dir = tempDir('session-')
   assert.equal(await hasState(join(dir, 'state.json')), false)
   assert.equal(await hasState(dir), false)
   await writeFile(join(dir, 'state.json'), '{}')
@@ -84,7 +95,7 @@ test('hasState is true for a file only: not for a missing path, not for a folder
 })
 
 test('saveState is private whatever the umask says', async () => {
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
   const context = { storageState: async () => ({ cookies: [], origins: [] }) }
   const before = process.umask(0)
   try {
@@ -98,9 +109,24 @@ test('saveState is private whatever the umask says', async () => {
   assert.equal(await mode(state), 0o600)
 })
 
+// The temporary file is created with the mode minus the umask, so it needs the chmod to end at 0600.
+// The folder exists already: under this umask a folder made by saveState would not be writable.
+test('saveState sets 0600 itself, whatever the umask took off the temporary file', async () => {
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
+  await ensurePrivateDir(join(state, '..'))
+  const context = { storageState: async () => ({ cookies: [], origins: [] }) }
+  const before = process.umask(0o277)
+  try {
+    await saveState(context, state)
+  } finally {
+    process.umask(before)
+  }
+  assert.equal(await mode(state), 0o600)
+})
+
 // An orphaned temporary file holds live cookies, so no save and no delete may leave one.
 test('a stale temporary file is replaced by a fresh 0600 one, never written through', async () => {
-  const root = mkdtempSync(join(tmpdir(), 'session-'))
+  const root = tempDir('session-')
   const state = join(root, 'my-app', 'dev', 'state.json')
   const context = { storageState: async () => ({ cookies: [{ name: 's' }], origins: [] }) }
   await ensurePrivateDir(join(state, '..'))
@@ -118,7 +144,7 @@ test('a stale temporary file is replaced by a fresh 0600 one, never written thro
 })
 
 test('deleteState also removes a leftover temporary file', async () => {
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
   await ensurePrivateDir(join(state, '..'))
   await writeFile(state, '{}', { mode: 0o600 })
   await writeFile(`${state}.tmp`, '{}', { mode: 0o600 })
@@ -176,6 +202,18 @@ test('time on an identity provider does not count as signed in', async () => {
   assert.equal(w.clock, 9000)
 })
 
+// The clock, the sleep and the poll pace each have a default that the tests above replace. This one
+// leaves them: signed in from the start, it takes one real poll interval to see the stable time pass.
+// isClosed ends a stuck wait with a refusal, where a stuck clock or a sleep that does not sleep would
+// hang or spin.
+test('with no clock or sleep given, sign-in uses the real ones and polls at its own pace', { timeout: 8000 }, async () => {
+  const started = Date.now()
+  const page = { url: () => `${ORIGIN}/home`, isClosed: () => Date.now() - started > 2000 }
+  await waitUntilSignedIn(page, { origin: ORIGIN, isSignedOut, stableMs: 20 })
+  const elapsed = Date.now() - started
+  assert.ok(elapsed >= 200 && elapsed < 1500, `${elapsed} ms`)
+})
+
 test('sign-in gives up after its timeout, or when the window is closed', async () => {
   const stuck = signInWindow(() => `${ORIGIN}/login`)
   await rejects(waitFor(stuck), /Nobody finished signing in within 10 minutes/)
@@ -202,7 +240,7 @@ function fakeBrowserType(savedState = { cookies: [], origins: [] }) {
 
 test('signIn opens a visible browser at the sign-in page, waits for the person, saves the state and closes', async () => {
   const { calls, page, browserType } = fakeBrowserType()
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
   const logs = []
   let waited
   await signIn({
@@ -227,7 +265,7 @@ test('signIn still saves the session when the page never goes idle', async () =>
   page.waitForLoadState = async () => {
     throw new Error('Timeout 30000ms exceeded.')
   }
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
   await signIn({ browserType, baseUrl: ORIGIN, signInPath: '/login', isSignedOut, statePath: state, log: () => {}, wait: async () => {} })
   assert.equal(await hasState(state), true)
   assert.equal(calls.at(-1), 'close')
@@ -235,7 +273,7 @@ test('signIn still saves the session when the page never goes idle', async () =>
 
 test('signIn closes the browser even when nobody signs in', async () => {
   const { calls, browserType } = fakeBrowserType()
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'state.json')
+  const state = join(tempDir('session-'), 'state.json')
   await rejects(
     signIn({ browserType, baseUrl: ORIGIN, signInPath: '/login', isSignedOut, statePath: state, log: () => {}, wait: async () => {
       throw new CaptureRefusal('Nobody finished signing in within 10 minutes.')
@@ -308,7 +346,7 @@ test('the saved state never reaches a log line or an error message', async () =>
   const SENTINEL = 'sentinel-cookie-value-4f1d9c'
   const saved = { cookies: [{ name: 's', value: SENTINEL }], origins: [] }
   const { browserType } = fakeBrowserType(saved)
-  const state = join(mkdtempSync(join(tmpdir(), 'session-')), 'my-app', 'dev', 'state.json')
+  const state = join(tempDir('session-'), 'my-app', 'dev', 'state.json')
   const lines = []
   const messages = []
   const log = (line) => lines.push(String(line))

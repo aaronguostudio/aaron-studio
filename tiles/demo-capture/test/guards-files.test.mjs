@@ -1,18 +1,29 @@
 import assert from 'node:assert/strict'
-import { mkdirSync, mkdtempSync, readFileSync, realpathSync, symlinkSync, writeFileSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
 import fsPromises, { readFile, stat } from 'node:fs/promises'
 import { syncBuiltinESMExports } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { test } from 'node:test'
+import { after, test } from 'node:test'
 import { CaptureRefusal, acquireRunLock, assertOutsideRepos, enclosingRepo } from '../scripts/guards.mjs'
+
+// Every temp folder a test makes is removed when this file's tests are done.
+const tempDirs = []
+const tempDir = (prefix) => {
+  const dir = mkdtempSync(join(tmpdir(), prefix))
+  tempDirs.push(dir)
+  return dir
+}
+after(() => {
+  for (const dir of tempDirs) rmSync(dir, { recursive: true, force: true })
+})
 
 const refuses = (fn, pattern) => assert.throws(fn, (e) => e instanceof CaptureRefusal && pattern.test(e.message))
 const rejects = (promise, pattern) =>
   assert.rejects(promise, (e) => e instanceof CaptureRefusal && pattern.test(e.message))
 
 test('a folder inside a git working tree is refused, found through symlinks and from paths that do not exist yet', () => {
-  const base = realpathSync(mkdtempSync(join(tmpdir(), 'repo-check-')))
+  const base = realpathSync(tempDir('repo-check-'))
   mkdirSync(join(base, 'repo', '.git'), { recursive: true })
   mkdirSync(join(base, 'worktree'))
   writeFileSync(join(base, 'worktree', '.git'), 'gitdir: /elsewhere\n')
@@ -27,7 +38,7 @@ test('a folder inside a git working tree is refused, found through symlinks and 
 })
 
 test('the repo is found above an existing folder, however deep, and the nearest one wins', () => {
-  const base = realpathSync(mkdtempSync(join(tmpdir(), 'repo-deep-')))
+  const base = realpathSync(tempDir('repo-deep-'))
   mkdirSync(join(base, 'repo', '.git'), { recursive: true })
   mkdirSync(join(base, 'repo', 'runs', 'one'), { recursive: true })
   mkdirSync(join(base, 'repo', 'inner', '.git'), { recursive: true })
@@ -38,7 +49,7 @@ test('the repo is found above an existing folder, however deep, and the nearest 
 })
 
 test('the run lock admits one run, refuses a live holder, and takes over from a dead one', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'lock-'))
+  const dir = tempDir('lock-')
   const lock = join(dir, 'session', 'lock')
   const release = await acquireRunLock(lock, { pid: 111, isAlive: () => true })
   assert.equal(await readFile(lock, 'utf8'), '111')
@@ -63,7 +74,7 @@ test('the run lock admits one run, refuses a live holder, and takes over from a 
 })
 
 test('the run lock treats a process it may not signal as alive', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'lock-'))
+  const dir = tempDir('lock-')
   const lock = join(dir, 'lock')
   // pid 1 always exists and belongs to root: signalling it fails with EPERM.
   writeFileSync(lock, '1')
@@ -78,7 +89,7 @@ test('the run lock treats a process it may not signal as alive', async () => {
 })
 
 test('the last attempt gives up without deleting a lock another run has just taken', async () => {
-  const dir = mkdtempSync(join(tmpdir(), 'lock-'))
+  const dir = tempDir('lock-')
   const lock = join(dir, 'lock')
   writeFileSync(lock, '555')
   // A seam, not a timing trick: right after the stale lock is removed, a competing run takes the
@@ -101,7 +112,7 @@ test('the last attempt gives up without deleting a lock another run has just tak
 })
 
 test('the run lock folder and file are private whatever the umask says', async () => {
-  const lock = join(mkdtempSync(join(tmpdir(), 'lock-')), 'project', 'env', 'lock')
+  const lock = join(tempDir('lock-'), 'project', 'env', 'lock')
   const before = process.umask(0)
   let release
   try {
@@ -117,7 +128,7 @@ test('the run lock folder and file are private whatever the umask says', async (
 })
 
 test('a lock file that cannot be written, for a reason other than already existing, is reported as it is', async () => {
-  const lock = join(mkdtempSync(join(tmpdir(), 'lock-')), 'lock')
+  const lock = join(tempDir('lock-'), 'lock')
   const realWrite = fsPromises.writeFile
   let writes = 0
   // A seam: the disk refuses the write. Such a failure is not a stale lock to take over.

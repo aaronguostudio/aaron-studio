@@ -460,6 +460,7 @@ test('a run fails with the first violation, although later ones are recorded as 
   guard.fail('The walk opened a second tab.')
   step = 'save'
   guard.fail('The walk opened a third tab.')
+  assert.equal(guard.violations.length, 2)
   assert.throws(
     () => guard.assertClean(),
     (e) => e instanceof CaptureRefusal && e.step === 'open' && e.message === 'The walk opened a second tab.'

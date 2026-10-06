@@ -399,4 +399,28 @@ test('--list shows each walk with whether it writes, the environments with their
   assert.match(text, /Params \(--set name=value\):\n {2}centre {2}default "Main" {2}which site the demo uses$/)
   assert.doesNotMatch(describeProject({ ...config, params: undefined }, walks), /Params/)
   assert.match(describeProject(config, [walks[1]]), /^my-app: 1 walk \(--walk\)/)
+  // The name column is at least 4 wide, so a one-letter name is padded to it.
+  assert.match(describeProject(config, [{ name: 'a', title: 'T', writes: false }]), /\n {2}a {5}read-only {2}T\n/)
+})
+
+// A name is joined into paths and into folder names, and "tour/../x" starts like a name, so the
+// patterns must match from the first character to the last.
+test('walk, project, environment and param names must match from end to end, and not be empty', async () => {
+  const project = projectWith({ 'config.mjs': CONFIG, 'walks/tour.mjs': WALK("title: 'Tour'") })
+  for (const name of ['tour/../x', 'tour x', '', 'tour.mjs', 'Tour', 'tour\n'])
+    await rejects(loadWalk(project, name), /walk names are lowercase letters, digits and dashes/)
+  for (const name of ['a b', 'a/b', 'a.b', 'a\n', ''])
+    assert.deepEqual(problemsWith({ name }), ['name must be lowercase letters, digits and dashes'], JSON.stringify(name))
+  for (const name of ['dev env', 'dev/x', 'dev.x', ''])
+    assert.deepEqual(
+      problemsWith({ environments: { [name]: devEnv() } }),
+      [`environments.${name}: environment names are lowercase letters, digits and dashes, and not "runs"`],
+      JSON.stringify(name)
+    )
+  for (const key of ['a b', 'a/b', 'a.b', 'a\n', ''])
+    assert.deepEqual(
+      problemsWith({ params: { [key]: { default: '', describe: 'x' } } }),
+      [`params.${key}: names start with a letter and use letters, digits, - or _`],
+      JSON.stringify(key)
+    )
 })
