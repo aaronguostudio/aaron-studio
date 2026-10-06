@@ -14,11 +14,12 @@ export default {
   isSignedOut: (pageUrl) => new URL(pageUrl).pathname.startsWith('/login'),
   params: { heading: { default: 'Details', describe: 'the heading the tour expects after opening the details' } },
   readOnlyForbidden: [{ method: 'GET', url: /\/items\?mode=recount/ }],
-  // The beacon is allowed with the body the home page sends. The ping rule is deliberately loose
-  // (its body pattern matches the empty string): the engine must still refuse a ping with no body.
+  // An allowed rule matches the whole URL and the whole body. The beacon is allowed with the body the
+  // home page sends. The ping rule is deliberately loose (its body pattern matches the empty string):
+  // the engine must still refuse a ping with no body.
   readOnlyAllowed: [
-    { method: 'POST', url: /\/beacon$/, body: /^\{"page":"[a-z]+"\}$/ },
-    { method: 'POST', url: /\/ping$/, body: /^$/ }
+    { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/beacon/, body: /\{"page":"[a-z]+"\}/ },
+    { method: 'POST', url: /http:\/\/127\.0\.0\.1:\d+\/ping/, body: /^$/ }
   ],
   sameTabLinks: true,
   setup: async ({ page }) => {

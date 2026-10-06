@@ -68,7 +68,7 @@ test('a read the project lists as writing is refused in a read-only walk only', 
 })
 
 test('an allowed non-read passes in a read-only walk, but never on an unlisted host and never when forbidden', () => {
-  const allowed = [{ method: 'POST', url: /\/session\/token$/ }]
+  const allowed = [{ method: 'POST', url: /https:\/\/[a-z.]+\/session\/token/ }]
   assert.equal(classifyRequest({ method: 'POST', url: 'https://app.example.com/session/token' }, policy({ allowed })).action, 'continue')
   assert.equal(classifyRequest({ method: 'POST', url: 'https://other.example.net/session/token' }, policy({ allowed })).kind, 'host')
   const forbidden = [{ method: 'POST', url: /\/session\/token$/ }]
@@ -111,7 +111,7 @@ test('RunGuard aborts a refused request at once and fails the run at the next ch
 })
 
 test('RunGuard hands the request body to the rules', async () => {
-  const allowed = [{ method: 'POST', url: /\/brief$/, body: /^\{"date":"[\d-]+"\}$/ }]
+  const allowed = [{ method: 'POST', url: /https:\/\/app\.example\.com\/brief/, body: /^\{"date":"[\d-]+"\}$/ }]
   const guard = new RunGuard(policy({ allowed }))
   const plain = fakeRoute('POST', 'https://app.example.com/brief', '{"date":"2026-10-05"}')
   await guard.handleRoute(plain)
@@ -216,7 +216,7 @@ test('a request that is not a redirect hop is left to the route handler', () => 
 })
 
 test('a redirect hop hands its body to the rules', () => {
-  const allowed = [{ method: 'POST', url: /\/brief$/, body: /^\{"date":"[\d-]+"\}$/ }]
+  const allowed = [{ method: 'POST', url: /https:\/\/app\.example\.com\/brief/, body: /^\{"date":"[\d-]+"\}$/ }]
   const plain = new RunGuard(policy({ allowed }))
   plain.handleRedirectHop(hop('POST', 'https://app.example.com/brief', { body: '{"date":"2026-10-05"}' }))
   assert.doesNotThrow(() => plain.assertClean())
@@ -417,7 +417,7 @@ test('refusal text carries the method, host and path, and nothing else of the UR
 })
 
 test('while learning, an allowed non-read to an unlisted host is listed as unlisted and not sent', async () => {
-  const allowed = [{ method: 'POST', url: /\/session\/token$/ }]
+  const allowed = [{ method: 'POST', url: /https:\/\/[a-z.]+\/session\/token/ }]
   const learning = policy({ learning: true, allowed })
   const verdict = classifyRequest({ method: 'POST', url: 'https://other.example.org/session/token' }, learning)
   assert.deepEqual([verdict.action, verdict.kind, verdict.host], ['abort', 'unlisted', 'other.example.org'])
@@ -491,7 +491,7 @@ const MATCHES_EMPTY = [/^$/, /.*/, /^/]
 
 test('a rule with a body pattern never matches a request without a readable body', () => {
   for (const body of MATCHES_EMPTY) {
-    const rule = { method: 'POST', url: /\/beacon$/, body }
+    const rule = { method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body }
     assert.equal(matchesRule(rule, { method: 'POST', url: BEACON }), false, `${body} against a missing body`)
     assert.equal(matchesRule(rule, { method: 'POST', url: BEACON, body: undefined }), false, `${body} against undefined`)
     assert.equal(matchesRule(rule, { method: 'POST', url: BEACON, body: null }), false, `${body} against null`)
@@ -504,36 +504,36 @@ test('a rule with a body pattern never matches a request without a readable body
 })
 
 test('a rule without a body pattern still matches a request without a body', () => {
-  const rule = { method: 'POST', url: /\/beacon$/ }
+  const rule = { method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }
   assert.equal(matchesRule(rule, { method: 'POST', url: BEACON }), true)
   assert.equal(matchesRule(rule, { method: 'POST', url: BEACON, body: null }), true)
   assert.equal(classifyRequest({ method: 'POST', url: BEACON, body: null }, policy({ allowed: [rule] })).action, 'continue')
 })
 
 test('an empty string is a body that was read, and a body pattern is tried on it', () => {
-  assert.equal(matchesRule({ method: 'POST', url: /\/beacon$/, body: /^$/ }, { method: 'POST', url: BEACON, body: '' }), true)
-  assert.equal(matchesRule({ method: 'POST', url: /\/beacon$/, body: /^\{/ }, { method: 'POST', url: BEACON, body: '' }), false)
+  assert.equal(matchesRule({ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body: /^$/ }, { method: 'POST', url: BEACON, body: '' }), true)
+  assert.equal(matchesRule({ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body: /^\{/ }, { method: 'POST', url: BEACON, body: '' }), false)
 })
 
 test('a body pattern is tried on a body that was read, even a permissive one', () => {
   for (const body of MATCHES_EMPTY)
-    assert.equal(matchesRule({ method: 'POST', url: /\/beacon$/, body }, { method: 'POST', url: BEACON, body: '{"page":"home"}' }), body.source !== '^$', String(body))
+    assert.equal(matchesRule({ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body }, { method: 'POST', url: BEACON, body: '{"page":"home"}' }), body.source !== '^$', String(body))
 })
 
 test('RunGuard aborts a route whose body is null when the rule has a body pattern', async () => {
   for (const body of MATCHES_EMPTY) {
-    const guard = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body }] }))
+    const guard = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body }] }))
     const route = fakeRoute('POST', BEACON, null)
     await guard.handleRoute(route)
     assert.deepEqual(route.calls, ['abort blockedbyclient'], String(body))
     assert.throws(() => guard.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./)
   }
   // The same request goes through a rule that has no body pattern, and a read body goes through a permissive one.
-  const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/ }] }))
+  const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }] }))
   const open = fakeRoute('POST', BEACON, null)
   await bodiless.handleRoute(open)
   assert.deepEqual(open.calls, ['continue'])
-  const permissive = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body: /.*/ }] }))
+  const permissive = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body: /.*/ }] }))
   const read = fakeRoute('POST', BEACON, '{"page":"home"}')
   await permissive.handleRoute(read)
   assert.deepEqual(read.calls, ['continue'])
@@ -542,7 +542,7 @@ test('RunGuard aborts a route whose body is null when the rule has a body patter
 test('a redirect hop without a readable body fails the run when the rule has a body pattern', () => {
   const noPostData = (url) => ({ method: () => 'POST', url: () => url, redirectedFrom: () => ({}) })
   for (const body of MATCHES_EMPTY) {
-    const rules = policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body }] })
+    const rules = policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body }] })
     const withNull = new RunGuard(rules)
     withNull.handleRedirectHop(hop('POST', BEACON, { body: null }))
     assert.throws(() => withNull.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./, `${body} with a null body`)
@@ -551,11 +551,11 @@ test('a redirect hop without a readable body fails the run when the rule has a b
     assert.throws(() => without.assertClean(), /POST app\.example\.com\/beacon was refused: this walk is read-only\./, `${body} without postData`)
   }
   // A rule without a body pattern lets the same hop through, and a read body goes through a permissive pattern.
-  const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/ }] }))
+  const bodiless = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }] }))
   bodiless.handleRedirectHop(hop('POST', BEACON, { body: null }))
   bodiless.handleRedirectHop(noPostData(BEACON))
   assert.doesNotThrow(() => bodiless.assertClean())
-  const permissive = new RunGuard(policy({ allowed: [{ method: 'POST', url: /\/beacon$/, body: /.*/ }] }))
+  const permissive = new RunGuard(policy({ allowed: [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/, body: /.*/ }] }))
   permissive.handleRedirectHop(hop('POST', BEACON, { body: '{"page":"home"}' }))
   assert.doesNotThrow(() => permissive.assertClean())
 })
@@ -565,7 +565,7 @@ test('a redirect hop without a readable body fails the run when the rule has a b
 const post = (url, body) => ({ method: 'POST', url, body })
 
 test('an allowed rule allows its own method only, in any letter case', () => {
-  const allowed = [{ method: 'post', url: /\/beacon$/ }]
+  const allowed = [{ method: 'post', url: /https:\/\/app\.example\.com\/beacon/ }]
   assert.equal(classifyRequest(post(BEACON), policy({ allowed })).action, 'continue')
   for (const method of ['PUT', 'PATCH', 'DELETE']) {
     const verdict = classifyRequest({ method, url: BEACON }, policy({ allowed }))
@@ -574,7 +574,7 @@ test('an allowed rule allows its own method only, in any letter case', () => {
 })
 
 test('an allowed rule is no way past the host lock, however its pattern matches', async () => {
-  const loose = [{ method: 'POST', url: /./ }]
+  const loose = [{ method: 'POST', url: /.*/ }]
   for (const url of [
     'https://tracker.example.net/beacon',
     'https://app.example.com@tracker.example.net/beacon',
@@ -594,11 +594,20 @@ test('an allowed rule is no way past the host lock, however its pattern matches'
   // Learning lists the host and still sends nothing to it.
   const learning = classifyRequest(post('https://tracker.example.net/beacon'), policy({ allowed: loose, learning: true }))
   assert.deepEqual([learning.action, learning.kind, learning.host], ['abort', 'unlisted', 'tracker.example.net'])
+  // A WebSocket opens with a GET. A project cannot write an allowed GET rule (a read needs none), so
+  // the policy is built by hand: even then the socket to an unlisted host stays closed.
+  const sockets = new RunGuard(policy({ allowed: [{ method: 'GET', url: /.*/ }] }))
+  const calls = []
+  const ws = (url) => ({ url: () => url, close: () => calls.push(`close ${url}`), connectToServer: () => calls.push(`connect ${url}`) })
+  sockets.handleWebSocket(ws('wss://tracker.example.net/hub'))
+  sockets.handleWebSocket(ws('wss://app.example.com/hub'))
+  assert.deepEqual(calls, ['close wss://tracker.example.net/hub', 'connect wss://app.example.com/hub'])
+  assert.throws(() => sockets.assertClean(), /GET tracker\.example\.net\/hub was refused: tracker\.example\.net is not in this environment's hosts\./)
 })
 
 test('a forbidden rule wins over an allowed one, for a request, a route and a redirect hop', async () => {
-  const allowed = [{ method: 'POST', url: /\/beacon$/ }]
-  const forbidden = [{ method: 'POST', url: /\/beacon$/ }]
+  const allowed = [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }]
+  const forbidden = [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }]
   const verdict = classifyRequest(post(BEACON), policy({ allowed, forbidden }))
   assert.deepEqual([verdict.action, verdict.kind], ['abort', 'forbidden'])
   const guard = new RunGuard(policy({ allowed, forbidden }))
@@ -616,12 +625,116 @@ test('a forbidden rule wins over an allowed one, for a request, a route and a re
 })
 
 test('allowed rules change nothing for a walk that declares writes, and a forbidden rule still does not apply', () => {
-  const allowed = [{ method: 'POST', url: /\/beacon$/ }]
+  const allowed = [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }]
   const writes = policy({ readOnly: false, allowed })
   assert.equal(classifyRequest(post('https://app.example.com/items'), writes).action, 'continue')
   assert.equal(classifyRequest(post(BEACON), writes).action, 'continue')
   assert.equal(classifyRequest(post('https://tracker.example.net/beacon'), writes).kind, 'host')
   // Without the read-only flag the rules are not consulted, so a listed host is the only gate.
-  const forbidden = [{ method: 'POST', url: /\/beacon$/ }]
+  const forbidden = [{ method: 'POST', url: /https:\/\/app\.example\.com\/beacon/ }]
   assert.equal(classifyRequest(post(BEACON), policy({ readOnly: false, allowed, forbidden })).action, 'continue')
+})
+
+// ---- An allowed rule matches the whole URL and the whole body ----
+//
+// A forbidden rule that is too broad only refuses too much, so it is searched for in the URL. An
+// allowed rule that is too broad lets too much through, so its url and body must each match from the
+// first character to the last. The pattern is wrapped as ^(?:pattern)$ and the g, m and y flags are
+// dropped: "m" would let ^ and $ match at any line of the text.
+
+const WHOLE = { whole: true }
+const at = (url, body) => ({ method: 'POST', url, body })
+const DATE_BODY = '{"date":"2026-10-05"}'
+
+test('a whole-URL rule matches the entire URL, and a search rule matches a part of it', () => {
+  const url = 'https://app.example.com/session/token'
+  const request = at(url)
+  const pattern = (source, flags) => ({ method: 'POST', url: new RegExp(source, flags) })
+  assert.equal(matchesRule(pattern('https://app\\.example\\.com/session/token'), request, WHOLE), true)
+  assert.equal(matchesRule(pattern('/session/token$'), request), true, 'search finds a part')
+  assert.equal(matchesRule(pattern('/session/token$'), request, WHOLE), false)
+  assert.equal(matchesRule(pattern('https://app\\.example\\.com/session/tok'), request, WHOLE), false)
+  assert.equal(matchesRule(pattern('app\\.example\\.com/session/token'), request, WHOLE), false)
+  assert.equal(matchesRule(pattern('https://app\\.example\\.com/session/token/revoke-all'), at(`${url}/revoke-all?x=1`), WHOLE), false)
+  // The query is part of the URL: a rule for the bare path does not allow a request with a query.
+  assert.equal(matchesRule(pattern('https://app\\.example\\.com/session/token'), at(`${url}?next=1`), WHOLE), false)
+  assert.equal(matchesRule(pattern('https://app\\.example\\.com/session/token\\?next=\\d'), at(`${url}?next=1`), WHOLE), true)
+  // An alternation is whole as a group: each branch must match the entire URL.
+  const either = pattern('https://app\\.example\\.com/a|https://app\\.example\\.com/b')
+  assert.equal(matchesRule(either, at('https://app.example.com/a'), WHOLE), true)
+  assert.equal(matchesRule(either, at('https://app.example.com/b'), WHOLE), true)
+  assert.equal(matchesRule(either, at('https://app.example.com/a/more'), WHOLE), false)
+  assert.equal(matchesRule(either, at('https://app.example.com/more/b'), WHOLE), false)
+  // The i flag is kept, and the others the pattern has with it.
+  assert.equal(matchesRule(pattern('https://APP\\.example\\.com/Session/Token', 'i'), request, WHOLE), true)
+  assert.equal(matchesRule(pattern('https://APP\\.example\\.com/Session/Token'), request, WHOLE), false)
+  // The lower-case method still has to match.
+  assert.equal(matchesRule(pattern('https://app\\.example\\.com/session/token'), { method: 'PUT', url }, WHOLE), false)
+})
+
+test('an allowed rule url that is only a part of the URL allows nothing', () => {
+  const rule = (url) => policy({ allowed: [{ method: 'POST', url }] })
+  const verdict = (url, rules) => classifyRequest(post(url), rules)
+  // ".../delete?next=/session/token" ends in the rule's text, but is another endpoint.
+  assert.equal(verdict('https://app.example.com/delete?next=/session/token', rule(/\/session\/token$/)).kind, 'write')
+  // "/session/token/revoke-all" starts with the rule's text, but is another endpoint.
+  assert.equal(verdict('https://app.example.com/session/token/revoke-all', rule(/\/session\/token/)).kind, 'write')
+  // "." is one character, not any URL.
+  assert.equal(verdict('https://app.example.com/session/token', rule(/./)).kind, 'write')
+  assert.equal(matchesRule({ method: 'POST', url: /./ }, at('x'), WHOLE), true, 'a one-character URL')
+  assert.equal(matchesRule({ method: 'POST', url: /./ }, at('xy'), WHOLE), false)
+  // The exact URL, query included, is allowed; the same pattern does not allow another query.
+  const exact = rule(/https:\/\/app\.example\.com\/brief\?date=\d{8}&lang=en/)
+  assert.equal(verdict('https://app.example.com/brief?date=20261005&lang=en', exact).action, 'continue')
+  assert.equal(verdict('https://app.example.com/brief?date=20261005&lang=en&refresh=1', exact).kind, 'write')
+  assert.equal(verdict('https://app.example.com/brief?date=20261005', exact).kind, 'write')
+  // A readOnlyForbidden rule is still searched for in the URL: the broad pattern refuses more, which is safe.
+  const forbidden = [{ method: 'GET', url: /mode=recount/ }]
+  assert.equal(classifyRequest(get('https://app.example.com/items?mode=recount&x=1'), policy({ forbidden })).kind, 'forbidden')
+})
+
+test('an allowed rule body matches the whole body, not a part of it', () => {
+  const rule = (body) => ({ method: 'POST', url: /https:\/\/app\.example\.com\/brief/, body })
+  const request = (body) => at('https://app.example.com/brief', body)
+  const verdict = (body, pattern) => classifyRequest(request(body), policy({ allowed: [rule(pattern)] })).action
+  // The exact body is allowed.
+  assert.equal(verdict(DATE_BODY, /\{"date":"[\d-]+"\}/), 'continue')
+  assert.equal(verdict(DATE_BODY, /^\{"date":"[\d-]+"\}$/), 'continue')
+  assert.equal(verdict(DATE_BODY, /\{"date":"2026-10-05"\}/), 'continue')
+  // A pattern with no anchors finds part of a bigger body, which must be refused.
+  assert.equal(verdict('{"date":"2026-10-05","refresh":true}', /"date":"[\d-]+"/), 'abort')
+  assert.equal(verdict('{"date":"2026-10-05","refresh":true}', /\{"date":"[\d-]+"/), 'abort')
+  // Only the start is anchored.
+  assert.equal(verdict('{"token":"a","revoke":true}', /^\{"token"/), 'abort')
+  assert.equal(verdict('{"token":"a"}', /^\{"token"/), 'abort')
+  // Only the end is anchored.
+  assert.equal(verdict('{"token":"a","revoke":true}', /"revoke":true\}$/), 'abort')
+  // The m flag lets ^ and $ match at any line: the pattern matches the last line of a bigger body.
+  assert.equal(verdict('{"a":1}\n{"date":"2026-10-05"}', /^\{"date":"[\d-]+"\}$/m), 'abort')
+  assert.equal(verdict('{"date":"2026-10-05"}\nrefresh', /^\{"date":"[\d-]+"\}$/m), 'abort')
+  assert.equal(verdict(DATE_BODY, /^\{"date":"[\d-]+"\}$/m), 'continue')
+  // An alternation: "^A$|^B" is A, or anything that starts with B, until the pattern is whole as a group.
+  assert.equal(verdict('A', /^A$|^B/), 'continue')
+  assert.equal(verdict('B', /^A$|^B/), 'continue')
+  assert.equal(verdict('B and more', /^A$|^B/), 'abort')
+  assert.equal(verdict('A and more', /A|B/), 'abort')
+  assert.equal(verdict('more B', /A|B/), 'abort')
+  // The g and y flags change nothing: the same pattern gives the same answer every time.
+  for (const flags of ['g', 'y', 'gy'])
+    for (let round = 0; round < 3; round++) {
+      assert.equal(verdict(DATE_BODY, new RegExp('\\{"date":"[\\d-]+"\\}', flags)), 'continue', flags)
+      assert.equal(verdict(`${DATE_BODY} `, new RegExp('\\{"date":"[\\d-]+"\\}', flags)), 'abort', flags)
+    }
+  // The i flag is kept.
+  assert.equal(verdict('{"DATE":"x"}', /\{"date":"x"\}/i), 'continue')
+  assert.equal(verdict('{"DATE":"x"}', /\{"date":"x"\}/), 'abort')
+  // A body that was not read still matches nothing, however loose the pattern.
+  assert.equal(classifyRequest(request(null), policy({ allowed: [rule(/.*/)] })).action, 'abort')
+})
+
+test('matching the whole text is only for allowed rules: a forbidden rule is searched for', () => {
+  const forbidden = [{ method: 'POST', url: /\/items/ }]
+  assert.equal(classifyRequest(post('https://app.example.com/items/7/archive'), policy({ forbidden })).kind, 'forbidden')
+  const allowed = [{ method: 'POST', url: /\/items/ }]
+  assert.equal(classifyRequest(post('https://app.example.com/items/7/archive'), policy({ allowed })).kind, 'write')
 })

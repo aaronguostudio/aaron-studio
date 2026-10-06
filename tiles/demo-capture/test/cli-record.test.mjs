@@ -507,7 +507,9 @@ test('main reports the violation, not the navigation error it caused, and prints
 // ---- readOnlyAllowed: the config's list reaches the guard that judges every request ----
 
 const BEACON = 'http://127.0.0.1:9/beacon'
-const allowBeacon = { method: 'POST', url: /\/beacon$/, body: /^\{"page":"[a-z]+"\}$/ }
+// An allowed rule matches the whole URL, so the pattern names the scheme, host and path; it takes any host
+// here so that the host lock, not the rule, is what refuses a beacon to an unlisted one.
+const allowBeacon = { method: 'POST', url: /https?:\/\/[a-z0-9.]+(?::\d+)?\/beacon/, body: /\{"page":"[a-z]+"\}/ }
 const REFUSED_BEACON = 'POST 127.0.0.1/beacon was refused: this walk is read-only.'
 
 // Sends each [method, url, body] through the route handler the run installed, in one step, and
@@ -557,13 +559,13 @@ test('without readOnlyAllowed every non-read of a read-only walk is refused', as
 })
 
 test('a body pattern that matches the empty string does not allow a request without a body', async () => {
-  const config = { readOnlyAllowed: [{ method: 'POST', url: /\/ping$/, body: /^$/ }] }
+  const config = { readOnlyAllowed: [{ method: 'POST', url: /http:\/\/127\.0\.0\.1:9\/ping/, body: /^$/ }] }
   const ping = 'http://127.0.0.1:9/ping'
   const bodiless = await sendThrough(config, [['POST', ping, null]])
   assert.deepEqual(bodiless.told, ['abort blockedbyclient'])
   assert.equal(bodiless.capture.failure, 'POST 127.0.0.1/ping was refused: this walk is read-only.')
   // A rule without a body pattern is how a bodiless request is allowed.
-  const open = await sendThrough({ readOnlyAllowed: [{ method: 'POST', url: /\/ping$/ }] }, [['POST', ping, null]])
+  const open = await sendThrough({ readOnlyAllowed: [{ method: 'POST', url: /http:\/\/127\.0\.0\.1:9\/ping/ }] }, [['POST', ping, null]])
   assert.deepEqual(open.told, ['continue'])
 })
 

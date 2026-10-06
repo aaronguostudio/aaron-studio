@@ -172,17 +172,28 @@ export function describeRequest(method, url) {
   }
 }
 
+// `pattern` as a RegExp that matches only the whole text: ^(?:pattern)$. The g, m and y flags are
+// dropped. "m" would let ^ and $ match at any line of the text, so a pattern could match one line of
+// a bigger body; g and y make a RegExp remember where it stopped.
+function wholeOf(pattern) {
+  return new RegExp(`^(?:${pattern.source})$`, pattern.flags.replace(/[gmy]/g, ''))
+}
+
 // A { method, url, body? } rule: the method matches exactly, `url` (a RegExp) is found in the
-// full URL, and `body`, when the rule has one, is found in the request body. A rule with a body
-// pattern needs a body that was read: a request with no body, or one the browser could not read
-// (both arrive as null), never matches it, however permissive the pattern ("^$" and ".*" match the
-// empty string). An empty string is a body that was read. A request without a body needs a rule
-// without a body pattern.
-export function matchesRule(rule, { method, url, body }) {
+// full URL, and `body`, when the rule has one, is found in the request body. By default a pattern
+// is found anywhere in the text, which is right for a rule that refuses (a pattern that is too
+// broad only refuses too much). With `whole`, each pattern must match the entire URL or body: that
+// is how a rule that allows is read, because a pattern that is too broad would allow too much.
+// A rule with a body pattern needs a body that was read: a request with no body, or one the
+// browser could not read (both arrive as null), never matches it, however permissive the pattern
+// ("^$" and ".*" match the empty string). An empty string is a body that was read. A request
+// without a body needs a rule without a body pattern.
+export function matchesRule(rule, { method, url, body }, { whole = false } = {}) {
   if (rule.method.toUpperCase() !== method.toUpperCase()) return false
-  if (url.search(rule.url) < 0) return false
+  const found = whole ? (pattern, text) => wholeOf(pattern).test(text) : (pattern, text) => text.search(pattern) >= 0
+  if (!found(rule.url, url)) return false
   if (rule.body === undefined) return true
-  return typeof body === 'string' && body.search(rule.body) >= 0
+  return typeof body === 'string' && found(rule.body, body)
 }
 
 // What the network guard does with one request. `policy`:
@@ -192,7 +203,8 @@ export function matchesRule(rule, { method, url, body }) {
 //              has its scheme's default (80 for http and ws, 443 for https and wss).
 //   readOnly   the walk declares writes: false
 //   forbidden  readOnlyForbidden rules: reads that write
-//   allowed    non-GET rules a read-only walk may send because they change no data
+//   allowed    non-read rules a read-only walk may send because they change no data. Each rule's
+//              url and body must match the whole URL and the whole body (see matchesRule)
 //   learning   --learn-hosts: unlisted hosts are let through and remembered. A non-read is never
 //              sent to an unlisted host, even when `allowed` lists it: the host is remembered and
 //              the request is aborted.
@@ -228,7 +240,7 @@ export function classifyRequest(request, { hosts, readOnly, forbidden = [], allo
   const named = entries.some((entry) => entry.host === host) ? `${host}:${port}` : host
   if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))
     return { action: 'abort', kind: 'forbidden', host, where, reason: `${where} was refused: the project lists it as a read that writes.` }
-  if (readOnly && !isRead && !allowed.some((rule) => matchesRule(rule, request)))
+  if (readOnly && !isRead && !allowed.some((rule) => matchesRule(rule, request, { whole: true })))
     return { action: 'abort', kind: 'write', host, where, reason: `${where} was refused: this walk is read-only.` }
   if (!listed) {
     if (learning) {

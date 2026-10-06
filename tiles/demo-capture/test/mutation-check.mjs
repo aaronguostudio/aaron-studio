@@ -26,6 +26,8 @@
 //                                           another, killed under a umask that strips the mode.
 //   if (!config.revision) return 'unknown'  the try/catch below it answers the same.
 //   `?? []` after config.readOnlyAllowed    checkedPolicy defaults a missing list the same way.
+//   "g" and "y" in wholeOf's stripped flags  each call builds a new RegExp and tests it once, from the
+//                                           start, so neither flag can show.
 //   let connect = false in handleWebSocket  the catch sets it to false as well.
 //   if (up === probe) return null           in enclosingRepo's walk up to an existing folder: the
 //                                           root always exists on POSIX, so the walk never gets
@@ -194,12 +196,24 @@ export const MUTANTS = [
   m('guards', 'if (rule.method.toUpperCase() !== method.toUpperCase()) return false', '', 'guards-network.test'),
   m('guards', 'rule.method.toUpperCase() !== method.toUpperCase()', 'rule.method !== method.toUpperCase()', 'project.test'),
   m('guards', 'rule.method.toUpperCase() !== method.toUpperCase()', 'rule.method.toUpperCase() !== method', 'guards-network.test'),
-  m('guards', 'if (url.search(rule.url) < 0) return false', '', 'guards-network.test'),
-  m('guards', 'url.search(rule.url) < 0', '!rule.url.test(url)', 'guards-network.test'),
-  m('guards', "return typeof body === 'string' && body.search(rule.body) >= 0", 'return true', 'guards-network.test'),
-  m('guards', "return typeof body === 'string' && body.search(rule.body) >= 0", "return String(body ?? '').search(rule.body) >= 0", 'guards-network.test'),
-  m('guards', "return typeof body === 'string' && body.search(rule.body) >= 0", 'return body.search(rule.body) >= 0', 'guards-network.test'),
+  m('guards', 'if (!found(rule.url, url)) return false', '', 'guards-network.test'),
+  m('guards', 'if (!found(rule.url, url)) return false', 'if (!rule.url.test(url)) return false', 'guards-network.test'),
+  m('guards', "return typeof body === 'string' && found(rule.body, body)", 'return true', 'guards-network.test'),
+  m('guards', "return typeof body === 'string' && found(rule.body, body)", "return found(rule.body, String(body ?? ''))", 'guards-network.test'),
+  m('guards', "return typeof body === 'string' && found(rule.body, body)", 'return found(rule.body, body)', 'guards-network.test'),
   m('guards', 'if (rule.body === undefined) return true\n', '', 'guards-network.test'),
+
+  // guards.mjs, an allowed rule matches the whole URL and the whole body; a forbidden rule is searched for
+  m('guards', 'const found = whole ? (pattern, text) => wholeOf(pattern).test(text) : (pattern, text) => text.search(pattern) >= 0', 'const found = (pattern, text) => text.search(pattern) >= 0', 'guards-network.test'),
+  m('guards', 'const found = whole ? (pattern, text) => wholeOf(pattern).test(text) : (pattern, text) => text.search(pattern) >= 0', 'const found = (pattern, text) => wholeOf(pattern).test(text)', 'guards-network.test'),
+  m('guards', 'const found = whole ? ', 'const found = !whole ? ', 'guards-network.test'),
+  m('guards', '`^(?:${pattern.source})$`', '`(?:${pattern.source})$`', 'guards-network.test'),
+  m('guards', '`^(?:${pattern.source})$`', '`^(?:${pattern.source})`', 'guards-network.test'),
+  m('guards', '`^(?:${pattern.source})$`', '`^${pattern.source}$`', 'guards-network.test'),
+  m('guards', "pattern.flags.replace(/[gmy]/g, '')", "pattern.flags.replace(/[gy]/g, '')", 'guards-network.test'),
+  m('guards', "pattern.flags.replace(/[gmy]/g, '')", "''", 'guards-network.test'),
+  m('guards', '!allowed.some((rule) => matchesRule(rule, request, { whole: true }))', '!allowed.some((rule) => matchesRule(rule, request))', 'guards-network.test'),
+  m('guards', 'forbidden.some((rule) => matchesRule(rule, request)))', 'forbidden.some((rule) => matchesRule(rule, request, { whole: true })))', 'guards-network.test'),
 
   // guards.mjs, host:port matching and the host entries a policy may hold
   m('guards', 'entry.host === host && (entry.port === null || entry.port === port)', 'entry.host === host', 'guards-network.test'),
@@ -243,7 +257,7 @@ export const MUTANTS = [
   m('guards', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))', 'if (false)', 'guards-network.test'),
   m('guards', 'if (readOnly && !isRead && !allowed.some(', 'if (!isRead && !allowed.some(', 'guards-network.test'),
   m('guards', 'if (readOnly && !isRead &&', 'if (readOnly && false &&', 'guards-network.test'),
-  m('guards', ' && !allowed.some((rule) => matchesRule(rule, request)))', ')', 'guards-network.test'),
+  m('guards', ' && !allowed.some((rule) => matchesRule(rule, request, { whole: true })))', ')', 'guards-network.test'),
   m('guards', 'if (!listed) {', 'if (false) {', 'guards-network.test'),
   m('guards', 'if (learning) {', 'if (false) {', 'guards-network.test'),
   m('guards', "if (!isRead)\n        return { action: 'abort', kind: 'unlisted'", "if (false)\n        return { action: 'abort', kind: 'unlisted'", 'guards-network.test'),
@@ -396,9 +410,9 @@ export const MUTANTS = [
   m('cli', 'allowed: config.readOnlyAllowed ?? [],', 'allowed: config.readOnlyForbidden ?? [],', 'cli-record.test'),
   m('cli', "          'A non-read that changes no data may go in readOnlyAllowed, once a person approves it. ' +\n", '', 'cli-record.test'),
   m('cli', "          'A read listed in readOnlyForbidden stays refused.'", "          ''", 'cli-record.test'),
-  m('guards', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)) && !allowed.some((rule) => matchesRule(rule, request)))', 'guards-network.test'),
-  m('guards', ' && !allowed.some((rule) => matchesRule(rule, request)))', ' && !allowed.some((rule) => matchesRule({ ...rule, method: request.method }, request)))', 'guards-network.test'),
-  m('guards', 'const listed = entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))', 'const listed = allowed.some((rule) => matchesRule(rule, request)) || entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))', 'guards-network.test'),
+  m('guards', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)))', 'if (readOnly && forbidden.some((rule) => matchesRule(rule, request)) && !allowed.some((rule) => matchesRule(rule, request, { whole: true })))', 'guards-network.test'),
+  m('guards', ' && !allowed.some((rule) => matchesRule(rule, request, { whole: true })))', ' && !allowed.some((rule) => matchesRule({ ...rule, method: request.method }, request, { whole: true })))', 'guards-network.test'),
+  m('guards', 'const listed = entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))', 'const listed = allowed.some((rule) => matchesRule(rule, request, { whole: true })) || entries.some((entry) => entry.host === host && (entry.port === null || entry.port === port))', 'guards-network.test'),
   m('guards', 'body: request.postData() })', "body: request.postData() ?? '' })", 'capture.e2e')
 ]
 
