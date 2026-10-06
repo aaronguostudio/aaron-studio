@@ -41,6 +41,8 @@ const runCapture = (args) =>
   run(process.execPath, [CLI, '--project', PROJECT, ...args], { DEMO_CAPTURE_HOME: root, DEMO_CAPTURE_FIXTURE_URL: app.url })
 const renderDryRun = (dir) => run('npx', ['-y', 'bun', RENDERER, dir, '--dry-run'])
 const outDir = (name) => join(root, 'out', name)
+// What the fixture received since `before` (a requests().length), as { method, path, body }.
+const receivedFrom = (before) => app.requests().slice(before).map(({ method, path, body }) => ({ method, path, body }))
 const readJson = async (path) => JSON.parse(await readFile(path, 'utf8'))
 
 // The requests the fixture received since `snapshot` (a hostCounts() snapshot), by Host header. The
@@ -100,8 +102,12 @@ after(async () => {
 test('a read-only tour passes on the saved session, re-saves it, and passes the renderer validator', async () => {
   const { dir, state } = sessionPaths(root, 'fixture-app', 'local')
   const savedBefore = (await stat(state)).mtimeMs
+  const before = app.requests().length
   const result = await runCapture(['--env', 'local', '--walk', 'tour', '--out', outDir('tour')])
   assert.equal(result.code, 0, result.output)
+  // The tour's home page had its quirks on: the image its CSP blocks never left the browser, and
+  // neither it nor the data: and blob: requests tripped the guard.
+  assert.deepEqual(receivedFrom(before).filter((request) => request.path === '/logo.svg'), [])
   assert.match(result.output, /Captured: /)
   const capture = await readJson(join(outDir('tour'), 'capture.json'))
   assert.equal(capture.status, 'passed')
@@ -160,9 +166,12 @@ test('--learn-hosts lets the unlisted host through, names it, and never yields a
 })
 
 test('a walk that declares writes may post', async () => {
+  const before = app.requests().length
   const result = await runCapture(['--env', 'local', '--walk', 'adds-item', '--out', outDir('adds')])
   assert.equal(result.code, 0, result.output)
   assert.equal((await readJson(join(outDir('adds'), 'capture.json'))).status, 'passed')
+  // The post really reached the app.
+  assert.deepEqual(receivedFrom(before).filter((request) => request.method === 'POST'), [{ method: 'POST', path: '/items', body: '' }])
 })
 
 // The redirect tests. A route handler sees only the first URL of a request, so a hop of a redirect
@@ -260,9 +269,6 @@ test('launchArgs lets a listed localhost through, and an unlisted one stays refu
   assert.equal(receivedSince(refusedSnapshot)[`localhost:${app.port}`], undefined)
 })
 
-// What the fixture received since `before` (a requests().length), as { method, path, body }.
-const receivedFrom = (before) => app.requests().slice(before).map(({ method, path, body }) => ({ method, path, body }))
-
 test('readOnlyAllowed lets a listed non-read through, only with a body that matches', async () => {
   const before = app.requests().length
   const result = await runCapture(['--env', 'local', '--walk', 'sends-beacons', '--out', outDir('beacons')])
@@ -345,4 +351,32 @@ test('--learn-hosts lists the host a redirected post reached as unlisted, not re
   // It was sent for real, with its body: the learning run could not stop it.
   const reached = app.requests().slice(before).filter((request) => request.host.startsWith('localhost'))
   assert.deepEqual(reached.map(({ method, path, body }) => ({ method, path, body })), [{ method: 'POST', path: '/items', body: '{"page":"home"}' }])
+})
+
+// A shared worker's requests reach neither the route guard nor the request events (the final review
+// proved a POST from one got through), so the engine blocks shared workers in every page.
+test('a page that starts a shared worker fails the run, and the worker neither starts nor sends anything', async () => {
+  const before = app.requests().length
+  const result = await runCapture(['--env', 'local', '--walk', 'starts-shared-worker', '--out', outDir('shared')])
+  assert.equal(result.code, 1, result.output)
+  const capture = await readJson(join(outDir('shared'), 'capture.json'))
+  assert.equal(capture.failedStep, 'share')
+  assert.equal(capture.failure, 'The page started a shared worker, whose requests the guard cannot see.')
+  const received = receivedFrom(before)
+  assert.deepEqual(received.filter((request) => request.method === 'POST' && request.path === '/items'), [])
+  assert.deepEqual(received.filter((request) => request.path === '/shared-worker.js'), [])
+  await assertRendererRefuses(outDir('shared'))
+})
+
+// A walk's own page.route runs before the engine's context.route. The guard cannot stop what such a
+// route sends, but it hears that a request it never judged finished, and the run fails.
+test('a walk that answers its own route fails the run, which says the request went out without the guard', async () => {
+  const before = app.requests().length
+  const result = await runCapture(['--env', 'local', '--walk', 'answers-its-own-route', '--out', outDir('own-route')])
+  assert.equal(result.code, 1, result.output)
+  const capture = await readJson(join(outDir('own-route'), 'capture.json'))
+  assert.equal(capture.failedStep, 'post')
+  assert.equal(capture.failure, 'A request went out without the guard: the walk handled it with its own route (POST 127.0.0.1/items).')
+  // It did go out: this is a tripwire, not a block.
+  assert.deepEqual(receivedFrom(before).filter((request) => request.method === 'POST'), [{ method: 'POST', path: '/items', body: '' }])
 })

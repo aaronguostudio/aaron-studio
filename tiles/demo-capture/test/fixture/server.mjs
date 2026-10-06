@@ -31,9 +31,21 @@ const BEACONS = `<script>fetch('/beacon', { method: 'POST', body: JSON.stringify
 <button type="button" onclick="fetch('/bounce-post', { method: 'POST', body: JSON.stringify({ page: 'home' }) })">Send redirected post</button>
 <button type="button" onclick="fetch('/bounce-post-localhost', { method: 'POST', body: JSON.stringify({ page: 'home' }) })">Send redirected post by name</button>`
 
+// ?shared=1 offers a button that starts a shared worker, whose script posts to /items. The page
+// catches the error the engine's block throws, as an app might.
+const SHARED = `<button type="button" onclick="try { new SharedWorker('/shared-worker.js').port.start() } catch (error) { document.title = error.name }">Start shared worker</button>`
+const SHARED_WORKER_SCRIPT = "fetch('/items', { method: 'POST', body: 'from-shared-worker' })"
+
+// ?quirks=1 adds what the browser handles without a request the route guard judges: a data: image,
+// a blob: and a data: fetch, and an image that the page's Content-Security-Policy (img-src data:)
+// blocks before it is sent. A passing walk on it shows that none of these trips the guard.
+const QUIRKS = `<img alt="" width="4" height="4" src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%224%22 height=%224%22/%3E">
+<img alt="" width="4" height="4" src="/logo.svg">
+<script>fetch(URL.createObjectURL(new Blob(['local']))); fetch('data:text/plain,local')</script>`
+
 // ?outside=1 adds an image from another host (localhost), for the host lock. The two links lead
 // to routes that answer with a redirect to another host, for the hops the route guard cannot see.
-const home = (port, { outside, beacon }) =>
+const home = (port, { outside, beacon, shared, quirks }) =>
   page(
     'Home',
     `<label>Search <input name="q"></label>
@@ -42,7 +54,9 @@ const home = (port, { outside, beacon }) =>
 <button type="button" onclick="fetch('/items?mode=recount')">Recount</button>
 <p><a href="/bounce-localhost">Visit partner</a> <a href="/bounce-loopback6">Visit partner by IPv6</a></p>
 ${outside ? `<img alt="Partner logo" src="http://localhost:${port}/logo.svg" width="40" height="40">` : ''}
-${beacon ? BEACONS : ''}`
+${beacon ? BEACONS : ''}
+${shared ? SHARED : ''}
+${quirks ? QUIRKS : ''}`
   )
 
 const DETAILS = page('Details', '<p>Three items are in the list.</p>')
@@ -76,6 +90,7 @@ export async function startFixture() {
       res.end(body)
     }
     if (url.pathname === '/logo.svg') return send(200, LOGO, { 'content-type': 'image/svg+xml' })
+    if (url.pathname === '/shared-worker.js') return send(200, SHARED_WORKER_SCRIPT, { 'content-type': 'text/javascript' })
     // Answers with a redirect to the same port on another name for this machine: localhost is not
     // listed by the fixture adapter, and [::1] is an IP literal that is not listed either.
     if (url.pathname === '/bounce-localhost') return send(302, '', { location: `http://localhost:${port()}/logo.svg` })
@@ -87,8 +102,11 @@ export async function startFixture() {
       return send(303, '', ok ? { location: '/home', 'set-cookie': 'session=ok; HttpOnly; Path=/; SameSite=Lax' } : { location: '/login' })
     }
     if (!/(?:^|;\s*)session=ok(?:;|$)/.test(req.headers.cookie ?? '')) return send(302, '', { location: '/login' })
-    if (url.pathname === '/home')
-      return send(200, home(port(), { outside: url.searchParams.has('outside'), beacon: url.searchParams.has('beacon') }))
+    if (url.pathname === '/home') {
+      const has = (flag) => url.searchParams.has(flag)
+      const quirks = has('quirks') ? { 'content-security-policy': 'img-src data:' } : {}
+      return send(200, home(port(), { outside: has('outside'), beacon: has('beacon'), shared: has('shared'), quirks: has('quirks') }), quirks)
+    }
     if (url.pathname === '/beacon' || url.pathname === '/ping') return send(204, '')
     // A 307 keeps the method and the body: the browser sends the same POST to the new URL. The second
     // goes to another name for this machine, which the fixture adapter does not list.

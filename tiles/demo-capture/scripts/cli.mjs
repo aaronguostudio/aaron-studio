@@ -8,8 +8,8 @@
 //   node scripts/cli.mjs --project <dir> --env <name> --walk <name>
 //
 // Exit codes: 0 captured (or a learning run that reached its end), 1 the walk failed, 2 refused.
-import { existsSync, realpathSync } from 'node:fs'
-import { mkdir, mkdtemp, readdir, rm } from 'node:fs/promises'
+import { existsSync, realpathSync, rmSync } from 'node:fs'
+import { mkdir, mkdtemp, readFile, readdir, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -50,8 +50,14 @@ import {
 
 const TILE = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 export const LEARNING_FAILURE = 'Learning run, no video.'
-const SECOND_TAB =
-  'The walk opened a second tab, and a capture records one tab. Set sameTabLinks: true in the config if the app opens links in new tabs.'
+const SECOND_TAB = 'The walk opened a second tab, and a capture records one tab.'
+// What to do about it, which depends on whether the config already keeps links in one tab.
+const SECOND_TAB_FIX = 'Set sameTabLinks: true in the config if the app opens links in new tabs.'
+const SECOND_TAB_SAME_TAB_LINKS =
+  'sameTabLinks is set, so something it does not cover opened the tab (a form with a target, or a click with a modifier key); change the walk so it stays in one tab.'
+const SHARED_WORKER = 'The page started a shared worker, whose requests the guard cannot see.'
+const SHARED_WORKER_BINDING = '__demoCaptureSharedWorker'
+const UNREADABLE_STATE = 'The saved session could not be read; run sign-in again.'
 
 const NO_VIDEO_FAILURE = 'The recording was not saved.'
 
@@ -130,8 +136,11 @@ async function launchBrowser(chromium, options) {
 
 // The browser's own DNS rules: while recording, no name resolves except the environment's hosts.
 // This is the backstop behind the route guard, for what the route handler never sees: the hops of
-// a redirect and the sockets of workers (no test exercises the workers). The route guard stays the
-// first line of defence, and the only one that judges a request by its method as well as its host.
+// a redirect, the sockets of workers (no test exercises the workers), and requests the browser
+// makes outside any page's network, such as a favicon. A shared worker's requests are among those,
+// and its fetches are not judged by method at all, so record() blocks shared workers outright (see
+// blockSharedWorkers). The route guard stays the first line of defence, and the only one that
+// judges a request by its method as well as its host.
 // Observed in test/capture.e2e.mjs (Chromium 1234 from Playwright 1.62.1, macOS): neither localhost
 // nor an IP literal is exempt from `MAP * ~NOTFOUND`. With the rules on, a redirect to localhost or
 // to [::1] never reaches the server, and listing one brings it back (EXCLUDE localhost, EXCLUDE
@@ -171,11 +180,50 @@ function sameTabLinks() {
   )
 }
 
+// Runs in every page and frame, before the page's own scripts: `new SharedWorker()` throws, and
+// tells the engine through its binding. Playwright's routes and request events never see a shared
+// worker's requests, so neither the host lock nor read-only could judge them (dedicated workers,
+// sendBeacon and keepalive fetches are routed like any other request). A page that catches the
+// error has still tried, so the run fails all the same.
+function blockSharedWorkers() {
+  const report = window.__demoCaptureSharedWorker
+  Object.defineProperty(window, 'SharedWorker', {
+    configurable: true,
+    writable: true,
+    value: function SharedWorker() {
+      report?.()
+      throw new DOMException('Shared workers are blocked while recording.', 'SecurityError')
+    }
+  })
+}
+
+// The saved session, read and parsed here: a file that is not JSON is a refusal that shows none of
+// it (Playwright's own error would quote a piece of the file).
+async function readSavedState(statePath) {
+  try {
+    return JSON.parse(await readFile(statePath, 'utf8'))
+  } catch {
+    throw new CaptureRefusal(UNREADABLE_STATE)
+  }
+}
+
+// Whether `url` is not on `origin`; a URL that cannot be read is not on it either.
+function offOrigin(url, origin) {
+  try {
+    return new URL(url).origin !== origin
+  } catch {
+    return true
+  }
+}
+
 // Records one walk. Returns { capture, learned } once capture.json and steps.json are written.
-// When the session turned out to be signed out it returns { signedOut: true } instead: no
-// capture.json, steps.json or video is written, and the session is not saved again (the caller
-// deletes it and starts the run folder afresh); screenshots of steps that ran may still be in the
-// run folder until then. A browser that will not start is a CaptureRefusal.
+// When the session turned out to be signed out it returns { signedOut: true, violations } instead,
+// with the reasons of what the guard found in that attempt: no capture.json, steps.json or video is
+// written, and the session is not saved again (the caller deletes it, says the violations, and
+// starts the run folder afresh); screenshots of steps that ran may still be in the run folder until
+// then. Signed out means, at the start page and after setup, a page off the app's origin or one
+// isSignedOut calls signed out, and before each step, one isSignedOut calls signed out. A saved
+// session that cannot be read and a browser that will not start are CaptureRefusals.
 export async function record({ chromium, config, env, walk, params, runDir, statePath, learnHosts, headed, log = console.log }) {
   let rec = null
   let signedOut = false
@@ -191,7 +239,11 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
     },
     { currentStep: () => rec?.attempting ?? null }
   )
+  const storageState = await readSavedState(statePath)
   const videoDir = await mkdtemp(join(tmpdir(), 'demo-capture-video-'))
+  // The recording is raw screens: a process that exits in the middle of the run removes it too.
+  const removeVideoDir = () => rmSync(videoDir, { recursive: true, force: true })
+  process.on('exit', removeVideoDir)
   let browser = null
   try {
     browser = await launchBrowser(chromium, {
@@ -201,7 +253,7 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
     const context = await browser.newContext({
       viewport: VIEWPORT,
       recordVideo: { dir: videoDir, size: VIEWPORT },
-      storageState: statePath,
+      storageState,
       acceptDownloads: true,
       // A service worker's own fetches would bypass the network guard.
       serviceWorkers: 'block'
@@ -212,18 +264,24 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
     context.on('request', (request) => {
       if (request.redirectedFrom()) guard.handleRedirectHop(request)
     })
+    // A request the route handler never saw, because a walk answered its own route, still finishes.
+    context.on('requestfinished', (request) => guard.handleFinished(request))
+    await context.exposeBinding(SHARED_WORKER_BINDING, () => guard.fail(SHARED_WORKER))
+    await context.addInitScript(blockSharedWorkers)
     if (config.sameTabLinks) await context.addInitScript(sameTabLinks)
     const page = await context.newPage()
     context.on('page', (other) => {
       if (other === page) return
-      guard.fail(SECOND_TAB)
+      guard.fail(`${SECOND_TAB} ${config.sameTabLinks ? SECOND_TAB_SAME_TAB_LINKS : SECOND_TAB_FIX}`)
       other.close().catch(() => undefined)
     })
     // Playwright dismisses dialogs by default, and a dismissed "leave this page?" keeps the walk
-    // where it is. A capture always means to go on.
-    page.on('dialog', (dialog) =>
-      (dialog.type() === 'beforeunload' ? dialog.accept() : dialog.dismiss()).catch(() => undefined)
-    )
+    // where it is. A capture always means to go on. A walk that listens for dialogs itself answers
+    // them: a dialog answered twice fails in Playwright ("already handled").
+    page.on('dialog', (dialog) => {
+      if (page.listenerCount('dialog') > 1) return
+      ;(dialog.type() === 'beforeunload' ? dialog.accept() : dialog.dismiss()).catch(() => undefined)
+    })
     rec = new Recorder({ page, runDir })
     rec.start() // Playwright's video starts with the page.
     const manifest = {
@@ -236,8 +294,12 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
       viewport: { w: VIEWPORT.width, h: VIEWPORT.height }
     }
     let outcome = { status: 'passed' }
-    const assertSignedIn = () => {
-      if (config.isSignedOut(page.url())) throw new SignedOut()
+    // At the start, a page off the app's origin is signed out too: an identity provider's page can
+    // have a path that isSignedOut does not recognise. Before a step, the walk may be elsewhere.
+    const appOrigin = new URL(env.baseUrl).origin
+    const assertSignedIn = ({ atStart = false } = {}) => {
+      const url = page.url()
+      if ((atStart && offOrigin(url, appOrigin)) || config.isSignedOut(url)) throw new SignedOut()
     }
     try {
       // A sync flash: the screencast starts a few hundred ms after the page, so the logged clock
@@ -254,11 +316,11 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
       await page.goto(`${env.baseUrl}${walk.startPath}`, { waitUntil: 'domcontentloaded', timeout: 90_000 })
       await page.waitForLoadState('networkidle').catch(() => undefined)
       guard.assertClean()
-      assertSignedIn()
+      assertSignedIn({ atStart: true })
       manifest.appRevision = await appRevision(config, env.baseUrl)
       if (config.setup) await config.setup({ page, params, baseUrl: env.baseUrl })
       guard.assertClean()
-      assertSignedIn()
+      assertSignedIn({ atStart: true })
       rec.onBeforeStep(async (stepId) => {
         guard.assertClean()
         assertSignedIn()
@@ -290,9 +352,10 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
     }
     if (!signedOut) {
       // The walk's last check came before the session was saved and the context closed, and a
-      // request can still be judged then: a violation found since fails the capture.
+      // request can still be judged then: a violation found since fails the capture, and stops a
+      // learning run as much as one found during the walk.
       const late = guard.violations[0]
-      if (outcome.status === 'passed' && late)
+      if (late && (outcome.status === 'passed' || outcome.failure === LEARNING_FAILURE))
         outcome = { status: 'failed', failedStep: late.step, failure: late.reason }
       // A capture never says passed without its video, whatever went wrong with saving it.
       if (outcome.status === 'passed' && !existsSync(join(runDir, 'video.webm')))
@@ -303,10 +366,13 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
     try {
       await browser?.close()
     } finally {
+      process.off('exit', removeVideoDir)
       await rm(videoDir, { recursive: true, force: true })
     }
   }
-  return signedOut ? { signedOut: true } : { capture, learned: guard.learned() }
+  return signedOut
+    ? { signedOut: true, violations: guard.violations.map((violation) => violation.reason) }
+    : { capture, learned: guard.learned() }
 }
 
 function report({ capture, learned }, { runDir, env, learnHosts, log }) {
