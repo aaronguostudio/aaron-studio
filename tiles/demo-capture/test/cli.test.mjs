@@ -1,14 +1,25 @@
 import assert from 'node:assert/strict'
-import { existsSync, mkdirSync, mkdtempSync, readdirSync, symlinkSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { test } from 'node:test'
+import { after, test } from 'node:test'
 import { fileURLToPath } from 'node:url'
 import { CaptureRefusal } from '../scripts/guards.mjs'
 import { sessionPaths } from '../scripts/session.mjs'
 import { isEntryPoint, launchArgs, loadChromium, main } from '../scripts/cli.mjs'
 
 const PROJECT = join(import.meta.dirname, 'fixture')
+
+// Every temporary folder a test makes comes from here and is removed when the file is done.
+const made = []
+function scratch(prefix) {
+  const folder = mkdtempSync(join(tmpdir(), prefix))
+  made.push(folder)
+  return folder
+}
+after(() => {
+  for (const folder of made) rmSync(folder, { recursive: true, force: true })
+})
 
 // The fixture's walks, read from its folder so that adding a walk there changes no number here.
 const WALK_NAMES = readdirSync(join(PROJECT, 'demo-capture', 'walks'))
@@ -21,7 +32,7 @@ const gap = (name) => NAME_WIDTH - name.length + 2
 // Runs main() with its output captured; none of these reach a browser.
 async function cli(args) {
   const lines = []
-  const root = mkdtempSync(join(tmpdir(), 'demo-capture-cli-'))
+  const root = scratch('demo-capture-cli-')
   const code = await main(args, { root, log: (line) => lines.push(line), error: (line) => lines.push(line) })
   return { code, output: lines.join('\n') }
 }
@@ -47,7 +58,7 @@ test('--help prints the usage; a bad argument prints it with the reason and exit
 })
 
 test('every refusal exits 2 with one plain sentence, before any browser opens', async () => {
-  const base = mkdtempSync(join(tmpdir(), 'demo-capture-repo-'))
+  const base = scratch('demo-capture-repo-')
   mkdirSync(join(base, 'repo', '.git'), { recursive: true })
   const notEmpty = join(base, 'used')
   mkdirSync(notEmpty)
@@ -74,7 +85,7 @@ test('every refusal exits 2 with one plain sentence, before any browser opens', 
 })
 
 test('the session folder must be outside every repo too', async () => {
-  const base = mkdtempSync(join(tmpdir(), 'demo-capture-repo-'))
+  const base = scratch('demo-capture-repo-')
   mkdirSync(join(base, '.git'))
   const lines = []
   const code = await main(['--project', PROJECT, '--env', 'local', '--walk', 'tour'], {
@@ -91,7 +102,7 @@ test('isEntryPoint compares the script and the module through symlinks', () => {
   assert.equal(isEntryPoint(import.meta.url, ''), false)
   assert.equal(isEntryPoint(import.meta.url, '/no/such/file.mjs'), false)
   // The case this exists for: node was started through a link to the script.
-  const folder = mkdtempSync(join(tmpdir(), 'demo-capture-link-'))
+  const folder = scratch('demo-capture-link-')
   const link = join(folder, 'linked.mjs')
   symlinkSync(fileURLToPath(import.meta.url), link)
   assert.equal(isEntryPoint(import.meta.url, link), true)
@@ -119,7 +130,7 @@ test('launchArgs names a host:port entry by its host, a host listed twice once, 
 })
 
 test('launchArgs refuses an entry that is not a host name, so no rule is built from it', () => {
-  for (const entry of ['app.example.com , MAP * evil.example.net', 'a b', '', 'app.example.com:99999x', 5, null]) {
+  for (const entry of ['app.example.com , MAP * evil.example.net', 'a b', '', 'app.example.com:99999x', 'app.example.com:70000', 'app.example.com:0', 5, null]) {
     assert.throws(
       () => launchArgs({ hosts: ['app.example.com', entry], learning: false }),
       (error) => {
@@ -157,7 +168,7 @@ const broken = {
 const NOT_STARTED = /^demo-capture: The browser did not start \(browserType\.launch: Executable doesn't exist at \/cache\/chromium-1234\)\. Playwright's browsers come from the machine's cache; do not run npx playwright install\.$/
 
 test('sign-in with a browser that will not start exits 2 with one sentence and releases the lock', async () => {
-  const root = mkdtempSync(join(tmpdir(), 'demo-capture-cli-'))
+  const root = scratch('demo-capture-cli-')
   const lines = []
   const code = await main(['sign-in', '--project', PROJECT, '--env', 'local'], {
     root,
@@ -172,7 +183,7 @@ test('sign-in with a browser that will not start exits 2 with one sentence and r
 })
 
 test('a recording with a browser that will not start exits 2 with the same sentence, and releases the lock', async () => {
-  const root = mkdtempSync(join(tmpdir(), 'demo-capture-cli-'))
+  const root = scratch('demo-capture-cli-')
   const session = sessionPaths(root, 'fixture-app', 'local')
   mkdirSync(session.dir, { recursive: true })
   writeFileSync(session.state, '{}') // a saved session, so the run goes straight to recording
@@ -187,4 +198,43 @@ test('a recording with a browser that will not start exits 2 with the same sente
   assert.equal(lines.length, 1)
   assert.match(lines[0], NOT_STARTED)
   assert.equal(existsSync(session.lock), false)
+})
+
+test('--out may not be, hold or sit inside the session folder, and nothing is created', async () => {
+  const root = scratch('demo-capture-cli-')
+  const session = sessionPaths(root, 'fixture-app', 'local')
+  // Recovering from a signed-out run empties the run folder: it must never be where the session is kept.
+  // A symlink to the root is another spelling of the same folders.
+  const link = join(scratch('demo-capture-link-'), 'root')
+  symlinkSync(root, link)
+  for (const out of [session.dir, join(root, 'fixture-app'), join(session.dir, 'runs'), join(link, 'fixture-app', 'local')]) {
+    const lines = []
+    const code = await main(['--project', PROJECT, '--env', 'local', '--walk', 'tour', '--out', out], {
+      root,
+      chromium: broken, // a run that got this far must not find a real browser
+      log: (line) => lines.push(line),
+      error: (line) => lines.push(line)
+    })
+    assert.equal(code, 2, out)
+    assert.match(lines.join('\n'), /^demo-capture: The run folder .* overlaps the session folder .*; pick another --out$/, out)
+    assert.deepEqual(readdirSync(root), [], `nothing was created for ${out}`)
+  }
+})
+
+test('the sign-in window opens with exactly the options signIn gives it, and no resolver rules', async () => {
+  const launches = []
+  const chromium = {
+    async launch(options) {
+      launches.push(options)
+      throw new Error('stop here')
+    }
+  }
+  const code = await main(['sign-in', '--project', PROJECT, '--env', 'local'], {
+    root: scratch('demo-capture-cli-'),
+    chromium,
+    log: () => {},
+    error: () => {}
+  })
+  assert.equal(code, 2)
+  assert.deepEqual(launches, [{ headless: false }])
 })

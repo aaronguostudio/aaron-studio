@@ -3,7 +3,7 @@
 // that is not saved, a session that cannot be saved, a browser that will not start) and how the
 // run is wired to the network guard.
 import assert from 'node:assert/strict'
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { after, test } from 'node:test'
@@ -16,9 +16,11 @@ import { LEARNING_FAILURE, main, record } from '../scripts/cli.mjs'
 const SAVED_TMPDIR = process.env.TMPDIR
 const TMP = mkdtempSync(join(tmpdir(), 'demo-capture-record-tmp-'))
 process.env.TMPDIR = TMP
+// Every folder these tests make is under TMP, so removing it removes them all.
 after(() => {
   if (SAVED_TMPDIR === undefined) delete process.env.TMPDIR
   else process.env.TMPDIR = SAVED_TMPDIR
+  rmSync(TMP, { recursive: true, force: true })
 })
 const videoFolders = () => readdirSync(TMP).filter((name) => name.startsWith('demo-capture-video-'))
 
@@ -28,6 +30,8 @@ const CACHE_SENTENCE = "Playwright's browsers come from the machine's cache; do 
 //   videoSaved   false: video.saveAs writes nothing; 'throws': it rejects
 //   stateError   what context.storageState rejects with
 //   launchError  what chromium.launch rejects with
+// A test can also set fake.duringGoto, fake.duringState and fake.duringClose (async functions) to make
+// something happen while the page navigates, the session is saved, or the context closes.
 function fakeChromium({ videoSaved = true, stateError, launchError } = {}) {
   const fake = {
     launches: [],
@@ -53,6 +57,7 @@ function fakeChromium({ videoSaved = true, stateError, launchError } = {}) {
     async goto(url) {
       fake.url = url
       fake.visited?.(url)
+      await fake.duringGoto?.(url)
     },
     async waitForLoadState() {},
     url: () => fake.url,
@@ -75,10 +80,13 @@ function fakeChromium({ videoSaved = true, stateError, launchError } = {}) {
     },
     async storageState() {
       fake.stateSaves++
+      await fake.duringState?.()
       if (stateError) throw stateError
       return { cookies: [], origins: [] }
     },
-    async close() {}
+    async close() {
+      await fake.duringClose?.()
+    }
   }
   const browser = {
     async newContext(options) {
@@ -100,6 +108,16 @@ function fakeChromium({ videoSaved = true, stateError, launchError } = {}) {
   }
   return fake
 }
+
+// What the context's 'request' event hands over; `from` is what redirectedFrom() answers.
+const fakeRequest = (url, from = null) => ({
+  redirectedFrom: () => (from ? { redirect: true } : null),
+  method: () => 'GET',
+  url: () => url,
+  postData: () => null
+})
+const NOT_LISTED = "GET elsewhere.example.net/next was refused: elsewhere.example.net is not in this environment's hosts."
+const NAME_NOT_RESOLVED = 'page.goto: net::ERR_NAME_NOT_RESOLVED at http://127.0.0.1:9/home?token=abc'
 
 const lookStep = async ({ rec }) => {
   await rec.step('look', 'Look at the page', 'action', async () => {})
@@ -254,39 +272,29 @@ test('a learning run starts a browser that resolves every name, so unlisted host
 
 test('a redirect hop to an unlisted host fails the run at the step it happened in', async () => {
   const fake = fakeChromium()
-  const hop = (url, from) => ({
-    redirectedFrom: () => from,
-    method: () => 'GET',
-    url: () => url,
-    postData: () => null
-  })
   const { result } = await go(fake, {
     walk: {
       run: async ({ rec }) => {
         await rec.step('look', 'Look at the page', 'action', async () => {
           assert.equal(typeof fake.handlers.request, 'function', 'the context reports requests to the guard')
-          fake.handlers.request(hop('https://elsewhere.example.net/next', { redirect: true }))
+          fake.handlers.request(fakeRequest('https://elsewhere.example.net/next', true))
         })
       }
     }
   })
   assert.equal(result.capture.status, 'failed')
   assert.equal(result.capture.failedStep, 'look')
-  assert.equal(
-    result.capture.failure,
-    "GET elsewhere.example.net/next was refused: elsewhere.example.net is not in this environment's hosts."
-  )
+  assert.equal(result.capture.failure, NOT_LISTED)
 })
 
 test('a request that is not a redirect hop is left to the route handler, and a hop to a listed host is fine', async () => {
   const fake = fakeChromium()
-  const request = (url, from) => ({ redirectedFrom: () => from, method: () => 'GET', url: () => url, postData: () => null })
   const { result } = await go(fake, {
     walk: {
       run: async ({ rec }) => {
         await rec.step('look', 'Look at the page', 'action', async () => {
-          fake.handlers.request(request('https://elsewhere.example.net/first', null))
-          fake.handlers.request(request('http://127.0.0.1:9/next', { redirect: true }))
+          fake.handlers.request(fakeRequest('https://elsewhere.example.net/first'))
+          fake.handlers.request(fakeRequest('http://127.0.0.1:9/next', true))
         })
       }
     }
@@ -333,6 +341,107 @@ test('the hooks get the context the spec names, in the order the spec names', as
   assert.equal(result.capture.appRevision, 'fixture-1')
 })
 
+test('a guard violation is what a failed walk reports, not the error it caused later', async () => {
+  const fake = fakeChromium()
+  const { result, lines, runDir } = await go(fake, {
+    walk: {
+      run: async ({ rec }) => {
+        await rec.step('look', 'Look at the page', 'action', async () => {
+          fake.handlers.request(fakeRequest('https://elsewhere.example.net/next?token=abc', true))
+          fake.handlers.request(fakeRequest('https://later.example.net/other', true))
+          throw new Error(NAME_NOT_RESOLVED)
+        })
+      }
+    }
+  })
+  assert.equal(result.capture.status, 'failed')
+  assert.equal(result.capture.failedStep, 'look')
+  assert.equal(result.capture.failure, NOT_LISTED, 'the first violation, not the later one and not the error')
+  for (const text of [readFileSync(join(runDir, 'capture.json'), 'utf8'), lines.join('\n')])
+    assert.doesNotMatch(text, /token|ERR_NAME_NOT_RESOLVED/)
+})
+
+test('a second tab is what a failed walk reports, not the timeout that came after it', async () => {
+  const fake = fakeChromium()
+  const { result } = await go(fake, {
+    walk: {
+      run: async ({ rec }) => {
+        await rec.step('look', 'Look at the page', 'action', async () => {
+          fake.handlers.page({ close: async () => {} })
+          throw new Error('locator.click: Timeout 30000ms exceeded.')
+        })
+      }
+    }
+  })
+  assert.equal(result.capture.status, 'failed')
+  assert.equal(result.capture.failedStep, 'look')
+  assert.match(result.capture.failure, /^The walk opened a second tab, and a capture records one tab\./)
+})
+
+test('a walk that fails with no guard violation keeps its own error', async () => {
+  const { result } = await go(fakeChromium(), {
+    walk: {
+      run: async ({ rec }) => {
+        await rec.step('look', 'Look at the page', 'action', async () => {
+          throw new Error('locator.click: Timeout 30000ms exceeded.')
+        })
+      }
+    }
+  })
+  assert.equal(result.capture.failure, 'locator.click: Timeout 30000ms exceeded.')
+})
+
+test('a violation that arrives after the walk, while the session is saved or the context closes, fails the capture', async () => {
+  for (const moment of ['duringState', 'duringClose']) {
+    const fake = fakeChromium()
+    fake[moment] = async () => fake.handlers.request(fakeRequest('https://elsewhere.example.net/next', true))
+    const { result, runDir } = await go(fake)
+    assert.equal(result.capture.status, 'failed', moment)
+    assert.equal(result.capture.failure, NOT_LISTED, moment)
+    assert.equal(readCapture(runDir).status, 'failed', moment)
+  }
+})
+
+test('a late violation does not replace an earlier failure or the learning line', async () => {
+  const hopLate = (fake) => async () => fake.handlers.request(fakeRequest('https://elsewhere.example.net/next', true))
+  const failing = fakeChromium()
+  failing.duringClose = hopLate(failing)
+  const { result } = await go(failing, {
+    walk: {
+      run: async ({ rec }) => {
+        await rec.step('look', 'Look at the page', 'action', async () => {
+          throw new Error('The heading never appeared')
+        })
+      }
+    }
+  })
+  assert.equal(result.capture.failure, 'The heading never appeared')
+  // A learning run's own line is what the report reads to tell a finished run from a stopped one.
+  const learning = fakeChromium()
+  learning.duringClose = async () => learning.handlers.page({ close: async () => {} })
+  const { result: learned } = await go(learning, { learnHosts: true })
+  assert.equal(learned.capture.failure, LEARNING_FAILURE)
+})
+
+test('the failure line keeps the first line only, with every URL in it cut down to scheme, host and path', async () => {
+  const { result, lines } = await go(fakeChromium(), {
+    walk: {
+      run: async ({ rec }) => {
+        await rec.step('look', 'Look at the page', 'action', async () => {
+          throw new Error(
+            'page.goto: net::ERR_ABORTED at https://user:pw@app.example.com:8443/home?token=abc#frag then wss://sock.example.net/s?k=v and http://[::1]:9/z?q=1 or http://%zz/p?x=1\nsecond line http://secret.example.com/?token=second'
+          )
+        })
+      }
+    }
+  })
+  assert.equal(
+    result.capture.failure,
+    'page.goto: net::ERR_ABORTED at https://app.example.com:8443/home then wss://sock.example.net/s and http://[::1]:9/z or http://(unreadable URL)'
+  )
+  assert.doesNotMatch(JSON.stringify(result.capture) + lines.join('\n'), /token|user|pw@|secret/)
+})
+
 // The whole command on the fixture project, a saved session and a fake browser: what record() says
 // has to come out of main() as an exit code and lines on the screen.
 async function runMain(fake) {
@@ -353,7 +462,9 @@ async function runMain(fake) {
 test('main exits 1 and says FAILED for a walk whose video was not saved', async () => {
   const { code, output } = await runMain(fakeChromium({ videoSaved: false }))
   assert.equal(code, 1, output)
-  assert.match(output, /\nFAILED: .*\n {2}before the first step: The recording was not saved\.\n {2}No video should be made from this capture\./)
+  // No "before the first step": the walk had run; only its recording was lost.
+  assert.match(output, /\nFAILED: .*\n {2}The recording was not saved\.\n {2}No video should be made from this capture\./)
+  assert.doesNotMatch(output, /before the first step/)
 })
 
 test('main prints the line about a session that could not be saved again, and the walk still passes', async () => {
@@ -363,4 +474,19 @@ test('main prints the line about a session that could not be saved again, and th
   assert.match(output, /^Could not save the session again; the next run may ask you to sign in\.$/m)
   assert.match(output, /\nCaptured: /)
   assert.doesNotMatch(output, /SESSION-SECRET-VALUE/)
+})
+
+test('main reports the violation, not the navigation error it caused, and prints no part of the URL query', async () => {
+  const fake = fakeChromium()
+  fake.duringGoto = async () => {
+    fake.handlers.request(fakeRequest('https://elsewhere.example.net/next?token=abc', true))
+    throw new Error(NAME_NOT_RESOLVED)
+  }
+  const { code, output } = await runMain(fake)
+  assert.equal(code, 1, output)
+  assert.match(
+    output,
+    /\n {2}before the first step: GET elsewhere\.example\.net\/next was refused: elsewhere\.example\.net is not in this environment's hosts\./
+  )
+  assert.doesNotMatch(output, /token|ERR_NAME_NOT_RESOLVED/)
 })

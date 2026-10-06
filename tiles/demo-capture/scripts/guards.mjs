@@ -152,7 +152,7 @@ const NETWORK_PORTS = new Map([
 // { host, port } with the entry lower-cased, trimmed and stripped of a trailing dot (port is null
 // when the entry has none), or null when the entry is not one of those.
 const HOST_ENTRY = /^(\[[0-9a-f:.]+\]|[a-z0-9_-]+(?:\.[a-z0-9_-]+)*)(?::([0-9]{1,5}))?$/
-function parseHostEntry(entry) {
+export function parseHostEntry(entry) {
   if (typeof entry !== 'string') return null
   const match = HOST_ENTRY.exec(entry.trim().toLowerCase().replace(/\.(:[0-9]+)?$/, '$1'))
   if (!match) return null

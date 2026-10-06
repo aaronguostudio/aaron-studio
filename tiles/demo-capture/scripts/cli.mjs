@@ -11,7 +11,7 @@
 import { existsSync, realpathSync } from 'node:fs'
 import { mkdir, mkdtemp, readdir, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { dirname, join, resolve } from 'node:path'
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
   CaptureRefusal,
@@ -22,6 +22,7 @@ import {
   assertProdGoAhead,
   assertWriteGoAhead,
   parseArgs,
+  parseHostEntry,
   usageText
 } from './guards.mjs'
 import {
@@ -52,11 +53,47 @@ export const LEARNING_FAILURE = 'Learning run, no video.'
 const SECOND_TAB =
   'The walk opened a second tab, and a capture records one tab. Set sameTabLinks: true in the config if the app opens links in new tabs.'
 
+const NO_VIDEO_FAILURE = 'The recording was not saved.'
+
+// Every http(s) or ws(s) URL in a line, cut down to scheme, host and path: the query, the fragment
+// and the userinfo can hold tokens and ids. A URL that cannot be read is dropped entirely.
+const URL_IN_TEXT = /(?:https?|wss?):\/\/[^\s'"<>]+/gi
+function withoutUrlSecrets(text) {
+  return text.replace(URL_IN_TEXT, (found) => {
+    try {
+      const url = new URL(found)
+      return `${url.protocol}//${url.host}${url.pathname}`
+    } catch {
+      return `${found.slice(0, found.indexOf('://') + 3)}(unreadable URL)`
+    }
+  })
+}
+
+// An error as one line for the screen and for capture.json: its first line, without URL secrets.
+// Cut to length last, so the limit applies to what is shown and no URL is cut in half before it is
+// cut down.
 const plain = (error) =>
-  String(error?.message ?? error)
-    .split('\n')[0]
+  withoutUrlSecrets(String(error?.message ?? error).split('\n')[0])
     .replace(/\s+/g, ' ')
     .slice(0, 300)
+
+// `path` with its symlinks resolved as far as it exists (the rest is appended as written), so two
+// spellings of one folder compare equal even when the folder is not made yet.
+function realPathOf(path) {
+  const missing = []
+  let probe = resolve(path)
+  while (!existsSync(probe) && dirname(probe) !== probe) {
+    missing.unshift(basename(probe))
+    probe = dirname(probe)
+  }
+  return join(realpathSync(probe), ...missing)
+}
+
+// Whether `inner` is `outer` or somewhere under it.
+function isWithin(outer, inner) {
+  const path = relative(outer, inner) // '' when they are the same folder
+  return path !== '..' && !path.startsWith(`..${sep}`) && !isAbsolute(path)
+}
 
 // Whether this module is the script node was asked to run. Node resolves the main module through
 // symlinks but leaves process.argv[1] as typed, so both are resolved before comparing.
@@ -91,25 +128,24 @@ async function launchBrowser(chromium, options) {
   }
 }
 
-// A hosts entry as the guard reads it: "name", "name:port" or "[v6]:port", any letter case, with
-// an optional trailing dot on the name.
-const HOST_ENTRY = /^(?:\[([0-9a-f:.]+)\]|([a-z0-9_-]+(?:\.[a-z0-9_-]+)*))(?::[0-9]{1,5})?$/
-
 // The browser's own DNS rules: while recording, no name resolves except the environment's hosts.
 // This is the backstop behind the route guard, for what the route handler never sees: the hops of
-// a redirect and the sockets of workers. IP literals such as 127.0.0.1 are treated as skipping the
-// resolver, so the route guard stays the first line of defence, and the only one that judges a
-// request by its method as well as its host.
+// a redirect and the sockets of workers. The route guard stays the first line of defence, and the
+// only one that judges a request by its method as well as its host. UNVERIFIED until the Task 8
+// end-to-end run settles it: whether these rules also cover an IP literal such as 127.0.0.1 (the
+// plan assumes the resolver is never asked about one). Nothing here depends on the answer, because
+// every listed host, an IP literal included, is excluded from the rule.
 // A learning run (--learn-hosts) must let unlisted hosts load, to list them, so it gets no rules.
-// The names are the entries without their port, lower-cased, each once, in the order first listed.
+// The names are the entries without their port, each once, in the order first listed. An entry is
+// read by the guard's own parser, so what the guard lists is what the browser can resolve.
 export function launchArgs({ hosts, learning }) {
   if (learning) return []
   const names = new Set()
   for (const entry of hosts) {
-    const match = typeof entry === 'string' ? HOST_ENTRY.exec(entry.trim().toLowerCase().replace(/\.(:[0-9]+)?$/, '$1')) : null
+    const parsed = parseHostEntry(entry)
     // The entry is not repeated: a rule built from a bad one could say anything.
-    if (!match) throw new CaptureRefusal('The environment lists a host that is not a host name, so no browser was started.')
-    names.add(match[1] ?? match[2])
+    if (!parsed) throw new CaptureRefusal('The environment lists a host that is not a host name, so no browser was started.')
+    names.add(parsed.host.replace(/^\[(.*)\]$/, '$1'))
   }
   return [`--host-resolver-rules=${['MAP * ~NOTFOUND', ...[...names].map((name) => `EXCLUDE ${name}`)].join(' , ')}`]
 }
@@ -132,8 +168,11 @@ function sameTabLinks() {
   )
 }
 
-// Records one walk. Returns { signedOut: true } when the session turned out to be signed out
-// (nothing is kept), else { capture, learned }. A browser that will not start is a CaptureRefusal.
+// Records one walk. Returns { capture, learned } once capture.json and steps.json are written.
+// When the session turned out to be signed out it returns { signedOut: true } instead: no
+// capture.json, steps.json or video is written, and the session is not saved again (the caller
+// deletes it and starts the run folder afresh); screenshots of steps that ran may still be in the
+// run folder until then. A browser that will not start is a CaptureRefusal.
 export async function record({ chromium, config, env, walk, params, runDir, statePath, learnHosts, headed, log = console.log }) {
   let rec = null
   let signedOut = false
@@ -226,7 +265,13 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
       if (learnHosts) outcome = { status: 'failed', failedStep: null, failure: LEARNING_FAILURE }
     } catch (error) {
       signedOut = error instanceof SignedOut
-      outcome = { status: 'failed', failedStep: error?.step ?? rec.attempting ?? null, failure: plain(error) }
+      // A violation the guard already holds is the cause, and what the walk threw after it (a
+      // navigation that could not resolve, a timeout waiting for a second tab) is only the effect.
+      // Its reason names no URL query, and the first one is the one that started it.
+      const violation = signedOut ? undefined : guard.violations[0]
+      outcome = violation
+        ? { status: 'failed', failedStep: violation.step, failure: violation.reason }
+        : { status: 'failed', failedStep: error?.step ?? rec.attempting ?? null, failure: plain(error) }
     } finally {
       // Tokens can rotate on use, so the state is saved again whatever the outcome, unless the
       // run found it signed out (that state is deleted). A failed save is said without its cause:
@@ -240,9 +285,14 @@ export async function record({ chromium, config, env, walk, params, runDir, stat
       if (video && !signedOut) await video.saveAs(join(runDir, 'video.webm')).catch(() => undefined)
     }
     if (!signedOut) {
+      // The walk's last check came before the session was saved and the context closed, and a
+      // request can still be judged then: a violation found since fails the capture.
+      const late = guard.violations[0]
+      if (outcome.status === 'passed' && late)
+        outcome = { status: 'failed', failedStep: late.step, failure: late.reason }
       // A capture never says passed without its video, whatever went wrong with saving it.
       if (outcome.status === 'passed' && !existsSync(join(runDir, 'video.webm')))
-        outcome = { status: 'failed', failedStep: null, failure: 'The recording was not saved.' }
+        outcome = { status: 'failed', failedStep: null, failure: NO_VIDEO_FAILURE }
       capture = await rec.finish(manifest, outcome)
     }
   } finally {
@@ -273,7 +323,9 @@ function report({ capture, learned }, { runDir, env, learnHosts, log }) {
     return 0
   }
   log(`\nFAILED: ${runDir}`)
-  log(`  ${capture.failedStep ? `at step "${capture.failedStep}"` : 'before the first step'}: ${capture.failure}`)
+  // Only the recording was lost, so there is no place in the walk to name.
+  if (capture.failure === NO_VIDEO_FAILURE) log(`  ${capture.failure}`)
+  else log(`  ${capture.failedStep ? `at step "${capture.failedStep}"` : 'before the first step'}: ${capture.failure}`)
   log('  No video should be made from this capture.')
   return 1
 }
@@ -334,6 +386,10 @@ export async function main(
     if (args.learnHosts) assertLearnable(env, walk)
     const runDir = resolve(args.out ?? defaultRunDir(root, config.name, walk.name))
     assertOutsideRepos(runDir, 'The run folder')
+    // Recovering from a signed-out run empties the run folder, so it must never hold the session.
+    const [runPath, sessionPath] = [realPathOf(runDir), realPathOf(session.dir)]
+    if (isWithin(runPath, sessionPath) || isWithin(sessionPath, runPath))
+      throw new CaptureRefusal(`The run folder ${runDir} overlaps the session folder ${session.dir}; pick another --out`)
     if (existsSync(runDir) && (await readdir(runDir)).length)
       throw new CaptureRefusal(`${runDir} is not empty; pick another --out`)
     const chromium = injected ?? (await loadChromium())
