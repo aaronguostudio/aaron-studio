@@ -9,7 +9,7 @@
 //
 // Exit codes: 0 captured (or a learning run that reached its end), 1 the walk failed, 2 refused.
 import { existsSync, realpathSync, rmSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, readdir, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, readdir, rm, rmdir, stat } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -465,13 +465,26 @@ export async function main(
     const [runPath, sessionPath] = [realPathOf(runDir), realPathOf(session.dir)]
     if (isWithin(runPath, sessionPath) || isWithin(sessionPath, runPath))
       throw new CaptureRefusal(`The run folder ${runDir} overlaps the session folder ${session.dir}; pick another --out`)
-    if (existsSync(runDir) && (await readdir(runDir)).length)
-      throw new CaptureRefusal(`${runDir} is not empty; pick another --out`)
+    // Anywhere else in the capture folder, a run folder could be another environment's session
+    // folder or another project's, so there it belongs under this project's runs.
+    const runsDir = join(root, config.name, 'runs')
+    if (isWithin(realPathOf(root), runPath) && !isWithin(realPathOf(runsDir), runPath))
+      throw new CaptureRefusal(
+        `The run folder ${runDir} is in the capture folder ${root}, where a run folder belongs under ${runsDir}; pick another --out`
+      )
+    if (existsSync(runDir)) {
+      if (!(await stat(runDir)).isDirectory()) throw new CaptureRefusal(`${runDir} is a file, not a folder; pick another --out`)
+      if ((await readdir(runDir)).length) throw new CaptureRefusal(`${runDir} is not empty; pick another --out`)
+    }
     const chromium = injected ?? (await loadChromium())
     await ensurePrivateDir(session.dir)
     const release = await acquireRunLock(session.lock)
+    // The first folder mkdir made, or undefined when the run folder was there already.
+    let made
     try {
-      await mkdir(runDir, { recursive: true })
+      made = await mkdir(runDir, { recursive: true })
+      // Said at once, so that a run that dies later still says where its folder is.
+      log(`Run folder: ${runDir}`)
       if (env.production) log(`Production run on ${env.baseUrl}, with the go-ahead given for this run.`)
       const result = await runWithSession({
         stateExists: () => hasState(session.state),
@@ -497,6 +510,11 @@ export async function main(
         log
       })
       return report(result, { runDir, env, learnHosts: args.learnHosts, log })
+    } catch (refusal) {
+      // A refusal (a sign-in that did not finish, a browser that did not start) leaves nothing in
+      // the run folder: a folder this run made goes too, while it is empty.
+      if (refusal instanceof CaptureRefusal && made !== undefined) await rmdir(runDir).catch(() => undefined)
+      throw refusal
     } finally {
       await release()
     }

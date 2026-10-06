@@ -185,22 +185,85 @@ test('sign-in with a browser that will not start exits 2 with one sentence and r
   assert.equal(existsSync(sessionPaths(root, 'fixture-app', 'local').lock), false)
 })
 
-test('a recording with a browser that will not start exits 2 with the same sentence, and releases the lock', async () => {
-  const root = scratch('demo-capture-cli-')
+// main() with a saved session for the fixture's local environment, so a run goes straight to
+// recording, and a browser that will not start: the run gets as far as the browser, and no further.
+async function runToTheBrowser(root, extraArgs = []) {
   const session = sessionPaths(root, 'fixture-app', 'local')
   mkdirSync(session.dir, { recursive: true })
-  writeFileSync(session.state, '{}') // a saved session, so the run goes straight to recording
+  writeFileSync(session.state, '{}')
   const lines = []
-  const code = await main(['--project', PROJECT, '--env', 'local', '--walk', 'outside-host'], {
+  const code = await main(['--project', PROJECT, '--env', 'local', '--walk', 'outside-host', ...extraArgs], {
     root,
     chromium: broken,
     log: (line) => lines.push(line),
     error: (line) => lines.push(line)
   })
+  return { code, lines, session }
+}
+
+test('a recording with a browser that will not start exits 2 with the same sentence, and releases the lock', async () => {
+  const root = scratch('demo-capture-cli-')
+  const { code, lines, session } = await runToTheBrowser(root)
   assert.equal(code, 2, lines.join('\n'))
-  assert.equal(lines.length, 1)
-  assert.match(lines[0], NOT_STARTED)
+  assert.equal(lines.length, 2)
+  // The run folder is named as soon as it is made, so a run that dies later still says where it is.
+  assert.match(lines[0], /^Run folder: .*\/fixture-app\/runs\/\d{8}-\d{6}-outside-host$/)
+  assert.match(lines[1], NOT_STARTED)
   assert.equal(existsSync(session.lock), false)
+  // A refusal leaves no empty run folder behind.
+  assert.deepEqual(readdirSync(join(root, 'fixture-app', 'runs')), [])
+})
+
+test('a refusal removes the run folder it made, but never one that was there before or one that holds something', async () => {
+  const outside = scratch('demo-capture-out-')
+  const made = join(outside, 'new-run')
+  const madeRun = await runToTheBrowser(scratch('demo-capture-cli-'), ['--out', made])
+  assert.equal(madeRun.code, 2, madeRun.lines.join('\n'))
+  assert.equal(madeRun.lines[0], `Run folder: ${made}`)
+  assert.equal(existsSync(made), false)
+  const existing = join(outside, 'existing-run')
+  mkdirSync(existing)
+  const existingRun = await runToTheBrowser(scratch('demo-capture-cli-'), ['--out', existing])
+  assert.equal(existingRun.code, 2, existingRun.lines.join('\n'))
+  assert.equal(existsSync(existing), true)
+})
+
+test('an --out in the capture folder must be under the project\'s runs folder, and an --out that is a file is refused', async () => {
+  const root = scratch('demo-capture-cli-')
+  const link = join(scratch('demo-capture-link-'), 'root')
+  symlinkSync(root, link)
+  // Another environment's session folder, another project's runs, the capture folder's own files.
+  for (const out of [join(root, 'fixture-app', 'stage'), join(root, 'other-app', 'runs', 'x'), join(root, 'loose'), join(link, 'fixture-app', 'live')]) {
+    const lines = []
+    const code = await main(['--project', PROJECT, '--env', 'local', '--walk', 'tour', '--out', out], {
+      root,
+      chromium: broken,
+      log: (line) => lines.push(line),
+      error: (line) => lines.push(line)
+    })
+    assert.equal(code, 2, out)
+    assert.match(
+      lines.join('\n'),
+      /^demo-capture: The run folder .* is in the capture folder .*, where a run folder belongs under .*\/fixture-app\/runs; pick another --out$/,
+      out
+    )
+    assert.deepEqual(readdirSync(root), [], `nothing was created for ${out}`)
+  }
+  // Under the project's runs folder it is fine, and the run goes on to the browser.
+  const fine = await runToTheBrowser(root, ['--out', join(root, 'fixture-app', 'runs', 'mine')])
+  assert.equal(fine.code, 2)
+  assert.match(fine.lines.at(-1), NOT_STARTED)
+  // A file is not a folder: said plainly, not as an error code.
+  const file = join(scratch('demo-capture-out-'), 'capture.json')
+  writeFileSync(file, '{}')
+  const lines = []
+  const code = await main(['--project', PROJECT, '--env', 'local', '--walk', 'tour', '--out', file], {
+    root: scratch('demo-capture-cli-'),
+    log: (line) => lines.push(line),
+    error: (line) => lines.push(line)
+  })
+  assert.equal(code, 2)
+  assert.deepEqual(lines, [`demo-capture: ${file} is a file, not a folder; pick another --out`])
 })
 
 test('--out may not be, hold or sit inside the session folder, and nothing is created', async () => {
