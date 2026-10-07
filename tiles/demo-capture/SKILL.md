@@ -75,6 +75,23 @@ npx -y bun "$ENGINE/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts
 - **One run at a time** per project and environment; `sign-in` takes the same lock. A second run is refused (exit 2) and told which lock file to delete if no run is going: `~/.demo-capture/<project>/<env>/lock`. Wait for the other run, or check that none is going and then delete that file. A lock left by a run that died is cleared by the next run.
 - **Run folders stay outside every repo.** They show real screens: never move or copy a run folder, or anything in it (video, screenshots), into a repo.
 
+## Finished videos: one quality bar
+
+Every agent produces videos the same way, so that two runs, or two agents, give the same result.
+
+- **Render only with the walkthrough renderer** (`render-walkthrough.ts`). Never composite, frame, re-caption or re-time a capture yourself.
+  - The renderer's title card, caption band, step counter, spotlight and fast-forwarded waits are the house style.
+  - Narration is `--narrate`, the concise style, in the default voice profile. Add a voice only when the person whose voice it is asked for one. Use `--script` only when asked.
+- **One video per walk, one topic per walk, about 1–3 minutes.**
+  - When one file is wanted, render each walk first, then join the rendered mp4s with ffmpeg's concat demuxer (`-c copy`, same size and codecs). Do not re-render them into a new layout.
+- **A held frame shows a finished screen.**
+  - A step must not hold on a skeleton, a spinner, an "Empty" placeholder that is really a page still loading, or an error toast.
+  - Wait in a `'wait'` step, which the renderer fast-forwards. A walk that cannot reach a finished screen fails, rather than recording a broken one.
+- **Captions** are the step's point in a few plain words, under about 8. There are no extra labels such as EXPLAIN, ACTION or RESULT.
+- **Before delivering:**
+  - Watch the whole video, or check a frame from every step.
+  - Remove any step that shows a loading state, an error or another customer's data, then record again.
+
 ## Add a project
 
 `<project>/demo-capture/config.mjs`. A field this table does not name is refused.
