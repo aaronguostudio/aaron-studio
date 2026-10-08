@@ -27,11 +27,13 @@ import {
   buildTimeline,
   calibrate,
   cursorAt,
+  highlightsAt,
   readingMs,
   stepAtFrame,
   validateCapture,
   type Capture,
   type CursorState,
+  type Highlight,
   type Step,
   type Timeline,
 } from "./timeline";
@@ -42,6 +44,8 @@ const C = {
   ink: "#f2f4f8",
   muted: "#9aa3b4",
   accent: "#3d7bf0",
+  // Outlines and the pointer's halo: a warm amber that stands out on most app palettes.
+  mark: "#e3a900",
   sans: "-apple-system, 'Helvetica Neue', Arial, sans-serif",
 };
 
@@ -91,11 +95,51 @@ const EndCard: React.FC<{ capture: Capture; total: number }> = ({ capture, total
   </Card>
 );
 
+// A rounded amber outline with a faint fill. Its stroke draws itself on as `draw` goes 0 → 1.
+const Highlights: React.FC<{ marks: Highlight[]; w: number; h: number }> = ({ marks, w, h }) =>
+  marks.length === 0 ? null : (
+    <svg width={w} height={h} style={{ position: "absolute", left: 0, top: 0, pointerEvents: "none" }}>
+      {marks.map(({ kind, box, draw, opacity }, i) => (
+        <g key={i} opacity={opacity}>
+          <rect x={box.x} y={box.y} width={box.w} height={box.h} rx={8} fill={kind === "click" ? "rgba(255, 206, 55, 0.12)" : "rgba(255, 214, 77, 0.09)"} />
+          <rect
+            x={box.x}
+            y={box.y}
+            width={box.w}
+            height={box.h}
+            rx={8}
+            fill="none"
+            stroke={C.mark}
+            strokeWidth={3.5}
+            pathLength={1}
+            strokeDasharray="1"
+            strokeDashoffset={1 - draw}
+            style={{ filter: "drop-shadow(0 0 2px #ffffff)" }}
+          />
+        </g>
+      ))}
+    </svg>
+  );
+
 const Cursor: React.FC<{ state: CursorState }> = ({ state }) => {
   if (!state.visible) return null;
   const ring = state.ripple;
   return (
     <>
+      {/* A soft halo, so the eye finds the pointer at once. */}
+      <div
+        style={{
+          position: "absolute",
+          left: state.x - 25,
+          top: state.y - 25,
+          width: 50,
+          height: 50,
+          borderRadius: "50%",
+          background: "rgba(255, 218, 92, 0.22)",
+          border: "2px solid rgba(227, 169, 0, 0.7)",
+          boxSizing: "border-box",
+        }}
+      />
       {ring !== null ? (
         <div
           style={{
@@ -112,7 +156,7 @@ const Cursor: React.FC<{ state: CursorState }> = ({ state }) => {
           }}
         />
       ) : null}
-      <svg width={28} height={36} viewBox="0 0 28 36" style={{ position: "absolute", left: state.x - 3, top: state.y - 2 }}>
+      <svg width={28} height={36} viewBox="0 0 28 36" style={{ position: "absolute", left: state.x - 3, top: state.y - 2, filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55))" }}>
         <path d="M3 2 L3 29 L10 22.5 L14.5 33 L19 31 L14.6 20.8 L24 20.8 Z" fill="#ffffff" stroke="#111111" strokeWidth={2} strokeLinejoin="round" />
       </svg>
     </>
@@ -229,6 +273,7 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, na
       })}
       {inVideo ? (
         <>
+          <Highlights marks={highlightsAt(timeline, steps, capture.viewport, frame)} w={w} h={h} />
           <Cursor state={cursorAt(timeline, steps, capture.viewport, frame)} />
           {segment && segment.speed > 1 ? <SpeedBadge speed={segment.speed} right={24} /> : null}
           <CaptionBand

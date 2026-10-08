@@ -16,9 +16,16 @@ export const MAX_SPEED = 16;
 export const FAST_FORWARD_TARGET_MS = 2000;
 // Gaps between steps shorter than this play at normal speed.
 export const GAP_FAST_FORWARD_MS = 1500;
+// A step that needs more time than it recorded holds a frame: an action with clicks just before
+// its first click (the pointer is on the target and the target is outlined), an action without
+// clicks on its last frame (the finished screen), a wait on its first frame.
+export const PRE_CLICK_MS = 180;
 
 export type Box = { x: number; y: number; w: number; h: number };
 export type Click = { tMs: number; x: number; y: number; box?: Box };
+// A region the step is about (a card, a row, a total), outlined while it is shown. Some capture
+// tools write the box as [x, y, w, h].
+export type Focus = { box: Box | [number, number, number, number]; fromMs: number; toMs: number };
 export type StepKind = "action" | "wait";
 export type Step = {
   id: string;
@@ -29,6 +36,7 @@ export type Step = {
   clicks: Click[];
   shot: string | null;
   narration?: string;
+  focus?: Focus[];
 };
 export type Capture = {
   version: 1;
@@ -127,6 +135,12 @@ export function validateCapture(capture: Capture, steps: Step[]): string[] {
       if (click.tMs < step.startMs || click.tMs > step.endMs) problems.push(`${where}: click at ${click.tMs} ms is outside the step`);
       if (click.x < 0 || click.y < 0 || click.x > w || click.y > h) problems.push(`${where}: click (${click.x}, ${click.y}) is outside the viewport`);
     }
+    for (const focus of step.focus ?? []) {
+      if (!focusBox(focus)) problems.push(`${where}: a focus needs a box {x, y, w, h} or [x, y, w, h]`);
+      if (!(focus.fromMs >= step.startMs && focus.toMs <= step.endMs && focus.toMs >= focus.fromMs)) {
+        problems.push(`${where}: focus from ${focus.fromMs} to ${focus.toMs} ms is outside the step`);
+      }
+    }
     if (step.shot != null && (step.shot.startsWith("/") || step.shot.split(/[\\/]/).includes(".."))) {
       problems.push(`${where}: shot path must stay inside the capture folder`);
     }
@@ -142,7 +156,26 @@ export function calibrate(steps: Step[], calibrationMs = 0): Step[] {
     startMs: step.startMs + calibrationMs,
     endMs: step.endMs + calibrationMs,
     clicks: (step.clicks ?? []).map((c) => ({ ...c, tMs: c.tMs + calibrationMs })),
+    ...(step.focus ? { focus: step.focus.map((f) => ({ ...f, fromMs: f.fromMs + calibrationMs, toMs: f.toMs + calibrationMs })) } : {}),
   }));
+}
+
+export function focusBox(focus: Focus): Box | null {
+  const b = focus.box;
+  const box = Array.isArray(b) ? (b.length === 4 ? { x: b[0], y: b[1], w: b[2], h: b[3] } : null) : b;
+  if (!box || ![box.x, box.y, box.w, box.h].every(Number.isFinite) || box.w <= 0 || box.h <= 0) return null;
+  return box;
+}
+
+// The recorded moment a step holds on when it needs more time than it recorded.
+function holdPoint(step: Step): number {
+  if (step.kind === "wait") return step.startMs;
+  const [first] = step.clicks ?? [];
+  if (first) return Math.min(step.endMs, Math.max(step.startMs, first.tMs - PRE_CLICK_MS));
+  // The last frame, or earlier if the step's last focus ended before it: hold while it is up.
+  const focusEnds = (step.focus ?? []).map((f) => f.toMs);
+  const lastFocusEnd = focusEnds.length ? Math.max(...focusEnds) : Infinity;
+  return Math.max(step.startMs, Math.min(step.endMs - Math.ceil(1000 / FPS), lastFocusEnd));
 }
 
 export function speedFor(durationMs: number, fastForward: boolean): number {
@@ -177,12 +210,16 @@ export function buildTimeline(steps: Step[], options: TimelineOptions = {}): Tim
       // Fast-forward no faster than the caption can be read.
       if (duration / speed < minMs) speed = Math.max(1, Math.floor(duration / minMs));
       const shown = duration / speed;
-      // Still too short at normal speed: hold the step's first frame first, so the caption is read
-      // before the action happens.
       if (shown < minMs) {
-        pieces.push({ srcStartMs: step.startMs, srcEndMs: step.startMs, speed: 1, step: i, freeze: true, outMs: minMs - shown });
+        // Still too short at normal speed: hold one frame for the rest of the time (see
+        // PRE_CLICK_MS), so the caption is read while the screen shows what it is about.
+        const at = holdPoint(step);
+        if (at > step.startMs) pieces.push({ srcStartMs: step.startMs, srcEndMs: at, speed, step: i, outMs: (at - step.startMs) / speed });
+        pieces.push({ srcStartMs: at, srcEndMs: at, speed: 1, step: i, freeze: true, outMs: minMs - shown });
+        if (step.endMs > at) pieces.push({ srcStartMs: at, srcEndMs: step.endMs, speed, step: i, outMs: (step.endMs - at) / speed });
+      } else {
+        pieces.push({ srcStartMs: step.startMs, srcEndMs: step.endMs, speed, step: i, outMs: shown });
       }
-      pieces.push({ srcStartMs: step.startMs, srcEndMs: step.endMs, speed, step: i, outMs: shown });
     }
     cursor = Math.max(cursor, step.endMs);
   });
@@ -233,36 +270,157 @@ export function chapters(timeline: Timeline, steps: Step[]): string {
   return lines.join("\n") + "\n";
 }
 
+// The output frames on which the recording shows a moment between fromMs and toMs, held frames
+// included. Null when no frame does (for example a moment in the left-out lead-in).
+export function framesShowing(timeline: Timeline, fromMs: number, toMs: number): { first: number; last: number } | null {
+  let first: number | null = null;
+  let last = 0;
+  for (const s of timeline.segments) {
+    if (s.still) continue;
+    let a: number;
+    let b: number;
+    if (s.srcEndMs === s.srcStartMs) {
+      if (s.srcStartMs < fromMs || s.srcStartMs > toMs) continue;
+      [a, b] = [0, s.frames - 1];
+    } else {
+      const msPerFrame = (1000 / FPS) * s.speed;
+      a = Math.max(0, Math.ceil((fromMs - s.srcStartMs) / msPerFrame));
+      b = Math.min(s.frames - 1, Math.floor((toMs - s.srcStartMs) / msPerFrame));
+      if (a > b) continue;
+    }
+    first ??= s.fromFrame + a;
+    last = s.fromFrame + b;
+  }
+  return first === null ? null : { first, last };
+}
+
+// The pointer, drawn over the recording (Playwright records none). It glides onto each click
+// target about a second (of recording) before the click, rests there through any pre-click hold,
+// and ripples where the click lands. On a step that clicks nothing it parks beside the step's
+// first focus region, far enough off it that its halo (25 px) clears the outline.
+export const POINTER_LEAD_MS = 1050;
+const GLIDE_FRAMES = 18;
+const PARK_GAP = 30;
+const POINTER_W = 24;
+
+type Target = { x: number; y: number; arrive: number; click: number | null; box?: Box };
+
+function parkBeside(box: Box, viewport: { w: number; h: number }): { x: number; y: number } | null {
+  const y = Math.min(viewport.h - 40, box.y + Math.min(box.h / 2, 60));
+  if (box.x + box.w + PARK_GAP + POINTER_W <= viewport.w) return { x: box.x + box.w + PARK_GAP, y };
+  if (box.x - PARK_GAP - POINTER_W >= 0) return { x: box.x - PARK_GAP - POINTER_W, y };
+  return null;
+}
+
+function pointerTargets(timeline: Timeline, steps: Step[], viewport: { w: number; h: number }): Target[] {
+  const targets: Target[] = [];
+  // The pointer leaves its last target no earlier than this frame, and needs GLIDE_FRAMES to move.
+  let leave = timeline.titleFrames;
+  for (const step of steps) {
+    if (step.clicks?.length) {
+      for (const click of step.clicks) {
+        const at = sourceMsToFrame(timeline, click.tMs);
+        const lead = framesShowing(timeline, Math.max(step.startMs, click.tMs - POINTER_LEAD_MS), click.tMs)?.first ?? at;
+        const arrive = Math.min(at, Math.max(lead, leave + GLIDE_FRAMES));
+        targets.push({ x: click.x, y: click.y, arrive, click: at, box: click.box });
+        leave = at;
+      }
+      continue;
+    }
+    const focus = step.focus?.[0];
+    const box = focus && focusBox(focus);
+    const park = box && parkBeside(box, viewport);
+    const range = park && framesShowing(timeline, focus!.fromMs, focus!.toMs);
+    if (park && range) {
+      targets.push({ ...park, arrive: Math.max(range.first, leave + GLIDE_FRAMES), click: null });
+      leave = targets[targets.length - 1].arrive;
+    }
+  }
+  return targets;
+}
+
 export type CursorState = { x: number; y: number; visible: boolean; ripple: number | null };
 
-const GLIDE_FRAMES = 18;
-
-// Playwright recordings have no cursor, so draw one: it glides to each logged click and ripples there.
 export function cursorAt(timeline: Timeline, steps: Step[], viewport: { w: number; h: number }, frame: number): CursorState {
-  const clicks = steps.flatMap((s) => s.clicks ?? []).map((c) => ({ x: c.x, y: c.y, frame: sourceMsToFrame(timeline, c.tMs) }));
+  const targets = pointerTargets(timeline, steps, viewport);
+  const clicks = targets.flatMap((t) => (t.click === null ? [] : [t.click]));
   const videoEnd = timeline.titleFrames + timeline.videoFrames;
-  if (clicks.length === 0 || frame < timeline.titleFrames || frame >= videoEnd) {
+  if (targets.length === 0 || frame < timeline.titleFrames || frame >= videoEnd) {
     return { x: viewport.w / 2, y: viewport.h / 2, visible: false, ripple: null };
   }
-  let previous = { x: viewport.w / 2, y: viewport.h / 2, frame: timeline.titleFrames };
-  for (const click of clicks) {
-    if (frame < click.frame) {
-      const start = Math.max(previous.frame, click.frame - GLIDE_FRAMES);
-      const t = frame <= start ? 0 : (frame - start) / Math.max(1, click.frame - start);
+  let previous = { x: viewport.w / 2, y: viewport.h / 2, leave: timeline.titleFrames };
+  for (const target of targets) {
+    if (frame < target.arrive) {
+      const start = Math.max(previous.leave, target.arrive - GLIDE_FRAMES);
+      const t = frame <= start ? 0 : (frame - start) / Math.max(1, target.arrive - start);
       const eased = t * t * (3 - 2 * t);
-      return { x: previous.x + (click.x - previous.x) * eased, y: previous.y + (click.y - previous.y) * eased, visible: true, ripple: rippleAt(clicks, frame) };
+      return { x: previous.x + (target.x - previous.x) * eased, y: previous.y + (target.y - previous.y) * eased, visible: true, ripple: rippleAt(clicks, frame) };
     }
-    previous = click;
+    previous = { x: target.x, y: target.y, leave: target.click ?? target.arrive };
   }
   return { x: previous.x, y: previous.y, visible: true, ripple: rippleAt(clicks, frame) };
 }
 
+// Outlines, drawn over the recording: the control being clicked (from its logged box), from the
+// moment the pointer lands on it until just after the click, and each focus region a step names,
+// while the recording shows it. An outline draws itself on as it appears and fades as it goes.
+export const CLICK_OUTLINE_TAIL_MS = 180;
+const OUTLINE_PAD = { x: 6, y: 5 };
+const DRAW_FRAMES = 12;
+const FADE_FRAMES = 6;
+
+export type Highlight = { kind: "click" | "focus"; box: Box; draw: number; opacity: number };
+
+function outlines(timeline: Timeline, steps: Step[], viewport: { w: number; h: number }) {
+  const marks: { kind: Highlight["kind"]; box: Box; first: number; last: number }[] = [];
+  const pad = (b: Box): Box => ({ x: b.x - OUTLINE_PAD.x, y: b.y - OUTLINE_PAD.y, w: b.w + 2 * OUTLINE_PAD.x, h: b.h + 2 * OUTLINE_PAD.y });
+  for (const step of steps) {
+    for (const focus of step.focus ?? []) {
+      const box = focusBox(focus);
+      const range = box && framesShowing(timeline, focus.fromMs, focus.toMs);
+      if (box && range) marks.push({ kind: "focus", box: pad(box), ...range });
+    }
+  }
+  for (const target of pointerTargets(timeline, steps, viewport)) {
+    if (!target.box || target.click === null) continue;
+    const tail = Math.round((CLICK_OUTLINE_TAIL_MS * FPS) / 1000);
+    marks.push({ kind: "click", box: pad(target.box), first: target.arrive, last: target.click + tail });
+  }
+  return marks;
+}
+
+export function highlightsAt(timeline: Timeline, steps: Step[], viewport: { w: number; h: number }, frame: number): Highlight[] {
+  const videoEnd = timeline.titleFrames + timeline.videoFrames;
+  if (frame < timeline.titleFrames || frame >= videoEnd) return [];
+  return outlines(timeline, steps, viewport)
+    .filter((m) => frame >= m.first && frame <= m.last)
+    .map((m) => ({
+      kind: m.kind,
+      box: m.box,
+      draw: Math.min(1, (frame - m.first + 1) / DRAW_FRAMES),
+      opacity: Math.min(1, (m.last - frame + 1) / FADE_FRAMES),
+    }));
+}
+
 const RIPPLE_FRAMES = 15;
 
-function rippleAt(clicks: { frame: number }[], frame: number): number | null {
+function rippleAt(clicks: number[], frame: number): number | null {
   for (const click of clicks) {
-    const age = frame - click.frame;
+    const age = frame - click;
     if (age >= 0 && age < RIPPLE_FRAMES) return age / RIPPLE_FRAMES;
   }
   return null;
+}
+
+// One output frame per step to look at before delivering: the middle of its hold (the frame the
+// viewer looks at longest), else a few frames before it ends.
+export function stillFrames(timeline: Timeline, steps: Step[]): { id: string; index: number; frame: number }[] {
+  return steps.flatMap((step, index) => {
+    const own = timeline.segments.filter((s) => s.step === index);
+    if (own.length === 0) return [];
+    const hold = own.find((s) => s.freeze || s.still);
+    const last = own[own.length - 1];
+    const frame = hold ? hold.fromFrame + Math.floor(hold.frames / 2) : last.fromFrame + Math.max(0, last.frames - 3);
+    return [{ id: step.id, index, frame }];
+  });
 }

@@ -1,13 +1,13 @@
 #!/usr/bin/env bun
 // Render a capture folder into walkthrough.mp4 plus chapters.txt, both written into that folder.
 //
-//   npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--calibration-ms <n>] [--dry-run]
+//   npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--calibration-ms <n>] [--stills] [--dry-run]
 //
 // <run> follows capture contract version 1 (see ../../references/walkthrough-capture.md).
 // Refuses a capture whose status is not "passed", and any run folder or output inside this repo,
 // so a work recording can never land in the content pipelines here.
 import { execFileSync, spawnSync } from "child_process";
-import { existsSync, readFileSync, realpathSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, realpathSync, writeFileSync } from "fs";
 import { dirname, join, resolve, sep } from "path";
 import {
   cardMinMs,
@@ -26,6 +26,7 @@ import {
   buildTimeline,
   calibrate,
   chapters,
+  stillFrames,
   validateCapture,
   type Capture,
   type Step,
@@ -75,6 +76,8 @@ export type Prepared = {
   calibrationMs: number;
   calibrationSource: "argument" | "capture.json" | "sync flash" | "none";
   steps: Step[];
+  // Per step, the output frame worth checking before delivering (see stillFrames).
+  stills: { id: string; index: number; frame: number }[];
 } & Timing;
 
 // The least times narration asks for: per step, and for the title and end cards.
@@ -149,11 +152,24 @@ export function prepare(
     chaptersPath: join(dirname(out), "chapters.txt"),
     chaptersText: chapters(timeline, steps),
     seconds: timeline.durationInFrames / timeline.fps,
+    stills: stillFrames(timeline, steps),
     calibrationMs,
     calibrationSource,
     steps,
     ...timing,
   };
+}
+
+// One jpg per step, at the frame the viewer looks at longest, into stills/ beside the video: the
+// frames to look at before delivering. Returns the folder.
+export function writeStills(prepared: Prepared, fps = 30): string {
+  const dir = join(dirname(prepared.out), "stills");
+  mkdirSync(dir, { recursive: true });
+  for (const { id, index, frame } of prepared.stills) {
+    const file = join(dir, `${String(index + 1).padStart(2, "0")}-${id}.jpg`);
+    execFileSync("ffmpeg", ["-v", "error", "-y", "-ss", (frame / fps).toFixed(3), "-i", prepared.out, "-frames:v", "1", "-q:v", "3", file]);
+  }
+  return dir;
 }
 
 // A conversational script names the run's people and work, so it stays with the run, never here.
@@ -169,6 +185,7 @@ export type Args = {
   run?: string;
   out?: string;
   dryRun: boolean;
+  stills: boolean;
   calibrationMs?: number;
   narrate: boolean;
   voiceProfile?: string;
@@ -189,6 +206,7 @@ export function parseArgs(argv: string[]): Args {
     run,
     out: valueOf("--out"),
     dryRun: argv.includes("--dry-run"),
+    stills: argv.includes("--stills"),
     calibrationMs: calibration === undefined ? undefined : Number(calibration),
     narrate: argv.includes("--narrate") || valueOf("--script") !== undefined,
     voiceProfile: valueOf("--voice-profile"),
@@ -198,10 +216,10 @@ export function parseArgs(argv: string[]): Args {
 }
 
 async function main(argv: string[]): Promise<number> {
-  const { run, out, dryRun, calibrationMs, narrate: withVoice, voiceProfile, script: scriptArg, speed } = parseArgs(argv);
+  const { run, out, dryRun, stills, calibrationMs, narrate: withVoice, voiceProfile, script: scriptArg, speed } = parseArgs(argv);
   if (!run || (calibrationMs !== undefined && !Number.isFinite(calibrationMs))) {
     console.error(
-      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--calibration-ms <n>] [--dry-run]",
+      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--calibration-ms <n>] [--stills] [--dry-run]",
     );
     return 2;
   }
@@ -272,6 +290,7 @@ async function main(argv: string[]): Promise<number> {
     return result.status ?? 1;
   }
   console.log(`video:    ${prepared.out}`);
+  if (stills) console.log(`stills:   ${writeStills(prepared)} (one per step; look at every one)`);
   return 0;
 }
 
