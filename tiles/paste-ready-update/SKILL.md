@@ -117,6 +117,8 @@ Backend and infrastructure updates stay text-only.
 
 Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data, so some environments need the user's go-ahead for every run.
 
+Before writing or changing a walk, or delivering any walkthrough video, read [references/guided-demo.md](references/guided-demo.md): outlines on the clicked control and on the evidence, where the video holds, and the frames to check.
+
 ## Delivering
 
 - **If the harness can publish a private web page** (for example Claude's Artifact tool), build with `--fragment` and publish the page privately.

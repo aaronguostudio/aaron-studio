@@ -37,6 +37,7 @@ npx -y bun "$SKILL/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts"
 
 - It writes `walkthrough.mp4` and `chapters.txt` into the run folder.
 - It refuses a capture that did not pass.
+- It outlines each clicked control and each `focus` region, and holds a step where it says the most. Write walks for that, and check the result with `--stills`, as in [guided-demo.md](guided-demo.md). Never composite or re-time a capture yourself; add a missing effect to the renderer instead.
 - Add a voice-over only when the user asks for one. It speaks in the user's own cloned voice (ElevenLabs), costs API credits, and labels the video "AI narration". Its key setup is in `aaron-video-gen/references/walkthrough-capture.md`. Two styles:
   - **Concise** (`--narrate`): the voice reads the captions. Short and official.
   - **Conversational** (`--script <run>/narration.conversational.json`): it sounds like a person giving the demo. Write the script as below, show it to the user, and render only after they approve it.
