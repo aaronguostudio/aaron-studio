@@ -10,6 +10,7 @@ silent unless the user asks for narration. The message stays the main thing; the
   - If there is none, there is no video. Don't build one.
 - Run it with the project's package manager (`pnpm`, `npm` or `yarn`, going by the lockfile): `pnpm demo:capture --list`.
   - Show the user the walks it lists.
+  - Pick the walk that films the change itself, on camera. If none does (the change only happens off camera in a listed walk, or the walks are about something else), write a new walk for it in the project's walk format, following [guided-demo.md](guided-demo.md), test it, and record that. Don't fall back to screenshots or to an off-topic walk: the user asked for a video of this change.
   - Ask which walk and which environment.
   - The command's `--help` tells you its options and guards. Follow them.
 - An environment that writes to shared or production systems needs the user's go-ahead in chat for that run.
@@ -22,7 +23,12 @@ silent unless the user asks for narration. The message stays the main thing; the
 The command prints its run folder. Read `capture.json` there:
 
 - **`status: "passed"`:** go on.
-- **`status: "failed"`:** there is no video. Tell the user which step failed (`failedStep`, `failure`) in plain words. Then either write the message without the video (say the walkthrough will follow) or ask them which they want.
+- **`status: "failed"`:** this run makes no video, but the task still does. Look at the failed step's shot and find the cause, then fix it and record again:
+  - **the walk** (a wait too short for the environment, a selector or text match that is too strict): fix the walk, with a test;
+  - **a data precondition** (leftovers from an earlier run on a test account): clean them up, if the account is the user's own test account;
+  - **the product** (a real limit or bug the walk ran into): fix that through the project's normal delivery, then record.
+
+  Tell the user which step failed and what you changed, in plain words. Ask them only when the fix needs their decision, for example a write to someone else's data.
 
 Never move a run folder into a repo.
 
