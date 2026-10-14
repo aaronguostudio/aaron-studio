@@ -12,12 +12,14 @@ A paste-ready update is one self-contained HTML page holding two things:
 
 The person you are working for pastes the message and sends it. You never send it yourself.
 
+Default messages, narration, scripts, captions, filenames, and delivery notes to English unless Aaron explicitly requests another language. Preserve an explicitly requested bilingual brief.
+
 ## Workflow
 
 1. **Pin down the brief.** Settle these points; ask only for what the conversation and the files don't already tell you:
    - who reads it;
    - what the reader can now do, or what changed;
-   - the message's language (write in the reader's language; reply to the user in theirs);
+   - the message's language (English by default; another language only when explicitly requested);
    - where it will be pasted;
    - whose name signs it.
 2. **Look at every screenshot before using it.**
@@ -27,20 +29,24 @@ The person you are working for pastes the message and sends it. You never send i
    - A full-window screenshot is unreadable at chat width. When the reader is not technical, crop each screenshot to the part that matters and mark what to click, numbered like the steps. Leave the originals untouched:
 
      ```bash
-     python3 <skill-dir>/scripts/mark_screenshot.py shot.png --info
-     python3 <skill-dir>/scripts/mark_screenshot.py shot.png shot-marked.png --crop x0,y0,x1,y1 --box x0,y0,x1,y1:1
+     python3 "<skill-dir>/scripts/mark_screenshot.py" "<shot.png>" --info
+     mkdir -p "<out-dir>/shots"
+     python3 "<skill-dir>/scripts/mark_screenshot.py" "<shot.png>" "<out-dir>/shots/<shot>-marked.png" --crop x0,y0,x1,y1 --box x0,y0,x1,y1:1
      ```
 
+     - The marked copy goes in `<out-dir>/shots/` (see step 4), not in the working directory, which is often a repo.
      - Running it with `--info` prints the image size.
      - Coordinates are pixels of the original image.
      - Look at the output and adjust the coordinates once if a box misses its target.
      - The script needs Pillow. Without it, use the screenshot unmarked.
-3. **Write `message.md`** in the shape and format below.
+3. **Write `message.md`** in `<out-dir>` (see step 4), in the shape and format below.
 4. **Build the page:**
 
    ```bash
-   python3 <skill-dir>/scripts/build_page.py message.md --out <short-name>.html
+   python3 "<skill-dir>/scripts/build_page.py" "<out-dir>/message.md" --out "<out-dir>/<short-name>.html"
    ```
+
+   `<out-dir>` is the folder that holds `message.md` and its `shots/`. When the page holds capture output (screenshots or a video from a walkthrough capture), `<out-dir>` must be an absolute path outside every repo: the working directory is often a project repo, and the page inlines real screens. See step 4 of [references/walkthrough.md](references/walkthrough.md).
 
    The script embeds the screenshots, so the page works anywhere. A missing screenshot stops the build; fix it, don't drop it. The script prints the page size, screenshot count and word count. The copy buttons come from a tested template, so check the text and the screenshots rather than clicking the buttons.
 5. **Deliver it** (see Delivering).
@@ -111,11 +117,11 @@ Aaron
 Offer a short walkthrough video only when both are true:
 
 - the change is visible in the UI;
-- the current project's `package.json` has a `demo:capture` script.
+- the project has a capture: a `demo-capture/config.mjs` in the working directory or a parent of it (up to `$HOME`, never above it), or else a `demo:capture` script in the current project's root `package.json` (see step 1 of [references/walkthrough.md](references/walkthrough.md)).
 
 Backend and infrastructure updates stay text-only.
 
-Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data, so some environments need the user's go-ahead for every run.
+Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data. Get the user's go-ahead in chat before each run that needs one, even if they approved an earlier run: every production run (a walk that writes included), and, in any other environment whose config sets `writeGoAhead`, each walk that writes. Signing in needs none: the person does it, never you, and you warn them first. Step 1 of the reference has the details, including the rule for a legacy command.
 
 Before writing or changing a walk, or delivering any walkthrough video, read [references/guided-demo.md](references/guided-demo.md): outlines on the clicked control and on the evidence, where the video holds, and the frames to check.
 

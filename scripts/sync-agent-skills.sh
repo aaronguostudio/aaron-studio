@@ -9,6 +9,9 @@ cd "$ROOT"
 SURFACES=(".agents" ".codex" ".claude" ".cursor" ".gemini")
 
 MAPPINGS=(
+  "paste-ready-update:tiles/paste-ready-update"
+  "demo-capture:tiles/demo-capture"
+  "walkthrough-video:tiles/walkthrough-video"
   "ai-video-lab:tiles/ai-video-lab"
   "aaron-personal-os:tiles/aaron-personal-os"
   "wave-invoice:tiles/wave-invoice"

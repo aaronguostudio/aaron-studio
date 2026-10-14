@@ -29,6 +29,7 @@ export const DENYLIST = findDenylist();
 
 // Generic tools that may be used for client work but must never carry its names.
 export const SCOPED_PATHS = [
+  "tiles/demo-capture",
   "tiles/paste-ready-update",
   "tiles/aaron-video-gen/remotion/src/projects/walkthrough-video",
   "tiles/aaron-video-gen/scripts/walkthrough",

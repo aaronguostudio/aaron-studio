@@ -2,6 +2,8 @@
 
 Personal life OS and content studio powered by AI skills — journaling, life context, blog writing, image generation, video creation, and publishing.
 
+For **product demos on another macOS + Codex computer**, use the [demo-only installation guide](docs/demo-tools-macos.md). It installs `paste-ready-update`, `demo-capture`, and `walkthrough-video` with a minimal renderer; the blog setup below is not needed for that installation.
+
 ## Setup
 
 ### Prerequisites

@@ -1,0 +1,7 @@
+{
+  "name": "aaronguo/walkthrough-video",
+  "version": "0.1.0",
+  "private": true,
+  "summary": "Render and review guided product demo videos from passed captures.",
+  "skills": { "walkthrough-video": { "path": "SKILL.md" } }
+}

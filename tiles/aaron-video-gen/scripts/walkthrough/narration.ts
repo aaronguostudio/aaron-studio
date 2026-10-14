@@ -91,9 +91,11 @@ export function loadScript(path: string, steps: Step[]): NarrationScript {
 }
 
 // The key never leaves this function except into the request header.
-export function loadApiKey(envFiles: string[], keychain: () => string | null = readKeychain): string {
+export function loadApiKey(envFiles: string[], keychain: () => string | null = readKeychain, environment: Record<string, string | undefined> = process.env): string {
   const fromKeychain = keychain();
   if (fromKeychain) return fromKeychain;
+  const fromEnvironment = environment.ELEVENLABS_API_KEY?.trim();
+  if (fromEnvironment) return fromEnvironment;
   for (const file of envFiles) {
     if (!existsSync(file)) continue;
     const line = readFileSync(file, "utf8")
