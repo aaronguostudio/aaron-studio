@@ -19,12 +19,12 @@ Node must be at least 22; Python must be at least 3.11. FFmpeg includes `ffprobe
 
 ## 2. Fetch only the demo source
 
-The distribution branch is `codex/demo-macos-distribution`. These commands use sparse checkout and a shallow, filtered clone so blog content and media are not checked out.
+Install the reviewed demo tools directly from `main`. These commands use sparse checkout and a shallow, filtered clone so blog content and media are not checked out.
 
 ```bash
 mkdir -p "$HOME/Tools"
 git clone --filter=blob:none --depth 1 --no-checkout \
-  --branch codex/demo-macos-distribution \
+  --branch main \
   https://github.com/aaronguostudio/aaron-studio.git \
   "$HOME/Tools/aaron-demo-source"
 cd "$HOME/Tools/aaron-demo-source"
@@ -40,7 +40,7 @@ git sparse-checkout set --no-cone \
   /tiles/aaron-video-gen/remotion/remotion.config.ts \
   /tiles/aaron-video-gen/remotion/tsconfig.json \
   /docs/demo-tools-macos.md
-git checkout codex/demo-macos-distribution
+git checkout main
 python3 scripts/demo-tools/install.py
 ```
 
@@ -98,12 +98,27 @@ Narration defaults to English and Aaron's approved voice at 1.15x speed. Existin
 
 ## 6. Update or roll back
 
-Update the sparse source and rerun installation:
+For an installation already following `main`, update the sparse source and rerun installation:
 
 ```bash
 cd "$HOME/Tools/aaron-demo-source"
+git switch main
 git pull --ff-only
 python3 scripts/demo-tools/install.py
+"$HOME/.local/bin/aaron-demo" smoke
+```
+
+If you installed the earlier `codex/demo-macos-distribution` version, switch its shallow clone to `main` once. The earlier clone fetched only that branch, so update its fetch configuration before switching:
+
+```bash
+cd "$HOME/Tools/aaron-demo-source"
+git remote set-branches origin main
+git fetch origin
+git switch main
+git branch --set-upstream-to=origin/main main
+git pull --ff-only
+python3 scripts/demo-tools/install.py
+"$HOME/.local/bin/aaron-demo" doctor
 "$HOME/.local/bin/aaron-demo" smoke
 ```
 
