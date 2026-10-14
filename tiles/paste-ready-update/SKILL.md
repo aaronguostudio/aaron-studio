@@ -121,6 +121,8 @@ Backend and infrastructure updates stay text-only.
 
 Before running anything, read [references/walkthrough.md](references/walkthrough.md). A capture drives the real app and can write data. Get the user's go-ahead in chat before each run that needs one, even if they approved an earlier run: every production run (a walk that writes included), and, in any other environment whose config sets `writeGoAhead`, each walk that writes. Signing in needs none: the person does it, never you, and you warn them first. Step 1 of the reference has the details, including the rule for a legacy command.
 
+Before writing or changing a walk, or delivering any walkthrough video, read [references/guided-demo.md](references/guided-demo.md): outlines on the clicked control and on the evidence, where the video holds, and the frames to check.
+
 ## Delivering
 
 - **If the harness can publish a private web page** (for example Claude's Artifact tool), build with `--fragment` and publish the page privately.

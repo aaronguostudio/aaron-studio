@@ -4,7 +4,8 @@
 
 - a title card;
 - the screen recording, with a caption band for each step;
-- a drawn cursor that rings where each click lands;
+- a drawn pointer with a soft amber halo: it glides onto each control about a second before the click, rests there, and ripples where the click lands;
+- an amber outline that draws itself around the control being clicked (from `clicks[].box`), and around each region a step names in `focus`;
 - waits fast-forwarded behind an "N× faster" badge;
 - an end card.
 
@@ -15,20 +16,24 @@ Any tool that drives an app can produce the folder. This side never knows which 
 ## Render
 
 ```bash
-npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--dry-run]
+npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--stills] [--dry-run]
 ```
 
 - It validates the folder first and refuses a capture whose `status` is not `passed`. A failed walk gets no video.
 - It writes `walkthrough.mp4` (H.264, yuv420p; AAC audio only when narrated) and `chapters.txt` (`m:ss  Caption` per step, in output time) into the run folder.
 - It refuses a run folder or an output inside this repo. Captures are someone else's material; they never enter the content pipelines here.
 - `--dry-run` validates and writes `chapters.txt` without rendering.
+- `--stills` also writes `stills/NN-<step-id>.jpg` beside the video: one frame per step, the middle of its hold (the frame the viewer looks at longest), else just before it ends. Look at every one before delivering.
 - To test without a real capture, build a synthetic one: `npx -y bun tiles/aaron-video-gen/scripts/walkthrough/make-fixture.ts <empty folder outside the repo>`.
 
 ## Pacing
 
 Every step stays on screen long enough to read its caption: `readingMs = 800 + 55 ms per character`, between 2 and 6 seconds (about 18 characters a second, the usual subtitle rate).
 
-- A short action step holds its first frame until the caption has been up that long, then plays.
+- A step that needs more time than it recorded holds one frame for the rest:
+  - **an action with clicks** holds just before its first click, with the pointer on the control and the control outlined, so the caption is read (or the line spoken) while the screen shows what is about to happen; then the click plays;
+  - **an action without clicks** holds its last frame, the finished screen, with its `focus` outlined (if its last focus ends earlier, it holds the last moment that focus is up);
+  - **a wait** holds its first frame.
 - A wait is fast-forwarded, but never so fast that it ends before its caption is read.
 - A narration line and a 0.4 s pause must fit in its step plus the silent steps after it. The voice plays on while those steps are clicked through, and the time is shared by their reading times. In the concise style every step has its own line, so each step simply stays up for its clip.
 
@@ -129,3 +134,12 @@ Two styles, both in an ElevenLabs voice from `config/voice-profiles.json` (the d
 - `shot` may be `null`. A shot path must stay inside the folder.
 - Captions are the reader's words: short and plain.
 - `narration` is optional: what the voice says for the step when it should differ from the caption.
+- `focus` is optional: the regions the step is about (a card, a row, a total, a filter), each outlined while the recording shows it.
+
+  ```json
+  "focus": [{ "box": { "x": 900, "y": 200, "w": 400, "h": 300 }, "fromMs": 1200, "toMs": 2500 }]
+  ```
+
+  - `box` is the region's bounding box in viewport CSS px, measured once scrolling has stopped. `[x, y, w, h]` is read too.
+  - `fromMs` and `toMs` are on the capture clock and inside the step. Ending a focus at the step's end keeps it up through the hold.
+  - On a step without clicks, the pointer parks beside the step's first focus (to its right, else its left), clear of the outline.
