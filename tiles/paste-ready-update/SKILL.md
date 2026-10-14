@@ -12,12 +12,14 @@ A paste-ready update is one self-contained HTML page holding two things:
 
 The person you are working for pastes the message and sends it. You never send it yourself.
 
+Default messages, narration, scripts, captions, filenames, and delivery notes to English unless Aaron explicitly requests another language. Preserve an explicitly requested bilingual brief.
+
 ## Workflow
 
 1. **Pin down the brief.** Settle these points; ask only for what the conversation and the files don't already tell you:
    - who reads it;
    - what the reader can now do, or what changed;
-   - the message's language (write in the reader's language; reply to the user in theirs);
+   - the message's language (English by default; another language only when explicitly requested);
    - where it will be pasted;
    - whose name signs it.
 2. **Look at every screenshot before using it.**

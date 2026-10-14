@@ -168,7 +168,7 @@ const broken = {
     throw new Error("browserType.launch: Executable doesn't exist at /cache/chromium-1234\nLooks like Playwright was just installed")
   }
 }
-const NOT_STARTED = /^demo-capture: The browser did not start \(browserType\.launch: Executable doesn't exist at \/cache\/chromium-1234\)\. Playwright's browsers come from the machine's cache; do not run npx playwright install\.$/
+const NOT_STARTED = /^demo-capture: The browser did not start \(browserType\.launch: Executable doesn't exist at \/cache\/chromium-1234\)\. Run the demo-tools macOS installer to install this Playwright version's Chromium\.$/
 
 test('sign-in with a browser that will not start exits 2 with one sentence and releases the lock', async () => {
   const root = scratch('demo-capture-cli-')

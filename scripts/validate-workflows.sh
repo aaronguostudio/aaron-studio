@@ -58,7 +58,7 @@ require_agent_skill() {
 }
 
 printf '== Workflow tiles ==\n'
-for skill in aaron-personal-os wave-invoice blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen demo-capture brain-ingest brain-context daily-log notion-task-intake weekly-review; do
+for skill in aaron-personal-os wave-invoice blog-outline blog-write blog-production blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen demo-capture paste-ready-update walkthrough-video brain-ingest brain-context daily-log notion-task-intake weekly-review; do
   require_skill "tiles/$skill"
 done
 
@@ -85,7 +85,7 @@ if (!Array.isArray(cfg.agentSkillSurfaces) || !cfg.agentSkillSurfaces.includes("
 
 printf '\n== Agent skill surfaces ==\n'
 for surface in .agents .codex .claude .cursor .gemini; do
-  for skill in aaron-personal-os wave-invoice blog-production blog-outline blog-write blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen brain-ingest brain-context daily-log notion-task-intake weekly-review yt-script-writer yt-publish; do
+  for skill in aaron-personal-os wave-invoice blog-production blog-outline blog-write blog-brainstorm blog-illustrate muse publish-to-blog research-evidence aaron-video-gen demo-capture paste-ready-update walkthrough-video brain-ingest brain-context daily-log notion-task-intake weekly-review yt-script-writer yt-publish; do
     require_agent_skill "$surface" "$skill"
   done
 done
@@ -142,6 +142,11 @@ else
 fi
 
 printf '\n== Paste-ready updates and walkthrough videos ==\n'
+if python3 -m unittest discover -s scripts/demo-tools -p 'test_*.py'; then
+  pass "demo-only packaging and registration tests pass"
+else
+  fail "demo-only packaging and registration tests fail"
+fi
 if python3 -m unittest discover -s tiles/paste-ready-update/scripts -p 'test_*.py'; then
   pass "paste-ready-update builder tests pass"
 else

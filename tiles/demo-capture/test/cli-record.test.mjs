@@ -24,7 +24,7 @@ after(() => {
 })
 const videoFolders = () => readdirSync(TMP).filter((name) => name.startsWith('demo-capture-video-'))
 
-const CACHE_SENTENCE = "Playwright's browsers come from the machine's cache; do not run npx playwright install."
+const CACHE_SENTENCE = "Run the demo-tools macOS installer to install this Playwright version's Chromium."
 
 // A fake Playwright chromium. What it was asked is kept on the returned object.
 //   videoSaved   false: video.saveAs writes nothing; 'throws': it rejects

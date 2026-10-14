@@ -11,15 +11,17 @@ Nothing app-specific lives here. A project joins with a `demo-capture/` folder h
 
 ## Run it
 
+The commands below use the macOS demo-tools installation. In a full source checkout, invoke `node "$ENGINE/scripts/cli.mjs"` after preparing the tile's dependencies and browser.
+
 This skill is usually reached through a symlink, so resolve its real directory first:
 
 ```bash
 ENGINE=$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' "<skill-dir>")
-node "$ENGINE/scripts/cli.mjs" --project "<dir>" --list                  # walks, environments, params
-node "$ENGINE/scripts/cli.mjs" sign-in --project "<dir>" --env <env>     # a person signs in; nothing is recorded
-node "$ENGINE/scripts/cli.mjs" --project "<dir>" --env <env> --walk <walk> [--set key=value] [--out "<dir>"] [--headed]
-node "$ENGINE/scripts/cli.mjs" --project "<dir>" --env <env> --walk <walk> --learn-hosts
-npx -y bun "$ENGINE/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts" "<run folder>"
+"$HOME/.local/bin/aaron-demo" capture --project "<dir>" --list                  # walks, environments, params
+"$HOME/.local/bin/aaron-demo" capture sign-in --project "<dir>" --env <env>     # a person signs in; nothing is recorded
+"$HOME/.local/bin/aaron-demo" capture --project "<dir>" --env <env> --walk <walk> [--set key=value] [--out "<dir>"] [--headed]
+"$HOME/.local/bin/aaron-demo" capture --project "<dir>" --env <env> --walk <walk> --learn-hosts
+"$HOME/.local/bin/aaron-demo" render "<run folder>" --stills
 ```
 
 | Flag | Meaning |
@@ -45,7 +47,7 @@ npx -y bun "$ENGINE/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts
   - 0: captured. A `--learn-hosts` run that reached the end of its walk also exits 0, even though its `capture.json` says `failed`.
   - 1: the walk failed. A `--learn-hosts` run that stopped early also exits 1, and its lists may be incomplete. An unexpected engine error, which is not a refusal, also exits 1, with a stack trace on stderr and possibly no `capture.json`.
   - 2: refused. Nothing was captured, and stderr says why as `demo-capture: <reason>`. It is usually one plain sentence: a missing go-ahead, a held run lock, a browser that will not start, a sign-in page that did not load or a sign-in that did not finish, a saved session that cannot be read. Arguments the CLI cannot parse add the usage text, and an invalid config or walk prints a bulleted list of its problems.
-- If the CLI says its dependency is missing, ask the user before running `npm ci --prefix "$ENGINE"`. Chromium comes from the machine's Playwright cache; never run `npx playwright install`.
+- For a new macOS computer, use [the demo-tools installer](../../docs/demo-tools-macos.md). It installs locked dependencies and this Playwright version's Chromium, including the headed browser for sign-in. Once installation is authorized, routine dependency preparation needs no separate confirmation. Use the installed `aaron-demo capture` command to retain the configured browser path. A missing browser is an installation problem, not a reason to change the project's environment or guards.
 
 ## Rules
 
@@ -137,4 +139,4 @@ export default {
 
 ## Develop
 
-In this tile: `npm ci` (ask the user first, as under Run it), then `npm run test:unit`, `npm run test:e2e` (needs ffprobe and npx) or `npm test` for both, and `npm run mutation-check`. `DEMO_CAPTURE_HOME` replaces `~/.demo-capture`; the tests use it.
+In this tile: `npm ci` and `node node_modules/playwright/cli.js install chromium`, then `npm run test:unit`, `npm run test:e2e` (needs ffprobe and npx) or `npm test` for both, and `npm run mutation-check`. `DEMO_CAPTURE_HOME` replaces `~/.demo-capture`; the tests use it.

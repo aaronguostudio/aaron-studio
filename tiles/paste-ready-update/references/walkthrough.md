@@ -6,6 +6,10 @@ and with neither there is no video (step 1).
 The renderer that ships beside this skill turns that folder into a captioned mp4 plus chapters,
 silent unless the user asks for narration. The message stays the main thing; the video is an attachment.
 
+## Language and narration
+
+Default all deliverables to English unless Aaron explicitly requests another language. Existing included credits are authorized for routine requested demo narration; respect any active cap. A language correction reuses the passed capture and approved voice settings.
+
 ## 1. Find the capture command
 
 Look in this order, and use the first that applies:
@@ -37,13 +41,13 @@ Look in this order, and use the first that applies:
 
    - If there is no `$SKILL/../demo-capture`, there is no video. Say so; the screenshots still work.
    - Exit codes: 0 captured; 1 the walk failed, or an unexpected engine error, which prints a stack trace and may leave no `capture.json`; 2 refused (nothing was captured, and stderr says why as `demo-capture: <reason>`). Step 2 says what to do with each.
-   - If the engine says its dependency is missing, ask the user before running `npm ci --prefix "$SKILL/../demo-capture"`. Never run `npx playwright install`: Chromium comes from the machine's Playwright cache.
+   - Prepare a new macOS computer with [the demo-tools installer](../../../docs/demo-tools-macos.md), which installs the locked dependencies and Chromium. In that installation, use `"$HOME/.local/bin/aaron-demo" capture <arguments>` and `"$HOME/.local/bin/aaron-demo" render "<run>" --stills`; these commands use the installed browser path and pinned runtime.
 2. **Legacy.** Otherwise, a `demo:capture` script in the current project's root `package.json` keeps its own flow. Run it with the project's package manager (`pnpm`, `npm` or `yarn`, going by the lockfile): `pnpm demo:capture --list`.
 3. **Neither.** There is no video. Don't build one. The text and screenshots still work.
 
 Then:
 
-- Show the user the walks it lists, and ask which walk and which environment. The engine's `--list` shows each walk as `read-only` or `writes`, and the go-ahead each environment needs.
+- Show the walks it lists. Use the walk and environment already named by the user, or ask for the missing choice. Choose a walk that actually films the requested change. If none does, write and test a relevant walk following [guided-demo.md](guided-demo.md). The engine's `--list` shows each walk as `read-only` or `writes`, and the go-ahead each environment needs.
 - The command's `--help` tells you its options and guards. Follow them. The engine's flags and rules are also in `$SKILL/../demo-capture/SKILL.md`.
 - **Go-ahead.** Add a confirmation or go-ahead flag only after the user's go-ahead in chat for that run. Get it every run, even if they approved an earlier one. Never add a confirmation or go-ahead flag on your own, even when a refusal names it. With the engine, the rule follows the environment:
   - A production environment: every walk run needs `--prod-go-ahead`. That one flag also covers a walk that writes; there is no second flag in production. When you ask, say whether the walk writes.
@@ -61,7 +65,7 @@ What to do depends on how the command ended (step 1 lists the exit codes):
 - **Exit 2 (the engine refused):** nothing was captured, so there is no `capture.json`. Stop the capture. Tell the person the `demo-capture: <reason>` sentence from stderr in plain words, and ask whether they want to retry (giving the go-ahead, if a missing one was the reason) or send the update without the video.
 - **Any other run:** the command prints `Run folder: <folder>` as soon as it makes the folder, so a run that crashed later still names it, and `Captured: <folder>` or `FAILED: <folder>` at the end. Read `capture.json` there:
   - **`status: "passed"`:** go on.
-  - **`status: "failed"`:** there is no video. Tell the user which step failed (`failedStep`, `failure`) in plain words. Then either write the message without the video (say the walkthrough will follow) or ask them which they want.
+  - **`status: "failed"`:** inspect the failed step and fix the walk or its authorized test-data precondition, then record again. A product bug follows the project's normal delivery workflow. State what failed and what changed. Ask only when the fix needs a user decision or additional authority; do not silently substitute an unrelated video.
   - **No `capture.json`:** the engine hit an unexpected error, which is not a refusal. Report the error output to the person and do not guess at the cause.
 
 Never move or copy a run folder, or anything in it, into a repo.
@@ -79,7 +83,7 @@ npx -y bun "$SKILL/../aaron-video-gen/scripts/walkthrough/render-walkthrough.ts"
 - It refuses a capture that did not pass.
 - Add a voice-over only when the user asks for one. It speaks in the user's own cloned voice (ElevenLabs), costs API credits, and labels the video "AI narration". Its key setup is in `aaron-video-gen/references/walkthrough-capture.md`. Two styles:
   - **Concise** (`--narrate`): the voice reads the captions. Short and official.
-  - **Conversational** (`--script <run>/narration.conversational.json`): it sounds like a person giving the demo. Write the script as below, show it to the user, and render only after they approve it.
+  - **Conversational** (`--script <run>/narration.conversational.json`): it sounds like a person giving the demo. Make the script reviewable and carry forward existing narration authorization. Routine requested demo narration may use existing included credits; ask before a purchase, paid overage, increased cap, or material change outside the approved scope.
 
 ### Writing a conversational script
 

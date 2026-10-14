@@ -56,11 +56,16 @@ describe("loadApiKey", () => {
     const dir = tmp();
     writeFileSync(join(dir, "a.env"), "OTHER=1\n");
     writeFileSync(join(dir, "b.env"), 'OTHER=1\nELEVENLABS_API_KEY="from-env"\n');
-    expect(loadApiKey([join(dir, "missing.env"), join(dir, "a.env"), join(dir, "b.env")], () => null)).toBe("from-env");
+    expect(loadApiKey([join(dir, "missing.env"), join(dir, "a.env"), join(dir, "b.env")], () => null, {})).toBe("from-env");
   });
 
   test("says how to add the key when there is none, without guessing one", () => {
-    expect(() => loadApiKey([], () => null)).toThrow(/security add-generic-password -s elevenlabs-api-key/);
+    expect(() => loadApiKey([], () => null, {})).toThrow(/security add-generic-password -s elevenlabs-api-key/);
+  });
+
+  test("uses the process environment without requiring a repository secret file", () => {
+    expect(loadApiKey([], () => null, { ELEVENLABS_API_KEY: "  process-key  " })).toBe("process-key");
+    expect(loadApiKey([], () => "keychain-key", { ELEVENLABS_API_KEY: "process-key" })).toBe("keychain-key");
   });
 });
 

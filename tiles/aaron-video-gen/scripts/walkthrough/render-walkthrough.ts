@@ -262,9 +262,9 @@ async function main(argv: string[]): Promise<number> {
   console.log(`sync:     ${prepared.calibrationMs} ms (${prepared.calibrationSource})`);
   if (dryRun) return 0;
   const result = spawnSync(
-    "npx",
+    "node",
     [
-      "remotion",
+      join(REMOTION_DIR, "node_modules", "@remotion", "cli", "remotion-cli.js"),
       "render",
       ENTRY,
       "WalkthroughVideo",
