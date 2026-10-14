@@ -49,7 +49,7 @@ def metadata(root=ROOT):
         original = root / 'bundle-manifest.json'
         previous = json.loads(original.read_text()) if original.is_file() else {}
         revision = previous.get('sourceRevision', 'exported')
-        dirty = previous.get('sourceDirty', True)
+        dirty = previous.get('sourceDirty', True) or previous.get('files') != hashes
     return {'schema': 1, 'id': digest[:16], 'sourceRevision': revision, 'sourceDirty': dirty, 'skills': list(SKILLS), 'files': hashes}
 
 def build(destination, root=ROOT):

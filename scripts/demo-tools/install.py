@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Install the demo-only bundle on macOS; activate only after verification passes."""
 import argparse
+from contextlib import contextmanager
+import fcntl
 import importlib.util
 import json
 import os
@@ -10,8 +12,22 @@ import shutil
 import shlex
 import subprocess
 import sys
+from uuid import uuid4
 
 from bundle import ROOT, SKILLS, build, metadata
+
+@contextmanager
+def installation_lock(root):
+    root.mkdir(parents=True, exist_ok=True)
+    with (root / '.install.lock').open('a') as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise ValueError('Another installer is running for this installation. Wait for it to finish, then retry.') from None
+        try:
+            yield
+        finally:
+            fcntl.flock(lock, fcntl.LOCK_UN)
 
 def atomic_link(target, link):
     temporary = link.with_name(link.name + f'.tmp-{os.getpid()}')
@@ -50,72 +66,75 @@ def main():
     parser.add_argument('--root', type=Path, default=Path.home() / '.local/share/aaron-demo-tools')
     parser.add_argument('--skills-dir', type=Path, default=Path.home() / '.agents/skills')
     parser.add_argument('--bin-dir', type=Path, default=Path.home() / '.local/bin')
+    parser.add_argument('--repair', action='store_true', help='Build and verify a fresh release without modifying the active release.')
     args = parser.parse_args()
     tools = prerequisites()
     root, skills_dir, bin_dir = [path.expanduser().resolve() for path in (args.root, args.skills_dir, args.bin_dir)]
     # Never mix an installation with its source tree, a project, or captured work.
     if root.resolve().is_relative_to(ROOT.resolve()):
         raise ValueError('Install outside the source checkout.')
-    current = root / 'current'
-    if (current.exists() or current.is_symlink()) and not current.is_symlink():
-        raise ValueError(f'Preserved existing directory: {current}')
-    if current.is_symlink() and not current.resolve().is_relative_to((root / 'releases').resolve()):
-        raise ValueError(f'Preserved unrelated current link: {current}')
-    wanted = link_conflicts(root, skills_dir, bin_dir)
-    source = metadata()
-    release = root / 'releases' / source['id']
-    if release.is_symlink():
-        raise ValueError(f'Preserved unexpected release symlink: {release}')
-    if release.exists() and not (release / 'installed.json').exists():
-        raise ValueError(f'Incomplete release preserved at {release}. Remove that release directory, then retry.')
-    if not release.exists():
-        build(release)
-        config = {'tools': tools, 'playwrightBrowsers': str(root / 'browsers/playwright'),
-            'skillsDir': str(skills_dir), 'binDir': str(bin_dir)}
+    with installation_lock(root):
+        current = root / 'current'
+        if (current.exists() or current.is_symlink()) and not current.is_symlink():
+            raise ValueError(f'Preserved existing directory: {current}')
+        if current.is_symlink() and not current.resolve().is_relative_to((root / 'releases').resolve()):
+            raise ValueError(f'Preserved unrelated current link: {current}')
+        wanted = link_conflicts(root, skills_dir, bin_dir)
+        source = metadata()
+        release_name = source['id'] + (f'-repair-{uuid4().hex[:12]}' if args.repair else '')
+        release = root / 'releases' / release_name
+        if release.is_symlink():
+            raise ValueError(f'Preserved unexpected release symlink: {release}')
+        if release.exists() and not (release / 'installed.json').exists():
+            raise ValueError(f'Incomplete release preserved at {release}. Remove that release directory, then retry.')
+        if not release.exists():
+            build(release)
+            config = {'tools': tools, 'playwrightBrowsers': str(root / 'browsers/playwright'),
+                'skillsDir': str(skills_dir), 'binDir': str(bin_dir)}
+            (release / 'installed.json').write_text(json.dumps(config, indent=2) + '\n')
+        # Identical content can move from a local test to a committed revision without another dependency install.
+        manifest_path = release / 'bundle-manifest.json'
+        manifest = json.loads(manifest_path.read_text())
+        manifest.update(sourceRevision=source['sourceRevision'], sourceDirty=source['sourceDirty'])
+        spec = importlib.util.spec_from_file_location('demo_cli', release / 'scripts/demo-tools/cli.py')
+        cli = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cli)
+        cli.ROOT = release
+        cli.ENGINE = release / 'tiles/demo-capture'
+        cli.RENDER = release / 'tiles/aaron-video-gen/remotion'
+        config = cli.settings()
+        # Save machine-local executable paths; no credentials belong here.
+        config.update(tools=tools, skillsDir=str(skills_dir), binDir=str(bin_dir))
+        # Retry a partially installed release without changing the currently active one.
+        def run(command, **kwargs):
+            subprocess.run([str(part) for part in command], env=cli.environment(config), check=True, **kwargs)
+        if not (release / 'READY').exists():
+            for directory in (cli.ENGINE, cli.RENDER):
+                run([tools['npm'], 'ci', '--no-audit', '--no-fund'], cwd=directory)
+            run([sys.executable, '-m', 'venv', release / '.venv'])
+            run([release / '.venv/bin/python3', '-m', 'pip', 'install', '--disable-pip-version-check', '-r', release / 'scripts/demo-tools/requirements.txt'])
+        # Browser caches may have been removed after a successful installation. Prepare them on retries too.
+        run([tools['node'], cli.ENGINE / 'node_modules/playwright/cli.js', 'install', 'chromium'])
+        run([tools['node'], cli.RENDER / 'node_modules/@remotion/cli/remotion-cli.js', 'browser', 'ensure'], cwd=cli.RENDER)
+        if cli.doctor(config, check_links=False):
+            raise ValueError('Verification failed; the active release was preserved. Retry with --repair to rebuild dependencies and files.')
+        manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
         (release / 'installed.json').write_text(json.dumps(config, indent=2) + '\n')
-    # Identical content can move from a local test to a committed revision without another dependency install.
-    manifest_path = release / 'bundle-manifest.json'
-    manifest = json.loads(manifest_path.read_text())
-    manifest.update(sourceRevision=source['sourceRevision'], sourceDirty=source['sourceDirty'])
-    manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
-    spec = importlib.util.spec_from_file_location('demo_cli', release / 'scripts/demo-tools/cli.py')
-    cli = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(cli)
-    cli.ROOT = release
-    cli.ENGINE = release / 'tiles/demo-capture'
-    cli.RENDER = release / 'tiles/aaron-video-gen/remotion'
-    config = cli.settings()
-    # Save machine-local executable paths; no credentials belong here.
-    config.update(tools=tools, skillsDir=str(skills_dir), binDir=str(bin_dir))
-    (release / 'installed.json').write_text(json.dumps(config, indent=2) + '\n')
-    launcher = release / 'aaron-demo'
-    launcher.write_text('#!/bin/sh\nexec ' + shlex.quote(tools['python']) + ' ' +
-        shlex.quote(str(release / 'scripts/demo-tools/cli.py')) + ' "$@"\n')
-    launcher.chmod(0o755)
-    # Retry a partially installed release without changing the currently active one.
-    def run(command, **kwargs):
-        subprocess.run([str(part) for part in command], env=cli.environment(config), check=True, **kwargs)
-    if not (release / 'READY').exists():
-        for directory in (cli.ENGINE, cli.RENDER):
-            run([tools['npm'], 'ci', '--no-audit', '--no-fund'], cwd=directory)
-        run([sys.executable, '-m', 'venv', release / '.venv'])
-        run([release / '.venv/bin/python3', '-m', 'pip', 'install', '--disable-pip-version-check', '-r', release / 'scripts/demo-tools/requirements.txt'])
-    # Browser caches may have been removed after a successful installation. Prepare them on retries too.
-    run([tools['node'], cli.ENGINE / 'node_modules/playwright/cli.js', 'install', 'chromium'])
-    run([tools['node'], cli.RENDER / 'node_modules/@remotion/cli/remotion-cli.js', 'browser', 'ensure'], cwd=cli.RENDER)
-    if cli.doctor(config, check_links=False):
-        raise ValueError('Verification failed; previous installation is still active.')
-    (release / 'READY').touch()
-    # Check again after downloads, before any links change.
-    link_conflicts(root, skills_dir, bin_dir)
-    for path in (skills_dir, bin_dir):
-        path.mkdir(parents=True, exist_ok=True)
-    atomic_link(release, current)
-    for link, target in wanted.items():
-        atomic_link(target, link)
-    if cli.doctor(config):
-        raise ValueError('Installed files passed, but skill registration needs attention.')
-    print(f'Installed. Start a new Codex chat in your application project.\nCommand: {bin_dir / "aaron-demo"}\nSmoke check: {bin_dir / "aaron-demo"} smoke')
+        launcher = release / 'aaron-demo'
+        launcher.write_text('#!/bin/sh\nexec ' + shlex.quote(tools['python']) + ' ' +
+            shlex.quote(str(release / 'scripts/demo-tools/cli.py')) + ' "$@"\n')
+        launcher.chmod(0o755)
+        (release / 'READY').touch()
+        # Check again after downloads, before any links change.
+        link_conflicts(root, skills_dir, bin_dir)
+        for path in (skills_dir, bin_dir):
+            path.mkdir(parents=True, exist_ok=True)
+        atomic_link(release, current)
+        for link, target in wanted.items():
+            atomic_link(target, link)
+        if cli.doctor(config):
+            raise ValueError('Installed files passed, but skill registration needs attention.')
+        print(f'Installed. Start a new Codex chat in your application project.\nCommand: {bin_dir / "aaron-demo"}\nSmoke check: {bin_dir / "aaron-demo"} smoke')
 
 if __name__ == '__main__':
     try:

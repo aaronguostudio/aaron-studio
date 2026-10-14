@@ -1,12 +1,14 @@
 """Observable packaging and registration invariants; no downloads or client access."""
-import importlib.util
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
 import bundle
-from install import atomic_link, link_conflicts
+from install import atomic_link, installation_lock, link_conflicts
 
 class BundleTests(unittest.TestCase):
     def test_export_has_only_allowlisted_plain_files_and_complete_runtime(self):
@@ -53,6 +55,32 @@ class BundleTests(unittest.TestCase):
             atomic_link(root / 'release 1', root / 'current')
             atomic_link(root / 'release 2', root / 'current')
             self.assertEqual((root / 'current').readlink(), root / 'release 2')
+
+    def test_modified_export_is_never_reported_as_clean_committed_source(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / 'export'
+            manifest = bundle.build(output)
+            manifest['sourceDirty'] = False  # model an export made from a committed revision
+            (output / 'bundle-manifest.json').write_text(json.dumps(manifest))
+            self.assertFalse(bundle.metadata(output)['sourceDirty'])
+            (output / 'docs/demo-tools-macos.md').write_text('changed locally')
+            changed = bundle.metadata(output)
+            self.assertTrue(changed['sourceDirty'])
+            self.assertEqual(changed['sourceRevision'], manifest['sourceRevision'])
+
+    def test_second_installer_is_refused_and_lock_is_released_after_failure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            command = [sys.executable, '-c', 'from pathlib import Path; from install import installation_lock; import sys;\nwith installation_lock(Path(sys.argv[1])): print("acquired")', str(root)]
+            environment = dict(os.environ, PYTHONPATH=str(Path(__file__).parent))
+            with self.assertRaisesRegex(RuntimeError, 'simulated failure'):
+                with installation_lock(root):
+                    result = subprocess.run(command, env=environment, text=True, capture_output=True)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn('Another installer is running', result.stderr)
+                    raise RuntimeError('simulated failure')
+            result = subprocess.run(command, env=environment, text=True, capture_output=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
 
 if __name__ == '__main__':
     unittest.main()

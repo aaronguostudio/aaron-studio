@@ -107,9 +107,19 @@ python3 scripts/demo-tools/install.py
 "$HOME/.local/bin/aaron-demo" smoke
 ```
 
-The installer exports a new content-addressed release when bundled files change. It verifies the new release before switching the `current` link; previous releases stay on disk. Rerunning the same version rechecks it and does not reinstall its dependencies. A failed dependency download can be retried with the same command.
+The installer exports a new content-addressed release when bundled files change. It verifies the new release before switching the `current` link; previous releases stay on disk. Rerunning the same version rechecks it and does not reinstall its dependencies. A failed dependency download can be retried with the same command. Only one installer may run per installation directory; a second invocation stops without changing releases.
 
 To roll back, choose a previous directory under `~/.local/share/aaron-demo-tools/releases` that contains a `READY` file, replace the `current` symlink with that directory, then run `doctor` and `smoke`. Existing skill and command links follow `current`. Keep the original installation directory stable; moving an installed release requires reinstalling because its Python virtual environment and launcher contain local executable paths.
+
+If installed files or dependencies are damaged, rebuild into a separate release and activate it only after verification:
+
+```bash
+cd "$HOME/Tools/aaron-demo-source"
+python3 scripts/demo-tools/install.py --repair
+"$HOME/.local/bin/aaron-demo" smoke
+```
+
+The previous release stays on disk. Repair releases add a unique suffix to the bundle ID.
 
 ## Troubleshooting
 
@@ -122,4 +132,4 @@ To roll back, choose a previous directory under `~/.local/share/aaron-demo-tools
 | Guard refuses a host or request | Review the project's declared environment and approved rules; keep the guard enabled. |
 | Login expired | Run `capture sign-in` locally and sign in yourself. |
 | Narration has no key or voice access | Configure this Mac's key and confirm voice access in the intended ElevenLabs account. |
-| Source file changed or installation incomplete | Rerun installation from the reviewed source revision; `doctor` names any mismatch. |
+| Source file changed or installation incomplete | Run installation with `--repair` from the reviewed source revision; `doctor` names any mismatch. |
