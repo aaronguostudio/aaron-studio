@@ -166,10 +166,13 @@ describe("reading time", () => {
     expect(highlightsAt(timeline, look, { w: 1440, h: 900 }, hold.fromFrame + 5).map((h) => h.kind)).toEqual(["focus"]);
   });
 
-  test("a short wait still holds its first frame", () => {
+  test("a short wait holds what it waited for, not the frame it started on", () => {
     const wait: Step[] = [{ id: "w", caption: "Wait while it saves", kind: "wait", startMs: 1000, endMs: 1600, clicks: [], shot: null }];
-    const [hold] = buildTimeline(wait).segments;
-    expect(hold).toMatchObject({ srcStartMs: 1000, freeze: true });
+    const [play, hold] = buildTimeline(wait).segments;
+    expect(play).toMatchObject({ srcStartMs: 1000, step: 0 });
+    expect(hold).toMatchObject({ freeze: true, step: 0 });
+    expect(hold.srcStartMs).toBeGreaterThan(1550);
+    expect(hold.srcStartMs).toBeLessThan(1600);
   });
 
   test("a wait is fast-forwarded no faster than its caption can be read", () => {

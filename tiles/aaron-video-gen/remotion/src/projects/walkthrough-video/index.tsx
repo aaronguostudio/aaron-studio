@@ -37,6 +37,8 @@ import {
   type Step,
   type Timeline,
 } from "./timeline";
+import { BrandCard, BrandMark } from "./brand/BrandCard";
+import { validateBrand, type Brand } from "./brand/model";
 
 const C = {
   bg: "#11151c",
@@ -64,6 +66,9 @@ type Props = {
   titleMs?: number;
   endMs?: number;
   narration?: Clip[];
+  // An identity for the opening and closing cards and the caption band's corner. Without one the
+  // walkthrough keeps its plain cards.
+  branding?: Brand;
 };
 
 const fade = (frame: number, total: number) =>
@@ -163,13 +168,14 @@ const Cursor: React.FC<{ state: CursorState }> = ({ state }) => {
   );
 };
 
-const CaptionBand: React.FC<{ top: number; width: number; caption: string; position: string; narrated: boolean }> = ({
-  top,
-  width,
-  caption,
-  position,
-  narrated,
-}) => (
+const CaptionBand: React.FC<{
+  top: number;
+  width: number;
+  caption: string;
+  position: string;
+  narrated: boolean;
+  brand?: Brand;
+}> = ({ top, width, caption, position, narrated, brand }) => (
   <div
     style={{
       position: "absolute",
@@ -188,7 +194,14 @@ const CaptionBand: React.FC<{ top: number; width: number; caption: string; posit
   >
     <div style={{ color: C.muted, fontSize: 22, minWidth: 64, fontVariantNumeric: "tabular-nums" }}>{position}</div>
     <div style={{ color: C.ink, fontSize: 34, lineHeight: 1.2, flex: 1 }}>{caption}</div>
-    {narrated ? <div style={{ color: C.muted, fontSize: 18, letterSpacing: 1, whiteSpace: "nowrap" }}>AI narration</div> : null}
+    {/* A branded film wears its mark here instead; its opening card carries the narration notice. */}
+    {brand ? (
+      <div style={{ color: C.ink, display: "flex", alignItems: "center", opacity: 0.9 }}>
+        <BrandMark brand={brand} size={34} />
+      </div>
+    ) : narrated ? (
+      <div style={{ color: C.muted, fontSize: 18, letterSpacing: 1, whiteSpace: "nowrap" }}>AI narration</div>
+    ) : null}
   </div>
 );
 
@@ -211,7 +224,7 @@ const SpeedBadge: React.FC<{ speed: number; right: number }> = ({ speed, right }
   </div>
 );
 
-export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, narration = [] }) => {
+export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, narration = [], branding }) => {
   const frame = useCurrentFrame();
   if (!capture || !timeline) return <AbsoluteFill style={{ background: C.bg }} />;
   const { w, h } = capture.viewport;
@@ -227,7 +240,11 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, na
   return (
     <AbsoluteFill style={{ background: C.bg }}>
       <Sequence durationInFrames={timeline.titleFrames}>
-        <TitleCard capture={capture} total={timeline.titleFrames} narrated={narrated} />
+        {branding ? (
+          <BrandCard brand={branding} total={timeline.titleFrames} narrated={narrated} />
+        ) : (
+          <TitleCard capture={capture} total={timeline.titleFrames} narrated={narrated} />
+        )}
       </Sequence>
       {timeline.segments.map((s) => (
         <Sequence key={`${s.fromFrame}`} from={s.fromFrame} durationInFrames={s.frames}>
@@ -235,7 +252,7 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, na
             {s.still ? (
               <Img src={staticFile(s.still)} style={{ width: w, height: h }} />
             ) : s.freeze ? (
-              // A short step held on its first frame while its caption is read.
+              // A short step held on its hold frame while its caption is read.
               <Freeze frame={0}>
                 <OffthreadVideo
                   src={staticFile("video.webm")}
@@ -282,11 +299,16 @@ export const WalkthroughVideo: React.FC<Props> = ({ capture, steps, timeline, na
             caption={step?.caption ?? ""}
             position={stepIndex !== null ? `${stepIndex + 1}/${steps.length}` : ""}
             narrated={narrated}
+            brand={branding}
           />
         </>
       ) : null}
       <Sequence from={videoEnd} durationInFrames={timeline.endFrames}>
-        <EndCard capture={capture} total={timeline.endFrames} />
+        {branding ? (
+          <BrandCard brand={branding} total={timeline.endFrames} closing />
+        ) : (
+          <EndCard capture={capture} total={timeline.endFrames} />
+        )}
       </Sequence>
     </AbsoluteFill>
   );
@@ -303,6 +325,7 @@ const readJson = async <T,>(name: string): Promise<T> => {
 const calculateMetadata: CalculateMetadataFunction<Props> = async ({ props }) => {
   const capture = await readJson<Capture>("capture.json");
   const raw = await readJson<Step[]>("steps.json");
+  if (props.branding) validateBrand(props.branding);
   const problems = validateCapture(capture, raw);
   if (problems.length) throw new Error(`Capture refused:\n- ${problems.join("\n- ")}`);
   const steps = calibrate(raw, props.calibrationMs ?? capture.calibrationMs ?? 0);
@@ -316,7 +339,7 @@ const calculateMetadata: CalculateMetadataFunction<Props> = async ({ props }) =>
     fps: FPS,
     width: capture.viewport.w,
     height: capture.viewport.h + CAPTION_BAND,
-    props: { capture, steps, timeline, narration: props.narration ?? [] },
+    props: { capture, steps, timeline, narration: props.narration ?? [], branding: props.branding },
   };
 };
 

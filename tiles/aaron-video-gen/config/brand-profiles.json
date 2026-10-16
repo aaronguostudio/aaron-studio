@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "childfriendly": {
+      "name": "ChildFriendly",
+      "slogan": "Less paperwork. More time with the children.",
+      "primary": "#0a1f28",
+      "viewBox": "0 0 226.46 226.46",
+      "sound": "assets/brand/childfriendly-daylight.wav",
+      "source": "web-core-vite/src/assets/cf-logo-mini.svg",
+      "source_note": "The mark's two figures and its own green, copied from the app's asset. The card colour is the app's navigation slate.",
+      "parts": [
+        {
+          "kind": "polygon",
+          "fill": "#03d882",
+          "points": "113.23 186.9 42.59 186.9 66.13 107.09 89.68 107.09 113.23 186.9"
+        },
+        { "kind": "ellipse", "fill": "#03d882", "cx": 77.91, "cy": 64.12, "rx": 23.55, "ry": 24.56 },
+        {
+          "kind": "polygon",
+          "fill": "#ffffff",
+          "points": "113.23 107.09 183.87 107.09 160.32 186.9 136.78 186.9 113.23 107.09"
+        },
+        { "kind": "ellipse", "fill": "#ffffff", "cx": 148.55, "cy": 64.12, "rx": 23.55, "ry": 24.56 }
+      ]
+    }
+  }
+}

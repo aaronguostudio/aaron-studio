@@ -2,12 +2,12 @@
 
 `WalkthroughVideo` turns a capture folder into a short walkthrough video:
 
-- a title card;
+- a title card, or a brand's opening card with `--brand`;
 - the screen recording, with a caption band for each step;
 - a drawn pointer with a soft amber halo: it glides onto each control about a second before the click, rests there, and ripples where the click lands;
 - an amber outline that draws itself around the control being clicked (from `clicks[].box`), and around each region a step names in `focus`;
 - waits fast-forwarded behind an "N× faster" badge;
-- an end card.
+- an end card, or the brand's closing card.
 
 It is silent by default. With `--narrate`, each step also gets a voice clip (see Narration).
 
@@ -16,11 +16,11 @@ Any tool that drives an app can produce the folder. This side never knows which 
 ## Render
 
 ```bash
-npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--stills] [--dry-run]
+npx -y bun tiles/aaron-video-gen/scripts/walkthrough/render-walkthrough.ts <run> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--brand <id>] [--stills] [--dry-run]
 ```
 
 - It validates the folder first and refuses a capture whose `status` is not `passed`. A failed walk gets no video.
-- It writes `walkthrough.mp4` (H.264, yuv420p; AAC audio only when narrated) and `chapters.txt` (`m:ss  Caption` per step, in output time) into the run folder.
+- It writes `walkthrough.mp4` (H.264, yuv420p; AAC audio when narrated or when a brand brings a sting) and `chapters.txt` (`m:ss  Caption` per step, in output time) into the run folder.
 - It refuses a run folder or an output inside this repo. Captures are someone else's material; they never enter the content pipelines here.
 - `--dry-run` validates and writes `chapters.txt` without rendering.
 - `--stills` also writes `stills/NN-<step-id>.jpg` beside the video: one frame per step, the middle of its hold (the frame the viewer looks at longest), else just before it ends. Look at every one before delivering.
@@ -33,7 +33,7 @@ Every step stays on screen long enough to read its caption: `readingMs = 800 + 5
 - A step that needs more time than it recorded holds one frame for the rest:
   - **an action with clicks** holds just before its first click, with the pointer on the control and the control outlined, so the caption is read (or the line spoken) while the screen shows what is about to happen; then the click plays;
   - **an action without clicks** holds its last frame, the finished screen, with its `focus` outlined (if its last focus ends earlier, it holds the last moment that focus is up);
-  - **a wait** holds its first frame.
+  - **a wait** plays fast-forwarded and then holds its last frame, what it was waiting for. Holding its first frame instead leaves the caption to be read against the spinner, with the pointer and any outline already sitting on controls that have not rendered yet.
 - A wait is fast-forwarded, but never so fast that it ends before its caption is read.
 - A narration line and a 0.4 s pause must fit in its step plus the silent steps after it. The voice plays on while those steps are clicked through, and the time is shared by their reading times. In the concise style every step has its own line, so each step simply stays up for its clip.
 
@@ -65,6 +65,17 @@ Two styles, both in an ElevenLabs voice from `config/voice-profiles.json` (the d
 - The key comes from the macOS Keychain (`security add-generic-password -s elevenlabs-api-key -a "$USER" -w`), else from `ELEVENLABS_API_KEY` in this repo's gitignored `.env`. It is never printed.
 - The title card and the caption band say "AI narration". The voice is a clone, so the video says so.
 - Narrate only when the person whose voice it is asked for it.
+
+## Branding
+
+`--brand <id>` names a profile in `config/brand-profiles.json` and gives the walkthrough an identity: its opening and closing cards, and its mark in the corner of the caption band on every frame.
+
+- The opening card assembles the mark piece by piece, raises the line under it, plays the brand's sting once, and fades into the walkthrough. The closing card is the same lockup, already settled, held silent.
+- A profile is `name`, `slogan` (at most 72 characters, so it can be read at a glance), `primary` (the card's background, a dark colour — the name and line on it are white), `parts`, and optionally `viewBox` and `sound`.
+- `parts` are the primitives copied out of the brand's own SVG (`rect`, `path`, `polygon`, `ellipse`, `circle`), each with its own attributes and an optional `fill`. Copy them rather than redrawing the mark, so the card carries the real asset; each part is animated separately as the mark settles.
+- `sound` is relative to the tile root. It is copied into `<run>/brand/` at render time, because the composition reads every asset through `staticFile()` and the capture folder is the render's public dir. Build or retune one with `scripts/walkthrough/make-brand-sound.py`.
+- A branded film says "AI NARRATION" once, on its opening card, rather than on every frame: the mark has the corner. Without `--brand` the plain cards and the per-frame notice are unchanged.
+- A profile that is not there, or names a sound that is not there, is refused before any voice is made or any frame is rendered.
 
 ## Folder
 
@@ -143,3 +154,21 @@ Two styles, both in an ElevenLabs voice from `config/voice-profiles.json` (the d
   - `box` is the region's bounding box in viewport CSS px, measured once scrolling has stopped. `[x, y, w, h]` is read too.
   - `fromMs` and `toMs` are on the capture clock and inside the step. Ending a focus at the step's end keeps it up through the hold.
   - On a step without clicks, the pointer parks beside the step's first focus (to its right, else its left), clear of the outline.
+  - **Measure a region only once it has stopped moving, and start `fromMs` there.** A box read while a dialog or panel is still animating is the region's final place, so the outline is drawn on a part of the screen that is still empty and the content arrives underneath it. Waiting for the element to exist is not enough: it exists from the first frame of the transition. Wait for its animations to finish and its box to stop changing:
+
+    ```js
+    await locator.waitFor({ state: 'visible' })
+    await locator.evaluate(async (el) => {
+      await Promise.all(el.getAnimations({ subtree: true }).map((a) => a.finished.catch(() => {})))
+      let last = null
+      for (let still = 0; still < 3; ) {
+        const now = JSON.stringify(el.getBoundingClientRect())
+        still = now === last ? still + 1 : 0
+        last = now
+        await new Promise(requestAnimationFrame)
+      }
+    })
+    const box = await locator.boundingBox()
+    ```
+
+    A fixed sleep is the thing this replaces: it is either too short for a slow transition or wasted time on every other step. Clicks logged through a recorder that trial-clicks first already get this, because the trial waits for the element to be stable before it reports the box.

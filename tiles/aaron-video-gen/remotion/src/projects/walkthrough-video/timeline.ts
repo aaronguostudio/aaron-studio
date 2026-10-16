@@ -18,7 +18,7 @@ export const FAST_FORWARD_TARGET_MS = 2000;
 export const GAP_FAST_FORWARD_MS = 1500;
 // A step that needs more time than it recorded holds a frame: an action with clicks just before
 // its first click (the pointer is on the target and the target is outlined), an action without
-// clicks on its last frame (the finished screen), a wait on its first frame.
+// clicks on its last frame (the finished screen), a wait on its last frame (what it waited for).
 export const PRE_CLICK_MS = 180;
 
 export type Box = { x: number; y: number; w: number; h: number };
@@ -169,13 +169,16 @@ export function focusBox(focus: Focus): Box | null {
 
 // The recorded moment a step holds on when it needs more time than it recorded.
 function holdPoint(step: Step): number {
-  if (step.kind === "wait") return step.startMs;
+  const lastFrame = Math.max(step.startMs, step.endMs - Math.ceil(1000 / FPS));
+  // A wait is about what it was waiting for. Holding its first frame leaves the caption to be read
+  // against the spinner, with the pointer and outlines already on controls that have not rendered.
+  if (step.kind === "wait") return lastFrame;
   const [first] = step.clicks ?? [];
   if (first) return Math.min(step.endMs, Math.max(step.startMs, first.tMs - PRE_CLICK_MS));
   // The last frame, or earlier if the step's last focus ended before it: hold while it is up.
   const focusEnds = (step.focus ?? []).map((f) => f.toMs);
   const lastFocusEnd = focusEnds.length ? Math.max(...focusEnds) : Infinity;
-  return Math.max(step.startMs, Math.min(step.endMs - Math.ceil(1000 / FPS), lastFocusEnd));
+  return Math.max(step.startMs, Math.min(lastFrame, lastFocusEnd));
 }
 
 export function speedFor(durationMs: number, fastForward: boolean): number {

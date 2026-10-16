@@ -22,6 +22,8 @@ import {
   type NarrationClip,
   type NarrationScript,
 } from "./narration";
+import { installBrand, loadBrandProfile } from "./brand";
+import type { Brand } from "../../remotion/src/projects/walkthrough-video/brand/model";
 import {
   buildTimeline,
   calibrate,
@@ -191,12 +193,13 @@ export type Args = {
   voiceProfile?: string;
   script?: string;
   speed?: number;
+  brand?: string;
 };
 
 export function parseArgs(argv: string[]): Args {
   const valueOf = (flag: string) => (argv.indexOf(flag) >= 0 ? argv[argv.indexOf(flag) + 1] : undefined);
   const taken = new Set(
-    ["--out", "--calibration-ms", "--voice-profile", "--script", "--speed"]
+    ["--out", "--calibration-ms", "--voice-profile", "--script", "--speed", "--brand"]
       .map((f) => argv.indexOf(f) + 1)
       .filter((i) => i > 0),
   );
@@ -212,14 +215,15 @@ export function parseArgs(argv: string[]): Args {
     voiceProfile: valueOf("--voice-profile"),
     script: valueOf("--script"),
     speed: valueOf("--speed") === undefined ? undefined : Number(valueOf("--speed")),
+    brand: valueOf("--brand"),
   };
 }
 
 async function main(argv: string[]): Promise<number> {
-  const { run, out, dryRun, stills, calibrationMs, narrate: withVoice, voiceProfile, script: scriptArg, speed } = parseArgs(argv);
+  const { run, out, dryRun, stills, calibrationMs, narrate: withVoice, voiceProfile, script: scriptArg, speed, brand: brandArg } = parseArgs(argv);
   if (!run || (calibrationMs !== undefined && !Number.isFinite(calibrationMs))) {
     console.error(
-      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--calibration-ms <n>] [--stills] [--dry-run]",
+      "usage: render-walkthrough.ts <capture folder> [--out <file.mp4>] [--narrate] [--script <script.json>] [--voice-profile <id>] [--speed <0.7-1.2>] [--brand <id>] [--calibration-ms <n>] [--stills] [--dry-run]",
     );
     return 2;
   }
@@ -233,6 +237,17 @@ async function main(argv: string[]): Promise<number> {
       return 3;
     }
     throw error;
+  }
+  // Before any voice is made, so a brand that is not there costs nothing.
+  let branding: Brand | undefined;
+  if (brandArg !== undefined) {
+    try {
+      branding = installBrand(loadBrandProfile(brandArg), prepared.run);
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+      return 3;
+    }
+    console.log(`brand:    ${brandArg} — "${branding.slogan}"${branding.sound ? ` with ${branding.sound}` : ", silent"}`);
   }
   let clips: NarrationClip[] = [];
   if (withVoice) {
@@ -276,11 +291,14 @@ async function main(argv: string[]): Promise<number> {
         titleMs: prepared.titleMs,
         endMs: prepared.endMs,
         narration: clips,
+        branding,
       })}`,
       "--codec=h264",
       "--crf=20",
       "--pixel-format=yuv420p",
-      ...(clips.length ? ["--audio-codec=aac"] : ["--muted"]),
+      // A silent walkthrough can still open on a brand's sting, so muting follows the audio
+      // actually in the composition, not the narration alone.
+      ...(clips.length || branding?.sound ? ["--audio-codec=aac"] : ["--muted"]),
       "--log=error",
     ],
     { cwd: REMOTION_DIR, stdio: "inherit" },
