@@ -146,7 +146,7 @@ Before writing or changing a walk, or delivering any walkthrough video, read [re
 | Mistake | Instead |
 |---|---|
 | Markdown or a chat reply with local image paths | Build the page; the reader can't open your files. |
-| The message in the conversation's language | Write it in the reader's language; reply to the user in theirs. |
+| The message in the conversation's language | Default the deliverable to English; change it only for an explicit language request. |
 | All screenshots at the end | Put each one under the step it shows. |
 | A screenshot used unseen, or one showing someone else's data | Look first; crop or leave it out. |
 | "It's live and tested" when nobody checked | State only what the user said or what you verified. |
