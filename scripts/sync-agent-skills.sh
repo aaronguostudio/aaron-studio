@@ -28,6 +28,7 @@ MAPPINGS=(
   "brain-ingest:tiles/brain-ingest"
   "brain-context:tiles/brain-context"
   "pattern-atlas:tiles/pattern-atlas"
+  "project-bootstrap:tiles/project-bootstrap"
   "daily-log:tiles/daily-log"
   "home-decor-shorts:tiles/home-decor-shorts"
   "knowledge-shorts:tiles/knowledge-shorts"
@@ -35,6 +36,7 @@ MAPPINGS=(
   "music-shorts:tiles/music-shorts"
   "music-vibe-shorts:tiles/music-vibe-shorts"
   "music-visualizer:tiles/music-visualizer"
+  "visual-and-sound-ops:tiles/visual-and-sound-ops"
   "notion-task-intake:tiles/notion-task-intake"
   "publish-to-blog:tiles/publish-to-blog"
   "research-evidence:tiles/research-evidence"
@@ -44,6 +46,12 @@ MAPPINGS=(
   "yt-script-writer:tiles/aaron-yt-pipeline/skills/yt-script-writer"
   "yt-trend-scout:tiles/aaron-yt-pipeline/skills/yt-trend-scout"
   "yt-video-producer:tiles/aaron-yt-pipeline/skills/yt-video-producer"
+)
+
+# Only workflows intentionally made cross-project Codex skills belong here.
+# Their canonical source remains in tiles/, so this is a link rather than a copy.
+GLOBAL_CODEX_MAPPINGS=(
+  "project-bootstrap:tiles/project-bootstrap"
 )
 
 sync_one() {
@@ -92,6 +100,14 @@ for surface in "${SURFACES[@]}"; do
     target="${mapping#*:}"
     sync_one "$surface" "$name" "$target"
   done
+done
+
+GLOBAL_CODEX_ROOT="${CODEX_HOME:-$HOME/.codex}"
+printf '\n== global Codex ==\n'
+for mapping in "${GLOBAL_CODEX_MAPPINGS[@]}"; do
+  name="${mapping%%:*}"
+  target="${mapping#*:}"
+  sync_one "$GLOBAL_CODEX_ROOT" "$name" "$target"
 done
 
 printf '\nSkill sync complete.\n'
